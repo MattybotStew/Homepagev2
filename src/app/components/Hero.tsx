@@ -67,7 +67,7 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden" style={{ height: '95vh', marginTop: '34px', minHeight: '500px' }}>
+    <div className="relative w-full overflow-hidden" style={{ height: '90vh', marginTop: '34px', minHeight: '500px' }}>
       {/* Background Image */}
       <div className="absolute inset-0">
         <img

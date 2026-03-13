@@ -6,6 +6,7 @@ import strokeSvg from "../../imports/stroke.svg";
 import imgFrame39916 from "figma:asset/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.png";
 import imgFrame39917 from "figma:asset/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.png";
 import imgFrame39918 from "figma:asset/39da2bd0af3dceef1e3b406cd981247f82778d27.png";
+import EVtoJl2V6Zp from "../../imports/EVtoJl2V6Zp40-2008-1292";
 
 export default function SpecialExperiences() {
   const [activeFilter, setActiveFilter] = useState("Featured");
@@ -292,7 +293,7 @@ export default function SpecialExperiences() {
   const events = allEvents[activeFilter as keyof typeof allEvents] || allEvents.Featured;
 
   return (
-    <div className="bg-[#FFF6E9] relative w-full overflow-hidden" style={{ position: 'relative' }}>
+    <div className="bg-[#FDF6EE] relative w-full overflow-hidden" style={{ position: 'relative' }}>
       {/* Top Wave */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0]">
         <svg
@@ -307,16 +308,16 @@ export default function SpecialExperiences() {
         </svg>
       </div>
 
-      {/* Animated Stroke Decoration */}
+      {/* Teal Brush Stroke Decoration - Top Right */}
       <motion.div
-        className="absolute -right-[115px] top-[calc(50%-600px)] w-[939px] h-[361px] pointer-events-none hidden lg:block z-0"
+        className="absolute right-0 top-[80px] md:top-[120px] lg:top-[160px] w-[300px] h-[120px] md:w-[400px] md:h-[150px] lg:w-[450px] lg:h-[173px] pointer-events-none hidden md:block z-0"
         style={{ position: 'absolute' }}
         initial={{ x: 200, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <img src={strokeSvg} alt="" className="w-full h-full" />
+        <EVtoJl2V6Zp />
       </motion.div>
 
       {/* Content Container */}
@@ -329,7 +330,7 @@ export default function SpecialExperiences() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-['Nunito',sans-serif] font-bold text-[#1b3d6d] text-[36px] md:text-[52px] lg:text-[70px] leading-none">
+          <h2 className="font-['Nunito',sans-serif] font-black text-[#1b3d6d] text-[36px] md:text-[52px] lg:text-[70px] leading-none">
             Don't Miss These
             <br />
             Special Experiences
@@ -364,22 +365,22 @@ export default function SpecialExperiences() {
           {events.map((event, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-[36px] p-5 flex flex-col shadow-sm border border-gray-100"
+              className="bg-white rounded-[20px] p-5 flex flex-col shadow-sm border border-gray-100 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.15)]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
             >
               {/* Image with Date Badge */}
-              <div className="relative rounded-[21px] md:rounded-[12px] h-[250px] mb-6 overflow-hidden">
+              <div className="relative rounded-[20px] h-[250px] mb-6 overflow-hidden">
                 <img
                   src={event.image}
                   alt={event.title}
                   className="absolute inset-0 w-full h-full object-cover"
                 />
-                {/* Date Badge */}
-                <div className="absolute bottom-0 left-0 right-0 bg-[#f7941e] rounded-bl-[12px] rounded-br-[12px] px-2 py-[10px]">
-                  <p className="font-['Quicksand',sans-serif] font-semibold text-white text-[16px] leading-[24px] text-center">
+                {/* Date Badge - Overlaid on top */}
+                <div className="absolute top-0 left-0 right-0 bg-[#f7941e] rounded-tl-[20px] rounded-tr-[20px] px-2 py-[10px]">
+                  <p className="font-['Nunito',sans-serif] font-bold text-white text-[16px] leading-[24px] text-center">
                     {event.date}
                   </p>
                 </div>
@@ -388,12 +389,12 @@ export default function SpecialExperiences() {
               {/* Card Content */}
               <div className="flex-1 flex flex-col">
                 {/* Title */}
-                <h3 className="font-['Nunito',sans-serif] font-semibold text-[#1d3e6b] text-[20px] leading-[24px] tracking-[-0.8px] mb-[18px]">
+                <h3 className="font-['Nunito',sans-serif] font-extrabold text-[#1b3d6d] text-[20px] leading-[24px] tracking-[-0.8px] mb-[18px]">
                   {event.title}
                 </h3>
 
                 {/* Description */}
-                <p className="font-['Nunito',sans-serif] font-normal text-[#346094] text-[16px] leading-[26px] mb-[18px]">
+                <p className="font-['Nunito',sans-serif] font-normal text-[#78787a] text-[16px] leading-[26px] mb-[18px]">
                   {event.description}
                 </p>
 

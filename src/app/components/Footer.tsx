@@ -85,7 +85,7 @@ export default function Footer() {
             </div>
             <button
               type="submit"
-              className="bg-[#f7941e] hover:bg-[#e8850d] transition-colors h-[50px] px-6 rounded-[10px] font-['Nunito',sans-serif] font-bold text-white text-base whitespace-nowrap"
+              className="bg-[#f7941e] hover:bg-[#e8850d] transition-colors h-[50px] px-8 rounded-full font-['Nunito',sans-serif] font-bold text-white text-base whitespace-nowrap"
             >
               Stay In The Loop!
             </button>
@@ -103,32 +103,32 @@ export default function Footer() {
             </h3>
             <ul className="flex flex-col gap-3">
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   Hours & Admission
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   Buy Tickets
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   Directions & Parking
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   Food & Amenities
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   Accessibility
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   FAQ
                 </a>
               </li>
@@ -142,32 +142,32 @@ export default function Footer() {
             </h3>
             <ul className="flex flex-col gap-3">
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   What's Inside
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   Events Calendar
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   Birthday Parties
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   Group Visits
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   Field Trips
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   Education Programs
                 </a>
               </li>
@@ -181,27 +181,27 @@ export default function Footer() {
             </h3>
             <ul className="flex flex-col gap-3">
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   Memberships
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   Donate
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   Volunteer
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   Corporate Partners
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   Gift Shop
                 </a>
               </li>
@@ -215,17 +215,17 @@ export default function Footer() {
             </h3>
             <ul className="flex flex-col gap-3">
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   Contact Us
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   Jobs/Careers
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] text-[#1b3d6d] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
                   Press/Media
                 </a>
               </li>
@@ -235,26 +235,12 @@ export default function Footer() {
       </div>
 
       {/* Bottom Section - Copyright & Social */}
-      <div className="bg-[#0d0d0d] px-5 md:px-12 lg:px-[71.5px] py-8 md:py-10">
+      <div className="bg-[#1D3E6B] px-5 md:px-12 lg:px-[71.5px] py-8 md:py-10">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-          {/* Copyright & Legal */}
-          <div className="flex flex-col gap-3">
-            <p className="font-['Nunito',sans-serif] text-white text-sm">
-              Copyright © 2026 Children's Museum of Atlanta
-            </p>
-            <p className="font-['Nunito',sans-serif] text-[#d1d5dc] text-sm">
-              Children's Museum of Atlanta is a 501(c)(3) organization [EIN 58-1785484]
-            </p>
-            <div className="flex items-center gap-3 text-sm">
-              <a href="#" className="font-['Nunito',sans-serif] text-[#d1d5dc] hover:text-white transition-colors">
-                Rules & Policies
-              </a>
-              <span className="text-[#6a7282]">|</span>
-              <a href="#" className="font-['Nunito',sans-serif] text-[#d1d5dc] hover:text-white transition-colors">
-                Terms & Conditions
-              </a>
-            </div>
-          </div>
+          {/* Copyright */}
+          <p className="font-['Nunito',sans-serif] text-white text-sm">
+            Copyright © 2026 Children's Museum of Atlanta
+          </p>
 
           {/* Social Icons */}
           <div className="flex items-center gap-4">

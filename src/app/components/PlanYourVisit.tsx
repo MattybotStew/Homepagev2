@@ -783,23 +783,7 @@ export default function PlanYourVisit() {
           </a>
         </motion.div>
 
-        {/* Final Bridge Text CTA */}
-        <motion.div
-          className="flex items-center justify-center gap-2 md:gap-[10px] bg-[#cceff1] rounded-[20px] px-4 md:px-[10px] py-2 md:py-[6px] mx-auto w-fit"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-        >
-          <p className="font-['Nunito',sans-serif] font-bold text-[#346094] text-[12px] md:text-[14px] leading-[21px] tracking-[2px] md:tracking-[3.5px] uppercase whitespace-nowrap">
-            keep scrolling to EXPLORE Special Experiences
-          </p>
-          <div className="rotate-180">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 20 20">
-              <path d={svgPathsExhibits.pa843760} fill="#346094" />
-            </svg>
-          </div>
-        </motion.div>
+        {/* Final Bridge Text CTA - REMOVED */}
       </div>
     </div>
   );

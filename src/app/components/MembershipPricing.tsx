@@ -6,10 +6,10 @@ export default function MembershipPricing() {
       <div className="max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12" style={{ position: 'relative' }}>
         {/* Heading */}
         <div className="flex flex-col gap-6 md:gap-10 items-center mb-10 md:mb-14 lg:mb-[70px]" style={{ position: 'relative' }}>
-          <h2 className="font-['Nunito',sans-serif] font-bold text-[#1b3d6d] text-[36px] md:text-[52px] lg:text-[70px] leading-none text-center">
+          <h2 className="font-['Nunito',sans-serif] font-black text-[#1b3d6d] text-[36px] md:text-[52px] lg:text-[70px] leading-none text-center">
             Visit More, Pay Less
           </h2>
-          <p className="font-['Nunito',sans-serif] font-medium text-[#282325] text-[17px] md:text-[19px] leading-[24px] text-center max-w-[601px]">
+          <p className="font-['Nunito',sans-serif] font-normal text-[#1b3d6d] text-[17px] md:text-[19px] leading-[24px] text-center max-w-[601px]">
             Family membership pays for itself in just 3 visits
           </p>
         </div>
@@ -17,73 +17,64 @@ export default function MembershipPricing() {
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-[30px]" style={{ position: 'relative' }}>
           {/* Single Visit Card */}
-          <div className="bg-[#fff6e9] rounded-[36px] border border-[rgba(0,0,0,0.1)] p-6 md:p-10 flex flex-col" style={{ position: 'relative' }}>
-            {/* Card Header */}
-            <div className="py-[30px]">
-              <h3 className="font-['Nunito',sans-serif] font-semibold text-[#474763] text-[32px] md:text-[42px] leading-[24px] tracking-[-1.68px]">
-                Single Visit
-              </h3>
-            </div>
-
+          <div className="bg-[#FDF6EE] rounded-[24px] p-6 md:p-10 flex flex-col transition-all duration-200 ease-out hover:translate-y-[-6px] hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)]" style={{ position: 'relative' }}>
             {/* Card Content */}
-            <div className="flex flex-col gap-6 md:gap-[34px] pb-8 md:pb-11 pt-5">
-              <div className="font-['Nunito',sans-serif]">
-                <span className="font-bold text-[#f7941e] text-[36px] md:text-[40px] leading-[40px]">$17.95</span>
-                <span className="font-bold text-[#4a5568] text-[18px] md:text-[20px] leading-[20px]">/person </span>
-                <span className="font-normal text-[#4a5568] text-[14px] md:text-[16px] leading-[24px]">Family of 4: $71.80</span>
+            <div className="flex flex-col gap-6 md:gap-6">
+              {/* Price */}
+              <div className="flex flex-col gap-2">
+                <div className="font-['Nunito',sans-serif]">
+                  <span className="font-black text-[#F7941E] text-[48px] md:text-[56px] leading-[1]">$17.95</span>
+                  <span className="font-black text-[#F7941E] text-[24px] md:text-[28px] leading-[1]">/person</span>
+                </div>
+                <p className="font-['Nunito',sans-serif] font-semibold text-[#1b3d6d]/70 text-[14px] md:text-[15px] leading-[1.4]">
+                  Family of 4: $71.80
+                </p>
               </div>
-              <p className="font-['Nunito',sans-serif] font-normal text-[#78787a] text-[18px] md:text-[20px] leading-[1.6]">
+
+              {/* Description */}
+              <p className="font-['Nunito',sans-serif] font-normal text-[#1b3d6d] text-[16px] md:text-[17px] leading-[1.6]">
                 Perfect for trying us out or one-time visits.
               </p>
-            </div>
 
-            {/* CTA Button */}
-            <button className="bg-[#f7941e] text-white font-['Nunito',sans-serif] font-bold text-[20px] md:text-[24px] leading-[1.13] px-8 md:px-[34px] py-4 md:py-[22px] rounded-full shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] hover:bg-[#e6840d] transition-colors min-h-[44px]">
-              Buy Tickets Now
-            </button>
+              {/* CTA Button */}
+              <button className="bg-[#F7941E] text-white font-['Nunito',sans-serif] font-bold text-[18px] md:text-[20px] leading-[1.2] px-8 py-4 rounded-full hover:bg-[#e6840d] transition-colors min-h-[44px] w-full mt-4">
+                Buy Tickets Now
+              </button>
+            </div>
           </div>
 
           {/* Membership Card */}
-          <div className="bg-[#fff6e9] rounded-[36px] border border-[rgba(0,0,0,0.1)] p-6 md:p-10 flex flex-col relative" style={{ position: 'relative' }}>
-            {/* Card Header with Badge */}
-            <div className="py-[30px] relative">
-              <h3 className="font-['Nunito',sans-serif] font-semibold text-[#474763] text-[32px] md:text-[42px] leading-[24px] tracking-[-1.68px]">
-                Membership
-              </h3>
-              
-              {/* Best Value Badge */}
-              <div className="absolute -right-2 md:right-[-7px] top-1/2 -translate-y-1/2 bg-[#f7941e] rounded-full pl-3 pr-[38px] py-2 flex items-center gap-2">
-                <span className="font-['Nunito',sans-serif] font-semibold text-white text-[12px] leading-[24px] tracking-[-0.48px] uppercase whitespace-nowrap">
-                  best value
-                </span>
-                <div className="absolute right-[8px] top-1/2 -translate-y-1/2 w-[28px] h-[36px] flex items-center justify-center">
-                  <div className="rotate-[118.46deg]">
-                    <div className="relative w-[34.24px] h-[12.965px]">
-                      <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 34.2401 12.9647">
-                        <path d={svgPaths.p17840200} fill="#1D3E6B" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div className="bg-[#00ADBD] rounded-[24px] p-6 md:p-10 md:pt-12 md:pb-12 flex flex-col relative transition-all duration-200 ease-out hover:translate-y-[-6px] hover:shadow-[0_8px_24px_rgba(0,173,189,0.3)]" style={{ position: 'relative' }}>
+            {/* Best Value Badge - Top Right */}
+            <div className="absolute -top-2 -right-2 md:top-4 md:right-4 bg-[#F7941E] rounded-full px-5 py-2 transform rotate-[-2deg]">
+              <span className="font-['Nunito',sans-serif] font-extrabold text-white text-[13px] md:text-[14px] leading-[1] uppercase tracking-wide">
+                Best Value
+              </span>
             </div>
 
             {/* Card Content */}
-            <div className="flex flex-col gap-6 md:gap-[34px] pb-8 md:pb-11 pt-5">
-              <div className="font-['Nunito',sans-serif]">
-                <span className="font-bold text-[#00adbb] text-[36px] md:text-[40px] leading-[40px]">$149</span>
-                <span className="font-bold text-[#4a5568] text-[18px] md:text-[20px] leading-[20px]">/year </span>
-                <span className="font-normal text-[#4a5568] text-[14px] md:text-[16px] leading-[24px]">• Family of 4 covered</span>
+            <div className="flex flex-col gap-6 md:gap-6">
+              {/* Price */}
+              <div className="flex flex-col gap-2">
+                <div className="font-['Nunito',sans-serif]">
+                  <span className="font-black text-white text-[48px] md:text-[60px] leading-[1]">$149</span>
+                  <span className="font-black text-white text-[24px] md:text-[30px] leading-[1]">/year</span>
+                </div>
+                <p className="font-['Nunito',sans-serif] font-semibold text-white/85 text-[14px] md:text-[15px] leading-[1.4]">
+                  Family of 4 covered · Pays for itself in 3 visits
+                </p>
               </div>
-              <p className="font-['Nunito',sans-serif] font-normal text-[#78787a] text-[18px] md:text-[20px] leading-[1.6]">
-                Unlimited visits + perks. Pays for itself in 3 visits.
-              </p>
-            </div>
 
-            {/* CTA Button */}
-            <button className="bg-[#00adbb] text-white font-['Nunito',sans-serif] font-bold text-[20px] md:text-[24px] leading-[1.13] px-8 md:px-[34px] py-4 md:py-[22px] rounded-full shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] hover:bg-[#009aa7] transition-colors min-h-[44px]">
-              Become a Member
-            </button>
+              {/* Description */}
+              <p className="font-['Nunito',sans-serif] font-normal text-white text-[16px] md:text-[17px] leading-[1.6]">
+                Unlimited visits + exclusive perks all year long.
+              </p>
+
+              {/* CTA Button */}
+              <button className="bg-white text-[#00ADBD] font-['Nunito',sans-serif] font-bold text-[18px] md:text-[20px] leading-[1.2] px-8 py-4 rounded-full hover:bg-gray-50 transition-colors min-h-[44px] w-full mt-4">
+                Become a Member
+              </button>
+            </div>
           </div>
         </div>
       </div>

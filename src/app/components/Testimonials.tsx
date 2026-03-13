@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import svgPaths from "../../imports/svg-zu4i9dl6yt";
 
@@ -83,9 +83,9 @@ const testimonialPages = [
 
 function StarIcon() {
   return (
-    <div className="relative shrink-0 size-[17px]">
+    <div className="relative shrink-0 size-[20px]">
       <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17 17">
-        <path d={svgPaths.p3d1be700} fill="#FFCE51" />
+        <path d={svgPaths.p3d1be700} fill="#F7941E" />
       </svg>
     </div>
   );
@@ -93,9 +93,9 @@ function StarIcon() {
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <div className="bg-white rounded-[36px] border border-[rgba(0,0,0,0.1)] p-6 md:p-[29px] flex flex-col gap-6 md:gap-[31px] h-full">
+    <div className="bg-white rounded-[20px] shadow-[0_2px_8px_rgba(0,0,0,0.08)] p-6 md:p-[29px] flex flex-col gap-6 md:gap-[24px] h-full">
       {/* Star Rating */}
-      <div className="flex items-center gap-0.5">
+      <div className="flex items-center gap-1">
         <StarIcon />
         <StarIcon />
         <StarIcon />
@@ -104,16 +104,16 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
       </div>
 
       {/* Testimonial Text */}
-      <p className="font-['Nunito',sans-serif] font-medium text-[#282325] text-[17px] md:text-[19px] leading-[24px]">
+      <p className="font-['Nunito',sans-serif] font-normal italic text-[#1b3d6d] text-[17px] md:text-[18px] leading-[26px] md:leading-[28px]">
         "{testimonial.text}"
       </p>
 
       {/* Author Info */}
-      <div className="flex flex-col gap-[14px]">
-        <p className="font-['Fredoka',sans-serif] font-medium text-[#282325] text-[19px] leading-[24px]">
+      <div className="flex flex-col gap-[8px] mt-auto">
+        <p className="font-['Nunito',sans-serif] font-bold text-[#1b3d6d] text-[18px] leading-[24px]">
           {testimonial.name}
         </p>
-        <p className="font-['Poppins',sans-serif] text-[#8f898c] text-[15px] leading-[18px]">
+        <p className="font-['Nunito',sans-serif] font-normal text-[#78787a] text-[15px] leading-[20px]">
           {testimonial.location}
         </p>
       </div>
@@ -125,24 +125,33 @@ export default function Testimonials() {
   const [currentPage, setCurrentPage] = useState(0);
   const totalPages = testimonialPages.length;
 
+  // Auto-advance carousel every 6 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPage((prev) => (prev + 1) % totalPages);
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, [totalPages]);
+
   return (
     <div className="bg-white relative w-full py-16 md:py-24 lg:py-32" style={{ position: 'relative' }}>
       <div className="max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12">
         {/* Heading */}
         <div className="mb-10 md:mb-14 lg:mb-16 text-center">
-          <h2 className="font-['Nunito',sans-serif] font-bold text-[#1b3d6d] text-[36px] md:text-[52px] lg:text-[70px] leading-none">
+          <h2 className="font-['Nunito',sans-serif] font-black text-[#1b3d6d] text-[36px] md:text-[52px] lg:text-[70px] leading-none">
             What Families Are Saying
           </h2>
         </div>
 
-        {/* Grid Container */}
+        {/* Grid Container with Crossfade Transition */}
         <AnimatePresence mode="wait">
           <motion.div
             key={currentPage}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-[10px] mb-8 md:mb-12"
           >
             {testimonialPages[currentPage].map((testimonial, index) => (
