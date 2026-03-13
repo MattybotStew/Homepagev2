@@ -136,7 +136,7 @@ export default function PlanYourVisit() {
       },
     },
     {
-      title: "Be a Member",
+      title: "Become a Member",
       color: "#00adbb",
       badge: {
         bg: "rgba(0,173,187,0.2)",
@@ -550,7 +550,7 @@ export default function PlanYourVisit() {
             {/* Title */}
             <div className="pt-[12.35px] pb-[24.7px]">
               <h3 className="font-['Nunito',sans-serif] font-semibold text-[#474763] text-[22px] leading-[24px] tracking-[-0.96px]">
-                Be a Member
+                Become a Member
               </h3>
             </div>
 
