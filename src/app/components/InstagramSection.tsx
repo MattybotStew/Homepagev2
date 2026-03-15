@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import Masonry from "react-responsive-masonry";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import imgCustomImg001CopyrightJpg from "figma:asset/c175e874c4aacf4ffa7f1e2ab0fc3be96ac8d0aa.png";
 import imgCustomImg002CopyrightJpg from "figma:asset/797b45911a1d0a1f965f58bc294a8d4a73f9d367.png";
 import imgCustomImg003CopyrightJpg from "figma:asset/d83f9a80814ccc977216de3c0728e23db20372e5.png";
@@ -58,50 +58,52 @@ export default function InstagramSection() {
         </motion.div>
 
         {/* Masonry Grid */}
-        <Masonry columnsCount={3} gutter="16px">
-          {images.map((item, index) => (
-            <motion.a
-              key={index}
-              href="https://www.instagram.com/childrensmuseumofatlanta/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative block overflow-hidden rounded-[16px] group cursor-pointer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              style={{ display: 'block' }}
-            >
-              <div className="relative overflow-hidden rounded-[16px] transition-transform duration-200 group-hover:scale-[1.04]">
-                <img
-                  alt={`Instagram post ${index + 1}`}
-                  className="w-full h-auto object-cover"
-                  src={item.src}
-                />
-                
-                {/* Overlay Cards/Bubbles */}
-                {item.overlay && item.overlay.type === "card" && (
-                  <div className="absolute bottom-4 left-4 right-4 bg-white rounded-xl shadow-lg p-4">
-                    <p className="font-['Nunito',sans-serif] font-bold text-[#1b3d6d] text-lg">
-                      {item.overlay.title}
-                    </p>
-                    <p className="font-['Nunito',sans-serif] text-[#78787a] text-sm mt-1">
-                      {item.overlay.date}
-                    </p>
-                  </div>
-                )}
-                
-                {item.overlay && item.overlay.type === "bubble" && (
-                  <div className="absolute top-4 right-4 bg-[#F7941E] rounded-full shadow-lg px-5 py-3">
-                    <p className="font-['Nunito',sans-serif] font-bold text-white text-sm whitespace-nowrap">
-                      {item.overlay.text}
-                    </p>
-                  </div>
-                )}
-              </div>
-            </motion.a>
-          ))}
-        </Masonry>
+        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 640: 2, 768: 3 }}>
+          <Masonry gutter="12px">
+            {images.map((item, index) => (
+              <motion.a
+                key={index}
+                href="https://www.instagram.com/childrensmuseumofatlanta/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative block overflow-hidden rounded-[16px] group cursor-pointer"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                style={{ display: 'block' }}
+              >
+                <div className="relative overflow-hidden rounded-[16px] transition-transform duration-200 group-hover:scale-[1.04]">
+                  <img
+                    alt={`Instagram post ${index + 1}`}
+                    className="w-full h-auto object-cover"
+                    src={item.src}
+                  />
+                  
+                  {/* Overlay Cards/Bubbles */}
+                  {item.overlay && item.overlay.type === "card" && (
+                    <div className="absolute bottom-4 left-4 right-4 bg-white rounded-xl shadow-lg p-4">
+                      <p className="font-['Nunito',sans-serif] font-bold text-[#1b3d6d] text-lg">
+                        {item.overlay.title}
+                      </p>
+                      <p className="font-['Nunito',sans-serif] text-[#78787a] text-sm mt-1">
+                        {item.overlay.date}
+                      </p>
+                    </div>
+                  )}
+                  
+                  {item.overlay && item.overlay.type === "bubble" && (
+                    <div className="absolute top-4 right-4 bg-[#F7941E] rounded-full shadow-lg px-5 py-3">
+                      <p className="font-['Nunito',sans-serif] font-bold text-white text-sm whitespace-nowrap">
+                        {item.overlay.text}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </motion.a>
+            ))}
+          </Masonry>
+        </ResponsiveMasonry>
       </div>
     </section>
   );

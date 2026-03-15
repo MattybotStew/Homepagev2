@@ -1,23 +1,38 @@
 import svgPaths from "../../imports/svg-jimhgnmmnu";
+import { motion } from "motion/react";
 
 export default function MembershipPricing() {
   return (
     <div className="bg-white relative w-full pb-16 md:pb-24 lg:pb-32" style={{ position: 'relative' }}>
       <div className="max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12" style={{ position: 'relative' }}>
         {/* Heading */}
-        <div className="flex flex-col gap-6 md:gap-10 items-center mb-10 md:mb-14 lg:mb-[70px]" style={{ position: 'relative' }}>
+        <motion.div 
+          className="flex flex-col gap-6 md:gap-10 items-center mb-10 md:mb-14 lg:mb-[70px]" 
+          style={{ position: 'relative' }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <h2 className="font-['Nunito',sans-serif] font-black text-[#1b3d6d] text-[36px] md:text-[52px] lg:text-[70px] leading-none text-center">
             Visit More, Pay Less
           </h2>
           <p className="font-['Nunito',sans-serif] font-normal text-[#1b3d6d] text-[17px] md:text-[19px] leading-[24px] text-center max-w-[601px]">
             Family membership pays for itself in just 3 visits
           </p>
-        </div>
+        </motion.div>
 
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-[30px]" style={{ position: 'relative' }}>
           {/* Single Visit Card */}
-          <div className="bg-[#FDF6EE] rounded-[24px] p-6 md:p-10 flex flex-col transition-all duration-200 ease-out hover:translate-y-[-6px] hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)]" style={{ position: 'relative' }}>
+          <motion.div 
+            className="bg-[#FDF6EE] rounded-[24px] p-6 md:p-10 flex flex-col transition-all duration-200 ease-out hover:translate-y-[-6px] hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)]" 
+            style={{ position: 'relative' }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0, margin: "-100px" }}
+            transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
+          >
             {/* Card Content */}
             <div className="flex flex-col gap-6 md:gap-6">
               {/* Price */}
@@ -41,10 +56,17 @@ export default function MembershipPricing() {
                 Buy Tickets Now
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Membership Card */}
-          <div className="bg-[#00ADBD] rounded-[24px] p-6 md:p-10 md:pt-12 md:pb-12 flex flex-col relative transition-all duration-200 ease-out hover:translate-y-[-6px] hover:shadow-[0_8px_24px_rgba(0,173,189,0.3)]" style={{ position: 'relative' }}>
+          <motion.div 
+            className="bg-[#00ADBD] rounded-[24px] p-6 md:p-10 md:pt-12 md:pb-12 flex flex-col relative transition-all duration-200 ease-out hover:translate-y-[-6px] hover:shadow-[0_8px_24px_rgba(0,173,189,0.3)]" 
+            style={{ position: 'relative' }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
+          >
             {/* Best Value Badge - Top Right */}
             <div className="absolute -top-2 -right-2 md:top-4 md:right-4 bg-[#F7941E] rounded-full px-5 py-2 transform rotate-[-2deg]">
               <span className="font-['Nunito',sans-serif] font-extrabold text-white text-[13px] md:text-[14px] leading-[1] uppercase tracking-wide">
@@ -75,7 +97,7 @@ export default function MembershipPricing() {
                 Become a Member
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

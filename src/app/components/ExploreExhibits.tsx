@@ -45,10 +45,10 @@ export default function ExploreExhibits() {
         {/* Heading Section */}
         <motion.div
           className="mb-8 md:mb-10 lg:mb-[40px]"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="relative mb-6 md:mb-8 lg:mb-10">
             <h2 className="font-['Nunito',sans-serif] font-bold text-[#1b3d6d] text-[36px] md:text-[52px] lg:text-[70px] leading-none">
@@ -62,7 +62,7 @@ export default function ExploreExhibits() {
               className="absolute left-0 top-[90px] md:top-[130px] lg:top-[160px] w-full max-w-[320px] md:max-w-[480px] lg:max-w-[645px] h-[20px] md:h-[28px] lg:h-[32px]"
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               <svg 
                 className="w-full h-full" 
@@ -82,20 +82,26 @@ export default function ExploreExhibits() {
             </motion.div>
           </div>
 
-          <div className="flex justify-end">
+          <motion.div 
+            className="flex justify-end"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+          >
             <p className="font-['Nunito',sans-serif] font-normal text-[#78787a] text-[16px] md:text-[18px] lg:text-[20px] leading-[1.6] text-right max-w-[100%] md:max-w-[520px] lg:max-w-[601px]">
               Why is play essential for childhood development—and how does the Children's Museum of Atlanta help make it possible?
             </p>
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* Image Accordion */}
         <motion.div
           className="mb-8 md:mb-10 lg:mb-[40px] flex gap-3 md:gap-4 lg:gap-5 h-[500px] md:h-[650px] lg:h-[792px] relative"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ delay: 0.2, duration: 0.7 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ delay: 0.3, duration: 0.9, ease: "easeOut" }}
         >
           {exhibits.map((exhibit, index) => (
             <motion.div

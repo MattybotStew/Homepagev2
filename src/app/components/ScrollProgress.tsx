@@ -30,7 +30,7 @@ export default function ScrollProgress() {
   }, []);
 
   return (
-    <div className="fixed top-[90px] xs:top-[96px] sm:top-[108px] md:top-[118px] lg:top-[114px] xl:top-[128px] left-0 right-0 z-30 bg-[#f4f4f4] h-[6px] w-full">
+    <div className="fixed top-[90px] xs:top-[96px] sm:top-[108px] md:top-[116px] lg:top-[110px] xl:top-[126px] left-0 right-0 z-30 bg-[#00ADBB] h-[6px] w-full">
       <div 
         className="bg-[#f7941e] h-full rounded-br-[1000px] rounded-tr-[1000px]"
         style={{ width: `${scrollProgress}%` }}

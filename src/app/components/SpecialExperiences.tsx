@@ -368,7 +368,7 @@ export default function SpecialExperiences() {
               className="bg-white rounded-[20px] p-5 flex flex-col shadow-sm border border-gray-100 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.15)]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: "-100px", amount: 0 }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
             >
               {/* Image with Date Badge */}

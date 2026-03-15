@@ -176,7 +176,7 @@ export default function PlanYourVisit() {
       </motion.div>
 
       {/* Content Container */}
-      <div className="relative max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12 pt-20 md:pt-28 lg:pt-[140px] pb-24 md:pb-32 lg:pb-[160px] z-[1]" style={{ position: 'relative' }}>
+      <div className="relative max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12 pt-20 md:pt-28 lg:pt-[140px] pb-12 md:pb-16 lg:pb-20 z-[1]" style={{ position: 'relative' }}>
         {/* Heading */}
         <motion.div
           className="mb-8 md:mb-10 lg:mb-[30px]"
@@ -201,8 +201,13 @@ export default function PlanYourVisit() {
               style={{ borderColor: 'rgba(0,0,0,0.05)' }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: "-50px", amount: 0 }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
+              whileHover={{
+                translateY: -6,
+                scale: 1.02,
+                boxShadow: "0 12px 28px rgba(0, 0, 0, 0.15)",
+              }}
             >
               {/* Accordion Header */}
               <button
@@ -635,10 +640,10 @@ export default function PlanYourVisit() {
         {/* Explore Exhibits Section */}
         <motion.div
           className="relative mb-8 md:mb-10 lg:mb-[40px]"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
         >
           {/* Large Peach/Cream Blob Background */}
           <div className="absolute -left-[10%] top-[50%] -translate-y-1/2 w-[700px] h-[700px] md:w-[900px] md:h-[900px] lg:w-[1100px] lg:h-[1100px] bg-[#FDF0E0] rounded-full opacity-60 blur-[120px] pointer-events-none -z-10" />
@@ -668,20 +673,26 @@ export default function PlanYourVisit() {
             </h2>
           </div>
 
-          <div className="flex justify-end mb-8 md:mb-10 lg:mb-12">
+          <motion.div 
+            className="flex justify-end mb-8 md:mb-10 lg:mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+          >
             <p className="font-['Nunito',sans-serif] font-normal text-[#78787a] text-[16px] md:text-[18px] lg:text-[20px] leading-[1.6] text-right max-w-[100%] md:max-w-[520px] lg:max-w-[601px]">
               Why is play essential for childhood development—and how does the Children's Museum of Atlanta help make it possible?
             </p>
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* Photo Card Grid (3 cards, same height, expand on hover) */}
         <motion.div
           className="mb-8 md:mb-10 lg:mb-[40px] flex gap-3 md:gap-4 lg:gap-5 h-[500px] md:h-[650px] lg:h-[792px] relative"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ delay: 0.2, duration: 0.7 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
         >
           {[
             {
@@ -756,7 +767,7 @@ export default function PlanYourVisit() {
 
         {/* CTA Link */}
         <motion.div
-          className="text-center mb-20 md:mb-28 lg:mb-[120px]"
+          className="text-center mb-12 md:mb-16 lg:mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
