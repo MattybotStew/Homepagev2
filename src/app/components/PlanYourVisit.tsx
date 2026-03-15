@@ -8,6 +8,7 @@ import Statue from "../../imports/Statue-15-3841";
 import imgDivTrxAddonsImageAccordionItemInner from "figma:asset/b8f9ea4dd58f1866ed3c25d4adb731014fe690e2.png";
 import imgDivTrxAddonsImageAccordionItemInner1 from "figma:asset/5fbbcf6f08bc318f43c2c8d00d447df6318200dd.png";
 import imgDivTrxAddonsImageAccordionItemInner2 from "figma:asset/70606b144d42e6d7ed328be28058d6611206d0a2.png";
+import imgStatueHandstand11920X96811 from "figma:asset/2200d5f1414b522eb5abd25d17dd7bf0ff0d738e.png";
 
 export default function PlanYourVisit() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -651,19 +652,53 @@ export default function PlanYourVisit() {
           <div className="relative mb-6 md:mb-8 lg:mb-10">
             {/* Animated Statue - positioned upper right with gentle bob animation */}
             <div ref={statueRef} className="relative" style={{ position: 'relative' }}>
-              <motion.div
-                className="hidden md:block absolute right-0 -top-[100px] w-[60px] h-[120px] lg:w-[70px] lg:h-[140px] z-10"
-                animate={{ 
-                  y: [0, -10, 0]
-                }}
-                transition={{ 
-                  duration: 3,
-                  ease: "easeInOut",
-                  repeat: Infinity
-                }}
-              >
-                <Statue />
-              </motion.div>
+              <div className="hidden md:block absolute right-0 -top-[100px] w-[60px] h-[120px] lg:w-[70px] lg:h-[140px] z-10">
+                {/* Shadow - shrinks and grows */}
+                <motion.div 
+                  className="absolute h-[14.649px] left-0 top-[248.35px] w-[131.84px]"
+                  animate={{ 
+                    scaleX: [1, 0.7, 1],
+                    scaleY: [1, 0.6, 1],
+                    opacity: [0.6, 0.2, 0.6]
+                  }}
+                  transition={{ 
+                    duration: 2.5,
+                    ease: "easeInOut",
+                    repeat: Infinity
+                  }}
+                >
+                  <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 131.84 14.6488">
+                    <ellipse cx="65.9198" cy="7.32442" fill="url(#paint0_linear_statue_shadow)" rx="65.9198" ry="7.32442" />
+                    <defs>
+                      <linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear_statue_shadow" x1="0" x2="131.84" y1="7.32442" y2="7.32442">
+                        <stop stopColor="#D9D9D9" stopOpacity="0.3" />
+                        <stop offset="1" stopColor="#737373" stopOpacity="0.3" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </motion.div>
+                
+                {/* Statue - bounces */}
+                <motion.div
+                  className="absolute h-[262.998px] left-0 top-0 w-[131.158px]"
+                  animate={{ 
+                    y: [0, -25, 0]
+                  }}
+                  transition={{ 
+                    duration: 2.5,
+                    ease: "easeInOut",
+                    repeat: Infinity
+                  }}
+                >
+                  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <img 
+                      alt="" 
+                      className="absolute h-[125.39%] left-[-195.32%] max-w-none top-[-16.32%] w-[498.7%]" 
+                      src={imgStatueHandstand11920X96811} 
+                    />
+                  </div>
+                </motion.div>
+              </div>
             </div>
 
             <h2 className="font-['Nunito',sans-serif] font-black text-[#1b3d6d] text-[36px] md:text-[52px] lg:text-[70px] leading-none">

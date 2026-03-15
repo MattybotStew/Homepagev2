@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { Bookmark } from "lucide-react";
 import svgPaths from "../../imports/svg-778gp0zx2n";
 import strokeSvg from "../../imports/stroke.svg";
+import squiggleSvg from "../../imports/sqig2.svg";
 import imgFrame39916 from "figma:asset/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.png";
 import imgFrame39917 from "figma:asset/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.png";
 import imgFrame39918 from "figma:asset/39da2bd0af3dceef1e3b406cd981247f82778d27.png";
@@ -310,14 +311,14 @@ export default function SpecialExperiences() {
 
       {/* Teal Brush Stroke Decoration - Top Right */}
       <motion.div
-        className="absolute right-0 top-[80px] md:top-[120px] lg:top-[160px] w-[300px] h-[120px] md:w-[400px] md:h-[150px] lg:w-[450px] lg:h-[173px] pointer-events-none hidden md:block z-0"
+        className="absolute right-0 top-[80px] md:top-[120px] lg:top-[160px] w-[300px] h-[180px] md:w-[500px] md:h-[300px] lg:w-[600px] lg:h-[355px] pointer-events-none hidden md:block z-0"
         style={{ position: 'absolute' }}
         initial={{ x: 200, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <EVtoJl2V6Zp />
+        <img src={squiggleSvg} alt="" className="w-full h-full object-contain" />
       </motion.div>
 
       {/* Content Container */}
