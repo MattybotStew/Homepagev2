@@ -69,16 +69,26 @@ export default function Hero() {
   return (
     <div className="relative w-full overflow-hidden" style={{ height: '90vh', marginTop: '34px', minHeight: '500px' }}>
       {/* Background Image */}
-      <div className="absolute inset-0">
-        <img
-          alt=""
-          className="absolute h-full w-full object-cover object-center md:object-[center_top]"
-          src={imgHero}
-        />
-      </div>
+      <div 
+        className="absolute inset-0 bg-cover bg-no-repeat"
+        style={{ backgroundImage: `url(${imgHero})`, backgroundPosition: 'center calc(0% + 50px)' }}
+      />
+
+      {/* Opening Times Today Widget - Mobile: centered at top, Desktop: absolute top right */}
+      <motion.div 
+        className="relative md:absolute w-full md:w-[397px] px-5 md:px-0 pt-1 md:pt-0 md:right-8 lg:right-[30px] z-10 flex justify-center md:justify-start"
+        style={{ top: '75px' }}
+        variants={widgetVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="w-full max-w-[397px] md:w-auto">
+          <MuseumHoursWidget />
+        </div>
+      </motion.div>
 
       {/* Content Container */}
-      <div className="relative px-5 py-12 md:px-12 md:py-20 lg:px-[60px] lg:py-24 flex flex-col items-start justify-center h-full" style={{ position: 'relative' }}>
+      <div className="relative px-5 py-12 md:px-12 md:py-20 lg:px-[60px] lg:py-24 flex flex-col items-start justify-center h-full mt-16 md:mt-0">
         <motion.div
           className="flex flex-col gap-8 md:gap-10 lg:gap-[50px] items-start justify-start max-w-full lg:max-w-[700px]"
           variants={containerVariants}
@@ -88,7 +98,7 @@ export default function Hero() {
           {/* Main Heading with Inline Animated Waves */}
           <div className="relative w-full">
             <h1 className="font-['Nunito',sans-serif] font-black text-white text-left leading-[1.1]"
-                style={{ fontSize: 'clamp(56px, 7vw, 96px)' }}>
+                style={{ fontSize: 'clamp(50.4px, 6.3vw, 86.4px)' }}>
               {/* Line 1: "Experience" */}
               <motion.span
                 variants={lineVariants}
@@ -208,16 +218,6 @@ export default function Hero() {
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Opening Times Today Widget - Top Right with Slide Down Animation */}
-      <motion.div 
-        className="hidden md:block absolute right-5 md:right-8 lg:right-[30px] top-5 md:top-8 lg:top-[30px] w-full max-w-[280px] md:max-w-[320px] lg:max-w-[397px] z-10"
-        variants={widgetVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <MuseumHoursWidget />
-      </motion.div>
     </div>
   );
 }

@@ -42,7 +42,7 @@ export default function MuseumHoursWidget() {
               </div>
             </div>
             <div className="flex items-center justify-center relative shrink-0">
-              <div className={`flex-none transition-transform duration-300 ${isExpanded ? 'rotate-0' : 'rotate-180'}`}>
+              <div className={`flex-none transition-transform duration-300 ${isExpanded ? 'rotate-180' : 'rotate-0'}`}>
                 <div className="relative size-[20px]">
                   <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20 20">
                     <g id="Icon">
