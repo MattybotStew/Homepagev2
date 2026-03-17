@@ -76,8 +76,7 @@ export default function Hero() {
 
       {/* Opening Times Today Widget - Mobile: centered at top, Desktop: absolute top right */}
       <motion.div 
-        className="relative md:absolute w-full md:w-[397px] px-5 md:px-0 pt-1 md:pt-0 md:right-8 lg:right-[30px] z-10 flex justify-center md:justify-start"
-        style={{ top: '75px' }}
+        className="relative md:absolute w-full md:w-[397px] px-5 md:px-0 pt-1 md:pt-0 md:top-[125px] md:right-8 lg:right-[30px] z-10 flex justify-center md:justify-start"
         variants={widgetVariants}
         initial="hidden"
         animate="visible"

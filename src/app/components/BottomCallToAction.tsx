@@ -152,13 +152,23 @@ export default function BottomCallToAction() {
               </p>
             </motion.button>
             <motion.button
-              className="border-2 border-[#00ADBB] bg-transparent rounded-full shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] px-6 py-4 md:px-[34px] md:py-[22px] hover:bg-[#00ADBB]/10 transition-colors w-full sm:w-auto min-h-[44px]"
+              className="bg-[#00ADBB] rounded-full shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] px-6 py-4 md:px-[34px] md:py-[22px] hover:bg-[#009aa7] transition-colors w-full sm:w-auto min-h-[44px]"
               variants={buttonVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <p className="font-['Nunito',sans-serif] font-bold text-white text-lg md:text-[24px] whitespace-nowrap">
                 Memberships
+              </p>
+            </motion.button>
+            <motion.button
+              className="bg-white rounded-full shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] px-6 py-4 md:px-[34px] md:py-[22px] hover:bg-gray-50 transition-colors w-full sm:w-auto min-h-[44px]"
+              variants={buttonVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <p className="font-['Nunito',sans-serif] font-bold text-[#00ADBB] text-lg md:text-[24px] whitespace-nowrap">
+                Donate
               </p>
             </motion.button>
           </motion.div>
