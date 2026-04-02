@@ -4,10 +4,8 @@ import AlertBanner from "./components/AlertBanner";
 import ScrollProgress from "./components/ScrollProgress";
 import Marquee from "./components/Marquee";
 import PlanYourVisit from "./components/PlanYourVisit";
-import SpecialExperiences from "./components/SpecialExperiences";
 import Testimonials from "./components/Testimonials";
 import MembershipPricing from "./components/MembershipPricing";
-import BottomCallToAction from "./components/BottomCallToAction";
 import InstagramSection from "./components/InstagramSection";
 import Footer from "./components/Footer";
 
@@ -32,17 +30,11 @@ export default function App() {
       {/* Plan Your Visit Section with Explore Exhibits */}
       <PlanYourVisit />
       
-      {/* Special Experiences Section */}
-      <SpecialExperiences />
-      
       {/* Testimonials Section */}
       <Testimonials />
       
       {/* Membership Pricing Section */}
       <MembershipPricing />
-      
-      {/* Bottom Call to Action */}
-      <BottomCallToAction />
       
       {/* Instagram Section */}
       <InstagramSection />

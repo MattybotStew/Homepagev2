@@ -114,31 +114,32 @@ export default function Hero() {
                 Possibility
                 {/* Orange Wave - Inline */}
                 <motion.span
-                  className="inline-block ml-4 relative"
+                  className="inline-block ml-4 relative overflow-hidden"
                   style={{ width: 'clamp(120px, 15vw, 200px)', height: 'clamp(12px, 1.5vw, 20px)' }}
-                  animate={{
-                    scale: [1, 1.3, 1],
-                  }}
-                  transition={{
-                    duration: 2.2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
                 >
-                  <svg
-                    className="block w-full h-full"
+                  <motion.svg
+                    className="block w-full h-full absolute"
                     fill="none"
                     preserveAspectRatio="none"
-                    viewBox="0 0 200 20"
+                    viewBox="0 0 400 20"
+                    style={{ width: '200%' }}
+                    animate={{
+                      x: ['0%', '-50%'],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
                   >
                     <path
-                      d="M0 10 Q 25 2, 50 10 T 100 10 T 150 10 T 200 10"
+                      d="M0 10 Q 50 0, 100 10 T 200 10 T 300 10 T 400 10"
                       stroke="#F7941E"
                       strokeWidth="4"
                       strokeLinecap="round"
                       fill="none"
                     />
-                  </svg>
+                  </motion.svg>
                 </motion.span>
               </motion.span>
               
@@ -150,31 +151,32 @@ export default function Hero() {
                 Through Play
                 {/* Teal Wave - Inline */}
                 <motion.span
-                  className="inline-block ml-4 relative"
+                  className="inline-block ml-4 relative overflow-hidden"
                   style={{ width: 'clamp(120px, 15vw, 200px)', height: 'clamp(12px, 1.5vw, 20px)' }}
-                  animate={{
-                    scale: [1, 1.3, 1],
-                  }}
-                  transition={{
-                    duration: 2.8,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
                 >
-                  <svg
-                    className="block w-full h-full"
+                  <motion.svg
+                    className="block w-full h-full absolute"
                     fill="none"
                     preserveAspectRatio="none"
-                    viewBox="0 0 200 20"
+                    viewBox="0 0 400 20"
+                    style={{ width: '200%' }}
+                    animate={{
+                      x: ['0%', '-50%'],
+                    }}
+                    transition={{
+                      duration: 2.5,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
                   >
                     <path
-                      d="M0 10 Q 25 2, 50 10 T 100 10 T 150 10 T 200 10"
+                      d="M0 10 Q 50 0, 100 10 T 200 10 T 300 10 T 400 10"
                       stroke="#00ADBD"
                       strokeWidth="4"
                       strokeLinecap="round"
                       fill="none"
                     />
-                  </svg>
+                  </motion.svg>
                 </motion.span>
               </motion.span>
             </h1>

@@ -142,16 +142,6 @@ export default function BottomCallToAction() {
             variants={fadeInUpVariants}
           >
             <motion.button
-              className="bg-[#F7941E] rounded-full shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] px-6 py-4 md:px-[34px] md:py-[22px] hover:bg-[#e8850d] transition-colors w-full sm:w-auto min-h-[44px]"
-              variants={buttonVariants}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <p className="font-['Nunito',sans-serif] font-bold text-white text-lg md:text-[24px] whitespace-nowrap">
-                Buy Tickets
-              </p>
-            </motion.button>
-            <motion.button
               className="bg-[#00ADBB] rounded-full shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] px-6 py-4 md:px-[34px] md:py-[22px] hover:bg-[#009aa7] transition-colors w-full sm:w-auto min-h-[44px]"
               variants={buttonVariants}
               whileHover={{ scale: 1.05 }}

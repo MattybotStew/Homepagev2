@@ -177,7 +177,7 @@ export default function PlanYourVisit() {
       </motion.div>
 
       {/* Content Container */}
-      <div className="relative max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12 pt-20 md:pt-28 lg:pt-[140px] pb-12 md:pb-16 lg:pb-20 z-[1]" style={{ position: 'relative' }}>
+      <div className="relative max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12 pt-20 md:pt-28 lg:pt-[140px] pb-[212px] md:pb-[216px] lg:pb-[220px] z-[1]" style={{ position: 'relative' }}>
         {/* Heading */}
         <motion.div
           className="mb-8 md:mb-10 lg:mb-[30px]"
@@ -646,9 +646,6 @@ export default function PlanYourVisit() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
         >
-          {/* Large Peach/Cream Blob Background */}
-          <div className="absolute -left-[10%] top-[50%] -translate-y-1/2 w-[700px] h-[700px] md:w-[900px] md:h-[900px] lg:w-[1100px] lg:h-[1100px] bg-[#FDF0E0] rounded-full opacity-60 blur-[120px] pointer-events-none -z-10" />
-
           <div className="relative mb-6 md:mb-8 lg:mb-10">
             {/* Animated Statue - positioned upper right with gentle bob animation */}
             <div ref={statueRef} className="relative" style={{ position: 'relative' }}>
@@ -700,133 +697,7 @@ export default function PlanYourVisit() {
                 </motion.div>
               </div>
             </div>
-
-            <h2 className="font-['Nunito',sans-serif] font-black text-[#1b3d6d] text-[36px] md:text-[52px] lg:text-[70px] leading-none">
-              Explore Our Exhibits:
-              <br />
-              The Power of Play
-            </h2>
           </div>
-
-          <motion.div 
-            className="flex justify-end mb-8 md:mb-10 lg:mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-          >
-            <p className="font-['Nunito',sans-serif] font-normal text-[#78787a] text-[16px] md:text-[18px] lg:text-[20px] leading-[1.6] text-right max-w-[100%] md:max-w-[520px] lg:max-w-[601px]">
-              Why is play essential for childhood development—and how does the Children's Museum of Atlanta help make it possible?
-            </p>
-          </motion.div>
-        </motion.div>
-
-        {/* Photo Card Grid (3 cards, same height, expand on hover) */}
-        <motion.div
-          className="mb-8 md:mb-10 lg:mb-[40px] flex gap-3 md:gap-4 lg:gap-5 h-[500px] md:h-[650px] lg:h-[792px] relative"
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
-        >
-          {[
-            {
-              image: imgDivTrxAddonsImageAccordionItemInner,
-              category: "New in 2026",
-              title: "Climb inside a Tuskegee Airmen plane replica",
-            },
-            {
-              image: imgDivTrxAddonsImageAccordionItemInner1,
-              category: "Kids Activities",
-              title: "Festival fun for all ages",
-            },
-            {
-              image: imgDivTrxAddonsImageAccordionItemInner2,
-              category: "Family Moments",
-              title: "Imagination takes flight",
-            },
-          ].map((exhibit, index) => (
-            <motion.div
-              key={index}
-              className="relative rounded-[12px] md:rounded-[20px] lg:rounded-[30px] overflow-hidden cursor-pointer h-full transition-all duration-[250ms] ease-out hover:brightness-105"
-              style={{
-                flex: hoveredIndex === index ? "3" : "1",
-                transition: "flex 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.25s ease-out",
-              }}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(0)}
-            >
-              {/* Image */}
-              <img
-                alt={exhibit.title}
-                className="absolute inset-0 w-full h-full object-cover"
-                src={exhibit.image}
-              />
-
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-
-              {/* Text Content at Bottom */}
-              <div className="absolute bottom-6 md:bottom-10 lg:bottom-12 left-4 md:left-6 lg:left-8 right-4 md:right-6 lg:right-8">
-                {/* Category Pill */}
-                <motion.div 
-                  className="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-1.5 mb-3"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ 
-                    opacity: hoveredIndex === index ? 1 : 0.9,
-                    y: hoveredIndex === index ? 0 : 10 
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <p className="font-['Nunito',sans-serif] font-semibold text-white text-[11px] md:text-[12px] leading-none uppercase tracking-wider">
-                    {exhibit.category}
-                  </p>
-                </motion.div>
-                
-                {/* Title */}
-                <motion.h3 
-                  className="font-['Nunito',sans-serif] font-bold text-white text-[20px] md:text-[24px] lg:text-[28px] leading-tight"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ 
-                    opacity: hoveredIndex === index ? 1 : 0.9,
-                    y: hoveredIndex === index ? 0 : 10 
-                  }}
-                  transition={{ duration: 0.3, delay: 0.05 }}
-                >
-                  {exhibit.title}
-                </motion.h3>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* CTA Link */}
-        <motion.div
-          className="text-center mb-12 md:mb-16 lg:mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-        >
-          <a 
-            href="#" 
-            className="inline-flex items-center gap-2 font-['Nunito',sans-serif] font-bold text-[#00adbb] text-[16px] md:text-[18px] lg:text-[20px] leading-[1.4] hover:underline underline-offset-4 decoration-2 transition-all group"
-          >
-            Click something. Be curious. Come back for more
-            <svg 
-              className="w-5 h-5 transition-transform group-hover:translate-x-1" 
-              fill="none" 
-              viewBox="0 0 20 20"
-            >
-              <path 
-                d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              />
-            </svg>
-          </a>
         </motion.div>
 
         {/* Final Bridge Text CTA - REMOVED */}
