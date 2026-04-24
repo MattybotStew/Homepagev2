@@ -106,90 +106,97 @@ export default function Hero() {
                 Experience
               </motion.span>
               
-              {/* Line 2: "Possibility" + Orange Wave */}
+              {/* Line 2: "Possibility" */}
               <motion.span
                 variants={lineVariants}
-                className="block relative inline-flex items-center flex-wrap"
+                className="block"
               >
                 Possibility
-                {/* Orange Wave - Inline */}
-                <motion.span
-                  className="inline-block ml-4 relative overflow-hidden"
-                  style={{ width: 'clamp(120px, 15vw, 200px)', height: 'clamp(12px, 1.5vw, 20px)' }}
-                >
-                  <motion.svg
-                    className="block w-full h-full absolute"
-                    fill="none"
-                    preserveAspectRatio="none"
-                    viewBox="0 0 400 20"
-                    style={{ width: '200%' }}
-                    animate={{
-                      x: ['0%', '-50%'],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                  >
-                    <path
-                      d="M0 10 Q 50 0, 100 10 T 200 10 T 300 10 T 400 10"
-                      stroke="#F7941E"
-                      strokeWidth="4"
-                      strokeLinecap="round"
-                      fill="none"
-                    />
-                  </motion.svg>
-                </motion.span>
               </motion.span>
               
-              {/* Line 3: "Through Play" + Teal Wave */}
+              {/* Line 3: "Through Play" + Orange Wave under "Play" */}
               <motion.span
                 variants={lineVariants}
-                className="block relative inline-flex items-center flex-wrap"
+                className="block relative"
               >
-                Through Play
-                {/* Teal Wave - Inline */}
-                <motion.span
-                  className="inline-block ml-4 relative overflow-hidden"
-                  style={{ width: 'clamp(120px, 15vw, 200px)', height: 'clamp(12px, 1.5vw, 20px)' }}
-                >
-                  <motion.svg
-                    className="block w-full h-full absolute"
-                    fill="none"
-                    preserveAspectRatio="none"
-                    viewBox="0 0 400 20"
-                    style={{ width: '200%' }}
-                    animate={{
-                      x: ['0%', '-50%'],
-                    }}
-                    transition={{
-                      duration: 2.5,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
+                <span>Through </span>
+                <span className="relative inline-block">
+                  Play
+                  {/* Orange Wave - Under "Play" */}
+                  <motion.span
+                    className="absolute left-0 right-0 overflow-hidden"
+                    style={{ top: '100%', height: 'clamp(12px, 1.5vw, 20px)', marginTop: '4px' }}
                   >
-                    <path
-                      d="M0 10 Q 50 0, 100 10 T 200 10 T 300 10 T 400 10"
-                      stroke="#00ADBD"
-                      strokeWidth="4"
-                      strokeLinecap="round"
+                    <motion.svg
+                      className="block w-full h-full absolute"
                       fill="none"
-                    />
-                  </motion.svg>
-                </motion.span>
+                      preserveAspectRatio="none"
+                      viewBox="0 0 400 20"
+                      style={{ width: '200%' }}
+                      animate={{
+                        x: ['0%', '-50%'],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
+                    >
+                      <path
+                        d="M0 10 Q 50 0, 100 10 T 200 10 T 300 10 T 400 10"
+                        stroke="#F7941E"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                        fill="none"
+                      />
+                    </motion.svg>
+                  </motion.span>
+                </span>
               </motion.span>
             </h1>
           </div>
 
-          {/* Subtitle */}
-          <motion.p
-            className="font-['Nunito',sans-serif] font-normal text-white text-[18px] max-w-full lg:max-w-[600px] leading-relaxed"
+          {/* Subtitle with Teal Wave underneath */}
+          <motion.div
+            className="relative w-full"
             variants={fadeInUpVariants}
           >
-            Welcome to a world of hands-on exploration & discovery that sparks
-            imagination & inspires learning.
-          </motion.p>
+            <p className="font-['Nunito',sans-serif] font-normal text-white text-[18px] max-w-full lg:max-w-[600px] leading-relaxed">
+              Welcome to a world of hands-on exploration & discovery that sparks
+              imagination & inspires learning.
+            </p>
+          </motion.div>
+
+          {/* Teal Wave - Above buttons */}
+          <motion.span
+            className="block overflow-hidden relative"
+            style={{ height: 'clamp(12px, 1.5vw, 20px)', width: 'clamp(120px, 15vw, 200px)' }}
+            variants={fadeInUpVariants}
+          >
+            <motion.svg
+              className="block w-full h-full"
+              fill="none"
+              preserveAspectRatio="none"
+              viewBox="0 0 400 20"
+              style={{ width: '200%' }}
+              animate={{
+                x: ['0%', '-50%'],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            >
+              <path
+                d="M0 10 Q 50 0, 100 10 T 200 10 T 300 10 T 400 10"
+                stroke="#00ADBD"
+                strokeWidth="4"
+                strokeLinecap="round"
+                fill="none"
+              />
+            </motion.svg>
+          </motion.span>
 
           {/* CTA Buttons */}
           <motion.div

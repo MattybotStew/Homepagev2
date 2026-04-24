@@ -117,8 +117,8 @@ export default function Header() {
         {/* Logo */}
         <Logo />
 
-        {/* Desktop Navigation */}
-        <div className="hidden xl:flex items-center gap-1 h-full">
+        {/* Desktop Navigation - Centered */}
+        <div className="hidden xl:flex items-center gap-1 h-full absolute left-1/2 -translate-x-1/2">
           {/* Nav Links */}
           {navLinks.map((link) => (
             <a
@@ -131,23 +131,23 @@ export default function Header() {
               </p>
             </a>
           ))}
-
-          {/* Buttons */}
-          <div className="flex gap-[5.699px] items-center ml-2 h-full">
-            <button className="bg-[#f7941e] flex items-center justify-center px-[16.146px] py-[10.447px] rounded-[474.877px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] shrink-0 hover:bg-[#e8851a] transition-colors">
-              <p className="font-['Nunito',sans-serif] font-bold leading-[1.13] shrink-0 text-[11.397px] text-white whitespace-nowrap">Donate</p>
-            </button>
-            <button className="bg-white flex items-center justify-center px-[16.146px] py-[10.447px] rounded-[474.877px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] shrink-0 hover:bg-white/90 transition-colors">
-              <p className="font-['Nunito',sans-serif] font-bold leading-[1.13] shrink-0 text-[11.397px] text-[#00ADBD] whitespace-nowrap">Memberships</p>
-            </button>
-            <button className="bg-[#1D3E6B] flex items-center justify-center px-[16.146px] py-[10.447px] rounded-[474.877px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] shrink-0 hover:bg-[#152d4d] transition-colors">
-              <p className="font-['Nunito',sans-serif] font-bold leading-[1.13] shrink-0 text-[11.397px] text-white whitespace-nowrap">Buy Tickets</p>
-            </button>
-          </div>
         </div>
 
-        {/* Compact Desktop Navigation (lg to xl) */}
-        <div className="hidden lg:flex xl:hidden items-center gap-0.5 h-full">
+        {/* Desktop Buttons */}
+        <div className="hidden xl:flex gap-[5.699px] items-center h-full">
+          <button className="bg-[#f7941e] flex items-center justify-center px-[16.146px] py-[10.447px] rounded-[474.877px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] shrink-0 hover:bg-[#e8851a] transition-colors">
+            <p className="font-['Nunito',sans-serif] font-bold leading-[1.13] shrink-0 text-[11.397px] text-white whitespace-nowrap">Donate</p>
+          </button>
+          <button className="bg-white flex items-center justify-center px-[16.146px] py-[10.447px] rounded-[474.877px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] shrink-0 hover:bg-white/90 transition-colors">
+            <p className="font-['Nunito',sans-serif] font-bold leading-[1.13] shrink-0 text-[11.397px] text-[#00ADBD] whitespace-nowrap">Memberships</p>
+          </button>
+          <button className="bg-[#1D3E6B] flex items-center justify-center px-[16.146px] py-[10.447px] rounded-[474.877px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] shrink-0 hover:bg-[#152d4d] transition-colors">
+            <p className="font-['Nunito',sans-serif] font-bold leading-[1.13] shrink-0 text-[11.397px] text-white whitespace-nowrap">Buy Tickets</p>
+          </button>
+        </div>
+
+        {/* Compact Desktop Navigation (lg to xl) - Centered */}
+        <div className="hidden lg:flex xl:hidden items-center gap-0.5 h-full absolute left-1/2 -translate-x-1/2">
           {/* Nav Links - More compact */}
           {navLinks.map((link) => (
             <a
@@ -160,19 +160,19 @@ export default function Header() {
               </p>
             </a>
           ))}
+        </div>
 
-          {/* Buttons - More compact */}
-          <div className="flex gap-[4px] items-center ml-1.5 h-full">
-            <button className="bg-[#f7941e] flex items-center justify-center px-[12px] py-[8px] rounded-[474.877px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] shrink-0 hover:bg-[#e8851a] transition-colors">
-              <p className="font-['Nunito',sans-serif] font-bold leading-[1.13] shrink-0 text-[10px] text-white whitespace-nowrap">Donate</p>
-            </button>
-            <button className="bg-white flex items-center justify-center px-[12px] py-[8px] rounded-[474.877px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] shrink-0 hover:bg-white/90 transition-colors">
-              <p className="font-['Nunito',sans-serif] font-bold leading-[1.13] shrink-0 text-[10px] text-[#00ADBD] whitespace-nowrap">Memberships</p>
-            </button>
-            <button className="bg-[#1D3E6B] flex items-center justify-center px-[12px] py-[8px] rounded-[474.877px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] shrink-0 hover:bg-[#152d4d] transition-colors">
-              <p className="font-['Nunito',sans-serif] font-bold leading-[1.13] shrink-0 text-[10px] text-white whitespace-nowrap">Buy Tickets</p>
-            </button>
-          </div>
+        {/* Compact Desktop Buttons (lg to xl) */}
+        <div className="hidden lg:flex xl:hidden gap-[4px] items-center h-full">
+          <button className="bg-[#f7941e] flex items-center justify-center px-[12px] py-[8px] rounded-[474.877px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] shrink-0 hover:bg-[#e8851a] transition-colors">
+            <p className="font-['Nunito',sans-serif] font-bold leading-[1.13] shrink-0 text-[10px] text-white whitespace-nowrap">Donate</p>
+          </button>
+          <button className="bg-white flex items-center justify-center px-[12px] py-[8px] rounded-[474.877px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] shrink-0 hover:bg-white/90 transition-colors">
+            <p className="font-['Nunito',sans-serif] font-bold leading-[1.13] shrink-0 text-[10px] text-[#00ADBD] whitespace-nowrap">Memberships</p>
+          </button>
+          <button className="bg-[#1D3E6B] flex items-center justify-center px-[12px] py-[8px] rounded-[474.877px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] shrink-0 hover:bg-[#152d4d] transition-colors">
+            <p className="font-['Nunito',sans-serif] font-bold leading-[1.13] shrink-0 text-[10px] text-white whitespace-nowrap">Buy Tickets</p>
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
