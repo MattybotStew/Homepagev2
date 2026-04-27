@@ -1,0 +1,214 @@
+{
+  "version": "0.4",
+  "title": "CMA Hero Section",
+  "type": "section",
+  "content": [
+    {
+      "id": "hero0001",
+      "elType": "container",
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_justify_content": "center",
+        "flex_align_items": "flex-start",
+        "min_height": { "unit": "vh", "size": 90, "sizes": [] },
+        "min_height_tablet": { "unit": "vh", "size": 80, "sizes": [] },
+        "min_height_mobile": { "unit": "vh", "size": 70, "sizes": [] },
+        "background_background": "classic",
+        "background_image": {
+          "url": "{{HERO_IMAGE_URL}}",
+          "id": "",
+          "alt": "Children and families at the Children's Museum of Atlanta"
+        },
+        "background_position": "center center",
+        "background_size": "cover",
+        "background_repeat": "no-repeat",
+        "background_overlay_background": "classic",
+        "background_overlay_color": "rgba(0,0,0,0.35)",
+        "padding": {
+          "unit": "px", "top": "120", "right": "60", "bottom": "80", "left": "60", "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px", "top": "100", "right": "40", "bottom": "60", "left": "40", "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px", "top": "80", "right": "20", "bottom": "40", "left": "20", "isLinked": false
+        },
+        "_element_custom_css": "@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');\n@keyframes grow-orange { 0%,100%{transform:scale(1)} 50%{transform:scale(1.3)} }\n@keyframes grow-teal   { 0%,100%{transform:scale(1)} 50%{transform:scale(1.3)} }\n.cma-wave-orange { animation: grow-orange 2.2s ease-in-out infinite; transform-origin: left center; display:block; }\n.cma-wave-teal   { animation: grow-teal   2.8s ease-in-out infinite; transform-origin: left center; display:block; }"
+      },
+      "elements": [
+
+        {
+          "id": "hero_h_exp",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "Experience",
+            "header_size": "h1",
+            "align": "left",
+            "title_color": "#FFFFFF",
+            "typography_typography": "custom",
+            "typography_font_family": "Nunito",
+            "typography_font_weight": "900",
+            "typography_font_size": { "unit": "px", "size": 80, "sizes": [] },
+            "typography_font_size_tablet": { "unit": "px", "size": 64, "sizes": [] },
+            "typography_font_size_mobile": { "unit": "px", "size": 48, "sizes": [] },
+            "typography_line_height": { "unit": "em", "size": 1.05, "sizes": [] },
+            "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true },
+            "_animation": "fadeInUp",
+            "_animation_duration": "slow",
+            "_animation_delay": 0
+          }
+        },
+
+        {
+          "id": "hero_h_pos",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "Possibility",
+            "header_size": "h1",
+            "align": "left",
+            "title_color": "#FFFFFF",
+            "typography_typography": "custom",
+            "typography_font_family": "Nunito",
+            "typography_font_weight": "900",
+            "typography_font_size": { "unit": "px", "size": 80, "sizes": [] },
+            "typography_font_size_tablet": { "unit": "px", "size": 64, "sizes": [] },
+            "typography_font_size_mobile": { "unit": "px", "size": 48, "sizes": [] },
+            "typography_line_height": { "unit": "em", "size": 1.05, "sizes": [] },
+            "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "4", "left": "0", "isLinked": false },
+            "_animation": "fadeInUp",
+            "_animation_duration": "slow",
+            "_animation_delay": 150
+          }
+        },
+
+        {
+          "id": "hero_wave_orange",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<svg class=\"cma-wave-orange\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 20\" style=\"width:clamp(200px,42%,400px);height:auto;\"><path d=\"M0 10 Q50 0 100 10 Q150 20 200 10 Q250 0 300 10 Q350 20 400 10\" stroke=\"#F7941E\" stroke-width=\"3.5\" fill=\"none\" stroke-linecap=\"round\"/></svg>"
+          }
+        },
+
+        {
+          "id": "hero_h_play",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "Through Play",
+            "header_size": "h1",
+            "align": "left",
+            "title_color": "#FFFFFF",
+            "typography_typography": "custom",
+            "typography_font_family": "Nunito",
+            "typography_font_weight": "900",
+            "typography_font_size": { "unit": "px", "size": 80, "sizes": [] },
+            "typography_font_size_tablet": { "unit": "px", "size": 64, "sizes": [] },
+            "typography_font_size_mobile": { "unit": "px", "size": 48, "sizes": [] },
+            "typography_line_height": { "unit": "em", "size": 1.05, "sizes": [] },
+            "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "4", "left": "0", "isLinked": false },
+            "_animation": "fadeInUp",
+            "_animation_duration": "slow",
+            "_animation_delay": 300
+          }
+        },
+
+        {
+          "id": "hero_wave_teal",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<svg class=\"cma-wave-teal\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 20\" style=\"width:clamp(160px,32%,320px);height:auto;\"><path d=\"M0 10 Q50 0 100 10 Q150 20 200 10 Q250 0 300 10 Q350 20 400 10\" stroke=\"#00ADBD\" stroke-width=\"3.5\" fill=\"none\" stroke-linecap=\"round\"/></svg>"
+          }
+        },
+
+        {
+          "id": "hero_sub",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Welcome to a world of hands-on exploration &amp; discovery that sparks imagination &amp; inspires learning.</p>",
+            "align": "left",
+            "text_color": "#FFFFFF",
+            "typography_typography": "custom",
+            "typography_font_family": "Nunito",
+            "typography_font_weight": "400",
+            "typography_font_size": { "unit": "px", "size": 18, "sizes": [] },
+            "typography_font_size_mobile": { "unit": "px", "size": 16, "sizes": [] },
+            "typography_line_height": { "unit": "em", "size": 1.6, "sizes": [] },
+            "_padding": { "unit": "px", "top": "16", "right": "0", "bottom": "32", "left": "0", "isLinked": false },
+            "_animation": "fadeInUp",
+            "_animation_duration": "slow",
+            "_animation_delay": 450
+          }
+        },
+
+        {
+          "id": "hero_btns",
+          "elType": "container",
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_wrap": "wrap",
+            "flex_justify_content": "flex-start",
+            "flex_align_items": "center",
+            "flex_gap": { "unit": "px", "size": 12, "sizes": [] },
+            "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true },
+            "_animation": "fadeInUp",
+            "_animation_duration": "slow",
+            "_animation_delay": 600
+          },
+          "elements": [
+            {
+              "id": "hero_btn_tickets",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Buy Tickets",
+                "align": "left",
+                "size": "lg",
+                "background_color": "#F7941E",
+                "button_text_color": "#FFFFFF",
+                "border_radius": { "unit": "px", "top": "50", "right": "50", "bottom": "50", "left": "50", "isLinked": true },
+                "typography_typography": "custom",
+                "typography_font_family": "Nunito",
+                "typography_font_weight": "700",
+                "typography_font_size": { "unit": "px", "size": 16, "sizes": [] },
+                "text_padding": { "unit": "px", "top": "14", "right": "32", "bottom": "14", "left": "32", "isLinked": false },
+                "hover_color": "#FFFFFF",
+                "button_background_hover_color": "#e8851a",
+                "link": { "url": "/buy-tickets", "is_external": false }
+              }
+            },
+            {
+              "id": "hero_btn_memberships",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Memberships",
+                "align": "left",
+                "size": "lg",
+                "background_color": "#00ADBD",
+                "button_text_color": "#FFFFFF",
+                "border_radius": { "unit": "px", "top": "50", "right": "50", "bottom": "50", "left": "50", "isLinked": true },
+                "typography_typography": "custom",
+                "typography_font_family": "Nunito",
+                "typography_font_weight": "700",
+                "typography_font_size": { "unit": "px", "size": 16, "sizes": [] },
+                "text_padding": { "unit": "px", "top": "14", "right": "32", "bottom": "14", "left": "32", "isLinked": false },
+                "hover_color": "#FFFFFF",
+                "button_background_hover_color": "#009aaa",
+                "link": { "url": "/memberships", "is_external": false }
+              }
+            }
+          ]
+        }
+
+      ]
+    }
+  ],
+  "page_settings": {}
+}

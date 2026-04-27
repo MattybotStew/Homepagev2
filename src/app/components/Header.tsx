@@ -106,9 +106,9 @@ export default function Header() {
     "Plan Your Visit",
     "Exhibits",
     "Calendar & Events",
-    "Education Programs",
+    "For Educators",
     "About Us",
-    "Education Hub/Blog"
+    "Resources"
   ];
 
   return (

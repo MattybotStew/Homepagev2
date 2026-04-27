@@ -74,18 +74,6 @@ export default function Hero() {
         style={{ backgroundImage: `url(${imgHero})`, backgroundPosition: 'center calc(0% + 50px)' }}
       />
 
-      {/* Opening Times Today Widget - Mobile: centered at top, Desktop: absolute top right */}
-      <motion.div 
-        className="relative md:absolute w-full md:w-[397px] px-5 md:px-0 pt-1 md:pt-0 md:top-[125px] md:right-8 lg:right-[30px] z-10 flex justify-center md:justify-start"
-        variants={widgetVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <div className="w-full max-w-[397px] md:w-auto">
-          <MuseumHoursWidget />
-        </div>
-      </motion.div>
-
       {/* Content Container */}
       <div className="relative px-5 py-12 md:px-12 md:py-20 lg:px-[60px] lg:py-24 flex flex-col items-start justify-center h-full mt-16 md:mt-0">
         <motion.div
