@@ -1,7 +1,6 @@
 import { motion } from "motion/react";
 import svgPaths from "../../imports/svg-0zn5cqfzv6";
 import imgHero from "figma:asset/5e9e706a4edd098b94b55ffc8289a25c57fcd860.png";
-import MuseumHoursWidget from "./MuseumHoursWidget";
 
 export default function Hero() {
   // Animation variants for text entrance
