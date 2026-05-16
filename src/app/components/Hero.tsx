@@ -1,169 +1,73 @@
-import { motion } from "motion/react";
-import svgPaths from "../../imports/svg-0zn5cqfzv6";
-import imgHero from "figma:asset/5e9e706a4edd098b94b55ffc8289a25c57fcd860.png";
+import React from "react"
+import imgHero from "figma:asset/5e9e706a4edd098b94b55ffc8289a25c57fcd860.png"
 
 export default function Hero() {
-  // Animation variants for text entrance
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const lineVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  const fadeInUpVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.7,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  const buttonVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 15,
-      },
-    },
-  };
-
-  const widgetVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-        delay: 0.3,
-      },
-    },
-  };
-
   return (
-    <div className="relative w-full overflow-hidden" style={{ height: '90vh', marginTop: '34px', minHeight: '500px' }}>
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-no-repeat"
-        style={{ backgroundImage: `url(${imgHero})`, backgroundPosition: 'center calc(0% + 50px)' }}
+    <section
+      aria-label="Hero"
+      className="relative w-full bg-gray-900 text-white overflow-hidden"
+      style={{ minHeight: '520px' }}
+    >
+      <div className="absolute inset-0 bg-black/40" aria-hidden />
+
+      {/* Background image */}
+      <div
+        className="absolute right-0 top-0 h-full w-1/2 bg-cover bg-center bg-no-repeat hidden md:block"
+        style={{ backgroundImage: `url(${imgHero})` }}
       />
 
-      {/* Content Container */}
-      <div className="relative px-5 py-12 md:px-12 md:py-20 lg:px-[60px] lg:py-24 flex flex-col items-start justify-center h-full mt-16 md:mt-0">
-        <motion.div
-          className="flex flex-col gap-8 md:gap-10 lg:gap-[50px] items-start justify-start max-w-full lg:max-w-[700px]"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {/* Main Heading with Inline Animated Waves */}
-          <div className="relative w-full">
-            <h1 className="font-['Nunito',sans-serif] font-black text-white text-left leading-[1.1]"
-                style={{ fontSize: 'clamp(50.4px, 6.3vw, 86.4px)' }}>
-              <motion.span
-                variants={lineVariants}
-                className="block"
-              >
-                Where Families Come to Play
-              </motion.span>
-            </h1>
+      <div className="relative max-w-7xl mx-auto px-6 py-16 md:py-24 lg:py-32 flex flex-col md:flex-row items-center md:items-stretch gap-8">
+        {/* Left: Text */}
+        <div className="w-full md:w-1/2">
+          <h1 className="font-extrabold text-white leading-tight" style={{ fontSize: 'clamp(36px, 6vw, 72px)' }}>
+            Where Families
+            <br />
+            Come to Play
+          </h1>
+
+          <p className="mt-6 text-white/90 max-w-xl text-lg">
+            A hands-on world of exploration and discovery that sparks imagination
+            and inspires learning for children of all ages.
+          </p>
+
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <a
+              href="#tickets"
+              className="inline-flex items-center justify-center bg-[#f7941e] hover:bg-[#e8850d] text-white font-semibold rounded-full px-6 py-3 shadow-md"
+            >
+              Buy Tickets
+            </a>
+            <a
+              href="#membership"
+              className="inline-flex items-center justify-center bg-[#00adbb] hover:bg-[#009aa7] text-white font-semibold rounded-full px-6 py-3 shadow-md"
+            >
+              Memberships
+            </a>
           </div>
+        </div>
 
-          {/* Subtitle with Teal Wave underneath */}
-          <motion.div
-            className="relative w-full"
-            variants={fadeInUpVariants}
-          >
-            <p className="font-['Nunito',sans-serif] font-normal text-white text-[18px] max-w-full lg:max-w-[600px] leading-relaxed">
-              Welcome to a world of hands-on exploration & discovery that sparks
-              imagination & inspires learning.
-            </p>
-          </motion.div>
-
-          {/* Teal Wave - Above buttons */}
-          <motion.span
-            className="block overflow-hidden relative"
-            style={{ height: 'clamp(12px, 1.5vw, 20px)', width: 'clamp(120px, 15vw, 200px)' }}
-            variants={fadeInUpVariants}
-          >
-            <motion.svg
-              className="block w-full h-full"
-              fill="none"
-              preserveAspectRatio="none"
-              viewBox="0 0 400 20"
-              style={{ width: '200%' }}
-              animate={{
-                x: ['0%', '-50%'],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-            >
-              <path
-                d="M0 10 Q 50 0, 100 10 T 200 10 T 300 10 T 400 10"
-                stroke="#00ADBD"
-                strokeWidth="4"
-                strokeLinecap="round"
-                fill="none"
-              />
-            </motion.svg>
-          </motion.span>
-
-          {/* CTA Buttons */}
-          <motion.div
-            className="flex flex-col sm:flex-row gap-3 md:gap-[16px] w-full sm:w-auto"
-            variants={fadeInUpVariants}
-          >
-            <motion.button
-              className="bg-[#f7941e] rounded-full shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] px-8 py-4 md:px-[40px] md:py-[24px] hover:bg-[#e8850d] transition-colors w-full sm:w-auto"
-              variants={buttonVariants}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <p className="font-['Nunito',sans-serif] font-bold text-white text-lg md:text-[20px] whitespace-nowrap">
-                Buy Tickets
-              </p>
-            </motion.button>
-            <motion.button
-              className="bg-[#00adbb] rounded-full shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] px-8 py-4 md:px-[40px] md:py-[24px] hover:bg-[#009aa7] transition-colors w-full sm:w-auto"
-              variants={buttonVariants}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <p className="font-['Nunito',sans-serif] font-bold text-white text-lg md:text-[20px] whitespace-nowrap">
-                Memberships
-              </p>
-            </motion.button>
-          </motion.div>
-        </motion.div>
+        {/* Right: On small screens show image below */}
+        <div className="w-full md:w-1/2">
+          <img
+            src={imgHero}
+            alt="Children playing at the museum"
+            className="w-full h-[320px] md:h-full object-cover rounded-lg shadow-lg md:hidden"
+          />
+        </div>
       </div>
-    </div>
-  );
+
+      {/* Decorative wave */}
+      <svg
+        className="absolute bottom-0 left-0 w-full h-12 text-white/10"
+        viewBox="0 0 1440 54"
+        preserveAspectRatio="none"
+        aria-hidden
+      >
+        <path
+          d="M0 24c48 8 144 32 288 32s240-24 384-32 240 8 384 16 240 8 384-8V54H0V24z"
+          fill="currentColor"
+        />
+      </svg>
+    </section>
+  )
 }
