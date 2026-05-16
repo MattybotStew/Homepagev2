@@ -85,60 +85,11 @@ export default function Hero() {
           <div className="relative w-full">
             <h1 className="font-['Nunito',sans-serif] font-black text-white text-left leading-[1.1]"
                 style={{ fontSize: 'clamp(50.4px, 6.3vw, 86.4px)' }}>
-              {/* Line 1: "Experience" */}
               <motion.span
                 variants={lineVariants}
                 className="block"
               >
-                Experience
-              </motion.span>
-              
-              {/* Line 2: "Possibility" */}
-              <motion.span
-                variants={lineVariants}
-                className="block"
-              >
-                Possibility
-              </motion.span>
-              
-              {/* Line 3: "Through Play" + Orange Wave under "Play" */}
-              <motion.span
-                variants={lineVariants}
-                className="block relative"
-              >
-                <span>Through </span>
-                <span className="relative inline-block">
-                  Play
-                  {/* Orange Wave - Under "Play" */}
-                  <motion.span
-                    className="absolute left-0 right-0 overflow-hidden"
-                    style={{ top: '100%', height: 'clamp(12px, 1.5vw, 20px)', marginTop: '4px' }}
-                  >
-                    <motion.svg
-                      className="block w-full h-full absolute"
-                      fill="none"
-                      preserveAspectRatio="none"
-                      viewBox="0 0 400 20"
-                      style={{ width: '200%' }}
-                      animate={{
-                        x: ['0%', '-50%'],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "linear",
-                      }}
-                    >
-                      <path
-                        d="M0 10 Q 50 0, 100 10 T 200 10 T 300 10 T 400 10"
-                        stroke="#F7941E"
-                        strokeWidth="4"
-                        strokeLinecap="round"
-                        fill="none"
-                      />
-                    </motion.svg>
-                  </motion.span>
-                </span>
+                Where Families Come to Play
               </motion.span>
             </h1>
           </div>
