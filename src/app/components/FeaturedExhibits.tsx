@@ -143,20 +143,24 @@ export default function FeaturedExhibits() {
         </motion.a>
       </div>
 
-      {/* Carousel */}
-      <div className="relative flex items-center justify-center mt-[60px] md:mt-[80px] px-5 sm:px-10 md:px-0">
+      {/* Carousel — overflow hidden clips the side cards at the edges */}
+      <div className="relative overflow-hidden mt-[60px] md:mt-[80px]" style={{ minHeight: 520 }}>
 
-        {/* Side card — prev (left, rotated) */}
+        {/* Side card — prev (left), centered on the left edge */}
         <div
-          className="hidden md:block absolute left-0 lg:left-[4vw] xl:left-[8vw] cursor-pointer select-none"
-          style={{ transform: "rotate(-15deg)", zIndex: 0 }}
+          className="hidden md:flex absolute cursor-pointer select-none items-center justify-center"
+          style={{
+            left: 0,
+            top: "50%",
+            transform: "translate(-50%, -58%) rotate(-28deg)",
+            zIndex: 0,
+            width: 280,
+            height: 380,
+          }}
           onClick={() => go(-1)}
           aria-label="Previous exhibit"
         >
-          <div
-            className="overflow-hidden rounded-[16px]"
-            style={{ width: 240, height: 320, opacity: 0.7 }}
-          >
+          <div className="relative overflow-hidden rounded-[16px]" style={{ width: "100%", height: "100%", opacity: 0.85 }}>
             <img
               src={prev.image}
               alt=""
@@ -164,14 +168,14 @@ export default function FeaturedExhibits() {
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
             />
             <div
-              className="absolute inset-0 rounded-[16px]"
+              className="absolute inset-0"
               style={{ background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%)" }}
             />
           </div>
         </div>
 
         {/* Center card */}
-        <div className="relative z-10" style={{ width: "min(520px, 90vw)" }}>
+        <div className="relative z-10 mx-auto" style={{ width: "min(520px, 86vw)" }}>
           <AnimatePresence mode="popLayout" custom={direction}>
             <motion.div
               key={activeIndex}
@@ -273,17 +277,21 @@ export default function FeaturedExhibits() {
           </div>
         </div>
 
-        {/* Side card — next (right, rotated) */}
+        {/* Side card — next (right), centered on the right edge */}
         <div
-          className="hidden md:block absolute right-0 lg:right-[4vw] xl:right-[8vw] cursor-pointer select-none"
-          style={{ transform: "rotate(15deg)", zIndex: 0 }}
+          className="hidden md:flex absolute cursor-pointer select-none items-center justify-center"
+          style={{
+            right: 0,
+            top: "50%",
+            transform: "translate(50%, -58%) rotate(28deg)",
+            zIndex: 0,
+            width: 280,
+            height: 380,
+          }}
           onClick={() => go(1)}
           aria-label="Next exhibit"
         >
-          <div
-            className="overflow-hidden rounded-[16px]"
-            style={{ width: 240, height: 320, opacity: 0.7 }}
-          >
+          <div className="relative overflow-hidden rounded-[16px]" style={{ width: "100%", height: "100%", opacity: 0.85 }}>
             <img
               src={next.image}
               alt=""
@@ -291,7 +299,7 @@ export default function FeaturedExhibits() {
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
             />
             <div
-              className="absolute inset-0 rounded-[16px]"
+              className="absolute inset-0"
               style={{ background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%)" }}
             />
           </div>

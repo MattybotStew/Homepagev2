@@ -174,11 +174,12 @@ export default function PlanYourVisit() {
                 className="inline-flex items-center justify-center rounded-[1000px] border-2 border-[#1d3e6b] bg-white text-[#1d3e6b] transition-colors duration-200 hover:bg-[#1d3e6b] hover:text-white shrink-0"
                 style={{
                   fontFamily: "Nunito, sans-serif",
-                  fontWeight: 500,
-                  fontSize: 18,
-                  height: 43,
-                  paddingLeft: 28,
-                  paddingRight: 28,
+                  fontWeight: 700,
+                  fontSize: 15,
+                  paddingLeft: 24,
+                  paddingRight: 24,
+                  paddingTop: 13,
+                  paddingBottom: 13,
                 }}
               >
                 {card.buttonLabel}

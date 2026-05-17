@@ -91,21 +91,21 @@ export default function ImpactSection() {
               <a
                 href="#donate"
                 className="inline-flex items-center justify-center rounded-[1000px] border-2 border-[#007c87] bg-white text-[#007c87] transition-colors duration-200 hover:bg-[#007c87] hover:text-white"
-                style={{ fontFamily: "Nunito, sans-serif", fontWeight: 700, fontSize: 18, paddingLeft: 34, paddingRight: 34, paddingTop: 22, paddingBottom: 22 }}
+                style={{ fontFamily: "Nunito, sans-serif", fontWeight: 700, fontSize: 15, paddingLeft: 24, paddingRight: 24, paddingTop: 13, paddingBottom: 13 }}
               >
                 Donate
               </a>
               <a
                 href="#membership"
                 className="inline-flex items-center justify-center rounded-[1000px] border-2 border-white bg-white text-[#1d3e6b] transition-colors duration-200 hover:bg-transparent hover:text-white"
-                style={{ fontFamily: "Nunito, sans-serif", fontWeight: 700, fontSize: 18, paddingLeft: 34, paddingRight: 34, paddingTop: 22, paddingBottom: 22 }}
+                style={{ fontFamily: "Nunito, sans-serif", fontWeight: 700, fontSize: 15, paddingLeft: 24, paddingRight: 24, paddingTop: 13, paddingBottom: 13 }}
               >
                 Memberships
               </a>
               <a
                 href="#tickets"
                 className="inline-flex items-center justify-center rounded-[1000px] bg-[#f7941e] text-[#1d3e6b] transition-colors duration-200 hover:bg-[#c8701a]"
-                style={{ fontFamily: "Nunito, sans-serif", fontWeight: 700, fontSize: 18, paddingLeft: 34, paddingRight: 34, paddingTop: 22, paddingBottom: 22 }}
+                style={{ fontFamily: "Nunito, sans-serif", fontWeight: 700, fontSize: 15, paddingLeft: 24, paddingRight: 24, paddingTop: 13, paddingBottom: 13 }}
               >
                 Buy Tickets
               </a>

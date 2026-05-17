@@ -146,7 +146,7 @@ export default function MembershipPricing() {
                 <a
                   href="#membership"
                   className="inline-flex items-center justify-center rounded-[1000px] shrink-0 transition-colors duration-200 hover:bg-[#c8701a]"
-                  style={{ backgroundColor: "#f7941e", fontFamily: "Nunito, sans-serif", fontWeight: 700, fontSize: 18, color: "#1d3e6b", paddingLeft: 34, paddingRight: 34, paddingTop: 22, paddingBottom: 22 }}
+                  style={{ backgroundColor: "#f7941e", fontFamily: "Nunito, sans-serif", fontWeight: 700, fontSize: 18, color: "#1d3e6b", paddingLeft: 24, paddingRight: 24, paddingTop: 13, paddingBottom: 13 }}
                 >
                   Become a Member
                 </a>
@@ -211,7 +211,7 @@ export default function MembershipPricing() {
                 <a
                   href="#tickets"
                   className="inline-flex items-center justify-center rounded-[1000px] shrink-0 transition-colors duration-200 hover:opacity-90"
-                  style={{ backgroundColor: "#1d3e6b", fontFamily: "Nunito, sans-serif", fontWeight: 700, fontSize: 18, color: "#ffffff", paddingLeft: 34, paddingRight: 34, paddingTop: 22, paddingBottom: 22 }}
+                  style={{ backgroundColor: "#1d3e6b", fontFamily: "Nunito, sans-serif", fontWeight: 700, fontSize: 18, color: "#ffffff", paddingLeft: 24, paddingRight: 24, paddingTop: 13, paddingBottom: 13 }}
                 >
                   Buy Tickets
                 </a>
