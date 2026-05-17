@@ -4,9 +4,10 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "build": "vite build",
     "dev": "vite",
-    "start": "vite"
+    "start": "vite",
+    "build": "vite build",
+    "figma:fetch": "node scripts/fetchFigma.js"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
@@ -44,7 +45,9 @@
     "clsx": "2.1.1",
     "cmdk": "1.1.1",
     "date-fns": "3.6.0",
+    "dotenv": "^17.4.2",
     "embla-carousel-react": "8.6.0",
+    "figma-api": "^2.2.0-beta",
     "input-otp": "1.4.2",
     "lucide-react": "0.487.0",
     "motion": "12.23.24",

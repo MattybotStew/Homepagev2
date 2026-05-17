@@ -1,707 +1,223 @@
-import { motion, useScroll, useTransform } from "motion/react";
-import { ChevronDown } from "lucide-react";
-import { useState, useRef } from "react";
-import svgPaths from "../../imports/svg-mzk71uq0h5";
-import svgPathsExhibits from "../../imports/svg-qovx1mnin1";
-import Vector from "../../imports/Vector";
-import Statue from "../../imports/Statue-15-3841";
-import imgDivTrxAddonsImageAccordionItemInner from "figma:asset/b8f9ea4dd58f1866ed3c25d4adb731014fe690e2.png";
-import imgDivTrxAddonsImageAccordionItemInner1 from "figma:asset/5fbbcf6f08bc318f43c2c8d00d447df6318200dd.png";
-import imgDivTrxAddonsImageAccordionItemInner2 from "figma:asset/70606b144d42e6d7ed328be28058d6611206d0a2.png";
-import imgStatueHandstand11920X96811 from "figma:asset/2200d5f1414b522eb5abd25d17dd7bf0ff0d738e.png";
+import React, { useRef } from "react"
+import { motion, useScroll, useTransform } from "motion/react"
+import imgBgCircle from "figma:asset/pyv-bg-circle.svg"
+import imgIconTicket from "figma:asset/pyv-icon-ticket.svg"
+import imgIconClock from "figma:asset/pyv-icon-clock.svg"
+import imgIconParkingBg from "figma:asset/pyv-icon-parking-bg.svg"
+import imgIconParkingPin from "figma:asset/pyv-icon-parking-pin.svg"
+import imgIconFood from "figma:asset/pyv-icon-food.svg"
+import imgArrow from "figma:asset/pyv-arrow.svg"
+import imgWave from "figma:asset/pyv-wave.svg"
+
+function ParkingIcon() {
+  return (
+    <div className="relative shrink-0" style={{ width: 64, height: 64 }}>
+      <div className="absolute overflow-hidden" style={{ inset: 0 }}>
+        <div className="absolute" style={{ top: "3.13%", right: "3.13%", bottom: "3.13%", left: "3.13%" }}>
+          <img src={imgIconParkingBg} alt="" aria-hidden style={{ position: "absolute", inset: 0, width: "100%", height: "100%", display: "block" }} />
+        </div>
+        <div className="absolute" style={{ top: "21.88%", right: "29.69%", bottom: "23.44%", left: "29.69%" }}>
+          <div className="absolute" style={{ top: "-3.43%", right: "-4.62%", bottom: "-3.43%", left: "-4.62%" }}>
+            <img src={imgIconParkingPin} alt="" aria-hidden style={{ display: "block", width: "100%", height: "100%" }} />
+          </div>
+        </div>
+        <p
+          className="absolute text-center text-white font-bold whitespace-nowrap"
+          style={{ top: "28.13%", right: "42.19%", bottom: "42.19%", left: "42.19%", fontFamily: "Nunito, sans-serif", fontSize: 14, lineHeight: "normal" }}
+        >
+          P
+        </p>
+      </div>
+    </div>
+  )
+}
+
+const cards = [
+  {
+    icon: <img src={imgIconTicket} alt="" aria-hidden style={{ width: 64, height: 64, display: "block", flexShrink: 0 }} />,
+    title: "Plan Your Visit",
+    description: "Advance tickets recommended. Preview pricing & book online.",
+    buttonLabel: "Buy Now",
+    href: "#tickets",
+  },
+  {
+    icon: <img src={imgIconClock} alt="" aria-hidden style={{ width: 64, height: 64, display: "block", flexShrink: 0 }} />,
+    title: "Hours & What to Expect",
+    description: "FRIDAY:\nOpen 10am–3:30pm",
+    buttonLabel: "Plan Your Visit",
+    href: "#hours",
+  },
+  {
+    icon: <ParkingIcon />,
+    title: "Parking & Directions",
+    description: "Pre-purchase parking nearby. Easy access via MARTA",
+    buttonLabel: "Get Directions",
+    href: "#parking",
+  },
+  {
+    icon: <img src={imgIconFood} alt="" aria-hidden style={{ width: 64, height: 64, display: "block", flexShrink: 0 }} />,
+    title: "Food & Amenities",
+    description: "Snack and drinks on-site. Outside snacks welcome. Lockers & diaper stations available.",
+    buttonLabel: "See Amenities",
+    href: "#amenities",
+  },
+]
 
 export default function PlanYourVisit() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(0);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const statueRef = useRef<HTMLDivElement>(null);
-
-  // Track scroll progress of this section
+  const sectionRef = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
-  });
-
-  // Track scroll progress for the statue (scrolling up animation)
-  const { scrollYProgress: statueScrollProgress } = useScroll({
-    target: statueRef,
-    offset: ["start end", "start start"],
-  });
-
-  // Map scroll progress to scale: grows from 0.8 to 1.2 as user scrolls through section
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.2, 0.8]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, 180]);
-
-  // Statue slides off screen (to the right) when scrolling up and rotates
-  const statueX = useTransform(statueScrollProgress, [0, 1], [150, 0]);
-  const statueRotate = useTransform(statueScrollProgress, [0, 1], [15, 0]);
-
-  const toggleAccordion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  const underlineVariants = {
-    hidden: { pathLength: 0, opacity: 0 },
-    visible: {
-      pathLength: 1,
-      opacity: 1,
-      transition: {
-        pathLength: { duration: 1.2, ease: "easeInOut", delay: 0.3 },
-        opacity: { duration: 0.3, delay: 0.3 },
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
-    }),
-  };
-
-  const accordionData = [
-    {
-      title: "Hours & What to Expect",
-      color: "#00adbb",
-      badge: {
-        bg: "rgba(0,173,187,0.2)",
-        title: "FRIDAY: Open 10am-3:30pm",
-        subtitle: "Members: 9am-10am (early access)",
-      },
-      section: {
-        title: "What to Expect:",
-        items: [
-          "2-3 hour average visit",
-          "Self-guided exploration",
-          "All ages welcome",
-        ],
-        iconColor: "#00ADBB",
-      },
-      button: {
-        text: "Plan Your Visit",
-        borderColor: "#00adbb",
-        hoverBg: "#00adbb",
-      },
-    },
-    {
-      title: "Tickets & Pricing",
-      color: "#f7941e",
-      badge: {
-        bg: "rgba(247,148,30,0.2)",
-        title: "Members: FREE admission",
-        subtitle: "+early access +special events",
-      },
-      section: {
-        title: "General Admission:",
-        items: [
-          { label: "Adults:", price: "$18.95", priceColor: "#f7941e" },
-          { label: "Children (1-8):", price: "$18.95", priceColor: "#f7941e" },
-          { label: "Under 1:", price: "FREE", priceColor: "#1d3e6b" },
-        ],
-        iconColor: "#f7941e",
-        isPricing: true,
-      },
-      button: {
-        text: "Buy Tickets",
-        borderColor: "#f7941e",
-        hoverBg: "#f7941e",
-      },
-    },
-    {
-      title: "Getting There",
-      color: "#346094",
-      badge: {
-        bg: "rgba(29,62,107,0.2)",
-        title: "Parking:",
-        subtitle: "Pre-purchase $8",
-      },
-      section: {
-        title: "Getting Here:",
-        items: [
-          "MARTA: Civic Center Station",
-          "Street parking available",
-          "Rideshare drop-off zone",
-        ],
-        iconColor: "#346094",
-      },
-      button: {
-        text: "Get Directions",
-        borderColor: "#346094",
-        hoverBg: "#346094",
-      },
-    },
-    {
-      title: "Become a Member",
-      color: "#00adbb",
-      badge: {
-        bg: "rgba(0,173,187,0.2)",
-        title: "From $175/year",
-        subtitle: "FREE admission + exclusive benefits",
-      },
-      section: {
-        title: "Member Benefits:",
-        items: [
-          "Unlimited visits all year",
-          "Early access hours",
-          "Special events & workshops",
-          "Guest passes included",
-        ],
-        iconColor: "#00ADBB",
-      },
-      button: {
-        text: "Join Today",
-        borderColor: "#00adbb",
-        hoverBg: "#00adbb",
-      },
-    },
-  ];
+  })
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.2, 0.8])
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 180])
 
   return (
-    <div ref={sectionRef} className="bg-white relative w-full overflow-hidden" style={{ position: 'relative' }}>
-      {/* Background Decoration with Scroll-based Animation - Centered horizontally */}
+    <section
+      ref={sectionRef}
+      aria-label="Plan Your Visit"
+      className="relative w-full overflow-hidden py-[160px]"
+      style={{ backgroundColor: "#ffffff" }}
+    >
+      {/* Decorative background circle — scroll-driven scale + rotate */}
       <motion.div
-        className="absolute left-1/2 -translate-x-1/2 -top-[400px] w-full max-w-[1344px] h-[1585px] pointer-events-none z-0"
-        style={{ scale, rotate, position: 'absolute' }}
-        initial={{ opacity: 0, scale: 0.6, rotate: -45 }}
+        className="absolute pointer-events-none"
+        aria-hidden
+        style={{
+          left: "calc(50% + 65.82px)",
+          top: "-865px",
+          translateX: "-50%",
+          width: "2138px",
+          height: "2274px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          scale,
+          rotate,
+        }}
+        initial={{ opacity: 0, scale: 0.6 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-200px" }}
         transition={{ duration: 1.2 }}
       >
-        <Vector />
+        <div style={{ transform: "rotate(-24.31deg)", flexShrink: 0 }}>
+          <img
+            src={imgBgCircle}
+            alt=""
+            style={{ width: "1530px", height: "1804px", display: "block" }}
+          />
+        </div>
       </motion.div>
 
-      {/* Content Container */}
-      <div className="relative max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12 pt-20 md:pt-28 lg:pt-[140px] pb-[212px] md:pb-[216px] lg:pb-[220px] z-[1]" style={{ position: 'relative' }}>
+      {/* Content */}
+      <div className="relative flex flex-col items-center gap-[64px] max-w-[1280px] mx-auto px-5 sm:px-10 md:px-[80px]">
+
         {/* Heading */}
-        <motion.div
-          className="mb-8 md:mb-10 lg:mb-[30px]"
-          initial={{ opacity: 0, y: 20 }}
+        <motion.h2
+          className="text-center leading-none"
+          style={{
+            fontFamily: "Nunito, sans-serif",
+            fontWeight: 800,
+            fontSize: "clamp(36px, 5vw, 70px)",
+            color: "#1d3e6b",
+            letterSpacing: "-1px",
+          }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="font-['Nunito',sans-serif] font-black text-[#1b3d6d] text-[36px] md:text-[52px] lg:text-[70px] leading-none">
-            Planning Your Visit?
-            <br />
-            We've Got You Covered
-          </h2>
-        </motion.div>
+          Planning Your Visit?
+          <br />
+          We&apos;ve Got You Covered
+        </motion.h2>
 
-        {/* Mobile/Tablet Accordion (below lg) */}
-        <div className="lg:hidden space-y-3 md:space-y-4 mb-8 md:mb-10 lg:mb-[40px]">
-          {accordionData.map((item, index) => (
+        {/* Cards grid */}
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[10px]">
+          {cards.map((card, i) => (
             <motion.div
-              key={index}
-              className="bg-white rounded-[36px] border-2 overflow-hidden shadow-sm"
-              style={{ borderColor: 'rgba(0,0,0,0.05)' }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px", amount: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              whileHover={{
-                translateY: -6,
-                scale: 1.02,
-                boxShadow: "0 12px 28px rgba(0, 0, 0, 0.15)",
-              }}
+              key={i}
+              className="bg-white border border-[#e4e8ee] rounded-[18px] flex flex-col gap-[24px] pt-[29px] pb-[23px] px-[25px] min-h-[280px]"
+              initial={{ opacity: 0, scale: 0.92 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: i * 0.1, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              {/* Accordion Header */}
-              <button
-                className="w-full px-5 md:px-6 pt-2 md:pt-2.5 pb-4 md:pb-5 flex items-center justify-between hover:bg-gray-50 transition-colors min-h-[68px]"
-                onClick={() => toggleAccordion(index)}
-                aria-expanded={openIndex === index}
-              >
-                <div className="flex items-center gap-3 md:gap-4">
-                  {/* Color Indicator */}
-                  <div
-                    className="w-1 h-10 md:h-12 rounded-full shrink-0"
-                    style={{ backgroundColor: item.color }}
-                  />
-                  <h3
-                    className="font-['Nunito',sans-serif] font-semibold text-left text-[18px] md:text-[22px] leading-tight"
-                    style={{ color: item.color }}
-                  >
-                    {item.title}
-                  </h3>
-                </div>
-                <ChevronDown
-                  className={`w-6 h-6 md:w-7 md:h-7 shrink-0 transition-transform duration-300 ${
-                    openIndex === index ? "" : "rotate-180"
-                  }`}
-                  style={{ color: item.color }}
-                />
-              </button>
-
-              {/* Accordion Content */}
-              <motion.div
-                initial={false}
-                animate={{
-                  height: openIndex === index ? "auto" : 0,
-                  opacity: openIndex === index ? 1 : 0,
+              {card.icon}
+              <div className="flex-1 flex flex-col gap-[24px]">
+                <p
+                  style={{
+                    fontFamily: "Nunito, sans-serif",
+                    fontWeight: 700,
+                    fontSize: 24,
+                    color: "#1d3e6b",
+                    lineHeight: 1.1,
+                  }}
+                >
+                  {card.title}
+                </p>
+                <p
+                  style={{
+                    fontFamily: "Nunito, sans-serif",
+                    fontWeight: 500,
+                    fontSize: 15,
+                    color: "#2c3a52",
+                    lineHeight: 1.65,
+                    whiteSpace: "pre-line",
+                  }}
+                >
+                  {card.description}
+                </p>
+              </div>
+              <a
+                href={card.href}
+                className="inline-flex items-center justify-center rounded-[1000px] border-2 border-[#1d3e6b] bg-white text-[#1d3e6b] transition-colors duration-200 hover:bg-[#1d3e6b] hover:text-white shrink-0"
+                style={{
+                  fontFamily: "Nunito, sans-serif",
+                  fontWeight: 500,
+                  fontSize: 18,
+                  height: 43,
+                  paddingLeft: 28,
+                  paddingRight: 28,
                 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="overflow-hidden"
               >
-                <div className="px-5 md:px-6 pb-5 pt-2">
-                  {/* Badge */}
-                  {item.badge && (
-                    <div
-                      className="rounded-[10px] px-4 py-3 mb-5"
-                      style={{ backgroundColor: item.badge.bg }}
-                    >
-                      <p className="font-['Nunito',sans-serif] font-medium text-[#1b3d6d] text-[15px] md:text-[16px] leading-[28px] text-center">
-                        {item.badge.title}
-                      </p>
-                      <p className="font-['Nunito',sans-serif] font-normal text-[#4a5565] text-[14px] leading-[20px] text-center">
-                        {item.badge.subtitle}
-                      </p>
-                    </div>
-                  )}
-
-                  {/* Section Content */}
-                  <div className="mb-5">
-                    <h4 className="font-['Nunito',sans-serif] font-semibold text-[#474763] text-[18px] md:text-[20px] leading-[24px] tracking-[-0.8px] mb-3">
-                      {item.section.title}
-                    </h4>
-                    <div className="space-y-0">
-                      {item.section.items.map((listItem, itemIndex) => (
-                        <div
-                          key={itemIndex}
-                          className="flex gap-3 items-center py-[13px] border-b border-[#e8e3d7]"
-                        >
-                          {typeof listItem === "string" ? (
-                            <>
-                              <svg
-                                className="w-[18px] h-[18px] shrink-0"
-                                fill="none"
-                                viewBox="0 0 18.05 18.05"
-                              >
-                                <path
-                                  d={svgPaths.p11f8ef00}
-                                  fill={item.section.iconColor}
-                                />
-                              </svg>
-                              <p className="font-['Nunito',sans-serif] font-normal text-[#8c8c9d] text-[15px] md:text-[16px] leading-[26px]">
-                                {listItem}
-                              </p>
-                            </>
-                          ) : (
-                            <>
-                              <p className="font-['Nunito',sans-serif] font-bold text-[#364153] text-[15px] md:text-[16px] leading-[26px] flex-1">
-                                {listItem.label}
-                              </p>
-                              <p
-                                className="font-['Nunito',sans-serif] font-bold text-[15px] md:text-[16px] leading-[26px]"
-                                style={{ color: listItem.priceColor }}
-                              >
-                                {listItem.price}
-                              </p>
-                            </>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* CTA Button */}
-                  <button
-                    className="w-full rounded-full px-6 md:px-8 py-4 md:py-5 shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] transition-colors group min-h-[44px] md:min-h-[56px]"
-                    style={{
-                      border: `2px solid ${item.button.borderColor}`,
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = item.button.hoverBg;
-                      e.currentTarget.querySelector("p")!.style.color = "white";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "transparent";
-                      e.currentTarget.querySelector("p")!.style.color =
-                        item.button.borderColor;
-                    }}
-                  >
-                    <p
-                      className="font-['Nunito',sans-serif] font-bold text-[18px] md:text-[22px] leading-[1.13] transition-colors"
-                      style={{ color: item.button.borderColor }}
-                    >
-                      {item.button.text}
-                    </p>
-                  </button>
-                </div>
-              </motion.div>
+                {card.buttonLabel}
+              </a>
             </motion.div>
           ))}
         </div>
 
-        {/* Desktop Cards Grid (lg and up) */}
-        <div className="hidden lg:grid grid-cols-4 gap-[11.4px] mb-[40px]">
-          {/* Card 1: Hours & What to Expect */}
-          <motion.div
-            className="bg-white rounded-[36px] border-2 p-5 flex flex-col transition-all duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-[6px] hover:scale-[1.02] hover:shadow-[0_16px_40px_rgba(0,0,0,0.12)]"
-            style={{ borderColor: 'rgba(0,0,0,0.05)' }}
-            custom={0}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={cardVariants}
+        {/* Keep scrolling pill */}
+        <div className="inline-flex items-center gap-[10px] bg-white border border-[rgba(107,126,160,0.25)] rounded-[200px] px-[17px] py-[9px]">
+          <p
+            className="uppercase"
+            style={{
+              fontFamily: "Nunito, sans-serif",
+              fontWeight: 800,
+              fontSize: 14,
+              color: "#346094",
+              lineHeight: 1.14,
+            }}
           >
-            {/* Title */}
-            <div className="pt-[12.35px] pb-[24.7px]">
-              <h3 className="font-['Nunito',sans-serif] font-semibold text-[#474763] text-[22px] leading-[24px] tracking-[-0.96px]">
-                Hours & What to Expect
-              </h3>
-            </div>
-
-            {/* Badge */}
-            <div className="bg-[rgba(0,173,187,0.2)] rounded-[10px] px-2 py-[10px] mb-[19px]">
-              <p className="font-['Nunito',sans-serif] font-medium text-[#1b3d6d] text-[15px] leading-[28px] text-center">
-                FRIDAY: Open 10am-3:30pm
-              </p>
-              <p className="font-['Nunito',sans-serif] font-normal text-[#4a5565] text-[14px] leading-[20px] text-center">
-                Members: 9am-10am (early access)
-              </p>
-            </div>
-
-            {/* What to Expect List */}
-            <div className="py-[19px] flex-1">
-              <h4 className="font-['Nunito',sans-serif] font-semibold text-[#474763] text-[20px] leading-[24px] tracking-[-0.8px] mb-[14.25px]">
-                What to Expect:
-              </h4>
-              <div className="space-y-0">
-                <div className="flex gap-3 items-center py-[12.35px] border-b border-[#e8e3d7]">
-                  <svg className="w-[18px] h-[18px] shrink-0" fill="none" viewBox="0 0 18.05 18.05">
-                    <path d={svgPaths.p11f8ef00} fill="#00ADBB" />
-                  </svg>
-                  <p className="font-['Nunito',sans-serif] font-normal text-[#8c8c9d] text-[16px] leading-[26px]">
-                    2-3 hour average visit
-                  </p>
-                </div>
-                <div className="flex gap-3 items-center py-[12.35px] border-b border-[#e8e3d7]">
-                  <svg className="w-[18px] h-[18px] shrink-0" fill="none" viewBox="0 0 18.05 18.05">
-                    <path d={svgPaths.p11f8ef00} fill="#00ADBB" />
-                  </svg>
-                  <p className="font-['Nunito',sans-serif] font-normal text-[#8c8c9d] text-[16px] leading-[26px]">
-                    Self-guided exploration
-                  </p>
-                </div>
-                <div className="flex gap-3 items-center py-[12.35px] border-b border-[#e8e3d7]">
-                  <svg className="w-[18px] h-[18px] shrink-0" fill="none" viewBox="0 0 18.05 18.05">
-                    <path d={svgPaths.p11f8ef00} fill="#00ADBB" />
-                  </svg>
-                  <p className="font-['Nunito',sans-serif] font-normal text-[#8c8c9d] text-[16px] leading-[26px]">
-                    All ages welcome
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA Button */}
-            <button className="w-full rounded-full border-2 border-[#00adbb] px-[34px] py-[19px] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] hover:bg-[#00adbb] hover:text-white transition-colors group min-h-[44px]">
-              <p className="font-['Nunito',sans-serif] font-bold text-[#00adbb] text-[24px] leading-[1.13] group-hover:text-white transition-colors">
-                Plan Your Visit
-              </p>
-            </button>
-          </motion.div>
-
-          {/* Card 2: Tickets & Pricing */}
-          <motion.div
-            className="bg-white rounded-[36px] border-2 p-5 flex flex-col transition-all duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-[6px] hover:scale-[1.02] hover:shadow-[0_16px_40px_rgba(0,0,0,0.12)]"
-            style={{ borderColor: 'rgba(0,0,0,0.05)' }}
-            custom={1}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={cardVariants}
-          >
-            {/* Title */}
-            <div className="pt-[12.35px] pb-[24.7px]">
-              <h3 className="font-['Nunito',sans-serif] font-semibold text-[#474763] text-[22px] leading-[24px] tracking-[-0.96px]">
-                Tickets & Pricing
-              </h3>
-            </div>
-
-            {/* Badge */}
-            <div className="bg-[rgba(247,148,30,0.2)] rounded-[10px] px-2 py-[10px] mb-[19px]">
-              <p className="font-['Nunito',sans-serif] font-medium text-[#1b3d6d] text-[15px] leading-[28px] text-center">
-                Members: FREE admission
-              </p>
-              <p className="font-['Nunito',sans-serif] font-normal text-[#4a5565] text-[14px] leading-[20px] text-center">
-                +early access +special events
-              </p>
-            </div>
-
-            {/* Pricing List */}
-            <div className="py-[19px] flex-1">
-              <h4 className="font-['Nunito',sans-serif] font-semibold text-[#474763] text-[20px] leading-[24px] tracking-[-0.8px] mb-[14.25px]">
-                General Admission:
-              </h4>
-              <div className="space-y-0">
-                <div className="flex justify-between items-center py-[12.35px] border-b border-[#e8e3d7]">
-                  <p className="font-['Nunito',sans-serif] font-bold text-[#364153] text-[16px] leading-[26px]">
-                    Adults:
-                  </p>
-                  <p className="font-['Nunito',sans-serif] font-bold text-[#f7941e] text-[16px] leading-[26px]">
-                    $18.95
-                  </p>
-                </div>
-                <div className="flex justify-between items-center py-[12.35px] border-b border-[#e8e3d7]">
-                  <p className="font-['Nunito',sans-serif] font-bold text-[#364153] text-[16px] leading-[26px]">
-                    Children (1-8):
-                  </p>
-                  <p className="font-['Nunito',sans-serif] font-bold text-[#f7941e] text-[16px] leading-[26px]">
-                    $18.95
-                  </p>
-                </div>
-                <div className="flex justify-between items-center py-[12.35px] border-b border-[#e8e3d7]">
-                  <p className="font-['Nunito',sans-serif] font-bold text-[#364153] text-[16px] leading-[26px]">
-                    Under 1:
-                  </p>
-                  <p className="font-['Nunito',sans-serif] font-bold text-[#1d3e6b] text-[16px] leading-[26px]">
-                    FREE
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA Button */}
-            <button className="w-full rounded-full border-2 border-[#f7941e] px-[34px] py-[19px] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] hover:bg-[#f7941e] hover:text-white transition-colors group min-h-[44px]">
-              <p className="font-['Nunito',sans-serif] font-bold text-[#f7941e] text-[24px] leading-[1.13] group-hover:text-white transition-colors">
-                Buy Tickets
-              </p>
-            </button>
-          </motion.div>
-
-          {/* Card 3: Parking & Directions */}
-          <motion.div
-            className="bg-white rounded-[36px] border-2 p-5 flex flex-col transition-all duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-[6px] hover:scale-[1.02] hover:shadow-[0_16px_40px_rgba(0,0,0,0.12)]"
-            style={{ borderColor: 'rgba(0,0,0,0.05)' }}
-            custom={2}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={cardVariants}
-          >
-            {/* Title */}
-            <div className="pt-[12.35px] pb-[24.7px]">
-              <h3 className="font-['Nunito',sans-serif] font-semibold text-[#474763] text-[22px] leading-[24px] tracking-[-0.96px]">
-                Parking & Directions
-              </h3>
-            </div>
-
-            {/* Badge */}
-            <div className="bg-[rgba(29,62,107,0.2)] rounded-[10px] px-2 py-[10px] mb-[19px]">
-              <p className="font-['Nunito',sans-serif] font-semibold text-[#1b3d6d] text-[16px] leading-[26px] text-center">
-                Parking:
-              </p>
-              <p className="font-['Nunito',sans-serif] font-normal text-[#4a5565] text-[14px] leading-[20px] text-center">
-                Pre-purchase $8
-              </p>
-            </div>
-
-            {/* Getting Here List */}
-            <div className="py-[19px] flex-1">
-              <h4 className="font-['Nunito',sans-serif] font-semibold text-[#474763] text-[20px] leading-[24px] tracking-[-0.8px] mb-[14.25px]">
-                Getting Here:
-              </h4>
-              <div className="space-y-0">
-                <div className="flex gap-3 items-center py-[12.35px] border-b border-[#e8e3d7]">
-                  <svg className="w-[18px] h-[18px] shrink-0" fill="none" viewBox="0 0 18.05 18.05">
-                    <path d={svgPaths.p11f8ef00} fill="#346094" />
-                  </svg>
-                  <p className="font-['Nunito',sans-serif] font-normal text-[#8c8c9d] text-[16px] leading-[26px]">
-                    MARTA: Civic Center Station
-                  </p>
-                </div>
-                <div className="flex gap-3 items-center py-[12.35px] border-b border-[#e8e3d7]">
-                  <svg className="w-[18px] h-[18px] shrink-0" fill="none" viewBox="0 0 18.05 18.05">
-                    <path d={svgPaths.p11f8ef00} fill="#346094" />
-                  </svg>
-                  <p className="font-['Nunito',sans-serif] font-normal text-[#8c8c9d] text-[16px] leading-[26px]">
-                    Street parking available
-                  </p>
-                </div>
-                <div className="flex gap-3 items-center py-[12.35px] border-b border-[#e8e3d7]">
-                  <svg className="w-[18px] h-[18px] shrink-0" fill="none" viewBox="0 0 18.05 18.05">
-                    <path d={svgPaths.p11f8ef00} fill="#346094" />
-                  </svg>
-                  <p className="font-['Nunito',sans-serif] font-normal text-[#8c8c9d] text-[16px] leading-[26px]">
-                    Rideshare drop-off zone
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA Button */}
-            <button className="w-full rounded-full border-2 border-[#346094] px-[34px] py-[19px] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] hover:bg-[#346094] hover:text-white transition-colors group min-h-[44px]">
-              <p className="font-['Nunito',sans-serif] font-bold text-[#346094] text-[24px] leading-[1.13] group-hover:text-white transition-colors">
-                Get Directions
-              </p>
-            </button>
-          </motion.div>
-
-          {/* Card 4: Food & Amenities */}
-          <motion.div
-            className="bg-white rounded-[36px] border-2 p-5 flex flex-col transition-all duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-[6px] hover:scale-[1.02] hover:shadow-[0_16px_40px_rgba(0,0,0,0.12)]"
-            style={{ borderColor: 'rgba(0,0,0,0.05)' }}
-            custom={3}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={cardVariants}
-          >
-            {/* Title */}
-            <div className="pt-[12.35px] pb-[24.7px]">
-              <h3 className="font-['Nunito',sans-serif] font-semibold text-[#474763] text-[22px] leading-[24px] tracking-[-0.96px]">
-                Become a Member
-              </h3>
-            </div>
-
-            {/* Badge */}
-            <div className="bg-[rgba(0,173,187,0.2)] rounded-[10px] px-2 py-[10px] mb-[19px]">
-              <p className="font-['Nunito',sans-serif] font-medium text-[#1b3d6d] text-[15px] leading-[28px] text-center">
-                From $175/year
-              </p>
-              <p className="font-['Nunito',sans-serif] font-normal text-[#4a5565] text-[14px] leading-[20px] text-center">
-                FREE admission + exclusive benefits
-              </p>
-            </div>
-
-            {/* Facilities List */}
-            <div className="pb-[19px] flex-1">
-              <h4 className="font-['Nunito',sans-serif] font-semibold text-[#474763] text-[20px] leading-[24px] tracking-[-0.8px] mb-[14.25px]">
-                Member Benefits:
-              </h4>
-              <div className="space-y-0">
-                <div className="flex gap-3 items-center py-[12.35px] border-b border-[#e8e3d7]">
-                  <svg className="w-[18px] h-[18px] shrink-0" fill="none" viewBox="0 0 18.05 18.05">
-                    <path d={svgPaths.p11f8ef00} fill="#00ADBB" />
-                  </svg>
-                  <p className="font-['Nunito',sans-serif] font-normal text-[#8c8c9d] text-[16px] leading-[26px]">
-                    Unlimited visits all year
-                  </p>
-                </div>
-                <div className="flex gap-3 items-center py-[12.35px] border-b border-[#e8e3d7]">
-                  <svg className="w-[18px] h-[18px] shrink-0" fill="none" viewBox="0 0 18.05 18.05">
-                    <path d={svgPaths.p11f8ef00} fill="#00ADBB" />
-                  </svg>
-                  <p className="font-['Nunito',sans-serif] font-normal text-[#8c8c9d] text-[16px] leading-[26px]">
-                    Early access hours
-                  </p>
-                </div>
-                <div className="flex gap-3 items-center py-[12.35px] border-b border-[#e8e3d7]">
-                  <svg className="w-[18px] h-[18px] shrink-0" fill="none" viewBox="0 0 18.05 18.05">
-                    <path d={svgPaths.p11f8ef00} fill="#00ADBB" />
-                  </svg>
-                  <p className="font-['Nunito',sans-serif] font-normal text-[#8c8c9d] text-[16px] leading-[26px]">
-                    Special events & workshops
-                  </p>
-                </div>
-                <div className="flex gap-3 items-center py-[12.35px] border-b border-[#e8e3d7]">
-                  <svg className="w-[18px] h-[18px] shrink-0" fill="none" viewBox="0 0 18.05 18.05">
-                    <path d={svgPaths.p11f8ef00} fill="#00ADBB" />
-                  </svg>
-                  <p className="font-['Nunito',sans-serif] font-normal text-[#8c8c9d] text-[16px] leading-[26px]">
-                    Guest passes included
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA Button */}
-            <button className="w-full rounded-full border-2 border-[#00adbb] px-[34px] py-[19px] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] hover:bg-[#00adbb] hover:text-white transition-colors group min-h-[44px]">
-              <p className="font-['Nunito',sans-serif] font-bold text-[#00adbb] text-[24px] leading-[1.13] group-hover:text-white transition-colors">
-                Join Today
-              </p>
-            </button>
-          </motion.div>
-        </div>
-
-        {/* Bridge Text CTA */}
-        <motion.div
-          className="flex items-center justify-center gap-2 md:gap-[10px] bg-[#cceff1] rounded-[20px] px-4 md:px-[10px] py-2 md:py-[6px] mx-auto w-fit mb-20 md:mb-28 lg:mb-[120px]"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-        >
-          <p className="font-['Nunito',sans-serif] font-bold text-[#346094] text-[12px] md:text-[14px] leading-[21px] tracking-[2px] md:tracking-[3.5px] uppercase">
             keep scrolling to explore our exhibits
           </p>
-          <div className="rotate-180">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 20 20">
-              <path d={svgPaths.pa843760} fill="#346094" />
-            </svg>
+          <div style={{ transform: "rotate(180deg)", flexShrink: 0 }}>
+            <img src={imgArrow} alt="" aria-hidden style={{ width: 20, height: 20, display: "block" }} />
           </div>
-        </motion.div>
+        </div>
 
-        {/* Explore Exhibits Section */}
-        <motion.div
-          className="relative mb-8 md:mb-10 lg:mb-[40px]"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
-        >
-          <div className="relative mb-6 md:mb-8 lg:mb-10">
-            {/* Animated Statue - positioned upper right with gentle bob animation */}
-            <div ref={statueRef} className="relative" style={{ position: 'relative' }}>
-              <div className="hidden md:block absolute right-0 -top-[100px] w-[60px] h-[120px] lg:w-[70px] lg:h-[140px] z-10">
-                {/* Shadow - shrinks and grows */}
-                <motion.div 
-                  className="absolute h-[14.649px] left-0 top-[248.35px] w-[131.84px]"
-                  animate={{ 
-                    scaleX: [1, 0.7, 1],
-                    scaleY: [1, 0.6, 1],
-                    opacity: [0.6, 0.2, 0.6]
-                  }}
-                  transition={{ 
-                    duration: 2.5,
-                    ease: "easeInOut",
-                    repeat: Infinity
-                  }}
-                >
-                  <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 131.84 14.6488">
-                    <ellipse cx="65.9198" cy="7.32442" fill="url(#paint0_linear_statue_shadow)" rx="65.9198" ry="7.32442" />
-                    <defs>
-                      <linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear_statue_shadow" x1="0" x2="131.84" y1="7.32442" y2="7.32442">
-                        <stop stopColor="#D9D9D9" stopOpacity="0.3" />
-                        <stop offset="1" stopColor="#737373" stopOpacity="0.3" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                </motion.div>
-                
-                {/* Statue - bounces */}
-                <motion.div
-                  className="absolute h-[262.998px] left-0 top-0 w-[131.158px]"
-                  animate={{ 
-                    y: [0, -25, 0]
-                  }}
-                  transition={{ 
-                    duration: 2.5,
-                    ease: "easeInOut",
-                    repeat: Infinity
-                  }}
-                >
-                  <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <img 
-                      alt="" 
-                      className="absolute h-[125.39%] left-[-195.32%] max-w-none top-[-16.32%] w-[498.7%]" 
-                      src={imgStatueHandstand11920X96811} 
-                    />
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Final Bridge Text CTA - REMOVED */}
       </div>
-    </div>
-  );
+
+      {/* Teal wave strip at bottom */}
+      <div
+        className="absolute bottom-0 left-0 flex overflow-hidden"
+        style={{ height: 13, width: "100%" }}
+        aria-hidden
+      >
+        {[0, 1, 2, 3].map(i => (
+          <img key={i} src={imgWave} alt="" style={{ width: 422, height: 57, flexShrink: 0, display: "block" }} />
+        ))}
+      </div>
+    </section>
+  )
 }

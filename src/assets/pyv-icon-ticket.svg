@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="SVG - cream disc + ticket">
+<path id="Vector" d="M32 62C48.5685 62 62 48.5685 62 32C62 15.4315 48.5685 2 32 2C15.4315 2 2 15.4315 2 32C2 48.5685 15.4315 62 32 62Z" fill="var(--fill-0, #F7941E)"/>
+<path id="Vector_2" d="M14 26C14 25.2044 14.3161 24.4413 14.8787 23.8787C15.4413 23.3161 16.2044 23 17 23H47C47.7956 23 48.5587 23.3161 49.1213 23.8787C49.6839 24.4413 50 25.2044 50 26V29C49.2044 29 48.4413 29.3161 47.8787 29.8787C47.3161 30.4413 47 31.2044 47 32C47 32.7956 47.3161 33.5587 47.8787 34.1213C48.4413 34.6839 49.2044 35 50 35V38C50 38.7956 49.6839 39.5587 49.1213 40.1213C48.5587 40.6839 47.7956 41 47 41H17C16.2044 41 15.4413 40.6839 14.8787 40.1213C14.3161 39.5587 14 38.7956 14 38V35C14.7956 35 15.5587 34.6839 16.1213 34.1213C16.6839 33.5587 17 32.7956 17 32C17 31.2044 16.6839 30.4413 16.1213 29.8787C15.5587 29.3161 14.7956 29 14 29V26Z" stroke="var(--stroke-0, white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="Vector_3">
+<path d="M38 24V40Z" fill="var(--fill-0, white)"/>
+<path d="M38 24V40" stroke="var(--stroke-0, white)" stroke-width="2" stroke-linecap="round" stroke-dasharray="1.5 2.5"/>
+</g>
+<path id="Vector_4" d="M22 32L23.5 33.5L26 30" stroke="var(--stroke-0, white)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>
