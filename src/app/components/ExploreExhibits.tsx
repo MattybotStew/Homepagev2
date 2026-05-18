@@ -51,7 +51,7 @@ export default function ExploreExhibits() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="relative mb-6 md:mb-8 lg:mb-10">
-            <h2 className="font-['Nunito',sans-serif] font-bold text-[#1b3d6d] text-[36px] md:text-[52px] lg:text-[70px] leading-none">
+            <h2 className="font-['Nunito',sans-serif] text-[#1b3d6d]">
               Explore Our Exhibits:
               <br />
               The Power of Play

@@ -41,7 +41,7 @@ export default function InstagramSection() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="font-['Nunito',sans-serif] font-black text-[#1b3d6d] text-[32px] md:text-[48px] lg:text-[56px] mb-4">
+          <h2 className="font-['Nunito',sans-serif] text-[#1b3d6d] mb-4">
             Follow the Fun
           </h2>
           <p className="font-['Nunito',sans-serif] text-[#78787a] text-base md:text-lg max-w-2xl mx-auto">

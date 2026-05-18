@@ -117,10 +117,7 @@ export default function PlanYourVisit() {
           className="text-center leading-none"
           style={{
             fontFamily: "Nunito, sans-serif",
-            fontWeight: 800,
-            fontSize: "clamp(36px, 5vw, 70px)",
             color: "#1d3e6b",
-            letterSpacing: "-1px",
           }}
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -60,8 +60,6 @@ export default function ImpactSection() {
               className="leading-none"
               style={{
                 fontFamily: "Nunito, sans-serif",
-                fontWeight: 700,
-                fontSize: "clamp(36px, 4.5vw, 56px)",
                 color: "#ffffff",
               }}
               initial={{ opacity: 0, y: 24 }}
@@ -83,7 +81,7 @@ export default function ImpactSection() {
                 style={{
                   fontFamily: "Nunito, sans-serif",
                   fontWeight: 500,
-                  fontSize: 18,
+                  fontSize: "clamp(15px, 2vw, 18px)",
                   color: "#d4e3f3",
                   lineHeight: 1.7,
                 }}
@@ -94,7 +92,7 @@ export default function ImpactSection() {
                 style={{
                   fontFamily: "Nunito, sans-serif",
                   fontWeight: 600,
-                  fontSize: 24,
+                  fontSize: "clamp(18px, 2.5vw, 24px)",
                   color: "#ffffff",
                   lineHeight: 1.1,
                 }}
@@ -146,7 +144,7 @@ export default function ImpactSection() {
               src={imgPhoto}
               alt="Child playing at the Children's Museum of Atlanta"
               className="w-full object-cover rounded-[30px]"
-              style={{ height: "clamp(300px, 40vw, 470px)" }}
+              style={{ height: "clamp(220px, 55vw, 470px)" }}
             />
           </motion.div>
 

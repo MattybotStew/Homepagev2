@@ -27,10 +27,7 @@ export default function MembershipPricing() {
             className="text-center leading-none"
             style={{
               fontFamily: "Nunito, sans-serif",
-              fontWeight: 800,
-              fontSize: "clamp(36px, 5vw, 70px)",
               color: "#1d3e6b",
-              letterSpacing: "-1px",
             }}
           >
             Visit More, Pay Less
@@ -50,7 +47,7 @@ export default function MembershipPricing() {
             {/* Family Membership tab */}
             <button
               onClick={() => setTab("membership")}
-              className="flex items-center gap-[6px] h-[42px] px-[24px] rounded-[1000px] transition-colors duration-200"
+              className="flex items-center gap-[6px] min-h-[44px] px-[24px] rounded-[1000px] transition-colors duration-200"
               style={{ backgroundColor: tab === "membership" ? "#1d3e6b" : "transparent" }}
             >
               <span
@@ -90,7 +87,7 @@ export default function MembershipPricing() {
             {/* Single Visit tab */}
             <button
               onClick={() => setTab("single")}
-              className="flex items-center justify-center h-[42px] px-[24px] rounded-[1000px] transition-colors duration-200"
+              className="flex items-center justify-center min-h-[44px] px-[24px] rounded-[1000px] transition-colors duration-200"
               style={{ backgroundColor: tab === "single" ? "#1d3e6b" : "transparent" }}
             >
               <span
@@ -130,8 +127,8 @@ export default function MembershipPricing() {
               </p>
 
               {/* Price + CTA row */}
-              <div className="flex flex-wrap gap-[32px] items-center">
-                <div className="flex items-end gap-[8px] flex-1 min-w-0">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-[20px] sm:gap-[32px]">
+                <div className="flex items-end gap-[8px] min-w-0">
                   <span
                     style={{ fontFamily: "Nunito, sans-serif", fontWeight: 800, fontSize: "clamp(56px, 7vw, 87px)", color: "#ffffff", letterSpacing: "-3px", lineHeight: 1 }}
                   >
@@ -145,7 +142,7 @@ export default function MembershipPricing() {
                 </div>
                 <a
                   href="#membership"
-                  className="inline-flex items-center justify-center rounded-[1000px] shrink-0 transition-colors duration-200 hover:bg-[#c8701a]"
+                  className="inline-flex items-center justify-center rounded-[1000px] shrink-0 self-start sm:self-auto transition-colors duration-200 hover:bg-[#c8701a]"
                   style={{ backgroundColor: "#f7941e", fontFamily: "Nunito, sans-serif", fontWeight: 700, fontSize: 18, color: "#1d3e6b", paddingLeft: 24, paddingRight: 24, paddingTop: 13, paddingBottom: 13 }}
                 >
                   Become a Member
@@ -195,8 +192,8 @@ export default function MembershipPricing() {
               </p>
 
               {/* Price + CTA row */}
-              <div className="flex flex-wrap gap-[32px] items-center">
-                <div className="flex items-end gap-[8px] flex-1 min-w-0">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-[20px] sm:gap-[32px]">
+                <div className="flex items-end gap-[8px] min-w-0">
                   <span
                     style={{ fontFamily: "Nunito, sans-serif", fontWeight: 800, fontSize: "clamp(56px, 7vw, 87px)", color: "#1d3e6b", letterSpacing: "-3px", lineHeight: 1 }}
                   >
@@ -210,7 +207,7 @@ export default function MembershipPricing() {
                 </div>
                 <a
                   href="#tickets"
-                  className="inline-flex items-center justify-center rounded-[1000px] shrink-0 transition-colors duration-200 hover:opacity-90"
+                  className="inline-flex items-center justify-center rounded-[1000px] shrink-0 self-start sm:self-auto transition-colors duration-200 hover:opacity-90"
                   style={{ backgroundColor: "#1d3e6b", fontFamily: "Nunito, sans-serif", fontWeight: 700, fontSize: 18, color: "#ffffff", paddingLeft: 24, paddingRight: 24, paddingTop: 13, paddingBottom: 13 }}
                 >
                   Buy Tickets
@@ -221,21 +218,21 @@ export default function MembershipPricing() {
               <div style={{ height: 1, backgroundColor: "rgba(0,0,0,0.15)" }} />
 
               {/* Per-ticket prices */}
-              <div className="flex flex-wrap gap-[32px]">
+              <div className="grid grid-cols-3 gap-x-[16px] gap-y-[32px]">
                 {[
                   { label: "Child / Senior", price: "$19.95" },
                   { label: "Adult", price: "$21.95" },
                   { label: "Family of Four", price: "$83.80" },
                 ].map(({ label, price }) => (
-                  <div key={label} className="flex flex-col gap-[16px]">
+                  <div key={label} className="flex flex-col gap-[8px] sm:gap-[16px]">
                     <p
                       className="uppercase"
-                      style={{ fontFamily: "Nunito, sans-serif", fontWeight: 700, fontSize: 14, color: "rgba(29,62,107,0.8)", letterSpacing: "2px" }}
+                      style={{ fontFamily: "Nunito, sans-serif", fontWeight: 700, fontSize: "clamp(10px, 1.5vw, 14px)", color: "rgba(29,62,107,0.8)", letterSpacing: "2px" }}
                     >
                       {label}
                     </p>
                     <p
-                      style={{ fontFamily: "Nunito, sans-serif", fontWeight: 800, fontSize: "clamp(32px, 4vw, 48px)", color: "#1d3e6b", letterSpacing: "-3px", lineHeight: 1 }}
+                      style={{ fontFamily: "Nunito, sans-serif", fontWeight: 800, fontSize: "clamp(22px, 4vw, 48px)", color: "#1d3e6b", letterSpacing: "-2px", lineHeight: 1 }}
                     >
                       {price}
                     </p>

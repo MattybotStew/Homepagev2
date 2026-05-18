@@ -113,7 +113,7 @@ export default function BottomCallToAction() {
         >
           {/* Main Heading */}
           <motion.h2
-            className="font-['Nunito',sans-serif] font-black leading-none text-white text-[36px] md:text-[56px] lg:text-[70px] max-w-full lg:max-w-[700px] tracking-tight"
+            className="font-['Nunito',sans-serif] text-white max-w-full lg:max-w-[700px]"
             variants={headingVariants}
           >
             Make Play Possible for All

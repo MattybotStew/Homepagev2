@@ -14,7 +14,7 @@ export default function Marquee() {
         <div className="marquee-content">
           {[...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, index) => (
             <div key={index} className="flex items-center gap-[20px] md:gap-[30px] shrink-0">
-              <p className="font-['Nunito',sans-serif] font-bold leading-[24px] text-[24px] md:text-[32px] lg:text-[39px] text-white whitespace-nowrap">
+              <p className="font-['Nunito',sans-serif] font-bold text-white whitespace-nowrap" style={{ fontSize: "clamp(18px, 3vw, 39px)", lineHeight: 1 }}>
                 {item.text}
               </p>
               <div className="h-[20px] md:h-[25px] lg:h-[30.962px] w-[17px] md:w-[21px] lg:w-[26.263px] shrink-0">

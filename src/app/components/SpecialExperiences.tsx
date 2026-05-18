@@ -331,7 +331,7 @@ export default function SpecialExperiences() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-['Nunito',sans-serif] font-black text-[#1b3d6d] text-[36px] md:text-[52px] lg:text-[70px] leading-none">
+          <h2 className="font-['Nunito',sans-serif] text-[#1b3d6d]">
             Don't Miss These
             <br />
             Special Experiences
