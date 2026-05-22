@@ -123,8 +123,7 @@ export default function MobileHeader() {
       {/* Full Screen Overlay Menu */}
       {menuOpen && (
         <div
-          className="fixed inset-0 z-50 animate-in slide-in-from-left duration-300"
-          style={{ maxWidth: "768px", margin: "0 auto" }}
+          className="fixed inset-0 z-50 animate-in slide-in-from-left duration-300 max-w-[768px] mx-auto"
         >
           {/* Menu Background */}
           <div className="absolute inset-0 bg-white">
@@ -161,7 +160,7 @@ export default function MobileHeader() {
                   <div key={item.label}>
                     <a
                       href="#"
-                      className="block px-5 py-0 min-h-[64px] flex items-center hover:bg-gray-50 transition-colors"
+                      className="flex items-center px-5 py-0 min-h-[64px] hover:bg-gray-50 transition-colors"
                       onClick={() => setMenuOpen(false)}
                     >
                       <p className="font-['Nunito',sans-serif] text-[18px] text-[#78787a] font-normal">

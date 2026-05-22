@@ -12,24 +12,22 @@ export default function ImpactSection() {
   return (
     <section
       aria-label="Making an Impact Together"
-      className="relative w-full overflow-hidden pt-[80px] md:pt-[120px] pb-[220px] md:pb-[340px]"
-      style={{ backgroundColor: "#1d3e6b" }}
+      className="relative w-full overflow-hidden pt-[80px] md:pt-[120px] pb-[220px] md:pb-[340px] bg-cma-navy"
     >
       {/* Top teal wave */}
-      <div className="absolute top-0 left-0 flex overflow-hidden" style={{ height: 13, width: "100%" }} aria-hidden>
+      <div className="absolute top-0 left-0 flex overflow-hidden h-[13px] w-full" aria-hidden>
         {[0, 1, 2, 3].map(i => (
-          <img key={i} src={imgWaveTop} alt="" style={{ width: 422, height: 57, flexShrink: 0, display: "block" }} />
+          <img key={i} src={imgWaveTop} alt="" className="w-[422px] h-[57px] shrink-0 block" />
         ))}
       </div>
 
       {/* Decorative script — sits in the lower navy space below the content */}
       <div
         ref={scriptRef}
-        className="absolute pointer-events-none"
+        className="absolute pointer-events-none right-0 bottom-[13px] w-4/5 max-w-[1083px]"
         aria-hidden
-        style={{ right: 0, bottom: 13, width: "80%", maxWidth: 1083 }}
       >
-        <svg width="1083" height="452" viewBox="0 0 1083 452" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto", display: "block" }}>
+        <svg width="1083" height="452" viewBox="0 0 1083 452" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto block">
           <defs>
             <clipPath id="impact-script-reveal">
               <motion.rect
@@ -57,11 +55,7 @@ export default function ImpactSection() {
           {/* Left: text */}
           <div className="flex-1 flex flex-col gap-[40px]">
             <motion.h2
-              className="leading-none"
-              style={{
-                fontFamily: "Nunito, sans-serif",
-                color: "#ffffff",
-              }}
+              className="leading-none text-white"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
@@ -77,26 +71,10 @@ export default function ImpactSection() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
             >
-              <p
-                style={{
-                  fontFamily: "Nunito, sans-serif",
-                  fontWeight: 500,
-                  fontSize: "clamp(15px, 2vw, 18px)",
-                  color: "#d4e3f3",
-                  lineHeight: 1.7,
-                }}
-              >
+              <p className="font-medium text-[clamp(15px,2vw,18px)] text-cma-blue-light leading-[1.7]">
                 As a nonprofit, we make joy accessible to every child. Your support helps us serve 100,000+ families and keep admission affordable.
               </p>
-              <p
-                style={{
-                  fontFamily: "Nunito, sans-serif",
-                  fontWeight: 600,
-                  fontSize: "clamp(18px, 2.5vw, 24px)",
-                  color: "#ffffff",
-                  lineHeight: 1.1,
-                }}
-              >
+              <p className="font-semibold text-[clamp(18px,2.5vw,24px)] text-white leading-[1.1]">
                 2024 Impact: 1,200 free passes | 15,000 field trips
               </p>
             </motion.div>
@@ -110,22 +88,19 @@ export default function ImpactSection() {
             >
               <a
                 href="#donate"
-                className="inline-flex items-center justify-center rounded-[1000px] border-2 border-[#007c87] bg-white text-[#007c87] transition-colors duration-200 hover:bg-[#007c87] hover:text-white"
-                style={{ fontFamily: "Nunito, sans-serif", fontWeight: 700, fontSize: 15, paddingLeft: 24, paddingRight: 24, paddingTop: 13, paddingBottom: 13 }}
+                className="inline-flex items-center justify-center rounded-[1000px] border-2 border-[#007c87] bg-white text-[#007c87] transition-colors duration-200 hover:bg-[#007c87] hover:text-white font-bold text-[15px] px-[24px] py-[13px]"
               >
                 Donate
               </a>
               <a
                 href="#membership"
-                className="inline-flex items-center justify-center rounded-[1000px] border-2 border-white bg-white text-[#1d3e6b] transition-colors duration-200 hover:bg-transparent hover:text-white"
-                style={{ fontFamily: "Nunito, sans-serif", fontWeight: 700, fontSize: 15, paddingLeft: 24, paddingRight: 24, paddingTop: 13, paddingBottom: 13 }}
+                className="inline-flex items-center justify-center rounded-[1000px] border-2 border-white bg-white text-[#1d3e6b] transition-colors duration-200 hover:bg-transparent hover:text-white font-bold text-[15px] px-[24px] py-[13px]"
               >
                 Memberships
               </a>
               <a
                 href="#tickets"
-                className="inline-flex items-center justify-center rounded-[1000px] bg-[#f7941e] text-[#1d3e6b] transition-colors duration-200 hover:bg-[#c8701a]"
-                style={{ fontFamily: "Nunito, sans-serif", fontWeight: 700, fontSize: 15, paddingLeft: 24, paddingRight: 24, paddingTop: 13, paddingBottom: 13 }}
+                className="inline-flex items-center justify-center rounded-[1000px] bg-[#f7941e] text-[#1d3e6b] transition-colors duration-200 hover:bg-[#c8701a] font-bold text-[15px] px-[24px] py-[13px]"
               >
                 Buy Tickets
               </a>
@@ -143,8 +118,7 @@ export default function ImpactSection() {
             <img
               src={imgPhoto}
               alt="Child playing at the Children's Museum of Atlanta"
-              className="w-full object-cover rounded-[30px]"
-              style={{ height: "clamp(220px, 55vw, 470px)" }}
+              className="w-full object-cover rounded-[30px] h-[clamp(220px,55vw,470px)]"
             />
           </motion.div>
 
@@ -152,9 +126,9 @@ export default function ImpactSection() {
       </div>
 
       {/* Bottom cream wave */}
-      <div className="absolute bottom-0 left-0 flex overflow-hidden" style={{ height: 13, width: "100%" }} aria-hidden>
+      <div className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full" aria-hidden>
         {[0, 1, 2, 3].map(i => (
-          <img key={i} src={imgWaveBottom} alt="" style={{ width: 422, height: 57, flexShrink: 0, display: "block" }} />
+          <img key={i} src={imgWaveBottom} alt="" className="w-[422px] h-[57px] shrink-0 block" />
         ))}
       </div>
     </section>

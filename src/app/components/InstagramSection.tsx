@@ -71,7 +71,6 @@ export default function InstagramSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                style={{ display: 'block' }}
               >
                 <div className="relative overflow-hidden rounded-[16px] transition-transform duration-200 group-hover:scale-[1.04]">
                   <img

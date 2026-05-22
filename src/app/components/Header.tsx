@@ -112,7 +112,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-[34px] xs:top-[36px] sm:top-[40px] md:top-[44px] left-0 right-0 z-40 w-full" style={{ background: 'linear-gradient(90deg, #4AD1DC 0%, #00ADBB 100%)' }}>
+    <header className="fixed top-[34px] xs:top-[36px] sm:top-[40px] md:top-[44px] left-0 right-0 z-40 w-full bg-cma-header-gradient">
       <div className="flex items-center justify-between px-[16px] sm:px-[20px] md:px-[24px] lg:px-[32px] py-[14px] sm:py-[15px] md:py-[16px] relative w-full" data-name="header">
         {/* Logo */}
         <Logo />

@@ -39,9 +39,9 @@ export default function ExploreExhibits() {
   ];
 
   return (
-    <div className="bg-white relative w-full overflow-visible" style={{ position: 'relative' }}>
+    <div className="bg-white relative w-full overflow-visible">
       {/* Content Container */}
-      <div className="relative max-w-[1280px] mx-auto px-5 md:px-8 lg:px-0 py-20 md:py-28 lg:pt-[120px] lg:pb-[60px]" style={{ position: 'relative' }}>
+      <div className="relative max-w-[1280px] mx-auto px-5 md:px-8 lg:px-0 py-20 md:py-28 lg:pt-[120px] lg:pb-[60px]">
         {/* Heading Section */}
         <motion.div
           className="mb-8 md:mb-10 lg:mb-[40px]"
@@ -106,11 +106,7 @@ export default function ExploreExhibits() {
           {exhibits.map((exhibit, index) => (
             <motion.div
               key={index}
-              className="relative rounded-[12px] md:rounded-[20px] lg:rounded-[30px] overflow-hidden cursor-pointer h-full"
-              style={{
-                flex: hoveredIndex === index ? "3" : "1",
-                transition: "flex 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
-              }}
+              className={`relative rounded-[12px] md:rounded-[20px] lg:rounded-[30px] overflow-hidden cursor-pointer h-full [transition:flex_0.6s_cubic-bezier(0.4,0,0.2,1)] ${hoveredIndex === index ? "flex-[3]" : "flex-[1]"}`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(0)}
             >

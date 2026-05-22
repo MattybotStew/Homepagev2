@@ -8,36 +8,18 @@ import imgChevron from "figma:asset/hero-chevron.svg"
 export default function Hero() {
   return (
     <>
-    <style>{`
-      @keyframes waveFloat {
-        0%, 100% { transform: translateX(0px); }
-        50% { transform: translateX(-12px); }
-      }
-      @keyframes waveFloatReverse {
-        0%, 100% { transform: translateX(0px); }
-        50% { transform: translateX(12px); }
-      }
-    `}</style>
     <section
       aria-label="Hero"
-      className="relative w-full flex flex-col px-5 sm:px-10 md:px-[80px] min-h-[100svh] md:min-h-0"
-      style={{ minHeight: "600px" }}
+      className="relative w-full flex flex-col px-5 sm:px-10 md:px-[80px] min-h-[max(600px,100svh)] md:min-h-0"
     >
       {/* Background: full-cover image + left-to-right dark gradient */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none bg-black" aria-hidden>
         <img
           src={imgHeroBg}
           alt=""
-          className="absolute inset-0 w-full h-full md:translate-y-[100px]"
-          style={{ objectFit: "cover", objectPosition: "center" }}
+          className="absolute inset-0 w-full h-full object-cover object-center md:translate-y-[100px]"
         />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to right, rgba(0,0,0,0.8) 17%, rgba(102,102,102,0) 60%)",
-          }}
-        />
+        <div className="absolute inset-0 bg-cma-hero-overlay" />
       </div>
 
       {/* Spacer = combined height of fixed AlertBanner + Header at each breakpoint */}
@@ -47,7 +29,7 @@ export default function Hero() {
       {/* Content — fills remaining height, vertically centered */}
       <div className="relative flex-1 flex items-center py-8 md:py-[160px]">
         <div className="w-full max-w-[1280px]">
-          <div className="flex flex-col" style={{ maxWidth: "640px" }}>
+          <div className="flex flex-col max-w-[640px]">
 
             {/* Eyebrow + H1 */}
             <motion.div
@@ -57,15 +39,11 @@ export default function Hero() {
               transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
             >
               <p
-                className="font-bold uppercase leading-none opacity-80"
-                style={{ fontFamily: "Nunito, sans-serif", fontSize: "clamp(11px, 1.5vw, 18px)", letterSpacing: "clamp(1.5px, 0.5vw, 3.9px)" }}
+                className="font-bold uppercase leading-none opacity-80 text-[clamp(11px,1.5vw,18px)] tracking-[clamp(1.5px,0.5vw,3.9px)]"
               >
                 children's museum of atlanta
               </p>
-              <h1
-                className="font-extrabold text-white"
-                style={{ fontFamily: "Nunito, sans-serif" }}
-              >
+              <h1 className="font-extrabold text-white">
                 Where Families Come to Play
               </h1>
             </motion.div>
@@ -81,22 +59,11 @@ export default function Hero() {
                   src={imgWaveOrange}
                   alt=""
                   aria-hidden
-                  style={{
-                    width: "249px", height: "15px", display: "block",
-                    animation: "waveFloat 3s ease-in-out infinite",
-                  }}
+                  className="w-[249px] h-[15px] block cma-wave-float"
                 />
               </div>
 
-              <p
-                className="font-semibold mt-3"
-                style={{
-                  fontFamily: "Nunito, sans-serif",
-                  fontSize: "clamp(16px, 2.2vw, 24px)",
-                  color: "#d4e3f3",
-                  lineHeight: 1.6,
-                }}
-              >
+              <p className="font-semibold mt-3 text-[clamp(16px,2.2vw,24px)] text-cma-blue-light leading-[1.6]">
                 Welcome to a safe, joyful place where children and caregivers explore, connect and grow through play.
               </p>
 
@@ -105,10 +72,7 @@ export default function Hero() {
                   src={imgWaveTeal}
                   alt=""
                   aria-hidden
-                  style={{
-                    width: "257px", height: "16px", display: "block",
-                    animation: "waveFloatReverse 3.8s ease-in-out infinite 0.6s",
-                  }}
+                  className="w-[257px] h-[16px] block cma-wave-float-reverse"
                 />
               </div>
             </motion.div>
@@ -124,7 +88,6 @@ export default function Hero() {
               <a
                 href="#tickets"
                 className="inline-flex items-center justify-center rounded-[1000px] font-bold text-[15px] whitespace-nowrap px-[24px] py-[13px] bg-[#f7941e] text-[#1d3e6b] transition-colors duration-200 hover:bg-[#c8701a] w-full sm:w-auto"
-                style={{ fontFamily: "Nunito, sans-serif" }}
               >
                 Buy Tickets Now
               </a>
@@ -132,7 +95,6 @@ export default function Hero() {
               <a
                 href="#membership"
                 className="inline-flex items-center justify-center rounded-[1000px] font-bold text-[15px] whitespace-nowrap px-[24px] py-[13px] bg-white border-2 border-[#007c87] text-[#007c87] transition-all duration-200 hover:bg-[#007a85] hover:border-[#007a85] hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] w-full sm:w-auto"
-                style={{ fontFamily: "Nunito, sans-serif" }}
               >
                 Memberships
               </a>
@@ -144,28 +106,20 @@ export default function Hero() {
 
       {/* Hours widget — desktop only; too wide to be useful on mobile */}
       <div
-        className="hidden md:flex absolute right-5 bg-white items-center gap-4 rounded-2xl shadow-sm
+        className="hidden md:flex absolute right-5 bg-white items-center gap-4 rounded-2xl shadow-sm px-[12px] py-[8px] w-[397px]
                    md:top-[136px] xl:top-[142px]"
-        style={{ padding: "8px 12px", width: "397px" }}
       >
         <img src={imgClock} alt="" aria-hidden className="shrink-0 w-[37px] h-[37px]" />
         <div className="flex flex-col gap-1 flex-1 min-w-0">
-          <p
-            className="font-bold text-[15px] text-[#1d3e6b] leading-none"
-            style={{ fontFamily: "Nunito, sans-serif" }}
-          >
+          <p className="font-bold text-[15px] text-[#1d3e6b] leading-none">
             Opening Times Today
           </p>
-          <p
-            className="text-[12px] leading-[1.5] truncate"
-            style={{ fontFamily: "Nunito, sans-serif", fontWeight: 500, color: "#b8620a" }}
-          >
+          <p className="text-[12px] leading-[1.5] truncate font-medium text-cma-orange-dark">
             Members 9-10 AM | General 10 AM-3:30 PM
           </p>
         </div>
         <img src={imgChevron} alt="" aria-hidden className="shrink-0 w-5 h-5" />
       </div>
     </section>
-    </>
   )
 }

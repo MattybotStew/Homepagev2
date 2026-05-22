@@ -294,7 +294,7 @@ export default function SpecialExperiences() {
   const events = allEvents[activeFilter as keyof typeof allEvents] || allEvents.Featured;
 
   return (
-    <div className="bg-[#FDF6EE] relative w-full overflow-hidden" style={{ position: 'relative' }}>
+    <div className="bg-[#FDF6EE] relative w-full overflow-hidden">
       {/* Top Wave */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0]">
         <svg
@@ -312,7 +312,6 @@ export default function SpecialExperiences() {
       {/* Teal Brush Stroke Decoration - Top Right */}
       <motion.div
         className="absolute right-0 top-[80px] md:top-[120px] lg:top-[160px] w-[300px] h-[180px] md:w-[500px] md:h-[300px] lg:w-[600px] lg:h-[355px] pointer-events-none hidden md:block z-0"
-        style={{ position: 'absolute' }}
         initial={{ x: 200, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -322,7 +321,7 @@ export default function SpecialExperiences() {
       </motion.div>
 
       {/* Content Container */}
-      <div className="relative max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12 pt-20 md:pt-28 lg:pt-[160px] pb-24 md:pb-32 lg:pb-[140px] z-[1]" style={{ position: 'relative' }}>
+      <div className="relative max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12 pt-20 md:pt-28 lg:pt-[160px] pb-24 md:pb-32 lg:pb-[140px] z-[1]">
         {/* Heading */}
         <motion.div
           className="mb-8 md:mb-10 lg:mb-[34px]"

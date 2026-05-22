@@ -61,31 +61,20 @@ export default function FeaturedExhibits() {
   return (
     <section
       aria-label="Featured Exhibits"
-      className="relative w-full overflow-hidden pt-[80px] md:pt-[120px] pb-0"
-      style={{ backgroundColor: "#cceff1" }}
+      className="relative w-full overflow-hidden pt-[80px] md:pt-[120px] pb-0 bg-cma-teal-pale"
     >
       {/* Decorative ellipse — fixed 1876×1876 so it always renders as a circle */}
       <div
-        className="absolute pointer-events-none"
+        className="absolute pointer-events-none left-1/2 top-[700px] -translate-x-1/2 w-[1876px] h-[1876px]"
         aria-hidden
-        style={{
-          left: "50%",
-          top: 700,
-          transform: "translateX(-50%)",
-          width: 1876,
-          height: 1876,
-        }}
       >
-        <img src={imgEllipse} alt="" style={{ width: "100%", height: "100%", display: "block" }} />
+        <img src={imgEllipse} alt="" className="w-full h-full block" />
       </div>
 
       {/* Heading */}
       <div className="relative flex flex-col items-center gap-[24px] px-5 sm:px-10 md:px-[80px] text-center">
         <motion.h2
-          style={{
-            fontFamily: "Nunito, sans-serif",
-            color: "#1d3e6b",
-          }}
+          className="text-cma-navy"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -95,13 +84,7 @@ export default function FeaturedExhibits() {
         </motion.h2>
 
         <motion.p
-          style={{
-            fontFamily: "Nunito, sans-serif",
-            fontWeight: 500,
-            fontSize: 18,
-            color: "#1d3e6b",
-            lineHeight: 1.7,
-          }}
+          className="font-medium text-[18px] text-cma-navy leading-[1.7]"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -132,7 +115,7 @@ export default function FeaturedExhibits() {
         {/* Cards — overflow:hidden clips side cards at section edges */}
         <div
           className="relative overflow-hidden"
-          style={{ height: "clamp(520px, calc(120px + min(652px, 102vw)), 800px)" }}
+          className="h-[clamp(520px,calc(120px+min(652px,102vw)),800px)]"
         >
           {exhibits.map((exhibit, i) => {
             const diff = ((i - activeIndex) % n + n) % n
@@ -142,16 +125,7 @@ export default function FeaturedExhibits() {
             return (
               <motion.div
                 key={i}
-                className="absolute overflow-hidden rounded-[24px]"
-                style={{
-                  width: "min(565px, 88vw)",
-                  aspectRatio: "565/652",
-                  left: "50%",
-                  top: 120,
-                  marginLeft: "calc(-1 * min(282.5px, 44vw))",
-                  zIndex: isCenter ? 10 : 1,
-                  cursor: !isCenter ? "pointer" : "default",
-                }}
+                className={`absolute overflow-hidden rounded-[24px] w-[min(565px,88vw)] aspect-[565/652] left-1/2 top-[120px] ml-[calc(-1*min(282.5px,44vw))] ${isCenter ? "z-10 cursor-default" : "z-[1] cursor-pointer"}`}
                 animate={SLOTS[slot]}
                 transition={wrapIndex === i ? INSTANT : TRANSITION}
                 onClick={!isCenter ? () => go(slot === "right" ? 1 : -1) : undefined}
@@ -161,58 +135,18 @@ export default function FeaturedExhibits() {
                 <img
                   src={exhibit.image}
                   alt={isCenter ? exhibit.title : ""}
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    display: "block",
-                  }}
+                  className="absolute inset-0 w-full h-full object-cover block"
                 />
                 {/* Gradient overlay */}
-                <div
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    background:
-                      "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%)",
-                  }}
-                />
+                <div className="absolute inset-0 bg-cma-card-overlay" />
                 {/* Text — fades in/out with CSS so there's no abrupt pop */}
                 <div
-                  className="absolute flex flex-col gap-[20px]"
-                  style={{
-                    bottom: 40,
-                    left: 28,
-                    right: 28,
-                    opacity: isCenter ? 1 : 0,
-                    transition: "opacity 0.2s",
-                    pointerEvents: isCenter ? "auto" : "none",
-                  }}
+                  className={`absolute flex flex-col gap-[20px] bottom-[40px] left-[28px] right-[28px] transition-opacity duration-200 ${isCenter ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
                 >
-                  <span
-                    className="self-start rounded-[8px] px-[18px] py-[10px]"
-                    style={{
-                      backgroundColor: "#cceff1",
-                      fontFamily: "Nunito, sans-serif",
-                      fontWeight: 800,
-                      fontSize: 12,
-                      color: "#1d3e6b",
-                      lineHeight: 1.5,
-                    }}
-                  >
+                  <span className="self-start rounded-[8px] px-[18px] py-[10px] bg-cma-teal-pale font-extrabold text-[12px] text-cma-navy leading-[1.5]">
                     {exhibit.badge}
                   </span>
-                  <p
-                    style={{
-                      fontFamily: "Nunito, sans-serif",
-                      fontWeight: 800,
-                      fontSize: "clamp(24px, 3vw, 36px)",
-                      color: "#ffffff",
-                      lineHeight: 1.1,
-                    }}
-                  >
+                  <p className="font-extrabold text-[clamp(24px,3vw,36px)] text-white leading-[1.1]">
                     {exhibit.title}
                   </p>
                 </div>
@@ -225,14 +159,7 @@ export default function FeaturedExhibits() {
             Desktop: ±380px from center. Mobile: clamped 16px from each edge. */}
         <button
           onClick={() => go(-1)}
-          className="absolute flex items-center justify-center rounded-full transition-opacity duration-200 hover:opacity-80"
-          style={{
-            width: 54, height: 54,
-            backgroundColor: "#1d3e6b",
-            left: "max(16px, calc(50% - 407px))",
-            top: 419,
-            zIndex: 20,
-          }}
+          className="absolute flex items-center justify-center rounded-full transition-opacity duration-200 hover:opacity-80 w-[54px] h-[54px] bg-cma-navy left-[max(16px,calc(50%-407px))] top-[419px] z-20"
           aria-label="Previous exhibit"
         >
           <svg width="20" height="20" fill="none" viewBox="0 0 20 20">
@@ -241,14 +168,7 @@ export default function FeaturedExhibits() {
         </button>
         <button
           onClick={() => go(1)}
-          className="absolute flex items-center justify-center rounded-full transition-opacity duration-200 hover:opacity-80"
-          style={{
-            width: 54, height: 54,
-            backgroundColor: "#1d3e6b",
-            left: "min(calc(100% - 70px), calc(50% + 353px))",
-            top: 419,
-            zIndex: 20,
-          }}
+          className="absolute flex items-center justify-center rounded-full transition-opacity duration-200 hover:opacity-80 w-[54px] h-[54px] bg-cma-navy left-[min(calc(100%-70px),calc(50%+353px))] top-[419px] z-20"
           aria-label="Next exhibit"
         >
           <svg width="20" height="20" fill="none" viewBox="0 0 20 20">
@@ -258,24 +178,19 @@ export default function FeaturedExhibits() {
       </div>
 
       {/* Dot indicators — centered below the carousel */}
-      <div className="relative flex items-center justify-center gap-[8px] mt-6" style={{ zIndex: 20 }}>
+      <div className="relative flex items-center justify-center gap-[8px] mt-6 z-20">
         {exhibits.map((_, j) => (
           <button
             key={j}
             onClick={() => go(j > activeIndex ? 1 : -1)}
-            className="rounded-full transition-all duration-300"
-            style={{
-              width: j === activeIndex ? 28 : 10,
-              height: 10,
-              backgroundColor: j === activeIndex ? "#1d3e6b" : "rgba(29,62,107,0.3)",
-            }}
+            className={`rounded-full transition-all duration-300 h-[10px] ${j === activeIndex ? "w-[28px] bg-cma-navy" : "w-[10px] bg-cma-navy/30"}`}
             aria-label={`Go to exhibit ${j + 1}`}
           />
         ))}
       </div>
 
       {/* Bottom spacing so ellipse shows */}
-      <div style={{ height: 80 }} />
+      <div className="h-[80px]" />
     </section>
   )
 }
