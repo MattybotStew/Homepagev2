@@ -12,7 +12,7 @@ export default function MuseumHoursWidget() {
         className="w-full cursor-pointer" 
         onClick={() => setIsExpanded(!isExpanded)}
       >
-        <div className="bg-white flex flex-col items-start rounded-[16px] shadow-[0px_4px_20px_0px_rgba(247,148,30,0.15)] w-full">
+        <div className="bg-white flex flex-col items-start rounded-[16px] shadow-cma-warm w-full">
           <div className="flex gap-[12px] h-[64px] items-center px-[16px] w-full">
             <div className="bg-[#f7941e] relative rounded-full shrink-0 size-[40px]">
               <div className="flex items-center justify-center relative size-full">
@@ -58,7 +58,7 @@ export default function MuseumHoursWidget() {
 
       {/* Expanded Panel - Shows when isExpanded is true */}
       {isExpanded && (
-        <div className="bg-white flex flex-col items-start overflow-clip rounded-[24px] shadow-[0px_10px_40px_0px_rgba(0,0,0,0.15)] w-full animate-[slideDown_0.3s_ease-out]">
+        <div className="bg-white flex flex-col items-start overflow-clip rounded-[24px] shadow-cma-panel w-full cma-slide-down">
           {/* Header */}
           <div className="w-full">
             <div className="flex items-center gap-[20px] p-[20px]">
@@ -165,18 +165,6 @@ export default function MuseumHoursWidget() {
         </div>
       )}
 
-      <style>{`
-        @keyframes slideDown {
-          from {
-            opacity: 0;
-            transform: translateY(-10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </div>
   );
 }

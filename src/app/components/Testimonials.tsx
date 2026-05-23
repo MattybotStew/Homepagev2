@@ -85,7 +85,7 @@ function StarIcon() {
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <div className="bg-white rounded-[20px] shadow-[0_2px_8px_rgba(0,0,0,0.08)] p-6 md:p-[29px] flex flex-col gap-6 md:gap-[24px] h-full">
+    <div className="cma-testimonial-card">
       {/* Star Rating */}
       <div className="flex items-center gap-1">
         <StarIcon />
@@ -96,16 +96,16 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
       </div>
 
       {/* Testimonial Text */}
-      <p className="font-['Nunito',sans-serif] font-normal italic text-[#1b3d6d] text-[17px] md:text-[18px] leading-[26px] md:leading-[28px]">
+      <p className="cma-testimonial-quote">
         "{testimonial.text}"
       </p>
 
       {/* Author Info */}
       <div className="flex flex-col gap-[8px] mt-auto">
-        <p className="font-['Nunito',sans-serif] font-bold text-[#1b3d6d] text-[18px] leading-[24px]">
+        <p className="cma-testimonial-name">
           {testimonial.name}
         </p>
-        <p className="font-['Nunito',sans-serif] font-normal text-[#78787a] text-[15px] leading-[20px]">
+        <p className="cma-testimonial-location">
           {testimonial.location}
         </p>
       </div>

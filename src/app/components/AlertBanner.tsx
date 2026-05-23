@@ -53,14 +53,14 @@ function CompassIcon() {
 
 export default function AlertBanner() {
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-[#1D3E6B] w-full">
+    <div className="fixed top-0 left-0 right-0 z-50 bg-cma-navy w-full">
       <div className="flex items-center justify-between px-[16px] sm:px-[20px] md:px-[24px] lg:px-[32px] py-[8px] sm:py-[10px] w-full">
         {/* Left Section - Hours and Phone */}
         <div className="flex items-center gap-[16px] sm:gap-[20px] md:gap-[32px]">
           {/* Hours */}
           <div className="flex items-center gap-[8px]">
             <ClockIcon />
-            <p className="font-['Nunito',sans-serif] font-medium leading-[20px] text-[13px] md:text-[14px] text-white whitespace-nowrap">
+            <p className="cma-alert-text">
               <span className="hidden sm:inline">Today's Hours: </span>
               <span className="sm:hidden">Hours: </span>
               10:00am-3:30pm
@@ -75,7 +75,7 @@ export default function AlertBanner() {
 
         {/* Right Section - Membership Portal */}
         <div className="flex items-center gap-[8px] sm:gap-[12px]">
-          <p className="hidden lg:block font-['Nunito',sans-serif] font-medium leading-[20px] text-[14px] text-white whitespace-nowrap">
+          <p className="hidden lg:block cma-alert-text">
             Membership Portal
           </p>
           <div className="flex items-center gap-[8px]">

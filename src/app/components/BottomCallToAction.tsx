@@ -99,7 +99,7 @@ export default function BottomCallToAction() {
           className="absolute max-w-none object-cover size-full"
           src={imgBottomCallToActionImage}
         />
-        <div className="absolute bg-[rgba(0,0,0,0.2)] inset-0" />
+        <div className="absolute bg-cma-cta-overlay inset-0" />
       </div>
 
       {/* Content Container */}
@@ -142,22 +142,22 @@ export default function BottomCallToAction() {
             variants={fadeInUpVariants}
           >
             <motion.button
-              className="bg-[#00ADBB] rounded-full shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] px-6 py-4 md:px-[34px] md:py-[22px] hover:bg-[#009aa7] transition-colors w-full sm:w-auto min-h-[44px]"
+              className="bg-cma-teal rounded-full shadow-cma-btn px-6 py-4 md:px-[34px] md:py-[22px] hover:bg-cma-teal-dark transition-colors w-full sm:w-auto min-h-[44px]"
               variants={buttonVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <p className="font-['Nunito',sans-serif] font-bold text-white text-lg md:text-[24px] whitespace-nowrap">
+              <p className="font-bold text-white text-lg md:text-[24px] whitespace-nowrap">
                 Memberships
               </p>
             </motion.button>
             <motion.button
-              className="bg-white rounded-full shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] px-6 py-4 md:px-[34px] md:py-[22px] hover:bg-gray-50 transition-colors w-full sm:w-auto min-h-[44px]"
+              className="bg-white rounded-full shadow-cma-btn px-6 py-4 md:px-[34px] md:py-[22px] hover:bg-gray-50 transition-colors w-full sm:w-auto min-h-[44px]"
               variants={buttonVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <p className="font-['Nunito',sans-serif] font-bold text-[#00ADBB] text-lg md:text-[24px] whitespace-nowrap">
+              <p className="font-bold text-cma-teal text-lg md:text-[24px] whitespace-nowrap">
                 Donate
               </p>
             </motion.button>

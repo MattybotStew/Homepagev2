@@ -121,5 +121,6 @@ export default function Hero() {
         <img src={imgChevron} alt="" aria-hidden className="shrink-0 w-5 h-5" />
       </div>
     </section>
+    </>
   )
 }

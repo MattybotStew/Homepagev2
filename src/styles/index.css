@@ -69,3 +69,126 @@
 .cma-power-marquee:hover {
   animation-play-state: paused;
 }
+
+/* ── Alert Banner ───────────────────────────────────────────────────────── */
+@layer utilities {
+  .cma-alert-text {
+    font-family: Nunito, sans-serif;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: normal;
+    color: white;
+    white-space: nowrap;
+  }
+}
+
+/* ── Shared shadows ─────────────────────────────────────────────────────── */
+@layer utilities {
+  .shadow-cma-warm {
+    box-shadow: 0px 4px 20px 0px rgba(247, 148, 30, 0.15);
+  }
+  .shadow-cma-panel {
+    box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.15);
+  }
+  .shadow-cma-btn {
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  }
+  .shadow-cma-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* ── Overlays ───────────────────────────────────────────────────────────── */
+@layer utilities {
+  .bg-cma-cta-overlay {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+.cma-footer-link {
+  font-family: Nunito, sans-serif;
+  font-weight: 400;
+  color: #5a6c8a;
+  font-size: 0.875rem;
+  transition: color 0.15s ease;
+}
+.cma-footer-link:hover { color: #00adbb; }
+
+.cma-footer-heading {
+  font-family: Nunito, sans-serif;
+  font-weight: 700;
+  color: #1b3d6d;
+  font-size: 1.125rem;
+}
+
+.cma-social-btn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  border: 2px solid #00adbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease;
+}
+.cma-social-btn:hover { background-color: #00adbb; }
+
+/* ── Museum Hours Widget ────────────────────────────────────────────────── */
+@keyframes cmaSlideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@layer utilities {
+  .cma-slide-down {
+    animation: cmaSlideDown 0.3s ease-out;
+  }
+}
+
+/* ── Testimonials ───────────────────────────────────────────────────────── */
+.cma-testimonial-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100%;
+  padding: 1.5rem;
+}
+@media (min-width: 768px) {
+  .cma-testimonial-card { padding: 29px; }
+}
+
+.cma-testimonial-quote {
+  font-family: Nunito, sans-serif;
+  font-style: italic;
+  color: #1b3d6d;
+  font-size: 17px;
+  line-height: 26px;
+}
+@media (min-width: 768px) {
+  .cma-testimonial-quote { font-size: 18px; line-height: 28px; }
+}
+
+.cma-testimonial-name {
+  font-family: Nunito, sans-serif;
+  font-weight: 700;
+  color: #1b3d6d;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.cma-testimonial-location {
+  font-family: Nunito, sans-serif;
+  color: #78787a;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+/* ── Scroll Progress ────────────────────────────────────────────────────── */
+@layer utilities {
+  .bg-cma-progress-track {
+    background-color: #00828d;
+  }
+}

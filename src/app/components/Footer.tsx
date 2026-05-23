@@ -85,7 +85,7 @@ export default function Footer() {
             </div>
             <button
               type="submit"
-              className="bg-[#f7941e] hover:bg-[#e8850d] transition-colors h-[50px] px-8 rounded-full font-['Nunito',sans-serif] font-bold text-white text-base whitespace-nowrap"
+              className="bg-cma-orange hover:bg-cma-orange-dark transition-colors h-[50px] px-8 rounded-full font-bold text-white text-base whitespace-nowrap"
             >
               Stay In The Loop!
             </button>
@@ -98,37 +98,37 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-8">
           {/* VISIT Column */}
           <div className="flex flex-col gap-5">
-            <h3 className="font-['Nunito',sans-serif] font-bold text-[#1b3d6d] text-lg">
+            <h3 className="cma-footer-heading">
               VISIT
             </h3>
             <ul className="flex flex-col gap-3">
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   Hours & Admission
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   Buy Tickets
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   Directions & Parking
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   Food & Amenities
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   Accessibility
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   FAQ
                 </a>
               </li>
@@ -137,37 +137,37 @@ export default function Footer() {
 
           {/* EXPLORE Column */}
           <div className="flex flex-col gap-5">
-            <h3 className="font-['Nunito',sans-serif] font-bold text-[#1b3d6d] text-lg">
+            <h3 className="cma-footer-heading">
               EXPLORE
             </h3>
             <ul className="flex flex-col gap-3">
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   What's Inside
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   Events Calendar
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   Birthday Parties
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   Group Visits
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   Field Trips
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   Education Programs
                 </a>
               </li>
@@ -176,32 +176,32 @@ export default function Footer() {
 
           {/* SUPPORT Column */}
           <div className="flex flex-col gap-5">
-            <h3 className="font-['Nunito',sans-serif] font-bold text-[#1b3d6d] text-lg">
+            <h3 className="cma-footer-heading">
               SUPPORT
             </h3>
             <ul className="flex flex-col gap-3">
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   Memberships
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   Donate
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   Volunteer
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   Corporate Partners
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   Gift Shop
                 </a>
               </li>
@@ -210,22 +210,22 @@ export default function Footer() {
 
           {/* CONNECT Column */}
           <div className="flex flex-col gap-5">
-            <h3 className="font-['Nunito',sans-serif] font-bold text-[#1b3d6d] text-lg">
+            <h3 className="cma-footer-heading">
               CONNECT
             </h3>
             <ul className="flex flex-col gap-3">
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   Contact Us
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   Jobs/Careers
                 </a>
               </li>
               <li>
-                <a href="#" className="font-['Nunito',sans-serif] font-normal text-[#5a6c8a] text-sm hover:text-[#00adbb] transition-colors">
+                <a href="#" className="cma-footer-link">
                   Press/Media
                 </a>
               </li>
@@ -249,7 +249,7 @@ export default function Footer() {
               href="https://www.facebook.com/childrensmuseumofatlanta"
               target="_blank"
               rel="noopener noreferrer"
-              className="size-12 rounded-full border-2 border-[#00adbb] flex items-center justify-center hover:bg-[#00adbb] transition-colors group"
+              className="cma-social-btn group"
               aria-label="Facebook"
             >
               <svg className="size-5" fill="none" viewBox="0 0 20 20">
@@ -269,7 +269,7 @@ export default function Footer() {
               href="https://www.instagram.com/childrensmuseumofatlanta/"
               target="_blank"
               rel="noopener noreferrer"
-              className="size-12 rounded-full border-2 border-[#00adbb] flex items-center justify-center hover:bg-[#00adbb] transition-colors group"
+              className="cma-social-btn group"
               aria-label="Instagram"
             >
               <svg className="size-5" fill="none" viewBox="0 0 20 20">
@@ -305,7 +305,7 @@ export default function Footer() {
               href="https://twitter.com/imaginecma"
               target="_blank"
               rel="noopener noreferrer"
-              className="size-12 rounded-full border-2 border-[#00adbb] flex items-center justify-center hover:bg-[#00adbb] transition-colors group"
+              className="cma-social-btn group"
               aria-label="Twitter"
             >
               <svg className="size-4" viewBox="0 0 16 16">
