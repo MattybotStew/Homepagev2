@@ -1,7 +1,25 @@
-  import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import logoSvgPaths from "../../imports/svg-jpmbtvi5vn";
 import textSvgPaths from "../../imports/svg-1ph89gknrj";
+
+type SubPage = { label: string; href: string };
+type NavLink = { label: string; href: string; subPages?: SubPage[] };
+
+const navLinks: NavLink[] = [
+  {
+    label: "Plan Your Visit",
+    href: "/#/plan-your-visit",
+    subPages: [
+      { label: "Museum Store", href: "/#/museum-store" },
+    ],
+  },
+  { label: "Exhibits", href: "/#/exhibits" },
+  { label: "Calendar & Events", href: "#" },
+  { label: "For Educators", href: "#" },
+  { label: "About Us", href: "#" },
+  { label: "Resources", href: "#" },
+];
 
 function AnimatedLogoIcon() {
   return (
@@ -13,7 +31,6 @@ function AnimatedLogoIcon() {
           <path d={logoSvgPaths.p2499760} fill="#FBB040" id="Vector_3" />
           <path d={logoSvgPaths.pbd95800} fill="#FBB040" id="Vector_4" />
           <path d={logoSvgPaths.p3cdb3200} fill="#FAA735" id="Star" />
-          {/* Animated blue vector */}
           <g id="Vector_5" className="origin-center animate-[cmaLogoGrow_2s_ease-in-out_infinite]" style={{ transformOrigin: '57.74px 6px' }}>
             <mask fill="white" id="path-6-inside-1_2002_59">
               <path d={logoSvgPaths.p31e42c40} />
@@ -21,7 +38,6 @@ function AnimatedLogoIcon() {
             <path d={logoSvgPaths.p31e42c40} fill="white" />
             <path d={logoSvgPaths.p206e380} fill="white" mask="url(#path-6-inside-1_2002_59)" />
           </g>
-          {/* Animated arrow */}
           <g id="Arrow" className="origin-center animate-[cmaLogoGrow_2s_ease-in-out_infinite_0.3s]" style={{ transformOrigin: '7.75px 40.5px' }}>
             <mask fill="white" id="path-8-inside-2_2002_59">
               <path d={logoSvgPaths.p2a7c1880} />
@@ -30,7 +46,6 @@ function AnimatedLogoIcon() {
             <path d={logoSvgPaths.p11b41340} fill="white" mask="url(#path-8-inside-2_2002_59)" />
           </g>
           <path d={logoSvgPaths.p16dbcf00} fill="#FBB040" id="Circle" />
-          {/* Animated squiggle */}
           <g id="Squiggle" className="origin-center animate-[cmaLogoGrow_2s_ease-in-out_infinite_0.6s]" style={{ transformOrigin: '102px 42px' }}>
             <path d={logoSvgPaths.p137bbe00} fill="white" />
             <path d={logoSvgPaths.p137bbe00} stroke="white" strokeLinejoin="round" strokeWidth="1.5" />
@@ -93,37 +108,74 @@ function Logo() {
   );
 }
 
+function DropdownPanel({ subPages }: { subPages: SubPage[] }) {
+  return (
+    <div className="absolute top-full left-0 pt-2 z-50 hidden group-hover:block">
+      <div className="bg-white rounded-[16px] shadow-cma-panel overflow-hidden min-w-[200px]">
+        {subPages.map((sub, i) => (
+          <div key={sub.label}>
+            <a
+              href={sub.href}
+              className="flex items-center px-5 min-h-[52px] hover:bg-gray-50 transition-colors"
+            >
+              <p className="text-cma-gray font-normal">{sub.label}</p>
+            </a>
+            {i < subPages.length - 1 && <div className="h-px bg-gray-100 mx-5" />}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function NavItem({ link, compact }: { link: NavLink; compact?: boolean }) {
+  const px = compact ? "px-[8px]" : "px-[12px]";
+  const py = compact ? "py-[6px]" : "py-[8px]";
+  const textSize = compact ? "text-[11px]" : "text-[13px]";
+
+  if (!link.subPages?.length) {
+    return (
+      <a
+        href={link.href}
+        className={`flex items-center justify-center ${px} ${py} shrink-0 hover:bg-white/10 rounded-lg transition-colors`}
+      >
+        <p className={`font-black leading-[1.5] shrink-0 text-white ${textSize} tracking-[0.5px] whitespace-nowrap`}>
+          {link.label}
+        </p>
+      </a>
+    );
+  }
+
+  return (
+    <div className="relative group">
+      <a
+        href={link.href}
+        className={`flex items-center gap-1 ${px} ${py} shrink-0 hover:bg-white/10 rounded-lg transition-colors`}
+      >
+        <p className={`font-black leading-[1.5] shrink-0 text-white ${textSize} tracking-[0.5px] whitespace-nowrap`}>
+          {link.label}
+        </p>
+        <ChevronDown className="size-3 text-white/80 transition-transform duration-200 group-hover:rotate-180" />
+      </a>
+      <DropdownPanel subPages={link.subPages} />
+    </div>
+  );
+}
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const navLinks = [
-    { label: "Plan Your Visit", href: "/#/plan-your-visit" },
-    { label: "Exhibits", href: "#" },
-    { label: "Calendar & Events", href: "#" },
-    { label: "For Educators", href: "#" },
-    { label: "About Us", href: "#" },
-    { label: "Resources", href: "#" },
-  ];
+  const [expandedNav, setExpandedNav] = useState<string | null>(null);
 
   return (
     <header className="fixed top-[34px] xs:top-[36px] sm:top-[40px] md:top-[44px] left-0 right-0 z-40 w-full bg-cma-header-gradient">
       <div className="flex items-center justify-between px-[16px] sm:px-[20px] md:px-[24px] lg:px-[32px] py-[14px] sm:py-[15px] md:py-[16px] relative w-full" data-name="header">
-        {/* Logo */}
         <Logo />
 
-        {/* Desktop (xl+): nav + buttons right-aligned together */}
+        {/* Desktop (xl+) */}
         <div className="hidden xl:flex items-center gap-6">
           <div className="flex items-center">
-            {navLinks.map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                className="flex items-center justify-center px-[12px] py-[8px] shrink-0 hover:bg-white/10 rounded-lg transition-colors"
-              >
-                <p className="font-black leading-[1.5] shrink-0 text-white text-[13px] tracking-[0.5px] whitespace-nowrap">
-                  {label}
-                </p>
-              </a>
+            {navLinks.map((link) => (
+              <NavItem key={link.label} link={link} />
             ))}
           </div>
           <div className="flex gap-[5.699px] items-center">
@@ -139,19 +191,11 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Compact Desktop (lg–xl): nav + buttons right-aligned together */}
+        {/* Compact Desktop (lg–xl) */}
         <div className="hidden lg:flex xl:hidden items-center gap-4">
           <div className="flex items-center">
-            {navLinks.map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                className="flex items-center justify-center px-[8px] py-[6px] shrink-0 hover:bg-white/10 rounded-lg transition-colors"
-              >
-                <p className="font-black leading-[1.5] shrink-0 text-white text-[11px] tracking-[0.5px] whitespace-nowrap">
-                  {label}
-                </p>
-              </a>
+            {navLinks.map((link) => (
+              <NavItem key={link.label} link={link} compact />
             ))}
           </div>
           <div className="flex gap-[4px] items-center">
@@ -180,40 +224,52 @@ export default function Header() {
           )}
         </button>
 
-        {/* Mobile Menu */}
+        {/* Mobile Dropdown Menu (sm header, not MobileHeader) */}
         {mobileMenuOpen && (
           <div className="xl:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-200 z-50">
-            {/* Mobile Nav Links */}
             <div className="flex flex-col py-2">
-              {navLinks.map(({ label, href }) => (
-                <a
-                  key={label}
-                  href={href}
-                  className="px-5 py-3 hover:bg-gray-50 transition-colors"
-                >
-                  <p className="font-medium leading-[20px] text-cma-navy text-[14px]">
-                    {label}
-                  </p>
-                </a>
+              {navLinks.map(({ label, href, subPages }) => (
+                <div key={label}>
+                  {subPages?.length ? (
+                    <>
+                      <button
+                        className="w-full flex items-center justify-between px-5 py-3 hover:bg-gray-50 transition-colors"
+                        onClick={() => setExpandedNav(expandedNav === label ? null : label)}
+                      >
+                        <p className="font-medium leading-[20px] text-cma-navy text-[14px]">{label}</p>
+                        <ChevronDown className={`size-4 text-cma-navy transition-transform duration-200 ${expandedNav === label ? "rotate-180" : ""}`} />
+                      </button>
+                      {expandedNav === label && (
+                        <div className="bg-gray-50 border-t border-gray-100">
+                          {subPages.map((sub) => (
+                            <a
+                              key={sub.label}
+                              href={sub.href}
+                              className="flex items-center pl-9 pr-5 py-3 hover:bg-gray-100 transition-colors border-b border-gray-100 last:border-b-0"
+                            >
+                              <p className="font-medium text-[14px] text-cma-gray">{sub.label}</p>
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <a href={href} className="px-5 py-3 hover:bg-gray-50 transition-colors flex">
+                      <p className="font-medium leading-[20px] text-cma-navy text-[14px]">{label}</p>
+                    </a>
+                  )}
+                </div>
               ))}
             </div>
-
-            {/* Mobile Action Buttons */}
             <div className="flex flex-col gap-3 px-5 py-4 border-t border-gray-200">
               <button className="bg-cma-orange px-4 py-3 rounded-full w-full hover:bg-cma-orange-dark transition-colors">
-                <p className="font-black text-[14px] text-white">
-                  Donate
-                </p>
+                <p className="font-black text-[14px] text-white">Donate</p>
               </button>
               <button className="bg-cma-teal px-4 py-3 rounded-full w-full hover:bg-cma-teal-dark transition-colors">
-                <p className="font-black text-[14px] text-white">
-                  Memberships
-                </p>
+                <p className="font-black text-[14px] text-white">Memberships</p>
               </button>
               <button className="bg-cma-blue-mid px-4 py-3 rounded-full w-full hover:bg-[#2a4d76] transition-colors">
-                <p className="font-black text-[14px] text-white">
-                  Buy Tickets
-                </p>
+                <p className="font-black text-[14px] text-white">Buy Tickets</p>
               </button>
             </div>
           </div>

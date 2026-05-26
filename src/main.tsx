@@ -4,6 +4,9 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import App from "./app/App.tsx";
 import PlanYourVisitPage from "./app/pages/PlanYourVisitPage.tsx";
 import MuseumStorePage from "./app/pages/MuseumStorePage.tsx";
+import ExhibitsPage from "./app/pages/ExhibitsPage.tsx";
+import ArticlePage from "./app/pages/ArticlePage.tsx";
+import ExhibitPage from "./app/pages/ExhibitPage.tsx";
 import "./styles/index.css";
 
 class ErrorBoundary extends Component<{ children: ReactNode }, { error: Error | null }> {
@@ -31,6 +34,9 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/" element={<App />} />
         <Route path="/plan-your-visit" element={<PlanYourVisitPage />} />
         <Route path="/museum-store" element={<MuseumStorePage />} />
+        <Route path="/exhibits" element={<ExhibitsPage />} />
+        <Route path="/article" element={<ArticlePage />} />
+        <Route path="/exhibits/:slug" element={<ExhibitPage />} />
       </Routes>
     </HashRouter>
   </ErrorBoundary>

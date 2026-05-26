@@ -8,6 +8,7 @@ import AdmissionPricing from "../components/AdmissionPricing"
 import PlanTabs from "../components/PlanTabs"
 import PlanYourVisitFAQs from "../components/PlanYourVisitFAQs"
 import MembershipPricing from "../components/MembershipPricing"
+import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee"
 import Footer from "../components/Footer"
 import imgWaveWhite from "../../assets/wave-white.svg"
 import imgWaveNavy from "figma:asset/impact-wave-top.svg"
@@ -60,6 +61,7 @@ export default function PlanYourVisitPage() {
         <WaveStrip src={imgWaveWhite} position="bottom" />
       </div>
 
+      <PowerOfPlayMarquee />
       <Footer />
     </div>
   )
