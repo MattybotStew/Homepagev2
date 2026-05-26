@@ -87,7 +87,7 @@ export default function Footer() {
             </div>
             <button
               type="submit"
-              className="bg-cma-orange hover:bg-cma-orange-dark transition-colors h-[50px] px-8 rounded-full font-black text-white text-base whitespace-nowrap w-full sm:w-auto"
+              className="bg-cma-orange hover:bg-cma-orange-dark transition-colors h-[50px] px-8 rounded-full font-black text-cma-navy text-base whitespace-nowrap w-full sm:w-auto"
             >
               Stay In The Loop!
             </button>
