@@ -2,6 +2,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import imgArrow from "figma:asset/pricing-arrow.svg"
 import imgCheck from "figma:asset/pricing-check.svg"
+import imgWaveWhite from "figma:asset/wave-white.svg"
 
 const membershipBenefits = [
   ["Unlimited visits for 2 adults + kids", "50% off guest tickets", "Priority registration for camps"],
@@ -12,7 +13,7 @@ export default function MembershipPricing() {
   const [tab, setTab] = useState<"membership" | "single">("membership")
 
   return (
-    <div className="w-full py-[80px] md:py-[120px] bg-cma-cream">
+    <div className="w-full py-[80px] md:py-[120px] bg-cma-cream relative overflow-hidden">
       <div className="cma-section-container">
 
         {/* Heading */}
@@ -183,6 +184,11 @@ export default function MembershipPricing() {
           )}
         </AnimatePresence>
 
+      </div>
+      <div aria-hidden className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full">
+        {Array.from({ length: 10 }).map((_, i) => (
+          <img key={i} src={imgWaveWhite} alt="" className="w-[422px] h-[57px] shrink-0 block" />
+        ))}
       </div>
     </div>
   )

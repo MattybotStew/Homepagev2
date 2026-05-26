@@ -175,11 +175,8 @@ export default function PlanYourVisit() {
       </div>
 
       {/* Teal wave strip at bottom */}
-      <div
-        className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full"
-        aria-hidden
-      >
-        {[0, 1, 2, 3].map(i => (
+      <div aria-hidden className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full">
+        {Array.from({ length: 10 }).map((_, i) => (
           <img key={i} src={imgWave} alt="" className="w-[422px] h-[57px] shrink-0 block" />
         ))}
       </div>

@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import imgWaveNavy from "figma:asset/impact-wave-top.svg";
 import svgPaths from "../../imports/svg-zu4i9dl6yt";
 
 interface Testimonial {
@@ -115,7 +116,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
 
 export default function Testimonials() {
   return (
-    <div className="bg-white relative w-full py-16 md:py-24 lg:py-32">
+    <div className="bg-white relative w-full py-16 md:py-24 lg:py-32 overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12">
         <motion.div
           className="mb-10 md:mb-14 lg:mb-16 text-center"
@@ -134,6 +135,11 @@ export default function Testimonials() {
             <TestimonialCard key={index} testimonial={testimonial} />
           ))}
         </div>
+      </div>
+      <div aria-hidden className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full">
+        {Array.from({ length: 10 }).map((_, i) => (
+          <img key={i} src={imgWaveNavy} alt="" className="w-[422px] h-[57px] shrink-0 block" />
+        ))}
       </div>
     </div>
   );

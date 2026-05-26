@@ -3,7 +3,7 @@ import { motion, useInView } from "motion/react"
 import imgPhoto from "figma:asset/impact-photo.webp"
 
 import imgWaveTop from "figma:asset/impact-wave-top.svg"
-import imgWaveBottom from "figma:asset/impact-wave-bottom.svg"
+import imgWaveBottom from "figma:asset/wave-white.svg"
 
 export default function ImpactSection() {
   const scriptRef = useRef<HTMLDivElement>(null)
@@ -14,9 +14,9 @@ export default function ImpactSection() {
       aria-label="Making an Impact Together"
       className="relative w-full overflow-hidden pt-[60px] md:pt-[120px] pb-[140px] md:pb-[220px] lg:pb-[340px] bg-cma-navy"
     >
-      {/* Top teal wave */}
-      <div className="absolute top-0 left-0 flex overflow-hidden h-[13px] w-full" aria-hidden>
-        {[0, 1, 2, 3].map(i => (
+      {/* Top navy wave */}
+      <div aria-hidden className="absolute top-0 left-0 flex overflow-hidden h-[13px] w-full">
+        {Array.from({ length: 10 }).map((_, i) => (
           <img key={i} src={imgWaveTop} alt="" className="w-[422px] h-[57px] shrink-0 block" />
         ))}
       </div>
@@ -126,8 +126,8 @@ export default function ImpactSection() {
       </div>
 
       {/* Bottom cream wave */}
-      <div className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full" aria-hidden>
-        {[0, 1, 2, 3].map(i => (
+      <div aria-hidden className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full">
+        {Array.from({ length: 10 }).map((_, i) => (
           <img key={i} src={imgWaveBottom} alt="" className="w-[422px] h-[57px] shrink-0 block" />
         ))}
       </div>
