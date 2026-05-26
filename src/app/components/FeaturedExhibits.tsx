@@ -4,8 +4,8 @@ import imgSlide1 from "figma:asset/exhibits-slide-1.png"
 import imgSlide2 from "figma:asset/exhibits-slide-2.jpg"
 import imgSlide3 from "figma:asset/exhibits-slide-3.jpg"
 import imgEllipse from "figma:asset/exhibits-ellipse.svg"
-import imgStatue from "../../assets/statue.png"
-import imgStatueShadow from "../../assets/staturShadow.png"
+import imgStatue from "../assets/statue.png"
+import imgStatueShadow from "../assets/staturShadow.png"
 
 const exhibits = [
   {
