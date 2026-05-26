@@ -5,7 +5,7 @@
 /* ── CMA global utilities ───────────────────────────────────────────────── */
 @layer utilities {
   .bg-cma-header-gradient {
-    background: linear-gradient(90deg, #4AD1DC 0%, #00ADBB 100%);
+    background: linear-gradient(90deg, var(--cma-teal-light) 0%, var(--cma-teal) 100%);
   }
   .bg-cma-hero-overlay {
     background: linear-gradient(359deg, rgba(0, 0, 0, 0.80) 0.54%, rgba(0, 0, 0, 0.00) 76.83%);
@@ -127,7 +127,7 @@
   font-weight: 800;
   font-size: 15px;
   line-height: 1.7;
-  color: #007c87;
+  color: var(--cma-teal-dark);
   text-box-trim: trim-both;
   text-box-edge: cap alphabetic;
   text-decoration: none;
@@ -155,12 +155,12 @@
   font-size: 0.9375rem;
   transition: color 0.15s ease;
 }
-.cma-footer-link:hover { color: #00adbb; }
+.cma-footer-link:hover { color: var(--cma-teal); }
 
 .cma-footer-heading {
   font-family: Nunito, sans-serif;
   font-weight: 900;
-  color: #1b3d6d;
+  color: var(--cma-navy);
   font-size: 1.25rem;
 }
 
@@ -168,25 +168,32 @@
   width: 3rem;
   height: 3rem;
   border-radius: 9999px;
-  border: 2px solid #00adbb;
+  border: 2px solid var(--cma-teal);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.15s ease;
 }
-.cma-social-btn:hover { background-color: #00adbb; }
+.cma-social-btn:hover { background-color: var(--cma-teal); }
 
 .cma-social-btn-filled {
   width: 3rem;
   height: 3rem;
   border-radius: 9999px;
-  background-color: #00adbb;
+  background-color: var(--cma-teal);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.15s ease;
 }
-.cma-social-btn-filled:hover { background-color: #007c87; }
+.cma-social-btn-filled:hover { background-color: var(--cma-teal-dark); }
+
+/* ── Shared text utilities ──────────────────────────────────────────────── */
+@layer utilities {
+  .text-cma-gray {
+    color: var(--cma-gray);
+  }
+}
 
 /* ── Museum Hours Widget ────────────────────────────────────────────────── */
 @keyframes cmaSlideDown {

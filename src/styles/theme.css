@@ -5,8 +5,10 @@
 
   /* ── CMA brand colors ───────────────────────────────────────────────────── */
   --cma-navy: #1d3e6b;
+  --cma-navy-dark: #152d4d;
   --cma-orange: #f7941e;
   --cma-orange-dark: #b8620a;
+  --cma-orange-light: #fbb040;
   --cma-teal: #00ADBB;
   --cma-teal-light: #4AD1DC;
   --cma-teal-pale: #cceff1;
@@ -15,6 +17,7 @@
   --cma-blue-mid: #346094;
   --cma-blue-light: #d4e3f3;
   --cma-slate: #2c3a52;
+  --cma-gray: #78787a;
 
   /* ── CMA type scale (Figma: XL/L/XM/M/S/XS/EYE) ───────────────────────── */
   --cma-text-display: clamp(34px, 5.9vw, 75px);   /* XL  · 75/90% · -1px */
@@ -142,8 +145,10 @@
 
   /* ── CMA brand color tokens ─────────────────────────────────────────────── */
   --color-cma-navy: var(--cma-navy);
+  --color-cma-navy-dark: var(--cma-navy-dark);
   --color-cma-orange: var(--cma-orange);
   --color-cma-orange-dark: var(--cma-orange-dark);
+  --color-cma-orange-light: var(--cma-orange-light);
   --color-cma-teal: var(--cma-teal);
   --color-cma-teal-light: var(--cma-teal-light);
   --color-cma-teal-pale: var(--cma-teal-pale);
@@ -152,6 +157,7 @@
   --color-cma-blue-mid: var(--cma-blue-mid);
   --color-cma-blue-light: var(--cma-blue-light);
   --color-cma-slate: var(--cma-slate);
+  --color-cma-gray: var(--cma-gray);
 }
 
 @layer base {

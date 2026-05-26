@@ -133,7 +133,7 @@ export default function Header() {
             <button className="bg-white flex items-center justify-center px-[16px] py-[12px] rounded-full shadow-cma-btn shrink-0 hover:bg-white/90 transition-colors">
               <p className="font-black leading-[1.5] shrink-0 text-[12px] text-cma-teal-dark whitespace-nowrap">Memberships</p>
             </button>
-            <button className="bg-cma-navy flex items-center justify-center px-[16px] py-[12px] rounded-full shadow-cma-btn shrink-0 hover:bg-[#152d4d] transition-colors">
+            <button className="bg-cma-navy flex items-center justify-center px-[16px] py-[12px] rounded-full shadow-cma-btn shrink-0 hover:bg-cma-navy-dark transition-colors">
               <p className="font-black leading-[1.5] shrink-0 text-[12px] text-white whitespace-nowrap">Buy Tickets</p>
             </button>
           </div>
@@ -161,7 +161,7 @@ export default function Header() {
             <button className="bg-white flex items-center justify-center px-[12px] py-[8px] rounded-full shadow-cma-btn shrink-0 hover:bg-white/90 transition-colors">
               <p className="font-black leading-[1.5] shrink-0 text-[10px] text-cma-teal-dark whitespace-nowrap">Memberships</p>
             </button>
-            <button className="bg-cma-navy flex items-center justify-center px-[12px] py-[8px] rounded-full shadow-cma-btn shrink-0 hover:bg-[#152d4d] transition-colors">
+            <button className="bg-cma-navy flex items-center justify-center px-[12px] py-[8px] rounded-full shadow-cma-btn shrink-0 hover:bg-cma-navy-dark transition-colors">
               <p className="font-black leading-[1.5] shrink-0 text-[10px] text-white whitespace-nowrap">Buy Tickets</p>
             </button>
           </div>

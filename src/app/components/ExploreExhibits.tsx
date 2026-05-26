@@ -89,7 +89,7 @@ export default function ExploreExhibits() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
           >
-            <p className="font-normal text-[#78787a] text-[16px] md:text-[18px] lg:text-[20px] leading-[1.6] text-right max-w-[100%] md:max-w-[520px] lg:max-w-[601px]">
+            <p className="font-normal text-cma-gray text-[16px] md:text-[18px] lg:text-[20px] leading-[1.6] text-right max-w-[100%] md:max-w-[520px] lg:max-w-[601px]">
               Why is play essential for childhood development—and how does the Children's Museum of Atlanta help make it possible?
             </p>
           </motion.div>

@@ -16,7 +16,7 @@ import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <div className="size-full relative" style={{ position: 'relative' }}>
+    <div className="size-full relative">
       {/* Alert Banner — always visible */}
       <AlertBanner />
 

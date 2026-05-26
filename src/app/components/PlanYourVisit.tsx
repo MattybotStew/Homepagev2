@@ -167,7 +167,7 @@ export default function PlanYourVisit() {
           <p className="font-bold text-cma-navy">
             Keep scrolling to explore our exhibits
           </p>
-          <div aria-hidden className="w-[20px] h-[20px] rounded-full bg-[#fbb040] flex items-center justify-center shrink-0">
+          <div aria-hidden className="w-[20px] h-[20px] rounded-full bg-cma-orange-light flex items-center justify-center shrink-0">
             <FontAwesomeIcon icon={faArrowDown} className="text-white text-[9px]" />
           </div>
         </div>

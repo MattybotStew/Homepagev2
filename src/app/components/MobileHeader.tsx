@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { X, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { X, Facebook, Instagram } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTiktok } from "@fortawesome/free-brands-svg-icons";
 import logoSvgPaths from "../../imports/svg-jpmbtvi5vn";
 import textSvgPaths from "../../imports/svg-1ph89gknrj";
 
@@ -101,7 +103,7 @@ export default function MobileHeader() {
             {/* Buy Tickets */}
             <a
               href="#tickets"
-              className="bg-cma-navy text-white font-black text-[12px] leading-[1.5] rounded-[1000px] px-[17px] py-[12px] shadow-cma-btn hover:bg-[#152d4d] transition-colors whitespace-nowrap"
+              className="bg-cma-navy text-white font-black text-[12px] leading-[1.5] rounded-[1000px] px-[17px] py-[12px] shadow-cma-btn hover:bg-cma-navy-dark transition-colors whitespace-nowrap"
             >
               Buy Tickets
             </a>
@@ -145,7 +147,7 @@ export default function MobileHeader() {
                   <input
                     type="text"
                     placeholder="Search..."
-                    className="w-full bg-[#f9f9fb] border border-gray-200 rounded-lg px-4 py-3 pr-12 text-[16px] text-[#78787a] focus:outline-none focus:border-cma-teal transition-colors"
+                    className="w-full bg-[#f9f9fb] border border-gray-200 rounded-lg px-4 py-3 pr-12 text-[16px] text-cma-gray focus:outline-none focus:border-cma-teal transition-colors"
                   />
                   <button className="absolute right-3 top-1/2 -translate-y-1/2 p-1" aria-label="Search">
                     <svg className="size-6" fill="none" viewBox="0 0 24 24">
@@ -164,7 +166,7 @@ export default function MobileHeader() {
                       className="flex items-center px-5 py-0 min-h-[64px] hover:bg-gray-50 transition-colors"
                       onClick={() => setMenuOpen(false)}
                     >
-                      <p className="text-[18px] text-[#78787a] font-normal">{item.label}</p>
+                      <p className="text-[18px] text-cma-gray font-normal">{item.label}</p>
                     </a>
                     {index < menuItems.length - 1 && (
                       <div className="h-[1px] bg-gray-200 mx-5" />
@@ -183,7 +185,7 @@ export default function MobileHeader() {
                 <button className="bg-cma-teal text-white font-black text-[16px] rounded-lg px-6 py-3 min-h-[52px] hover:bg-cma-teal-dark transition-colors">
                   Membership
                 </button>
-                <button className="bg-cma-navy text-white font-black text-[16px] rounded-lg px-6 py-3 min-h-[52px] hover:bg-[#152d4d] transition-colors">
+                <button className="bg-cma-navy text-white font-black text-[16px] rounded-lg px-6 py-3 min-h-[52px] hover:bg-cma-navy-dark transition-colors">
                   Buy Tickets
                 </button>
               </div>
@@ -192,25 +194,22 @@ export default function MobileHeader() {
               <div className="mt-8 px-5 border-t border-gray-200 pt-6">
                 <div className="mb-6">
                   <p className="font-bold text-cma-teal text-[16px] mb-3">Contact Us</p>
-                  <p className="text-[#78787a] text-[14px] mb-1">275 Centennial Olympic Park Dr NW</p>
-                  <p className="text-[#78787a] text-[14px] mb-1">Atlanta, GA 30313</p>
-                  <p className="text-[#78787a] text-[14px] mb-1">Phone: (404) 659-5437</p>
-                  <p className="text-[#78787a] text-[14px]">info@childrensmuseumatlanta.org</p>
+                  <p className="text-cma-gray text-[14px] mb-1">275 Centennial Olympic Park Dr NW</p>
+                  <p className="text-cma-gray text-[14px] mb-1">Atlanta, GA 30313</p>
+                  <p className="text-cma-gray text-[14px] mb-1">Phone: (404) 659-5437</p>
+                  <p className="text-cma-gray text-[14px]">info@childrensmuseumatlanta.org</p>
                 </div>
                 <div className="mb-4">
                   <p className="font-bold text-cma-teal text-[16px] mb-3">Follow Us</p>
                   <div className="flex gap-4">
-                    <a href="#" className="w-[44px] h-[44px] rounded-full bg-cma-teal flex items-center justify-center hover:bg-cma-teal-dark transition-colors" aria-label="Facebook">
-                      <Facebook className="size-5 text-white" fill="white" />
+                    <a href="https://www.facebook.com/childrensmuseumofatlanta" target="_blank" rel="noopener noreferrer" className="w-[44px] h-[44px] rounded-full bg-cma-teal flex items-center justify-center hover:bg-cma-teal-dark transition-colors" aria-label="Facebook">
+                      <Facebook className="size-5 text-white" />
                     </a>
-                    <a href="#" className="w-[44px] h-[44px] rounded-full bg-cma-teal flex items-center justify-center hover:bg-cma-teal-dark transition-colors" aria-label="Instagram">
+                    <a href="https://www.instagram.com/childrensmuseumofatlanta/" target="_blank" rel="noopener noreferrer" className="w-[44px] h-[44px] rounded-full bg-cma-teal flex items-center justify-center hover:bg-cma-teal-dark transition-colors" aria-label="Instagram">
                       <Instagram className="size-5 text-white" />
                     </a>
-                    <a href="#" className="w-[44px] h-[44px] rounded-full bg-cma-teal flex items-center justify-center hover:bg-cma-teal-dark transition-colors" aria-label="Twitter">
-                      <Twitter className="size-5 text-white" fill="white" />
-                    </a>
-                    <a href="#" className="w-[44px] h-[44px] rounded-full bg-cma-teal flex items-center justify-center hover:bg-cma-teal-dark transition-colors" aria-label="YouTube">
-                      <Youtube className="size-5 text-white" fill="white" />
+                    <a href="https://www.tiktok.com/@childrensmuseumatlanta" target="_blank" rel="noopener noreferrer" className="w-[44px] h-[44px] rounded-full bg-cma-teal flex items-center justify-center hover:bg-cma-teal-dark transition-colors" aria-label="TikTok">
+                      <FontAwesomeIcon icon={faTiktok} className="size-4 text-white" />
                     </a>
                   </div>
                 </div>

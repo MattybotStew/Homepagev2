@@ -47,7 +47,7 @@ export default function InstagramSection() {
           <h2 className="text-cma-navy mb-3 tracking-[-1px]">
             Stay Inspired
           </h2>
-          <p className="font-extrabold text-[#78787a] text-[clamp(20px,2.1vw,30px)] tracking-[-1px] leading-none mb-6">
+          <p className="font-extrabold text-cma-gray text-[clamp(20px,2.1vw,30px)] tracking-[-1px] leading-none mb-6">
             Play, Learn, and Share
           </p>
           <div className="flex items-center justify-center gap-4">
@@ -109,7 +109,7 @@ export default function InstagramSection() {
                       <p className="font-bold text-cma-navy text-lg">
                         {item.overlay.title}
                       </p>
-                      <p className="text-[#78787a] text-sm mt-1">
+                      <p className="text-cma-gray text-sm mt-1">
                         {item.overlay.date}
                       </p>
                     </div>
