@@ -144,7 +144,7 @@ export default function FeaturedExhibits() {
   return (
     <section
       aria-label="Featured Exhibits"
-      className="relative w-full pt-[80px] md:pt-[160px] pb-0 bg-cma-teal-pale"
+      className="relative w-full pt-[80px] md:pt-[160px] pb-0 bg-cma-cream md:bg-cma-teal-pale"
     >
       {/* Heading */}
       <div className="relative flex flex-col items-center gap-6 md:gap-[48px] px-5 sm:px-10 md:px-[80px] text-center">
