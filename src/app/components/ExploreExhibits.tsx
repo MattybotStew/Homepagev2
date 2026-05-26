@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
 import svgPaths from "../../imports/svg-qovx1mnin1";
-import imgDivTrxAddonsImageAccordionItemInner from "figma:asset/b8f9ea4dd58f1866ed3c25d4adb731014fe690e2.png";
-import imgDivTrxAddonsImageAccordionItemInner1 from "figma:asset/5fbbcf6f08bc318f43c2c8d00d447df6318200dd.png";
-import imgDivTrxAddonsImageAccordionItemInner2 from "figma:asset/70606b144d42e6d7ed328be28058d6611206d0a2.png";
+import imgDivTrxAddonsImageAccordionItemInner from "figma:asset/b8f9ea4dd58f1866ed3c25d4adb731014fe690e2.webp";
+import imgDivTrxAddonsImageAccordionItemInner1 from "figma:asset/5fbbcf6f08bc318f43c2c8d00d447df6318200dd.webp";
+import imgDivTrxAddonsImageAccordionItemInner2 from "figma:asset/70606b144d42e6d7ed328be28058d6611206d0a2.webp";
 import { useState } from "react";
 
 export default function ExploreExhibits() {

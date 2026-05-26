@@ -1,4 +1,4 @@
-import imgBottomCallToActionImage from "figma:asset/e8d56ebc415002dbd15dc991825ef1684a7a8be2.png";
+import imgBottomCallToActionImage from "figma:asset/e8d56ebc415002dbd15dc991825ef1684a7a8be2.webp";
 
 export default function BottomCallToActionImage() {
   return (

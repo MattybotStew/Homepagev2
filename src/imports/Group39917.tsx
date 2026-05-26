@@ -1,9 +1,9 @@
 import svgPaths from "./svg-qvlzn05nlr";
-import imgHero from "figma:asset/5e9e706a4edd098b94b55ffc8289a25c57fcd860.png";
-import imgDivTrxAddonsImageAccordionItemInner from "figma:asset/b8f9ea4dd58f1866ed3c25d4adb731014fe690e2.png";
-import imgDivTrxAddonsImageAccordionItemInner1 from "figma:asset/5fbbcf6f08bc318f43c2c8d00d447df6318200dd.png";
-import imgDivTrxAddonsImageAccordionItemInner2 from "figma:asset/70606b144d42e6d7ed328be28058d6611206d0a2.png";
-import imgStatueHandstand11920X96811 from "figma:asset/2200d5f1414b522eb5abd25d17dd7bf0ff0d738e.png";
+import imgHero from "figma:asset/5e9e706a4edd098b94b55ffc8289a25c57fcd860.webp";
+import imgDivTrxAddonsImageAccordionItemInner from "figma:asset/b8f9ea4dd58f1866ed3c25d4adb731014fe690e2.webp";
+import imgDivTrxAddonsImageAccordionItemInner1 from "figma:asset/5fbbcf6f08bc318f43c2c8d00d447df6318200dd.webp";
+import imgDivTrxAddonsImageAccordionItemInner2 from "figma:asset/70606b144d42e6d7ed328be28058d6611206d0a2.webp";
+import imgStatueHandstand11920X96811 from "figma:asset/2200d5f1414b522eb5abd25d17dd7bf0ff0d738e.webp";
 
 function Group() {
   return (

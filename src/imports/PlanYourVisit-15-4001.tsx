@@ -1,7 +1,7 @@
 import svgPaths from "./svg-778gp0zx2n";
-import imgFrame39916 from "figma:asset/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.png";
-import imgFrame39917 from "figma:asset/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.png";
-import imgFrame39918 from "figma:asset/39da2bd0af3dceef1e3b406cd981247f82778d27.png";
+import imgFrame39916 from "figma:asset/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp";
+import imgFrame39917 from "figma:asset/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp";
+import imgFrame39918 from "figma:asset/39da2bd0af3dceef1e3b406cd981247f82778d27.webp";
 
 function Heading1() {
   return (

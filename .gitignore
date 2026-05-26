@@ -1,3 +1,20 @@
 node_modules
 figma-output.json
 .env
+# OS files
+.DS_Store
+*.log
+
+# Build output
+dist/
+build-output.log
+
+# Claude worktrees (embedded repos)
+.claude/worktrees/
+
+# Public assets
+public/
+
+# Local env files
+.env.local
+.env.*.local

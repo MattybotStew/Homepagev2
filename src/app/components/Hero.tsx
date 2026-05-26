@@ -1,5 +1,5 @@
 import { motion } from "motion/react"
-import imgHeroBg from "figma:asset/hero-bg.png"
+import imgHeroBg from "figma:asset/hero-bg.webp"
 import imgWaveOrange from "figma:asset/hero-wave-orange.svg"
 import imgWaveTeal from "figma:asset/hero-wave-teal.svg"
 import imgClock from "figma:asset/hero-clock.svg"

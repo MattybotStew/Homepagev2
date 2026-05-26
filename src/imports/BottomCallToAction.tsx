@@ -1,5 +1,5 @@
 import svgPaths from "./svg-9k39sqzzx8";
-import imgBottomCallToAction from "figma:asset/e8d56ebc415002dbd15dc991825ef1684a7a8be2.png";
+import imgBottomCallToAction from "figma:asset/e8d56ebc415002dbd15dc991825ef1684a7a8be2.webp";
 
 function Frame1() {
   return (

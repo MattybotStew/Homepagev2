@@ -1,6 +1,6 @@
 import React, { useRef } from "react"
 import { motion, useInView } from "motion/react"
-import imgPhoto from "figma:asset/impact-photo.png"
+import imgPhoto from "figma:asset/impact-photo.webp"
 
 import imgWaveTop from "figma:asset/impact-wave-top.svg"
 import imgWaveBottom from "figma:asset/impact-wave-bottom.svg"

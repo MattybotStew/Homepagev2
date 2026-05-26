@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, animate, useInView } from "motion/react"
-import imgSlide1 from "figma:asset/exhibits-slide-1.png"
-import imgSlide2 from "figma:asset/exhibits-slide-2.jpg"
-import imgSlide3 from "figma:asset/exhibits-slide-3.jpg"
+import imgSlide1 from "figma:asset/exhibits-slide-1.webp"
+import imgSlide2 from "figma:asset/exhibits-slide-2.webp"
+import imgSlide3 from "figma:asset/exhibits-slide-3.webp"
 import imgEllipse from "figma:asset/exhibits-ellipse.svg"
-import imgStatue from "../../assets/statue.png"
-import imgStatueShadow from "../../assets/staturShadow.png"
+import imgStatue from "../../assets/statue.webp"
+import imgStatueShadow from "../../assets/staturShadow.webp"
 
 const exhibits = [
   {

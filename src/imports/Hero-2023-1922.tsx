@@ -1,5 +1,5 @@
 import svgPaths from "./svg-xgubjcarj5";
-import imgImage from "figma:asset/5e9e706a4edd098b94b55ffc8289a25c57fcd860.png";
+import imgImage from "figma:asset/5e9e706a4edd098b94b55ffc8289a25c57fcd860.webp";
 import { imgVector } from "./svg-v7gnn";
 
 function Image() {

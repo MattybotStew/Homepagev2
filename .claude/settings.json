@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sort -t'[' -k2 -n)",
+      "Bash(npm run *)",
+      "Bash(chromium-cli screenshot *)",
+      "Bash(npx playwright *)",
+      "Read(//tmp/**)",
+      "Read(//private/tmp/**)",
+      "Bash(xargs -I{} basename {})",
+      "Bash(git commit -m ' *)",
+      "Bash(kill %1)",
+      "Bash(npm install *)",
+      "Bash(node -e \"const pkg = require\\('/Users/mattstewart/Homepagev2/node_modules/motion/package.json'\\); console.log\\(pkg.version\\)\")",
+      "Bash(node -e \"const exports = Object.keys\\(require\\('/Users/mattstewart/Homepagev2/node_modules/motion/react'\\)\\); console.log\\(exports.filter\\(k => ['animate','useInView','useTransform'].includes\\(k\\)\\)\\)\")",
+      "Bash(echo \"PID=$!\")"
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-import imgStatueHandstand11920X96811 from "figma:asset/2200d5f1414b522eb5abd25d17dd7bf0ff0d738e.png";
+import imgStatueHandstand11920X96811 from "figma:asset/2200d5f1414b522eb5abd25d17dd7bf0ff0d738e.webp";
 
 export default function Statue() {
   return (
