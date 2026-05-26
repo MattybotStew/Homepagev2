@@ -67,7 +67,7 @@
 .cma-power-marquee {
   display: flex;
   gap: 0;
-  animation: cmaPowerScroll 36s linear infinite;
+  animation: cmaPowerScroll 72s linear infinite;
   will-change: transform;
   width: max-content;
 }
