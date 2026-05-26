@@ -1,5 +1,8 @@
 import { motion } from "motion/react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import { Facebook, Instagram } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTiktok } from "@fortawesome/free-brands-svg-icons";
 import imgCustomImg001CopyrightJpg from "figma:asset/c175e874c4aacf4ffa7f1e2ab0fc3be96ac8d0aa.png";
 import imgCustomImg002CopyrightJpg from "figma:asset/797b45911a1d0a1f965f58bc294a8d4a73f9d367.png";
 import imgCustomImg003CopyrightJpg from "figma:asset/d83f9a80814ccc977216de3c0728e23db20372e5.png";
@@ -41,20 +44,41 @@ export default function InstagramSection() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="text-cma-navy mb-4">
-            Follow the Fun
+          <h2 className="text-cma-navy mb-3 tracking-[-1px]">
+            Stay Inspired
           </h2>
-          <p className="text-[#78787a] text-base md:text-lg max-w-2xl mx-auto">
-            See what's happening at the museum! Follow us{" "}
+          <p className="font-extrabold text-[#78787a] text-[clamp(20px,2.1vw,30px)] tracking-[-1px] leading-none mb-6">
+            Play, Learn, and Share
+          </p>
+          <div className="flex items-center justify-center gap-4">
+            <a
+              href="https://www.facebook.com/childrensmuseumofatlanta"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-cma-teal hover:bg-cma-teal transition-colors group"
+              aria-label="Facebook"
+            >
+              <Facebook className="size-5 text-cma-teal group-hover:text-white transition-colors" />
+            </a>
             <a
               href="https://www.instagram.com/childrensmuseumofatlanta/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-cma-teal hover:text-cma-teal-dark transition-colors font-bold"
+              className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-cma-teal hover:bg-cma-teal transition-colors group"
+              aria-label="Instagram"
             >
-              @childrensmuseumofatlanta
+              <Instagram className="size-5 text-cma-teal group-hover:text-white transition-colors" />
             </a>
-          </p>
+            <a
+              href="https://www.tiktok.com/@childrensmuseumatlanta"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-cma-teal hover:bg-cma-teal transition-colors group"
+              aria-label="TikTok"
+            >
+              <FontAwesomeIcon icon={faTiktok} className="size-4 text-cma-teal group-hover:text-white transition-colors" />
+            </a>
+          </div>
         </motion.div>
 
         {/* Masonry Grid */}
