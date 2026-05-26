@@ -268,7 +268,7 @@ export default function SpecialExperiences() {
                     alt={event.title}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
-                  <div className="absolute top-[10px] left-[10px] bg-cma-teal-dark px-[18px] py-[12px] rounded-[8px]">
+                  <div className="absolute bottom-[10px] left-[10px] bg-cma-teal-dark px-[18px] py-[12px] rounded-[8px]">
                     <p className="font-extrabold text-[14px] text-white leading-[1.5] whitespace-nowrap">
                       {event.date}
                     </p>
