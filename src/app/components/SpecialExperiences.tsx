@@ -194,7 +194,7 @@ export default function SpecialExperiences() {
   const events = allEvents[activeFilter] ?? allEvents.Featured;
 
   return (
-    <section className="bg-cma-cream relative w-full py-[80px] md:py-[120px] lg:py-[160px]">
+    <section className="bg-cma-cream relative w-full py-[80px] lg:pt-[100px] lg:pb-0">
       {/* Squiggle clip container — isolates overflow to just this decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
         <motion.div
