@@ -143,9 +143,9 @@ export default function FeaturedExhibits() {
 
   return (
     <section
-      aria-label="Featured Exhibits"
-      className="relative w-full pt-[80px] md:pt-[160px] pb-0 bg-cma-cream md:bg-cma-teal-pale"
-    >
+    aria-label="Featured Exhibits"
+    className="relative w-full pt-[80px] md:pt-[160px] bg-cma-teal-pale"
+  >
       {/* Heading */}
       <div className="relative flex flex-col items-center gap-6 md:gap-[48px] px-5 sm:px-10 md:px-[80px] text-center">
         <motion.h2
@@ -201,7 +201,7 @@ export default function FeaturedExhibits() {
       </div>
 
       {/* Carousel */}
-      <div className="relative mt-8 md:mt-[80px] overflow-hidden">
+      <div className="relative mt-0 md:mt-[10px] overflow-hidden">
         {/* Decorative ellipse */}
         <div
           className="absolute pointer-events-none left-1/2 top-[227px] -translate-x-1/2 w-[1876px] h-[1876px]"
@@ -210,16 +210,16 @@ export default function FeaturedExhibits() {
           <img src={imgEllipse} alt="" className="w-full h-full block" />
         </div>
 
-        {/* Cards */}
-        <div
-          className="relative h-[clamp(520px,calc(120px+min(652px,102vw)),800px)] select-none"
-          onMouseEnter={() => setCursorOver(true)}
-          onMouseLeave={() => setCursorOver(false)}
-          onMouseMove={(e) => {
-            rawX.set(e.clientX - 60)
-            rawY.set(e.clientY - 60)
-          }}
-        >
+            {/* Cards */}
+            <div
+              className="relative h-[clamp(520px,calc(120px+min(652px,102vw)),800px)] mb-0 md:mb-[196px] select-none"
+              onMouseEnter={() => setCursorOver(true)}
+              onMouseLeave={() => setCursorOver(false)}
+              onMouseMove={(e) => {
+                rawX.set(e.clientX - 60)
+                rawY.set(e.clientY - 60)
+              }}
+            >
           {/* Invisible drag overlay — framer handles velocity + inertia for both mouse and touch */}
           <motion.div
             className="absolute inset-0 z-20 md:cursor-none"
@@ -293,17 +293,17 @@ export default function FeaturedExhibits() {
         </AnimatePresence>
       </div>
 
-      {/* Dot indicators — mobile only; desktop uses filter pills */}
-      <div className="flex md:hidden items-center justify-center gap-[8px] mt-6 relative z-20">
-        {exhibits.map((_, j) => (
-          <button
-            key={j}
-            onClick={() => jumpTo(j)}
-            className={`rounded-full transition-all duration-300 h-[10px] ${j === activeIndex ? "w-[28px] bg-cma-navy" : "w-[10px] bg-cma-navy/30"}`}
-            aria-label={`Go to exhibit ${j + 1}`}
-          />
-        ))}
-      </div>
+{/* Dot indicators — mobile only; desktop uses filter pills */}
+<div className="cma-dot-indicators">
+  {exhibits.map((_, j) => (
+    <button
+      key={j}
+      onClick={() => jumpTo(j)}
+      className={`cma-dot ${j === activeIndex ? "cma-dot-active" : ""}`}
+      aria-label={`Go to exhibit ${j + 1}`}
+    />
+  ))}
+</div>
 
     </section>
   )

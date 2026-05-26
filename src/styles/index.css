@@ -356,3 +356,44 @@
 .cma-filter-pill-inactive:hover {
   background-color: var(--cma-teal-pale);
 }
+
+
+/* Dot indicators - mobile only */
+
+
+/* Dot indicators - mobile only */
+.cma-dot-indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: -30px;  /* Negative margin pulls dots UP closer to cards */
+  position: relative;
+  z-index: 20;
+}
+
+@media (min-width: 768px) {
+  .cma-dot-indicators {
+    display: none; /* Hide on tablet/desktop */
+  }
+}
+
+.cma-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(29, 62, 107, 0.3); /* --cma-navy with opacity */
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.cma-dot-active {
+  width: 28px;
+  border-radius: 5px;
+  background-color: var(--cma-navy);
+}
+
+.cma-dot:hover {
+  background-color: rgba(29, 62, 107, 0.5);
+}
+
