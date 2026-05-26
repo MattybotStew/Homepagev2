@@ -263,6 +263,18 @@
   }
 }
 
+/* ── Card image container ───────────────────────────────────────────────── */
+/* Apply to any card that has a photo thumbnail (events, exhibits, etc.)     */
+/* Uses 16:9 so the image is always landscape-rectangular, never square.     */
+.cma-card-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
 /* ── Section container ──────────────────────────────────────────────────── */
 .cma-section-container {
   max-width: 1280px;

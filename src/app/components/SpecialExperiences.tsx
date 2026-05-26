@@ -262,7 +262,7 @@ export default function SpecialExperiences() {
                 transition={{ delay: index * 0.08, duration: 0.5 }}
               >
                 {/* Image with teal date badge */}
-                <div className="relative h-[266px] rounded-[24px] overflow-hidden shrink-0">
+                <div className="cma-card-img">
                   <img
                     src={event.image}
                     alt={event.title}
