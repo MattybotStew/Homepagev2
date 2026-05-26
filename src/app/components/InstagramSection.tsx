@@ -41,16 +41,16 @@ export default function InstagramSection() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="font-['Nunito',sans-serif] text-[#1b3d6d] mb-4">
+          <h2 className="text-cma-navy mb-4">
             Follow the Fun
           </h2>
-          <p className="font-['Nunito',sans-serif] text-[#78787a] text-base md:text-lg max-w-2xl mx-auto">
+          <p className="text-[#78787a] text-base md:text-lg max-w-2xl mx-auto">
             See what's happening at the museum! Follow us{" "}
             <a
               href="https://www.instagram.com/childrensmuseumofatlanta/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#00adbb] hover:text-[#009aa7] transition-colors font-bold"
+              className="text-cma-teal hover:text-cma-teal-dark transition-colors font-bold"
             >
               @childrensmuseumofatlanta
             </a>
@@ -82,18 +82,18 @@ export default function InstagramSection() {
                   {/* Overlay Cards/Bubbles */}
                   {item.overlay && item.overlay.type === "card" && (
                     <div className="absolute bottom-4 left-4 right-4 bg-white rounded-xl shadow-lg p-4">
-                      <p className="font-['Nunito',sans-serif] font-bold text-[#1b3d6d] text-lg">
+                      <p className="font-bold text-cma-navy text-lg">
                         {item.overlay.title}
                       </p>
-                      <p className="font-['Nunito',sans-serif] text-[#78787a] text-sm mt-1">
+                      <p className="text-[#78787a] text-sm mt-1">
                         {item.overlay.date}
                       </p>
                     </div>
                   )}
                   
                   {item.overlay && item.overlay.type === "bubble" && (
-                    <div className="absolute top-4 right-4 bg-[#F7941E] rounded-full shadow-lg px-5 py-3">
-                      <p className="font-['Nunito',sans-serif] font-bold text-white text-sm whitespace-nowrap">
+                    <div className="absolute top-4 right-4 bg-cma-orange rounded-full shadow-lg px-5 py-3">
+                      <p className="font-bold text-white text-sm whitespace-nowrap">
                         {item.overlay.text}
                       </p>
                     </div>

@@ -1,10 +1,12 @@
 import Header from "./components/Header";
+import MobileHeader from "./components/MobileHeader";
 import Hero from "./components/Hero";
 import AlertBanner from "./components/AlertBanner";
 import ScrollProgress from "./components/ScrollProgress";
 import Marquee from "./components/Marquee";
 import PlanYourVisit from "./components/PlanYourVisit";
 import FeaturedExhibits from "./components/FeaturedExhibits";
+import SpecialExperiences from "./components/SpecialExperiences";
 import Testimonials from "./components/Testimonials";
 import ImpactSection from "./components/ImpactSection";
 import MembershipPricing from "./components/MembershipPricing";
@@ -15,14 +17,23 @@ import Footer from "./components/Footer";
 export default function App() {
   return (
     <div className="size-full relative" style={{ position: 'relative' }}>
-      {/* Alert Banner */}
+      {/* Alert Banner — always visible */}
       <AlertBanner />
-      
-      {/* Unified responsive header */}
-      <Header />
-      
-      {/* Scroll Progress Bar - Sticky below header */}
-      <ScrollProgress />
+
+      {/* Mobile header */}
+      <div className="lg:hidden">
+        <MobileHeader />
+      </div>
+
+      {/* Desktop header */}
+      <div className="hidden lg:block">
+        <Header />
+      </div>
+
+      {/* Scroll Progress Bar - desktop only */}
+      <div className="hidden lg:block">
+        <ScrollProgress />
+      </div>
       
       {/* Hero Section */}
       <Hero />
@@ -36,14 +47,17 @@ export default function App() {
       {/* Featured Exhibits Carousel */}
       <FeaturedExhibits />
 
-      {/* Testimonials Section */}
-      <Testimonials />
-      
-      {/* Impact Section */}
-      <ImpactSection />
+      {/* Special Experiences / Events Section */}
+      <SpecialExperiences />
 
       {/* Membership Pricing Section */}
       <MembershipPricing />
+
+      {/* Testimonials Section */}
+      <Testimonials />
+
+      {/* Impact Section */}
+      <ImpactSection />
       
       {/* Instagram Section */}
       <InstagramSection />

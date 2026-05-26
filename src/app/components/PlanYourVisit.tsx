@@ -1,12 +1,13 @@
 import React, { useRef } from "react"
 import { motion, useScroll, useTransform } from "motion/react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowRight, faArrowDown } from "@fortawesome/free-solid-svg-icons"
 import imgBgCircle from "figma:asset/pyv-bg-circle.svg"
 import imgIconTicket from "figma:asset/pyv-icon-ticket.svg"
 import imgIconClock from "figma:asset/pyv-icon-clock.svg"
 import imgIconParkingBg from "figma:asset/pyv-icon-parking-bg.svg"
 import imgIconParkingPin from "figma:asset/pyv-icon-parking-pin.svg"
 import imgIconFood from "figma:asset/pyv-icon-food.svg"
-import imgArrow from "figma:asset/pyv-arrow.svg"
 import imgWave from "figma:asset/pyv-wave.svg"
 
 function ParkingIcon() {
@@ -31,32 +32,32 @@ function ParkingIcon() {
 
 const cards = [
   {
-    icon: <img src={imgIconTicket} alt="" aria-hidden className="w-16 h-16 block shrink-0" />,
+    icon: <img src={imgIconTicket} alt="" aria-hidden className="w-[54px] h-[54px] block shrink-0" />,
     title: "Plan Your Visit",
     description: "Advance tickets recommended. Preview pricing & book online.",
-    buttonLabel: "Buy Now",
+    linkLabel: "Buy Now",
     href: "#tickets",
   },
   {
-    icon: <img src={imgIconClock} alt="" aria-hidden className="w-16 h-16 block shrink-0" />,
+    icon: <img src={imgIconClock} alt="" aria-hidden className="w-[54px] h-[54px] block shrink-0" />,
     title: "Hours & What to Expect",
-    description: "FRIDAY:\nOpen 10am–3:30pm",
-    buttonLabel: "Plan Your Visit",
+    description: "Open Monday-Sunday,\n10:00 AM - 5:00 PM",
+    linkLabel: "Plan Your Day",
     href: "#hours",
+  },
+  {
+    icon: <img src={imgIconFood} alt="" aria-hidden className="w-[54px] h-[54px] block shrink-0" />,
+    title: "Food & Amenities",
+    description: "Snack and drinks on-site. Outside snacks welcome. Lockers & diaper stations available.",
+    linkLabel: "See Amenities",
+    href: "#amenities",
   },
   {
     icon: <ParkingIcon />,
     title: "Parking & Directions",
     description: "Pre-purchase parking nearby. Easy access via MARTA",
-    buttonLabel: "Get Directions",
+    linkLabel: "Get Directions",
     href: "#parking",
-  },
-  {
-    icon: <img src={imgIconFood} alt="" aria-hidden className="w-16 h-16 block shrink-0" />,
-    title: "Food & Amenities",
-    description: "Snack and drinks on-site. Outside snacks welcome. Lockers & diaper stations available.",
-    buttonLabel: "See Amenities",
-    href: "#amenities",
   },
 ]
 
@@ -73,11 +74,11 @@ export default function PlanYourVisit() {
     <section
       ref={sectionRef}
       aria-label="Plan Your Visit"
-      className="relative w-full overflow-hidden py-[160px] bg-white"
+      className="relative w-full overflow-hidden py-[80px] md:py-[160px] bg-white"
     >
-      {/* Decorative background circle — scroll-driven scale + rotate */}
+      {/* Decorative background circle — scroll-driven scale + rotate, desktop only */}
       <motion.div
-        className="absolute pointer-events-none left-[calc(50%+65.82px)] top-[-865px] -translate-x-1/2 w-[2138px] h-[2274px] flex items-center justify-center"
+        className="hidden md:flex absolute pointer-events-none left-[calc(50%+65.82px)] top-[-865px] -translate-x-1/2 w-[2138px] h-[2274px] items-center justify-center"
         aria-hidden
         style={{ scale, rotate }}
         initial={{ opacity: 0, scale: 0.6 }}
@@ -95,46 +96,67 @@ export default function PlanYourVisit() {
       </motion.div>
 
       {/* Content */}
-      <div className="relative flex flex-col items-center gap-[64px] max-w-[1280px] mx-auto px-5 sm:px-10 md:px-[80px]">
+      <div className="relative flex flex-col items-center gap-[64px] cma-section-container">
 
-        {/* Heading */}
-        <motion.h2
-          className="text-center leading-none text-cma-navy"
+        {/* Eyebrow + Heading + Body + CTAs */}
+        <motion.div
+          className="flex flex-col items-center gap-8 text-center"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
         >
-          Planning Your Visit?
-          <br />
-          We&apos;ve Got You Covered
-        </motion.h2>
+          <p className="cma-eyebrow text-cma-navy opacity-80">
+            Plan Your Visit
+          </p>
+          <h2 className="tracking-[-1px] text-cma-navy text-center">
+            Planning Your Visit?
+            <br />
+            We&apos;ve Got You Covered
+          </h2>
+          <p className="text-cma-navy max-w-[720px]">
+            Dive into immersive exhibits and hands-on fun designed for curiosity, creativity, and discovery. Whether you&apos;re building, experimenting, or imagining together, every visit offers something new&mdash; reserve tickets in advance and enjoy your day of play.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href="#tickets"
+              className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark"
+            >
+              Buy Tickets
+            </a>
+            <a
+              href="#membership"
+              className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white"
+            >
+              Memberships
+            </a>
+          </div>
+        </motion.div>
 
         {/* Cards grid */}
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[10px]">
           {cards.map((card, i) => (
             <motion.div
               key={i}
-              className="bg-white border border-[#e4e8ee] rounded-[18px] flex flex-col gap-[24px] pt-[29px] pb-[23px] px-[25px] min-h-[280px]"
+              className="bg-white border border-[#e4e8ee] rounded-[18px] flex flex-col gap-[24px] pt-[29px] pb-[23px] px-[25px] min-h-[267px]"
               initial={{ opacity: 0, scale: 0.92 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.1, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              {card.icon}
-              <div className="flex-1 flex flex-col gap-[24px]">
-                <p className="font-bold text-[24px] text-cma-navy leading-[1.1]">
-                  {card.title}
-                </p>
-                <p className="font-medium text-[15px] text-cma-slate leading-[1.65] whitespace-pre-line">
-                  {card.description}
-                </p>
+              {/* Icon + title row */}
+              <div className="flex items-center gap-[16px]">
+                {card.icon}
+                <h3 className="text-cma-navy">{card.title}</h3>
               </div>
-              <a
-                href={card.href}
-                className="inline-flex items-center justify-center rounded-[1000px] border-2 border-[#1d3e6b] bg-white text-[#1d3e6b] transition-colors duration-200 hover:bg-[#1d3e6b] hover:text-white shrink-0 font-bold text-[15px] px-[24px] py-[13px]"
-              >
-                {card.buttonLabel}
+              {/* Description */}
+              <p className="flex-1 text-cma-slate whitespace-pre-line">
+                {card.description}
+              </p>
+              {/* Text link */}
+              <a href={card.href} className="cma-text-link">
+                {card.linkLabel}
+                <FontAwesomeIcon icon={faArrowRight} className="text-[11px]" />
               </a>
             </motion.div>
           ))}
@@ -142,11 +164,11 @@ export default function PlanYourVisit() {
 
         {/* Keep scrolling pill */}
         <div className="inline-flex items-center gap-[10px] bg-white border border-[rgba(107,126,160,0.25)] rounded-[200px] px-[17px] py-[9px]">
-          <p className="uppercase font-extrabold text-[14px] text-cma-blue-mid leading-[1.14]">
-            keep scrolling to explore our exhibits
+          <p className="font-bold text-cma-navy">
+            Keep scrolling to explore our exhibits
           </p>
-          <div className="rotate-180 shrink-0">
-            <img src={imgArrow} alt="" aria-hidden className="w-[20px] h-[20px] block" />
+          <div aria-hidden className="w-[20px] h-[20px] rounded-full bg-[#fbb040] flex items-center justify-center shrink-0">
+            <FontAwesomeIcon icon={faArrowDown} className="text-white text-[9px]" />
           </div>
         </div>
 

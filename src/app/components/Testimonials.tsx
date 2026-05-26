@@ -124,7 +124,7 @@ export default function Testimonials() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="font-['Nunito',sans-serif] text-[#1b3d6d]">
+          <h2 className="text-cma-navy">
             What Families Are Saying
           </h2>
         </motion.div>

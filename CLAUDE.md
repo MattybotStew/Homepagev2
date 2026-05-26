@@ -1,0 +1,138 @@
+# LLM Instructions — Children's Museum of Atlanta Homepage v2
+
+This file is read by Claude Code and any other LLM assistants working in this repo.
+Follow these conventions exactly. Do not introduce patterns that conflict with them.
+
+---
+
+## Stack
+
+- React + TypeScript + Vite
+- Tailwind CSS v4 (arbitrary values, CSS custom property tokens)
+- `motion/react` for animations
+- Figma MCP for design-to-code (node IDs extracted from Figma URLs)
+- Font Awesome free tier via `@fortawesome/react-fontawesome` (SVG, tree-shaken)
+  - Solid: `@fortawesome/free-solid-svg-icons`
+  - Regular: `@fortawesome/free-regular-svg-icons`
+  - Brands: `@fortawesome/free-brands-svg-icons`
+
+---
+
+## CSS Architecture
+
+Two files — keep them separate:
+
+- **`src/styles/theme.css`** — design tokens (`--cma-*` custom properties), base element styles (`h1`–`h4`, `p`, `button`, `input`, `label`). Nothing component-specific goes here.
+- **`src/styles/index.css`** — utility classes (`.cma-*`), animations (`@keyframes`), component-scoped helpers. Organized with comments.
+
+**Rule:** All repeating styles must be extracted to one of these files. Do not leave duplicate inline Tailwind classes across components when a shared utility class would serve. Always prefer editing an existing global class over adding inline overrides.
+
+---
+
+## Design Tokens
+
+All brand colors are CSS custom properties exposed as Tailwind tokens via `--color-cma-*`:
+
+| Token | Value |
+|---|---|
+| `cma-navy` | `#1d3e6b` |
+| `cma-orange` | `#f7941e` |
+| `cma-orange-dark` | `#b8620a` |
+| `cma-teal` | `#00ADBB` |
+| `cma-teal-dark` | `#007c87` |
+| `cma-teal-light` | `#4AD1DC` |
+| `cma-teal-pale` | `#cceff1` |
+| `cma-blue-mid` | `#346094` |
+| `cma-blue-light` | `#d4e3f3` |
+| `cma-slate` | `#2c3a52` |
+| `cma-cream` | `#fdf6ee` |
+
+Use `text-cma-navy`, `bg-cma-orange`, etc. Do not hardcode hex values that match a token.
+
+---
+
+## Type Scale
+
+Defined in `theme.css` as `--cma-text-*` custom properties and applied in base element styles:
+
+| Scale | Token | Value | Element |
+|---|---|---|---|
+| XL | `--cma-text-display` | `clamp(34px, 5.9vw, 75px)` | `h1` — 900 weight, 0.9 line-height, -1px tracking |
+| L  | `--cma-text-h2`      | `clamp(28px, 3.75vw, 48px)` | `h2` — 800 weight, 1.0 line-height, -0.02em tracking |
+| M  | `--cma-text-h3`      | `20px` | `h3` — 900 weight, 1.1 line-height |
+| S  | `--cma-text-body`    | `15px` | `p` — 500 weight, 1.65 line-height |
+| EYE | `--cma-text-eye`   | `15px` | `.cma-eyebrow` — 700 weight, 100% line-height, 3.9px letter-spacing, uppercase |
+
+For responsive font sizes use `clamp(min, Xvw, max)`. Formula: `vw% = target_px / 1440 * 100`.
+
+---
+
+## Global Element Styles (theme.css)
+
+These apply to HTML elements globally — do not re-declare them inline on components:
+
+- `h1` — Nunito, display size, 900 weight, 0.9 line-height, -1px tracking
+- `h2` — Nunito (inherited), h2 size, 800 weight, 1.0 line-height
+- `h3` — Nunito, 20px, 900 weight, 1.1 line-height
+- `p`  — Nunito, 15px, 500 weight, 1.65 line-height
+- `button` — Nunito, 15px, 900 weight, 1.0 line-height, `text-box-trim: trim-both`, `text-box-edge: cap alphabetic`
+
+**Important:** Global `button` styles only apply to `<button>` elements, not `<a>` tags used as CTAs. Add `font-black text-[15px]` explicitly on `<a>` CTA elements.
+
+---
+
+## Link Styling Conventions
+
+Two distinct patterns — never mix them:
+
+### `.cma-text-link` — standalone action links
+Use for card CTAs, section links, etc. that appear outside paragraph copy (e.g. "Buy Now", "Get Directions").
+
+- Default: no underline, teal color only
+- Hover: underline appears + shifts to darker teal (`#005a63`)
+- Focus-visible: 2px outline ring + underline (keyboard navigation)
+
+### `.cma-inline-link` — links embedded in paragraph copy (TODO: not yet implemented)
+- Underline always visible (required by WCAG 1.4.1 — color alone is not sufficient when links are mixed with plain text)
+
+---
+
+## Button Sizing
+
+Standard CTA button (used in Hero, PlanYourVisit, etc.):
+- Padding: `px-[24px] py-[13px]`
+- Border-radius: `rounded-[1000px]`
+- Font: `font-black text-[15px]` (on `<a>` elements)
+
+Do not use larger padding (e.g. `py-[22px]`) unless a specific section explicitly calls for it in Figma.
+
+---
+
+## Shadows
+
+Use the shared shadow utilities from `index.css`:
+
+| Class | Use |
+|---|---|
+| `shadow-cma-warm` | Cards with orange accent (e.g. MuseumHoursWidget) |
+| `shadow-cma-panel` | Expanded overlay panels |
+| `shadow-cma-btn` | Buttons |
+| `shadow-cma-card` | General content cards |
+
+---
+
+## Figma Workflow
+
+1. Extract `fileKey` and `node-id` from the Figma URL.
+2. Use `get_design_context` to fetch design spec + screenshot.
+3. Adapt the output to match this project's CSS architecture — do not copy Figma-generated code verbatim.
+4. Always verify colors, fonts, and sizes against the design tokens above before adding arbitrary values.
+
+---
+
+## General Rules
+
+- All styles go global first. Only use inline Tailwind arbitrary values for one-off overrides that are genuinely unique to a single element.
+- Do not add comments explaining what code does — only add comments for non-obvious WHY (workarounds, constraints).
+- Do not add error handling or fallbacks for scenarios that cannot happen.
+- Match the existing component patterns before introducing new abstractions.

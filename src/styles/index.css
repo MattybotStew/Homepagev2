@@ -8,7 +8,12 @@
     background: linear-gradient(90deg, #4AD1DC 0%, #00ADBB 100%);
   }
   .bg-cma-hero-overlay {
-    background: linear-gradient(to right, rgba(0,0,0,0.8) 17%, rgba(102,102,102,0) 60%);
+    background: linear-gradient(359deg, rgba(0, 0, 0, 0.80) 0.54%, rgba(0, 0, 0, 0.00) 76.83%);
+  }
+  @media (min-width: 768px) {
+    .bg-cma-hero-overlay {
+      background: linear-gradient(to right, rgba(0,0,0,0.8) 17%, rgba(102,102,102,0) 60%);
+    }
   }
   .bg-cma-card-overlay {
     background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
@@ -70,6 +75,16 @@
   animation-play-state: paused;
 }
 
+/* ── Eyebrow ────────────────────────────────────────────────────────────── */
+.cma-eyebrow {
+  font-family: Nunito, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 3.9px;
+  text-transform: uppercase;
+}
+
 /* ── Alert Banner ───────────────────────────────────────────────────────── */
 @layer utilities {
   .cma-alert-text {
@@ -106,6 +121,33 @@
 }
 
 /* ── Footer ─────────────────────────────────────────────────────────────── */
+/* Standalone text link (not inline in paragraphs) — ADA: color + underline on interaction, focus-visible ring */
+.cma-text-link {
+  font-family: Nunito, sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #007c87;
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
+  text-decoration: none;
+  text-underline-offset: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.15s ease;
+}
+.cma-text-link:hover {
+  color: #005a63;
+  text-decoration: underline;
+}
+.cma-text-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 2px;
+  text-decoration: underline;
+}
+
 .cma-footer-link {
   font-family: Nunito, sans-serif;
   font-weight: 400;
@@ -191,4 +233,95 @@
   .bg-cma-progress-track {
     background-color: #00828d;
   }
+}
+
+/* ── Logo animation (animated logo icon in Header) ──────────────────────── */
+@keyframes cmaLogoGrow {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* ── Standard CTA button base ───────────────────────────────────────────── */
+/* Structural layout only — apply color/bg/border via Tailwind utilities */
+.cma-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1000px;
+  font-family: Nunito, sans-serif;
+  font-weight: 900;
+  font-size: 15px;
+  line-height: 1;
+  white-space: nowrap;
+  padding: 13px 24px;
+  width: 100%;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+@media (min-width: 640px) {
+  .cma-btn {
+    width: auto;
+  }
+}
+
+/* ── Section container ──────────────────────────────────────────────────── */
+.cma-section-container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (min-width: 640px) {
+  .cma-section-container { padding-left: 40px; padding-right: 40px; }
+}
+@media (min-width: 768px) {
+  .cma-section-container { padding-left: 80px; padding-right: 80px; }
+}
+
+/* ── Filter pill bar (FeaturedExhibits, SpecialExperiences) ─────────────── */
+.cma-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 6px;
+  background: white;
+  border: 1px solid rgba(107, 126, 160, 0.25);
+  border-radius: 1rem;
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .cma-filter-bar { padding: 8px; }
+}
+@media (min-width: 1280px) {
+  .cma-filter-bar { flex-wrap: nowrap; gap: 0; border-radius: 200px; }
+}
+
+.cma-filter-pill {
+  padding: 7px 10px;
+  border-radius: 9999px;
+  font-family: Nunito, sans-serif;
+  font-size: 10px;
+  white-space: nowrap;
+  transition: background-color 0.2s, color 0.2s;
+}
+@media (min-width: 640px) {
+  .cma-filter-pill { padding: 8px 12px; font-size: 11px; }
+}
+@media (min-width: 1024px) {
+  .cma-filter-pill { padding: 10px 16px; font-size: 12px; }
+}
+.cma-filter-pill-active {
+  background-color: var(--cma-navy);
+  color: white;
+  font-weight: 800;
+}
+.cma-filter-pill-inactive {
+  background-color: white;
+  color: var(--cma-navy);
+  font-weight: 500;
+}
+.cma-filter-pill-inactive:hover {
+  background-color: var(--cma-teal-pale);
 }

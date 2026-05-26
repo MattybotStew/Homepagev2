@@ -51,7 +51,7 @@ export default function ExploreExhibits() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="relative mb-6 md:mb-8 lg:mb-10">
-            <h2 className="font-['Nunito',sans-serif] text-[#1b3d6d]">
+            <h2 className="text-cma-navy">
               Explore Our Exhibits:
               <br />
               The Power of Play
@@ -89,7 +89,7 @@ export default function ExploreExhibits() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
           >
-            <p className="font-['Nunito',sans-serif] font-normal text-[#78787a] text-[16px] md:text-[18px] lg:text-[20px] leading-[1.6] text-right max-w-[100%] md:max-w-[520px] lg:max-w-[601px]">
+            <p className="font-normal text-[#78787a] text-[16px] md:text-[18px] lg:text-[20px] leading-[1.6] text-right max-w-[100%] md:max-w-[520px] lg:max-w-[601px]">
               Why is play essential for childhood development—and how does the Children's Museum of Atlanta help make it possible?
             </p>
           </motion.div>
@@ -123,7 +123,7 @@ export default function ExploreExhibits() {
               {/* Text Content */}
               <div className="absolute bottom-6 md:bottom-10 lg:bottom-12 left-4 md:left-6 lg:left-8 right-4 md:right-6 lg:right-8">
                 <motion.h3
-                  className="font-['Nunito',sans-serif] font-medium text-white text-[20px] md:text-[24px] lg:text-[28px] leading-none tracking-[-1.12px] mb-2"
+                  className="font-medium text-white text-[20px] md:text-[24px] lg:text-[28px] leading-none tracking-[-1.12px] mb-2"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ 
                     opacity: hoveredIndex === index ? 1 : 0.9,
@@ -134,7 +134,7 @@ export default function ExploreExhibits() {
                   {exhibit.title}
                 </motion.h3>
                 <motion.p
-                  className="font-['Nunito',sans-serif] font-normal text-white/90 text-[12px] md:text-[13px] lg:text-[14px] leading-[20px]"
+                  className="font-normal text-white/90 text-[12px] md:text-[13px] lg:text-[14px] leading-[20px]"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ 
                     opacity: hoveredIndex === index ? 1 : 0.7,

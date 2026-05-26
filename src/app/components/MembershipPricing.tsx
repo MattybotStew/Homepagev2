@@ -13,11 +13,11 @@ export default function MembershipPricing() {
 
   return (
     <div className="w-full py-[80px] md:py-[120px] bg-cma-cream">
-      <div className="max-w-[1280px] mx-auto px-5 sm:px-10 md:px-[80px]">
+      <div className="cma-section-container">
 
         {/* Heading */}
         <motion.div
-          className="flex flex-col gap-[32px] items-center mb-[48px]"
+          className="flex flex-col gap-6 md:gap-[32px] items-center mb-8 md:mb-[48px]"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -32,7 +32,7 @@ export default function MembershipPricing() {
 
           {/* Tab switcher */}
           <div
-            className="flex gap-[10px] p-[8px] rounded-[200px] bg-white border border-[rgba(107,126,160,0.25)]"
+            className="flex flex-wrap justify-center gap-[8px] p-[8px] rounded-2xl sm:rounded-[200px] bg-white border border-[rgba(107,126,160,0.25)] w-full sm:w-auto"
           >
             {/* Family Membership tab */}
             <button
@@ -73,7 +73,7 @@ export default function MembershipPricing() {
               className="w-full rounded-[24px] p-[40px] md:p-[64px] flex flex-col gap-[32px] bg-cma-teal-dark"
             >
               {/* Eyebrow */}
-              <p className="text-center uppercase font-bold text-[18px] text-white/80 tracking-[3.9px]">
+              <p className="cma-eyebrow text-center text-white/80">
                 Family Membership • 12 Months
               </p>
 
@@ -89,7 +89,7 @@ export default function MembershipPricing() {
                 </div>
                 <a
                   href="#membership"
-                  className="inline-flex items-center justify-center rounded-[1000px] shrink-0 self-start sm:self-auto transition-colors duration-200 hover:bg-[#c8701a] bg-cma-orange font-bold text-[18px] text-cma-navy px-[24px] py-[13px]"
+                  className="cma-btn shrink-0 self-start sm:self-auto bg-cma-orange text-cma-navy hover:bg-cma-orange-dark text-[18px]"
                 >
                   Become a Member
                 </a>
@@ -127,7 +127,7 @@ export default function MembershipPricing() {
               className="w-full rounded-[24px] p-[40px] md:p-[64px] flex flex-col gap-[32px] bg-white"
             >
               {/* Eyebrow */}
-              <p className="text-center uppercase font-bold text-[18px] text-cma-navy/80 tracking-[3.9px]">
+              <p className="cma-eyebrow text-center text-cma-navy/80">
                 Single Visit • One Visit
               </p>
 
@@ -143,7 +143,7 @@ export default function MembershipPricing() {
                 </div>
                 <a
                   href="#tickets"
-                  className="inline-flex items-center justify-center rounded-[1000px] shrink-0 self-start sm:self-auto transition-colors duration-200 hover:opacity-90 bg-cma-navy font-bold text-[18px] text-white px-[24px] py-[13px]"
+                  className="cma-btn shrink-0 self-start sm:self-auto bg-cma-navy text-white hover:opacity-90 text-[18px]"
                 >
                   Buy Tickets
                 </a>
@@ -153,7 +153,7 @@ export default function MembershipPricing() {
               <div className="h-px bg-black/15" />
 
               {/* Per-ticket prices */}
-              <div className="grid grid-cols-3 gap-x-[16px] gap-y-[32px]">
+              <div className="grid grid-cols-1 xs:grid-cols-3 sm:grid-cols-3 gap-x-[16px] gap-y-6 sm:gap-y-[32px]">
                 {[
                   { label: "Child / Senior", price: "$19.95" },
                   { label: "Adult", price: "$21.95" },
@@ -171,11 +171,11 @@ export default function MembershipPricing() {
               </div>
 
               {/* Upsell pill */}
-              <div className="flex items-center gap-[10px] self-start rounded-[20px] px-[16px] py-[8px] bg-cma-teal-pale">
-                <div className="rotate-90 shrink-0">
+              <div className="flex items-start sm:items-center gap-[10px] self-start rounded-[20px] px-[16px] py-[8px] bg-cma-teal-pale">
+                <div className="rotate-90 shrink-0 mt-[3px] sm:mt-0">
                   <img src={imgArrow} alt="" aria-hidden className="w-[16px] h-[6px] block" />
                 </div>
-                <p className="uppercase font-extrabold text-[14px] text-cma-blue-mid leading-[1.14]">
+                <p className="uppercase font-extrabold text-[12px] sm:text-[14px] text-cma-blue-mid leading-[1.4]">
                   Coming back? A membership covers your next visit free.
                 </p>
               </div>

@@ -2,22 +2,22 @@ import svgPaths from "../../imports/svg-lyystvpsgq";
 
 export default function Marquee() {
   const marqueeItems = [
+    { text: "Tickets from $19.95" },
+    { text: "404.659.5437" },
+    { text: "Monday-Sunday: 10:00 AM - 5:00 PM" },
     { text: "Downtown Atlanta" },
-    { text: "Open Today 10am-3:30pm" },
-    { text: "Tickets from $17.95" },
   ];
 
   return (
-    <div className="bg-[#1d3e6b] w-full overflow-hidden py-[20px] md:py-[30px] relative">
+    <div className="bg-cma-navy w-full overflow-hidden py-[12px] md:py-[16px] relative">
       <div className="cma-marquee-container">
-        {/* Duplicate content for seamless loop */}
         <div className="cma-marquee-content">
           {[...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, index) => (
-            <div key={index} className="flex items-center gap-[20px] md:gap-[30px] shrink-0">
-              <p className="font-bold text-white whitespace-nowrap text-[clamp(18px,3vw,39px)] leading-none">
+            <div key={index} className="flex items-center gap-[20px] md:gap-[32px] shrink-0">
+              <p className="font-bold text-white whitespace-nowrap text-[clamp(16px,2.1vw,30px)] leading-none tracking-[-1px]">
                 {item.text}
               </p>
-              <div className="h-[20px] md:h-[25px] lg:h-[30.962px] w-[17px] md:w-[21px] lg:w-[26.263px] shrink-0">
+              <div className="h-[clamp(18px,2.15vw,31px)] w-[clamp(15px,1.82vw,26px)] shrink-0">
                 <svg
                   className="block size-full"
                   fill="none"
@@ -31,7 +31,6 @@ export default function Marquee() {
           ))}
         </div>
       </div>
-
     </div>
   );
 }

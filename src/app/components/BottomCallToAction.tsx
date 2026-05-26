@@ -113,7 +113,7 @@ export default function BottomCallToAction() {
         >
           {/* Main Heading */}
           <motion.h2
-            className="font-['Nunito',sans-serif] text-white max-w-full lg:max-w-[700px]"
+            className="text-white max-w-full lg:max-w-[700px]"
             variants={headingVariants}
           >
             Make Play Possible for All
@@ -121,7 +121,7 @@ export default function BottomCallToAction() {
 
           {/* Description */}
           <motion.p
-            className="font-['Nunito',sans-serif] font-normal text-white text-[16px] md:text-[17px] leading-relaxed max-w-full"
+            className="font-normal text-white text-[16px] md:text-[17px] leading-relaxed max-w-full"
             variants={fadeInUpVariants}
           >
             As a nonprofit, we make joy accessible to every child. Your support
@@ -130,7 +130,7 @@ export default function BottomCallToAction() {
 
           {/* Impact Statistics */}
           <motion.p
-            className="font-['Nunito',sans-serif] font-bold text-[#ffd69a] text-sm md:text-[15px] leading-relaxed"
+            className="font-bold text-[#ffd69a] text-sm md:text-[15px] leading-relaxed"
             variants={fadeInUpVariants}
           >
             2024 Impact: 1,200 free passes | 15,000 field trips
@@ -147,7 +147,7 @@ export default function BottomCallToAction() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <p className="font-bold text-white text-lg md:text-[24px] whitespace-nowrap">
+              <p className="font-black text-white text-lg md:text-[24px] whitespace-nowrap">
                 Memberships
               </p>
             </motion.button>

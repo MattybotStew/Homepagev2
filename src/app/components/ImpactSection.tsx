@@ -12,7 +12,7 @@ export default function ImpactSection() {
   return (
     <section
       aria-label="Making an Impact Together"
-      className="relative w-full overflow-hidden pt-[80px] md:pt-[120px] pb-[220px] md:pb-[340px] bg-cma-navy"
+      className="relative w-full overflow-hidden pt-[60px] md:pt-[120px] pb-[140px] md:pb-[220px] lg:pb-[340px] bg-cma-navy"
     >
       {/* Top teal wave */}
       <div className="absolute top-0 left-0 flex overflow-hidden h-[13px] w-full" aria-hidden>
@@ -49,11 +49,11 @@ export default function ImpactSection() {
       </div>
 
       {/* Content */}
-      <div className="relative max-w-[1280px] mx-auto px-5 sm:px-10 md:px-[80px]">
-        <div className="flex flex-col lg:flex-row gap-[48px] items-start">
+      <div className="relative cma-section-container">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-[48px] items-start">
 
           {/* Left: text */}
-          <div className="flex-1 flex flex-col gap-[40px]">
+          <div className="flex-1 flex flex-col gap-6 md:gap-[40px]">
             <motion.h2
               className="leading-none text-white"
               initial={{ opacity: 0, y: 24 }}
@@ -80,7 +80,7 @@ export default function ImpactSection() {
             </motion.div>
 
             <motion.div
-              className="flex flex-wrap gap-[16px]"
+              className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-[16px]"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
@@ -88,19 +88,19 @@ export default function ImpactSection() {
             >
               <a
                 href="#donate"
-                className="inline-flex items-center justify-center rounded-[1000px] border-2 border-[#007c87] bg-white text-[#007c87] transition-colors duration-200 hover:bg-[#007c87] hover:text-white font-bold text-[15px] px-[24px] py-[13px]"
+                className="cma-btn border-2 border-cma-teal-dark bg-white text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white w-full sm:w-auto"
               >
                 Donate
               </a>
               <a
                 href="#membership"
-                className="inline-flex items-center justify-center rounded-[1000px] border-2 border-white bg-white text-[#1d3e6b] transition-colors duration-200 hover:bg-transparent hover:text-white font-bold text-[15px] px-[24px] py-[13px]"
+                className="cma-btn border-2 border-white bg-white text-cma-navy hover:bg-transparent hover:text-white w-full sm:w-auto"
               >
                 Memberships
               </a>
               <a
                 href="#tickets"
-                className="inline-flex items-center justify-center rounded-[1000px] bg-[#f7941e] text-[#1d3e6b] transition-colors duration-200 hover:bg-[#c8701a] font-bold text-[15px] px-[24px] py-[13px]"
+                className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark w-full sm:w-auto"
               >
                 Buy Tickets
               </a>

@@ -14,7 +14,7 @@ export default function MuseumHoursWidget() {
       >
         <div className="bg-white flex flex-col items-start rounded-[16px] shadow-cma-warm w-full">
           <div className="flex gap-[12px] h-[64px] items-center px-[16px] w-full">
-            <div className="bg-[#f7941e] relative rounded-full shrink-0 size-[40px]">
+            <div className="bg-cma-orange relative rounded-full shrink-0 size-[40px]">
               <div className="flex items-center justify-center relative size-full">
                 <div className="relative shrink-0 size-[20px]">
                   <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20 20">
@@ -34,10 +34,10 @@ export default function MuseumHoursWidget() {
             <div className="flex-1 h-[38px] min-h-px min-w-px relative">
               <div className="flex flex-col gap-[2px] items-start relative size-full">
                 <div className="h-[16px] relative shrink-0 w-full">
-                  <p className="font-['Quicksand',sans-serif] font-semibold leading-[16px] text-[#1b3d6d] text-[12px] text-left whitespace-nowrap">Opening Times Today</p>
+                  <p className="font-semibold leading-[16px] text-cma-navy text-[12px] text-left whitespace-nowrap">Opening Times Today</p>
                 </div>
                 <div className="h-[20px] overflow-clip relative shrink-0 w-full">
-                  <p className="font-['Quicksand',sans-serif] font-bold leading-[20px] text-[#f7941e] text-[14px] text-left whitespace-nowrap">Members 9-10 AM | General 10 AM-3:30 PM</p>
+                  <p className="font-bold leading-[20px] text-cma-orange text-[14px] text-left whitespace-nowrap">Members 9-10 AM | General 10 AM-3:30 PM</p>
                 </div>
               </div>
             </div>
@@ -72,7 +72,7 @@ export default function MuseumHoursWidget() {
                   </g>
                 </svg>
               </div>
-              <p className="font-['Nunito',sans-serif] font-bold leading-[28px] text-[#1d3e6b] text-[24px] whitespace-nowrap">Museum Hours</p>
+              <p className="font-bold leading-[28px] text-cma-navy text-[24px] whitespace-nowrap">Museum Hours</p>
             </div>
           </div>
 
@@ -95,7 +95,7 @@ export default function MuseumHoursWidget() {
                       </defs>
                     </svg>
                   </div>
-                  <p className="font-['Nunito',sans-serif] font-bold leading-[24px] text-[#1d3e6b] text-[16px]">
+                  <p className="font-bold leading-[24px] text-cma-navy text-[16px]">
                     <span>Weekday Hours: </span>
                     <span className="font-normal">Tuesday - Friday</span>
                   </p>
@@ -104,16 +104,16 @@ export default function MuseumHoursWidget() {
                 {/* Members Early Access */}
                 <div className="bg-white rounded-[14px] w-full">
                   <div className="flex flex-col gap-[6px] items-start p-[14px]">
-                    <p className="font-['Nunito',sans-serif] font-bold leading-[20px] text-[#1d3e6b] text-[14px] whitespace-nowrap">Members Early Access</p>
-                    <p className="font-['Nunito',sans-serif] font-semibold leading-[20px] text-[#f7941e] text-[14px] whitespace-nowrap">9:00 - 10:00 AM</p>
+                    <p className="font-bold leading-[20px] text-cma-navy text-[14px] whitespace-nowrap">Members Early Access</p>
+                    <p className="font-semibold leading-[20px] text-cma-orange text-[14px] whitespace-nowrap">9:00 - 10:00 AM</p>
                   </div>
                 </div>
 
                 {/* General Admission */}
                 <div className="bg-white rounded-[14px] w-full">
                   <div className="flex flex-col gap-[6px] items-start p-[14px]">
-                    <p className="font-['Nunito',sans-serif] font-bold leading-[20px] text-[#1d3e6b] text-[14px] whitespace-nowrap">General Admission</p>
-                    <p className="font-['Nunito',sans-serif] font-semibold leading-[20px] text-[#00adbb] text-[14px] whitespace-nowrap">10:00 AM - 3:30 PM</p>
+                    <p className="font-bold leading-[20px] text-cma-navy text-[14px] whitespace-nowrap">General Admission</p>
+                    <p className="font-semibold leading-[20px] text-cma-teal text-[14px] whitespace-nowrap">10:00 AM - 3:30 PM</p>
                   </div>
                 </div>
 
@@ -132,7 +132,7 @@ export default function MuseumHoursWidget() {
                       </defs>
                     </svg>
                   </div>
-                  <p className="font-['Nunito',sans-serif] font-bold leading-[24px] text-[#1d3e6b] text-[16px]">
+                  <p className="font-bold leading-[24px] text-cma-navy text-[16px]">
                     <span>Weekend Hours: </span>
                     <span className="font-normal">Saturday</span>
                   </p>
@@ -141,22 +141,22 @@ export default function MuseumHoursWidget() {
                 {/* Open to All */}
                 <div className="bg-white rounded-[14px] w-full">
                   <div className="flex flex-col gap-[6px] items-start p-[14px]">
-                    <p className="font-['Nunito',sans-serif] font-bold leading-[20px] text-[#1d3e6b] text-[14px] whitespace-nowrap">Open to All</p>
-                    <p className="font-['Nunito',sans-serif] font-semibold leading-[20px] text-[#f7941e] text-[14px] whitespace-nowrap">9:00 AM - 4:30 PM</p>
+                    <p className="font-bold leading-[20px] text-cma-navy text-[14px] whitespace-nowrap">Open to All</p>
+                    <p className="font-semibold leading-[20px] text-cma-orange text-[14px] whitespace-nowrap">9:00 AM - 4:30 PM</p>
                   </div>
                 </div>
 
                 {/* Closed Notice */}
                 <div className="bg-white rounded-[14px] w-full">
                   <div className="flex items-center justify-center p-[14px]">
-                    <p className="font-['Nunito',sans-serif] font-bold leading-[20px] text-[#1d3e6b] text-[14px] whitespace-nowrap">{`Closed Sundays & Mondays`}</p>
+                    <p className="font-bold leading-[20px] text-cma-navy text-[14px] whitespace-nowrap">{`Closed Sundays & Mondays`}</p>
                   </div>
                 </div>
 
                 {/* Plan Your Visit Button */}
-                <button className="bg-[#00adbb] rounded-[475px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] w-full overflow-clip hover:bg-[#009aa7] transition-colors">
+                <button className="bg-cma-teal rounded-[475px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] w-full overflow-clip hover:bg-cma-teal-dark transition-colors">
                   <div className="flex items-center justify-center px-[34px] py-[17px]">
-                    <p className="font-['Nunito',sans-serif] font-bold leading-[1.13] text-[13px] text-white whitespace-nowrap">Plan Your Visit</p>
+                    <p className="font-black leading-[1.13] text-[13px] text-white whitespace-nowrap">Plan Your Visit</p>
                   </div>
                 </button>
               </div>

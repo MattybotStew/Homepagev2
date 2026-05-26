@@ -78,14 +78,14 @@ export default function Footer() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="w-full h-[50px] pl-12 pr-4 border border-[#d1d5dc] rounded-[10px] font-['Nunito',sans-serif] text-base text-[#0a0a0a] placeholder:text-[rgba(10,10,10,0.5)] focus:outline-none focus:ring-2 focus:ring-[#00adbb] focus:border-transparent"
+                  className="w-full h-[50px] pl-12 pr-4 border border-[#d1d5dc] rounded-[10px] text-base text-[#0a0a0a] placeholder:text-[rgba(10,10,10,0.5)] focus:outline-none focus:ring-2 focus:ring-cma-teal focus:border-transparent"
                   required
                 />
               </div>
             </div>
             <button
               type="submit"
-              className="bg-cma-orange hover:bg-cma-orange-dark transition-colors h-[50px] px-8 rounded-full font-bold text-white text-base whitespace-nowrap"
+              className="bg-cma-orange hover:bg-cma-orange-dark transition-colors h-[50px] px-8 rounded-full font-black text-white text-base whitespace-nowrap w-full sm:w-auto"
             >
               Stay In The Loop!
             </button>
@@ -235,10 +235,10 @@ export default function Footer() {
       </div>
 
       {/* Bottom Section - Copyright & Social */}
-      <div className="bg-[#1D3E6B] px-5 md:px-12 lg:px-[71.5px] py-8 md:py-10">
+      <div className="bg-cma-navy px-5 md:px-12 lg:px-[71.5px] py-8 md:py-10">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           {/* Copyright */}
-          <p className="font-['Nunito',sans-serif] text-white text-sm">
+          <p className="text-white text-sm">
             Copyright © 2026 Children's Museum of Atlanta
           </p>
 

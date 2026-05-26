@@ -14,7 +14,7 @@ function AnimatedLogoIcon() {
           <path d={logoSvgPaths.pbd95800} fill="#FBB040" id="Vector_4" />
           <path d={logoSvgPaths.p3cdb3200} fill="#FAA735" id="Star" />
           {/* Animated blue vector */}
-          <g id="Vector_5" className="origin-center animate-[grow_2s_ease-in-out_infinite]" style={{ transformOrigin: '57.74px 6px' }}>
+          <g id="Vector_5" className="origin-center animate-[cmaLogoGrow_2s_ease-in-out_infinite]" style={{ transformOrigin: '57.74px 6px' }}>
             <mask fill="white" id="path-6-inside-1_2002_59">
               <path d={logoSvgPaths.p31e42c40} />
             </mask>
@@ -22,7 +22,7 @@ function AnimatedLogoIcon() {
             <path d={logoSvgPaths.p206e380} fill="white" mask="url(#path-6-inside-1_2002_59)" />
           </g>
           {/* Animated arrow */}
-          <g id="Arrow" className="origin-center animate-[grow_2s_ease-in-out_infinite_0.3s]" style={{ transformOrigin: '7.75px 40.5px' }}>
+          <g id="Arrow" className="origin-center animate-[cmaLogoGrow_2s_ease-in-out_infinite_0.3s]" style={{ transformOrigin: '7.75px 40.5px' }}>
             <mask fill="white" id="path-8-inside-2_2002_59">
               <path d={logoSvgPaths.p2a7c1880} />
             </mask>
@@ -31,7 +31,7 @@ function AnimatedLogoIcon() {
           </g>
           <path d={logoSvgPaths.p16dbcf00} fill="#FBB040" id="Circle" />
           {/* Animated squiggle */}
-          <g id="Squiggle" className="origin-center animate-[grow_2s_ease-in-out_infinite_0.6s]" style={{ transformOrigin: '102px 42px' }}>
+          <g id="Squiggle" className="origin-center animate-[cmaLogoGrow_2s_ease-in-out_infinite_0.6s]" style={{ transformOrigin: '102px 42px' }}>
             <path d={logoSvgPaths.p137bbe00} fill="white" />
             <path d={logoSvgPaths.p137bbe00} stroke="white" strokeLinejoin="round" strokeWidth="1.5" />
           </g>
@@ -42,12 +42,6 @@ function AnimatedLogoIcon() {
           </clipPath>
         </defs>
       </svg>
-      <style>{`
-        @keyframes grow {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.15); }
-        }
-      `}</style>
     </div>
   );
 }
@@ -117,62 +111,60 @@ export default function Header() {
         {/* Logo */}
         <Logo />
 
-        {/* Desktop Navigation - Centered */}
-        <div className="hidden xl:flex items-center gap-1 h-full absolute left-1/2 -translate-x-1/2">
-          {/* Nav Links */}
-          {navLinks.map((link) => (
-            <a
-              key={link}
-              href="#"
-              className="flex items-center justify-center px-[12px] py-[8px] shrink-0 hover:bg-white/10 rounded-lg transition-colors group"
-            >
-              <p className="font-['Nunito',sans-serif] font-bold leading-[20px] shrink-0 text-white text-[13px] whitespace-nowrap group-hover:text-white/90 transition-colors">
-                {link}
-              </p>
-            </a>
-          ))}
+        {/* Desktop (xl+): nav + buttons right-aligned together */}
+        <div className="hidden xl:flex items-center gap-6">
+          <div className="flex items-center">
+            {navLinks.map((link) => (
+              <a
+                key={link}
+                href="#"
+                className="flex items-center justify-center px-[12px] py-[8px] shrink-0 hover:bg-white/10 rounded-lg transition-colors"
+              >
+                <p className="font-black leading-[1.5] shrink-0 text-white text-[13px] tracking-[0.5px] whitespace-nowrap">
+                  {link}
+                </p>
+              </a>
+            ))}
+          </div>
+          <div className="flex gap-[5.699px] items-center">
+            <button className="bg-cma-orange flex items-center justify-center px-[16px] py-[12px] rounded-full shadow-cma-btn shrink-0 hover:bg-cma-orange-dark transition-colors">
+              <p className="font-black leading-[1.5] shrink-0 text-[12px] text-cma-navy whitespace-nowrap">Donate</p>
+            </button>
+            <button className="bg-white flex items-center justify-center px-[16px] py-[12px] rounded-full shadow-cma-btn shrink-0 hover:bg-white/90 transition-colors">
+              <p className="font-black leading-[1.5] shrink-0 text-[12px] text-cma-teal-dark whitespace-nowrap">Memberships</p>
+            </button>
+            <button className="bg-cma-navy flex items-center justify-center px-[16px] py-[12px] rounded-full shadow-cma-btn shrink-0 hover:bg-[#152d4d] transition-colors">
+              <p className="font-black leading-[1.5] shrink-0 text-[12px] text-white whitespace-nowrap">Buy Tickets</p>
+            </button>
+          </div>
         </div>
 
-        {/* Desktop Buttons */}
-        <div className="hidden xl:flex gap-[5.699px] items-center h-full">
-          <button className="bg-[#f7941e] flex items-center justify-center px-[16.146px] py-[10.447px] rounded-[474.877px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] shrink-0 hover:bg-[#e8851a] transition-colors">
-            <p className="font-['Nunito',sans-serif] font-bold leading-[1.13] shrink-0 text-[11.397px] text-white whitespace-nowrap">Donate</p>
-          </button>
-          <button className="bg-white flex items-center justify-center px-[16.146px] py-[10.447px] rounded-[474.877px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] shrink-0 hover:bg-white/90 transition-colors">
-            <p className="font-['Nunito',sans-serif] font-bold leading-[1.13] shrink-0 text-[11.397px] text-[#00ADBD] whitespace-nowrap">Memberships</p>
-          </button>
-          <button className="bg-[#1D3E6B] flex items-center justify-center px-[16.146px] py-[10.447px] rounded-[474.877px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] shrink-0 hover:bg-[#152d4d] transition-colors">
-            <p className="font-['Nunito',sans-serif] font-bold leading-[1.13] shrink-0 text-[11.397px] text-white whitespace-nowrap">Buy Tickets</p>
-          </button>
-        </div>
-
-        {/* Compact Desktop Navigation (lg to xl) - Centered */}
-        <div className="hidden lg:flex xl:hidden items-center gap-0.5 h-full absolute left-1/2 -translate-x-1/2">
-          {/* Nav Links - More compact */}
-          {navLinks.map((link) => (
-            <a
-              key={link}
-              href="#"
-              className="flex items-center justify-center px-[8px] py-[6px] shrink-0 hover:bg-white/10 rounded-lg transition-colors group"
-            >
-              <p className="font-['Nunito',sans-serif] font-bold leading-[18px] shrink-0 text-white text-[11px] whitespace-nowrap group-hover:text-white/90 transition-colors">
-                {link}
-              </p>
-            </a>
-          ))}
-        </div>
-
-        {/* Compact Desktop Buttons (lg to xl) */}
-        <div className="hidden lg:flex xl:hidden gap-[4px] items-center h-full">
-          <button className="bg-[#f7941e] flex items-center justify-center px-[12px] py-[8px] rounded-[474.877px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] shrink-0 hover:bg-[#e8851a] transition-colors">
-            <p className="font-['Nunito',sans-serif] font-bold leading-[1.13] shrink-0 text-[10px] text-white whitespace-nowrap">Donate</p>
-          </button>
-          <button className="bg-white flex items-center justify-center px-[12px] py-[8px] rounded-[474.877px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] shrink-0 hover:bg-white/90 transition-colors">
-            <p className="font-['Nunito',sans-serif] font-bold leading-[1.13] shrink-0 text-[10px] text-[#00ADBD] whitespace-nowrap">Memberships</p>
-          </button>
-          <button className="bg-[#1D3E6B] flex items-center justify-center px-[12px] py-[8px] rounded-[474.877px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] shrink-0 hover:bg-[#152d4d] transition-colors">
-            <p className="font-['Nunito',sans-serif] font-bold leading-[1.13] shrink-0 text-[10px] text-white whitespace-nowrap">Buy Tickets</p>
-          </button>
+        {/* Compact Desktop (lg–xl): nav + buttons right-aligned together */}
+        <div className="hidden lg:flex xl:hidden items-center gap-4">
+          <div className="flex items-center">
+            {navLinks.map((link) => (
+              <a
+                key={link}
+                href="#"
+                className="flex items-center justify-center px-[8px] py-[6px] shrink-0 hover:bg-white/10 rounded-lg transition-colors"
+              >
+                <p className="font-black leading-[1.5] shrink-0 text-white text-[11px] tracking-[0.5px] whitespace-nowrap">
+                  {link}
+                </p>
+              </a>
+            ))}
+          </div>
+          <div className="flex gap-[4px] items-center">
+            <button className="bg-cma-orange flex items-center justify-center px-[12px] py-[8px] rounded-full shadow-cma-btn shrink-0 hover:bg-cma-orange-dark transition-colors">
+              <p className="font-black leading-[1.5] shrink-0 text-[10px] text-cma-navy whitespace-nowrap">Donate</p>
+            </button>
+            <button className="bg-white flex items-center justify-center px-[12px] py-[8px] rounded-full shadow-cma-btn shrink-0 hover:bg-white/90 transition-colors">
+              <p className="font-black leading-[1.5] shrink-0 text-[10px] text-cma-teal-dark whitespace-nowrap">Memberships</p>
+            </button>
+            <button className="bg-cma-navy flex items-center justify-center px-[12px] py-[8px] rounded-full shadow-cma-btn shrink-0 hover:bg-[#152d4d] transition-colors">
+              <p className="font-black leading-[1.5] shrink-0 text-[10px] text-white whitespace-nowrap">Buy Tickets</p>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -199,7 +191,7 @@ export default function Header() {
                   href="#"
                   className="px-5 py-3 hover:bg-gray-50 transition-colors"
                 >
-                  <p className="font-['Nunito',sans-serif] font-medium leading-[20px] text-[#1d3e6b] text-[14px]">
+                  <p className="font-medium leading-[20px] text-cma-navy text-[14px]">
                     {link}
                   </p>
                 </a>
@@ -208,18 +200,18 @@ export default function Header() {
 
             {/* Mobile Action Buttons */}
             <div className="flex flex-col gap-3 px-5 py-4 border-t border-gray-200">
-              <button className="bg-[#f7941e] px-4 py-3 rounded-full w-full hover:bg-[#e8851a] transition-colors">
-                <p className="font-['Nunito',sans-serif] font-bold text-[14px] text-white">
+              <button className="bg-cma-orange px-4 py-3 rounded-full w-full hover:bg-cma-orange-dark transition-colors">
+                <p className="font-black text-[14px] text-white">
                   Donate
                 </p>
               </button>
-              <button className="bg-[#00adbb] px-4 py-3 rounded-full w-full hover:bg-[#008c99] transition-colors">
-                <p className="font-['Nunito',sans-serif] font-bold text-[14px] text-white">
+              <button className="bg-cma-teal px-4 py-3 rounded-full w-full hover:bg-cma-teal-dark transition-colors">
+                <p className="font-black text-[14px] text-white">
                   Memberships
                 </p>
               </button>
-              <button className="bg-[#346094] px-4 py-3 rounded-full w-full hover:bg-[#2a4d76] transition-colors">
-                <p className="font-['Nunito',sans-serif] font-bold text-[14px] text-white">
+              <button className="bg-cma-blue-mid px-4 py-3 rounded-full w-full hover:bg-[#2a4d76] transition-colors">
+                <p className="font-black text-[14px] text-white">
                   Buy Tickets
                 </p>
               </button>
