@@ -3,6 +3,7 @@ import { Component, type ReactNode } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import App from "./app/App.tsx";
 import PlanYourVisitPage from "./app/pages/PlanYourVisitPage.tsx";
+import MuseumStorePage from "./app/pages/MuseumStorePage.tsx";
 import "./styles/index.css";
 
 class ErrorBoundary extends Component<{ children: ReactNode }, { error: Error | null }> {
@@ -29,6 +30,7 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/plan-your-visit" element={<PlanYourVisitPage />} />
+        <Route path="/museum-store" element={<MuseumStorePage />} />
       </Routes>
     </HashRouter>
   </ErrorBoundary>
