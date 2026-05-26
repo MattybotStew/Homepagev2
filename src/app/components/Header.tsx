@@ -86,7 +86,7 @@ function LogoText() {
 
 function Logo() {
   return (
-    <a href="/" className="flex items-center gap-[8px] hover:opacity-80 transition-opacity">
+    <a href="/#/" className="flex items-center gap-[8px] hover:opacity-80 transition-opacity">
       <AnimatedLogoIcon />
       <LogoText />
     </a>
@@ -97,12 +97,12 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    "Plan Your Visit",
-    "Exhibits",
-    "Calendar & Events",
-    "For Educators",
-    "About Us",
-    "Resources"
+    { label: "Plan Your Visit", href: "/#/plan-your-visit" },
+    { label: "Exhibits", href: "#" },
+    { label: "Calendar & Events", href: "#" },
+    { label: "For Educators", href: "#" },
+    { label: "About Us", href: "#" },
+    { label: "Resources", href: "#" },
   ];
 
   return (
@@ -114,14 +114,14 @@ export default function Header() {
         {/* Desktop (xl+): nav + buttons right-aligned together */}
         <div className="hidden xl:flex items-center gap-6">
           <div className="flex items-center">
-            {navLinks.map((link) => (
+            {navLinks.map(({ label, href }) => (
               <a
-                key={link}
-                href="#"
+                key={label}
+                href={href}
                 className="flex items-center justify-center px-[12px] py-[8px] shrink-0 hover:bg-white/10 rounded-lg transition-colors"
               >
                 <p className="font-black leading-[1.5] shrink-0 text-white text-[13px] tracking-[0.5px] whitespace-nowrap">
-                  {link}
+                  {label}
                 </p>
               </a>
             ))}
@@ -142,14 +142,14 @@ export default function Header() {
         {/* Compact Desktop (lg–xl): nav + buttons right-aligned together */}
         <div className="hidden lg:flex xl:hidden items-center gap-4">
           <div className="flex items-center">
-            {navLinks.map((link) => (
+            {navLinks.map(({ label, href }) => (
               <a
-                key={link}
-                href="#"
+                key={label}
+                href={href}
                 className="flex items-center justify-center px-[8px] py-[6px] shrink-0 hover:bg-white/10 rounded-lg transition-colors"
               >
                 <p className="font-black leading-[1.5] shrink-0 text-white text-[11px] tracking-[0.5px] whitespace-nowrap">
-                  {link}
+                  {label}
                 </p>
               </a>
             ))}
@@ -185,14 +185,14 @@ export default function Header() {
           <div className="xl:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-200 z-50">
             {/* Mobile Nav Links */}
             <div className="flex flex-col py-2">
-              {navLinks.map((link) => (
+              {navLinks.map(({ label, href }) => (
                 <a
-                  key={link}
-                  href="#"
+                  key={label}
+                  href={href}
                   className="px-5 py-3 hover:bg-gray-50 transition-colors"
                 >
                   <p className="font-medium leading-[20px] text-cma-navy text-[14px]">
-                    {link}
+                    {label}
                   </p>
                 </a>
               ))}

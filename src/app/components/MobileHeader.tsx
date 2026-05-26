@@ -7,7 +7,7 @@ import textSvgPaths from "../../imports/svg-1ph89gknrj";
 
 function MobileLogo() {
   return (
-    <a href="/" className="flex items-center gap-[8px] hover:opacity-90 transition-opacity" aria-label="Children's Museum of Atlanta">
+    <a href="/#/" className="flex items-center gap-[8px] hover:opacity-90 transition-opacity" aria-label="Children's Museum of Atlanta">
       <div className="relative shrink-0 h-[30px] w-auto aspect-[108.026/52.5232]">
         <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 108.026 52.5232">
           <g clipPath="url(#clip0_mob_logo)">
@@ -84,12 +84,12 @@ export default function MobileHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const menuItems = [
-    { label: "Plan Your Visit" },
-    { label: "Exhibits" },
-    { label: "Calendar & Events" },
-    { label: "Education Programs" },
-    { label: "About Us" },
-    { label: "Education Hub/Blog" },
+    { label: "Plan Your Visit", href: "/#/plan-your-visit" },
+    { label: "Exhibits", href: "#" },
+    { label: "Calendar & Events", href: "#" },
+    { label: "Education Programs", href: "#" },
+    { label: "About Us", href: "#" },
+    { label: "Education Hub/Blog", href: "#" },
   ];
 
   return (
@@ -162,7 +162,7 @@ export default function MobileHeader() {
                 {menuItems.map((item, index) => (
                   <div key={item.label}>
                     <a
-                      href="#"
+                      href={item.href}
                       className="flex items-center px-5 py-0 min-h-[64px] hover:bg-gray-50 transition-colors"
                       onClick={() => setMenuOpen(false)}
                     >
