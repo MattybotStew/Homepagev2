@@ -78,7 +78,7 @@ export default function MembershipPricing() {
               </p>
 
               {/* Price + CTA row */}
-              <div className="flex flex-col sm:flex-row sm:items-center gap-[20px] sm:gap-[32px]">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-[20px]">
                 <div className="flex items-end gap-[8px] min-w-0">
                   <span className="font-extrabold text-[clamp(56px,7vw,87px)] text-white tracking-[-3px] leading-none">
                     $175
@@ -89,7 +89,7 @@ export default function MembershipPricing() {
                 </div>
                 <a
                   href="#membership"
-                  className="cma-btn shrink-0 self-start sm:self-auto bg-cma-orange text-cma-navy hover:bg-cma-orange-dark text-[18px]"
+                  className="cma-btn shrink-0 bg-cma-orange text-cma-navy hover:bg-cma-orange-dark text-[18px]"
                 >
                   Become a Member
                 </a>
@@ -132,7 +132,7 @@ export default function MembershipPricing() {
               </p>
 
               {/* Price + CTA row */}
-              <div className="flex flex-col sm:flex-row sm:items-center gap-[20px] sm:gap-[32px]">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-[20px]">
                 <div className="flex items-end gap-[8px] min-w-0">
                   <span className="font-extrabold text-[clamp(56px,7vw,87px)] text-cma-navy tracking-[-3px] leading-none">
                     $83.80
@@ -143,7 +143,7 @@ export default function MembershipPricing() {
                 </div>
                 <a
                   href="#tickets"
-                  className="cma-btn shrink-0 self-start sm:self-auto bg-cma-navy text-white hover:opacity-90 text-[18px]"
+                  className="cma-btn shrink-0 bg-cma-navy text-white hover:opacity-90 text-[18px]"
                 >
                   Buy Tickets
                 </a>
