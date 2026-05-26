@@ -17,7 +17,7 @@ export default function Hero() {
         <img
           src={imgHeroBg}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover object-[75%_50%] md:object-center md:translate-y-[100px]"
+          className="absolute inset-0 w-full h-full object-cover object-[75%_50%] md:object-center "
         />
         <div className="absolute inset-0 bg-cma-hero-overlay" />
       </div>
@@ -97,7 +97,7 @@ export default function Hero() {
       {/* Hours widget — desktop only; too wide to be useful on mobile */}
       <div
         className="hidden md:flex absolute right-5 bg-white items-center gap-4 rounded-2xl shadow-sm px-[12px] py-[8px] w-[397px]
-                   md:top-[136px] xl:top-[142px]"
+                   md:top-[20px] lg:top-[136px] xl:top-[142px]"
       >
         <img src={imgClock} alt="" aria-hidden className="shrink-0 w-[37px] h-[37px]" />
         <div className="flex flex-col gap-1 flex-1 min-w-0">
@@ -110,6 +110,9 @@ export default function Hero() {
         </div>
         <img src={imgChevron} alt="" aria-hidden className="shrink-0 w-5 h-5" />
       </div>
+      <section className="relative w-full flex flex-col ...">
+
+</section>
     </section>
     </>
   )
