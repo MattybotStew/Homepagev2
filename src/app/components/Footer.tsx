@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { Mail } from "lucide-react";
+import { Mail, Facebook, Instagram } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTiktok } from "@fortawesome/free-brands-svg-icons";
 import svgPaths from "../../imports/svg-gv66wwumqa";
 
 export default function Footer() {
@@ -238,83 +240,38 @@ export default function Footer() {
       <div className="bg-cma-navy px-5 md:px-12 lg:px-[71.5px] py-8 md:py-10">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           {/* Copyright */}
-          <p className="text-white text-sm">
-            Copyright © 2026 Children's Museum of Atlanta
+          <p className="text-white text-[15px]">
+            Copyright © 2026 Children's Museum of Atlanta · Children's Museum of Atlanta is a 501(c)(3) organization [EIN 58-1785484]
           </p>
 
           {/* Social Icons */}
-          <div className="flex items-center gap-4">
-            {/* Facebook */}
+          <div className="flex items-center gap-4 shrink-0">
             <a
               href="https://www.facebook.com/childrensmuseumofatlanta"
               target="_blank"
               rel="noopener noreferrer"
-              className="cma-social-btn group"
+              className="cma-social-btn-filled"
               aria-label="Facebook"
             >
-              <svg className="size-5" fill="none" viewBox="0 0 20 20">
-                <path
-                  d={svgPaths.p30c8d680}
-                  stroke="#00ADBD"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.66667"
-                  className="group-hover:stroke-white transition-colors"
-                />
-              </svg>
+              <Facebook className="size-5 text-white" />
             </a>
-
-            {/* Instagram */}
             <a
               href="https://www.instagram.com/childrensmuseumofatlanta/"
               target="_blank"
               rel="noopener noreferrer"
-              className="cma-social-btn group"
+              className="cma-social-btn-filled"
               aria-label="Instagram"
             >
-              <svg className="size-5" fill="none" viewBox="0 0 20 20">
-                <path
-                  d={svgPaths.p4b98700}
-                  stroke="#00ADBD"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.66667"
-                  className="group-hover:stroke-white transition-colors"
-                />
-                <path
-                  d={svgPaths.p19f4a800}
-                  stroke="#00ADBD"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.66667"
-                  className="group-hover:stroke-white transition-colors"
-                />
-                <path
-                  d="M14.5833 5.41667H14.5917"
-                  stroke="#00ADBD"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.66667"
-                  className="group-hover:stroke-white transition-colors"
-                />
-              </svg>
+              <Instagram className="size-5 text-white" />
             </a>
-
-            {/* Twitter/X */}
             <a
-              href="https://twitter.com/imaginecma"
+              href="https://www.tiktok.com/@childrensmuseumatlanta"
               target="_blank"
               rel="noopener noreferrer"
-              className="cma-social-btn group"
-              aria-label="Twitter"
+              className="cma-social-btn-filled"
+              aria-label="TikTok"
             >
-              <svg className="size-4" viewBox="0 0 16 16">
-                <path
-                  d={svgPaths.p3c05580}
-                  fill="#00ADBD"
-                  className="group-hover:fill-white transition-colors"
-                />
-              </svg>
+              <FontAwesomeIcon icon={faTiktok} className="size-4 text-white" />
             </a>
           </div>
         </div>

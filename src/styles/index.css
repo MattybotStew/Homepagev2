@@ -152,16 +152,16 @@
   font-family: Nunito, sans-serif;
   font-weight: 400;
   color: #5a6c8a;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   transition: color 0.15s ease;
 }
 .cma-footer-link:hover { color: #00adbb; }
 
 .cma-footer-heading {
   font-family: Nunito, sans-serif;
-  font-weight: 700;
+  font-weight: 900;
   color: #1b3d6d;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
 }
 
 .cma-social-btn {
@@ -175,6 +175,18 @@
   transition: background-color 0.15s ease;
 }
 .cma-social-btn:hover { background-color: #00adbb; }
+
+.cma-social-btn-filled {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  background-color: #00adbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease;
+}
+.cma-social-btn-filled:hover { background-color: #007c87; }
 
 /* ── Museum Hours Widget ────────────────────────────────────────────────── */
 @keyframes cmaSlideDown {
