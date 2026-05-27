@@ -4,23 +4,73 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons"
 import imgFloorPlan from "../../assets/exhibits-floor-plan.png"
 
-const floors = [
+const mainFloorExhibits = [
+  {
+    name: "Fundamentally Food",
+    ages: "Ages 10 months – 8 years",
+    desc: "Experience the farm-to-table journey — pick produce, climb on the John Deere tractor, milk Buttercup the cow, drive the delivery truck, shop in a mini Publix grocery store, and dine in a play café.",
+  },
+  {
+    name: "Gateway to the World",
+    ages: "Ages 10 months – 8 years",
+    desc: "Climb through the layers of the Earth on a two-story globe, explore six continent tables, launch rockets toward the planets, and discover geology and geography through hands-on play.",
+  },
+  {
+    name: "Leaping into Learning",
+    ages: "Ages 0 – 5 years",
+    desc: "A magical forest designed for the museum's youngest explorers — with a toddler house, bubble-and-light wall, magnetic fishing pond, treehouse, and puppet theatre.",
+  },
+  {
+    name: "Let Your Creativity Flow",
+    ages: "Ages 10 months – 8 years",
+    desc: "Release your inner artist at the paint wall, build imaginative worlds at the virtual reality sand tables, and catch daily storytimes, dance parties, and science demos on the CMA stage.",
+  },
+  {
+    name: "Tools For Solutions",
+    ages: "Ages 10 months – 8 years",
+    desc: "Build, engineer, and discover — from the interconnected ball machine using six simple machines to the construction house, Atlanta city blocks, and the Norilla earthquake design challenge.",
+  },
+]
+
+type Floor = {
+  id: string
+  label: string
+  content: React.ReactNode
+  image: string | null
+}
+
+const floors: Floor[] = [
   {
     id: "main",
     label: "Main Floor",
-    description: "Explore six exhibits, the stage, art studio, and a sensory-friendly room. In this open, free-flowing space, families explore at their own pace, following curiosity and joy from one hands-on experience to the next, with something new to discover around every corner.",
+    content: (
+      <div className="flex flex-col gap-[16px]">
+        <p className="text-cma-navy">
+          Five permanent exhibits fill the main floor — plus the CMA stage, art studio, and a sensory-friendly room.
+        </p>
+        <ul className="flex flex-col gap-[14px]">
+          {mainFloorExhibits.map((ex) => (
+            <li key={ex.name} className="flex flex-col gap-[2px]">
+              <p className="text-cma-navy">
+                <strong>{ex.name}</strong>{" "}
+                <span className="font-normal text-cma-navy/60 text-[13px]">{ex.ages}</span>
+              </p>
+              <p className="text-cma-navy">{ex.desc}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ),
     image: imgFloorPlan,
-  },
-  {
-    id: "mezzanine",
-    label: "Mezzanine",
-    description: "The mezzanine level offers bird's-eye views of the main floor and additional programming space for special events and workshops.",
-    image: null,
   },
   {
     id: "walkthrough",
     label: "Walk-Through",
-    description: "Our walk-through exhibits connect spaces and offer discovery around every turn — a perfect way to slow down, look closer, and find the unexpected.",
+    content: (
+      <p className="text-cma-navy">
+        Our walk-through exhibits connect spaces and offer discovery around every turn — a perfect way to slow down, look closer, and find the unexpected.
+      </p>
+    ),
     image: null,
   },
 ]
@@ -70,7 +120,7 @@ export default function ExhibitsFloorPlan() {
 
                 {isOpen && (
                   <div className="px-[24px] pb-[32px] flex flex-col gap-[24px]">
-                    <p className="text-cma-navy">{floor.description}</p>
+                    {floor.content}
                     {floor.image && (
                       <div className="bg-white rounded-[20px] p-[24px] overflow-hidden">
                         <img src={floor.image} alt={`${floor.label} floor plan`} className="w-full h-auto rounded-[12px]" />
