@@ -83,14 +83,14 @@ export default function ExhibitsFloorPlan() {
       <div className="cma-section-container flex flex-col gap-[48px]">
 
         <motion.div
-          className="flex flex-col gap-[16px]"
+          className="flex flex-col gap-[16px] items-center text-center"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
         >
           <h2 className="text-cma-navy leading-none tracking-[-1px]">Take a Look Inside</h2>
-          <p className="text-cma-navy">
+          <p className="text-cma-navy max-w-[560px]">
             Check out the Museum's current and upcoming featured exhibits!{" "}
             <a href="#exhibits" className="cma-text-link">Click below for more info.</a>
           </p>

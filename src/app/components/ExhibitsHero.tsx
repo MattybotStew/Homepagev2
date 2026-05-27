@@ -44,7 +44,7 @@ export default function ExhibitsHero() {
             Experience 20,000 square feet of playful exhibits where families create, explore, and discover new adventures around every corner.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
-            <a href="#tour" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark">Tour the Museum</a>
+            <a href="#tour" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">Tour the Museum</a>
             <a href="#map" className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white">Download Exhibit Map</a>
           </div>
         </motion.div>
