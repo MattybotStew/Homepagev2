@@ -8,7 +8,6 @@ import MobileHeader from "../components/MobileHeader"
 import ScrollProgress from "../components/ScrollProgress"
 import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee"
 import Footer from "../components/Footer"
-import AboutSubNav from "../components/AboutSubNav"
 import imgHero from "../../assets/impact-photo.webp"
 import imgWaveBottom from "../../assets/impact-wave-bottom.svg"
 import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp"
@@ -111,8 +110,6 @@ export default function ImpactPage() {
       <div className="hidden lg:block">
         <ScrollProgress />
       </div>
-      <AboutSubNav />
-
       {/* Hero */}
       <section className="bg-cma-navy w-full pt-[60px] pb-[100px] md:pt-[80px] md:pb-[140px] relative overflow-hidden">
         <div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
