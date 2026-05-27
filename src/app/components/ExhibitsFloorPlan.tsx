@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { motion } from "motion/react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons"
+import { faPlus, faMinus, faDownload } from "@fortawesome/free-solid-svg-icons"
 import imgFloorPlan from "../../assets/exhibits-floor-plan.webp"
 
 const mainFloorExhibits = [
@@ -94,6 +94,11 @@ export default function ExhibitsFloorPlan() {
             Check out the Museum's current and upcoming featured exhibits!{" "}
             <a href="#exhibits" className="cma-text-link">Click below for more info.</a>
           </p>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a href="/social-story.pdf" download className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
+              Download Social Story <FontAwesomeIcon icon={faDownload} className="ml-[6px] text-[13px]" />
+            </a>
+          </div>
         </motion.div>
 
         <motion.div

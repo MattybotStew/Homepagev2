@@ -24,9 +24,9 @@ const permanentExhibits = [
   {
     image: imgC,
     badge: "Permanent",
-    title: "Enchanted Forest",
+    title: "Leaping into Learning",
     body: "Step into a magical forest! Cast your rod, catch colorful fish, and slip behind a waterfall without getting wet. Climb the treehouse, spot forest animals, and let little ones explore a cozy space filled with bubbles and wonder.",
-    href: "#/exhibits/enchanted-forest",
+    href: "#/exhibits/leaping-into-learning",
   },
   {
     image: imgA,
