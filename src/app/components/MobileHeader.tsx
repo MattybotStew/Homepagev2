@@ -7,7 +7,7 @@ import textSvgPaths from "../../imports/svg-1ph89gknrj";
 
 function MobileLogo() {
   return (
-    <a href="/#/" className="flex items-center gap-[8px] hover:opacity-90 transition-opacity" aria-label="Children's Museum of Atlanta">
+    <a href="#/" className="flex items-center gap-[8px] hover:opacity-90 transition-opacity" aria-label="Children's Museum of Atlanta">
       <div className="relative shrink-0 h-[30px] w-auto aspect-[108.026/52.5232]">
         <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 108.026 52.5232">
           <g clipPath="url(#clip0_mob_logo)">
@@ -90,14 +90,14 @@ export default function MobileHeader() {
   const menuItems: MenuItem[] = [
     {
       label: "Plan Your Visit",
-      href: "/#/plan-your-visit",
+      href: "#/plan-your-visit",
       subPages: [
-        { label: "Museum Store", href: "/#/museum-store" },
+        { label: "Museum Store", href: "#/museum-store" },
       ],
     },
-    { label: "Exhibits", href: "/#/exhibits" },
+    { label: "Exhibits", href: "#/exhibits" },
     { label: "Calendar & Events", href: "#" },
-    { label: "For Educators", href: "/#/educators" },
+    { label: "For Educators", href: "#/educators" },
     { label: "About Us", href: "#" },
     { label: "Education Hub/Blog", href: "#" },
   ];

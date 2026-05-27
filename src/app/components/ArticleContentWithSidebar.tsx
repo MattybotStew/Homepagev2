@@ -43,8 +43,8 @@ export default function ArticleContentWithSidebar({
   exhibit,
   related,
   sections = defaultSections,
-  breadcrumb = { label: "Exhibits", href: "/#/exhibits" },
-  relatedHrefBase = "/#/exhibits",
+  breadcrumb = { label: "Exhibits", href: "#/exhibits" },
+  relatedHrefBase = "#/exhibits",
 }: Props) {
   const [activeSection, setActiveSection] = useState(sections[0]?.id ?? "")
   const badgeBg = exhibit.badgeColor === "navy" ? "bg-cma-navy" : "bg-cma-teal-dark"

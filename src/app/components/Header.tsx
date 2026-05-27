@@ -9,14 +9,14 @@ type NavLink = { label: string; href: string; subPages?: SubPage[] };
 const navLinks: NavLink[] = [
   {
     label: "Plan Your Visit",
-    href: "/#/plan-your-visit",
+    href: "#/plan-your-visit",
     subPages: [
-      { label: "Museum Store", href: "/#/museum-store" },
+      { label: "Museum Store", href: "#/museum-store" },
     ],
   },
-  { label: "Exhibits", href: "/#/exhibits" },
+  { label: "Exhibits", href: "#/exhibits" },
   { label: "Calendar & Events", href: "#" },
-  { label: "For Educators", href: "/#/educators" },
+  { label: "For Educators", href: "#/educators" },
   { label: "About Us", href: "#" },
   { label: "Resources", href: "#" },
 ];
@@ -101,7 +101,7 @@ function LogoText() {
 
 function Logo() {
   return (
-    <a href="/#/" className="flex items-center gap-[8px] hover:opacity-80 transition-opacity">
+    <a href="#/" className="flex items-center gap-[8px] hover:opacity-80 transition-opacity">
       <AnimatedLogoIcon />
       <LogoText />
     </a>

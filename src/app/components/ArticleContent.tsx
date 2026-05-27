@@ -21,7 +21,7 @@ export default function ArticleContent({ exhibit, related }: Props) {
           {/* Breadcrumbs + Social Share */}
           <div className="flex items-center justify-between flex-wrap gap-[12px]">
             <div className="flex items-center gap-[8px] flex-wrap text-[15px]">
-              <a href="/#/exhibits" className="text-cma-navy hover:underline">
+              <a href="#/exhibits" className="text-cma-navy hover:underline">
                 Exhibits
               </a>
               <span className="text-cma-navy text-[18px]">›</span>

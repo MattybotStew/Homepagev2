@@ -37,8 +37,8 @@ export default function ProgramPage() {
           exhibit={program}
           related={related}
           sections={program.sections}
-          breadcrumb={{ label: "Educators", href: "/#/educators" }}
-          relatedHrefBase="/#/program"
+          breadcrumb={{ label: "Educators", href: "#/educators" }}
+          relatedHrefBase="#/program"
         />
       )}
 

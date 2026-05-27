@@ -73,7 +73,7 @@ const featuredExhibits = [
     eyebrow: "Summer 2026",
     title: "Wild Kratts®: Ocean Adventure",
     description: "Immerse young explorers in whole body explorations of ocean habitats and the fascinating creatures within them.",
-    href: "/#/exhibits/wild-kratts-ocean-adventure",
+    href: "#/exhibits/wild-kratts-ocean-adventure",
   },
   {
     image: imgA,
@@ -242,7 +242,7 @@ export default function FieldTripsProgramContent() {
         {/* Breadcrumb + Social */}
         <div className="flex items-center justify-between flex-wrap gap-[12px] mb-[24px]">
           <div className="flex items-center gap-[8px] flex-wrap text-[15px]">
-            <a href="/#/educators" className="text-cma-navy hover:underline">Educators</a>
+            <a href="#/educators" className="text-cma-navy hover:underline">Educators</a>
             <span className="text-cma-navy text-[18px]">›</span>
             <span className="text-cma-teal-dark">Field Trips</span>
           </div>

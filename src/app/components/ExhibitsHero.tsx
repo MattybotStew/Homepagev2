@@ -12,7 +12,7 @@ const featuredExhibits = [
     ages: "Ages: 5–8 | Usually 15–20 minutes",
     title: "Aim High: Soaring with the Tuskegee Airmen",
     body: "Play in a replica cockpit and more as you learn about the Tuskegee Airmen.",
-    href: "/#/exhibits/aim-high-soaring-with-the-tuskegee-airmen",
+    href: "#/exhibits/aim-high-soaring-with-the-tuskegee-airmen",
   },
   {
     image: imgSummer,
@@ -20,7 +20,7 @@ const featuredExhibits = [
     ages: "Ages: 3–9 | Usually 20–25 minutes",
     title: "Wild Kratts: Ocean Adventure",
     body: "Explore ocean habitats and their creatures in this deep-sea adventure!",
-    href: "/#/exhibits/wild-kratts-ocean-adventure",
+    href: "#/exhibits/wild-kratts-ocean-adventure",
   },
 ]
 
