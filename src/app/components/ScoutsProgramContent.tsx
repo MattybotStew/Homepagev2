@@ -135,16 +135,18 @@ export default function ScoutsProgramContent() {
         </div>
 
         {/* Mobile section nav */}
-        <div className="cma-pill-scroll lg:hidden mb-[24px]">
-          {sections.map((section) => (
-            <button
-              key={section.id}
-              onClick={() => scrollToSection(section.id)}
-              className={`cma-nav-pill ${activeSection === section.id ? "cma-nav-pill-active" : "cma-nav-pill-inactive"}`}
-            >
-              {section.label}
-            </button>
-          ))}
+        <div className="lg:hidden mb-[24px]">
+          <div className="cma-pill-scroll">
+            {sections.map((section) => (
+              <button
+                key={section.id}
+                onClick={() => scrollToSection(section.id)}
+                className={`cma-nav-pill ${activeSection === section.id ? "cma-nav-pill-active" : "cma-nav-pill-inactive"}`}
+              >
+                {section.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Two-column layout */}
