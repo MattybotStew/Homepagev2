@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, type ReactNode } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons"
@@ -11,26 +11,25 @@ import Footer from "../components/Footer"
 import { allEvents, eventsByCategory, eventFilters } from "../data/events"
 import imgFaq from "../../assets/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp"
 
-const faqs = [
+const faqs: { q: string; a: ReactNode }[] = [
   {
-    q: "Do I need a ticket to attend events?",
-    a: "Most daytime events are included with regular museum admission. Some specialty workshops and after-hours member events require separate registration. Check each event listing for specific ticket requirements.",
+    q: "Arrival Window",
+    a: "Our exhibits are developed with children 8 years and younger in mind.",
   },
   {
-    q: "How do I register for workshops?",
-    a: "Workshop registration is available through our online ticketing portal. We recommend registering in advance as space is limited. Walk-ins are welcome for any remaining spots on the day of the event.",
+    q: "Re-Entry",
+    a: "Most families play for about 2 hours. Your tickets include re-entry on the day of your visit, as capacity allows.",
   },
   {
-    q: "Are members-only events really exclusive?",
-    a: "Yes! Members-only events are reserved for active CMA members and their immediate family. Membership opens the door to early access events, after-hours experiences, and exclusive workshops throughout the year.",
-  },
-  {
-    q: "Can I bring children of any age?",
-    a: "The museum is designed for children 8 years and younger, and most events are tailored to that age range. Some workshops specify a narrower age window — check the event details. Children must be accompanied by a paying adult.",
-  },
-  {
-    q: "What happens if an event is cancelled?",
-    a: "In the rare event of a cancellation, registered participants will be notified by email and offered a full refund or the option to transfer to a future event. Walk-in events are subject to change without notice based on weather or operational needs.",
+    q: "Refund/Exchange Policy",
+    a: (
+      <div className="flex flex-col gap-[12px]">
+        <p className="text-cma-navy"><strong>We Exercise Kindness:</strong> Please use positive, encouraging behavior while inside the Museum. Avoid profane and explicit language, harassment, and aggressive behavior.</p>
+        <p className="text-cma-navy"><strong>We Engage in Respectful Behavior:</strong> Please share and take turns. Treat the exhibits well so other guests can enjoy them. We Assume Good Intentions: Children may unintentionally touch or bump into each other while playing. Please be patient and understanding.</p>
+        <p className="text-cma-navy"><strong>Stay Together, Play Together:</strong> Adults must stay with their children at all times. Use Walking Feet: No running, please.</p>
+        <p className="text-cma-navy"><strong>Make Memories, Don't Miss Them:</strong> You are your child's first teacher and playmate. We encourage a screen-free experience, unless capturing precious memories.</p>
+      </div>
+    ),
   },
 ]
 
@@ -190,7 +189,7 @@ export default function CalendarPage() {
                       </button>
                       {isOpen && (
                         <div className="px-[24px] pb-[24px]">
-                          <p className="text-cma-navy">{faq.a}</p>
+                          {typeof faq.a === "string" ? <p className="text-cma-navy">{faq.a}</p> : faq.a}
                         </div>
                       )}
                     </motion.div>
