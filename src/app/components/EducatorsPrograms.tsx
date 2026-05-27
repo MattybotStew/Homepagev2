@@ -11,25 +11,25 @@ const programs = [
     image: img0,
     title: "Field Trips",
     body: "Bring your class to CMA for a hands-on learning adventure. Our field trips align with Georgia standards and spark curiosity through play-based exploration.",
-    href: "#field-trips",
+    href: "/#/program/field-trips",
   },
   {
     image: img1,
     title: "Museum On-the-Go",
     body: "Can't make it to the Museum? We bring the fun to you. Our educators visit schools with hands-on activities and portable exhibits designed for your students.",
-    href: "#museum-otg",
+    href: "/#/program/museum-on-the-go",
   },
   {
     image: img2,
     title: "Scout Workshops",
     body: "Help scouts earn badges through engaging, museum-based workshops aligned with Cub Scout, Boy Scout, and Girl Scout requirements.",
-    href: "#scout-workshops",
+    href: "/#/program/scout-workshops",
   },
   {
     image: img3,
     title: "Educator Professional Development",
     body: "Invest in your teaching practice with PD workshops designed for educators. Leave with new strategies for bringing play-based learning into your classroom.",
-    href: "#educator-pd",
+    href: "/#/program/educator-professional-development",
   },
 ]
 
