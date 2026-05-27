@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X, Facebook, Instagram } from "lucide-react";
+import { X, Facebook, Instagram, ChevronDown } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTiktok } from "@fortawesome/free-brands-svg-icons";
 import logoSvgPaths from "../../imports/svg-jpmbtvi5vn";
@@ -85,6 +85,7 @@ type MenuItem = { label: string; href: string; subPages?: SubPage[] };
 
 export default function MobileHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [expandedItem, setExpandedItem] = useState<string | null>(null);
 
   const menuItems: MenuItem[] = [
     {
@@ -166,28 +167,48 @@ export default function MobileHeader() {
                 </div>
               </div>
 
-              {/* Nav pills */}
-              <div className="px-5 mb-6 flex flex-wrap gap-[10px]">
-                {menuItems.flatMap((item) => [
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    className="px-[18px] py-[10px] rounded-full border border-[rgba(107,126,160,0.3)] text-cma-navy font-bold text-[15px] hover:bg-cma-navy hover:text-white hover:border-cma-navy transition-colors"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {item.label}
-                  </a>,
-                  ...(item.subPages?.map((sub) => (
-                    <a
-                      key={sub.label}
-                      href={sub.href}
-                      className="px-[18px] py-[10px] rounded-full border border-[rgba(107,126,160,0.3)] text-cma-navy font-bold text-[15px] hover:bg-cma-navy hover:text-white hover:border-cma-navy transition-colors"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      {sub.label}
-                    </a>
-                  )) ?? []),
-                ])}
+              {/* Nav links */}
+              <div className="mb-6">
+                {menuItems.map((item, index) => (
+                  <div key={item.label}>
+                    {item.subPages?.length ? (
+                      <>
+                        <button
+                          className="w-full flex items-center justify-between px-5 py-0 min-h-[64px] hover:bg-gray-50 transition-colors"
+                          onClick={() => setExpandedItem(expandedItem === item.label ? null : item.label)}
+                        >
+                          <p className="text-[18px] text-cma-gray font-normal">{item.label}</p>
+                          <ChevronDown className={`size-5 text-cma-gray transition-transform duration-200 ${expandedItem === item.label ? "rotate-180" : ""}`} />
+                        </button>
+                        {expandedItem === item.label && (
+                          <div className="bg-gray-50 border-t border-gray-100">
+                            {item.subPages.map((sub) => (
+                              <a
+                                key={sub.label}
+                                href={sub.href}
+                                className="flex items-center pl-9 pr-5 min-h-[52px] hover:bg-gray-100 transition-colors border-b border-gray-100 last:border-b-0"
+                                onClick={() => setMenuOpen(false)}
+                              >
+                                <p className="text-[16px] text-cma-gray font-normal">{sub.label}</p>
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <a
+                        href={item.href}
+                        className="flex items-center px-5 py-0 min-h-[64px] hover:bg-gray-50 transition-colors"
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        <p className="text-[18px] text-cma-gray font-normal">{item.label}</p>
+                      </a>
+                    )}
+                    {index < menuItems.length - 1 && (
+                      <div className="h-[1px] bg-gray-200 mx-5" />
+                    )}
+                  </div>
+                ))}
               </div>
 
               <div className="h-[1px] bg-gray-200 mx-5 mb-6" />
