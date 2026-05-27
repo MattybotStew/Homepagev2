@@ -3,8 +3,8 @@ import { Facebook, Instagram } from "lucide-react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faArrowRight,
-  faChevronDown,
-  faChevronUp,
+  faPlus,
+  faMinus,
   faCalendar,
   faDownload,
   faPhone,
@@ -571,8 +571,8 @@ export default function FieldTripsProgramContent() {
                       >
                         <span className="font-extrabold text-cma-navy">{faq.question}</span>
                         <FontAwesomeIcon
-                          icon={openFaq === i ? faChevronUp : faChevronDown}
-                          className="text-cma-teal-dark shrink-0 text-[13px]"
+                          icon={openFaq === i ? faMinus : faPlus}
+                          className="text-cma-orange shrink-0 text-[12px]"
                         />
                       </button>
                       {openFaq === i && (

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { motion } from "motion/react"
-import { ChevronDown } from "lucide-react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons"
 import imgFloorPlan from "../../assets/exhibits-floor-plan.png"
 
 const floors = [
@@ -64,7 +65,7 @@ export default function ExhibitsFloorPlan() {
                   onClick={() => setOpenId(isOpen ? "" : floor.id)}
                 >
                   <h3 className={`${isOpen ? "font-black" : "font-semibold"} text-cma-navy`}>{floor.label}</h3>
-                  <ChevronDown className={`size-5 text-cma-navy transition-transform duration-200 shrink-0 ${isOpen ? "rotate-180" : ""}`} />
+                  <FontAwesomeIcon icon={isOpen ? faMinus : faPlus} className="shrink-0 text-cma-orange text-[12px]" />
                 </button>
 
                 {isOpen && (
