@@ -685,19 +685,6 @@ export default function FieldTripsProgramContent() {
                 </div>
               </div>
 
-              {/* ── Newsletter — mobile only ── */}
-              <div className="lg:hidden bg-cma-navy rounded-[20px] p-[24px] flex flex-col gap-[12px]">
-                <p className="font-extrabold text-[16px] text-white leading-[1.3]">Subscribe to Our Educator Newsletter!</p>
-                <p className="text-white/75 text-[14px] leading-[1.5]">Stay in the know on upcoming programs, events, and play-based learning opportunities.</p>
-                <input
-                  type="email"
-                  placeholder="Your email address"
-                  className="w-full px-[14px] py-[12px] rounded-[10px] bg-white/10 border border-white/20 text-white placeholder:text-white/40 outline-none focus:border-white/60 transition-colors"
-                />
-                <button className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black w-full">
-                  Stay In The Loop!
-                </button>
-              </div>
 
             </div>
           </div>
