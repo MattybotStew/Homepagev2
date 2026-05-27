@@ -2,6 +2,12 @@
 @import './tailwind.css';
 @import './theme.css';
 
+/* ── Text selection ─────────────────────────────────────────────────────── */
+::selection {
+  background-color: var(--cma-teal-pale);
+  color: var(--cma-navy);
+}
+
 /* ── CMA global utilities ───────────────────────────────────────────────── */
 @layer utilities {
   .bg-cma-header-gradient {

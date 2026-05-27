@@ -71,7 +71,7 @@ export default function ExhibitsHero() {
               {/* Text */}
               <div className="flex flex-col gap-[24px]">
                 <p className="text-cma-teal-dark">{exhibit.ages}</p>
-                <p className="font-extrabold text-[30px] text-cma-navy leading-[1.1] tracking-[-1px]">{exhibit.title}</p>
+                <p className="font-extrabold text-[22px] md:text-[30px] text-cma-navy leading-[1.1] tracking-[-1px]">{exhibit.title}</p>
                 <p className="text-cma-navy">{exhibit.body}</p>
                 <a href={exhibit.href} className="cma-text-link">
                   See Exhibit <FontAwesomeIcon icon={faArrowRight} className="text-[13px]" />

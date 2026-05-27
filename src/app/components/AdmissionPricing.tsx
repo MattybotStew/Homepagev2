@@ -79,17 +79,17 @@ const pricingCards = [
     bg: "bg-cma-cream",
     eyebrow: "Daily Admission",
     price: "$19.95",
-    priceSuffix: "/ Ages 1 & 18",
+    priceSuffix: "per person",
     items: dailyItems,
     white: false,
-    cta: { label: "Buy Tickets", href: "#tickets", style: "cma-btn bg-white border-2 border-cma-orange-dark text-cma-orange-dark hover:bg-cma-cream" },
+    cta: { label: "Buy Tickets", href: "#tickets", style: "cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white" },
     badge: null,
   },
   {
     bg: "bg-cma-teal-dark",
     eyebrow: "Save Money with Memberships!",
     price: "$125",
-    priceSuffix: "/ Starts at Yearly",
+    priceSuffix: "/ year",
     items: memberItems,
     white: true,
     cta: { label: "View Plans", href: "#memberships", style: "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark" },
@@ -99,10 +99,10 @@ const pricingCards = [
     bg: "bg-cma-cream",
     eyebrow: "Groups & Field Trips",
     price: "$11.95",
-    priceSuffix: "/ Starts at a Student",
+    priceSuffix: "per student",
     items: groupItems,
     white: false,
-    cta: { label: "Request a Field Trip", href: "#field-trips", style: "cma-btn bg-white border-2 border-cma-orange-dark text-cma-orange-dark hover:bg-cma-cream" },
+    cta: { label: "Request a Field Trip", href: "#field-trips", style: "cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white" },
     badge: null,
   },
 ]
@@ -125,17 +125,17 @@ export default function AdmissionPricing() {
             Whether you're visiting with your family or a larger group, here's some helpful information about admission prices
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
-            <a href="#tickets" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark">
+            <a href="#tickets" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
               Ready to Visit?
             </a>
-            <a href="#directions" className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light">
+            <a href="#directions" className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black">
               Location, Parking &amp; Directions
             </a>
           </div>
         </motion.div>
 
         {/* Pricing cards */}
-        <div className="flex flex-col md:flex-row gap-4 items-stretch w-full">
+        <div className="flex flex-col lg:flex-row gap-4 items-stretch w-full">
           {pricingCards.map((card, i) => (
             <motion.div
               key={card.eyebrow}
@@ -155,11 +155,11 @@ export default function AdmissionPricing() {
               ) : (
                 <p className={`cma-eyebrow text-center ${card.white ? "text-white" : "text-cma-navy"}`}>{card.eyebrow}</p>
               )}
-              <div className="flex gap-1 items-end">
-                <span className={`font-extrabold text-[clamp(36px,3.5vw,48px)] leading-none tracking-[-1px] ${card.white ? "text-white font-black text-[clamp(56px,6vw,75px)]" : "text-cma-orange"}`}>
+              <div className="flex gap-2 items-end min-w-0">
+                <span className={`font-extrabold leading-none tracking-[-1px] shrink-0 ${card.white ? "text-white font-black text-[clamp(48px,5.5vw,72px)]" : "text-cma-orange text-[clamp(36px,3.5vw,48px)]"}`}>
                   {card.price}
                 </span>
-                <span className={`pb-1 ${card.white ? "text-cma-blue-light pb-2" : "text-cma-navy"}`}>{card.priceSuffix}</span>
+                <span className={`text-[14px] font-semibold whitespace-nowrap shrink-0 pb-1 ${card.white ? "text-cma-blue-light" : "text-cma-navy/70"}`}>{card.priceSuffix}</span>
               </div>
               <CheckList items={card.items} white={card.white} />
               <div className="mt-auto">
@@ -172,7 +172,7 @@ export default function AdmissionPricing() {
         </div>
 
         {/* Info boxes */}
-        <div className="flex flex-col md:flex-row gap-4 items-stretch w-full">
+        <div className="flex flex-col lg:flex-row gap-4 items-stretch w-full">
           {[
             {
               title: "Your admission ticket includes:",
@@ -211,7 +211,7 @@ export default function AdmissionPricing() {
         {/* Bottom CTA */}
         <motion.a
           href="#faqs"
-          className="cma-btn bg-white border-2 border-cma-teal text-cma-teal hover:bg-cma-teal-pale"
+          className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}

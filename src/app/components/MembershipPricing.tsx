@@ -84,13 +84,13 @@ export default function MembershipPricing() {
                   <span className="font-extrabold text-[clamp(56px,7vw,87px)] text-white tracking-[-3px] leading-none">
                     $175
                   </span>
-                  <span className="font-semibold text-[24px] text-cma-blue-light leading-[1.4] pb-[6px]">
+                  <span className="font-semibold text-[16px] sm:text-[20px] md:text-[24px] text-cma-blue-light leading-[1.4] pb-[6px] whitespace-nowrap shrink-0">
                     /year $14.58/mo
                   </span>
                 </div>
                 <a
                   href="#membership"
-                  className="cma-btn shrink-0 bg-cma-orange text-cma-navy hover:bg-cma-orange-dark text-[18px]"
+                  className="cma-btn shrink-0 bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
                 >
                   Become a Member
                 </a>
@@ -138,13 +138,13 @@ export default function MembershipPricing() {
                   <span className="font-extrabold text-[clamp(56px,7vw,87px)] text-cma-navy tracking-[-3px] leading-none">
                     $83.80
                   </span>
-                  <span className="font-semibold text-[24px] text-cma-navy leading-[1.4] pb-[6px]">
+                  <span className="font-semibold text-[16px] sm:text-[20px] md:text-[24px] text-cma-navy leading-[1.4] pb-[6px] whitespace-nowrap shrink-0">
                     family of 4
                   </span>
                 </div>
                 <a
                   href="#tickets"
-                  className="cma-btn shrink-0 bg-cma-navy text-white hover:opacity-90 text-[18px]"
+                  className="cma-btn shrink-0 bg-cma-navy text-white hover:bg-cma-navy-dark font-black"
                 >
                   Buy Tickets
                 </a>

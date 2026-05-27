@@ -88,19 +88,19 @@ export default function ImpactSection() {
             >
               <a
                 href="#donate"
-                className="cma-btn border-2 border-cma-teal-dark bg-white text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white w-full sm:w-auto"
+                className="cma-btn border-2 border-cma-teal-dark bg-white text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white w-full sm:w-auto font-black"
               >
                 Donate
               </a>
               <a
                 href="#membership"
-                className="cma-btn border-2 border-white bg-white text-cma-navy hover:bg-transparent hover:text-white w-full sm:w-auto"
+                className="cma-btn border-2 border-white bg-white text-cma-navy hover:bg-transparent hover:text-white w-full sm:w-auto font-black"
               >
                 Memberships
               </a>
               <a
                 href="#tickets"
-                className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark w-full sm:w-auto"
+                className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark w-full sm:w-auto font-black"
               >
                 Buy Tickets
               </a>

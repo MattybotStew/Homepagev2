@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import { motion } from "motion/react"
 
-const TARGET_DATE = new Date("2026-08-16T17:30:00")
+const DEFAULT_TARGET_DATE = new Date("2026-08-16T17:30:00")
 
-function getTimeLeft() {
+function getTimeLeft(target: Date) {
   const now = new Date()
-  const diff = TARGET_DATE.getTime() - now.getTime()
+  const diff = target.getTime() - now.getTime()
   if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 }
   return {
     days: Math.floor(diff / (1000 * 60 * 60 * 24)),
@@ -32,24 +32,48 @@ function CountdownTile({ value, label, delay }: { value: number; label: string; 
   )
 }
 
-export default function PYVCallout() {
-  const [timeLeft, setTimeLeft] = useState(getTimeLeft)
+type Props = {
+  eyebrow?: string
+  heading?: string
+  body?: string
+  cta?: { label: string; href: string }
+  bg?: string
+  showCountdown?: boolean
+  countdownTarget?: Date
+}
+
+export default function PYVCallout({
+  eyebrow = "AUG 16 @ 5:30–7:30 PM",
+  heading = "TinyCON® Returns This August!",
+  body = "Join us for our annual celebration of all things tiny! Interactive exhibits, special guests, and hands-on activities for the whole family.",
+  cta = { label: "Explore Memberships", href: "#tickets" },
+  bg = "bg-cma-teal-dark",
+  showCountdown = true,
+  countdownTarget = DEFAULT_TARGET_DATE,
+}: Props) {
+  const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(countdownTarget))
 
   useEffect(() => {
-    const id = setInterval(() => setTimeLeft(getTimeLeft()), 1000)
+    if (!showCountdown) return
+    const id = setInterval(() => setTimeLeft(getTimeLeft(countdownTarget)), 1000)
     return () => clearInterval(id)
-  }, [])
+  }, [showCountdown, countdownTarget])
 
   return (
     <div className="bg-white pt-[48px]">
       <div className="cma-section-container">
-        <div className="bg-cma-teal-dark rounded-[24px] border-2 border-black/5 flex flex-col sm:flex-row items-center gap-8 p-8 relative overflow-hidden">
+        <div className={`${bg} rounded-[24px] border-2 border-black/5 flex flex-col sm:flex-row items-center gap-8 p-8 relative overflow-hidden`}>
           {/* Decorative rings */}
           <div
             aria-hidden
-            className="absolute right-[320px] top-[-115px] w-[511px] h-[581px] pointer-events-none opacity-20"
+            className={`absolute pointer-events-none opacity-20 ${
+              showCountdown
+                ? "right-[320px] top-[-115px] w-[511px] h-[581px]"
+                : "right-[-60px] top-[-115px] w-[511px] h-[581px]"
+            }`}
             style={{
-              background: "radial-gradient(circle, transparent 38%, rgba(255,255,255,0.35) 39%, rgba(255,255,255,0.35) 44%, transparent 45%), radial-gradient(circle, transparent 55%, rgba(255,255,255,0.2) 56%, rgba(255,255,255,0.2) 62%, transparent 63%)",
+              background:
+                "radial-gradient(circle, transparent 38%, rgba(255,255,255,0.35) 39%, rgba(255,255,255,0.35) 44%, transparent 45%), radial-gradient(circle, transparent 55%, rgba(255,255,255,0.2) 56%, rgba(255,255,255,0.2) 62%, transparent 63%)",
             }}
           />
 
@@ -61,29 +85,37 @@ export default function PYVCallout() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="cma-eyebrow text-cma-blue-light">AUG 16 @ 5:30–7:30 PM</p>
-            <h2 className="text-white leading-none tracking-[-1px]">
-              TinyCON® Returns This August!
-            </h2>
-            <p className="text-cma-blue-light">
-              Join us for our annual celebration of all things tiny! Interactive exhibits, special guests,
-              and hands-on activities for the whole family.
-            </p>
-            <a
-              href="#tickets"
-              className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light self-start"
-            >
-              Explore Memberships
-            </a>
+            <p className="cma-eyebrow text-cma-blue-light">{eyebrow}</p>
+            <h2 className="text-white leading-none tracking-[-1px]">{heading}</h2>
+            <p className="text-cma-blue-light">{body}</p>
+            {!showCountdown && (
+              <a href={cta.href} className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black self-start">
+                {cta.label}
+              </a>
+            )}
           </motion.div>
 
-          {/* Countdown */}
-          <div className="shrink-0 flex gap-2 w-full sm:w-[402px] relative z-[1]">
-            <CountdownTile value={timeLeft.days} label="Days" delay={0.15} />
-            <CountdownTile value={timeLeft.hours} label="Hours" delay={0.22} />
-            <CountdownTile value={timeLeft.minutes} label="Minutes" delay={0.29} />
-            <CountdownTile value={timeLeft.seconds} label="Seconds" delay={0.36} />
-          </div>
+          {/* Countdown or CTA button */}
+          {showCountdown ? (
+            <div className="shrink-0 flex gap-2 w-full sm:w-[402px] relative z-[1]">
+              <CountdownTile value={timeLeft.days} label="Days" delay={0.15} />
+              <CountdownTile value={timeLeft.hours} label="Hours" delay={0.22} />
+              <CountdownTile value={timeLeft.minutes} label="Minutes" delay={0.29} />
+              <CountdownTile value={timeLeft.seconds} label="Seconds" delay={0.36} />
+            </div>
+          ) : (
+            <motion.div
+              className="shrink-0 relative z-[1] hidden sm:block"
+              initial={{ opacity: 0, x: 16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            >
+              <a href={cta.href} className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light whitespace-nowrap">
+                {cta.label}
+              </a>
+            </motion.div>
+          )}
         </div>
       </div>
     </div>

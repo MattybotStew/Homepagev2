@@ -101,9 +101,9 @@ function TabContent({ item }: { item: string }) {
             </a>
             <div className="flex gap-4 items-center">
               {[
-                { icon: faFacebook, href: "https://facebook.com" },
-                { icon: faInstagram, href: "https://instagram.com" },
-                { icon: faTiktok, href: "https://tiktok.com" },
+                { icon: faFacebook, href: "https://www.facebook.com/childrensmuseumofatlanta" },
+                { icon: faInstagram, href: "https://www.instagram.com/childrensmuseumofatlanta/" },
+                { icon: faTiktok, href: "https://www.tiktok.com/@childrensmuseumatlanta" },
               ].map(({ icon, href }) => (
                 <a
                   key={href}
@@ -124,10 +124,10 @@ function TabContent({ item }: { item: string }) {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-3">
-          <a href="#tickets" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark">
+          <a href="#tickets" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
             Buy Tickets
           </a>
-          <a href="#parking" className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light">
+          <a href="#parking" className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black">
             Parking Guide
           </a>
         </div>
@@ -238,7 +238,7 @@ export default function PlanTabs() {
                   className={`w-full flex items-center justify-between px-5 py-[18px] text-left border-b border-[#e4e8ee] last:border-b-0 transition-colors
                     ${active === item
                       ? "bg-cma-orange text-white font-bold"
-                      : "bg-white text-cma-navy hover:bg-cma-cream"
+                      : "bg-white text-cma-navy hover:bg-cma-blue-light"
                     }`}
                 >
                   <span>{item}</span>

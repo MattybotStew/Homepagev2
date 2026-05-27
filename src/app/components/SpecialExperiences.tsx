@@ -6,10 +6,11 @@ import imgFrame39916 from "figma:asset/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.
 import imgFrame39917 from "figma:asset/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp";
 import imgFrame39918 from "figma:asset/39da2bd0af3dceef1e3b406cd981247f82778d27.webp";
 import squiggleSvg from "../../imports/sqig2.svg";
+import imgWaveNavy from "figma:asset/impact-wave-top.svg";
 
-type EventItem = {
+export type EventItem = {
   image: string;
-  date: string;
+  badge: string;
   title: string;
   description: string;
 };
@@ -24,25 +25,25 @@ const filters = [
   "Special Events",
 ];
 
-const allEvents: Record<string, EventItem[]> = {
+const defaultEvents: Record<string, EventItem[]> = {
   Featured: [
     {
       image: imgFrame39916,
-      date: "FEB 10 | 10AM–11:30AM",
+      badge: "FEB 10 | 10AM–11:30AM",
       title: "Messy Thursdays",
       description:
         "Get ready to get messy! This weekly sensory play extravaganza features paint, slime, water tables, and creative chaos designed for exploration and fun.",
     },
     {
       image: imgFrame39917,
-      date: "FEB 12–16 | ALL DAY",
+      badge: "FEB 12–16 | ALL DAY",
       title: "Snow Days",
       description:
         "Experience winter magic indoors! Build snowmen with fake snow, explore ice sculptures, and enjoy cozy winter crafts in our climate-controlled winter wonderland.",
     },
     {
       image: imgFrame39918,
-      date: "FEB 15 | 1PM–3PM",
+      badge: "FEB 15 | 1PM–3PM",
       title: "STEM Saturdays: Rocket Science",
       description:
         "Launch into learning! Kids will design, build, and test their own rockets while discovering the physics of flight and space exploration.",
@@ -51,21 +52,21 @@ const allEvents: Record<string, EventItem[]> = {
   "This Week": [
     {
       image: imgFrame39916,
-      date: "FEB 10 | 10AM–11:30AM",
+      badge: "FEB 10 | 10AM–11:30AM",
       title: "Messy Thursdays",
       description:
         "Get ready to get messy! This weekly sensory play extravaganza features paint, slime, water tables, and creative chaos designed for exploration and fun.",
     },
     {
       image: imgFrame39918,
-      date: "FEB 11 | 2PM–4PM",
+      badge: "FEB 11 | 2PM–4PM",
       title: "Story Time Adventures",
       description:
         "Join us for interactive storytelling with puppets, costumes, and dramatic play. Each session features a different beloved children's book brought to life.",
     },
     {
       image: imgFrame39917,
-      date: "FEB 13 | 11AM–12PM",
+      badge: "FEB 13 | 11AM–12PM",
       title: "Music & Movement Monday",
       description:
         "Dance, sing, and play instruments in this high-energy music class designed to develop rhythm, coordination, and a love of music.",
@@ -74,21 +75,21 @@ const allEvents: Record<string, EventItem[]> = {
   "Members-Only": [
     {
       image: imgFrame39918,
-      date: "FEB 14 | 9AM–10AM",
+      badge: "FEB 14 | 9AM–10AM",
       title: "Early Access: Member Mornings",
       description:
         "Beat the crowds! Members enjoy exclusive early access to the museum with special activities and breakfast treats in a quieter, more relaxed environment.",
     },
     {
       image: imgFrame39916,
-      date: "FEB 20 | 6PM–8PM",
+      badge: "FEB 20 | 6PM–8PM",
       title: "Members Night: Glow Party",
       description:
         "An after-hours glow-in-the-dark extravaganza exclusively for members! UV face painting, neon crafts, and glowing dance party under black lights.",
     },
     {
       image: imgFrame39917,
-      date: "FEB 25 | 5PM–7PM",
+      badge: "FEB 25 | 5PM–7PM",
       title: "Member Appreciation Workshop",
       description:
         "A special thank you event featuring exclusive workshops, meet-and-greets with educators, and sneak peeks at upcoming exhibits.",
@@ -97,21 +98,21 @@ const allEvents: Record<string, EventItem[]> = {
   "Free Events": [
     {
       image: imgFrame39916,
-      date: "FEB 10 | 10AM–11:30AM",
+      badge: "FEB 10 | 10AM–11:30AM",
       title: "Messy Thursdays",
       description:
         "Get ready to get messy! This weekly sensory play extravaganza features paint, slime, water tables, and creative chaos designed for exploration and fun.",
     },
     {
       image: imgFrame39917,
-      date: "FEB 12–16 | ALL DAY",
+      badge: "FEB 12–16 | ALL DAY",
       title: "Snow Days",
       description:
         "Experience winter magic indoors! Build snowmen with fake snow, explore ice sculptures, and enjoy cozy winter crafts in our climate-controlled winter wonderland.",
     },
     {
       image: imgFrame39918,
-      date: "FEB 17 | 3PM–4:30PM",
+      badge: "FEB 17 | 3PM–4:30PM",
       title: "Community Day Celebration",
       description:
         "Free admission for all! Join us for special performances, community art projects, and family activities celebrating our wonderful Atlanta community.",
@@ -120,21 +121,21 @@ const allEvents: Record<string, EventItem[]> = {
   Workshops: [
     {
       image: imgFrame39918,
-      date: "FEB 15 | 1PM–3PM",
+      badge: "FEB 15 | 1PM–3PM",
       title: "STEM Saturdays: Rocket Science",
       description:
         "Launch into learning! Kids will design, build, and test their own rockets while discovering the physics of flight and space exploration.",
     },
     {
       image: imgFrame39916,
-      date: "FEB 18 | 10AM–12PM",
+      badge: "FEB 18 | 10AM–12PM",
       title: "Little Engineers: Bridge Building",
       description:
         "Young architects learn engineering principles by designing and constructing bridges using various materials. Test your creation's strength!",
     },
     {
       image: imgFrame39917,
-      date: "FEB 22 | 2PM–4PM",
+      badge: "FEB 22 | 2PM–4PM",
       title: "Art Studio: Clay Creations",
       description:
         "Mold, sculpt, and design with clay! This hands-on workshop teaches pottery basics and allows kids to create their own masterpieces to take home.",
@@ -143,21 +144,21 @@ const allEvents: Record<string, EventItem[]> = {
   Seasonal: [
     {
       image: imgFrame39917,
-      date: "FEB 12–16 | ALL DAY",
+      badge: "FEB 12–16 | ALL DAY",
       title: "Snow Days",
       description:
         "Experience winter magic indoors! Build snowmen with fake snow, explore ice sculptures, and enjoy cozy winter crafts in our climate-controlled winter wonderland.",
     },
     {
       image: imgFrame39918,
-      date: "FEB 14 | ALL DAY",
+      badge: "FEB 14 | ALL DAY",
       title: "Valentine's Craft Corner",
       description:
         "Spread the love! Create handmade valentines, friendship bracelets, and heart-themed art projects. Perfect for sharing with friends and family.",
     },
     {
       image: imgFrame39916,
-      date: "FEB 17 | 11AM–3PM",
+      badge: "FEB 17 | 11AM–3PM",
       title: "Presidents Day Celebration",
       description:
         "Honor our nation's leaders with historical dress-up, patriotic crafts, and fun facts about presidents. Kids can even practice signing their own 'executive orders'!",
@@ -166,21 +167,21 @@ const allEvents: Record<string, EventItem[]> = {
   "Special Events": [
     {
       image: imgFrame39916,
-      date: "FEB 20 | 6PM–8PM",
+      badge: "FEB 20 | 6PM–8PM",
       title: "Members Night: Glow Party",
       description:
         "An after-hours glow-in-the-dark extravaganza exclusively for members! UV face painting, neon crafts, and glowing dance party under black lights.",
     },
     {
       image: imgFrame39917,
-      date: "FEB 28 | 10AM–2PM",
+      badge: "FEB 28 | 10AM–2PM",
       title: "Science Fair Spectacular",
       description:
         "Young scientists showcase their experiments and discoveries! Interactive demonstrations, hands-on activities, and awards for creative thinking.",
     },
     {
       image: imgFrame39918,
-      date: "MAR 1 | 12PM–4PM",
+      badge: "MAR 1 | 12PM–4PM",
       title: "Spring Preview Festival",
       description:
         "Get a sneak peek at our new spring exhibits! Special performances, garden planting activities, and butterfly release ceremony.",
@@ -188,14 +189,25 @@ const allEvents: Record<string, EventItem[]> = {
   ],
 };
 
-export default function SpecialExperiences() {
+type Props = {
+  heading?: string
+  ctaButton?: { label: string; href: string }
+  filterEvents?: Record<string, EventItem[]>
+  showWave?: boolean
+}
+
+export default function SpecialExperiences({
+  heading = "Don't Miss The Fun.",
+  ctaButton,
+  filterEvents = defaultEvents,
+  showWave = false,
+}: Props) {
   const [activeFilter, setActiveFilter] = useState("Featured");
 
-  const events = allEvents[activeFilter] ?? allEvents.Featured;
+  const events = filterEvents[activeFilter] ?? filterEvents.Featured ?? [];
 
   return (
-    <section className="bg-cma-cream relative w-full py-[80px] lg:pt-[100px] lg:pb-0">
-      {/* Squiggle clip container — isolates overflow to just this decoration */}
+    <section className="bg-cma-cream relative w-full py-[80px] lg:pt-[100px] lg:pb-[80px]">
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
         <motion.div
           className="absolute right-0 top-[80px] md:top-[100px] lg:top-[120px] w-[260px] md:w-[420px] lg:w-[560px] hidden md:block"
@@ -209,18 +221,21 @@ export default function SpecialExperiences() {
       </div>
 
       <div className="relative z-[1] max-w-[1280px] mx-auto px-5 md:px-8 lg:px-[80px] flex flex-col items-center gap-[48px]">
-        {/* Heading */}
-        <motion.h2
-          className="text-cma-navy text-center"
+        <motion.div
+          className="flex flex-col items-center gap-[24px]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          Don&apos;t Miss The Fun.
-        </motion.h2>
+          <h2 className="text-cma-navy text-center">{heading}</h2>
+          {ctaButton && (
+            <a href={ctaButton.href} className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
+              {ctaButton.label}
+            </a>
+          )}
+        </motion.div>
 
-        {/* Filter pill bar — same pattern as FeaturedExhibits */}
         <motion.div
           className="w-full"
           initial={{ opacity: 0, y: 16 }}
@@ -243,7 +258,6 @@ export default function SpecialExperiences() {
           </div>
         </motion.div>
 
-        {/* Event cards grid */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeFilter}
@@ -261,7 +275,6 @@ export default function SpecialExperiences() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08, duration: 0.5 }}
               >
-                {/* Image with teal date badge */}
                 <div className="cma-card-img">
                   <img
                     src={event.image}
@@ -270,20 +283,17 @@ export default function SpecialExperiences() {
                   />
                   <div className="absolute bottom-[10px] left-[10px] bg-cma-teal-dark px-[18px] py-[12px] rounded-[8px]">
                     <p className="font-extrabold text-[14px] text-white leading-[1.5] whitespace-nowrap">
-                      {event.date}
+                      {event.badge}
                     </p>
                   </div>
                 </div>
 
-                {/* Title */}
-                <p className="font-extrabold text-[30px] text-cma-navy leading-[1.3] tracking-[-1px]">
+                <p className="font-extrabold text-[22px] md:text-[30px] text-cma-navy leading-[1.3] tracking-[-1px]">
                   {event.title}
                 </p>
 
-                {/* Description */}
                 <p className="text-cma-navy">{event.description}</p>
 
-                {/* Text link */}
                 <a href="#events" className="cma-text-link mt-auto">
                   Learn More <FontAwesomeIcon icon={faArrowRight} className="text-[13px]" />
                 </a>
@@ -292,6 +302,14 @@ export default function SpecialExperiences() {
           </motion.div>
         </AnimatePresence>
       </div>
+
+      {showWave && (
+        <div aria-hidden className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full">
+          {Array.from({ length: 10 }).map((_, i) => (
+            <img key={i} src={imgWaveNavy} alt="" className="w-[422px] h-[57px] shrink-0 block" />
+          ))}
+        </div>
+      )}
     </section>
   );
 }

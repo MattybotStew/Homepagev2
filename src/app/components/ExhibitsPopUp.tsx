@@ -68,7 +68,7 @@ export default function ExhibitsPopUp() {
                     <p className="font-extrabold text-[14px] text-white leading-[1.5] whitespace-nowrap">{exhibit.badge}</p>
                   </div>
                 </div>
-                <p className="font-extrabold text-[30px] text-cma-navy leading-[1.3] tracking-[-1px]">{exhibit.title}</p>
+                <p className="font-extrabold text-[22px] md:text-[30px] text-cma-navy leading-[1.3] tracking-[-1px]">{exhibit.title}</p>
                 <p className="text-cma-navy">{exhibit.body}</p>
                 <a href={exhibit.href} className="cma-text-link mt-auto">
                   Learn More <FontAwesomeIcon icon={faArrowRight} className="text-[13px]" />
