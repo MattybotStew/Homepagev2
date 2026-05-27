@@ -312,7 +312,7 @@ export default function FieldTripsProgramContent() {
 
           {/* ── Main content ── */}
           <div className="flex-1 min-w-0">
-            <div className="bg-white rounded-[24px] border-2 border-black/5 p-[24px] md:p-[48px] flex flex-col gap-[48px]">
+            <div className="bg-white rounded-[24px] border-2 border-black/5 p-[24px] md:p-[48px] flex flex-col gap-[32px] md:gap-[48px]">
 
               {/* ── Overview ── */}
               <div id="overview" className="flex flex-col gap-[24px]">
@@ -332,11 +332,11 @@ export default function FieldTripsProgramContent() {
                 <p className="text-cma-navy/60 text-[13px] italic">
                   *Due to space and time constraints, field trips do not participate in the Art Studio and Science Bar.
                 </p>
-                <div className="flex flex-wrap gap-[12px]">
-                  <button onClick={() => scrollToSection("faqs")} className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-[12px]">
+                  <button onClick={() => scrollToSection("faqs")} className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black w-full sm:w-auto">
                     Need More Info? See FAQs
                   </button>
-                  <button onClick={() => scrollToSection("request-visit")} className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black">
+                  <button onClick={() => scrollToSection("request-visit")} className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black w-full sm:w-auto">
                     Availability
                   </button>
                 </div>
@@ -476,7 +476,7 @@ export default function FieldTripsProgramContent() {
                       <img
                         src={exhibit.image}
                         alt={exhibit.title}
-                        className="w-full sm:w-[160px] sm:h-[160px] h-[200px] rounded-[14px] object-cover shrink-0"
+                        className="w-full sm:w-[160px] h-[160px] rounded-[14px] object-cover shrink-0"
                       />
                       <div className="flex flex-col gap-[10px] flex-1 min-w-0">
                         <p className="cma-eyebrow text-cma-teal-dark text-[11px]">{exhibit.eyebrow}</p>
@@ -499,7 +499,7 @@ export default function FieldTripsProgramContent() {
                 <p className="text-cma-navy">
                   Explore our availability calendar and request your field trip today! Our hands-on, play-based field trips are designed to engage students, bring your curriculum to life, and make learning fun.
                 </p>
-                <div className="bg-cma-teal-pale rounded-[16px] p-[48px] flex flex-col items-center justify-center gap-[16px] text-center">
+                <div className="bg-cma-teal-pale rounded-[16px] p-[24px] md:p-[48px] flex flex-col items-center justify-center gap-[16px] text-center">
                   <div className="w-[56px] h-[56px] bg-cma-teal-pale rounded-full flex items-center justify-center">
                     <FontAwesomeIcon icon={faCalendar} className="text-cma-teal-dark text-[22px]" />
                   </div>
@@ -590,7 +590,7 @@ export default function FieldTripsProgramContent() {
               <Divider />
 
               {/* ── Still Have Questions? ── */}
-              <div className="bg-cma-navy rounded-[20px] p-[32px] flex flex-col sm:flex-row sm:items-center gap-[24px]">
+              <div className="bg-cma-navy rounded-[20px] p-[24px] md:p-[32px] flex flex-col sm:flex-row sm:items-center gap-[24px]">
                 <div className="flex-1">
                   <h2 className="text-white !text-[clamp(20px,2vw,28px)] mb-[8px]">Still have questions?</h2>
                   <p className="text-white/75">Our team will answer all your questions. We ensure a quick response.</p>
@@ -683,6 +683,20 @@ export default function FieldTripsProgramContent() {
                     </div>
                   </form>
                 </div>
+              </div>
+
+              {/* ── Newsletter — mobile only ── */}
+              <div className="lg:hidden bg-cma-navy rounded-[20px] p-[24px] flex flex-col gap-[12px]">
+                <p className="font-extrabold text-[16px] text-white leading-[1.3]">Subscribe to Our Educator Newsletter!</p>
+                <p className="text-white/75 text-[14px] leading-[1.5]">Stay in the know on upcoming programs, events, and play-based learning opportunities.</p>
+                <input
+                  type="email"
+                  placeholder="Your email address"
+                  className="w-full px-[14px] py-[12px] rounded-[10px] bg-white/10 border border-white/20 text-white placeholder:text-white/40 outline-none focus:border-white/60 transition-colors"
+                />
+                <button className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black w-full">
+                  Stay In The Loop!
+                </button>
               </div>
 
             </div>
