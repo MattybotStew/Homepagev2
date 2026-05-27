@@ -4,6 +4,12 @@ import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp"
 import imgB from "../../assets/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp"
 import imgC from "../../assets/39da2bd0af3dceef1e3b406cd981247f82778d27.webp"
 
+export type ExhibitSection = {
+  title: string
+  subtitle?: string
+  body: string
+}
+
 export type Exhibit = {
   slug: string
   title: string
@@ -13,6 +19,7 @@ export type Exhibit = {
   heroImage: string
   cardImage: string
   paragraphs: string[]
+  sections?: ExhibitSection[]
 }
 
 export const exhibits: Exhibit[] = [
@@ -89,12 +96,31 @@ export const exhibits: Exhibit[] = [
     title: "Fundamentally Food",
     badge: "Permanent",
     badgeColor: "navy",
-    eyebrow: "",
+    eyebrow: "Ages: 10 months – 8 years",
     heroImage: imgA,
     cardImage: imgA,
     paragraphs: [
-      "Climb tractors, milk a dairy cow, load delivery trucks, shop a bustling grocery store, and cook pretend meals together. Through playful farm-to-table fun, Fundamentally Food invites families to explore where our food comes from, how it moves through communities, and how eating well helps families grow strong and healthy.",
-      "One of our most beloved permanent exhibits, Fundamentally Food is a child-sized world where every role — farmer, trucker, grocery shopper, chef — is worth playing. Discover the connections between agriculture, nutrition, and community while building early science, math, and social skills through imaginative play.",
+      `Choose vegetables and fruits from the farm, climb on our John Deere tractor, milk our milking cow, "Buttercup," load boxes on our delivery truck, and operate a fork lift. Shop 'til you drop in our grocery store. Enjoy a healthy pretend meal while relaxing at our play diner.`,
+    ],
+    sections: [
+      {
+        title: "Farm",
+        body: "In addition to favorites such as Buttercup the cow and our John Deere Tractor, the farm area includes a new chicken coop where children may collect eggs, a Georgia-grown planting area, and two computer interactives: one that demonstrates the many jobs needed in order to make a farm run and the other that illustrates how different seeds grow.",
+      },
+      {
+        title: "Grocery Store",
+        subtitle: "Closed September 25 – October 3.",
+        body: "Children learn math and coordination skills as they fill up their grocery carts, stock groceries on the shelves, use the cash register, work in the deli, and run their own grocery store filled with nutritious options.",
+      },
+      {
+        title: "Delivery Truck",
+        subtitle: "Closed September 25 – October 3.",
+        body: "How does our food get from the farm to the grocery store? The delivery truck, of course! Children \"drive\" the Museum delivery truck and use the conveyor belts to move important goods to and from the neighborhood grocery store.",
+      },
+      {
+        title: "Cafe",
+        body: "Pretend play is front and center at the CMA Cafe. Children will love playing chef behind the grill, taking orders at the counter, creating menus of healthy food options, and ordering meals all on their own.",
+      },
     ],
   },
   {

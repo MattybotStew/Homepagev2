@@ -78,6 +78,23 @@ export default function ArticleContent({ exhibit, related }: Props) {
               <p key={i} className="text-cma-navy">{para}</p>
             ))}
 
+            {/* Sections */}
+            {exhibit.sections && exhibit.sections.length > 0 && (
+              <div className="flex flex-col gap-[48px]">
+                {exhibit.sections.map((section) => (
+                  <div key={section.title} className="flex flex-col gap-[16px]">
+                    <div className="flex flex-wrap items-baseline gap-x-[10px]">
+                      <h3 className="text-cma-navy">{section.title}</h3>
+                      {section.subtitle && (
+                        <span className="text-cma-navy/60 text-[14px] font-medium">{section.subtitle}</span>
+                      )}
+                    </div>
+                    <p className="text-cma-navy">{section.body}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+
             {/* Divider */}
             <div className="bg-black/15 h-px w-full" />
 
