@@ -68,7 +68,7 @@ export default function CalendarPage() {
               Events &amp; Calendar
             </h1>
             <p className="text-cma-navy max-w-[560px] font-semibold text-[clamp(16px,2.1vw,24px)] leading-[1.3] tracking-[-0.5px]">
-              Workshops, seasonal celebrations, member-only nights, and free community days — there's always something happening at CMA.
+              Discover upcoming events, workshops, and activities at Children's Museum of Atlanta.
             </p>
             <a href="#tickets" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
               Buy Tickets
