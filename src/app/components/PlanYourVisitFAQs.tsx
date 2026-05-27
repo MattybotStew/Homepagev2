@@ -27,7 +27,7 @@ const faqs = [
     question: "Recommended Ages",
     answer: (
       <p className="text-cma-navy">
-        Our exhibits are designed for children ages 0–8. Older siblings and adults are welcome to accompany younger children and help facilitate play.
+        Our exhibits are developed with children 8 years and younger in mind.
       </p>
     ),
   },
@@ -35,24 +35,29 @@ const faqs = [
     question: "Duration of Visit",
     answer: (
       <p className="text-cma-navy">
-        Most families spend 2–3 hours exploring. Your ticket includes all-day access and re-entry on the same day, so you're welcome to take a lunch break and come back.
+        Most families play for about 2 hours. Your tickets include re-entry on the day of your visit, as capacity allows.
       </p>
     ),
   },
   {
     question: "Code of Conduct",
     answer: (
-      <p className="text-cma-navy">
-        We ask all guests to be respectful of other visitors and staff. Children must be supervised at all times. Disruptive behavior may result in removal from the museum without a refund.
-      </p>
+      <>
+        <p className="text-cma-navy"><strong>We Exercise Kindness:</strong> Please use positive, encouraging behavior while inside the Museum. Avoid profane and explicit language, harassment, and aggressive behavior.</p>
+        <p className="text-cma-navy"><strong>We Engage in Respectful Behavior:</strong> Please share and take turns. Treat the exhibits well so other guests can enjoy them. We Assume Good Intentions: Children may unintentionally touch or bump into each other while playing. Please be patient and understanding.</p>
+        <p className="text-cma-navy"><strong>Stay Together, Play Together:</strong> Adults must stay with their children at all times. Use Walking Feet: No running, please.</p>
+        <p className="text-cma-navy"><strong>Make Memories, Don't Miss Them:</strong> You are your child's first teacher and playmate. We encourage a screen-free experience, unless capturing precious memories.</p>
+      </>
     ),
   },
   {
     question: "What to Wear",
     answer: (
-      <p className="text-cma-navy">
-        Wear comfortable clothes that can get a little messy — we have water and art exhibits! Closed-toe shoes are recommended for climbing structures.
-      </p>
+      <>
+        <p className="text-cma-navy">We recommend wearing comfortable "play clothes" and rubber-soled sneakers or shoes since children will be very active. Open-toe sandals, flip-flops, and high heels are strongly discouraged. Shoes must be worn at all times.</p>
+        <p className="text-cma-navy">Consider bringing a change of clothes. While we provide aprons and ponchos, children will have the opportunity to play with paint and other messy materials and might get wet playing in our Leaping into Learning fishing area.</p>
+        <p className="text-cma-navy">Coat racks are available in the Museum.</p>
+      </>
     ),
   },
 ]

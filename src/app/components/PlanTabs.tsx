@@ -49,29 +49,6 @@ const navItems = [
   "Accessibility",
 ]
 
-const placeholderContent: Record<string, { title: string; body: string }> = {
-  "Location, Parking & Directions": {
-    title: "Getting Here",
-    body: "We're located at 275 Centennial Olympic Park Dr NW, Atlanta, GA 30313. Convenient parking is available nearby. We're also accessible via MARTA — take the Blue/Green line to the Dome/GWCC/Philips Arena/CNN Center station.",
-  },
-  "What to Bring": {
-    title: "What to Bring",
-    body: "Wear comfortable, play-ready clothing and closed-toe shoes. Bring a stroller if needed — stroller parking is available inside. Pack your own snacks (outside food is welcome in designated areas). Members, don't forget your membership card!",
-  },
-  "Food & Amenities": {
-    title: "Food & Amenities",
-    body: "Snack Stop offers light bites and beverages for purchase. Outside snacks are welcome in designated eating areas. Lockers are available to store belongings. Family restrooms and diaper-changing stations are on every floor.",
-  },
-  "Safety & Cleanliness": {
-    title: "Safety & Cleanliness",
-    body: "Our staff is dedicated to maintaining a safe, clean environment. Exhibits are sanitized daily. We require a 1:5 adult-to-child ratio at all times. Adults without children are not permitted to enter.",
-  },
-  Accessibility: {
-    title: "Accessibility",
-    body: "The Children's Museum of Atlanta is fully ADA-accessible. Elevators, accessible restrooms, and sensory-friendly quiet rooms are available. Service animals are welcome. Contact us in advance for any special accommodations.",
-  },
-}
-
 function TabContent({ item }: { item: string }) {
   if (item === "Hours & Address") {
     return (
@@ -151,12 +128,111 @@ function TabContent({ item }: { item: string }) {
     )
   }
 
-  return (
-    <div className="flex flex-col gap-6">
-      <h3 className="text-cma-navy">{placeholderContent[item]?.title ?? item}</h3>
-      <p className="text-cma-navy">{placeholderContent[item]?.body}</p>
-    </div>
-  )
+  if (item === "Location, Parking & Directions") {
+    return (
+      <div className="flex flex-col gap-8">
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Driving */}
+          <div className="flex-1 flex flex-col gap-5">
+            <h3 className="text-cma-navy">Driving Directions</h3>
+            <div className="flex flex-col gap-4">
+              <p className="text-cma-navy"><strong>SOUTHBOUND via I-75:</strong> Exit 249C Williams Street. Go straight off the exit onto Williams Street. Turn right onto Baker Street. The Museum is located on the corner of Baker Street and Centennial Olympic Park Drive.</p>
+              <p className="text-cma-navy"><strong>NORTHBOUND via I-75/I-85:</strong> Exit 248C toward Andrew Young International Blvd. Keep left toward Piedmont Ave. Turn right on Piedmont Ave. Turn right on Baker Street. The Museum is located on the corner of Baker Street and Centennial Olympic Park Drive.</p>
+              <p className="text-cma-navy"><strong>EASTBOUND or WESTBOUND via I-20:</strong> Exit I-75/85 North. Exit Andrew Young International Blvd. Go through downtown towards Centennial Olympic Park. Turn right onto Williams Street. Go two blocks to Baker Street and turn left. The Museum is located on the corner of Baker Street and Centennial Olympic Park Drive.</p>
+            </div>
+            <div className="flex flex-col gap-3">
+              <h4 className="text-cma-navy font-bold">Parking Options</h4>
+              <p className="text-cma-navy">The recommended parking lot for the Museum can be found at 236 Williams Street, one block from the Museum. For the best price, pre-purchase your parking in advance. $8 parking is available for Museum guests except during blackout windows. Parking at 236 Williams Street is independently owned and not operated by Children's Museum of Atlanta.</p>
+            </div>
+            <div className="flex flex-col gap-3">
+              <h4 className="text-cma-navy font-bold">Additional parking locations:</h4>
+              <ul className="flex flex-col gap-1 pl-4 list-disc">
+                {["112 Baker Street", "Georgia Aquarium", "World of Coca-Cola", "Downtown public lots"].map(l => (
+                  <li key={l} className="text-cma-navy">{l}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          {/* Transit */}
+          <div className="flex-1 flex flex-col gap-5">
+            <h3 className="text-cma-navy">Public Transportation Directions</h3>
+            <div className="flex flex-col gap-4">
+              <p className="text-cma-navy"><strong>15-minute walk:</strong> The closest MARTA train station is Peachtree Center on the Red and Gold lines. Exit the station towards Ellis Street NE. Walk North on Peachtree Street three blocks before turning left on Baker Street NW. Continue walking on Baker Street past Ted Turner Drive NW and Williams Street NW. The Museum is on the right side on the corner of Baker Street and Centennial Olympic Drive NW.</p>
+              <p className="text-cma-navy"><strong>18-minute walk:</strong> The closest MARTA train station on the Blue and Green lines is GWCC/CNN Center. Exit the station towards State Farm Arena and walk down Andrew Young International Boulevard towards Marietta Street NW (away from Mercedes-Benz Stadium). Cross Marietta Street and continue through Centennial Olympic Park to the corner of Centennial Olympic Park Drive NW and Baker Street NW. Cross both streets to arrive at the Museum.</p>
+              <p className="text-cma-navy"><strong>5-minute walk:</strong> The closest bus stops are the 411 and 413 stops, one block away on the corner of Baker Street and Williams Street.</p>
+              <p className="text-cma-navy"><strong>8-minute walk:</strong> The closest streetcar stop is Centennial Olympic Park Drive &amp; Andrew Young International Boulevard.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (item === "What to Bring") {
+    return (
+      <div className="flex flex-col gap-6">
+        <h3 className="text-cma-navy">What to Bring</h3>
+        <p className="text-cma-navy font-semibold">Everything to bring for perfect play day.</p>
+        <ul className="flex flex-col gap-3 pl-4 list-disc">
+          <li className="text-cma-navy"><strong>Comfortable Clothes:</strong> Wear comfy play clothes and closed-toe shoes.</li>
+          <li className="text-cma-navy"><strong>Change of Clothes:</strong> While we provide aprons and ponchos for paint, you may want a fresh change of clothes.</li>
+          <li className="text-cma-navy"><strong>Water Bottle:</strong> Water bottles are allowed on the exhibit floor and can be refilled at our water fountains.</li>
+          <li className="text-cma-navy"><strong>Membership Card and Tickets:</strong> Bring your digital membership card and/or tickets to show at check-in.</li>
+        </ul>
+      </div>
+    )
+  }
+
+  if (item === "Food & Amenities") {
+    return (
+      <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-4">
+          <h3 className="text-cma-navy">Food</h3>
+          <p className="text-cma-navy">You can buy snacks and beverages in the Museum store or bring your own from home. Snacks can be eaten in the Snack Stop (next to the Museum Store). Water bottles and soda bottles with caps are permitted on the exhibit floor. There is a water fountain by the front entrance restrooms.</p>
+          <p className="text-cma-navy">The Museum is walking-distance from several restaurants, including Mellow Mushroom, Waffle House, the restaurants in Peachtree Center, Kwan's Deli and Korean Kitchen, Baja Fresh and Chick-fil-a.</p>
+        </div>
+        <div className="flex flex-col gap-4">
+          <h3 className="text-cma-navy">Amenities</h3>
+          <ul className="flex flex-col gap-3 pl-4 list-disc">
+            <li className="text-cma-navy"><strong>Coat Racks:</strong> Available in the Museum for storing coats and jackets.</li>
+            <li className="text-cma-navy"><strong>Lockers:</strong> Small lockers can be checked out at the front desk to store your items.</li>
+            <li className="text-cma-navy"><strong>Stroller Parking:</strong> Limited stroller parking available. CMA is not responsible for lost or stolen items. The Museum is fully stroller-accessible. We recommend leaving strollers at home or in the car when possible.</li>
+            <li className="text-cma-navy"><strong>Quiet Room:</strong> Located in Leaping into Learning. Available for families that need a quiet break or for parents who are nursing. Nursing is permitted anywhere in the Museum.</li>
+          </ul>
+        </div>
+      </div>
+    )
+  }
+
+  if (item === "Safety & Cleanliness") {
+    return (
+      <div className="flex flex-col gap-6">
+        <h3 className="text-cma-navy">Safety &amp; Cleanliness</h3>
+        <p className="text-cma-navy">You are responsible for supervising your children at all times. You are your child's best advocate for staying safe while playing.</p>
+        <p className="text-cma-navy">Security cameras record everyone entering and leaving public entrances, as well as moving about the Museum in public spaces.</p>
+        <p className="text-cma-navy">Adults are not allowed to enter the Museum without a child. Any adult who needs to be united with their party will be asked to wait until someone in their party can come meet them at check-in.</p>
+        <p className="text-cma-navy">Museum team members on the exhibit floor are in radio communication with one another. When children are separated from their grown-ups, we immediately activate our reunification procedure to quickly and efficiently reunite guests. Our Security desk is the best place to start if a child or grown-up has been separated from their party.</p>
+        <p className="text-cma-navy">The Museum partners with a professional cleaning company to keep our facility clean and safe for families to play. Our team continually tidies, disinfects high-touch areas, and cleans spills and restrooms. In the evening, the Museum is cleaned using hospital-grade cleaning agents.</p>
+        <p className="text-cma-navy">We also partner with a professional building performance company to monitor and regularly service our heating, ventilation, and air conditioning systems and keep our air clean.</p>
+      </div>
+    )
+  }
+
+  if (item === "Accessibility") {
+    return (
+      <div className="flex flex-col gap-6">
+        <h3 className="text-cma-navy">Accessibility</h3>
+        <p className="text-cma-navy"><strong>ADA Compliance:</strong> If you need reasonable accommodations due to a disability, including communications in an alternate format, to participate in any program or meeting, please contact Natalia Vulay at 404-507-7222 seven (7) days in advance to facilitate your request. For TDD/TTY or Georgia Relay Service Access, dial 711.</p>
+        <p className="text-cma-navy"><strong>Wheelchair Accessibility:</strong> The entire museum is wheelchair accessible. Elevators provide access to the Mezzanine. All bathrooms and water fountains are wheelchair accessible. The front entrance is wheelchair-accessible and marked with blue stickers that say "Automatic Doors." Red buttons, one outside and one inside, open the doors when pushed.</p>
+        <p className="text-cma-navy"><strong>Sensory Packs:</strong> Available at the front desk and can be checked out for free at any time. Each pack includes headphones and several sensory toys.</p>
+        <p className="text-cma-navy"><strong>Sensory Friendly Playtime:</strong> Offered on select Sunday mornings throughout the year, this experience provides limited admission and sound adjustments.</p>
+        <p className="text-cma-navy"><strong>Service Animals:</strong> Restrained service animals are permitted in the Museum.</p>
+        <p className="text-cma-navy"><strong>Web Accessibility:</strong> Our website uses the Recite Me web accessibility and language toolbar. You can open the Recite Me language and accessibility toolbar by clicking the accessibility icon. The toolbar offers text-to-speech, options for changing how the website looks, and translation to 134 languages.</p>
+      </div>
+    )
+  }
+
+  return null
 }
 
 export default function PlanTabs() {
