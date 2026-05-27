@@ -333,10 +333,10 @@ export default function FieldTripsProgramContent() {
                   *Due to space and time constraints, field trips do not participate in the Art Studio and Science Bar.
                 </p>
                 <div className="flex flex-col sm:flex-row flex-wrap gap-[12px]">
-                  <button onClick={() => scrollToSection("faqs")} className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black w-full sm:w-auto">
+                  <button onClick={() => scrollToSection("faqs")} className="cma-btn cma-btn-outline-teal font-black w-full sm:w-auto">
                     Need More Info? See FAQs
                   </button>
-                  <button onClick={() => scrollToSection("request-visit")} className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black w-full sm:w-auto">
+                  <button onClick={() => scrollToSection("request-visit")} className="cma-btn cma-btn-outline-teal font-black w-full sm:w-auto">
                     Availability
                   </button>
                 </div>
@@ -436,7 +436,7 @@ export default function FieldTripsProgramContent() {
                   ))}
                 </div>
                 <div>
-                  <a href="#" className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black">
+                  <a href="#" className="cma-btn cma-btn-outline-teal font-black">
                     Download Standards Alignment <FontAwesomeIcon icon={faDownload} className="ml-[6px] text-[13px]" />
                   </a>
                 </div>
@@ -532,7 +532,7 @@ export default function FieldTripsProgramContent() {
               <div className="flex flex-col gap-[24px]">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-[16px]">
                   <h2 className="text-cma-navy">Tour the Museum</h2>
-                  <a href="#" className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black shrink-0">
+                  <a href="#" className="cma-btn cma-btn-outline-teal font-black shrink-0">
                     Walk Through Tour
                   </a>
                 </div>

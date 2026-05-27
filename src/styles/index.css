@@ -288,6 +288,17 @@
   }
 }
 
+.cma-btn-outline-teal {
+  background-color: white;
+  color: var(--color-cma-teal-dark);
+  border: 2px solid var(--color-cma-teal-dark);
+}
+.cma-btn-outline-teal:hover {
+  background-color: var(--color-cma-teal-dark);
+  border-color: var(--color-cma-teal-dark);
+  color: white;
+}
+
 /* ── Card image container ───────────────────────────────────────────────── */
 /* Apply to any card that has a photo thumbnail (events, exhibits, etc.)     */
 /* Uses 16:9 so the image is always landscape-rectangular, never square.     */
