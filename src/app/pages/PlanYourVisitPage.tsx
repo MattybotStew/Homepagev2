@@ -11,7 +11,7 @@ import MembershipPricing from "../components/MembershipPricing"
 import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee"
 import Footer from "../components/Footer"
 import imgWaveWhite from "../../assets/wave-white.svg"
-import imgWaveNavy from "figma:asset/impact-wave-top.svg"
+import imgWaveNavy from "../../assets/impact-wave-top.svg"
 
 function WaveStrip({ src, position }: { src: string; position: "top" | "bottom" }) {
   return (

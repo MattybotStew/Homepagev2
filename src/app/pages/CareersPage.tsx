@@ -219,7 +219,7 @@ export default function CareersPage() {
 
               <div className="flex flex-col sm:flex-row gap-3">
                 <a href="mailto:volunteer@childrensmuseumatlanta.org" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
-                  Contact HR
+                  Contact Volunteer Team
                 </a>
                 <a href="#young-professionals" className="cma-btn bg-white border-2 border-white text-cma-navy hover:bg-cma-blue-light font-black">
                   Young Professionals

@@ -34,7 +34,6 @@ const navLinks: NavLink[] = [
       { label: "Careers & Volunteer", href: "#/about/careers" },
     ],
   },
-  { label: "Resources", href: "#" },
 ];
 
 function AnimatedLogoIcon() {

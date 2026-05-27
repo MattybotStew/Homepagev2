@@ -97,9 +97,24 @@ export default function MobileHeader() {
     },
     { label: "Exhibits", href: "#/exhibits" },
     { label: "Calendar & Events", href: "#/events" },
-    { label: "For Educators", href: "#/educators" },
-    { label: "About Us", href: "#/about" },
-    { label: "Education Hub/Blog", href: "#" },
+    {
+      label: "For Educators",
+      href: "#/educators",
+      subPages: [
+        { label: "Field Trips", href: "#/program/field-trips" },
+        { label: "Museum On-the-Go", href: "#/program/museum-on-the-go" },
+        { label: "Scout Workshops", href: "#/program/scout-workshops" },
+        { label: "Educator PD", href: "#/program/educator-professional-development" },
+      ],
+    },
+    {
+      label: "About Us",
+      href: "#/about",
+      subPages: [
+        { label: "Impact & Community", href: "#/about/impact" },
+        { label: "Careers & Volunteer", href: "#/about/careers" },
+      ],
+    },
   ];
 
   return (
@@ -112,7 +127,7 @@ export default function MobileHeader() {
           <div className="flex items-center">
             {/* Buy Tickets */}
             <a
-              href="#tickets"
+              href="#/plan-your-visit"
               className="bg-cma-navy text-white font-black text-[12px] leading-[1.5] rounded-[1000px] px-[17px] py-[12px] shadow-cma-btn hover:bg-cma-navy-dark transition-colors whitespace-nowrap"
             >
               Buy Tickets
@@ -215,15 +230,15 @@ export default function MobileHeader() {
 
               {/* CTA buttons */}
               <div className="px-5 mb-6 flex flex-col gap-3">
-                <button className="bg-cma-orange text-white font-black text-[16px] rounded-lg px-6 py-3 min-h-[52px] hover:bg-cma-orange-dark transition-colors">
+                <a href="#donate" onClick={() => setMenuOpen(false)} className="bg-cma-orange text-white font-black text-[16px] rounded-lg px-6 py-3 min-h-[52px] flex items-center justify-center hover:bg-cma-orange-dark transition-colors">
                   Donate
-                </button>
-                <button className="bg-cma-teal text-white font-black text-[16px] rounded-lg px-6 py-3 min-h-[52px] hover:bg-cma-teal-dark transition-colors">
-                  Membership
-                </button>
-                <button className="bg-cma-navy text-white font-black text-[16px] rounded-lg px-6 py-3 min-h-[52px] hover:bg-cma-navy-dark transition-colors">
+                </a>
+                <a href="#/plan-your-visit" onClick={() => setMenuOpen(false)} className="bg-cma-teal text-white font-black text-[16px] rounded-lg px-6 py-3 min-h-[52px] flex items-center justify-center hover:bg-cma-teal-dark transition-colors">
+                  Memberships
+                </a>
+                <a href="#tickets" onClick={() => setMenuOpen(false)} className="bg-cma-navy text-white font-black text-[16px] rounded-lg px-6 py-3 min-h-[52px] flex items-center justify-center hover:opacity-90 transition-colors">
                   Buy Tickets
-                </button>
+                </a>
               </div>
 
               {/* Contact & social */}
