@@ -7,7 +7,7 @@ import imgWaveWhite from "figma:asset/wave-white.svg"
 
 const membershipBenefits = [
   ["Unlimited visits for 2 adults + kids", "50% off guest tickets", "Priority registration for camps"],
-  ["Members-only hours 9–10am", "Free admission to 200+ partner museums", "Member-only event invites"],
+  ["Members-only hours 9–10am", "Free admission to 200+ partner museums", "Helps bring play to ALL of Atlanta's children"],
 ]
 
 export default function MembershipPricing() {
@@ -28,9 +28,14 @@ export default function MembershipPricing() {
           <h2 className="text-center leading-none text-cma-navy">
             Visit More, Pay Less
           </h2>
-          <p className="text-center font-medium text-[18px] text-cma-navy leading-[1.7]">
-            One family membership pays for itself in just 2 visits
-          </p>
+          <div className="flex flex-col items-center gap-[6px]">
+            <p className="text-center font-medium text-[18px] text-cma-navy leading-[1.4]">
+              One family membership pays for itself in just 2 visits
+            </p>
+            <p className="text-center font-black text-[18px] text-cma-navy leading-[1.4]">
+              Membership Benefit: Helps bring play to ALL of Atlanta's children
+            </p>
+          </div>
 
           {/* Tab switcher */}
           <div
@@ -173,9 +178,9 @@ export default function MembershipPricing() {
               </div>
 
               {/* Upsell pill */}
-              <div className="flex items-center gap-[10px] self-center rounded-[20px] px-[16px] py-[8px] bg-cma-teal-pale">
+              <div className="flex items-center gap-[10px] self-center rounded-[20px] px-[16px] py-[8px] bg-white border border-[rgba(107,126,160,0.25)]">
                 <FontAwesomeIcon icon={faBolt} className="text-cma-orange text-[13px] shrink-0" aria-hidden />
-                <p className="uppercase font-extrabold text-[12px] sm:text-[14px] text-cma-blue-mid leading-[1.4]">
+                <p className="font-extrabold text-[12px] sm:text-[14px] text-cma-blue-mid leading-[1.4]">
                   Advance tickets recommended. Walk-in subject to availability.
                 </p>
               </div>
