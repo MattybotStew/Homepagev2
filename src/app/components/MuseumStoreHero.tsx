@@ -13,7 +13,7 @@ export default function MuseumStoreHero() {
       </div>
 
       {/* Spacer for fixed header */}
-      <div className="shrink-0 h-[100px] sm:h-[108px] md:h-[120px] xl:h-[126px]" />
+      <div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
 
       <div className="cma-section-container relative z-[1]">
         <motion.div

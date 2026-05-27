@@ -54,15 +54,15 @@ export default function ImpactSection() {
 
           {/* Left: text */}
           <div className="flex-1 flex flex-col gap-6 md:gap-[40px]">
-            <motion.h2
-              className="leading-none text-white"
+            <motion.div
+              className="flex flex-col gap-4"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
             >
-              Making an Impact Together
-            </motion.h2>
+              <h2 className="leading-none text-white">Making an Impact Together</h2>
+            </motion.div>
 
             <motion.div
               className="flex flex-col gap-[24px]"

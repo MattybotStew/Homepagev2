@@ -192,16 +192,12 @@ export default function PlanTabs() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
         >
-          <div className="flex gap-[8px] overflow-x-auto pb-[4px] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="cma-pill-scroll">
             {navItems.map((item) => (
               <button
                 key={item}
                 onClick={() => setActive(item)}
-                className={`shrink-0 px-[16px] py-[9px] rounded-full text-[13px] font-bold whitespace-nowrap transition-colors ${
-                  active === item
-                    ? "bg-cma-orange text-white"
-                    : "bg-white text-cma-navy border border-[rgba(107,126,160,0.25)] hover:bg-cma-blue-light"
-                }`}
+                className={`cma-nav-pill ${active === item ? "cma-nav-pill-active" : "cma-nav-pill-inactive"}`}
               >
                 {item}
               </button>

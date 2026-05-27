@@ -17,7 +17,7 @@ const navLinks: NavLink[] = [
   { label: "Exhibits", href: "#/exhibits" },
   { label: "Calendar & Events", href: "#" },
   { label: "For Educators", href: "#/educators" },
-  { label: "About Us", href: "#" },
+  { label: "About Us", href: "#/about" },
   { label: "Resources", href: "#" },
 ];
 

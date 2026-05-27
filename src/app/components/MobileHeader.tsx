@@ -98,7 +98,7 @@ export default function MobileHeader() {
     { label: "Exhibits", href: "#/exhibits" },
     { label: "Calendar & Events", href: "#" },
     { label: "For Educators", href: "#/educators" },
-    { label: "About Us", href: "#" },
+    { label: "About Us", href: "#/about" },
     { label: "Education Hub/Blog", href: "#" },
   ];
 

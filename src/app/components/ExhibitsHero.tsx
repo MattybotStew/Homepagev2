@@ -27,7 +27,7 @@ const featuredExhibits = [
 export default function ExhibitsHero() {
   return (
     <section className="bg-white w-full pt-[60px] pb-[80px] md:pt-[80px] md:pb-[120px] relative">
-      <div className="shrink-0 h-[100px] sm:h-[108px] md:h-[120px] xl:h-[126px]" />
+      <div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
       <div className="cma-section-container flex flex-col gap-[48px]">
 
         {/* Heading */}

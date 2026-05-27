@@ -166,20 +166,18 @@ export default function FeaturedExhibits() {
         </a>
 
         {/* Filter pill bar */}
-        <div className="w-full px-4 sm:px-6 md:px-0">
-          <div className="cma-filter-bar mx-auto max-w-[1200px]">
-            {exhibits.map((exhibit, i) => (
-              <button
-                key={exhibit.id}
-                onClick={() => jumpTo(i)}
-                className={`cma-filter-pill ${
-                  i === activeIndex ? "cma-filter-pill-active" : "cma-filter-pill-inactive"
-                }`}
-              >
-                {exhibit.label}
-              </button>
-            ))}
-          </div>
+        <div className="cma-pill-scroll w-full">
+          {exhibits.map((exhibit, i) => (
+            <button
+              key={exhibit.id}
+              onClick={() => jumpTo(i)}
+              className={`cma-nav-pill ${
+                i === activeIndex ? "cma-nav-pill-active" : "cma-nav-pill-inactive"
+              }`}
+            >
+              {exhibit.label}
+            </button>
+          ))}
         </div>
       </div>
 

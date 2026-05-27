@@ -374,6 +374,39 @@
   background-color: var(--cma-teal-pale);
 }
 
+/* ── Scrollable nav pill row (mobile sidebar → pill, AboutPeople, PlanTabs) ─ */
+.cma-pill-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+.cma-pill-scroll::-webkit-scrollbar { display: none; }
+
+.cma-nav-pill {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-family: Nunito, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+.cma-nav-pill-active {
+  background-color: var(--cma-navy);
+  color: white;
+}
+.cma-nav-pill-inactive {
+  background-color: white;
+  color: var(--cma-navy);
+  border: 1px solid rgba(107, 126, 160, 0.25);
+}
+.cma-nav-pill-inactive:hover {
+  background-color: var(--cma-teal-pale);
+}
 
 /* Dot indicators - mobile only */
 

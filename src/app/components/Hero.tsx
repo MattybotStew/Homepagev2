@@ -44,7 +44,7 @@ export default function Hero({
 
       {/* Spacer = combined height of fixed AlertBanner + Header at each breakpoint */}
       {/* AlertBanner: ~36px default → ~44px md | Header: ~56px default → ~82px xl */}
-      <div className="shrink-0 h-[100px] sm:h-[108px] md:h-[120px] xl:h-[126px]" />
+      <div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
 
       <div className="relative flex-1 flex items-center py-[40px] md:py-[120px] lg:py-[200px]">
         <div className="w-full max-w-[1280px]">

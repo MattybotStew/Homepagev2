@@ -14,7 +14,7 @@ export default function ArticleContent({ exhibit, related }: Props) {
 
   return (
     <section className="bg-cma-cream py-[60px] md:py-[80px]">
-      <div className="shrink-0 h-[100px] sm:h-[108px] md:h-[120px] xl:h-[126px]" />
+      <div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
 
       <div className="cma-section-container">
         <div className="max-w-[1024px] mx-auto flex flex-col gap-[24px]">

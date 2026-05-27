@@ -67,7 +67,7 @@ export default function ArticleContentWithSidebar({
 
   return (
     <section className="bg-cma-cream py-[60px] md:py-[80px]">
-      <div className="shrink-0 h-[100px] sm:h-[108px] md:h-[120px] xl:h-[126px]" />
+      <div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
 
       <div className="cma-section-container">
 
@@ -103,16 +103,12 @@ export default function ArticleContentWithSidebar({
         </div>
 
         {/* Mobile section nav — horizontal scroll pills */}
-        <div className="lg:hidden flex gap-[8px] overflow-x-auto pb-[8px] mb-[24px] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+        <div className="cma-pill-scroll lg:hidden mb-[24px]">
           {sections.map((section) => (
             <button
               key={section.id}
               onClick={() => scrollToSection(section.id)}
-              className={`shrink-0 px-[16px] py-[8px] rounded-full text-[13px] font-bold whitespace-nowrap transition-colors ${
-                activeSection === section.id
-                  ? "bg-cma-navy text-white"
-                  : "bg-white text-cma-navy border border-[rgba(107,126,160,0.25)] hover:bg-cma-blue-light"
-              }`}
+              className={`cma-nav-pill ${activeSection === section.id ? "cma-nav-pill-active" : "cma-nav-pill-inactive"}`}
             >
               {section.label}
             </button>

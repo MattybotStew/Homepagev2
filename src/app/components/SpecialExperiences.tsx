@@ -243,13 +243,13 @@ export default function SpecialExperiences({
           viewport={{ once: true }}
           transition={{ delay: 0.15, duration: 0.6 }}
         >
-          <div className="cma-filter-bar mx-auto max-w-[900px]">
+          <div className="cma-pill-scroll">
             {filters.map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`cma-filter-pill ${
-                  filter === activeFilter ? "cma-filter-pill-active" : "cma-filter-pill-inactive"
+                className={`cma-nav-pill ${
+                  filter === activeFilter ? "cma-nav-pill-active" : "cma-nav-pill-inactive"
                 }`}
               >
                 {filter}
