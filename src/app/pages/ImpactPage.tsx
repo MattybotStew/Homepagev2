@@ -31,7 +31,7 @@ const stats = [
     number: "1,200",
     label: "Free Passes",
     detail: "Making the museum accessible to all",
-    color: "text-cma-navy",
+    color: "text-white",
   },
   {
     number: "4,456",
@@ -129,7 +129,7 @@ export default function ImpactPage() {
               Changing the world by sparking every child's imagination, sense of discovery and learning through the power of play.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mt-2">
-              <a href="#stats" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
+              <a href="#programs" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
                 Our Impact
               </a>
               <a href="#annual-report" className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black">
@@ -137,6 +137,29 @@ export default function ImpactPage() {
               </a>
             </div>
           </motion.div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-[32px] gap-y-[40px] mt-[64px] pt-[56px] border-t border-white/10">
+            {stats.map((stat, i) => (
+              <motion.div
+                key={stat.number}
+                className="flex flex-col gap-[10px] text-center items-center"
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.3 + i * 0.1 }}
+              >
+                <p className={`${stat.color} font-black text-[clamp(36px,4vw,56px)] leading-none`}>
+                  {stat.number}
+                </p>
+                <p className="font-extrabold text-[clamp(15px,1.25vw,20px)] text-white leading-[1.1]">
+                  {stat.label}
+                </p>
+                <p className="text-cma-blue-light text-[14px] leading-[1.5]">
+                  {stat.detail}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Wave bottom */}
@@ -147,36 +170,8 @@ export default function ImpactPage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section id="stats" className="bg-white w-full py-[80px] md:py-[100px]">
-        <div className="cma-section-container">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-[32px] gap-y-[48px]">
-            {stats.map((stat, i) => (
-              <motion.div
-                key={stat.number}
-                className="flex flex-col gap-[12px] text-center items-center"
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
-              >
-                <p className={`${stat.color} font-black text-[clamp(36px,4vw,56px)] leading-none`}>
-                  {stat.number}
-                </p>
-                <p className="font-extrabold text-[clamp(16px,1.67vw,24px)] text-cma-navy leading-[1.1]">
-                  {stat.label}
-                </p>
-                <p className="text-cma-navy/70 text-[14px] leading-[1.5]">
-                  {stat.detail}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Programs */}
-      <section className="bg-cma-cream w-full py-[80px] md:py-[120px]">
+      <section id="programs" className="bg-cma-cream w-full py-[80px] md:py-[120px]">
         <div className="cma-section-container">
 
           <motion.div
