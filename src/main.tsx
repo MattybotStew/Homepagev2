@@ -1,6 +1,12 @@
 import { createRoot } from "react-dom/client";
-import { Component, type ReactNode } from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { Component, type ReactNode, useEffect } from "react";
+import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  return null
+}
 import App from "./app/App.tsx";
 import PlanYourVisitPage from "./app/pages/PlanYourVisitPage.tsx";
 import MuseumStorePage from "./app/pages/MuseumStorePage.tsx";
@@ -37,6 +43,7 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { error: Error | 
 createRoot(document.getElementById("root")!).render(
   <ErrorBoundary>
     <HashRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/plan-your-visit" element={<PlanYourVisitPage />} />
