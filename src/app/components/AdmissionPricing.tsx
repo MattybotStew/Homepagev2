@@ -19,7 +19,7 @@ const memberItems = [
 
 const groupItems = [
   "Group visits: For 11–30 people visiting together",
-  "Group visits: off ticket price",
+  "Group visits: $2 off ticket price",
   "Group visits: Call 404-527-3693 to book",
   "Field Trips: Starting at $11.95/student",
   "Field Trips: Monday–Friday, 10am – 12pm",

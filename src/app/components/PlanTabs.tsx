@@ -6,7 +6,7 @@ import { faFacebook, faInstagram, faTiktok } from "@fortawesome/free-brands-svg-
 const regularHours = [
   { day: "Monday", hours: "10:00 AM – 3:30 PM" },
   { day: "Tuesday", hours: "10:00 AM – 3:30 PM" },
-  { day: "Wednesday", hours: "10:00 AM – 3:30 PM" },
+  { day: "Wednesday", hours: "Closed" },
   { day: "Thursday", hours: "10:00 AM – 3:30 PM" },
   { day: "Friday", hours: "10:00 AM – 3:30 PM" },
   { day: "Saturday", hours: "9:30 AM – 4:30 PM" },
@@ -172,6 +172,14 @@ function TabContent({ item }: { item: string }) {
             </div>
           </div>
         </div>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <a href="https://maps.google.com/maps?q=275+Centennial+Olympic+Park+Dr+NW,+Atlanta,+GA+30313" target="_blank" rel="noopener noreferrer" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
+            Get Directions
+          </a>
+          <a href="#tickets" className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black">
+            Buy Tickets
+          </a>
+        </div>
       </div>
     )
   }
@@ -187,6 +195,14 @@ function TabContent({ item }: { item: string }) {
           <li className="text-cma-navy"><strong>Water Bottle:</strong> Water bottles are allowed on the exhibit floor and can be refilled at our water fountains.</li>
           <li className="text-cma-navy"><strong>Membership Card and Tickets:</strong> Bring your digital membership card and/or tickets to show at check-in.</li>
         </ul>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <a href="#tickets" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
+            Buy Tickets
+          </a>
+          <a href="#/plan-your-visit" className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black">
+            Plan Your Visit
+          </a>
+        </div>
       </div>
     )
   }
@@ -208,6 +224,14 @@ function TabContent({ item }: { item: string }) {
             <li className="text-cma-navy"><strong>Quiet Room:</strong> Located in Leaping into Learning. Available for families that need a quiet break or for parents who are nursing. Nursing is permitted anywhere in the Museum.</li>
           </ul>
         </div>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <a href="#tickets" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
+            Buy Tickets
+          </a>
+          <a href="#/museum-store" className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black">
+            Visit the Museum Store
+          </a>
+        </div>
       </div>
     )
   }
@@ -222,6 +246,14 @@ function TabContent({ item }: { item: string }) {
         <p className="text-cma-navy">Museum team members on the exhibit floor are in radio communication with one another. When children are separated from their grown-ups, we immediately activate our reunification procedure to quickly and efficiently reunite guests. Our Security desk is the best place to start if a child or grown-up has been separated from their party.</p>
         <p className="text-cma-navy">The Museum partners with a professional cleaning company to keep our facility clean and safe for families to play. Our team continually tidies, disinfects high-touch areas, and cleans spills and restrooms. In the evening, the Museum is cleaned using hospital-grade cleaning agents.</p>
         <p className="text-cma-navy">We also partner with a professional building performance company to monitor and regularly service our heating, ventilation, and air conditioning systems and keep our air clean.</p>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <a href="#tickets" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
+            Buy Tickets
+          </a>
+          <a href="#/plan-your-visit" className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black">
+            Plan Your Visit
+          </a>
+        </div>
       </div>
     )
   }
@@ -236,6 +268,14 @@ function TabContent({ item }: { item: string }) {
         <p className="text-cma-navy"><strong>Sensory Friendly Playtime:</strong> Offered on select Sunday mornings throughout the year, this experience provides limited admission and sound adjustments.</p>
         <p className="text-cma-navy"><strong>Service Animals:</strong> Restrained service animals are permitted in the Museum.</p>
         <p className="text-cma-navy"><strong>Web Accessibility:</strong> Our website uses the Recite Me web accessibility and language toolbar. You can open the Recite Me language and accessibility toolbar by clicking the accessibility icon. The toolbar offers text-to-speech, options for changing how the website looks, and translation to 134 languages.</p>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <a href="#tickets" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
+            Buy Tickets
+          </a>
+          <a href="tel:4046595437" className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black">
+            Contact Us
+          </a>
+        </div>
       </div>
     )
   }
