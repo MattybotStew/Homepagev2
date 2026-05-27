@@ -8,7 +8,7 @@ import MobileHeader from "../components/MobileHeader"
 import ScrollProgress from "../components/ScrollProgress"
 import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee"
 import Footer from "../components/Footer"
-import imgHero from "../../assets/impact-photo.webp"
+import imgHeroBg from "../../assets/store-hero-bg.svg"
 import imgWaveBottom from "../../assets/impact-wave-bottom.svg"
 import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp"
 import imgB from "../../assets/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp"
@@ -111,48 +111,32 @@ export default function ImpactPage() {
         <ScrollProgress />
       </div>
       {/* Hero */}
-      <section className="bg-cma-navy w-full pt-[60px] pb-[100px] md:pt-[80px] md:pb-[140px] relative overflow-hidden">
+      <section className="relative w-full bg-cma-navy overflow-hidden flex flex-col items-center pt-[80px] pb-[100px] md:pt-[100px] md:pb-[140px]">
+        <div className="absolute inset-0 pointer-events-none opacity-10 flex items-center justify-center" aria-hidden>
+          <img src={imgHeroBg} alt="" className="w-full h-full object-cover" />
+        </div>
         <div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
-        <div className="cma-section-container">
-          <div className="flex flex-col lg:flex-row gap-[48px] lg:gap-[64px] items-center">
-
-            {/* Text */}
-            <motion.div
-              className="flex-1 flex flex-col gap-[24px] md:gap-[32px]"
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <p className="cma-eyebrow text-cma-teal">children's museum of atlanta</p>
-              <h1 className="text-white">Impact &amp; Community</h1>
-              <p className="text-cma-blue-light font-semibold text-[clamp(16px,1.67vw,24px)] leading-[1.4] max-w-[540px]">
-                Changing the world by sparking every child's imagination, sense of discovery and learning through the power of play.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a href="#stats" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
-                  Our Impact
-                </a>
-                <a href="#annual-report" className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black">
-                  Annual Report
-                </a>
-              </div>
-            </motion.div>
-
-            {/* Photo */}
-            <motion.div
-              className="w-full lg:w-[480px] xl:w-[540px] shrink-0"
-              initial={{ opacity: 0, x: 24 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-            >
-              <img
-                src={imgHero}
-                alt="Children playing at the Children's Museum of Atlanta"
-                className="w-full h-[300px] md:h-[400px] lg:h-[460px] object-cover rounded-[24px]"
-              />
-            </motion.div>
-
-          </div>
+        <div className="cma-section-container relative z-[1]">
+          <motion.div
+            className="flex flex-col items-center gap-[24px] md:gap-[32px] text-center max-w-[800px] mx-auto"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <p className="cma-eyebrow text-cma-teal">children's museum of atlanta</p>
+            <h1 className="text-white">Impact &amp; Community</h1>
+            <p className="text-cma-blue-light font-semibold text-[clamp(16px,1.67vw,24px)] leading-[1.4] max-w-[620px]">
+              Changing the world by sparking every child's imagination, sense of discovery and learning through the power of play.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 mt-2">
+              <a href="#stats" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
+                Our Impact
+              </a>
+              <a href="#annual-report" className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black">
+                Annual Report
+              </a>
+            </div>
+          </motion.div>
         </div>
 
         {/* Wave bottom */}
