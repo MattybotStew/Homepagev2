@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "motion/react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import imgWaveWhite from "../../assets/wave-white.svg"
 import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp"
 import imgB from "../../assets/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp"
 import imgC from "../../assets/39da2bd0af3dceef1e3b406cd981247f82778d27.webp"
@@ -31,7 +32,7 @@ const popUpExhibits = [
 
 export default function ExhibitsPopUp() {
   return (
-    <section className="bg-cma-cream w-full py-[80px] md:py-[120px]">
+    <section className="bg-cma-cream w-full py-[80px] md:py-[120px] relative">
       <div className="cma-section-container flex flex-col gap-[48px]">
 
         <motion.h2
@@ -77,6 +78,12 @@ export default function ExhibitsPopUp() {
           </motion.div>
         </AnimatePresence>
 
+      </div>
+
+      <div aria-hidden className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full">
+        {Array.from({ length: 10 }).map((_, i) => (
+          <img key={i} src={imgWaveWhite} alt="" className="w-[422px] h-[57px] shrink-0 block" />
+        ))}
       </div>
     </section>
   )

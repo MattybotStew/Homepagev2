@@ -1,14 +1,20 @@
 import { motion } from "motion/react"
-import imgStore from "../../assets/store-photo.png"
+import imgShop from "../../assets/Shop.jpg"
+import imgHours from "../../assets/hours.jpg"
+import imgGift from "../../assets/gift.jpg"
 
 const sections = [
   {
+    image: imgShop,
+    imageAlt: "Museum Store interior",
     imageLeft: true,
     heading: "Shop the Museum Store!",
     body: "Visit our Museum Store and take a piece of Children's Museum of Atlanta home. We offer great gifts and souvenirs, including fun, educational toys and games and unique apparel. The Museum Store is the destination of choice for anyone visiting downtown Atlanta. Admission is not required to shop the Museum Store.",
     ctas: null,
   },
   {
+    image: imgHours,
+    imageAlt: "Museum Store hours",
     imageLeft: false,
     heading: "Hours Of Operation:",
     body: null,
@@ -16,6 +22,8 @@ const sections = [
     ctas: null,
   },
   {
+    image: imgGift,
+    imageAlt: "Gift guides and merchandise",
     imageLeft: true,
     heading: "Gift Guides & Online Purchases",
     body: "We have the right gift for every child (and child-at-heart!) in your life. Organized by age and interest, our gift guides will help you make their day. Can't make it to downtown? Check out our online store for merch and toy delivery.",
@@ -41,7 +49,7 @@ export default function MuseumStoreContent() {
           >
             {/* Image */}
             <div className="w-full lg:flex-1 rounded-[24px] overflow-hidden h-[280px] sm:h-[360px] lg:h-[470px] shrink-0">
-              <img src={imgStore} alt="Museum Store" className="w-full h-full object-cover" />
+              <img src={section.image} alt={section.imageAlt} className="w-full h-full object-cover" />
             </div>
 
             {/* Text */}

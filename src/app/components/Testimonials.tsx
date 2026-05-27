@@ -114,7 +114,13 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   );
 }
 
-export default function Testimonials() {
+type Props = {
+  heading?: string
+  items?: Testimonial[]
+  showWave?: boolean
+}
+
+export default function Testimonials({ heading = "What Families Are Saying", items = testimonials.slice(0, 4), showWave = true }: Props) {
   return (
     <div className="bg-white relative w-full py-16 md:py-24 lg:py-32 overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12">
@@ -125,22 +131,22 @@ export default function Testimonials() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="text-cma-navy">
-            What Families Are Saying
-          </h2>
+          <h2 className="text-cma-navy">{heading}</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-[10px]">
-          {testimonials.slice(0, 4).map((testimonial, index) => (
+          {items.map((testimonial, index) => (
             <TestimonialCard key={index} testimonial={testimonial} />
           ))}
         </div>
       </div>
-      <div aria-hidden className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full">
-        {Array.from({ length: 10 }).map((_, i) => (
-          <img key={i} src={imgWaveNavy} alt="" className="w-[422px] h-[57px] shrink-0 block" />
-        ))}
-      </div>
+      {showWave && (
+        <div aria-hidden className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full">
+          {Array.from({ length: 10 }).map((_, i) => (
+            <img key={i} src={imgWaveNavy} alt="" className="w-[422px] h-[57px] shrink-0 block" />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
