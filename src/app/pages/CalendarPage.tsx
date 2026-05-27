@@ -78,7 +78,7 @@ export default function CalendarPage() {
       </section>
 
       {/* Events Grid */}
-      <section className="bg-cma-cream w-full py-[80px]">
+      <section className="bg-white w-full py-[80px]">
         <div className="max-w-[1280px] mx-auto px-5 md:px-8 lg:px-[80px] flex flex-col gap-[48px]">
           {/* Filter pills */}
           <motion.div
@@ -149,7 +149,7 @@ export default function CalendarPage() {
       </section>
 
       {/* Calendar & Events FAQs */}
-      <section className="bg-white w-full py-[80px] md:py-[120px]">
+      <section className="bg-cma-cream w-full py-[80px] md:py-[120px]">
         <div className="cma-section-container">
           <div className="flex flex-col lg:flex-row gap-[64px] lg:gap-[80px]">
 
@@ -172,7 +172,7 @@ export default function CalendarPage() {
                   return (
                     <motion.div
                       key={i}
-                      className={`border-2 border-black/5 rounded-[24px] overflow-hidden transition-colors ${isOpen ? "bg-cma-teal-pale" : "bg-cma-cream"}`}
+                      className={`border-2 border-black/5 rounded-[24px] overflow-hidden transition-colors ${isOpen ? "bg-cma-teal-pale" : "bg-white"}`}
                       initial={{ opacity: 0, y: 16 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
