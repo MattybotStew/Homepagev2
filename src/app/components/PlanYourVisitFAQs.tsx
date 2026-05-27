@@ -2,7 +2,8 @@ import { useState } from "react"
 import { motion } from "motion/react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPlus, faMinus, faArrowRight } from "@fortawesome/free-solid-svg-icons"
-import imgFaqPhoto from "figma:asset/pyv-faq-photo.webp"
+import imgFaqPhoto from "../../assets/pyv-faq-photo.webp"
+import imgWaveBottom from "../../assets/impact-wave-bottom.svg"
 
 const faqs = [
   {
@@ -66,7 +67,7 @@ export default function PlanYourVisitFAQs() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section id="faqs" className="bg-white w-full py-[80px] md:py-[120px]">
+    <section id="faqs" className="bg-white w-full py-[80px] md:py-[120px] relative overflow-hidden">
       <div className="cma-section-container flex flex-col gap-12 items-center">
 
         <motion.h2
@@ -140,6 +141,12 @@ export default function PlanYourVisitFAQs() {
             </div>
           </motion.div>
         </div>
+      </div>
+
+      <div aria-hidden className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full">
+        {Array.from({ length: 10 }).map((_, i) => (
+          <img key={i} src={imgWaveBottom} alt="" className="w-[422px] h-[57px] shrink-0 block" />
+        ))}
       </div>
     </section>
   )
