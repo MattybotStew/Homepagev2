@@ -51,7 +51,7 @@ export default function EducatorsPrograms() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-[16px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
           {programs.map((program, i) => (
             <motion.div
               key={program.title}

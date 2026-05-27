@@ -13,23 +13,20 @@ import imgFaq from "../../assets/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp"
 
 const faqs: { q: string; a: ReactNode }[] = [
   {
+    q: "Admission & Age Policy",
+    a: "Our exhibits are developed with children 8 years and younger in mind. All children must be accompanied by a paying adult. Adults visiting without children are not admitted.",
+  },
+  {
     q: "Arrival Window",
-    a: "Our exhibits are developed with children 8 years and younger in mind.",
+    a: "We recommend arriving at or before your ticketed entry time. You have a 15-minute grace window for late arrivals. If you anticipate being significantly late, please contact our box office at 404-659-5437 so we can do our best to accommodate you.",
   },
   {
     q: "Re-Entry",
-    a: "Most families play for about 2 hours. Your tickets include re-entry on the day of your visit, as capacity allows.",
+    a: "Most families play for about 2 hours. Your tickets include re-entry on the day of your visit, as capacity allows. Please hold on to your ticket or wristband to re-enter.",
   },
   {
     q: "Refund/Exchange Policy",
-    a: (
-      <div className="flex flex-col gap-[12px]">
-        <p className="text-cma-navy"><strong>We Exercise Kindness:</strong> Please use positive, encouraging behavior while inside the Museum. Avoid profane and explicit language, harassment, and aggressive behavior.</p>
-        <p className="text-cma-navy"><strong>We Engage in Respectful Behavior:</strong> Please share and take turns. Treat the exhibits well so other guests can enjoy them. We Assume Good Intentions: Children may unintentionally touch or bump into each other while playing. Please be patient and understanding.</p>
-        <p className="text-cma-navy"><strong>Stay Together, Play Together:</strong> Adults must stay with their children at all times. Use Walking Feet: No running, please.</p>
-        <p className="text-cma-navy"><strong>Make Memories, Don't Miss Them:</strong> You are your child's first teacher and playmate. We encourage a screen-free experience, unless capturing precious memories.</p>
-      </div>
-    ),
+    a: "All ticket sales are final. Exchanges for a different date or time may be requested up to 24 hours before your scheduled visit by contacting our box office at 404-659-5437. We are unable to process same-day exchanges.",
   },
 ]
 
@@ -37,7 +34,7 @@ export default function CalendarPage() {
   const [activeFilter, setActiveFilter] = useState("Featured")
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
-  const events = eventsByCategory[activeFilter] ?? allEvents
+  const events = activeFilter === "All" ? allEvents : (eventsByCategory[activeFilter] ?? [])
 
   return (
     <div className="size-full relative">
@@ -65,20 +62,25 @@ export default function CalendarPage() {
           >
             <p className="cma-eyebrow text-cma-teal">children's museum of atlanta</p>
             <h1 className="text-cma-navy">
-              Events &amp; Calendar
+              Calendar &amp; Events
             </h1>
             <p className="text-cma-navy max-w-[560px] font-semibold text-[clamp(16px,2.1vw,24px)] leading-[1.3] tracking-[-0.5px]">
               Discover upcoming events, workshops, and activities at Children's Museum of Atlanta.
             </p>
-            <a href="#tickets" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
-              Buy Tickets
-            </a>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a href="#events-grid" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
+                Event Calendar
+              </a>
+              <a href="#faqs" className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black">
+                Questions? Go to FAQs
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Events Grid */}
-      <section className="bg-white w-full py-[80px]">
+      <section id="events-grid" className="bg-white w-full py-[80px]">
         <div className="max-w-[1280px] mx-auto px-5 md:px-8 lg:px-[80px] flex flex-col gap-[48px]">
           {/* Filter pills */}
           <motion.div
@@ -111,45 +113,55 @@ export default function CalendarPage() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
-              {events.map((event, index) => (
-                <motion.div
-                  key={event.slug}
-                  className="bg-white border-2 border-black/5 rounded-[24px] p-[24px] flex flex-col gap-[32px]"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.08, duration: 0.5 }}
+              {events.length === 0 ? (
+                <motion.p
+                  className="text-cma-navy col-span-full text-center py-[40px]"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                 >
-                  <div className="cma-card-img">
-                    <img
-                      src={event.image}
-                      alt={event.title}
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-                    <div className="absolute bottom-[10px] left-[10px] bg-cma-teal-dark px-[18px] py-[12px] rounded-[8px]">
-                      <p className="font-extrabold text-[14px] text-white leading-[1.5] whitespace-nowrap">
-                        {event.badge}
-                      </p>
+                  No events scheduled for this category right now. Check back soon!
+                </motion.p>
+              ) : (
+                events.map((event, index) => (
+                  <motion.div
+                    key={event.slug}
+                    className="bg-white border-2 border-black/5 rounded-[24px] p-[24px] flex flex-col gap-[32px]"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.08, duration: 0.5 }}
+                  >
+                    <div className="cma-card-img">
+                      <img
+                        src={event.image}
+                        alt={event.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                      <div className="absolute bottom-[10px] left-[10px] bg-cma-teal-dark px-[18px] py-[12px] rounded-[8px]">
+                        <p className="font-extrabold text-[14px] text-white leading-[1.5] whitespace-nowrap">
+                          {event.badge}
+                        </p>
+                      </div>
                     </div>
-                  </div>
 
-                  <p className="font-extrabold text-[22px] md:text-[30px] text-cma-navy leading-[1.3] tracking-[-1px]">
-                    {event.title}
-                  </p>
+                    <p className="font-extrabold text-[22px] md:text-[30px] text-cma-navy leading-[1.3] tracking-[-1px]">
+                      {event.title}
+                    </p>
 
-                  <p className="text-cma-navy">{event.description}</p>
+                    <p className="text-cma-navy">{event.description}</p>
 
-                  <a href={`#/events/${event.slug}`} className="cma-text-link mt-auto">
-                    Learn More <FontAwesomeIcon icon={faArrowRight} className="text-[13px]" />
-                  </a>
-                </motion.div>
-              ))}
+                    <a href={`#/events/${event.slug}`} className="cma-text-link mt-auto">
+                      Learn More <FontAwesomeIcon icon={faArrowRight} className="text-[13px]" />
+                    </a>
+                  </motion.div>
+                ))
+              )}
             </motion.div>
           </AnimatePresence>
         </div>
       </section>
 
       {/* Calendar & Events FAQs */}
-      <section className="bg-cma-cream w-full py-[80px] md:py-[120px]">
+      <section id="faqs" className="bg-cma-cream w-full py-[80px] md:py-[120px]">
         <div className="cma-section-container">
           <div className="flex flex-col lg:flex-row gap-[64px] lg:gap-[80px]">
 
@@ -196,6 +208,31 @@ export default function CalendarPage() {
                   )
                 })}
               </div>
+
+              {/* Still have questions? */}
+              <motion.div
+                className="bg-white border-2 border-black/5 rounded-[24px] p-[24px] md:p-[32px] flex flex-col gap-[16px]"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <p className="cma-eyebrow text-cma-teal">Still have questions?</p>
+                <p className="font-extrabold text-[20px] text-cma-navy leading-[1.2] tracking-[-0.5px]">
+                  Our Reservations Team is here to help.
+                </p>
+                <p className="text-cma-navy">
+                  Reach out to Meghan &amp; Terra on our Reservations Team — they're ready to answer your questions about tickets, group visits, accessibility, and more.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 pt-[8px]">
+                  <a href="mailto:reservations@childrensmuseumatlanta.org" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
+                    Contact Us
+                  </a>
+                  <a href="tel:4046595437" className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black">
+                    404-659-5437
+                  </a>
+                </div>
+              </motion.div>
             </div>
 
             {/* Right: Photo */}
