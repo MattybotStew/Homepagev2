@@ -29,8 +29,7 @@ export default function MuseumStoreHero() {
               Pop in, poke around, and leave with a little piece of museum magic. Our store is packed with playful gifts that keep the fun going after you leave.
             </p>
             <p className="text-white font-black text-[clamp(15px,1.5vw,20px)] leading-[1.5] mt-4">
-              Mon, Tue, Thu, Fri: 9:00 AM – 3:30 PM<br />
-              Sat &amp; Sun: 9:30 AM – 4:30 PM
+              Hours Of Operation: Monday-Sunday: 10:00 AM - 5:00 PM
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 mt-2">

@@ -3,19 +3,19 @@ import { motion } from "motion/react"
 const giftCards = [
   {
     bg: "bg-cma-cream",
-    badge: { label: "Gift us", textColor: "text-cma-orange-dark", badgeBg: "bg-white" },
+    badge: { label: "Perfect Gift", textColor: "text-cma-orange-dark", badgeBg: "bg-white" },
     heading: "Gift Certificates",
     headingColor: "text-cma-navy",
-    body: "Perfect for trying us out or one-time visits.",
+    body: "Give the gift of choice! Gift certificates can be purchased over the phone at 404-527-3693 or in-person.",
     bodyColor: "text-cma-navy",
-    cta: { label: "Buy a Gift Certificate", href: "#gift-cert", style: "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark" },
+    cta: { label: "Call for a Gift Certificate", href: "#gift-cert", style: "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark" },
   },
   {
     bg: "bg-cma-teal-dark",
     badge: { label: "Best Value", textColor: "text-cma-orange-dark", badgeBg: "bg-cma-cream" },
     heading: "Gift Memberships",
     headingColor: "text-white",
-    body: "Unlimited visits + perks. Pays for itself in 3 visits.",
+    body: "Give a family unlimited wonder and fun when you gift a Museum membership.",
     bodyColor: "text-white",
     cta: { label: "Gift a Membership", href: "#gift-membership", style: "cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-white hover:text-white" },
   },
