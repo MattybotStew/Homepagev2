@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
-import imgArrow from "figma:asset/pricing-arrow.svg"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faBolt } from "@fortawesome/free-solid-svg-icons"
 import imgCheck from "figma:asset/pricing-check.svg"
 import imgWaveWhite from "figma:asset/wave-white.svg"
 
@@ -129,7 +130,7 @@ export default function MembershipPricing() {
             >
               {/* Eyebrow */}
               <p className="cma-eyebrow text-center text-cma-navy/80">
-                Single Visit • One Visit
+                Single Visit
               </p>
 
               {/* Price + CTA row */}
@@ -144,7 +145,7 @@ export default function MembershipPricing() {
                 </div>
                 <a
                   href="#tickets"
-                  className="cma-btn shrink-0 bg-cma-navy text-white hover:bg-cma-navy-dark font-black"
+                  className="cma-btn shrink-0 bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
                 >
                   Buy Tickets
                 </a>
@@ -158,7 +159,7 @@ export default function MembershipPricing() {
                 {[
                   { label: "Child / Senior", price: "$19.95" },
                   { label: "Adult", price: "$21.95" },
-                  { label: "Family of Four", price: "$83.80" },
+                  { label: "Senior (65+)", price: "$19.95" },
                 ].map(({ label, price }) => (
                   <div key={label} className="flex flex-col gap-[8px] sm:gap-[16px]">
                     <p className="uppercase font-bold text-[clamp(10px,1.5vw,14px)] text-cma-navy/80 tracking-[2px]">
@@ -172,12 +173,10 @@ export default function MembershipPricing() {
               </div>
 
               {/* Upsell pill */}
-              <div className="flex items-start sm:items-center gap-[10px] self-start rounded-[20px] px-[16px] py-[8px] bg-cma-teal-pale">
-                <div className="rotate-90 shrink-0 mt-[3px] sm:mt-0">
-                  <img src={imgArrow} alt="" aria-hidden className="w-[16px] h-[6px] block" />
-                </div>
+              <div className="flex items-center gap-[10px] self-center rounded-[20px] px-[16px] py-[8px] bg-cma-teal-pale">
+                <FontAwesomeIcon icon={faBolt} className="text-cma-orange text-[13px] shrink-0" aria-hidden />
                 <p className="uppercase font-extrabold text-[12px] sm:text-[14px] text-cma-blue-mid leading-[1.4]">
-                  Coming back? A membership covers your next visit free.
+                  Advance tickets recommended. Walk-in subject to availability.
                 </p>
               </div>
             </motion.div>
