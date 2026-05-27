@@ -128,12 +128,29 @@ export const exhibits: Exhibit[] = [
     title: "Gateway to the World",
     badge: "Permanent",
     badgeColor: "navy",
-    eyebrow: "",
+    eyebrow: "Ages: 10 months – 8 years",
     heroImage: imgB,
     cardImage: imgB,
     paragraphs: [
-      "Travel the globe through hands-on play. Guide trains across continents, launch rockets to planets in our solar system, and climb a two-story Earth. Along the way, explore geography, movement, and the ways our world — from neighborhoods to galaxies — is wonderfully connected.",
-      "Gateway to the World inspires a sense of wonder about the planet we live on and the universe beyond it. Young travelers develop spatial reasoning, global awareness, and a curiosity about other cultures and environments as they navigate this iconic permanent exhibit.",
+      "Travel the world right here at the Children's Museum of Atlanta. Visit six continents, launch a rocket, and climb through the layers of the Earth in the Museum's newest and largest permanent exhibit.",
+    ],
+    sections: [
+      {
+        title: "Globe",
+        body: "Explore the layers of the earth in this 2-story climbing structure at the center of the Museum. Once children have reached the earth's center, they may use kid-power to make the outer skin of the earth spin.",
+      },
+      {
+        title: "Continent Tables",
+        body: "Learn about six of the world's continents, their geography, river systems, and animal life at the Museum's interactive continent tables. Children can feel an earthquake on a shake table in South America, test the temperature of a glacier in North America, find the major cities in each country and push trains throughout the landscape.",
+      },
+      {
+        title: "Rocket Launcher",
+        body: "Be a rocket scientist! Design and build a rocket and then launch it to the planets. Will it reach Mercury? Mars? Jupiter? If it didn't make it, re-design your rocket and try again! Young astrophysicists will learn about physics and engineering with this hands-on activity.",
+      },
+      {
+        title: "The Climber",
+        body: "How high can you climb? This two-story structure helps children see the museum from a new point of view as they build their climbing skills and confidence levels.",
+      },
     ],
   },
   {
