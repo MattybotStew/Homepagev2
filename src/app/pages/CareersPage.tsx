@@ -7,6 +7,7 @@ import MobileHeader from "../components/MobileHeader"
 import ScrollProgress from "../components/ScrollProgress"
 import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee"
 import Footer from "../components/Footer"
+import AboutSubNav from "../components/AboutSubNav"
 import imgWaveBottom from "../../assets/impact-wave-bottom.svg"
 import imgWaveTop from "../../assets/impact-wave-top.svg"
 import imgWaveWhite from "../../assets/wave-white.svg"
@@ -76,6 +77,7 @@ export default function CareersPage() {
       <div className="hidden lg:block">
         <ScrollProgress />
       </div>
+      <AboutSubNav />
 
       {/* Hero */}
       <section className="bg-cma-navy w-full pt-[60px] pb-[100px] md:pt-[80px] md:pb-[140px] relative overflow-hidden">

@@ -1,4 +1,5 @@
 import AlertBanner from "../components/AlertBanner"
+import AboutSubNav from "../components/AboutSubNav"
 import Header from "../components/Header"
 import MobileHeader from "../components/MobileHeader"
 import ScrollProgress from "../components/ScrollProgress"
@@ -28,6 +29,7 @@ export default function AboutPage() {
         <ScrollProgress />
       </div>
 
+      <AboutSubNav />
       <AboutHero />
       <AboutPartners />
       <AboutContent />

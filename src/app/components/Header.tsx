@@ -26,7 +26,14 @@ const navLinks: NavLink[] = [
       { label: "Educator PD", href: "#/program/educator-professional-development" },
     ],
   },
-  { label: "About Us", href: "#/about" },
+  {
+    label: "About Us",
+    href: "#/about",
+    subPages: [
+      { label: "Impact & Community", href: "#/about/impact" },
+      { label: "Careers & Volunteer", href: "#/about/careers" },
+    ],
+  },
   { label: "Resources", href: "#" },
 ];
 
