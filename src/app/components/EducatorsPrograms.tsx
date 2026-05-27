@@ -2,10 +2,10 @@ import { motion } from "motion/react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import imgWaveTop from "../../assets/impact-wave-top.svg"
-import img0 from "../../assets/educators-img-0.jpg"
-import img1 from "../../assets/educators-img-1.jpg"
-import img2 from "../../assets/educators-img-2.jpg"
-import img3 from "../../assets/educators-img-3.jpg"
+import img0 from "../../assets/educators-img-0.webp"
+import img1 from "../../assets/educators-img-1.webp"
+import img2 from "../../assets/educators-img-2.webp"
+import img3 from "../../assets/educators-img-3.webp"
 const programs = [
   {
     image: img0,

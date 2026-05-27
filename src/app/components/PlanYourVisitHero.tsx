@@ -1,7 +1,7 @@
 import { motion } from "motion/react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faClock, faMobileScreen, faCreditCard } from "@fortawesome/free-solid-svg-icons"
-import imgHeroBg from "../../assets/PYVhero.jpg"
+import imgHeroBg from "../../assets/PYVhero.webp"
 
 const cards = [
   {

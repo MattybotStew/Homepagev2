@@ -1,5 +1,5 @@
 import { motion } from "motion/react"
-import imgPlay from "../../assets/educators-img-2.jpg"
+import imgPlay from "../../assets/educators-img-2.webp"
 
 const items = [
   {

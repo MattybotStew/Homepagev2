@@ -1,7 +1,7 @@
 import { motion } from "motion/react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
-import imgSpring from "../../assets/exhibits-spring-hero.jpg"
+import imgSpring from "../../assets/exhibits-spring-hero.webp"
 import imgSummer from "../../assets/exhibits-summer-hero.jpg"
 import imgWaveBottom from "../../assets/impact-wave-bottom.svg"
 

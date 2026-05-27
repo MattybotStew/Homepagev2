@@ -1,5 +1,5 @@
 import { motion } from "motion/react"
-import imgHistory from "../../assets/history.png"
+import imgHistory from "../../assets/history.webp"
 
 const milestones = [
   {

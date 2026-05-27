@@ -9,7 +9,7 @@ import {
   faUsers,
 } from "@fortawesome/free-solid-svg-icons"
 import { motion } from "motion/react"
-import imgHero from "../../assets/educators-img-2.jpg"
+import imgHero from "../../assets/educators-img-2.webp"
 
 // ── Data ────────────────────────────────────────────────────────────────────
 

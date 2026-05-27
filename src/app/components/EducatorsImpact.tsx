@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { motion } from "motion/react"
 import imgWaveWhite from "../../assets/wave-white.svg"
-import imgContact from "../../assets/educators-contact.jpg"
+import imgContact from "../../assets/educators-contact.webp"
 
 const impactItems = [
   {

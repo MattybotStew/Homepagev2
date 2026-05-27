@@ -10,7 +10,6 @@ export default function Footer() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle email signup
-    console.log("Email submitted:", email);
     setEmail("");
   };
 

@@ -2,7 +2,7 @@ import { useState } from "react"
 import { motion } from "motion/react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons"
-import imgFloorPlan from "../../assets/exhibits-floor-plan.png"
+import imgFloorPlan from "../../assets/exhibits-floor-plan.webp"
 
 const mainFloorExhibits = [
   {

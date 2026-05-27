@@ -1,5 +1,5 @@
 import { motion } from "motion/react"
-import aboutHeroBg from "../../assets/aboutH.jpg"
+import aboutHeroBg from "../../assets/aboutH.webp"
 
 const stats = [
   {

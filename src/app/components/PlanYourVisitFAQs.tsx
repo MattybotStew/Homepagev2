@@ -2,7 +2,7 @@ import { useState } from "react"
 import { motion } from "motion/react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPlus, faMinus, faArrowRight } from "@fortawesome/free-solid-svg-icons"
-import imgFaqPhoto from "figma:asset/pyv-faq-photo.png"
+import imgFaqPhoto from "figma:asset/pyv-faq-photo.webp"
 
 const faqs = [
   {

@@ -1,5 +1,5 @@
 import { motion } from "motion/react"
-import imgTeam from "../../assets/educators-img-4.jpg"
+import imgTeam from "../../assets/educators-img-4.webp"
 
 const benefits = [
   {

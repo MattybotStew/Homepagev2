@@ -19,10 +19,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { motion } from "motion/react"
 import imgSummer from "../../assets/exhibits-summer-hero.jpg"
-import imgSpring from "../../assets/exhibits-spring-hero.jpg"
+import imgSpring from "../../assets/exhibits-spring-hero.webp"
 import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp"
-import imgFloor from "../../assets/educators-img-0.jpg"
-import imgMezz from "../../assets/educators-img-1.jpg"
+import imgFloor from "../../assets/educators-img-0.webp"
+import imgMezz from "../../assets/educators-img-1.webp"
 
 // ── Data ────────────────────────────────────────────────────────────────────
 

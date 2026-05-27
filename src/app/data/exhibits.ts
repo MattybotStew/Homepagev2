@@ -1,4 +1,4 @@
-import imgSpring from "../../assets/exhibits-spring-hero.jpg"
+import imgSpring from "../../assets/exhibits-spring-hero.webp"
 import imgSummer from "../../assets/exhibits-summer-hero.jpg"
 import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp"
 import imgB from "../../assets/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp"

@@ -10,11 +10,11 @@ import SpecialExperiences, { type EventItem } from "../components/SpecialExperie
 import Testimonials from "../components/Testimonials"
 import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee"
 import Footer from "../components/Footer"
-import imgEducatorsHero from "../../assets/educators-hero.jpg"
-import imgResource0 from "../../assets/educators-img-0.jpg"
-import imgResource1 from "../../assets/educators-img-1.jpg"
-import imgResource2 from "../../assets/educators-img-2.jpg"
-import imgResource3 from "../../assets/educators-img-3.jpg"
+import imgEducatorsHero from "../../assets/educators-hero.webp"
+import imgResource0 from "../../assets/educators-img-0.webp"
+import imgResource1 from "../../assets/educators-img-1.webp"
+import imgResource2 from "../../assets/educators-img-2.webp"
+import imgResource3 from "../../assets/educators-img-3.webp"
 
 const educatorTestimonials = [
   {

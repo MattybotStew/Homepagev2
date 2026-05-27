@@ -1,7 +1,7 @@
 import { motion } from "motion/react"
-import imgShop from "../../assets/Shop.jpg"
-import imgHours from "../../assets/hours.jpg"
-import imgGift from "../../assets/gift.jpg"
+import imgShop from "../../assets/Shop.webp"
+import imgHours from "../../assets/hours.webp"
+import imgGift from "../../assets/gift.webp"
 
 const sections = [
   {
