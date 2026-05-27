@@ -31,7 +31,7 @@ const stats = [
     number: "1,200",
     label: "Free Passes",
     detail: "Making the museum accessible to all",
-    color: "text-white",
+    color: "text-cma-navy",
   },
   {
     number: "4,456",
@@ -138,28 +138,6 @@ export default function ImpactPage() {
             </div>
           </motion.div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-[32px] gap-y-[40px] mt-[64px] pt-[56px] border-t border-white/10">
-            {stats.map((stat, i) => (
-              <motion.div
-                key={stat.number}
-                className="flex flex-col gap-[10px] text-center items-center"
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.3 + i * 0.1 }}
-              >
-                <p className={`${stat.color} font-black text-[clamp(36px,4vw,56px)] leading-none`}>
-                  {stat.number}
-                </p>
-                <p className="font-extrabold text-[clamp(15px,1.25vw,20px)] text-white leading-[1.1]">
-                  {stat.label}
-                </p>
-                <p className="text-cma-blue-light text-[14px] leading-[1.5]">
-                  {stat.detail}
-                </p>
-              </motion.div>
-            ))}
-          </div>
         </div>
 
         {/* Wave bottom */}
@@ -167,6 +145,50 @@ export default function ImpactPage() {
           {Array.from({ length: 10 }).map((_, i) => (
             <img key={i} src={imgWaveBottom} alt="" className="w-[422px] h-[57px] shrink-0 block" />
           ))}
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section id="stats" className="bg-white w-full py-[80px] md:py-[100px]">
+        <div className="cma-section-container">
+          <motion.div
+            className="flex flex-col items-center text-center gap-[20px] mb-[56px]"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <h2 className="text-cma-navy">2025 Impact at a Glance</h2>
+            <p className="text-cma-navy/60 max-w-[580px] leading-[1.6]">
+              All gifts are tax-deductible to the fullest extent allowed by law. The Museum is a 501(c)(3) tax-exempt &amp; charitable organization. Our tax-exempt number is 58-1785484.
+            </p>
+            <a href="#donate" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black mt-[4px]">
+              Donate Now
+            </a>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-[32px] gap-y-[48px]">
+            {stats.map((stat, i) => (
+              <motion.div
+                key={stat.number}
+                className="flex flex-col gap-[10px] text-center items-center"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
+              >
+                <p className={`${stat.color} font-black text-[clamp(36px,4vw,56px)] leading-none`}>
+                  {stat.number}
+                </p>
+                <p className="font-extrabold text-[clamp(15px,1.25vw,18px)] text-cma-navy leading-[1.1]">
+                  {stat.label}
+                </p>
+                <p className="font-bold text-cma-navy/60 text-[14px] leading-[1.5]">
+                  {stat.detail}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
