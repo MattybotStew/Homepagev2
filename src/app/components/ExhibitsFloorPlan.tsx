@@ -79,7 +79,7 @@ export default function ExhibitsFloorPlan() {
   const [openId, setOpenId] = useState("main")
 
   return (
-    <section className="bg-cma-cream w-full py-[80px] md:py-[120px]">
+    <section id="tour" className="bg-cma-cream w-full py-[80px] md:py-[120px]">
       <div className="cma-section-container flex flex-col gap-[48px]">
 
         <motion.div
