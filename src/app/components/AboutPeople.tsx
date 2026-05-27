@@ -132,7 +132,7 @@ export default function AboutPeople() {
       <div className="cma-section-container flex flex-col gap-10">
 
         <motion.div
-          className="flex flex-col gap-4"
+          className="flex flex-col items-center gap-4 text-center"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
