@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { motion } from "motion/react"
-import { ChevronDown } from "lucide-react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebook, faInstagram, faTiktok } from "@fortawesome/free-brands-svg-icons"
 import imgMap from "figma:asset/pyv-map.png"
@@ -162,7 +161,6 @@ function TabContent({ item }: { item: string }) {
 
 export default function PlanTabs() {
   const [active, setActive] = useState(navItems[0])
-  const [openItem, setOpenItem] = useState<string | null>(navItems[0])
 
   return (
     <section className="bg-cma-cream w-full py-[80px] md:py-[120px]">
@@ -186,38 +184,32 @@ export default function PlanTabs() {
           </div>
         </motion.div>
 
-        {/* Mobile accordion (hidden at lg+) */}
+        {/* Mobile pills + content (hidden at lg+) */}
         <motion.div
-          className="flex flex-col gap-3 w-full lg:hidden"
+          className="flex flex-col gap-4 w-full lg:hidden"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
         >
-          {navItems.map((item) => {
-            const isOpen = openItem === item
-            return (
-              <div
+          <div className="flex gap-[8px] overflow-x-auto pb-[4px] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {navItems.map((item) => (
+              <button
                 key={item}
-                className="bg-white border-2 border-black/5 rounded-[24px] overflow-hidden"
+                onClick={() => setActive(item)}
+                className={`shrink-0 px-[16px] py-[9px] rounded-full text-[13px] font-bold whitespace-nowrap transition-colors ${
+                  active === item
+                    ? "bg-cma-orange text-white"
+                    : "bg-white text-cma-navy border border-[rgba(107,126,160,0.25)] hover:bg-cma-blue-light"
+                }`}
               >
-                <button
-                  onClick={() => setOpenItem(isOpen ? null : item)}
-                  className={`w-full flex items-center justify-between px-6 py-5 text-left transition-colors ${
-                    isOpen ? "bg-cma-orange" : ""
-                  }`}
-                >
-                  <span className={`font-bold text-[15px] ${isOpen ? "text-white" : "text-cma-navy"}`}>{item}</span>
-                  <ChevronDown className={`size-5 shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180 text-white" : "text-cma-navy"}`} />
-                </button>
-                {isOpen && (
-                  <div className="p-6">
-                    <TabContent item={item} />
-                  </div>
-                )}
-              </div>
-            )
-          })}
+                {item}
+              </button>
+            ))}
+          </div>
+          <div className="bg-white border-2 border-black/5 rounded-[24px] p-6">
+            <TabContent item={active} />
+          </div>
         </motion.div>
 
         {/* Desktop sidebar + content (hidden below lg) */}
