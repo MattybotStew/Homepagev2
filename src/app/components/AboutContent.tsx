@@ -3,7 +3,7 @@ import imgPlay from "../../assets/educators-img-1.webp"
 
 export default function AboutContent() {
   return (
-    <section className="bg-white w-full py-[80px] md:py-[120px]">
+    <section className="bg-white w-full pt-[80px] pb-[40px] md:pt-[120px] md:pb-[60px]">
       <div className="cma-section-container">
         <motion.div
           className="flex flex-col lg:flex-row gap-10 lg:gap-[80px] items-center"

@@ -39,7 +39,7 @@ const educatorTestimonials = [
   },
 ]
 
-const educatorResources: Record<string, EventItem[]> = {
+const educatorCategories: Record<string, EventItem[]> = {
   Featured: [
     {
       image: imgResource0,
@@ -203,6 +203,13 @@ const educatorResources: Record<string, EventItem[]> = {
   ],
 }
 
+const educatorResources: Record<string, EventItem[]> = {
+  All: Object.values(educatorCategories)
+    .flat()
+    .filter((item, i, arr) => arr.findIndex((e) => e.title === item.title) === i),
+  ...educatorCategories,
+}
+
 export default function EducatorsPage() {
   return (
     <div className="size-full relative">
@@ -227,7 +234,7 @@ export default function EducatorsPage() {
         heading="Your Resource Hub for Creative Learning"
         ctaButton={{ label: "Education Resources", href: "#resources" }}
         filterEvents={educatorResources}
-        showWave={false}
+        wave="white"
       />
       <Testimonials heading="What Teachers Are Saying" items={educatorTestimonials} showWave={false} />
       <PYVCallout

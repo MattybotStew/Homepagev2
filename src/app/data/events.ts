@@ -101,8 +101,8 @@ export const allEvents: EventItem[] = [
 
 export const eventFilters = [
   "All",
-  "Today",
   "Featured",
+  "Today",
   "This Week",
   "Members-Only",
   "Free Events",
@@ -115,6 +115,8 @@ export const eventsByCategory: Record<string, EventItem[]> = {
   All: allEvents,
   Today: [],
   ...Object.fromEntries(
-    eventFilters.slice(2).map((cat) => [cat, allEvents.filter((e) => e.categories.includes(cat))])
+    eventFilters
+      .filter((f) => f !== "All" && f !== "Today")
+      .map((cat) => [cat, allEvents.filter((e) => e.categories.includes(cat))])
   ),
 }

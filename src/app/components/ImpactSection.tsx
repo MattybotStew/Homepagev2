@@ -1,11 +1,11 @@
 import React, { useRef } from "react"
 import { motion, useInView } from "motion/react"
-import imgPhoto from "figma:asset/impact-photo.webp"
+import imgPhoto from "../../assets/impact-photo.webp"
+import imgWaveTop from "../../assets/impact-wave-top.svg"
+import imgWaveBottom from "../../assets/impact-wave-bottom.svg"
+import imgWaveWhite from "../../assets/wave-white.svg"
 
-import imgWaveTop from "figma:asset/impact-wave-top.svg"
-import imgWaveBottom from "figma:asset/wave-white.svg"
-
-export default function ImpactSection() {
+export default function ImpactSection({ bottomWave = "tan" }: { bottomWave?: "tan" | "white" }) {
   const scriptRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(scriptRef, { once: true, margin: "-50px" })
 
@@ -125,10 +125,9 @@ export default function ImpactSection() {
         </div>
       </div>
 
-      {/* Bottom cream wave */}
       <div aria-hidden className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full">
         {Array.from({ length: 10 }).map((_, i) => (
-          <img key={i} src={imgWaveBottom} alt="" className="w-[422px] h-[57px] shrink-0 block" />
+          <img key={i} src={bottomWave === "white" ? imgWaveWhite : imgWaveBottom} alt="" className="w-[422px] h-[57px] shrink-0 block" />
         ))}
       </div>
     </section>

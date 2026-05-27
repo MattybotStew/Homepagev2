@@ -66,19 +66,12 @@
 @media (min-width: 768px) {
   .cma-marquee-content { gap: 30px; }
 }
-.cma-marquee-container:hover .cma-marquee-content {
-  animation-play-state: paused;
-}
-
 .cma-power-marquee {
   display: flex;
   gap: 0;
   animation: cmaPowerScroll 120s linear infinite;
   will-change: transform;
   width: max-content;
-}
-.cma-power-marquee:hover {
-  animation-play-state: paused;
 }
 
 /* ── Eyebrow ────────────────────────────────────────────────────────────── */

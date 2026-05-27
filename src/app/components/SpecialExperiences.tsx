@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import squiggleSvg from "../../imports/sqig2.svg";
 import imgWaveNavy from "../../assets/impact-wave-top.svg";
+import imgWaveWhite from "../../assets/wave-white.svg";
 import { type EventItem, eventsByCategory, eventFilters } from "../data/events";
 
 export type { EventItem };
@@ -12,21 +13,21 @@ type Props = {
   heading?: string
   ctaButton?: { label: string; href: string }
   filterEvents?: Record<string, EventItem[]>
-  showWave?: boolean
+  wave?: "navy" | "white"
 }
 
 export default function SpecialExperiences({
   heading = "Don't Miss The Fun.",
   ctaButton,
   filterEvents = eventsByCategory,
-  showWave = false,
+  wave,
 }: Props) {
-  const [activeFilter, setActiveFilter] = useState("Featured");
+  const [activeFilter, setActiveFilter] = useState("All");
 
-  const events = (filterEvents[activeFilter] ?? filterEvents.Featured ?? []).slice(0, 3);
+  const events = (filterEvents[activeFilter] ?? filterEvents.All ?? []).slice(0, 3);
 
   return (
-    <section className="bg-cma-cream relative w-full py-[80px] lg:pt-[100px] lg:pb-[80px]">
+    <section className="bg-cma-cream relative overflow-hidden w-full py-[80px] lg:pt-[100px] lg:pb-[80px]">
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
         <motion.div
           className="absolute right-0 top-[80px] md:top-[100px] lg:top-[120px] w-[260px] md:w-[420px] lg:w-[560px] hidden md:block"
@@ -123,10 +124,10 @@ export default function SpecialExperiences({
         </AnimatePresence>
       </div>
 
-      {showWave && (
+      {wave && (
         <div aria-hidden className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full">
           {Array.from({ length: 10 }).map((_, i) => (
-            <img key={i} src={imgWaveNavy} alt="" className="w-[422px] h-[57px] shrink-0 block" />
+            <img key={i} src={wave === "white" ? imgWaveWhite : imgWaveNavy} alt="" className="w-[422px] h-[57px] shrink-0 block" />
           ))}
         </div>
       )}

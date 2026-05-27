@@ -2,8 +2,8 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBolt } from "@fortawesome/free-solid-svg-icons"
-import imgCheck from "figma:asset/pricing-check.svg"
-import imgWaveWhite from "figma:asset/wave-white.svg"
+import imgCheck from "../../assets/pricing-check.svg"
+import imgWaveWhite from "../../assets/wave-white.svg"
 
 const membershipBenefits = [
   ["Unlimited visits for 1 year", "50% off guest tickets"],
@@ -69,7 +69,7 @@ export default function MembershipPricing() {
         </motion.div>
 
         {/* Card */}
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="sync">
           {tab === "membership" ? (
             <motion.div
               key="membership"

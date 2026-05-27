@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { motion } from "motion/react"
-import imgWaveWhite from "../../assets/wave-white.svg"
+import imgWaveBottom from "../../assets/impact-wave-bottom.svg"
 import imgContact from "../../assets/educators-contact.webp"
 
 const impactItems = [
@@ -140,7 +140,7 @@ export default function EducatorsImpact() {
 
       <div aria-hidden className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full">
         {Array.from({ length: 10 }).map((_, i) => (
-          <img key={i} src={imgWaveWhite} alt="" className="w-[422px] h-[57px] shrink-0 block" />
+          <img key={i} src={imgWaveBottom} alt="" className="w-[422px] h-[57px] shrink-0 block" />
         ))}
       </div>
     </section>

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { motion } from "motion/react"
+import imgWaveWhite from "../../assets/wave-white.svg"
 
 type Person = { name: string; detail: string }
 
@@ -128,7 +129,7 @@ export default function AboutPeople() {
   const current = tabs[active]
 
   return (
-    <section className="bg-cma-cream w-full py-[80px] md:py-[120px]" id="team">
+    <section className="bg-cma-cream w-full py-[80px] md:py-[120px] relative overflow-hidden" id="team">
       <div className="cma-section-container flex flex-col gap-10">
 
         <motion.div
@@ -178,6 +179,12 @@ export default function AboutPeople() {
           </div>
         </motion.div>
 
+      </div>
+
+      <div aria-hidden className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full">
+        {Array.from({ length: 10 }).map((_, i) => (
+          <img key={i} src={imgWaveWhite} alt="" className="w-[422px] h-[57px] shrink-0 block" />
+        ))}
       </div>
     </section>
   )

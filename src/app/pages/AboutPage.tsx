@@ -33,7 +33,7 @@ export default function AboutPage() {
       <AboutContent />
       <AboutPhilosophy />
       <Testimonials />
-      <ImpactSection />
+      <ImpactSection bottomWave="white" />
       <AboutHistory />
       <AboutPeople />
       <AboutJoinTeam />
