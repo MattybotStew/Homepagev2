@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import imgSpring from "../../assets/exhibits-spring-hero.jpg"
 import imgSummer from "../../assets/exhibits-summer-hero.jpg"
+import imgWaveBottom from "../../assets/impact-wave-bottom.svg"
 
 const featuredExhibits = [
   {
@@ -80,6 +81,12 @@ export default function ExhibitsHero() {
           ))}
         </div>
 
+      </div>
+
+      <div aria-hidden className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full">
+        {Array.from({ length: 10 }).map((_, i) => (
+          <img key={i} src={imgWaveBottom} alt="" className="w-[422px] h-[57px] shrink-0 block" />
+        ))}
       </div>
     </section>
   )
