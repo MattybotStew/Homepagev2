@@ -72,7 +72,7 @@ export default function ImpactSection() {
               transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
             >
               <p className="font-medium text-[clamp(15px,2vw,18px)] text-cma-blue-light leading-[1.7]">
-                As a nonprofit, we make joy accessible to every child. Your support helps us serve 100,000+ families and keep admission affordable.
+                Every child deserves the chance to discover, imagine, and grow through the power of play. Too many children in Atlanta face barriers that limit their access to enriching early learning experiences that are critical to their development. Your gift sparks curiosity and builds school-ready kids across our community, reaching over 180,000 guests annually with interactive exhibits, educator training, and access programs.
               </p>
               <p className="font-semibold text-[clamp(18px,2.5vw,24px)] text-white leading-[1.1]">
                 2024 Impact: 1,200 free passes | 15,000 field trips

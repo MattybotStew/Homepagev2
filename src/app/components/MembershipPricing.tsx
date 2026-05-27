@@ -6,8 +6,8 @@ import imgCheck from "figma:asset/pricing-check.svg"
 import imgWaveWhite from "figma:asset/wave-white.svg"
 
 const membershipBenefits = [
-  ["Unlimited visits for 2 adults + kids", "50% off guest tickets", "Priority registration for camps"],
-  ["Members-only hours 9–10am", "Free admission to 200+ partner museums", "Helps bring play to ALL of Atlanta's children"],
+  ["Unlimited visits for 1 year", "50% off guest tickets"],
+  ["Members-only hours 9–10am", "Helps bring the power of play to ALL of Atlanta's children"],
 ]
 
 export default function MembershipPricing() {
@@ -160,7 +160,7 @@ export default function MembershipPricing() {
               <div className="h-px bg-black/15" />
 
               {/* Per-ticket prices */}
-              <div className="grid grid-cols-1 xs:grid-cols-3 sm:grid-cols-3 gap-x-[16px] gap-y-6 sm:gap-y-[32px]">
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-6 sm:gap-0">
                 {[
                   { label: "Child / Senior", price: "$19.95" },
                   { label: "Adult", price: "$21.95" },

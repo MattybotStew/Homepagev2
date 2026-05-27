@@ -5,29 +5,25 @@ import svgPaths from "../../imports/svg-zu4i9dl6yt";
 interface Testimonial {
   text: string;
   name: string;
-  location: string;
+  location?: string;
 }
 
 const testimonials: Testimonial[] = [
   {
-    text: "Our kids had the most amazing time! The hands-on exhibits kept them engaged for hours. We especially loved the water play area and the climbing structure. Can't wait to come back!",
-    name: "Emily C.",
-    location: "Atlanta, GA",
+    text: "Love this place…This place is for all ages and a treasure.",
+    name: "Natilya D.",
   },
   {
-    text: "This museum is a gem! My toddler and preschooler both found activities perfect for their ages. The staff was incredibly friendly and helpful. Highly recommend for families!",
-    name: "Michael T.",
-    location: "Marietta, GA",
+    text: "My son absolutely enjoyed the wide range of hands on activities! Super interactive themes throughout the facility. It is clean and workers are literally picking up after the kids as they go and move on to different activities.",
+    name: "Jahmee B.",
   },
   {
-    text: "We've been members for three years and never get tired of visiting. The rotating exhibits keep things fresh, and the educational programs are top-notch. Worth every penny!",
-    name: "Sarah L.",
-    location: "Decatur, GA",
+    text: "There's so much for the kids to do! They love it. We bought the annual family pass because it was less than the cost of 2 visits.",
+    name: "M. S.",
   },
   {
-    text: "The perfect rainy day activity! Clean, safe, and so much fun. My daughter loved the art studio and science experiments. We spent the whole afternoon here and didn't want to leave.",
-    name: "James W.",
-    location: "Sandy Springs, GA",
+    text: "It's the closest thing you'll find to Mr. Magorium's Wonder Emporium in real life — pure magic, creativity, and joy. If you live in Atlanta and have a young child, and you're only getting one membership, make it this one. If you're visiting with little ones, this is a must. Trust me: don't sleep on it like I did.",
+    name: "Tara",
   },
   // Page 2
   {
@@ -106,9 +102,11 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
         <p className="cma-testimonial-name">
           {testimonial.name}
         </p>
-        <p className="cma-testimonial-location">
-          {testimonial.location}
-        </p>
+        {testimonial.location && (
+          <p className="cma-testimonial-location">
+            {testimonial.location}
+          </p>
+        )}
       </div>
     </div>
   );

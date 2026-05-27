@@ -228,6 +228,7 @@ export default function SpecialExperiences({
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
+          <p className="cma-eyebrow text-cma-teal">Events</p>
           <h2 className="text-cma-navy text-center">{heading}</h2>
           {ctaButton && (
             <a href={ctaButton.href} className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
