@@ -2,7 +2,7 @@ import AlertBanner from "../components/AlertBanner"
 import Header from "../components/Header"
 import MobileHeader from "../components/MobileHeader"
 import ScrollProgress from "../components/ScrollProgress"
-import Hero from "../components/Hero"
+import PlanYourVisitHero from "../components/PlanYourVisitHero"
 import PYVCallout from "../components/PYVCallout"
 import AdmissionPricing from "../components/AdmissionPricing"
 import PlanTabs from "../components/PlanTabs"
@@ -41,7 +41,7 @@ export default function PlanYourVisitPage() {
         <ScrollProgress />
       </div>
 
-      <Hero />
+      <PlanYourVisitHero />
 
       <PYVCallout />
 

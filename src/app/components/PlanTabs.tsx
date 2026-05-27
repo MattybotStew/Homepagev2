@@ -2,7 +2,6 @@ import { useState } from "react"
 import { motion } from "motion/react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebook, faInstagram, faTiktok } from "@fortawesome/free-brands-svg-icons"
-import imgMap from "figma:asset/pyv-map.png"
 
 const regularHours = [
   { day: "Monday", hours: "10:00 AM – 3:30 PM" },
@@ -93,7 +92,16 @@ function TabContent({ item }: { item: string }) {
               ))}
             </div>
             <div className="rounded-[24px] overflow-hidden h-[200px]">
-              <img src={imgMap} alt="Map showing museum location" className="w-full h-full object-cover" />
+              <iframe
+                title="Children's Museum of Atlanta map"
+                src="https://maps.google.com/maps?q=275+Centennial+Olympic+Park+Dr+NW,+Atlanta,+GA+30313&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
         </div>
