@@ -10,6 +10,8 @@ import ExhibitPage from "./app/pages/ExhibitPage.tsx";
 import EducatorsPage from "./app/pages/EducatorsPage.tsx";
 import ProgramPage from "./app/pages/ProgramPage.tsx";
 import AboutPage from "./app/pages/AboutPage.tsx";
+import CalendarPage from "./app/pages/CalendarPage.tsx";
+import EventPage from "./app/pages/EventPage.tsx";
 import "./styles/index.css";
 
 class ErrorBoundary extends Component<{ children: ReactNode }, { error: Error | null }> {
@@ -43,6 +45,8 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/educators" element={<EducatorsPage />} />
         <Route path="/program/:slug" element={<ProgramPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/events" element={<CalendarPage />} />
+        <Route path="/events/:slug" element={<EventPage />} />
       </Routes>
     </HashRouter>
   </ErrorBoundary>
