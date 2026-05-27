@@ -1,6 +1,7 @@
 import { motion } from "motion/react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons"
+import imgWaveBottom from "../../assets/impact-wave-bottom.svg"
 
 const dailyItems = [
   "Under 1: FREE",
@@ -109,7 +110,7 @@ const pricingCards = [
 
 export default function AdmissionPricing() {
   return (
-    <section className="bg-white w-full py-[80px] md:py-[120px]">
+    <section className="bg-white w-full py-[80px] md:py-[120px] relative overflow-hidden">
       <div className="cma-section-container flex flex-col gap-12 items-center">
 
         {/* Heading */}
@@ -219,6 +220,12 @@ export default function AdmissionPricing() {
         >
           See FAQs for any Questions
         </motion.a>
+      </div>
+
+      <div aria-hidden className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full">
+        {Array.from({ length: 10 }).map((_, i) => (
+          <img key={i} src={imgWaveBottom} alt="" className="w-[422px] h-[57px] shrink-0 block" />
+        ))}
       </div>
     </section>
   )
