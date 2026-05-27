@@ -31,7 +31,9 @@ export default function ProgramPage() {
       <div className="hidden lg:block">
         <ScrollProgress />
       </div>
-      <EducatorsSubNav />
+      <div className="lg:hidden">
+        <EducatorsSubNav />
+      </div>
 
       {slug === "field-trips" ? (
         <FieldTripsProgramContent />

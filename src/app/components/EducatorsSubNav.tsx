@@ -18,7 +18,7 @@ export default function EducatorsSubNav() {
   }
 
   return (
-    <div className="bg-cma-teal-dark w-full sticky top-0 z-40">
+    <div className="bg-cma-teal-dark w-full">
       <div className="max-w-[1280px] mx-auto px-5 md:px-8 lg:px-[80px]">
         <div className="cma-pill-scroll py-[10px]">
           {links.map((link) => (
