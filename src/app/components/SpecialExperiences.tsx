@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import squiggleSvg from "../../imports/sqig2.svg";
-import imgWaveNavy from "figma:asset/impact-wave-top.svg";
+import imgWaveNavy from "../../assets/impact-wave-top.svg";
 import { type EventItem, eventsByCategory, eventFilters } from "../data/events";
 
 export type { EventItem };
@@ -23,7 +23,7 @@ export default function SpecialExperiences({
 }: Props) {
   const [activeFilter, setActiveFilter] = useState("Featured");
 
-  const events = filterEvents[activeFilter] ?? filterEvents.Featured ?? [];
+  const events = (filterEvents[activeFilter] ?? filterEvents.Featured ?? []).slice(0, 3);
 
   return (
     <section className="bg-cma-cream relative w-full py-[80px] lg:pt-[100px] lg:pb-[80px]">
