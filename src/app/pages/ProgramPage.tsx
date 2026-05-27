@@ -6,6 +6,7 @@ import MobileHeader from "../components/MobileHeader"
 import ScrollProgress from "../components/ScrollProgress"
 import ArticleContentWithSidebar from "../components/ArticleContentWithSidebar"
 import FieldTripsProgramContent from "../components/FieldTripsProgramContent"
+import ScoutsProgramContent from "../components/ScoutsProgramContent"
 import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee"
 import Footer from "../components/Footer"
 
@@ -32,6 +33,8 @@ export default function ProgramPage() {
 
       {slug === "field-trips" ? (
         <FieldTripsProgramContent />
+      ) : slug === "scout-workshops" ? (
+        <ScoutsProgramContent />
       ) : (
         <ArticleContentWithSidebar
           exhibit={program}
