@@ -11,6 +11,7 @@ import EducatorsPage from "./app/pages/EducatorsPage.tsx";
 import ProgramPage from "./app/pages/ProgramPage.tsx";
 import AboutPage from "./app/pages/AboutPage.tsx";
 import ImpactPage from "./app/pages/ImpactPage.tsx";
+import CareersPage from "./app/pages/CareersPage.tsx";
 import CalendarPage from "./app/pages/CalendarPage.tsx";
 import EventPage from "./app/pages/EventPage.tsx";
 import "./styles/index.css";
@@ -47,6 +48,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/program/:slug" element={<ProgramPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/about/impact" element={<ImpactPage />} />
+        <Route path="/about/careers" element={<CareersPage />} />
         <Route path="/events" element={<CalendarPage />} />
         <Route path="/events/:slug" element={<EventPage />} />
       </Routes>
