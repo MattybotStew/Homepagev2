@@ -17,8 +17,8 @@ const featuredExhibits = [
   {
     image: imgSummer,
     badge: "Summer 2026",
-    ages: "Ages: 3–9 | Usually 20–25 minutes",
-    title: "Wild Kratts: Ocean Adventure",
+    ages: "Ages: 4–14 | May 23 – Sep 13, 2026 | 25–30 minutes",
+    title: "Wild Kratts®: Ocean Adventure!",
     body: "Explore ocean habitats and their creatures in this deep-sea adventure!",
     href: "#/exhibits/wild-kratts-ocean-adventure",
   },

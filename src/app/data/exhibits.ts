@@ -31,15 +31,18 @@ export const exhibits: Exhibit[] = [
   },
   {
     slug: "wild-kratts-ocean-adventure",
-    title: "Wild Kratts: Ocean Adventure",
+    title: "Wild Kratts®: Ocean Adventure!",
     badge: "Summer 2026",
     badgeColor: "teal-dark",
-    eyebrow: "Ages: 3–9 | Usually 20–25 minutes",
+    eyebrow: "Ages: 4–14 | May 23 – Sep 13, 2026 | 25–30 minutes",
     heroImage: imgSummer,
     cardImage: imgSummer,
     paragraphs: [
-      "Dive deep into the ocean alongside Chris and Martin Kratt! Explore vibrant coral reef habitats, discover the amazing creatures that call them home, and learn how marine ecosystems stay in balance. Families activate creature powers, investigate ocean zones, and go face-to-face with animated sea life in this aquatic adventure.",
-      "This Summer 2026 exhibit brings the beloved Wild Kratts PBS Kids series to life through interactive science play. Discover the biology of bioluminescence, the physics of buoyancy, and why ocean conservation matters — all while having the most fun summer adventure imaginable.",
+      "Wild Kratts®: Ocean Adventure!, a brand-new temporary exhibit at the Museum, immerses the young explorers in your life in whole body explorations of ocean habitats and the fascinating creatures within them. Using Wild Kratts technology and the powers of science and teamwork, visitors will join the Wild Kratts team to solve problems, help animals, and foil the villains' nefarious plans.",
+      "This exhibit is only at Children's Museum of Atlanta for a limited time. Catch this adventure before it leaves town! Plan your visit today.",
+      "Ocean habitats immerse children and families in whole body explorations of animals, habitats, and the relationships between them.",
+      "This exhibit is made possible through the generous support of the City of Atlanta Mayor's Office of Cultural Affairs and the Fulton County Board of Commissioners.",
+      "Wild Kratts®: Ocean Adventure! was created by Minnesota Children's Museum and The Kratt Brothers Company. Wild Kratts® © 2026 Kratt Brothers Company Ltd. / 9 Story Media Group Inc. Wild Kratts® and Ocean Adventure and associated characters, trademarks, and design elements are owned by Kratt Brothers Company Ltd. Licensed by Kratt Brothers Company Ltd. All Rights Reserved.",
     ],
   },
   {

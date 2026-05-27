@@ -12,7 +12,7 @@ const exhibits = [
     id: "wild-kratts",
     label: "Wild Kratts",
     badge: "New Summer 2026",
-    title: "Wild Kratts: Ocean Adventure",
+    title: "Wild Kratts®: Ocean Adventure!",
     description: "Dive into an ocean adventure with the Wild Kratts team! Crawl through a giant anemone, hunt for lunch like a lobster, create your own dolphin name, and pilot an amphisub through the deep sea. Using creature powers and teamwork, you'll help animals and foil the villains' plans.",
     image: imgSlide1,
   },
