@@ -10,6 +10,7 @@ import SpecialExperiences, { type EventItem } from "../components/SpecialExperie
 import Testimonials from "../components/Testimonials"
 import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee"
 import Footer from "../components/Footer"
+import EducatorsSubNav from "../components/EducatorsSubNav"
 import imgEducatorsHero from "../../assets/educators-hero.webp"
 import imgResource0 from "../../assets/educators-img-0.webp"
 import imgResource1 from "../../assets/educators-img-1.webp"
@@ -210,6 +211,7 @@ export default function EducatorsPage() {
       <div className="lg:hidden"><MobileHeader /></div>
       <div className="hidden lg:block"><Header /></div>
       <div className="hidden lg:block"><ScrollProgress /></div>
+      <EducatorsSubNav />
       <Hero
         bgImage={imgEducatorsHero}
         eyebrow="Children's Museum of Atlanta"

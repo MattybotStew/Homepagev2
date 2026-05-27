@@ -16,7 +16,16 @@ const navLinks: NavLink[] = [
   },
   { label: "Exhibits", href: "#/exhibits" },
   { label: "Calendar & Events", href: "#/events" },
-  { label: "For Educators", href: "#/educators" },
+  {
+    label: "For Educators",
+    href: "#/educators",
+    subPages: [
+      { label: "Field Trips", href: "#/program/field-trips" },
+      { label: "Museum On-the-Go", href: "#/program/museum-on-the-go" },
+      { label: "Scout Workshops", href: "#/program/scout-workshops" },
+      { label: "Educator PD", href: "#/program/educator-professional-development" },
+    ],
+  },
   { label: "About Us", href: "#/about" },
   { label: "Resources", href: "#" },
 ];

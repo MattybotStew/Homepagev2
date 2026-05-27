@@ -4,6 +4,7 @@ import AlertBanner from "../components/AlertBanner"
 import Header from "../components/Header"
 import MobileHeader from "../components/MobileHeader"
 import ScrollProgress from "../components/ScrollProgress"
+import EducatorsSubNav from "../components/EducatorsSubNav"
 import ArticleContentWithSidebar from "../components/ArticleContentWithSidebar"
 import FieldTripsProgramContent from "../components/FieldTripsProgramContent"
 import ScoutsProgramContent from "../components/ScoutsProgramContent"
@@ -30,6 +31,7 @@ export default function ProgramPage() {
       <div className="hidden lg:block">
         <ScrollProgress />
       </div>
+      <EducatorsSubNav />
 
       {slug === "field-trips" ? (
         <FieldTripsProgramContent />
