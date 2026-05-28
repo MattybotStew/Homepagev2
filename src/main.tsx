@@ -3,11 +3,11 @@ import { createRoot } from "react-dom/client";
 import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
 
 function ScrollToTop() {
-	const { pathname } = useLocation();
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, []);
-	return null;
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);  // ← This is the only change needed
+  return null;
 }
 
 import App from "./app/App.tsx";
