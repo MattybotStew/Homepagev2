@@ -1,244 +1,290 @@
-import { useState, type ReactNode } from "react"
-import { motion, AnimatePresence } from "motion/react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowRight, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons"
-import AlertBanner from "../components/AlertBanner"
-import Header from "../components/Header"
-import MobileHeader from "../components/MobileHeader"
-import ScrollProgress from "../components/ScrollProgress"
-import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee"
-import Footer from "../components/Footer"
-import { allEvents, eventsByCategory, eventFilters } from "../data/events"
-import imgFaq from "../../assets/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp"
+import {
+	faArrowRight,
+	faMinus,
+	faPlus,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { AnimatePresence, motion } from "motion/react";
+import { type ReactNode, useState } from "react";
+import imgFaq from "../../assets/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp";
+import AlertBanner from "../components/AlertBanner";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import MobileHeader from "../components/MobileHeader";
+import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee";
+import ScrollProgress from "../components/ScrollProgress";
+import { allEvents, eventFilters, eventsByCategory } from "../data/events";
 
 const faqs: { q: string; a: ReactNode }[] = [
-  {
-    q: "Admission & Age Policy",
-    a: "Our exhibits are developed with children 8 years and younger in mind. All children must be accompanied by a paying adult. Adults visiting without children are not admitted.",
-  },
-  {
-    q: "Arrival Window",
-    a: "We recommend arriving at or before your ticketed entry time. You have a 15-minute grace window for late arrivals. If you anticipate being significantly late, please contact our box office at 404-659-5437 so we can do our best to accommodate you.",
-  },
-  {
-    q: "Re-Entry",
-    a: "Most families play for about 2 hours. Your tickets include re-entry on the day of your visit, as capacity allows. Please hold on to your ticket or wristband to re-enter.",
-  },
-  {
-    q: "Refund/Exchange Policy",
-    a: "All ticket sales are final. Exchanges for a different date or time may be requested up to 24 hours before your scheduled visit by contacting our box office at 404-659-5437. We are unable to process same-day exchanges.",
-  },
-]
+	{
+		q: "Admission & Age Policy",
+		a: "Our exhibits are developed with children 8 years and younger in mind. All children must be accompanied by a paying adult. Adults visiting without children are not admitted.",
+	},
+	{
+		q: "Arrival Window",
+		a: "We recommend arriving at or before your ticketed entry time. You have a 15-minute grace window for late arrivals. If you anticipate being significantly late, please contact our box office at 404-659-5437 so we can do our best to accommodate you.",
+	},
+	{
+		q: "Re-Entry",
+		a: "Most families play for about 2 hours. Your tickets include re-entry on the day of your visit, as capacity allows. Please hold on to your ticket or wristband to re-enter.",
+	},
+	{
+		q: "Refund/Exchange Policy",
+		a: "All ticket sales are final. Exchanges for a different date or time may be requested up to 24 hours before your scheduled visit by contacting our box office at 404-659-5437. We are unable to process same-day exchanges.",
+	},
+];
 
 export default function CalendarPage() {
-  const [activeFilter, setActiveFilter] = useState("All")
-  const [openFaq, setOpenFaq] = useState<number | null>(null)
+	const [activeFilter, setActiveFilter] = useState("All");
+	const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const events = activeFilter === "All" ? allEvents : (eventsByCategory[activeFilter] ?? [])
+	const events =
+		activeFilter === "All" ? allEvents : (eventsByCategory[activeFilter] ?? []);
 
-  return (
-    <div className="size-full relative">
-      <AlertBanner />
+	return (
+		<div className="size-full relative">
+			<AlertBanner />
 
-      <div className="lg:hidden">
-        <MobileHeader />
-      </div>
-      <div className="hidden lg:block">
-        <Header />
-      </div>
-      <div className="hidden lg:block">
-        <ScrollProgress />
-      </div>
+			<div className="lg:hidden">
+				<MobileHeader />
+			</div>
+			<div className="hidden lg:block">
+				<Header />
+			</div>
+			<div className="hidden lg:block">
+				<ScrollProgress />
+			</div>
 
-      {/* Hero */}
-      <section className="bg-white w-full pt-[60px] pb-[80px] md:pt-[80px] md:pb-[100px]">
-        <div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
-        <div className="cma-section-container">
-          <motion.div
-            className="flex flex-col items-center gap-[24px] text-center"
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <p className="cma-eyebrow text-cma-teal">children's museum of atlanta</p>
-            <h1 className="text-cma-navy">
-              Calendar &amp; Events
-            </h1>
-            <p className="text-cma-navy max-w-[560px] font-semibold text-[clamp(16px,2.1vw,24px)] leading-[1.3] tracking-[-0.5px]">
-              Discover upcoming events, workshops, and activities at Children's Museum of Atlanta.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <a href="#events-grid" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
-                Event Calendar
-              </a>
-              <a href="#faqs" className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black">
-                Questions? Go to FAQs
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+			{/* Hero */}
+			<section className="bg-white w-full pt-[60px] pb-[80px] md:pt-[80px] md:pb-[100px]">
+				<div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
+				<div className="cma-section-container">
+					<motion.div
+						className="flex flex-col items-center gap-[24px] text-center"
+						initial={{ opacity: 0, y: 24 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+					>
+						<p className="cma-eyebrow text-cma-teal">
+							children's museum of atlanta
+						</p>
+						<h1 className="text-cma-navy">Calendar &amp; Events</h1>
+						<p className="text-cma-navy max-w-[560px] font-semibold text-[clamp(16px,2.1vw,24px)] leading-[1.3] tracking-[-0.5px]">
+							Discover upcoming events, workshops, and activities at Children's
+							Museum of Atlanta.
+						</p>
+						<div className="flex flex-col sm:flex-row gap-3">
+							<a
+								href="#events-grid"
+								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+							>
+								Event Calendar
+							</a>
+							<a
+								href="#faqs"
+								className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black"
+							>
+								Questions? Go to FAQs
+							</a>
+						</div>
+					</motion.div>
+				</div>
+			</section>
 
-      {/* Events Grid */}
-      <section id="events-grid" className="bg-white w-full pt-[32px] pb-[80px]">
-        <div className="max-w-[1280px] mx-auto px-5 md:px-8 lg:px-[80px] flex flex-col gap-[48px]">
-          {/* Filter pills */}
-          <motion.div
-            className="w-full"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="cma-pill-scroll">
-              {eventFilters.map((filter) => (
-                <button
-                  key={filter}
-                  onClick={() => setActiveFilter(filter)}
-                  className={`cma-nav-pill ${filter === activeFilter ? "cma-nav-pill-active" : "cma-nav-pill-inactive"}`}
-                >
-                  {filter}
-                </button>
-              ))}
-            </div>
-          </motion.div>
+			{/* Events Grid */}
+			<section id="events-grid" className="bg-white w-full pt-[32px] pb-[80px]">
+				<div className="max-w-[1280px] mx-auto px-5 md:px-8 lg:px-[80px] flex flex-col gap-[48px]">
+					{/* Filter pills */}
+					<motion.div
+						className="w-full"
+						initial={{ opacity: 0, y: 16 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.6 }}
+					>
+						<div className="cma-pill-scroll">
+							{eventFilters.map((filter) => (
+								<button
+									key={filter}
+									onClick={() => setActiveFilter(filter)}
+									className={`cma-nav-pill ${filter === activeFilter ? "cma-nav-pill-active" : "cma-nav-pill-inactive"}`}
+								>
+									{filter}
+								</button>
+							))}
+						</div>
+					</motion.div>
 
-          {/* Cards */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeFilter}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[16px] w-full"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              {events.length === 0 ? (
-                <motion.p
-                  className="text-cma-navy col-span-full text-center py-[40px]"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                >
-                  No events scheduled for this category right now. Check back soon!
-                </motion.p>
-              ) : (
-                events.map((event, index) => (
-                  <motion.div
-                    key={event.slug}
-                    className="bg-white border-2 border-black/5 rounded-[24px] p-[24px] flex flex-col gap-[32px]"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.08, duration: 0.5 }}
-                  >
-                    <div className="cma-card-img">
-                      <img
-                        src={event.image}
-                        alt={event.title}
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                      <div className="absolute bottom-[10px] left-[10px] bg-cma-teal-dark px-[18px] py-[12px] rounded-[8px]">
-                        <p className="font-extrabold text-[14px] text-white leading-[1.5] whitespace-nowrap">
-                          {event.badge}
-                        </p>
-                      </div>
-                    </div>
+					{/* Cards */}
+					<AnimatePresence mode="wait">
+						<motion.div
+							key={activeFilter}
+							className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[16px] w-full"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							transition={{ duration: 0.2 }}
+						>
+							{events.length === 0 ? (
+								<motion.p
+									className="text-cma-navy col-span-full text-center py-[40px]"
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
+								>
+									No events scheduled for this category right now. Check back
+									soon!
+								</motion.p>
+							) : (
+								events.map((event, index) => (
+									<motion.div
+										key={event.slug}
+										className="bg-white border-2 border-black/5 rounded-[24px] p-[24px] flex flex-col gap-[32px]"
+										initial={{ opacity: 0, y: 20 }}
+										animate={{ opacity: 1, y: 0 }}
+										transition={{ delay: index * 0.08, duration: 0.5 }}
+									>
+										<div className="cma-card-img">
+											<img
+												src={event.image}
+												alt={event.title}
+												className="absolute inset-0 w-full h-full object-cover"
+											/>
+											<div className="absolute bottom-[10px] left-[10px] bg-cma-teal-dark px-[18px] py-[12px] rounded-[8px]">
+												<p className="font-extrabold text-[14px] text-white leading-[1.5] whitespace-nowrap">
+													{event.badge}
+												</p>
+											</div>
+										</div>
 
-                    <p className="font-extrabold text-[22px] md:text-[30px] text-cma-navy leading-[1.3] tracking-[-1px]">
-                      {event.title}
-                    </p>
+										<p className="font-extrabold text-[22px] md:text-[30px] text-cma-navy leading-[1.3] tracking-[-1px]">
+											{event.title}
+										</p>
 
-                    <p className="text-cma-navy">{event.description}</p>
+										<p className="text-cma-navy">{event.description}</p>
 
-                    <a href={`#/events/${event.slug}`} className="cma-text-link mt-auto">
-                      Learn More <FontAwesomeIcon icon={faArrowRight} className="text-[13px]" />
-                    </a>
-                  </motion.div>
-                ))
-              )}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </section>
+										<a
+											href={`#/events/${event.slug}`}
+											className="cma-text-link mt-auto"
+										>
+											Learn More{" "}
+											<FontAwesomeIcon
+												icon={faArrowRight}
+												className="text-[13px]"
+											/>
+										</a>
+									</motion.div>
+								))
+							)}
+						</motion.div>
+					</AnimatePresence>
+				</div>
+			</section>
 
-      {/* Calendar & Events FAQs */}
-      <section id="faqs" className="bg-white w-full py-[80px] md:py-[120px]">
-        <div className="cma-section-container flex flex-col gap-12 items-center">
+			{/* Calendar & Events FAQs */}
+			<section id="faqs" className="bg-white w-full py-[80px] md:py-[120px]">
+				<div className="cma-section-container flex flex-col gap-12 items-center">
+					<motion.h2
+						className="text-cma-navy text-center"
+						initial={{ opacity: 0, y: 24 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true, margin: "-80px" }}
+						transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+					>
+						Calendar &amp; Events FAQs
+					</motion.h2>
 
-          <motion.h2
-            className="text-cma-navy text-center"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-          >
-            Calendar &amp; Events FAQs
-          </motion.h2>
+					<div className="flex flex-col lg:flex-row gap-8 items-start w-full">
+						{/* Accordion */}
+						<motion.div
+							className="flex-1 min-w-0 flex flex-col gap-[10px]"
+							initial={{ opacity: 0, y: 24 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true, margin: "-60px" }}
+							transition={{
+								duration: 1.0,
+								ease: [0.16, 1, 0.3, 1],
+								delay: 0.1,
+							}}
+						>
+							{faqs.map((faq, i) => {
+								const isOpen = openFaq === i;
+								return (
+									<div
+										key={i}
+										className={`border-2 border-black/5 rounded-[24px] overflow-hidden transition-colors ${isOpen ? "bg-cma-teal-pale" : "bg-white"}`}
+									>
+										<button
+											className="w-full flex items-center justify-between px-6 py-8 text-left gap-4"
+											onClick={() => setOpenFaq(isOpen ? null : i)}
+											aria-expanded={isOpen}
+										>
+											<h3
+												className={`${isOpen ? "font-black" : "font-semibold"} text-cma-navy`}
+											>
+												{faq.q}
+											</h3>
+											<FontAwesomeIcon
+												icon={isOpen ? faMinus : faPlus}
+												className="shrink-0 text-cma-orange text-[12px]"
+											/>
+										</button>
+										{isOpen && (
+											<div className="px-6 pb-8 flex flex-col gap-2">
+												{typeof faq.a === "string" ? (
+													<p className="text-cma-navy">{faq.a}</p>
+												) : (
+													faq.a
+												)}
+											</div>
+										)}
+									</div>
+								);
+							})}
+						</motion.div>
 
-          <div className="flex flex-col lg:flex-row gap-8 items-start w-full">
-            {/* Accordion */}
-            <motion.div
-              className="flex-1 min-w-0 flex flex-col gap-[10px]"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-            >
-              {faqs.map((faq, i) => {
-                const isOpen = openFaq === i
-                return (
-                  <div
-                    key={i}
-                    className={`border-2 border-black/5 rounded-[24px] overflow-hidden transition-colors ${isOpen ? "bg-cma-teal-pale" : "bg-white"}`}
-                  >
-                    <button
-                      className="w-full flex items-center justify-between px-6 py-8 text-left gap-4"
-                      onClick={() => setOpenFaq(isOpen ? null : i)}
-                      aria-expanded={isOpen}
-                    >
-                      <h3 className={`${isOpen ? "font-black" : "font-semibold"} text-cma-navy`}>
-                        {faq.q}
-                      </h3>
-                      <FontAwesomeIcon icon={isOpen ? faMinus : faPlus} className="shrink-0 text-cma-orange text-[12px]" />
-                    </button>
-                    {isOpen && (
-                      <div className="px-6 pb-8 flex flex-col gap-2">
-                        {typeof faq.a === "string" ? <p className="text-cma-navy">{faq.a}</p> : faq.a}
-                      </div>
-                    )}
-                  </div>
-                )
-              })}
-            </motion.div>
+						{/* Sidebar card */}
+						<motion.div
+							className="w-full lg:w-[380px] shrink-0 bg-white border-2 border-black/5 rounded-[24px] overflow-hidden"
+							initial={{ opacity: 0, y: 24 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true, margin: "-60px" }}
+							transition={{
+								duration: 1.0,
+								ease: [0.16, 1, 0.3, 1],
+								delay: 0.2,
+							}}
+						>
+							<div className="h-[266px] overflow-hidden rounded-t-[20px]">
+								<img
+									src={imgFaq}
+									alt=""
+									className="w-full h-full object-cover"
+								/>
+							</div>
+							<div className="p-6 flex flex-col gap-6">
+								<h3 className="text-cma-navy">Still have questions?</h3>
+								<p className="text-cma-navy">
+									Reach out to our Reservations Team — they're ready to help
+									with tickets, group visits, accessibility, and more.
+								</p>
+								<a
+									href="mailto:reservations@childrensmuseumatlanta.org"
+									className="cma-text-link"
+								>
+									Contact Us{" "}
+									<FontAwesomeIcon
+										icon={faArrowRight}
+										className="text-[11px]"
+									/>
+								</a>
+							</div>
+						</motion.div>
+					</div>
+				</div>
+			</section>
 
-            {/* Sidebar card */}
-            <motion.div
-              className="w-full lg:w-[380px] shrink-0 bg-white border-2 border-black/5 rounded-[24px] overflow-hidden"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            >
-              <div className="h-[266px] overflow-hidden rounded-t-[20px]">
-                <img src={imgFaq} alt="" className="w-full h-full object-cover" />
-              </div>
-              <div className="p-6 flex flex-col gap-6">
-                <h3 className="text-cma-navy">Still have questions?</h3>
-                <p className="text-cma-navy">
-                  Reach out to our Reservations Team — they're ready to help with tickets, group visits, accessibility, and more.
-                </p>
-                <a href="mailto:reservations@childrensmuseumatlanta.org" className="cma-text-link">
-                  Contact Us <FontAwesomeIcon icon={faArrowRight} className="text-[11px]" />
-                </a>
-              </div>
-            </motion.div>
-          </div>
-
-        </div>
-
-      </section>
-
-      <PowerOfPlayMarquee />
-      <Footer />
-    </div>
-  )
+			<PowerOfPlayMarquee />
+			<Footer />
+		</div>
+	);
 }

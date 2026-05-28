@@ -1,72 +1,72 @@
-import Header from "./components/Header";
-import MobileHeader from "./components/MobileHeader";
-import Hero from "./components/Hero";
 import AlertBanner from "./components/AlertBanner";
-import ScrollProgress from "./components/ScrollProgress";
-import Marquee from "./components/Marquee";
-import PlanYourVisit from "./components/PlanYourVisit";
 import FeaturedExhibits from "./components/FeaturedExhibits";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import ImpactSection from "./components/ImpactSection";
+import InstagramSection from "./components/InstagramSection";
+import Marquee from "./components/Marquee";
+import MembershipPricing from "./components/MembershipPricing";
+import MobileHeader from "./components/MobileHeader";
+import PlanYourVisit from "./components/PlanYourVisit";
+import PowerOfPlayMarquee from "./components/PowerOfPlayMarquee";
+import ScrollProgress from "./components/ScrollProgress";
 import SpecialExperiences from "./components/SpecialExperiences";
 import Testimonials from "./components/Testimonials";
-import ImpactSection from "./components/ImpactSection";
-import MembershipPricing from "./components/MembershipPricing";
-import InstagramSection from "./components/InstagramSection";
-import PowerOfPlayMarquee from "./components/PowerOfPlayMarquee";
-import Footer from "./components/Footer";
 
 export default function App() {
-  return (
-    <div className="size-full relative">
-      {/* Alert Banner — always visible */}
-      <AlertBanner />
+	return (
+		<div className="size-full relative">
+			{/* Alert Banner — always visible */}
+			<AlertBanner />
 
-      {/* Mobile header */}
-      <div className="lg:hidden">
-        <MobileHeader />
-      </div>
+			{/* Mobile header */}
+			<div className="lg:hidden">
+				<MobileHeader />
+			</div>
 
-      {/* Desktop header */}
-      <div className="hidden lg:block">
-        <Header />
-      </div>
+			{/* Desktop header */}
+			<div className="hidden lg:block">
+				<Header />
+			</div>
 
-      {/* Scroll Progress Bar - desktop only */}
-      <div className="hidden lg:block">
-        <ScrollProgress />
-      </div>
-      
-      {/* Hero Section */}
-      <Hero />
-      
-      {/* Scrolling Marquee */}
-      <Marquee />
-      
-      {/* Plan Your Visit Section */}
-      <PlanYourVisit />
+			{/* Scroll Progress Bar - desktop only */}
+			<div className="hidden lg:block">
+				<ScrollProgress />
+			</div>
 
-      {/* Featured Exhibits Carousel */}
-      <FeaturedExhibits />
+			{/* Hero Section */}
+			<Hero />
 
-      {/* Special Experiences / Events Section */}
-      <SpecialExperiences />
+			{/* Scrolling Marquee */}
+			<Marquee />
 
-      {/* Membership Pricing Section */}
-      <MembershipPricing />
+			{/* Plan Your Visit Section */}
+			<PlanYourVisit />
 
-      {/* Testimonials Section */}
-      <Testimonials />
+			{/* Featured Exhibits Carousel */}
+			<FeaturedExhibits />
 
-      {/* Impact Section */}
-      <ImpactSection />
-      
-      {/* Instagram Section */}
-      <InstagramSection />
-      
-      {/* Power of Play scrolling text */}
-      <PowerOfPlayMarquee />
+			{/* Special Experiences / Events Section */}
+			<SpecialExperiences />
 
-      {/* Footer */}
-      <Footer />
-    </div>
-  );
+			{/* Membership Pricing Section */}
+			<MembershipPricing />
+
+			{/* Testimonials Section */}
+			<Testimonials />
+
+			{/* Impact Section */}
+			<ImpactSection />
+
+			{/* Instagram Section */}
+			<InstagramSection />
+
+			{/* Power of Play scrolling text */}
+			<PowerOfPlayMarquee />
+
+			{/* Footer */}
+			<Footer />
+		</div>
+	);
 }
