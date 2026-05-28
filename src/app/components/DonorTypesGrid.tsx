@@ -1,38 +1,30 @@
 import { motion } from "motion/react";
-import imgCorporate from "../../assets/donate-donor-corporate.webp";
-import imgFoundations from "../../assets/donate-donor-foundations.webp";
-import imgIndividual from "../../assets/donate-donor-individual.webp";
-import imgYoungPro from "../../assets/donate-donor-young-professionals.webp";
 import imgWaveBottom from "../../assets/impact-wave-top.svg";
 
 const donorTypes = [
 	{
-		image: imgIndividual,
 		title: "Individual Donor",
 		description:
-			"Give directly to the programs, exhibits, and community outreach that spark curiosity in Atlanta's youngest learners.",
-		cta: { label: "Learn More", href: "#/donate" },
+			"Make a one-time gift or become a Sustaining Donor by starting your recurring gift. Your tax-deductible donation helps spark every child's imagination through the power of play.",
+		cta: { label: "Donate Now", href: "#/donate" },
 	},
 	{
-		image: imgCorporate,
 		title: "Corporate Partner",
 		description:
-			"Align your brand with meaningful impact by sponsoring programs, exhibits, or events at CMA — and reach thousands of Atlanta families.",
-		cta: { label: "Learn More", href: "#/donate" },
+			"When your company invests in CMA, you invest in Atlanta's children and their future. From exhibit sponsorships to volunteer days, there's a partnership that fits your goals.",
+		cta: { label: "Learn More", href: "#/corporate-partners" },
 	},
 	{
-		image: imgFoundations,
 		title: "Foundations",
 		description:
-			"Support CMA's mission through a grant that funds access initiatives, educational programming, and community outreach across the city.",
-		cta: { label: "Learn More", href: "#/donate" },
+			"Foundation support is key to the Museum's work in early childhood education and family engagement. Private, family, and community foundations help us positively impact under-resourced schools and communities.",
+		cta: { label: "Learn More", href: "#/corporate-partners" },
 	},
 	{
-		image: imgYoungPro,
-		title: "Young Professionals / Dream Builders",
+		title: "Young Professionals",
 		description:
-			"Join a community of next-generation philanthropists committed to making play possible for every child in Atlanta.",
-		cta: { label: "Learn More", href: "#/donate" },
+			"Looking to make a difference in our community? Join our Young Professionals program to build connections, volunteer, and support events that drive CMA's mission forward.",
+		cta: { label: "Join Today", href: "#/young-professionals" },
 	},
 ];
 
@@ -66,13 +58,6 @@ export default function DonorTypesGrid() {
 								delay: i * 0.1,
 							}}
 						>
-							<div className="h-[193px] rounded-[24px] overflow-hidden shrink-0">
-								<img
-									src={card.image}
-									alt=""
-									className="w-full h-full object-cover"
-								/>
-							</div>
 							<p className="text-cma-navy font-extrabold text-[30px] leading-none tracking-[-1px]">
 								{card.title}
 							</p>
