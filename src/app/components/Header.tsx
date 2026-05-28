@@ -1,5 +1,5 @@
 import { ChevronDown, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import textSvgPaths from "../../imports/svg-1ph89gknrj";
 import logoSvgPaths from "../../imports/svg-jpmbtvi5vn";

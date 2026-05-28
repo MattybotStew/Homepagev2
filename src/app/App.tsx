@@ -16,7 +16,7 @@ import Testimonials from "./components/Testimonials";
 
 export default function App() {
 	return (
-		<div className="size-full relative">
+		<main id="main-content" className="size-full relative">
 			{/* Alert Banner — always visible */}
 			<AlertBanner />
 
@@ -67,6 +67,6 @@ export default function App() {
 
 			{/* Footer */}
 			<Footer />
-		</div>
+		</main>
 	);
 }
