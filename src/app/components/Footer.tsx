@@ -122,32 +122,32 @@ export default function Footer() {
 						<h3 className="cma-footer-heading">VISIT</h3>
 						<ul className="flex flex-col gap-3">
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="#/plan-your-visit" className="cma-footer-link">
 									Hours & Admission
 								</a>
 							</li>
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="https://www.childrensmuseumatlanta.org/buy-tickets/" target="_blank" rel="noopener noreferrer" className="cma-footer-link">
 									Buy Tickets
 								</a>
 							</li>
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="#/plan-your-visit" className="cma-footer-link">
 									Directions & Parking
 								</a>
 							</li>
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="#/plan-your-visit" className="cma-footer-link">
 									Food & Amenities
 								</a>
 							</li>
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="#/plan-your-visit" className="cma-footer-link">
 									Accessibility
 								</a>
 							</li>
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="#/plan-your-visit" className="cma-footer-link">
 									FAQ
 								</a>
 							</li>
@@ -159,32 +159,32 @@ export default function Footer() {
 						<h3 className="cma-footer-heading">EXPLORE</h3>
 						<ul className="flex flex-col gap-3">
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="#/exhibits" className="cma-footer-link">
 									What's Inside
 								</a>
 							</li>
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="#/events" className="cma-footer-link">
 									Events Calendar
 								</a>
 							</li>
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="#/book-your-visit" className="cma-footer-link">
 									Birthday Parties
 								</a>
 							</li>
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="#/book-your-visit" className="cma-footer-link">
 									Group Visits
 								</a>
 							</li>
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="#/program/field-trips" className="cma-footer-link">
 									Field Trips
 								</a>
 							</li>
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="#/educators" className="cma-footer-link">
 									Education Programs
 								</a>
 							</li>
@@ -196,27 +196,27 @@ export default function Footer() {
 						<h3 className="cma-footer-heading">SUPPORT</h3>
 						<ul className="flex flex-col gap-3">
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="#/memberships" className="cma-footer-link">
 									Memberships
 								</a>
 							</li>
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="#/donate" className="cma-footer-link">
 									Donate
 								</a>
 							</li>
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="#/about/careers" className="cma-footer-link">
 									Volunteer
 								</a>
 							</li>
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="#/support/corporate-partners" className="cma-footer-link">
 									Corporate Partners
 								</a>
 							</li>
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="#/museum-store" className="cma-footer-link">
 									Gift Shop
 								</a>
 							</li>
@@ -228,17 +228,17 @@ export default function Footer() {
 						<h3 className="cma-footer-heading">CONNECT</h3>
 						<ul className="flex flex-col gap-3">
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="#/contact" className="cma-footer-link">
 									Contact Us
 								</a>
 							</li>
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="#/about/careers" className="cma-footer-link">
 									Jobs/Careers
 								</a>
 							</li>
 							<li>
-								<a href="#" className="cma-footer-link">
+								<a href="#/contact" className="cma-footer-link">
 									Press/Media
 								</a>
 							</li>
