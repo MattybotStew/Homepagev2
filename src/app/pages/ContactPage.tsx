@@ -400,28 +400,35 @@ export default function ContactPage() {
 						<p className="cma-eyebrow text-cma-teal-dark">Common Questions</p>
 						<h2 className="text-cma-navy">FAQs</h2>
 					</div>
-					<div className="max-w-[800px]">
-						<div className="bg-white rounded-[20px] border border-black/5 px-[28px] flex flex-col">
-							{faqs.map((faq, i) => (
-								<div key={`faq-${i}`} className="border-b border-black/8 last:border-0">
+					<div className="max-w-[800px] flex flex-col gap-[12px]">
+						{faqs.map((faq, i) => {
+							const isOpen = openFaq === i;
+							return (
+								<div
+									key={faq.question}
+									className={`border-2 border-black/5 rounded-[24px] overflow-hidden transition-colors ${isOpen ? "bg-cma-teal-pale" : "bg-white"}`}
+								>
 									<button
-										onClick={() => setOpenFaq(openFaq === i ? null : i)}
-										className="w-full flex items-center justify-between py-[20px] text-left gap-[16px]"
+										className="w-full flex items-center justify-between px-6 py-8 text-left gap-4"
+										onClick={() => setOpenFaq(isOpen ? null : i)}
+										aria-expanded={isOpen}
 									>
-										<span className="font-extrabold text-cma-navy">
+										<h3 className={`${isOpen ? "font-black" : "font-semibold"} text-cma-navy`}>
 											{faq.question}
-										</span>
+										</h3>
 										<FontAwesomeIcon
-											icon={openFaq === i ? faMinus : faPlus}
-											className="text-cma-orange shrink-0 text-[12px]"
+											icon={isOpen ? faMinus : faPlus}
+											className="shrink-0 text-cma-orange text-[12px]"
 										/>
 									</button>
-									{openFaq === i && (
-										<p className="text-cma-navy pb-[20px]">{faq.answer}</p>
+									{isOpen && (
+										<div className="px-6 pb-8">
+											<p className="text-cma-navy">{faq.answer}</p>
+										</div>
 									)}
 								</div>
-							))}
-						</div>
+							);
+						})}
 					</div>
 				</div>
 			</section>
