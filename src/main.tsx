@@ -19,7 +19,13 @@ const MuseumStorePage = lazy(() => import("./app/pages/MuseumStorePage.tsx"));
 const NewsPage = lazy(() => import("./app/pages/NewsPage.tsx"));
 const PlanYourVisitPage = lazy(() => import("./app/pages/PlanYourVisitPage.tsx"));
 const PlayfulLearningPage = lazy(() => import("./app/pages/PlayfulLearningPage.tsx"));
+const MembershipsPage = lazy(() => import("./app/pages/MembershipsPage.tsx"));
 const ProgramPage = lazy(() => import("./app/pages/ProgramPage.tsx"));
+const SupportPage = lazy(() => import("./app/pages/SupportPage.tsx"));
+const LegacyPage = lazy(() => import("./app/pages/LegacyPage.tsx"));
+const CorporatePartnerPage = lazy(() => import("./app/pages/CorporatePartnerPage.tsx"));
+const DonorRecognitionPage = lazy(() => import("./app/pages/DonorRecognitionPage.tsx"));
+const GivingCirclePage = lazy(() => import("./app/pages/GivingCirclePage.tsx"));
 
 // Preload helper - loads module in background without blocking
 const preloadPage = (importFn: Promise<any>) => {
@@ -113,6 +119,12 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/resources/playful-learning" element={<PlayfulLearningPage />} />
           <Route path="/book-your-visit" element={<BookYourVisitPage />} />
           <Route path="/donate" element={<DonatePage />} />
+          <Route path="/memberships" element={<MembershipsPage />} />
+          <Route path="/support" element={<SupportPage />} />
+          <Route path="/support/legacy" element={<LegacyPage />} />
+          <Route path="/support/corporate-partners" element={<CorporatePartnerPage />} />
+          <Route path="/support/donor-recognition" element={<DonorRecognitionPage />} />
+          <Route path="/giving-circles/:slug" element={<GivingCirclePage />} />
         </Routes>
       </Suspense>
     </HashRouter>
