@@ -17,7 +17,19 @@
       "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/feded733-6dcc-4d1b-8589-b70dde36b683\" -o donate-donor-individual.webp)",
       "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/4805f3f2-96ad-4edc-ba33-267136e9ad95\" -o donate-donor-corporate.webp)",
       "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/c2d54130-56b5-44aa-9eb8-2af70297b50a\" -o donate-donor-foundations.webp)",
-      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/c6667202-c04c-46c2-842a-1d861fae113a\" -o donate-donor-young-professionals.webp)"
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/c6667202-c04c-46c2-842a-1d861fae113a\" -o donate-donor-young-professionals.webp)",
+      "mcp__claude_ai_Figma__get_metadata",
+      "Bash(node -e ' *)",
+      "Bash(npx playwright@latest eval ' *)",
+      "Bash(python3)",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s -X POST http://127.0.0.1:3845/mcp -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' -d '{\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\",\"params\":{}}')",
+      "Bash(curl -s -X POST http://127.0.0.1:3845/mcp -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' -d '{\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/list\",\"params\":{}}')",
+      "Bash(curl -s http://127.0.0.1:3845/sse --max-time 3)",
+      "Bash(curl -s http://127.0.0.1:3845/ --max-time 3)",
+      "Bash(curl -s -X POST http://127.0.0.1:3845/messages?sessionId=5bb9a9ae-6069-47d1-9dea-73ffda7ffbf1 -H 'Content-Type: application/json' -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2024-11-05\",\"capabilities\":{},\"clientInfo\":{\"name\":\"claude-code\",\"version\":\"1.0\"}}}')",
+      "Bash(curl -s -X POST http://127.0.0.1:3845/messages?sessionId=5bb9a9ae-6069-47d1-9dea-73ffda7ffbf1 -H 'Content-Type: application/json' -d '{\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\",\"params\":{}}')",
+      "Bash(curl -s -X POST http://127.0.0.1:3845/messages?sessionId=5bb9a9ae-6069-47d1-9dea-73ffda7ffbf1 -H 'Content-Type: application/json' -d '{\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/list\",\"params\":{}}')"
     ]
   }
 }

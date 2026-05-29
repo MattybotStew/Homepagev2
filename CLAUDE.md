@@ -121,12 +121,109 @@ Use the shared shadow utilities from `index.css`:
 
 ---
 
-## Figma Workflow
+## Page Shell Pattern
 
-1. Extract `fileKey` and `node-id` from the Figma URL.
-2. Use `get_design_context` to fetch design spec + screenshot.
-3. Adapt the output to match this project's CSS architecture — do not copy Figma-generated code verbatim.
-4. Always verify colors, fonts, and sizes against the design tokens above before adding arbitrary values.
+Every page uses the same wrapper — do not deviate:
+
+```tsx
+<div className="size-full relative">
+  <AlertBanner />
+  <div className="lg:hidden"><MobileHeader /></div>
+  <div className="hidden lg:block"><Header /></div>
+  <div className="hidden lg:block"><ScrollProgress /></div>
+  {/* page content */}
+  <PowerOfPlayMarquee />
+  <Footer />
+</div>
+```
+
+All pages are lazy-loaded in `src/main.tsx` and registered in the `<Routes>` block.
+
+---
+
+## Page Templates
+
+Four established templates — pick the closest match before writing new layout code:
+
+### 1. Hero + stacked sections (e.g. `ContactPage`, `DonatePage`)
+Full-width sections stacked vertically. Use `Hero` or a custom navy hero at top. No sidebar.
+
+### 2. Sidebar + article card (e.g. `FieldTripsProgramContent`, `MuseumOnTheGoProgramContent`)
+Two-column: sticky 210px sidebar with jump-nav + newsletter widget; main white `rounded-[24px]` card with `Divider`-separated sections. Use for educator programs with 6+ deep sections, FAQs, and a request form. To add a new program: create `*ProgramContent.tsx` cloning the field trips shell, add the slug condition in `ProgramPage.tsx`, and add the data entry to `src/app/data/programs.ts`.
+
+### 3. ArticleContentWithSidebar (e.g. `GivingCirclePage`, `ExhibitPage`)
+Generic detail page. Data-driven via `givingCircles.ts` or `programs.ts`. Use for fundraising events (Tournament For Play, Imagination Ball, Young Professionals, Dream Builders) and giving circles. Add entries to `src/app/data/givingCircles.ts`; the route `/giving-circles/:slug` handles them automatically.
+
+### 4. GivingHero + sections (e.g. `SupportPage`, `LegacyPage`, `CorporatePartnerPage`)
+`GivingHero` component at top (accepts `eyebrow`, `heading`, `subtitle`, `body`, `stats[]`, `ctas[]`), followed by a content-specific component, then `Testimonials` + `PYVCallout` + `PowerOfPlayMarquee`. Use for all giving/fundraising landing pages.
+
+---
+
+## FAQ Standard
+
+Two intentional accordion styles — do not mix them:
+
+**Standalone FAQ sections** (e.g. `PlanYourVisitFAQs`, `CalendarPage`, `ContactPage`):
+- Each item is its own `rounded-[24px]` card with `border-2 border-black/5`
+- Open state: `bg-cma-teal-pale`, `font-black` label
+- Closed state: `bg-white`, `font-semibold` label
+- Icon: `faPlus`/`faMinus` in `text-cma-orange text-[12px]` on the right
+- `PlanYourVisitFAQs` is the canonical reference
+
+**Embedded program content FAQs** (e.g. inside `FieldTripsProgramContent`):
+- Flat `border-b border-black/10` list inside the existing white content card
+- `font-extrabold` label, same orange icon
+- Do not change these to card style — they live inside a card already
+
+---
+
+## Route Map
+
+All routes registered in `src/main.tsx`:
+
+| Route | Page |
+|---|---|
+| `/` | Homepage |
+| `/plan-your-visit` | PlanYourVisitPage |
+| `/book-your-visit` | BookYourVisitPage |
+| `/exhibits` | ExhibitsPage |
+| `/exhibits/:slug` | ExhibitPage |
+| `/events` | CalendarPage |
+| `/events/:slug` | EventPage |
+| `/educators` | EducatorsPage |
+| `/program/:slug` | ProgramPage (field-trips, scout-workshops, museum-on-the-go, educator-professional-development) |
+| `/museum-store` | MuseumStorePage |
+| `/news` | NewsPage |
+| `/resources/playful-learning` | PlayfulLearningPage |
+| `/about` | AboutPage |
+| `/about/impact` | ImpactPage |
+| `/about/careers` | CareersPage |
+| `/donate` | DonatePage |
+| `/memberships` | MembershipsPage |
+| `/support` | SupportPage |
+| `/support/legacy` | LegacyPage |
+| `/support/corporate-partners` | CorporatePartnerPage |
+| `/support/donor-recognition` | DonorRecognitionPage |
+| `/giving-circles/:slug` | GivingCirclePage (imagination-ball, tournament-for-play, young-professionals, dream-builders) |
+| `/contact` | ContactPage |
+
+**No dedicated pages yet:** Birthday Parties (→ `/book-your-visit`), Press/Media (→ `/contact`).
+
+---
+
+## Figma MCP
+
+The Figma Dev Mode MCP server runs locally on the Figma desktop app at `http://127.0.0.1:3845`. It uses SSE — you must open a persistent SSE connection first to get a session ID, then POST messages to `/messages?sessionId=<id>`.
+
+Available tools: `get_design_context`, `get_metadata`, `get_screenshot`, `get_variable_defs`.
+
+`get_metadata` without a `nodeId` returns the list of all pages in the open file.
+`get_metadata` with a page ID returns the full XML layer tree for that page.
+
+The Figma file key is `Ng7kGBnR3uDuuaae0VbPMW`. Key pages:
+- `6:122` — Design [WIP] (all page designs)
+- `6:124` — Dev [handoff]
+- `2:135` — SiteMap
 
 ---
 
@@ -136,3 +233,4 @@ Use the shared shadow utilities from `index.css`:
 - Do not add comments explaining what code does — only add comments for non-obvious WHY (workarounds, constraints).
 - Do not add error handling or fallbacks for scenarios that cannot happen.
 - Match the existing component patterns before introducing new abstractions.
+- Hero eyebrow sections must have `overflow-hidden` on the section wrapper — `cma-eyebrow` letter-spacing can overflow at narrow viewports.
