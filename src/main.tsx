@@ -26,6 +26,7 @@ const LegacyPage = lazy(() => import("./app/pages/LegacyPage.tsx"));
 const CorporatePartnerPage = lazy(() => import("./app/pages/CorporatePartnerPage.tsx"));
 const DonorRecognitionPage = lazy(() => import("./app/pages/DonorRecognitionPage.tsx"));
 const GivingCirclePage = lazy(() => import("./app/pages/GivingCirclePage.tsx"));
+const ContactPage = lazy(() => import("./app/pages/ContactPage.tsx"));
 
 // Preload helper - loads module in background without blocking
 const preloadPage = (importFn: Promise<any>) => {
@@ -125,6 +126,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/support/corporate-partners" element={<CorporatePartnerPage />} />
           <Route path="/support/donor-recognition" element={<DonorRecognitionPage />} />
           <Route path="/giving-circles/:slug" element={<GivingCirclePage />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </Suspense>
     </HashRouter>
