@@ -1,10 +1,12 @@
 import { Navigate, useParams } from "react-router-dom";
 import AlertBanner from "../components/AlertBanner";
 import ArticleContentWithSidebar from "../components/ArticleContentWithSidebar";
+import EducatorPDProgramContent from "../components/EducatorPDProgramContent";
 import FieldTripsProgramContent from "../components/FieldTripsProgramContent";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import MobileHeader from "../components/MobileHeader";
+import MuseumOnTheGoProgramContent from "../components/MuseumOnTheGoProgramContent";
 import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee";
 import ScoutsProgramContent from "../components/ScoutsProgramContent";
 import ScrollProgress from "../components/ScrollProgress";
@@ -34,6 +36,10 @@ export default function ProgramPage() {
 				<FieldTripsProgramContent />
 			) : slug === "scout-workshops" ? (
 				<ScoutsProgramContent />
+			) : slug === "museum-on-the-go" ? (
+				<MuseumOnTheGoProgramContent />
+			) : slug === "educator-professional-development" ? (
+				<EducatorPDProgramContent />
 			) : (
 				<ArticleContentWithSidebar
 					exhibit={program}
