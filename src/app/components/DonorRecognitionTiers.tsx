@@ -1,16 +1,23 @@
-import { motion } from "motion/react";
+import {
+	faMinus,
+	faPlus,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 
 const tiers = [
 	{
+		number: 1,
 		name: "Visionary",
 		threshold: "$50,000 and Up",
 		donors: [
+			"Anonymous",
 			"Anonymous",
 			"Around The Table Foundation",
 			"Atlanta Braves Foundation",
 			"Stephanie V. Blank and Charles Hodges",
 			"CareSource",
-			"Chick-fil-A",
+			"Chick-Fil-A",
 			"Children's Healthcare of Atlanta",
 			"City of Atlanta Mayor's Office of Cultural Affairs",
 			"Fulton County Arts and Culture",
@@ -28,90 +35,232 @@ const tiers = [
 			"Wonya Lucas",
 			"Molly Blank Fund of the Arthur M. Blank Family Foundation",
 			"Novelis",
+			"Osprey Corporation",
 			"PNC Bank",
+			"Price Gilbert, Jr. Charitable Fund",
+			"Publix Super Markets Charities",
+			"Southern Company Gas Foundation",
+			"The Coca-Cola Company",
+			"The Lattner Family Foundation",
+			"The Liz Blake Giving Fund",
+			"The Sartain Lanier Family Foundation, Inc.",
+			"The Zeist Foundation, Inc.",
+			"United Way of Greater Atlanta",
 		],
 	},
 	{
+		number: 2,
 		name: "Creator",
 		threshold: "$25,000 and Up",
-		donors: [],
+		donors: [
+			"Anonymous",
+			"Aileen Reischl and Andrew Chang",
+			"EY",
+			"Georgia Council for the Arts",
+			"Karyn Heavenrich and William Alexander",
+			"Hendon Properties",
+			"The Home Depot Foundation",
+			"John and Mary Franklin Foundation",
+			"Jones Day",
+			"Amy and Randall Kirsch",
+			"KSM",
+			"Lazlo 326, Corp.",
+			"Sarah Hess Mackenzie",
+			"Todd Oglesby",
+			"Andy Sanford / Ameriprise",
+			"The Scott Hudgens Family Foundation",
+			"Sobotka Foundation",
+			"Stanton | Barton LLC and McBrayer PLLC",
+			"Elaine and Allan Tanenbaum",
+			"TEGNA Foundation",
+			"Tokio Marine HCC",
+			"Woodruff Arts Center / Alliance Theatre",
+			"Evelyn Zagami",
+		],
 	},
 	{
+		number: 3,
 		name: "Champion",
 		threshold: "$10,000 and Up",
-		donors: [],
+		donors: [
+			"Alston & Bird LLP",
+			"American Cancer Society",
+			"Hannah Basinger",
+			"Lauren Bonapfel",
+			"Katherine and David Bowlin",
+			"Stephanie Buzzell",
+			"Kristin and Tom Clyde",
+			"Ann and Jeff Cramer",
+			"Dr. Seema Csukas",
+			"Cynthia Currence Kenneth and Bernhardt",
+			"Robin and David Edwards",
+			"April and Mark Estes",
+			"Ariel and Jason Esteves",
+			"Greenberg Traurig, LLP",
+			"Trisha Hardy",
+			"Serena and Scott Harrison",
+			"Hawkins Parnell & Young",
+			"Janin and Tad Hutcheson",
+			"iDiscovery",
+			"Bharath Parthasarathy",
+			"Purpose Possible",
+			"Shama and Chirag Shah",
+			"Fabiola and Shereitte Stokes IV",
+			"Troutman Pepper Locke",
+			"Truist",
+			"Waffle House",
+			"Weinberg Wheeler Hudgins Gunn & Dial",
+			"Hon. Mike Wilensky",
+		],
 	},
 	{
+		number: 4,
 		name: "Adventurer",
 		threshold: "$5,000 and Up",
-		donors: [],
+		donors: [
+			"Heather Balkema",
+			"Jason Bearden",
+			"BlackRock",
+			"Rita and John Breen",
+			"Carr, Riggs & Ingram, LLC",
+			"The Deutsch Family Philanthropic Fund",
+			"Elizabeth and Brandon Duany",
+			"Lauren Estrin and Andy Deutsch",
+			"Molly and Dane Hinton",
+			"Bob Hope",
+			"Adrienne and Nathan Hoyt",
+			"Jabian Consulting",
+			"Frances and John Jackson",
+			"Melissa and Larry Jackson",
+			"Kessler & Solomiany, Family Law Attorneys",
+			"Sheri and Steve Labovitz",
+			"Suzanne Lindsay-Walker",
+			"Kathleen and Edwin Link",
+			"Beth Lowry",
+			"Ross and Kate McLeod",
+			"Alecia and Jeff Mokros",
+			"Marissa Pace",
+			"Partners Real Estate",
+			"William Pate",
+			"Kama and Joe Pierce",
+			"Tracy and Bradley Reznik",
+			"David Roemer",
+			"Carine Roman and Peter Westerman",
+			"Mary Spanburgh and Patrick Mulvaney",
+			"James R. Summer III",
+			"Beth Tanis and John Chandler",
+			"The Richard C. Munroe Foundation, Inc.",
+			"Ryan Trepte",
+			"Chelsea and Caleb Turner",
+			"Melissa and Richard Valladares",
+			"Kathy Waller and Kenneth Goggins",
+			"Kathy and Jim Wright",
+			"Leon Yang",
+		],
 	},
 	{
+		number: 5,
 		name: "Innovator",
 		threshold: "$1,000 and Up",
-		donors: [],
+		donors: [
+			"ADP",
+			"Bank of America",
+			"Coco Black",
+			"Staci and Matt Brill",
+			"Shanice and Kirk Brown",
+			"Halli Cohn and Richard J. Warren",
+			"Christy Costello",
+			"Fiorella Enciso",
+			"James Freeman",
+			"Neha Gandhi",
+			"John Hardman",
+			"Rose Jones",
+			"Puja Patel Lea and Brian Lea",
+			"Dana and John Lilly",
+			"Hala and Steve Moddelmog",
+			"Sierra and Demond Nash",
+			"Abraham Nesmith",
+			"Sonya and James Parker",
+			"Angela Randle",
+			"Paul Roeser",
+			"Allison and Louis Tanenbaum",
+			"DeAna Jo and Al Vivian",
+			"Dan Walden",
+		],
 	},
 ];
 
 export default function DonorRecognitionTiers() {
+	const [openTier, setOpenTier] = useState<number>(0);
+
 	return (
 		<section className="bg-cma-cream w-full py-[80px] md:py-[120px]">
-			<div className="cma-section-container flex flex-col gap-12">
-				<motion.div
-					className="flex flex-col gap-4 max-w-[720px]"
-					initial={{ opacity: 0, y: 24 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true, margin: "-80px" }}
-					transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-				>
-					<h2 className="text-cma-navy">Recognized Supporters</h2>
-					<p className="text-cma-navy text-[clamp(16px,1.5vw,20px)] leading-[1.65] font-medium">
-						Your generosity helps us bring the power of play to over 180,000
-						children and families each year. Whether you give once or make an
-						ongoing commitment, every gift makes a meaningful difference in the
-						lives of Atlanta's children.
+			<div className="cma-section-container flex flex-col gap-[40px]">
+				<div className="flex flex-col gap-[12px]">
+					<h2 className="text-cma-navy">Supporters: July 2024 – June 2025</h2>
+					<p className="text-cma-navy">
+						Thank you to the generous individuals, corporations, foundations, and
+						government agencies for annually supporting our hands-on exhibits,
+						educational programming, and community outreach efforts. Want to
+						support the power of play?{" "}
+						<a href="#/donate" className="cma-text-link">
+							Donate today!
+						</a>
 					</p>
-				</motion.div>
+				</div>
 
-				<div className="flex flex-col gap-6">
-					{tiers.map((tier, i) => (
-						<motion.div
-							key={tier.name}
-							className="bg-white rounded-[24px] p-8 md:p-10 flex flex-col gap-6 border border-black/5"
-							initial={{ opacity: 0, y: 24 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							viewport={{ once: true, margin: "-60px" }}
-							transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.06 }}
-						>
-							<div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-								<h3 className="text-cma-navy">{tier.name}</h3>
-								<span className="bg-cma-orange/10 text-cma-orange-dark text-[12px] font-extrabold uppercase tracking-[1px] px-3 py-1 rounded-full self-start sm:self-auto">
-									{tier.threshold}
-								</span>
-							</div>
-
-							{tier.donors.length > 0 ? (
-								<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2">
-									{tier.donors.map((donor) => (
-										<p key={donor} className="text-cma-navy font-medium text-[14px] border-b border-[rgba(107,126,160,0.15)] py-2">
-											{donor}
-										</p>
-									))}
-								</div>
-							) : (
-								<p className="text-cma-navy/50 text-[14px] italic">
-									Contact our development team to learn about recognition opportunities at this level.
-								</p>
-							)}
-
-							<a
-								href="#/donate"
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start"
+				<div className="flex flex-col gap-[12px]">
+					{tiers.map((tier, i) => {
+						const isOpen = openTier === i;
+						return (
+							<div
+								key={tier.name}
+								className={`rounded-[24px] border-2 border-black/5 overflow-hidden transition-colors ${isOpen ? "bg-cma-teal-pale" : "bg-white"}`}
 							>
-								Become a {tier.name}
-							</a>
-						</motion.div>
-					))}
+								<button
+									onClick={() => setOpenTier(isOpen ? -1 : i)}
+									className="w-full flex items-center justify-between px-[28px] py-[22px] text-left"
+								>
+									<span
+										className={`text-cma-navy text-[16px] leading-[1.3] ${isOpen ? "font-black" : "font-semibold"}`}
+									>
+										TIER {tier.number} —{" "}
+										<span className={isOpen ? "" : ""}>{tier.name}</span>{" "}
+										<span className="text-cma-navy/50 font-medium">
+											${tier.threshold}
+										</span>
+									</span>
+									<FontAwesomeIcon
+										icon={isOpen ? faMinus : faPlus}
+										className="text-cma-orange text-[12px] shrink-0 ml-[16px]"
+									/>
+								</button>
+
+								{isOpen && (
+									<div className="px-[28px] pb-[28px] flex flex-col gap-[24px]">
+										<div className="grid grid-cols-1 sm:grid-cols-2 gap-x-[40px] gap-y-[2px]">
+											{tier.donors.map((donor, j) => (
+												<p
+													key={`${donor}-${j}`}
+													className="text-cma-navy text-[14px] font-medium border-b border-black/8 py-[8px]"
+												>
+													{donor}
+												</p>
+											))}
+										</div>
+										<div>
+											<a
+												href="#/donate"
+												className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+											>
+												Become a {tier.name}
+											</a>
+										</div>
+									</div>
+								)}
+							</div>
+						);
+					})}
 				</div>
 			</div>
 		</section>

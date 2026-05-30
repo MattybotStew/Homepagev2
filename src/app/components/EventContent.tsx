@@ -90,7 +90,7 @@ export default function EventContent({ event, related }: Props) {
 						{/* CTA */}
 						<div className="flex flex-col sm:flex-row gap-3">
 							<a
-								href="#tickets"
+								href="#/book-your-visit"
 								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 							>
 								Buy Tickets

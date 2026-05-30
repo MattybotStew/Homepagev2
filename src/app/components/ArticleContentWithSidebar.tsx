@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 export type SidebarSection = {
 	id: string;
 	label: string;
+	href?: string;
 };
 
 type ArticleItem = {
@@ -105,15 +106,25 @@ export default function ArticleContentWithSidebar({
 				{/* Mobile section nav — horizontal scroll pills */}
 				<div className="lg:hidden mb-[24px]">
 					<div className="cma-pill-scroll">
-						{sections.map((section) => (
-							<button
-								key={section.id}
-								onClick={() => scrollToSection(section.id)}
-								className={`cma-nav-pill ${activeSection === section.id ? "cma-nav-pill-active" : "cma-nav-pill-inactive"}`}
-							>
-								{section.label}
-							</button>
-						))}
+						{sections.map((section) =>
+							section.href ? (
+								<a
+									key={section.id}
+									href={section.href}
+									className="cma-nav-pill cma-nav-pill-inactive"
+								>
+									{section.label}
+								</a>
+							) : (
+								<button
+									key={section.id}
+									onClick={() => scrollToSection(section.id)}
+									className={`cma-nav-pill ${activeSection === section.id ? "cma-nav-pill-active" : "cma-nav-pill-inactive"}`}
+								>
+									{section.label}
+								</button>
+							)
+						)}
 					</div>
 				</div>
 
@@ -125,16 +136,13 @@ export default function ArticleContentWithSidebar({
 							<p className="cma-eyebrow text-cma-navy/40 text-[10px] mb-[12px]">
 								Jump to
 							</p>
-							{sections.map((section) => (
-								<button
-									key={section.id}
-									onClick={() => scrollToSection(section.id)}
-									className={`flex items-center gap-[10px] py-[8px] px-[10px] rounded-[10px] text-[13px] font-bold leading-[1.3] transition-colors w-full text-left ${
-										activeSection === section.id
-											? "bg-cma-navy/5 text-cma-navy"
-											: "text-cma-navy/45 hover:text-cma-navy hover:bg-cma-navy/5"
-									}`}
-								>
+							{sections.map((section) => {
+								const itemClass = `flex items-center gap-[10px] py-[8px] px-[10px] rounded-[10px] text-[13px] font-bold leading-[1.3] transition-colors w-full text-left ${
+									activeSection === section.id
+										? "bg-cma-navy/5 text-cma-navy"
+										: "text-cma-navy/45 hover:text-cma-navy hover:bg-cma-navy/5"
+								}`;
+								const dot = (
 									<span
 										className={`w-[6px] h-[6px] rounded-full shrink-0 transition-colors ${
 											activeSection === section.id
@@ -142,9 +150,23 @@ export default function ArticleContentWithSidebar({
 												: "bg-cma-navy/20"
 										}`}
 									/>
-									{section.label}
-								</button>
-							))}
+								);
+								return section.href ? (
+									<a key={section.id} href={section.href} className={itemClass}>
+										{dot}
+										{section.label}
+									</a>
+								) : (
+									<button
+										key={section.id}
+										onClick={() => scrollToSection(section.id)}
+										className={itemClass}
+									>
+										{dot}
+										{section.label}
+									</button>
+								);
+							})}
 						</div>
 					</aside>
 

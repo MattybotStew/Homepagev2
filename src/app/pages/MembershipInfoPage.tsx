@@ -1,12 +1,12 @@
 import AlertBanner from "../components/AlertBanner";
-import CorporatePartnerPageContent from "../components/CorporatePartnerPageContent";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import MembershipInfoPageContent from "../components/MembershipInfoPageContent";
 import MobileHeader from "../components/MobileHeader";
 import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee";
 import ScrollProgress from "../components/ScrollProgress";
 
-export default function CorporatePartnerPage() {
+export default function MembershipInfoPage() {
 	return (
 		<div className="size-full relative">
 			<AlertBanner />
@@ -19,7 +19,7 @@ export default function CorporatePartnerPage() {
 			<div className="hidden lg:block">
 				<ScrollProgress />
 			</div>
-			<CorporatePartnerPageContent />
+			<MembershipInfoPageContent />
 			<PowerOfPlayMarquee />
 			<Footer />
 		</div>

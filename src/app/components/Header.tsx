@@ -136,6 +136,20 @@ function Logo() {
 	);
 }
 
+const donateSubPages: NavSubPage[] = [
+	{ label: "Support", href: "#/support" },
+	{ label: "Corporate Partners", href: "#/support/corporate-partners" },
+	{ label: "Donor Recognition", href: "#/support/donor-recognition" },
+	{ label: "Legacy Giving", href: "#/support/legacy" },
+	{ label: "Tournament For Play", href: "#/giving-circles/tournament-for-play" },
+	{ label: "Imagination Ball", href: "#/giving-circles/imagination-ball" },
+	{ label: "Young Professionals", href: "#/giving-circles/young-professionals" },
+	{
+		label: "Dream Builders Giving Circle",
+		href: "#/giving-circles/dream-builders",
+	},
+];
+
 function DropdownPanel({
 	subPages,
 	pathname,
@@ -166,6 +180,61 @@ function DropdownPanel({
 						</div>
 					);
 				})}
+			</div>
+		</div>
+	);
+}
+
+function DonateDropdown({
+	compact,
+	pathname,
+}: {
+	compact?: boolean;
+	pathname: string;
+}) {
+	const px = compact ? "px-[12px]" : "px-[16px]";
+	const py = compact ? "py-[8px]" : "py-[12px]";
+	const textSize = compact ? "text-[10px]" : "text-[12px]";
+	const chevronSize = compact ? "size-2.5" : "size-3";
+
+	return (
+		<div className="relative group">
+			<a
+				href="#/donate"
+				className={`bg-cma-orange flex items-center justify-center gap-1 ${px} ${py} rounded-full shadow-cma-btn shrink-0 hover:bg-cma-orange-dark transition-colors`}
+			>
+				<p
+					className={`font-black leading-[1.5] shrink-0 ${textSize} text-cma-navy whitespace-nowrap`}
+				>
+					Donate
+				</p>
+				<ChevronDown
+					className={`${chevronSize} text-cma-navy/70 transition-transform duration-200 group-hover:rotate-180`}
+				/>
+			</a>
+			<div className="absolute top-full right-0 pt-2 z-50 hidden group-hover:block">
+				<div className="bg-white rounded-[16px] shadow-cma-panel overflow-hidden min-w-[230px]">
+					{donateSubPages.map((sub, i) => {
+						const isActive = isSubPageActive(sub, pathname);
+						return (
+							<div key={sub.label}>
+								<a
+									href={sub.href}
+									className={`flex items-center px-5 min-h-[52px] transition-colors ${isActive ? "bg-cma-teal-pale" : "hover:bg-gray-50"}`}
+								>
+									<p
+										className={`whitespace-nowrap ${isActive ? "text-cma-navy font-semibold" : "text-cma-gray font-normal"}`}
+									>
+										{sub.label}
+									</p>
+								</a>
+								{i < donateSubPages.length - 1 && (
+									<div className="h-px bg-gray-100 mx-5" />
+								)}
+							</div>
+						);
+					})}
+				</div>
 			</div>
 		</div>
 	);
@@ -243,30 +312,23 @@ export default function Header() {
 						))}
 					</div>
 					<div className="flex gap-[5.699px] items-center">
+						<DonateDropdown pathname={pathname} />
 						<a
-							href="#/donate"
-							className="bg-cma-orange flex items-center justify-center px-[16px] py-[12px] rounded-full shadow-cma-btn shrink-0 hover:bg-cma-orange-dark transition-colors"
-						>
-							<p className="font-black leading-[1.5] shrink-0 text-[12px] text-cma-navy whitespace-nowrap">
-								Donate
-							</p>
-						</a>
-						<button
-							type="button"
+							href="#/memberships"
 							className="bg-white flex items-center justify-center px-[16px] py-[12px] rounded-full shadow-cma-btn shrink-0 hover:bg-white/90 transition-colors"
 						>
 							<p className="font-black leading-[1.5] shrink-0 text-[12px] text-cma-teal-dark whitespace-nowrap">
 								Memberships
 							</p>
-						</button>
-						<button
-							type="button"
+						</a>
+						<a
+							href="#/book-your-visit"
 							className="bg-cma-navy flex items-center justify-center px-[16px] py-[12px] rounded-full shadow-cma-btn shrink-0 hover:bg-cma-navy-dark transition-colors"
 						>
 							<p className="font-black leading-[1.5] shrink-0 text-[12px] text-white whitespace-nowrap">
 								Buy Tickets
 							</p>
-						</button>
+						</a>
 					</div>
 				</div>
 
@@ -283,30 +345,23 @@ export default function Header() {
 						))}
 					</div>
 					<div className="flex gap-[4px] items-center">
+						<DonateDropdown compact pathname={pathname} />
 						<a
-							href="#/donate"
-							className="bg-cma-orange flex items-center justify-center px-[12px] py-[8px] rounded-full shadow-cma-btn shrink-0 hover:bg-cma-orange-dark transition-colors"
-						>
-							<p className="font-black leading-[1.5] shrink-0 text-[10px] text-cma-navy whitespace-nowrap">
-								Donate
-							</p>
-						</a>
-						<button
-							type="button"
+							href="#/memberships"
 							className="bg-white flex items-center justify-center px-[12px] py-[8px] rounded-full shadow-cma-btn shrink-0 hover:bg-white/90 transition-colors"
 						>
 							<p className="font-black leading-[1.5] shrink-0 text-[10px] text-cma-teal-dark whitespace-nowrap">
 								Memberships
 							</p>
-						</button>
-						<button
-							type="button"
+						</a>
+						<a
+							href="#/book-your-visit"
 							className="bg-cma-navy flex items-center justify-center px-[12px] py-[8px] rounded-full shadow-cma-btn shrink-0 hover:bg-cma-navy-dark transition-colors"
 						>
 							<p className="font-black leading-[1.5] shrink-0 text-[10px] text-white whitespace-nowrap">
 								Buy Tickets
 							</p>
-						</button>
+						</a>
 					</div>
 				</div>
 
@@ -391,24 +446,53 @@ export default function Header() {
 							})}
 						</div>
 						<div className="flex flex-col gap-3 px-5 py-4 border-t border-gray-200">
+							<div>
+								<button
+									className="bg-cma-orange px-4 py-3 rounded-full w-full hover:bg-cma-orange-dark transition-colors flex items-center justify-center gap-2"
+									onClick={() =>
+										setExpandedNav(
+											expandedNav === "Donate" ? null : "Donate",
+										)
+									}
+								>
+									<p className="font-black text-[14px] text-white">Donate</p>
+									<ChevronDown
+										className={`size-4 text-white transition-transform duration-200 ${expandedNav === "Donate" ? "rotate-180" : ""}`}
+									/>
+								</button>
+								{expandedNav === "Donate" && (
+									<div className="mt-2 bg-gray-50 rounded-[12px] border border-gray-100 overflow-hidden">
+										{donateSubPages.map((sub) => {
+											const isActive = isSubPageActive(sub, pathname);
+											return (
+												<a
+													key={sub.label}
+													href={sub.href}
+													className="flex items-center px-5 py-3 hover:bg-gray-100 transition-colors border-b border-gray-100 last:border-b-0"
+												>
+													<p
+														className={`font-medium text-[14px] ${isActive ? "text-cma-teal font-semibold" : "text-cma-gray"}`}
+													>
+														{sub.label}
+													</p>
+												</a>
+											);
+										})}
+									</div>
+								)}
+							</div>
 							<a
-								href="#/donate"
-								className="bg-cma-orange px-4 py-3 rounded-full w-full hover:bg-cma-orange-dark transition-colors flex items-center justify-center"
-							>
-								<p className="font-black text-[14px] text-white">Donate</p>
-							</a>
-							<button
-								type="button"
-								className="bg-cma-teal px-4 py-3 rounded-full w-full hover:bg-cma-teal-dark transition-colors"
+								href="#/memberships"
+								className="bg-cma-teal px-4 py-3 rounded-full w-full hover:bg-cma-teal-dark transition-colors flex items-center justify-center"
 							>
 								<p className="font-black text-[14px] text-white">Memberships</p>
-							</button>
-							<button
-								type="button"
-								className="bg-cma-blue-mid px-4 py-3 rounded-full w-full hover:bg-[#2a4d76] transition-colors"
+							</a>
+							<a
+								href="#/book-your-visit"
+								className="bg-cma-blue-mid px-4 py-3 rounded-full w-full hover:bg-[#2a4d76] transition-colors flex items-center justify-center"
 							>
 								<p className="font-black text-[14px] text-white">Buy Tickets</p>
-							</button>
+							</a>
 						</div>
 					</div>
 				)}

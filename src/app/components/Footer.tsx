@@ -127,7 +127,7 @@ export default function Footer() {
 								</a>
 							</li>
 							<li>
-								<a href="https://www.childrensmuseumatlanta.org/buy-tickets/" target="_blank" rel="noopener noreferrer" className="cma-footer-link">
+								<a href="#/book-your-visit" className="cma-footer-link">
 									Buy Tickets
 								</a>
 							</li>

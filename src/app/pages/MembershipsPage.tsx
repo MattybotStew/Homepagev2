@@ -1,9 +1,9 @@
-import AdmissionPricing from "../components/AdmissionPricing";
 import AlertBanner from "../components/AlertBanner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import MembershipPricing from "../components/MembershipPricing";
+import MembershipSavingsCalculator from "../components/MembershipSavingsCalculator";
 import MobileHeader from "../components/MobileHeader";
 import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee";
 import PYVCallout from "../components/PYVCallout";
@@ -26,19 +26,29 @@ export default function MembershipsPage() {
 
 			<Hero
 				eyebrow="memberships"
-				heading="Play More, Pay Less"
-				subtitle="One family membership pays for itself in just 2 visits — plus unlimited access to exhibits, members-only hours, and more for a full year."
+				heading="Unlimited Play. Endless Memories."
+				subtitle="Give your family year-round access to Atlanta's favorite children's museum — plus exclusive perks, early hours, and endless fun."
 				ctas={[
-					{ label: "Become a Member", href: "#membership", variant: "orange" },
-					{ label: "Buy Tickets", href: "#tickets", variant: "teal-outline" },
+					{ label: "Become a Member Today", href: "https://www.childrensmuseumatlanta.org/memberships/", variant: "orange" },
+					{ label: "Membership Information", href: "#membership", variant: "teal-outline" },
 				]}
 				showHoursWidget={false}
 			/>
 
+			<MembershipSavingsCalculator />
 			<MembershipPricing />
-			<AdmissionPricing />
-			<Testimonials />
-			<PYVCallout />
+
+			<Testimonials heading="What Families Are Saying" showWave={false} />
+
+			<PYVCallout
+				eyebrow="memberships"
+				heading="Membership Information"
+				body="Your generosity helps us bring the power of play to over 180,000 children and families each year. Whether you give once or make an ongoing commitment, every gift makes a meaningful difference in the lives of Atlanta's children."
+				cta={{ label: "Membership Information", href: "https://www.childrensmuseumatlanta.org/memberships/" }}
+				bg="bg-cma-teal-dark"
+				showCountdown={false}
+			/>
+
 			<PowerOfPlayMarquee />
 			<Footer />
 		</div>

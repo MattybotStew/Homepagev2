@@ -18,7 +18,7 @@ export const givingCircles: Program[] = [
 			{ id: "overview", label: "Overview" },
 			{ id: "details", label: "Event Details" },
 			{ id: "sponsorship", label: "Sponsorship" },
-			{ id: "related", label: "Other Ways to Give" },
+			{ id: "related", label: "Other Ways to Give", href: "/support" },
 		] satisfies SidebarSection[],
 		paragraphs: [
 			"The Imagination Ball is the Children's Museum of Atlanta's signature annual gala — an elegant evening of dinner, entertainment, and celebration of the power of play. Every year, hundreds of Atlanta's most dedicated community leaders gather to raise critical funds that support CMA's mission to bring hands-on learning to all children.",
@@ -37,7 +37,7 @@ export const givingCircles: Program[] = [
 			{ id: "overview", label: "Overview" },
 			{ id: "details", label: "Tournament Details" },
 			{ id: "sponsorship", label: "Sponsorship" },
-			{ id: "related", label: "Other Ways to Give" },
+			{ id: "related", label: "Other Ways to Give", href: "/support" },
 		] satisfies SidebarSection[],
 		paragraphs: [
 			"Tournament For Play is CMA's annual golf tournament — a fun-filled day on the course that doubles as one of our most impactful fundraising events. Golfers of all skill levels are welcome to participate while supporting Atlanta's children through the power of play.",
@@ -56,7 +56,7 @@ export const givingCircles: Program[] = [
 			{ id: "overview", label: "Overview" },
 			{ id: "benefits", label: "Member Benefits" },
 			{ id: "join", label: "How to Join" },
-			{ id: "related", label: "Other Ways to Give" },
+			{ id: "related", label: "Other Ways to Give", href: "/support" },
 		] satisfies SidebarSection[],
 		paragraphs: [
 			"The CMA Young Professionals giving circle connects Atlanta's emerging leaders with the Museum's mission in a meaningful and social way. Members enjoy exclusive behind-the-scenes access, networking events, and the satisfaction of knowing their support is shaping the next generation.",
@@ -75,7 +75,7 @@ export const givingCircles: Program[] = [
 			{ id: "overview", label: "Overview" },
 			{ id: "impact", label: "Your Impact" },
 			{ id: "join", label: "How to Join" },
-			{ id: "related", label: "Other Ways to Give" },
+			{ id: "related", label: "Other Ways to Give", href: "/support" },
 		] satisfies SidebarSection[],
 		paragraphs: [
 			"Dream Builders is CMA's highest-level giving circle, bringing together visionary donors whose transformational gifts make our boldest programs possible. Members at the $10,000+ annual level receive personalized recognition, dedicated stewardship, and invitations to exclusive leadership events with CMA's executive team.",
