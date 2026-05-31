@@ -32,7 +32,7 @@ export const allEvents: EventItem[] = [
 		badge: "August 1–31, 2026 • Ages: 1–8",
 		title: "Members-Only Hour",
 		description:
-			"Members enjoy exclusive early access every day in August. Explore your favorite exhibits before doors open to the public.",
+			"The first hour of play from 9:00 AM – 10:00 AM is reserved exclusively for our Members on weekdays: Monday, Tuesday, Thursday and Friday.",
 		categories: ["Featured", "Members-Only"],
 		paragraphs: [
 			"Every day in August, CMA members get a head start on the fun. Members-Only Hour runs from 9–10am daily, giving member families a full hour of quiet, crowd-free access to all exhibits before general admission opens. It's the best way to get more out of every visit.",
@@ -45,7 +45,7 @@ export const allEvents: EventItem[] = [
 		badge: "September 5–6, 2026 • Ages: 4–8",
 		title: "TinyCON®",
 		description:
-			"A kid-sized comic convention celebrating imagination, creativity, and pop culture. Costumes encouraged — all ages welcome!",
+			"A con just for kids! Held annually on Labor Day weekend, TinyCON® is a multi-day celebration of fantasy, science fiction, and your favorite fictional universes!",
 		categories: ["Featured", "Special Events"],
 		paragraphs: [
 			"TinyCON® is the Children's Museum of Atlanta's annual celebration of all things playful, creative, and pop culture. This two-day event transforms the museum into a mini convention floor — complete with cosplay contests, character meet-and-greets, artist tables, panel-style storytimes, and hands-on activities inspired by beloved books, shows, and games.",
@@ -56,9 +56,9 @@ export const allEvents: EventItem[] = [
 		slug: "gabbys-dollhouse",
 		image: imgA,
 		badge: "October 9–11, 2026 • Ages: 4–8",
-		title: "Gabby's Dollhouse",
+		title: "Gabby's Dollhouse MEOWseum Discovery Days",
 		description:
-			"Step inside Gabby's Dollhouse for a magical weekend of creativity and play inspired by the beloved Netflix series.",
+			"Join us for a purr-fectly fun day with Gabby's Dollhouse MEOWseum Discovery Days! Families will have the chance to meet and snap a photo with the beloved costumed character Gabby, of Gabby's Dollhouse!",
 		categories: ["Special Events", "Seasonal"],
 		paragraphs: [
 			"Join Gabby and the CatRat crew for a magical three-day pop-up weekend at the Children's Museum! Inspired by the beloved Netflix series Gabby's Dollhouse, this event brings the colorful, crafty world of the show to life with themed play stations, art-making, character activities, and surprise appearances.",
@@ -71,7 +71,7 @@ export const allEvents: EventItem[] = [
 		badge: "October 24, 2026 • Ages: 4–8",
 		title: "Trick-Or-Treat",
 		description:
-			"Bring your little ghouls and goblins for a safe, indoor Halloween treat trail through the museum. Costumes required, candy guaranteed.",
+			"Spooktacular family fun! Pull on your costume for trick-or-treating and fang-tastically fun hands-on play. With a live DJ, candy galore, and more! Trick-or-Treat at the Museum is always a ghoulishly good time!",
 		categories: ["Featured", "Seasonal"],
 		paragraphs: [
 			"Trick-or-Treat at the Children's Museum is the safest, most fun Halloween experience in Atlanta. On October 24th, the museum transforms into a candy trail — with treat stations at every exhibit, educator-led Halloween activities, and a costume parade that kids and caregivers will talk about all year.",
@@ -84,7 +84,7 @@ export const allEvents: EventItem[] = [
 		badge: "December 31, 2026 • Ages: 4–8",
 		title: "Bubble Bash",
 		description:
-			"Ring in the New Year early with our family-friendly countdown celebration featuring giant bubbles, dancing, and a noon confetti drop!",
+			"Join us for a special kid-friendly New Year's countdown! We'll laugh, dance, play games, and more. Enjoy music from our DJ, hands-on fun, and ring in the new year with our yearly bubble-wrap-popping tradition!",
 		categories: ["Featured", "Special Events"],
 		paragraphs: [
 			"No need to stay up until midnight — Bubble Bash is New Year's Eve done right for families. Join us on December 31st for an afternoon of giant bubbles, dancing, silly string stations, and our signature noon-o'clock confetti drop that counts down to the new year at a very reasonable hour.",
@@ -97,7 +97,7 @@ export const allEvents: EventItem[] = [
 		badge: "September 7, 2026 • Building Blocks",
 		title: "Artsy Mondays",
 		description:
-			"Dive into open-ended art-making every Monday as part of our Building Blocks series. Drop in anytime during museum hours.",
+			"Let's get artsy! Join us in the Art Studio for a fun artsy craft on Mondays.",
 		categories: ["Workshops", "This Week"],
 		paragraphs: [
 			"Artsy Mondays is part of the Building Blocks series — a rotating weekly programming schedule at the Children's Museum designed to give families a new reason to visit every week. On Mondays, our art educators set up open-ended art-making stations throughout the museum with rotating materials and prompts.",

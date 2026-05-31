@@ -110,7 +110,7 @@ export default function AboutJoinTeam() {
 							Contact HR
 						</a>
 						<a
-							href="#volunteer"
+							onClick={() => document.getElementById("volunteer")?.scrollIntoView({ behavior: "smooth" })}
 							className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black"
 						>
 							Volunteer

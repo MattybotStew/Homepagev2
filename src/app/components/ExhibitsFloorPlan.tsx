@@ -98,7 +98,7 @@ export default function ExhibitsFloorPlan() {
 					</h2>
 					<p className="text-cma-navy max-w-[560px]">
 						Check out the Museum's current and upcoming featured exhibits!{" "}
-						<a href="#exhibits" className="cma-text-link">
+						<a onClick={() => document.getElementById("exhibits")?.scrollIntoView({ behavior: "smooth" })} className="cma-text-link">
 							Click below for more info.
 						</a>
 					</p>

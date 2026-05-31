@@ -160,13 +160,13 @@ export default function ImpactPage() {
 						</p>
 						<div className="flex flex-col sm:flex-row gap-3 mt-2">
 							<a
-								href="#programs"
+								onClick={() => document.getElementById("programs")?.scrollIntoView({ behavior: "smooth" })}
 								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 							>
 								Our Impact
 							</a>
 							<a
-								href="#annual-report"
+								onClick={() => document.getElementById("annual-report")?.scrollIntoView({ behavior: "smooth" })}
 								className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black"
 							>
 								Annual Report

@@ -185,7 +185,7 @@ export default function PlanYourVisitFAQs({
 								Got questions? We've got answers! Find everything you need to
 								know about visiting our museum.
 							</p>
-							<a href="#contact" className="cma-text-link">
+							<a onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })} className="cma-text-link">
 								Contact Us{" "}
 								<FontAwesomeIcon icon={faArrowRight} className="text-[11px]" />
 							</a>

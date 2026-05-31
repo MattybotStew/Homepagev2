@@ -56,7 +56,7 @@ export default function NewsPage() {
 						</p>
 						<div className="flex flex-col sm:flex-row gap-3">
 							<a
-								href="#articles-grid"
+								onClick={() => document.getElementById("articles-grid")?.scrollIntoView({ behavior: "smooth" })}
 								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 							>
 								Browse Articles

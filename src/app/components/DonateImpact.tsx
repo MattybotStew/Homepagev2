@@ -105,7 +105,7 @@ export default function DonateImpact() {
 						Donate Now
 					</a>
 					<a
-						href="#ways-to-give"
+						onClick={() => document.getElementById("ways-to-give")?.scrollIntoView({ behavior: "smooth" })}
 						className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black"
 					>
 						Ways to Give

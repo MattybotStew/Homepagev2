@@ -116,13 +116,13 @@ export default function CareersPage() {
 						</p>
 						<div className="flex flex-col sm:flex-row gap-3">
 							<a
-								href="#careers"
+								onClick={() => document.getElementById("careers")?.scrollIntoView({ behavior: "smooth" })}
 								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 							>
 								View Open Positions
 							</a>
 							<a
-								href="#volunteer"
+								onClick={() => document.getElementById("volunteer")?.scrollIntoView({ behavior: "smooth" })}
 								className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black"
 							>
 								Volunteer
