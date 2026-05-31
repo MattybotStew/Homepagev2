@@ -250,11 +250,17 @@ export default function Footer() {
 			{/* Bottom Section - Copyright & Social */}
 			<div className="bg-cma-navy px-5 md:px-12 lg:px-[71.5px] py-8 md:py-10">
 				<div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-					{/* Copyright */}
-					<p className="text-white text-[15px]">
-						Copyright © 2026 Children's Museum of Atlanta · Children's Museum of
-						Atlanta is a 501(c)(3) organization [EIN 58-1785484]
-					</p>
+					{/* Copyright + legal links */}
+					<div className="flex flex-col gap-[8px]">
+						<p className="text-white text-[15px]">
+							Copyright © 2026 Children's Museum of Atlanta · Children's Museum of
+							Atlanta is a 501(c)(3) organization [EIN 58-1785484]
+						</p>
+						<div className="flex gap-[16px]">
+							<a href="#/privacy" className="text-white/50 text-[13px] hover:text-white transition-colors">Privacy Policy</a>
+							<a href="#/terms" className="text-white/50 text-[13px] hover:text-white transition-colors">Terms of Use</a>
+						</div>
+					</div>
 
 					{/* Social Icons */}
 					<div className="flex items-center gap-4 shrink-0">

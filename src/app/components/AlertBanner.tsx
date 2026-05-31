@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Frame174 from "../../imports/Frame174";
 import svgPaths from "../../imports/svg-akfmgxmoo7";
 
@@ -88,6 +89,7 @@ function CompassIcon() {
 }
 
 export default function AlertBanner() {
+	const navigate = useNavigate();
 	return (
 		<div className="fixed top-0 left-0 right-0 z-50 bg-cma-navy w-full">
 			<div className="flex items-center justify-between px-[16px] sm:px-[20px] md:px-[24px] lg:px-[32px] py-[8px] sm:py-[10px] w-full">
@@ -113,7 +115,9 @@ export default function AlertBanner() {
 				<div className="flex items-center gap-[8px] sm:gap-[12px]">
 					<p className="hidden lg:block cma-alert-text">Membership Portal</p>
 					<div className="flex items-center gap-[8px]">
-						<SearchIcon />
+						<button onClick={() => navigate("/search")} aria-label="Search" className="hover:opacity-80 transition-opacity">
+							<SearchIcon />
+						</button>
 						<CompassIcon />
 					</div>
 				</div>

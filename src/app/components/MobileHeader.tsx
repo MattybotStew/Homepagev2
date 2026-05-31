@@ -133,7 +133,9 @@ export default function MobileHeader() {
 					<div className="flex items-center">
 						{/* Buy Tickets */}
 						<a
-							href="#/plan-your-visit"
+							href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf"
+							target="_blank"
+							rel="noopener noreferrer"
 							className="bg-cma-navy text-white font-black text-[12px] leading-[1.5] rounded-[1000px] px-[17px] py-[12px] shadow-cma-btn hover:bg-cma-navy-dark transition-colors whitespace-nowrap"
 						>
 							Buy Tickets
@@ -292,7 +294,9 @@ export default function MobileHeader() {
 									Memberships
 								</a>
 								<a
-									href="#tickets"
+									href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf"
+									target="_blank"
+									rel="noopener noreferrer"
 									onClick={() => setMenuOpen(false)}
 									className="bg-cma-navy text-white font-black text-[16px] rounded-lg px-6 py-3 min-h-[52px] flex items-center justify-center hover:opacity-90 transition-colors"
 								>

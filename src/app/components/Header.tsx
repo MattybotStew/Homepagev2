@@ -322,7 +322,9 @@ export default function Header() {
 							</p>
 						</a>
 						<a
-							href="#/book-your-visit"
+							href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf"
+							target="_blank"
+							rel="noopener noreferrer"
 							className="bg-cma-navy flex items-center justify-center px-[16px] py-[12px] rounded-full shadow-cma-btn shrink-0 hover:bg-cma-navy-dark transition-colors"
 						>
 							<p className="font-black leading-[1.5] shrink-0 text-[12px] text-white whitespace-nowrap">
@@ -355,7 +357,9 @@ export default function Header() {
 							</p>
 						</a>
 						<a
-							href="#/book-your-visit"
+							href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf"
+							target="_blank"
+							rel="noopener noreferrer"
 							className="bg-cma-navy flex items-center justify-center px-[12px] py-[8px] rounded-full shadow-cma-btn shrink-0 hover:bg-cma-navy-dark transition-colors"
 						>
 							<p className="font-black leading-[1.5] shrink-0 text-[10px] text-white whitespace-nowrap">
@@ -488,7 +492,9 @@ export default function Header() {
 								<p className="font-black text-[14px] text-white">Memberships</p>
 							</a>
 							<a
-								href="#/book-your-visit"
+								href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf"
+								target="_blank"
+								rel="noopener noreferrer"
 								className="bg-cma-blue-mid px-4 py-3 rounded-full w-full hover:bg-[#2a4d76] transition-colors flex items-center justify-center"
 							>
 								<p className="font-black text-[14px] text-white">Buy Tickets</p>

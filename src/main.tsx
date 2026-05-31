@@ -28,6 +28,11 @@ const CorporatePartnerPage = lazy(() => import("./app/pages/CorporatePartnerPage
 const DonorRecognitionPage = lazy(() => import("./app/pages/DonorRecognitionPage.tsx"));
 const GivingCirclePage = lazy(() => import("./app/pages/GivingCirclePage.tsx"));
 const ContactPage = lazy(() => import("./app/pages/ContactPage.tsx"));
+const NotFoundPage = lazy(() => import("./app/pages/NotFoundPage.tsx"));
+const PrivacyPage = lazy(() => import("./app/pages/PrivacyPage.tsx"));
+const TermsPage = lazy(() => import("./app/pages/TermsPage.tsx"));
+const SearchPage = lazy(() => import("./app/pages/SearchPage.tsx"));
+const StyleguidePage = lazy(() => import("./app/pages/StyleguidePage.tsx"));
 
 // Preload helper - loads module in background without blocking
 const preloadPage = (importFn: Promise<any>) => {
@@ -108,7 +113,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/plan-your-visit" element={<PlanYourVisitPage />} />
           <Route path="/museum-store" element={<MuseumStorePage />} />
           <Route path="/exhibits" element={<ExhibitsPage />} />
-          <Route path="/article" element={<ArticlePage />} />
+          <Route path="/news/:slug" element={<ArticlePage />} />
           <Route path="/exhibits/:slug" element={<ExhibitPage />} />
           <Route path="/educators" element={<EducatorsPage />} />
           <Route path="/program/:slug" element={<ProgramPage />} />
@@ -129,6 +134,11 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/support/donor-recognition" element={<DonorRecognitionPage />} />
           <Route path="/giving-circles/:slug" element={<GivingCirclePage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/styleguide" element={<StyleguidePage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
     </HashRouter>

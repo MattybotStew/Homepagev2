@@ -10,9 +10,142 @@ export type ArticleItem = {
 	description: string;
 	categories: string[];
 	paragraphs: string[];
+	content?: string; // HTML string — used when rendering WordPress post content
+	author?: string;
 };
 
 export const allArticles: ArticleItem[] = [
+	{
+		slug: "the-science-of-play",
+		image: imgA,
+		badge: "Education • June 1, 2026",
+		title: "The Science of Play: Why Every Child Needs Time to Be Bored, Build, and Discover",
+		description:
+			"From drop caps to data tables — a deep dive into how unstructured play shapes the developing brain, with insights from neuroscience, developmental psychology, and 20 years of programming at CMA.",
+		categories: ["Featured", "Education", "Research"],
+		author: "Dr. Maya Chen, Director of Education",
+		paragraphs: [],
+		content: `
+<p class="intro">Play is not the opposite of learning. It <em>is</em> learning — and the neuroscience behind it is more compelling than anything a worksheet can offer. This post explores the research, the practice, and the everyday moments that make Children's Museum of Atlanta one of the most evidence-based play environments in the Southeast.</p>
+
+<h2>Why the Brain Needs Play</h2>
+
+<p>When a child stacks blocks, they are not just having fun. They are rehearsing physics, negotiating spatial relationships, and practising the kind of hypothesis-testing that drives scientific thinking. <strong>Executive function — the cluster of skills that includes working memory, flexible thinking, and self-control — develops most rapidly during free play</strong>, not during directed instruction.</p>
+
+<p>Dr. Stuart Brown, founder of the National Institute for Play, has spent four decades documenting what happens when play is removed from childhood. His findings are stark: children who are denied sufficient play time show measurable deficits in empathy, resilience, and the capacity for joy. These are not soft outcomes. They are predictors of lifelong health, academic achievement, and workplace success.</p>
+
+<blockquote>
+	<p>The opposite of play is not work — it is depression.</p>
+	<cite>Dr. Stuart Brown, National Institute for Play</cite>
+</blockquote>
+
+<h2>Three Types of Play Every Child Needs</h2>
+
+<p>Not all play is created equal. Developmental research consistently identifies three distinct modes, each serving a different neurological function:</p>
+
+<ol>
+	<li><strong>Solitary / exploratory play</strong> — A child alone with an open-ended material. This is where intrinsic motivation is born. The child sets the agenda, the pace, and the criteria for success.</li>
+	<li><strong>Parallel play</strong> — Children playing alongside each other without explicit collaboration. This is how young children observe, compare, and begin to develop the social awareness that cooperative play requires.</li>
+	<li><strong>Cooperative play</strong> — The full expression: shared goals, negotiated rules, distributed roles. This is where language acquisition accelerates, conflict resolution skills are practised, and genuine friendships form.</li>
+</ol>
+
+<p>At CMA, every exhibit is intentionally designed to support all three modes simultaneously. A child can explore WaterWorks alone, observe a sibling, or collaborate on a shared water channel — sometimes within the same five-minute visit.</p>
+
+<h2>What Research Says About Screens and Unstructured Time</h2>
+
+<p>The average American child between ages 8 and 12 now spends <mark>four to six hours per day</mark> in front of screens. This is not an argument against technology — it is an argument for balance. The question researchers are asking is not "are screens bad?" but <em>"what is being displaced when screen time expands?"</em></p>
+
+<p>The answer, in most studies, is outdoor play, imaginative play, and social play — precisely the three categories with the strongest developmental outcomes. The implication for families, schools, and institutions like ours is clear:</p>
+
+<ul>
+	<li>Unstructured time is not wasted time — it is recovery time for the prefrontal cortex</li>
+	<li>Boredom is not a problem to solve — it is a prerequisite for creative thinking</li>
+	<li>Child-led play is not optional enrichment — it is a developmental necessity</li>
+	<li>Adults who resist the urge to over-schedule give children one of the most powerful gifts available</li>
+</ul>
+
+<hr />
+
+<h3>The Role of the Museum Environment</h3>
+
+<p>Museums occupy a unique position in the play landscape. Unlike a playground, which offers physical challenge, or a screen, which offers passive stimulation, a children's museum offers <strong>structured freedom</strong> — an environment that is safe enough for risk-taking, rich enough to sustain curiosity, and open enough to support a child's own agenda.</p>
+
+<p>Consider what happens in our Fundamentally Food exhibit. A child walks in, sees a dozen open-ended stations, and makes a choice. That choice — entirely their own — activates the dopaminergic reward pathways associated with intrinsic motivation. Every subsequent decision compounds the effect. By the end of a twenty-minute session, a child has made hundreds of micro-decisions, each one strengthening the neural architecture of agency.</p>
+
+<div class="pullquote">
+	<p>"Every choice a child makes in a well-designed play environment is a small act of authorship over their own learning."</p>
+</div>
+
+<h3>What Educators Can Do</h3>
+
+<p>For classroom teachers and early childhood educators reading this, the research points toward a few high-leverage practices:</p>
+
+<ul>
+	<li>Increase the ratio of child-initiated to teacher-directed activity, especially in the first hour of the day</li>
+	<li>Introduce open-ended materials — blocks, loose parts, art supplies — and step back
+		<ul>
+			<li>Resist the urge to show children the "right" way to use a material</li>
+			<li>Ask questions instead: <em>"What happens if you add more water?"</em></li>
+		</ul>
+	</li>
+	<li>Protect recess — it is not a reward, it is a neurological requirement</li>
+	<li>Observe and document what children do during free play — the data will surprise you</li>
+</ul>
+
+<h2>Measuring What Matters</h2>
+
+<p>One of the persistent challenges in play advocacy is measurement. How do you put a number on curiosity? How do you quantify the moment a child discovers that they can make a ramp longer and the ball will go faster? These are real outcomes — and they are genuinely difficult to standardise.</p>
+
+<p>At CMA, we use a combination of visitor observation protocols, educator feedback surveys, and longitudinal partnership studies with Atlanta Public Schools to track what we call <strong>the four indicators of deep engagement</strong>:</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>Indicator</th>
+			<th>What We Observe</th>
+			<th>Why It Matters</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Sustained attention</td>
+			<td>Child returns to the same activity 3+ times</td>
+			<td>Correlates with executive function development</td>
+		</tr>
+		<tr>
+			<td>Self-correction</td>
+			<td>Child modifies approach after failure without adult prompt</td>
+			<td>Early indicator of growth mindset</td>
+		</tr>
+		<tr>
+			<td>Peer invitation</td>
+			<td>Child invites another to join or observe</td>
+			<td>Foundation of collaborative learning</td>
+		</tr>
+		<tr>
+			<td>Verbalisation</td>
+			<td>Child narrates their actions or asks questions</td>
+			<td>Strongest single predictor of vocabulary growth</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>How You Can Bring This Home</h2>
+
+<p>You do not need a museum to give your child the benefits of play. Here is what the research says makes the biggest difference at home:</p>
+
+<ol>
+	<li><strong>Create a yes space.</strong> Designate one area where the child can use materials without asking permission — paint, clay, scissors, tape. The reduced friction dramatically increases creative output.</li>
+	<li><strong>Follow, don't lead.</strong> When your child is playing, ask what they are doing rather than suggesting what to do next. Your job is narrator, not director.</li>
+	<li><strong>Let them be bored.</strong> The discomfort of boredom lasts about twelve minutes before a child finds something to do. Those twelve minutes are where some of the best play begins.</li>
+	<li><strong>Play alongside them.</strong> Not directing — playing. Build your own tower. Make your own drawing. Model what it looks like to be absorbed in something for its own sake.</li>
+	<li><strong>Protect the time.</strong> Unscheduled time is the rarest resource in a modern childhood. Guard it as fiercely as you would any appointment.</li>
+	<li><strong>Visit us.</strong> We will be here — with water tables, building stations, science stages, and a team of educators who believe, with every research finding they have ever read, that play is the most serious work a child can do.</li>
+</ol>
+
+<p>The science is settled. The practice is yours to build. And if you need a place to start, we know just the spot.</p>
+		`,
+	},
 	{
 		slug: "why-play-matters",
 		image: imgA,
