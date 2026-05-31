@@ -55,10 +55,12 @@ export default function EducatorsImpact() {
 								Making an Impact Together
 							</h2>
 							<p className="text-cma-blue-light text-[clamp(15px,1.25vw,18px)] leading-[1.7]">
-								At CMA, we're more than a museum — we're a nonprofit dedicated
-								to sparking curiosity in every child. We rely on supporters to
-								keep inspiring over 100,000 young minds annually through
-								interactive programs and community outreach.
+								Every child deserves the chance to discover, imagine, and grow
+								through the power of play. Too many children in Atlanta face
+								barriers that limit their access to enriching early learning
+								experiences. Your gift sparks curiosity and builds school-ready
+								kids across our community, reaching over 180,000 guests annually
+								with interactive exhibits, educator training, and access programs.
 							</p>
 						</div>
 

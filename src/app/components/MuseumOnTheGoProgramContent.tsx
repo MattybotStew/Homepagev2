@@ -3,19 +3,14 @@ import {
 	faBook,
 	faBrush,
 	faBus,
-	faBuilding,
 	faCalendar,
-	faCircleInfo,
-	faCircleQuestion,
 	faClock,
-	faClipboard,
 	faFlask,
 	faGlobe,
-	faGraduationCap,
 	faMinus,
-	faPaperPlane,
 	faPhone,
 	faPlus,
+	faRocket,
 	faStar,
 	faUsers,
 } from "@fortawesome/free-solid-svg-icons";
@@ -32,13 +27,13 @@ import imgSummer from "../../assets/exhibits-summer-hero.jpg";
 // ── Data ────────────────────────────────────────────────────────────────────
 
 const sections = [
-	{ id: "overview", label: "Overview", icon: faCircleInfo },
-	{ id: "program-details", label: "Program Details", icon: faClipboard },
-	{ id: "learning-zones", label: "Our Programs", icon: faStar },
-	{ id: "educational-standards", label: "Educational Standards", icon: faGraduationCap },
-	{ id: "featured-exhibits", label: "Featured Exhibits", icon: faBuilding },
-	{ id: "faqs", label: "FAQs", icon: faCircleQuestion },
-	{ id: "request-visit", label: "Request Visit", icon: faPaperPlane },
+	{ id: "overview", label: "Overview" },
+	{ id: "program-details", label: "Program Details" },
+	{ id: "learning-zones", label: "Our Programs" },
+	{ id: "educational-standards", label: "Educational Standards" },
+	{ id: "featured-exhibits", label: "Featured Exhibits" },
+	{ id: "faqs", label: "FAQs" },
+	{ id: "request-visit", label: "Request Visit" },
 ];
 
 const programIncludes = [
@@ -80,6 +75,7 @@ const programDetails = [
 const programTiers = [
 	{
 		label: "Crafted For Littles",
+		icon: faStar,
 		ages: "Ages 2–4",
 		price: "$250",
 		subtitle: "$250 for up to 25 children.",
@@ -91,6 +87,7 @@ const programTiers = [
 	},
 	{
 		label: "Made for Curious Minds",
+		icon: faFlask,
 		ages: "PreK–3rd Grade",
 		price: "$275",
 		subtitle: "$275 for up to 25 children.",
@@ -110,6 +107,7 @@ const programTiers = [
 	},
 	{
 		label: "Igniting Young Innovators",
+		icon: faRocket,
 		ages: "4th–5th Grade",
 		price: "$300",
 		subtitle: "$300 for up to 25 children.",
@@ -336,9 +334,8 @@ export default function MuseumOnTheGoProgramContent() {
 											: "text-cma-navy/45 hover:text-cma-navy hover:bg-cma-navy/5"
 									}`}
 								>
-									<FontAwesomeIcon
-										icon={section.icon}
-										className={`w-[13px] text-[12px] shrink-0 transition-colors ${activeSection === section.id ? "text-cma-orange" : "text-cma-navy/25"}`}
+									<span
+										className={`w-[6px] h-[6px] rounded-full shrink-0 transition-colors ${activeSection === section.id ? "bg-cma-orange" : "bg-cma-navy/20"}`}
 									/>
 									{section.label}
 								</button>
@@ -500,9 +497,17 @@ export default function MuseumOnTheGoProgramContent() {
 												onClick={() => setOpenTier(openTier === i ? null : i)}
 												className="w-full flex items-center justify-between py-[18px] text-left gap-[16px]"
 											>
-												<div className="flex flex-col gap-[2px]">
-													<span className="font-extrabold text-cma-navy">{tier.label}</span>
-													<span className="text-[13px] text-cma-navy/50">{tier.ages} · {tier.subtitle}</span>
+												<div className="flex items-center gap-[12px]">
+													<div className="w-[34px] h-[34px] rounded-full shrink-0 flex items-center justify-center bg-cma-orange/10">
+														<FontAwesomeIcon
+															icon={tier.icon}
+															className="text-cma-orange text-[14px]"
+														/>
+													</div>
+													<div className="flex flex-col gap-[2px]">
+														<span className="font-extrabold text-cma-navy">{tier.label}</span>
+														<span className="text-[13px] text-cma-navy/50">{tier.ages} · {tier.subtitle}</span>
+													</div>
 												</div>
 												<FontAwesomeIcon
 													icon={openTier === i ? faMinus : faPlus}

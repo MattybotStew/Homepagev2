@@ -1,11 +1,6 @@
 import {
 	faArrowRight,
-	faCalendar,
-	faCircleInfo,
 	faClock,
-	faClipboard,
-	faMoon,
-	faNewspaper,
 	faStar,
 	faTag,
 	faUsers,
@@ -19,12 +14,12 @@ import imgHero from "../../assets/educators-img-2.webp";
 // ── Data ────────────────────────────────────────────────────────────────────
 
 const sections = [
-	{ id: "overview", label: "Overview", icon: faCircleInfo },
-	{ id: "workshop-weekends", label: "Workshop Weekends", icon: faCalendar },
-	{ id: "on-demand", label: "On-Demand Workshops", icon: faClock },
-	{ id: "workshop-details", label: "Workshop Details", icon: faClipboard },
-	{ id: "sleepover", label: "Girl Scout Sleepover", icon: faMoon },
-	{ id: "newsletter", label: "Scout Newsletter", icon: faNewspaper },
+	{ id: "overview", label: "Overview" },
+	{ id: "workshop-weekends", label: "Workshop Weekends" },
+	{ id: "on-demand", label: "On-Demand Workshops" },
+	{ id: "workshop-details", label: "Workshop Details" },
+	{ id: "sleepover", label: "Girl Scout Sleepover" },
+	{ id: "newsletter", label: "Scout Newsletter" },
 ];
 
 const workshopWeekends = [
@@ -196,9 +191,8 @@ export default function ScoutsProgramContent() {
 											: "text-cma-navy/45 hover:text-cma-navy hover:bg-cma-navy/5"
 									}`}
 								>
-									<FontAwesomeIcon
-										icon={section.icon}
-										className={`w-[13px] text-[12px] shrink-0 transition-colors ${activeSection === section.id ? "text-cma-orange" : "text-cma-navy/25"}`}
+									<span
+										className={`w-[6px] h-[6px] rounded-full shrink-0 transition-colors ${activeSection === section.id ? "bg-cma-orange" : "bg-cma-navy/20"}`}
 									/>
 									{section.label}
 								</button>

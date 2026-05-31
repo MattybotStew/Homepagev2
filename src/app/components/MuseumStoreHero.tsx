@@ -39,20 +39,6 @@ export default function MuseumStoreHero() {
 							Hours Of Operation: Monday-Sunday: 10:00 AM - 5:00 PM
 						</p>
 					</div>
-					<div className="flex flex-col sm:flex-row gap-3 mt-2">
-						<a
-							onClick={() => document.getElementById("education")?.scrollIntoView({ behavior: "smooth" })}
-							className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark"
-						>
-							Education at the Museum
-						</a>
-						<a
-							onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-							className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white"
-						>
-							Connect with Our Team
-						</a>
-					</div>
 				</motion.div>
 			</div>
 		</section>
