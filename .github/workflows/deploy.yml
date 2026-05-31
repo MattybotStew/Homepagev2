@@ -5,6 +5,10 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# ADD THIS ENVIRONMENT VARIABLE AT THE TOP LEVEL
+env:
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+
 permissions:
   contents: read
   pages: write
@@ -21,7 +25,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 20 # Keep this as 20 for now
           cache: npm
       - run: npm ci
       - run: npm run build
