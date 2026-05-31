@@ -122,27 +122,27 @@ export default function Footer() {
 						<h3 className="cma-footer-heading">VISIT</h3>
 						<ul className="flex flex-col gap-3">
 							<li>
-								<a href="#/plan-your-visit" className="cma-footer-link">
+								<a href="#/plan-your-visit?tab=hours" className="cma-footer-link">
 									Hours & Admission
 								</a>
 							</li>
 							<li>
-								<a href="#/book-your-visit" className="cma-footer-link">
+								<a href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf" target="_blank" rel="noopener noreferrer" className="cma-footer-link">
 									Buy Tickets
 								</a>
 							</li>
 							<li>
-								<a href="#/plan-your-visit" className="cma-footer-link">
+								<a href="#/plan-your-visit?tab=parking" className="cma-footer-link">
 									Directions & Parking
 								</a>
 							</li>
 							<li>
-								<a href="#/plan-your-visit" className="cma-footer-link">
+								<a href="#/plan-your-visit?tab=amenities" className="cma-footer-link">
 									Food & Amenities
 								</a>
 							</li>
 							<li>
-								<a href="#/plan-your-visit" className="cma-footer-link">
+								<a href="#/plan-your-visit?tab=accessibility" className="cma-footer-link">
 									Accessibility
 								</a>
 							</li>
@@ -169,7 +169,7 @@ export default function Footer() {
 								</a>
 							</li>
 							<li>
-								<a href="#/book-your-visit" className="cma-footer-link">
+								<a href="#/contact#department-contacts" className="cma-footer-link">
 									Birthday Parties
 								</a>
 							</li>
@@ -196,7 +196,7 @@ export default function Footer() {
 						<h3 className="cma-footer-heading">SUPPORT</h3>
 						<ul className="flex flex-col gap-3">
 							<li>
-								<a href="#/memberships" className="cma-footer-link">
+								<a href="#/memberships/information" className="cma-footer-link">
 									Memberships
 								</a>
 							</li>

@@ -107,7 +107,7 @@ export default function AboutHero() {
 							}}
 						>
 							<a
-								href="#/book-your-visit"
+								href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf"
 								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 							>
 								Buy Tickets

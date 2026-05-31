@@ -5,7 +5,8 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const regularHours = [
 	{ day: "Monday", hours: "10:00 AM – 3:30 PM" },
@@ -59,6 +60,15 @@ const navItems = [
 	"Safety & Cleanliness",
 	"Accessibility",
 ];
+
+const tabSlugs: Record<string, string> = {
+	hours: "Hours & Address",
+	parking: "Location, Parking & Directions",
+	bring: "What to Bring",
+	amenities: "Food & Amenities",
+	safety: "Safety & Cleanliness",
+	accessibility: "Accessibility",
+};
 
 function TabContent({ item }: { item: string }) {
 	if (item === "Hours & Address") {
@@ -143,14 +153,14 @@ function TabContent({ item }: { item: string }) {
 				{/* CTAs */}
 				<div className="flex flex-col sm:flex-row gap-3">
 					<a
-						href="#/book-your-visit"
+						href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf" target="_blank" rel="noopener noreferrer"
 						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 					>
 						Buy Tickets
 					</a>
 					<a
 						href="#parking"
-						className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black"
+						className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
 					>
 						Parking Guide
 					</a>
@@ -290,8 +300,8 @@ function TabContent({ item }: { item: string }) {
 						Get Directions
 					</a>
 					<a
-						href="#/book-your-visit"
-						className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black"
+						href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf" target="_blank" rel="noopener noreferrer"
+						className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
 					>
 						Buy Tickets
 					</a>
@@ -327,14 +337,14 @@ function TabContent({ item }: { item: string }) {
 				</ul>
 				<div className="flex flex-col sm:flex-row gap-3">
 					<a
-						href="#/book-your-visit"
+						href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf" target="_blank" rel="noopener noreferrer"
 						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 					>
 						Buy Tickets
 					</a>
 					<a
 						href="#/plan-your-visit"
-						className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black"
+						className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
 					>
 						Plan Your Visit
 					</a>
@@ -387,14 +397,14 @@ function TabContent({ item }: { item: string }) {
 				</div>
 				<div className="flex flex-col sm:flex-row gap-3">
 					<a
-						href="#/book-your-visit"
+						href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf" target="_blank" rel="noopener noreferrer"
 						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 					>
 						Buy Tickets
 					</a>
 					<a
 						href="#/museum-store"
-						className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black"
+						className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
 					>
 						Visit the Museum Store
 					</a>
@@ -441,14 +451,14 @@ function TabContent({ item }: { item: string }) {
 				</p>
 				<div className="flex flex-col sm:flex-row gap-3">
 					<a
-						href="#/book-your-visit"
+						href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf" target="_blank" rel="noopener noreferrer"
 						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 					>
 						Buy Tickets
 					</a>
 					<a
 						href="#/plan-your-visit"
-						className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black"
+						className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
 					>
 						Plan Your Visit
 					</a>
@@ -499,14 +509,14 @@ function TabContent({ item }: { item: string }) {
 				</p>
 				<div className="flex flex-col sm:flex-row gap-3">
 					<a
-						href="#/book-your-visit"
+						href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf" target="_blank" rel="noopener noreferrer"
 						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 					>
 						Buy Tickets
 					</a>
 					<a
 						href="tel:4046595437"
-						className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black"
+						className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
 					>
 						Contact Us
 					</a>
@@ -519,7 +529,17 @@ function TabContent({ item }: { item: string }) {
 }
 
 export default function PlanTabs() {
-	const [active, setActive] = useState(navItems[0]);
+	const [searchParams] = useSearchParams();
+	const [active, setActive] = useState(() => {
+		const slug = searchParams.get("tab");
+		return (slug && tabSlugs[slug]) || navItems[0];
+	});
+
+	useEffect(() => {
+		const slug = searchParams.get("tab");
+		const tab = slug && tabSlugs[slug];
+		if (tab) setActive(tab);
+	}, [searchParams]);
 
 	return (
 		<section id="parking" className="bg-cma-cream w-full py-[80px] md:py-[120px]">

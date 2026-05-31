@@ -139,8 +139,9 @@ export default function BottomCallToAction() {
 						className="flex flex-col sm:flex-row gap-3 md:gap-[12px] w-full sm:w-auto"
 						variants={fadeInUpVariants}
 					>
-						<motion.button
-							className="bg-cma-teal rounded-full shadow-cma-btn px-6 py-4 md:px-[34px] md:py-[22px] hover:bg-cma-teal-dark transition-colors w-full sm:w-auto min-h-[44px]"
+						<motion.a
+							href="#/memberships/information"
+							className="bg-cma-teal rounded-full shadow-cma-btn px-6 py-4 md:px-[34px] md:py-[22px] hover:bg-cma-teal-dark transition-colors w-full sm:w-auto min-h-[44px] flex items-center justify-center"
 							variants={buttonVariants}
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}
@@ -148,9 +149,10 @@ export default function BottomCallToAction() {
 							<p className="font-black text-white text-lg md:text-[24px] whitespace-nowrap">
 								Memberships
 							</p>
-						</motion.button>
-						<motion.button
-							className="bg-white rounded-full shadow-cma-btn px-6 py-4 md:px-[34px] md:py-[22px] hover:bg-gray-50 transition-colors w-full sm:w-auto min-h-[44px]"
+						</motion.a>
+						<motion.a
+							href="#/donate"
+							className="bg-white rounded-full shadow-cma-btn px-6 py-4 md:px-[34px] md:py-[22px] hover:bg-gray-50 transition-colors w-full sm:w-auto min-h-[44px] flex items-center justify-center"
 							variants={buttonVariants}
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}
@@ -158,7 +160,7 @@ export default function BottomCallToAction() {
 							<p className="font-bold text-cma-teal text-lg md:text-[24px] whitespace-nowrap">
 								Donate
 							</p>
-						</motion.button>
+						</motion.a>
 					</motion.div>
 
 					{/* Removed Up Arrow and Decorative Orange Dot - No longer needed */}

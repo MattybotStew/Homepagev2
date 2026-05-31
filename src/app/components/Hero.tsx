@@ -23,7 +23,7 @@ export default function Hero({
 	subtitle = "Welcome to a safe, joyful place where children and caregivers have fun, explore, connect and grow through play.",
 	ctas = [
 		{ label: "Buy Tickets Now", href: "/book-your-visit", variant: "orange" },
-		{ label: "Memberships", href: "#membership", variant: "teal-outline" },
+		{ label: "Memberships", href: "#/memberships/information", variant: "teal-outline" },
 	],
 	showHoursWidget = true,
 }: HeroProps) {

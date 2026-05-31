@@ -8,6 +8,12 @@ export const navLinks: NavLink[] = [
 		subPages: [
 			{ label: "Book Your Visit", href: "#/book-your-visit" },
 			{ label: "Museum Store", href: "#/museum-store" },
+			{ label: "Hours & Address", href: "#/plan-your-visit?tab=hours" },
+			{ label: "Location & Parking", href: "#/plan-your-visit?tab=parking" },
+			{ label: "What to Bring", href: "#/plan-your-visit?tab=bring" },
+			{ label: "Food & Amenities", href: "#/plan-your-visit?tab=amenities" },
+			{ label: "Safety & Cleanliness", href: "#/plan-your-visit?tab=safety" },
+			{ label: "Accessibility", href: "#/plan-your-visit?tab=accessibility" },
 		],
 	},
 	{ label: "Exhibits", href: "#/exhibits" },

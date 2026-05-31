@@ -53,7 +53,7 @@ const cards = [
 		title: "Plan Your Visit",
 		description: "Advance tickets recommended. Preview pricing & book online.",
 		linkLabel: "Buy Now",
-		href: "#tickets",
+		href: "https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf",
 	},
 	{
 		icon: (
@@ -159,7 +159,7 @@ export default function PlanYourVisit() {
 							Buy Tickets
 						</a>
 						<a
-							href="#/memberships"
+							href="#/memberships/information"
 							className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
 						>
 							Memberships
