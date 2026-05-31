@@ -7,7 +7,6 @@
     "dev": "vite",
     "start": "vite",
     "build": "vite build",
-    "build:analyze": "vite build --mode analyze",
     "preview": "vite preview",
     "figma:fetch": "node scripts/fetchFigma.js"
   },
@@ -83,7 +82,6 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
     "glob": "^13.0.6",
-    "rollup-plugin-visualizer": "^7.0.1",
     "sharp": "^0.34.5",
     "tailwindcss": "4.1.12",
     "terser": "^5.48.0",

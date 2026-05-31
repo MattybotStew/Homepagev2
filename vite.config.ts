@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'
 import path from 'path'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
-import { visualizer } from 'rollup-plugin-visualizer'
 
 function figmaAssetResolver() {
   return {
@@ -23,13 +22,6 @@ export default defineConfig({
     figmaAssetResolver(),
     react(),
     tailwindcss(),
-    // Bundle analyzer (run with: npm run build -- --visualizer)
-    visualizer({
-      filename: 'dist/bundle-stats.html',
-      open: false,
-      gzipSize: true,
-      brotliSize: true,
-    }),
   ],
   
   resolve: {
