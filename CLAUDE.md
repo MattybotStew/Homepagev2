@@ -57,8 +57,8 @@ Defined in `theme.css` as `--cma-text-*` custom properties and applied in base e
 
 | Scale | Token | Value | Element |
 |---|---|---|---|
-| XL | `--cma-text-display` | `clamp(34px, 5.9vw, 75px)` | `h1` — 900 weight, 0.9 line-height, -1px tracking |
-| L  | `--cma-text-h2`      | `clamp(28px, 3.75vw, 48px)` | `h2` — 800 weight, 1.0 line-height, -0.02em tracking |
+| XL | `--cma-text-display` | `clamp(34px, 5.9vw, 75px)` | `h1` — 900 weight, 0.95 line-height, -1px tracking |
+| L  | `--cma-text-h2`      | `clamp(28px, 3.75vw, 48px)` | `h2` — 800 weight, 1.1 line-height, -0.02em tracking |
 | M  | `--cma-text-h3`      | `20px` | `h3` — 900 weight, 1.1 line-height |
 | S  | `--cma-text-body`    | `15px` | `p` — 500 weight, 1.65 line-height |
 | EYE | `--cma-text-eye`   | `15px` | `.cma-eyebrow` — 700 weight, 100% line-height, 3.9px letter-spacing, uppercase |
@@ -71,8 +71,8 @@ For responsive font sizes use `clamp(min, Xvw, max)`. Formula: `vw% = target_px 
 
 These apply to HTML elements globally — do not re-declare them inline on components:
 
-- `h1` — Nunito, display size, 900 weight, 0.9 line-height, -1px tracking
-- `h2` — Nunito (inherited), h2 size, 800 weight, 1.0 line-height
+- `h1` — Nunito, display size, 900 weight, 0.95 line-height, -1px tracking
+- `h2` — Nunito (inherited), h2 size, 800 weight, 1.1 line-height
 - `h3` — Nunito, 20px, 900 weight, 1.1 line-height
 - `p`  — Nunito, 15px, 500 weight, 1.65 line-height
 - `button` — Nunito, 15px, 900 weight, 1.0 line-height, `text-box-trim: trim-both`, `text-box-edge: cap alphabetic`
