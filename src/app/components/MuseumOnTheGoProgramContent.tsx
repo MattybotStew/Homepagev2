@@ -27,7 +27,7 @@ import imgSummer from "../../assets/exhibits-summer-hero.jpg";
 const sections = [
 	{ id: "overview", label: "Overview" },
 	{ id: "program-details", label: "Program Details" },
-	{ id: "learning-zones", label: "Learning Zones" },
+	{ id: "learning-zones", label: "Our Programs" },
 	{ id: "educational-standards", label: "Educational Standards" },
 	{ id: "featured-exhibits", label: "Featured Exhibits" },
 	{ id: "faqs", label: "FAQs" },
@@ -70,31 +70,48 @@ const programDetails = [
 	},
 ];
 
-const learningZones = [
+const programTiers = [
 	{
-		title: "Science & Discovery",
-		description:
-			"Portable science experiments and discovery kits explore light, sound, and natural phenomena.",
+		label: "Crafted For Littles",
+		ages: "Ages 2–4",
+		price: "$250",
+		subtitle: "$250 for up to 25 children.",
+		programs: [
+			{ title: "Bug Rescue", description: "Students enjoy a storytime featuring I Love Bugs by Philemon Sturges, learn about different types of bugs, and take part in an interactive activity to save bug friends from a tangled web while building language and fine motor skills. Ends with a simple take-home craft." },
+			{ title: "Farmyard Friends", description: "Students experience a day in the life of a farmer as they collect eggs, go on a pig hunt, and create a fun take-home craft. Read-aloud of On the Farm by Brooke Vitale." },
+			{ title: "Bounce and Boogie", description: "Interactive, upbeat program with move-along storytime using Stomp, Wiggle and Clap by Rachelle Burk. Students dance and move while learning about colors and numbers, then play a dancing game to grow spatial awareness and gross motor skills." },
+		],
 	},
 	{
-		title: "Math & Engineering",
-		description:
-			"Build, measure, and problem-solve with hands-on construction and math manipulative kits.",
+		label: "Made for Curious Minds",
+		ages: "PreK–3rd Grade",
+		price: "$275",
+		subtitle: "$275 for up to 25 children.",
+		programs: [
+			{ title: "Busy Bees, Our Pollinating Friends", description: "Learn about bees and pollination. Includes a poetic story, followed by a pollinating activity where children make a bee and see how pollination works." },
+			{ title: "Our Place in Space", description: "STEM journey through our solar system. Read Me and My Place in Space by Joan Sweeney, then create a mini galaxy jar to take home." },
+			{ title: "Animals in My Backyard", description: "Story time featuring Over the Forest by Marianne Burke. Discusses ecosystems and Georgia geography. Students create a mask based on native animals." },
+			{ title: "Gloopy Glop", description: "Students learn about chemical reactions while conducting a hands-on experiment resulting in Gloopy Glop." },
+			{ title: "Homegrown Greens: the Life of a Plant", description: "Read Harlem Grown by Tony Hillery. Learn steps to turn a seed into food. Students grow their own wheatgrass heads." },
+			{ title: "Emotion Commotion: What's a Monster to Do?", description: "SEL program using Color Monster by Anna Llenas. Brief yoga session, and students create their own artistic Color Monster." },
+			{ title: "Potion Blast: A Rainbow Reaction", description: "Chemistry program. Read Ada Twist, Scientist by Andrea Beaty, then lead a safe scientific experiment." },
+			{ title: "B is for Brave", description: "Students learn to identify and express emotions and what it means to be brave. Opens with Jabari Jumps by Gaia Cornwall." },
+			{ title: "Jr. Engineering Challenge", description: "Inspired by Rosie Revere, Engineer by Andrea Beaty. Students create a simple gliding device." },
+			{ title: "Awesome Architecture", description: "Read Iggy Peck, Architect by Andrea Beaty. Students build structures, combining math and engineering skills." },
+			{ title: "Head in the Clouds", description: "Explore the water cycle and types of clouds using Little Raindrop by Melanie Joyce. Students watch a real cloud form and create a cloud in a cup." },
+		],
 	},
 	{
-		title: "Language & Literacy",
-		description:
-			"Story-based activity kits integrate reading, writing, and oral communication skills.",
-	},
-	{
-		title: "Social Studies & Community",
-		description:
-			"Explore community roles, geography, and culture through play-based activities.",
-	},
-	{
-		title: "Arts & Creativity",
-		description:
-			"Creative expression kits introduce color theory, design thinking, and artistic exploration.",
+		label: "Igniting Young Innovators",
+		ages: "4th–5th Grade",
+		price: "$300",
+		subtitle: "$300 for up to 25 children.",
+		programs: [
+			{ title: "Hydrologic Disruption", description: "Students build a structure that can withstand the power of a hurricane. Discusses the hydrologic cycle and climate phenomena." },
+			{ title: "Terrific Terrariums: A Sustainable World", description: "Advanced gardeners learn plant-ecosystem interactions: photosynthesis, water cycle. Students make their own terrariums." },
+			{ title: "The Mechanics of Aerodynamics", description: "Learn about the four fundamental forces of flight. Build and test a gliding device through a series of challenges." },
+			{ title: "A Quest through the Cosmos", description: "Journey through the stars — celestial bodies, stars, planet/moon orbits. Students make models of Earth's orbit." },
+		],
 	},
 ];
 
@@ -133,7 +150,7 @@ const faqItems = [
 	{
 		question: "What grades are eligible?",
 		answer:
-			"Museum On-the-Go sessions are designed for PreK through 3rd grade. Each visit is tailored by grade level to ensure developmentally appropriate content and pacing.",
+			"Museum On-the-Go serves learners ages 2 through 5th grade across three program tiers: Crafted For Littles (ages 2–4), Made for Curious Minds (PreK–3rd grade), and Igniting Young Innovators (4th–5th grade). Each session is tailored by age and grade level.",
 	},
 	{
 		question: "How much space is needed in the classroom?",
@@ -148,7 +165,7 @@ const faqItems = [
 	{
 		question: "Is there a cost for Museum On-the-Go?",
 		answer:
-			"Pricing varies by program type and number of sessions. Scholarship and grant funding may be available for Title I schools. Contact our education team for a full pricing breakdown and to inquire about financial assistance.",
+			"Pricing is $250 (ages 2–4), $275 (PreK–3rd grade), or $300 (4th–5th grade) for up to 25 students. Groups of 26–35 add $12 per child. Pricing includes 20 miles round trip; $0.70/mile for additional miles. Financial assistance may be available for Title I schools — contact our education team to inquire.",
 	},
 	{
 		question: "What topics are available?",
@@ -225,6 +242,7 @@ function SectionBullet({ children }: { children: string }) {
 export default function MuseumOnTheGoProgramContent() {
 	const [activeSection, setActiveSection] = useState("overview");
 	const [openFaq, setOpenFaq] = useState<number | null>(null);
+	const [openTier, setOpenTier] = useState<number | null>(null);
 
 	useEffect(() => {
 		const observers = sections.map((section) => {
@@ -461,22 +479,38 @@ export default function MuseumOnTheGoProgramContent() {
 
 							<Divider />
 
-							{/* ── Learning Zones ── */}
+							{/* ── Our Programs ── */}
 							<div id="learning-zones" className="flex flex-col gap-[24px]">
-								<h2 className="text-cma-navy">Program Topics</h2>
-								<p className="text-cma-navy font-semibold">
-									Choose from our library of curriculum-aligned activity kits:
+								<h2 className="text-cma-navy">Our Programs</h2>
+								<p className="text-cma-navy">
+									Choose a program tier that matches your students' age group. Each tier includes multiple programs — select the one that best fits your current unit of study.
 								</p>
-								<div className="flex flex-col gap-[0px]">
-									{learningZones.map((zone) => (
-										<div
-											key={zone.title}
-											className="flex flex-col gap-[6px] py-[16px] border-b border-black/8 last:border-0"
-										>
-											<p className="font-extrabold text-cma-navy">
-												{zone.title}
-											</p>
-											<p className="text-cma-navy/70">{zone.description}</p>
+								<div className="flex flex-col">
+									{programTiers.map((tier, i) => (
+										<div key={tier.label} className="border-b border-black/10 last:border-0">
+											<button
+												onClick={() => setOpenTier(openTier === i ? null : i)}
+												className="w-full flex items-center justify-between py-[18px] text-left gap-[16px]"
+											>
+												<div className="flex flex-col gap-[2px]">
+													<span className="font-extrabold text-cma-navy">{tier.label}</span>
+													<span className="text-[13px] text-cma-navy/50">{tier.ages} · {tier.subtitle}</span>
+												</div>
+												<FontAwesomeIcon
+													icon={openTier === i ? faMinus : faPlus}
+													className="text-cma-orange shrink-0 text-[12px]"
+												/>
+											</button>
+											{openTier === i && (
+												<div className="flex flex-col gap-[0px] pb-[18px]">
+													{tier.programs.map((prog) => (
+														<div key={prog.title} className="flex flex-col gap-[4px] py-[12px] border-t border-black/5">
+															<p className="font-bold text-cma-navy text-[14px]">{prog.title}</p>
+															<p className="text-cma-navy/65 text-[13px] leading-[1.5]">{prog.description}</p>
+														</div>
+													))}
+												</div>
+											)}
 										</div>
 									))}
 								</div>

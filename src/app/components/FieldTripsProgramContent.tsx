@@ -523,7 +523,7 @@ export default function FieldTripsProgramContent() {
 										Leaping into Learning
 									</p>
 									<p className="text-cma-navy/70">
-										Catch a colorful fish at our pond! Go under our waterfall
+										Catch a colorful fish at our pond, go under our waterfall
 										without getting wet. Climb into our tree house and see
 										animals from the forest.
 									</p>
