@@ -31,5 +31,7 @@
       "Bash(curl -s -X POST http://127.0.0.1:3845/messages?sessionId=5bb9a9ae-6069-47d1-9dea-73ffda7ffbf1 -H 'Content-Type: application/json' -d '{\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\",\"params\":{}}')",
       "Bash(curl -s -X POST http://127.0.0.1:3845/messages?sessionId=5bb9a9ae-6069-47d1-9dea-73ffda7ffbf1 -H 'Content-Type: application/json' -d '{\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/list\",\"params\":{}}')"
     ]
-  }
+  },
+  "model": "claude-sonnet-4-6"
 }
+
