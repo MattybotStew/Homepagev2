@@ -314,9 +314,6 @@ function TabContent({ item }: { item: string }) {
 		return (
 			<div className="flex flex-col gap-6">
 				<h3 className="text-cma-navy">What to Bring</h3>
-				<p className="text-cma-navy font-semibold">
-					Everything to bring for perfect play day.
-				</p>
 				<ul className="flex flex-col gap-3 pl-4 list-disc">
 					<li className="text-cma-navy">
 						<strong>Comfortable Clothes:</strong> Wear comfy play clothes and
@@ -324,7 +321,7 @@ function TabContent({ item }: { item: string }) {
 					</li>
 					<li className="text-cma-navy">
 						<strong>Change of Clothes:</strong> While we provide aprons and
-						ponchos for paint, you may want a fresh change of clothes.
+						ponchos for paint and water play, you may want a fresh change of clothes.
 					</li>
 					<li className="text-cma-navy">
 						<strong>Water Bottle:</strong> Water bottles are allowed on the
@@ -379,14 +376,14 @@ function TabContent({ item }: { item: string }) {
 							coats and jackets.
 						</li>
 						<li className="text-cma-navy">
-							<strong>Lockers:</strong> Small lockers can be checked out at the
+							<strong>Lockers:</strong> Small lockers can be checked-out at the
 							front desk to store your items.
 						</li>
 						<li className="text-cma-navy">
-							<strong>Stroller Parking:</strong> Limited stroller parking
-							available. CMA is not responsible for lost or stolen items. The
-							Museum is fully stroller-accessible. We recommend leaving
-							strollers at home or in the car when possible.
+							<strong>Sensory Packs:</strong> Available at the front desk, checked out for free at any time. Each pack includes headphones and several sensory toys.
+						</li>
+						<li className="text-cma-navy">
+							<strong>Stroller Parking:</strong> Limited stroller parking available. CMA is not responsible for any valuable items lost or stolen. The Museum is fully stroller-accessible.
 						</li>
 						<li className="text-cma-navy">
 							<strong>Quiet Room:</strong> Located in Leaping into Learning.
@@ -474,7 +471,7 @@ function TabContent({ item }: { item: string }) {
 				<p className="text-cma-navy">
 					<strong>ADA Compliance:</strong> If you need reasonable accommodations
 					due to a disability, including communications in an alternate format,
-					to participate in any program or meeting, please contact Natalia Vulay
+					to participate in any program or meeting, please contact Natalia Vuley
 					at 404-507-7222 seven (7) days in advance to facilitate your request.
 					For TDD/TTY or Georgia Relay Service Access, dial 711.
 				</p>
