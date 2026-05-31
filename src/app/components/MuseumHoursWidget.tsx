@@ -264,17 +264,17 @@ export default function MuseumHoursWidget() {
 									</div>
 								</div>
 
-								{/* Plan Your Visit Button */}
-								<button
-									type="button"
-									className="bg-cma-teal rounded-[475px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] w-full overflow-clip hover:bg-cma-teal-dark transition-colors"
+								{/* Buy Tickets Button */}
+								<a
+									href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="bg-cma-teal rounded-[475px] shadow-[0px_0.475px_0.95px_0px_rgba(16,24,40,0.05)] w-full overflow-clip hover:bg-cma-teal-dark transition-colors flex items-center justify-center px-[34px] py-[17px]"
 								>
-									<div className="flex items-center justify-center px-[34px] py-[17px]">
-										<p className="font-black leading-[1.13] text-[13px] text-white whitespace-nowrap">
-											Plan Your Visit
-										</p>
-									</div>
-								</button>
+									<p className="font-black leading-[1.13] text-[13px] text-white whitespace-nowrap">
+										Buy Tickets
+									</p>
+								</a>
 							</div>
 						</div>
 					</div>

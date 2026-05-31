@@ -1,3 +1,8 @@
+import imgHero1 from "../assets/hero-homepage.webp";
+import imgHero2 from "../assets/byv-hero.webp";
+import imgHero3 from "../assets/hero-wildkratts.webp";
+import imgHero4 from "../assets/exhibit-creativity.webp";
+import { useEffect, useState } from "react";
 import AlertBanner from "./components/AlertBanner";
 import FeaturedExhibits from "./components/FeaturedExhibits";
 import Footer from "./components/Footer";
@@ -14,7 +19,20 @@ import ScrollProgress from "./components/ScrollProgress";
 import SpecialExperiences from "./components/SpecialExperiences";
 import Testimonials from "./components/Testimonials";
 
+const heroImages = [imgHero1, imgHero2, imgHero3, imgHero4];
+
 export default function App() {
+	const [heroIndex, setHeroIndex] = useState(() =>
+		Math.floor(Math.random() * heroImages.length)
+	);
+
+	useEffect(() => {
+		const timer = setInterval(() => {
+			setHeroIndex((prev) => (prev + 1) % heroImages.length);
+		}, 7000);
+		return () => clearInterval(timer);
+	}, []);
+
 	return (
 		<main id="main-content" className="size-full relative">
 			{/* Alert Banner — always visible */}
@@ -36,7 +54,7 @@ export default function App() {
 			</div>
 
 			{/* Hero Section */}
-			<Hero />
+			<Hero bgImage={heroImages[heroIndex]} />
 
 			{/* Scrolling Marquee */}
 			<Marquee />

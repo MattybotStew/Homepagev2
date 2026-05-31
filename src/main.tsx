@@ -6,6 +6,7 @@ import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
 const App = lazy(() => import("./app/App.tsx"));
 const AboutPage = lazy(() => import("./app/pages/AboutPage.tsx"));
 const ArticlePage = lazy(() => import("./app/pages/ArticlePage.tsx"));
+const ResourcePage = lazy(() => import("./app/pages/ResourcePage.tsx"));
 const BookYourVisitPage = lazy(() => import("./app/pages/BookYourVisitPage.tsx"));
 const CalendarPage = lazy(() => import("./app/pages/CalendarPage.tsx"));
 const CareersPage = lazy(() => import("./app/pages/CareersPage.tsx"));
@@ -124,6 +125,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/events/:slug" element={<EventPage />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/resources/playful-learning" element={<PlayfulLearningPage />} />
+          <Route path="/resources/playful-learning/:slug" element={<ResourcePage />} />
           <Route path="/book-your-visit" element={<BookYourVisitPage />} />
           <Route path="/donate" element={<DonatePage />} />
           <Route path="/memberships" element={<MembershipsPage />} />

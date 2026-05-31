@@ -538,6 +538,18 @@ export default function PlanTabs() {
 		if (tab) setActive(tab);
 	}, [searchParams]);
 
+	// Scroll to this section on initial arrival with a tab param (e.g. from nav dropdown)
+	useEffect(() => {
+		if (!searchParams.get("tab")) return;
+		const timer = setTimeout(() => {
+			const el = document.getElementById("parking");
+			if (!el) return;
+			window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 140, behavior: "smooth" });
+		}, 150);
+		return () => clearTimeout(timer);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
 	return (
 		<section id="parking" className="bg-cma-cream w-full py-[80px] md:py-[120px]">
 			<div className="cma-section-container flex flex-col gap-12 items-center">

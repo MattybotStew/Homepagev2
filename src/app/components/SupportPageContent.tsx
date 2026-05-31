@@ -2,6 +2,7 @@ import { faDownload, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import imgCutCMA from "../../assets/cutCMA.png";
+import imgHero from "../../assets/donate-donor-young-professionals.webp";
 
 const sections = [
 	{ id: "overview", label: "Overview" },
@@ -77,7 +78,11 @@ export default function SupportPageContent() {
 		<>
 			{/* Page banner */}
 			<section className="relative overflow-hidden bg-cma-navy">
-				<img src={imgCutCMA} alt="" aria-hidden className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] opacity-15 pointer-events-none select-none object-contain object-bottom" />
+				<div className="absolute inset-0 overflow-hidden pointer-events-none bg-black" aria-hidden>
+					<img src={imgHero} alt="" className="absolute inset-0 w-full h-full object-cover object-center" />
+					<div className="absolute inset-0 bg-cma-hero-overlay" />
+				</div>
+				<img src={imgCutCMA} alt="" aria-hidden className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] opacity-10 pointer-events-none select-none object-contain object-bottom" />
 				<div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
 				<div className="cma-section-container py-[80px] md:py-[120px] relative flex flex-col items-center text-center">
 					<p className="cma-eyebrow text-cma-teal mb-[16px]">

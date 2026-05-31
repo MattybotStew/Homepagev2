@@ -74,9 +74,10 @@ export default function ExhibitsPermanent() {
 						transition={{ duration: 0.4 }}
 					>
 						{permanentExhibits.map((exhibit, i) => (
-							<motion.div
+							<motion.a
 								key={exhibit.title}
-								className="bg-white border-2 border-black/5 rounded-[24px] p-[24px] flex flex-col gap-[32px]"
+								href={exhibit.href}
+								className="bg-white border-2 border-black/5 rounded-[24px] p-[24px] flex flex-col gap-[32px] transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
 								initial={{ opacity: 0, y: 20 }}
 								whileInView={{ opacity: 1, y: 0 }}
 								viewport={{ once: true, margin: "-40px" }}
@@ -88,24 +89,22 @@ export default function ExhibitsPermanent() {
 										alt={exhibit.title}
 										className="absolute inset-0 w-full h-full object-cover"
 									/>
-									<div className="absolute bottom-[10px] left-[10px] bg-cma-navy px-[18px] py-[12px] rounded-[8px]">
-										<p className="font-extrabold text-[14px] text-white leading-[1.5] whitespace-nowrap">
-											{exhibit.badge}
-										</p>
-									</div>
 								</div>
-								<p className="font-extrabold text-[22px] md:text-[30px] text-cma-navy leading-[1.3] tracking-[-1px]">
-									{exhibit.title}
-								</p>
+								<div className="flex flex-col gap-[8px]">
+									<p className="text-cma-teal-dark font-bold text-[12px]">{exhibit.badge}</p>
+									<p className="font-extrabold text-[22px] md:text-[30px] text-cma-navy leading-[1.3] tracking-[-1px]">
+										{exhibit.title}
+									</p>
+								</div>
 								<p className="text-cma-navy">{exhibit.body}</p>
-								<a href={exhibit.href} className="cma-text-link mt-auto">
+								<span className="cma-text-link mt-auto">
 									Learn More{" "}
 									<FontAwesomeIcon
 										icon={faArrowRight}
 										className="text-[13px]"
 									/>
-								</a>
-							</motion.div>
+								</span>
+							</motion.a>
 						))}
 					</motion.div>
 				</AnimatePresence>

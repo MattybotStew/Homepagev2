@@ -1,3 +1,4 @@
+import imgDonorHero from "../../assets/donate-donor-individual.webp";
 import AlertBanner from "../components/AlertBanner";
 import DonateDonors from "../components/DonateDonors";
 import DonorRecognitionTiers from "../components/DonorRecognitionTiers";
@@ -23,6 +24,7 @@ export default function DonorRecognitionPage() {
 				<ScrollProgress />
 			</div>
 			<GivingHero
+				bgImage={imgDonorHero}
 				eyebrow="our supporters"
 				heading={"Thank You\nfor Believing"}
 				subtitle="CMA's mission is made possible by the generosity of donors, foundations, and corporate partners who believe every child deserves the power of play."

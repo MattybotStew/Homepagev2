@@ -2,7 +2,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import { Navigate, useParams } from "react-router-dom";
-import { allArticles } from "../data/articles";
+import { allResources } from "../data/resources";
 import AlertBanner from "../components/AlertBanner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -10,13 +10,13 @@ import MobileHeader from "../components/MobileHeader";
 import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee";
 import ScrollProgress from "../components/ScrollProgress";
 
-export default function ArticlePage() {
+export default function ResourcePage() {
 	const { slug } = useParams<{ slug: string }>();
-	const article = allArticles.find((a) => a.slug === slug);
+	const resource = allResources.find((r) => r.slug === slug);
 
-	if (!article) return <Navigate to="/news" replace />;
+	if (!resource) return <Navigate to="/resources/playful-learning" replace />;
 
-	const related = allArticles.filter((a) => a.slug !== slug).slice(0, 3);
+	const related = allResources.filter((r) => r.slug !== slug).slice(0, 3);
 
 	return (
 		<div className="size-full relative">
@@ -32,9 +32,9 @@ export default function ArticlePage() {
 					<div className="max-w-[1024px] mx-auto flex flex-col gap-[24px]">
 						{/* Breadcrumb */}
 						<div className="flex items-center gap-[8px] flex-wrap text-[15px]">
-							<a href="#/news" className="text-cma-navy hover:underline">News & Blog</a>
+							<a href="#/resources/playful-learning" className="text-cma-navy hover:underline">Playful Learning</a>
 							<span className="text-cma-navy text-[18px]">›</span>
-							<span className="text-cma-teal-dark">{article.categories[0]}</span>
+							<span className="text-cma-teal-dark">{resource.categories[0]}</span>
 						</div>
 
 						{/* White card */}
@@ -43,48 +43,34 @@ export default function ArticlePage() {
 							{/* Hero image */}
 							<div className="relative rounded-[24px] overflow-hidden h-[240px] sm:h-[360px] md:h-[440px]">
 								<img
-									src={article.image}
-									alt={article.title}
+									src={resource.image}
+									alt={resource.title}
 									className="w-full h-full object-cover"
 								/>
 							</div>
 
 							{/* Meta + Title */}
 							<div className="flex flex-col gap-[16px]">
-								<p className="text-cma-teal-dark">{article.badge}</p>
-								{article.author && (
-									<p className="text-cma-navy/60 text-[14px]">By {article.author}</p>
-								)}
+								<p className="text-cma-teal-dark">{resource.badge}</p>
 								<h1 className="text-cma-navy !text-[clamp(28px,3.75vw,48px)] !leading-none !tracking-[-1px] !font-extrabold">
-									{article.title}
+									{resource.title}
 								</h1>
 							</div>
 
 							{/* Body */}
-							{article.content ? (
-								<div
-									className="cma-prose"
-									dangerouslySetInnerHTML={{ __html: article.content }}
-								/>
-							) : (
-								<div className="cma-prose flex flex-col gap-[0]">
-									{article.paragraphs.map((p, i) => (
-										<p key={i}>{p}</p>
-									))}
-								</div>
-							)}
+							<p className="text-cma-navy text-[16px] leading-[1.7]">{resource.description}</p>
 
 							{/* Related */}
 							{related.length > 0 && (
 								<>
 									<div className="bg-black/10 h-px w-full" />
 									<div className="flex flex-col gap-[24px]">
-										<p className="font-extrabold text-[22px] text-cma-navy">More from CMA</p>
+										<p className="font-extrabold text-[22px] text-cma-navy">More Resources</p>
 										<div className="flex flex-col gap-[16px]">
-											{related.map((a, i) => (
+											{related.map((r, i) => (
 												<motion.a
-													key={a.slug}
-													href={`#/news/${a.slug}`}
+													key={r.slug}
+													href={`#/resources/playful-learning/${r.slug}`}
 													className="border-2 border-black/5 rounded-[20px] p-[20px] flex flex-col sm:flex-row gap-[20px] sm:items-center transition-all duration-200 hover:-translate-y-[2px] hover:shadow-[0_4px_16px_rgba(0,0,0,0.07)]"
 													initial={{ opacity: 0, y: 20 }}
 													whileInView={{ opacity: 1, y: 0 }}
@@ -92,15 +78,15 @@ export default function ArticlePage() {
 													transition={{ duration: 0.4, delay: i * 0.07 }}
 												>
 													<img
-														src={a.image}
-														alt={a.title}
+														src={r.image}
+														alt={r.title}
 														className="w-full sm:w-[120px] h-[120px] rounded-[14px] object-cover shrink-0"
 													/>
 													<div className="flex flex-col gap-[8px] flex-1 min-w-0">
-														<p className="text-cma-teal-dark font-bold text-[12px]">{a.categories[0]}</p>
-														<p className="font-extrabold text-cma-navy text-[16px] leading-[1.3]">{a.title}</p>
+														<p className="text-cma-teal-dark font-bold text-[12px]">{r.categories[0]}</p>
+														<p className="font-extrabold text-cma-navy text-[16px] leading-[1.3]">{r.title}</p>
 														<span className="cma-text-link text-[13px]">
-															Read Article <FontAwesomeIcon icon={faArrowRight} className="text-[11px]" />
+															View Resource <FontAwesomeIcon icon={faArrowRight} className="text-[11px]" />
 														</span>
 													</div>
 												</motion.a>

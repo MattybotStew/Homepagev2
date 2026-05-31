@@ -136,6 +136,11 @@ function Logo() {
 	);
 }
 
+const membershipsSubPages: NavSubPage[] = [
+	{ label: "Memberships", href: "#/memberships" },
+	{ label: "Information", href: "#/memberships/information" },
+];
+
 const donateSubPages: NavSubPage[] = [
 	{ label: "Support", href: "#/support" },
 	{ label: "Corporate Partners", href: "#/support/corporate-partners" },
@@ -240,6 +245,55 @@ function DonateDropdown({
 	);
 }
 
+function MembershipsDropdown({
+	compact,
+	pathname,
+}: {
+	compact?: boolean;
+	pathname: string;
+}) {
+	const px = compact ? "px-[12px]" : "px-[16px]";
+	const py = compact ? "py-[8px]" : "py-[12px]";
+	const textSize = compact ? "text-[10px]" : "text-[12px]";
+	const chevronSize = compact ? "size-2.5" : "size-3";
+
+	return (
+		<div className="relative group">
+			<a
+				href="#/memberships"
+				className={`bg-white flex items-center justify-center gap-1 ${px} ${py} rounded-full shadow-cma-btn shrink-0 hover:bg-white/90 transition-colors`}
+			>
+				<p className={`font-black leading-[1.5] shrink-0 ${textSize} text-cma-teal-dark whitespace-nowrap`}>
+					Memberships
+				</p>
+				<ChevronDown className={`${chevronSize} text-cma-teal-dark/70 transition-transform duration-200 group-hover:rotate-180`} />
+			</a>
+			<div className="absolute top-full right-0 pt-2 z-50 hidden group-hover:block">
+				<div className="bg-white rounded-[16px] shadow-cma-panel overflow-hidden min-w-[180px]">
+					{membershipsSubPages.map((sub, i) => {
+						const isActive = isSubPageActive(sub, pathname);
+						return (
+							<div key={sub.label}>
+								<a
+									href={sub.href}
+									className={`flex items-center px-5 min-h-[52px] transition-colors ${isActive ? "bg-cma-teal-pale" : "hover:bg-gray-50"}`}
+								>
+									<p className={`whitespace-nowrap ${isActive ? "text-cma-navy font-semibold" : "text-cma-gray font-normal"}`}>
+										{sub.label}
+									</p>
+								</a>
+								{i < membershipsSubPages.length - 1 && (
+									<div className="h-px bg-gray-100 mx-5" />
+								)}
+							</div>
+						);
+					})}
+				</div>
+			</div>
+		</div>
+	);
+}
+
 function NavItem({
 	link,
 	compact,
@@ -313,14 +367,7 @@ export default function Header() {
 					</div>
 					<div className="flex gap-[5.699px] items-center">
 						<DonateDropdown pathname={pathname} />
-						<a
-							href="#/memberships/information"
-							className="bg-white flex items-center justify-center px-[16px] py-[12px] rounded-full shadow-cma-btn shrink-0 hover:bg-white/90 transition-colors"
-						>
-							<p className="font-black leading-[1.5] shrink-0 text-[12px] text-cma-teal-dark whitespace-nowrap">
-								Memberships
-							</p>
-						</a>
+						<MembershipsDropdown pathname={pathname} />
 						<a
 							href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf"
 							target="_blank"
@@ -348,14 +395,7 @@ export default function Header() {
 					</div>
 					<div className="flex gap-[4px] items-center">
 						<DonateDropdown compact pathname={pathname} />
-						<a
-							href="#/memberships/information"
-							className="bg-white flex items-center justify-center px-[12px] py-[8px] rounded-full shadow-cma-btn shrink-0 hover:bg-white/90 transition-colors"
-						>
-							<p className="font-black leading-[1.5] shrink-0 text-[10px] text-cma-teal-dark whitespace-nowrap">
-								Memberships
-							</p>
-						</a>
+						<MembershipsDropdown compact pathname={pathname} />
 						<a
 							href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf"
 							target="_blank"
@@ -486,10 +526,16 @@ export default function Header() {
 								)}
 							</div>
 							<a
-								href="#/memberships/information"
+								href="#/memberships"
 								className="bg-cma-teal px-4 py-3 rounded-full w-full hover:bg-cma-teal-dark transition-colors flex items-center justify-center"
 							>
 								<p className="font-black text-[14px] text-white">Memberships</p>
+							</a>
+							<a
+								href="#/memberships/information"
+								className="bg-white border-2 border-cma-teal-dark px-4 py-3 rounded-full w-full hover:bg-cma-teal-pale transition-colors flex items-center justify-center"
+							>
+								<p className="font-black text-[14px] text-cma-teal-dark">Membership Information</p>
 							</a>
 							<a
 								href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf"

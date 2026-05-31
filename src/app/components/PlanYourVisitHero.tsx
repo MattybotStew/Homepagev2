@@ -5,7 +5,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
-import imgHeroBg from "../../assets/PYVhero.webp";
+import imgHeroBgDefault from "../../assets/PYVhero.webp";
 
 const cards = [
 	{
@@ -28,7 +28,7 @@ const cards = [
 	},
 ];
 
-export default function PlanYourVisitHero() {
+export default function PlanYourVisitHero({ bgImage = imgHeroBgDefault }: { bgImage?: string }) {
 	return (
 		<section
 			aria-label="Plan Your Visit Hero"
@@ -40,7 +40,7 @@ export default function PlanYourVisitHero() {
 				aria-hidden
 			>
 				<img
-					src={imgHeroBg}
+					src={bgImage}
 					alt=""
 					className="absolute inset-0 w-full h-full object-cover object-center opacity-60"
 				/>

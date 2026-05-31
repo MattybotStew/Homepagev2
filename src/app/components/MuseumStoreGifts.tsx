@@ -103,7 +103,7 @@ export default function MuseumStoreGifts({
 					{cards.map((card, i) => (
 						<motion.div
 							key={card.heading}
-							className={`${card.bg} rounded-[24px] px-[40px] md:px-[60px] py-[64px] flex flex-col items-center gap-8`}
+							className={`${card.bg} rounded-[24px] px-[32px] md:px-[40px] py-[64px] flex flex-col items-center gap-8`}
 							initial={{ opacity: 0, y: 24 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true, margin: "-60px" }}
@@ -120,7 +120,7 @@ export default function MuseumStoreGifts({
 									{card.badge.label}
 								</span>
 								<h2
-									className={`${card.headingColor} text-center leading-none tracking-[-1px]`}
+									className={`${card.headingColor} text-center leading-none tracking-[-1px] !text-[clamp(20px,2vw,26px)]`}
 								>
 									{card.heading}
 								</h2>

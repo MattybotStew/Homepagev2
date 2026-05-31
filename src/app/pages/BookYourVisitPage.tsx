@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import MobileHeader from "../components/MobileHeader";
 import MuseumStoreGifts from "../components/MuseumStoreGifts";
 import PlanYourVisitFAQs from "../components/PlanYourVisitFAQs";
+import imgBYVHero from "../../assets/byv-hero.webp";
 import PlanYourVisitHero from "../components/PlanYourVisitHero";
 import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee";
 import ScrollProgress from "../components/ScrollProgress";
@@ -26,7 +27,7 @@ export default function BookYourVisitPage() {
 				<ScrollProgress />
 			</div>
 
-			<PlanYourVisitHero />
+			<PlanYourVisitHero bgImage={imgBYVHero} />
 
 			{/* Admission Pricing */}
 			<AdmissionPricing navyBottomWave />

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import imgHero from "../../assets/donate-donor-corporate.webp";
 
 const sections = [
 	{ id: "overview", label: "Overview" },
@@ -55,7 +56,11 @@ export default function CorporatePartnerPageContent() {
 	return (
 		<>
 			{/* Page banner */}
-			<section className="overflow-hidden bg-cma-navy">
+			<section className="relative overflow-hidden bg-cma-navy">
+				<div className="absolute inset-0 overflow-hidden pointer-events-none bg-black" aria-hidden>
+					<img src={imgHero} alt="" className="absolute inset-0 w-full h-full object-cover object-center" />
+					<div className="absolute inset-0 bg-cma-hero-overlay" />
+				</div>
 				<div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
 				<div className="cma-section-container py-[48px] md:py-[64px]">
 					<p className="cma-eyebrow text-cma-orange mb-[16px]">

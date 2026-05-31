@@ -1,9 +1,8 @@
 import imgHeroBg from "figma:asset/hero-bg.webp";
-import imgChevron from "figma:asset/hero-chevron.svg";
-import imgClock from "figma:asset/hero-clock.svg";
 import imgWaveOrange from "figma:asset/hero-wave-orange.svg";
 import imgWaveTeal from "figma:asset/hero-wave-teal.svg";
-import { motion } from "motion/react";
+import MuseumHoursWidget from "./MuseumHoursWidget";
+import { AnimatePresence, motion } from "motion/react";
 
 type Cta = { label: string; href: string; variant: "orange" | "teal-outline" };
 
@@ -36,11 +35,18 @@ export default function Hero({
 				className="absolute inset-0 overflow-hidden pointer-events-none bg-black"
 				aria-hidden
 			>
-				<img
-					src={bgImage}
-					alt=""
-					className="absolute inset-0 w-full h-full object-cover object-[75%_50%] md:object-center"
-				/>
+				<AnimatePresence mode="sync">
+					<motion.img
+						key={bgImage}
+						src={bgImage}
+						alt=""
+						className="absolute inset-0 w-full h-full object-cover object-[75%_50%] md:object-center"
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						transition={{ duration: 1.5, ease: "easeInOut" }}
+					/>
+				</AnimatePresence>
 				<div className="absolute inset-0 bg-cma-hero-overlay" />
 			</div>
 
@@ -126,30 +132,8 @@ export default function Hero({
 			</div>
 
 			{showHoursWidget && (
-				<div
-					className="hidden md:flex absolute right-5 bg-white items-center gap-4 rounded-2xl shadow-sm px-[12px] py-[8px] w-[397px]
-                     md:top-[20px] lg:top-[136px] xl:top-[142px]"
-				>
-					<img
-						src={imgClock}
-						alt=""
-						aria-hidden
-						className="shrink-0 w-[37px] h-[37px]"
-					/>
-					<div className="flex flex-col gap-1 flex-1 min-w-0">
-						<p className="font-bold text-[15px] text-cma-navy leading-none">
-							Opening Times Today
-						</p>
-						<p className="text-[12px] leading-[1.5] truncate font-medium text-cma-orange-dark">
-							Members 9-10 AM | General 10 AM-3:30 PM
-						</p>
-					</div>
-					<img
-						src={imgChevron}
-						alt=""
-						aria-hidden
-						className="shrink-0 w-5 h-5"
-					/>
+				<div className="hidden md:block absolute right-5 w-[360px] md:top-[20px] lg:top-[136px] xl:top-[142px] z-10">
+					<MuseumHoursWidget />
 				</div>
 			)}
 		</section>

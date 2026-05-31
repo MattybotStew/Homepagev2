@@ -1,7 +1,12 @@
 import imgEllipse from "figma:asset/exhibits-ellipse.svg";
-import imgSlide1 from "figma:asset/exhibits-slide-1.webp";
-import imgSlide2 from "figma:asset/exhibits-slide-2.webp";
-import imgSlide3 from "figma:asset/exhibits-slide-3.webp";
+import imgExhibitCreativity from "../../assets/exhibit-creativity.webp";
+import imgExhibitDoc from "../../assets/exhibit-doc-mcstuffins.webp";
+import imgExhibitFood from "../../assets/exhibit-food.webp";
+import imgExhibitGateway from "../../assets/exhibit-gateway.webp";
+import imgExhibitLeaping from "../../assets/exhibit-leaping.webp";
+import imgExhibitScience from "../../assets/exhibit-science.webp";
+import imgExhibitTools from "../../assets/exhibit-tools.webp";
+import imgExhibitWildKratts from "../../assets/exhibits-summer-hero.jpg";
 import {
 	AnimatePresence,
 	animate,
@@ -22,62 +27,19 @@ const exhibits = [
 		badge: "New Summer 2026",
 		title: "Wild Kratts®: Ocean Adventure!",
 		description:
-			"Dive into an ocean adventure with the Wild Kratts team! Crawl through a giant anemone, hunt for lunch like a lobster, create your own dolphin name, and pilot an amphisub through the deep sea. Using creature powers and teamwork, you'll help animals and foil the villains' plans.",
-		image: imgSlide1,
+			"Jump into the world of Wild Kratts for an ocean adventure! Explore the seashore and deep sea, crawl through an anemone, hunt for lunch like a dragonfish, create your own dolphin name and more. Don't miss this adventurous new exhibit!",
+		href: "#/exhibits/wild-kratts-ocean-adventure",
+		image: imgExhibitWildKratts,
 	},
 	{
 		id: "doc-mcstuffins",
 		label: "Doc McStuffins",
-		badge: "Fan Favorite",
-		title: "Doc McStuffins",
+		badge: "Coming Fall 2026",
+		title: "Doc McStuffins: The Exhibit",
 		description:
-			"Step into Doc McStuffins' backyard clinic and help fix broken toys. Learn how to be a good helper and show kindness through imaginative medical play.",
-		image: imgSlide2,
-	},
-	{
-		id: "gateway",
-		label: "Gateway to the World",
-		badge: "",
-		title: "Gateway to the World",
-		description:
-			"Travel the globe through hands-on cultural experiences. Explore international traditions, foods, and ways of life in this immersive exhibit.",
-		image: imgSlide3,
-	},
-	{
-		id: "leaping",
-		label: "Leaping Into Learning",
-		badge: "",
-		title: "Leaping Into Learning",
-		description:
-			"Jump into early literacy and numeracy through playful, active learning experiences designed for toddlers and young children.",
-		image: imgSlide1,
-	},
-	{
-		id: "creativity",
-		label: "Let Your Creativity Flow",
-		badge: "",
-		title: "Let Your Creativity Flow",
-		description:
-			"Express yourself through art, music, and storytelling in this open-ended creative space where imagination has no limits.",
-		image: imgSlide2,
-	},
-	{
-		id: "science",
-		label: "Step Up to Science",
-		badge: "",
-		title: "Step Up to Science",
-		description:
-			"Conduct hands-on experiments and discover the wonders of STEM through interactive activities designed for curious young minds.",
-		image: imgSlide3,
-	},
-	{
-		id: "tools",
-		label: "Tools for Solutions",
-		badge: "",
-		title: "Tools for Solutions",
-		description:
-			"Build, create, and problem-solve with real tools in a safe, supervised environment that fosters engineering thinking.",
-		image: imgSlide1,
+			"Experience the first children's museum exhibit based on Disney Junior's award-winning series, Doc McStuffins. Join the magical storytelling as you help Doc and her friends in the McStuffins Toy Hospital. There is so much you can do to take care of you!",
+		href: "#/exhibits",
+		image: imgExhibitDoc,
 	},
 	{
 		id: "food",
@@ -85,8 +47,59 @@ const exhibits = [
 		badge: "",
 		title: "Fundamentally Food",
 		description:
-			"Explore nutrition, cooking, and where food comes from in this deliciously educational exhibit about healthy eating habits.",
-		image: imgSlide2,
+			"From farm to table, explore the world of food through hands-on play. Harvest produce, climb tractors, milk cows, load delivery trucks, shop a bustling grocery store, and cook pretend meals together.",
+		href: "#/exhibits/fundamentally-food",
+		image: imgExhibitFood,
+	},
+	{
+		id: "gateway",
+		label: "Gateway to the World",
+		badge: "",
+		title: "Gateway to the World",
+		description:
+			"Travel the globe without leaving the Museum. Guide trains across continents, launch rockets to space, and explore a two-story climber. Explore geography, movement, and the ways our world is connected, from the ground beneath our feet to far beyond the sky.",
+		href: "#/exhibits/gateway-to-the-world",
+		image: imgExhibitGateway,
+	},
+	{
+		id: "leaping",
+		label: "Leaping Into Learning",
+		badge: "",
+		title: "Leaping Into Learning",
+		description:
+			"Explore the forest, cast your rods, catch colorful fish, and go under our waterfall without getting wet! Climb in our tree house and put on an animal puppet show. Babies and toddlers will love the little house play area built just for them.",
+		href: "#/exhibits/leaping-into-learning",
+		image: imgExhibitLeaping,
+	},
+	{
+		id: "creativity",
+		label: "Let Your Creativity Flow",
+		badge: "",
+		title: "Let Your Creativity Flow",
+		description:
+			"Release your inner artist at the paint wall and build giant castles at our sand tables. Join storytimes, dance parties, and more on the CMA Stage.",
+		href: "#/exhibits/let-your-creativity-flow",
+		image: imgExhibitCreativity,
+	},
+	{
+		id: "science",
+		label: "Step Up to Science",
+		badge: "",
+		title: "Step Up to Science",
+		description:
+			"Experiment with light and sound as you create shadows, explore color, and make vibrations. Discover how waves work, how science and creativity connect, and how experimenting leads to exciting, sometimes surprising results.",
+		href: "#/exhibits/step-up-to-science",
+		image: imgExhibitScience,
+	},
+	{
+		id: "tools",
+		label: "Tools for Solutions",
+		badge: "",
+		title: "Tools for Solutions",
+		description:
+			"Explore engineering, problem-solving, and how structures respond to forces. Guide balls through a giant machine using six simple machines, connect make-believe wires and pipes in the Construction House, build skyscrapers, and design a city of the future with blocks.",
+		href: "#/exhibits/tools-for-solutions",
+		image: imgExhibitTools,
 	},
 ];
 
@@ -303,7 +316,7 @@ export default function FeaturedExhibits() {
 					})}
 				</div>
 
-				{/* Custom cursor — follows mouse, fixed so overflow:hidden doesn't clip it */}
+			{/* Custom cursor — follows mouse, fixed so overflow:hidden doesn't clip it */}
 				<AnimatePresence>
 					{cursorOver && (
 						<motion.div
@@ -320,6 +333,23 @@ export default function FeaturedExhibits() {
 							</span>
 						</motion.div>
 					)}
+				</AnimatePresence>
+			</div>
+
+			{/* View Exhibit Details CTA */}
+			<div className="relative z-10 flex justify-center mt-[24px] md:mt-[-120px] mb-[24px] md:mb-0 px-5">
+				<AnimatePresence mode="wait">
+					<motion.a
+						key={exhibits[activeIndex].id}
+						href={exhibits[activeIndex].href}
+						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black whitespace-nowrap"
+						initial={{ opacity: 0, y: 8 }}
+						animate={{ opacity: 1, y: 0 }}
+						exit={{ opacity: 0, y: -8 }}
+						transition={{ duration: 0.25 }}
+					>
+						View Exhibit Details
+					</motion.a>
 				</AnimatePresence>
 			</div>
 

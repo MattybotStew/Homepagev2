@@ -1,3 +1,4 @@
+import imgMembershipsHero from "../../assets/hero-memberships.webp";
 import AlertBanner from "../components/AlertBanner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -26,6 +27,7 @@ export default function MembershipsPage() {
 			</div>
 
 			<Hero
+				bgImage={imgMembershipsHero}
 				eyebrow="memberships"
 				heading="Unlimited Play. Endless Memories."
 				subtitle="Give your family year-round access to Atlanta's favorite children's museum — plus exclusive perks, early hours, and endless fun."
