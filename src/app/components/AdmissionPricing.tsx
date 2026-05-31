@@ -99,7 +99,7 @@ const pricingCards = [
 			label: "Buy Tickets",
 			href: "/book-your-visit",
 			style:
-				"cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white",
+				"cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black",
 		},
 		badge: null,
 	},
@@ -113,7 +113,7 @@ const pricingCards = [
 		cta: {
 			label: "View Plans",
 			href: "#memberships",
-			style: "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark",
+			style: "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black",
 		},
 		badge: "Best Value",
 	},
@@ -128,7 +128,7 @@ const pricingCards = [
 			label: "Request a Field Trip",
 			href: "#field-trips",
 			style:
-				"cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white",
+				"cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black",
 		},
 		badge: null,
 	},
@@ -164,7 +164,7 @@ export default function AdmissionPricing({
 						</a>
 						<a
 							href="#directions"
-							className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black"
+							className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
 						>
 							Location, Parking &amp; Directions
 						</a>
@@ -291,7 +291,7 @@ export default function AdmissionPricing({
 				{/* Bottom CTA */}
 				<motion.a
 					href="#faqs"
-					className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white"
+					className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
 					initial={{ opacity: 0, y: 16 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true, margin: "-40px" }}

@@ -23,6 +23,7 @@ import Header from "../components/Header";
 import MobileHeader from "../components/MobileHeader";
 import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee";
 import ScrollProgress from "../components/ScrollProgress";
+import imgCutCMA from "../../assets/cutCMA.png";
 
 // ── Data ────────────────────────────────────────────────────────────────────
 
@@ -259,10 +260,11 @@ export default function ContactPage() {
 			<div className="hidden lg:block"><ScrollProgress /></div>
 
 			{/* Banner */}
-			<section className="overflow-hidden bg-cma-navy">
+			<section className="relative overflow-hidden bg-cma-navy">
+				<img src={imgCutCMA} alt="" aria-hidden className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] opacity-15 pointer-events-none select-none object-contain object-bottom" />
 				<div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
-				<div className="cma-section-container py-[48px] md:py-[64px]">
-					<p className="cma-eyebrow text-cma-orange mb-[16px]">Children's Museum of Atlanta</p>
+				<div className="cma-section-container py-[80px] md:py-[120px] relative flex flex-col items-center text-center">
+					<p className="cma-eyebrow text-cma-teal mb-[16px]">Children's Museum of Atlanta</p>
 					<h1 className="text-white mb-[16px]">Please Contact Us Today</h1>
 					<p className="text-white/75 max-w-[560px]">
 						Have a question or need help planning your visit? Our team is here for you.
@@ -340,7 +342,7 @@ export default function ContactPage() {
 										{departments.map((dept) => (
 											<div key={dept.name} className="border border-black/8 rounded-[20px] p-[20px] flex flex-col gap-[12px]">
 												<div className="flex items-start gap-[12px]">
-													<div className={`${dept.color} size-[36px] rounded-[10px] flex items-center justify-center shrink-0`}>
+													<div className={`${dept.color} size-[36px] rounded-full flex items-center justify-center shrink-0`}>
 														<FontAwesomeIcon icon={dept.icon} className="text-white text-[14px]" />
 													</div>
 													<div className="flex flex-col gap-[2px] flex-1 min-w-0">
@@ -371,12 +373,12 @@ export default function ContactPage() {
 
 									<div className="flex flex-col xl:flex-row gap-[32px]">
 										{/* Hours columns */}
-										<div className="flex flex-col sm:flex-row gap-[24px] flex-1 min-w-0">
-											<div className="flex-1 flex flex-col gap-[12px]">
+										<div className="flex flex-col gap-[24px] flex-1 min-w-0">
+											<div className="flex flex-col gap-[12px]">
 												<h3 className="text-cma-navy !text-[16px] font-bold">Operating Hours</h3>
 												<HoursTable rows={regularHours} />
 											</div>
-											<div className="flex-1 flex flex-col gap-[12px]">
+											<div className="flex flex-col gap-[12px]">
 												<h3 className="text-cma-navy !text-[16px] font-bold">Holiday Hours</h3>
 												<HoursTable rows={holidayHours} />
 											</div>
@@ -425,7 +427,7 @@ export default function ContactPage() {
 												<a href="#/book-your-visit" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
 													Buy Tickets
 												</a>
-												<a href="#parking" className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black">
+												<a href="#parking" className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black">
 													Parking Guide
 												</a>
 											</div>
@@ -540,7 +542,7 @@ export default function ContactPage() {
 										{helpfulLinks.map((link) => (
 											<div key={link.label} className="border border-black/8 rounded-[20px] p-[20px] flex flex-col gap-[12px]">
 												<div className="flex items-center gap-[10px]">
-													<div className={`${link.color} size-[36px] rounded-[10px] flex items-center justify-center shrink-0`}>
+													<div className={`${link.color} size-[36px] rounded-full flex items-center justify-center shrink-0`}>
 														<FontAwesomeIcon icon={link.icon} className="text-white text-[14px]" />
 													</div>
 													<p className="font-extrabold text-cma-navy text-[15px]">{link.label}</p>

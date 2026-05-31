@@ -38,6 +38,24 @@ const giftCards = [
 	},
 ];
 
+const shopOnlineCard = {
+	bg: "bg-cma-navy",
+	badge: {
+		label: "Shop Now",
+		textColor: "text-cma-navy",
+		badgeBg: "bg-cma-orange",
+	},
+	heading: "Shop Online",
+	headingColor: "text-white",
+	body: "Browse our full selection of toys, books, and educational gifts from home. Ships directly to you.",
+	bodyColor: "text-white",
+	cta: {
+		label: "Visit the Online Store",
+		href: "https://www.childrensmuseumatlanta.org/museum-store/",
+		style: "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black",
+	},
+};
+
 const navyCard = {
 	bg: "bg-cma-navy",
 	badge: {
@@ -58,10 +76,16 @@ const navyCard = {
 
 export default function MuseumStoreGifts({
 	showNavyCard = false,
+	showShopCard = false,
 }: {
 	showNavyCard?: boolean;
+	showShopCard?: boolean;
 }) {
-	const cards = showNavyCard ? [...giftCards, navyCard] : giftCards;
+	const cards = showNavyCard
+		? [...giftCards, navyCard]
+		: showShopCard
+			? [...giftCards, shopOnlineCard]
+			: giftCards;
 	return (
 		<section className="bg-white w-full pb-[80px] md:pb-[120px]">
 			<div className="cma-section-container flex flex-col gap-12 items-center">

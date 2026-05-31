@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import imgHeroBg from "../../assets/store-hero-bg.svg";
+import imgCutCMA from "../../assets/cutCMA.png";
 
 export default function MuseumStoreHero() {
 	return (
@@ -8,12 +8,12 @@ export default function MuseumStoreHero() {
 			className="relative w-full bg-cma-navy overflow-hidden flex flex-col items-center justify-center py-[80px] md:py-[120px]"
 		>
 			{/* Decorative background graphic */}
-			<div
-				className="absolute inset-0 pointer-events-none opacity-10 flex items-center justify-center"
+			<img
+				src={imgCutCMA}
+				alt=""
 				aria-hidden
-			>
-				<img src={imgHeroBg} alt="" className="w-full h-full object-cover" />
-			</div>
+				className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] opacity-15 pointer-events-none select-none object-contain object-bottom"
+			/>
 
 			{/* Spacer for fixed header */}
 			<div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
@@ -25,7 +25,7 @@ export default function MuseumStoreHero() {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
 				>
-					<p className="cma-eyebrow text-cma-blue-light opacity-80">
+					<p className="cma-eyebrow text-cma-teal">
 						Children's Museum of Atlanta
 					</p>
 					<h1 className="text-white">Museum Store</h1>

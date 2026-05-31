@@ -27,7 +27,7 @@ export default function MuseumStorePage() {
 			<MuseumStoreHero />
 			<MuseumStoreBrands />
 			<MuseumStoreContent />
-			<MuseumStoreGifts />
+			<MuseumStoreGifts showShopCard />
 			<PowerOfPlayMarquee />
 			<Footer />
 		</div>

@@ -1,4 +1,4 @@
-import { faBookOpen, faBus, faCalendarHeart, faStar, faUnlockKeyhole, faUsersLine } from "@fortawesome/free-solid-svg-icons";
+import { faBookOpen, faBus, faCalendarDays, faStar, faUnlockKeyhole, faUsersLine } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import imgWaveBottom from "../../assets/impact-wave-bottom.svg";
@@ -12,26 +12,31 @@ const impactItems = [
 	},
 	{
 		color: "bg-cma-orange",
+		icon: faBus,
 		title: "Community Outreach",
 		body: "Beyond the Museum walls, CMA brings a unique blend of performance-based and hands-on educational programming to underserved families living in the Atlanta area.",
 	},
 	{
 		color: "bg-[#fbb040]",
+		icon: faStar,
 		title: "Traveling Exhibits",
 		body: "Three to four times a year, the Museum's Morph Gallery transforms into a new, exciting space to keep young visitors coming back for more.",
 	},
 	{
 		color: "bg-[#fbb040]",
+		icon: faUsersLine,
 		title: "Subsidized Field Trips",
 		body: "Nearly 12,000 Title I students have visited the Museum for free or at a reduced cost through CMA's immersive field trip program and subsidized ticket initiatives in the past fiscal year alone.",
 	},
 	{
 		color: "bg-cma-teal",
+		icon: faCalendarDays,
 		title: "Family Free Days",
 		body: "Free admission days held throughout the year ensure every Atlanta family can walk through our doors, regardless of financial circumstance.",
 	},
 	{
 		color: "bg-cma-orange",
+		icon: faUnlockKeyhole,
 		title: "Access It!",
 		body: "Subsidized admission and partnerships with social service agencies ensure no child is ever turned away due to inability to pay.",
 	},
@@ -73,9 +78,9 @@ export default function DonateImpact() {
 							}}
 						>
 							<div
-								className={`${item.color} rounded-[14px] size-[48px] flex items-center justify-center shrink-0`}
+								className={`${item.color} rounded-full size-[48px] flex items-center justify-center shrink-0`}
 							>
-								<div className="bg-white/50 rounded-[6px] size-[24px]" />
+								<FontAwesomeIcon icon={item.icon} className="text-white text-[18px]" />
 							</div>
 							<p className="font-extrabold text-[18px] text-white leading-[1.2]">
 								{item.title}

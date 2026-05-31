@@ -1,3 +1,5 @@
+import { faUnlockKeyhole, faBus, faCalendarDays, faUsersLine } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import { useState } from "react";
 import imgContact from "../../assets/educators-contact.webp";
@@ -6,21 +8,25 @@ import imgWaveBottom from "../../assets/impact-wave-bottom.svg";
 const impactItems = [
 	{
 		color: "bg-cma-teal",
+		icon: faUsersLine,
 		title: "Connected Learning",
 		body: "In-depth outreach across 17+ partner sites supporting literacy and nutrition in under-resourced neighborhoods.",
 	},
 	{
 		color: "bg-cma-orange",
+		icon: faBus,
 		title: "Mobile Learning Spaces",
 		body: "Weekly mobile preschool experiences in partnership with United Way, bringing play to children not yet in traditional preschool.",
 	},
 	{
 		color: "bg-[#fbb040]",
+		icon: faCalendarDays,
 		title: "Family Free Day",
 		body: "Free admission days 4× per year so every family can experience the Museum.",
 	},
 	{
 		color: "bg-cma-teal",
+		icon: faUnlockKeyhole,
 		title: "Access It!",
 		body: "Subsidized admission ensuring no child is turned away due to inability to pay.",
 	},
@@ -71,9 +77,9 @@ export default function EducatorsImpact() {
 									}}
 								>
 									<div
-										className={`${item.color} rounded-[14px] size-[48px] flex items-center justify-center shrink-0`}
+										className={`${item.color} rounded-full size-[48px] flex items-center justify-center shrink-0`}
 									>
-										<div className="bg-white/50 rounded-[6px] size-[24px]" />
+										<FontAwesomeIcon icon={item.icon} className="text-white text-[18px]" />
 									</div>
 									<div className="flex flex-col gap-[8px]">
 										<p className="font-extrabold text-[18px] text-white leading-[1.2]">

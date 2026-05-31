@@ -82,7 +82,7 @@ export default function CalendarPage() {
 							</a>
 							<a
 								href="#faqs"
-								className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black"
+								className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
 							>
 								Questions? Go to FAQs
 							</a>

@@ -1,6 +1,7 @@
 import { faDownload, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
+import imgCutCMA from "../../assets/cutCMA.png";
 
 const sections = [
 	{ id: "overview", label: "Overview" },
@@ -75,10 +76,11 @@ export default function SupportPageContent() {
 	return (
 		<>
 			{/* Page banner */}
-			<section className="overflow-hidden bg-cma-navy">
+			<section className="relative overflow-hidden bg-cma-navy">
+				<img src={imgCutCMA} alt="" aria-hidden className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] opacity-15 pointer-events-none select-none object-contain object-bottom" />
 				<div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
-				<div className="cma-section-container py-[48px] md:py-[64px]">
-					<p className="cma-eyebrow text-cma-orange mb-[16px]">
+				<div className="cma-section-container py-[80px] md:py-[120px] relative flex flex-col items-center text-center">
+					<p className="cma-eyebrow text-cma-teal mb-[16px]">
 						Children's Museum of Atlanta
 					</p>
 					<h1 className="text-white mb-[16px]">Other Ways to Support</h1>

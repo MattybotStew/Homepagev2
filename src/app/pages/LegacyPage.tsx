@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import imgCutCMA from "../../assets/cutCMA.png";
 import imgPhoto from "../../assets/educators-img-0.webp";
 import imgWaveBottom from "../../assets/impact-wave-bottom.svg";
 import AlertBanner from "../components/AlertBanner";
@@ -62,7 +63,8 @@ export default function LegacyPage() {
 			</div>
 
 			{/* Hero */}
-			<section className="bg-cma-navy w-full pt-[60px] pb-[100px] md:pt-[80px] md:pb-[140px] relative overflow-hidden">
+			<section className="bg-cma-navy w-full py-[80px] md:py-[120px] relative overflow-hidden">
+				<img src={imgCutCMA} alt="" aria-hidden className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] opacity-15 pointer-events-none select-none object-contain object-bottom" />
 				<div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
 				<div className="cma-section-container">
 					<motion.div
