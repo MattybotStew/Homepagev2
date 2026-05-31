@@ -122,9 +122,6 @@ export default function ImpactSection({
 								community, reaching over 180,000 guests annually with
 								interactive exhibits, educator training, and access programs.
 							</p>
-							<p className="font-semibold text-[clamp(18px,2.5vw,24px)] text-white leading-[1.1]">
-								2024 Impact: 1,200 free passes | 15,000 field trips
-							</p>
 						</motion.div>
 
 						<motion.div

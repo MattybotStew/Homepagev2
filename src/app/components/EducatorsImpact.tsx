@@ -9,20 +9,20 @@ const impactItems = [
 	{
 		color: "bg-cma-teal",
 		icon: faUsersLine,
-		title: "Connected Learning",
-		body: "In-depth outreach across 17+ partner sites supporting literacy and nutrition in under-resourced neighborhoods.",
+		title: "Connected Learning Connected Communities",
+		body: "In-depth outreach across 20+ partner sites supporting literacy and STEAM in under-resourced neighborhoods.",
 	},
 	{
 		color: "bg-cma-orange",
 		icon: faBus,
-		title: "Mobile Learning Spaces",
-		body: "Weekly mobile preschool experiences in partnership with United Way, bringing play to children not yet in traditional preschool.",
+		title: "Learning Spaces",
+		body: "Free preschool workshops in partnership with United Way, bringing play to children not enrolled in traditional preschools.",
 	},
 	{
 		color: "bg-[#fbb040]",
 		icon: faCalendarDays,
 		title: "Family Free Day",
-		body: "Free admission days 4× per year so every family can experience the Museum.",
+		body: "Free admission days four times a year so every family can experience the Museum.",
 	},
 	{
 		color: "bg-cma-teal",

@@ -18,19 +18,19 @@ import { allEvents, eventFilters, eventsByCategory } from "../data/events";
 const faqs: { q: string; a: ReactNode }[] = [
 	{
 		q: "Admission & Age Policy",
-		a: "Our exhibits are developed with children 8 years and younger in mind. All children must be accompanied by a paying adult. Adults visiting without children are not admitted.",
+		a: "Guests ages 1–100 years old will pay for admission. Babies 11 months and younger and members receive free general admission. Advance online ticket purchase is highly encouraged. Walk-up availability is limited. Members are encouraged to reserve tickets for peak times. The Museum does not allow adults to enter alone without a child and requires at least 1 adult (18+) for every 5 children. Call (404) 527-3693 for more information.",
 	},
 	{
 		q: "Arrival Window",
-		a: "We recommend arriving at or before your ticketed entry time. You have a 15-minute grace window for late arrivals. If you anticipate being significantly late, please contact our box office at 404-659-5437 so we can do our best to accommodate you.",
+		a: "Select an hour block for your arrival window when purchasing tickets online. If you arrive earlier or later than your arrival window and the Museum is at capacity, you may be asked to wait.",
 	},
 	{
 		q: "Re-Entry",
-		a: "Most families play for about 2 hours. Your tickets include re-entry on the day of your visit, as capacity allows. Please hold on to your ticket or wristband to re-enter.",
+		a: "Tickets are good for all day after your entry time. Leave and re-enter if capacity permits — get your hand stamped at Security before exiting. Re-entry may not be permitted without the proper stamp.",
 	},
 	{
 		q: "Refund/Exchange Policy",
-		a: "All ticket sales are final. Exchanges for a different date or time may be requested up to 24 hours before your scheduled visit by contacting our box office at 404-659-5437. We are unable to process same-day exchanges.",
+		a: "Tickets may not be refunded. To reschedule, contact Reservations at (404) 527-3693 or reservations@childrensmuseumatlanta.org.",
 	},
 ];
 
