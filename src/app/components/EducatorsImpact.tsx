@@ -93,13 +93,13 @@ export default function EducatorsImpact() {
 
 						<div className="flex flex-col sm:flex-row gap-3">
 							<a
-								href="#donate"
+								href="#/donate"
 								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 							>
 								Make Play Possible — Donate
 							</a>
 							<a
-								href="#learn-more"
+								href="#/educators"
 								className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black"
 							>
 								Learn More

@@ -221,7 +221,7 @@ export default function CareersPage() {
 									Contact HR
 								</a>
 								<a
-									href="#young-professionals"
+									href="#/giving-circles/young-professionals"
 									className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black"
 								>
 									Young Professionals
@@ -304,7 +304,7 @@ export default function CareersPage() {
 									Contact Volunteer Team
 								</a>
 								<a
-									href="#young-professionals"
+									href="#/giving-circles/young-professionals"
 									className="cma-btn bg-white border-2 border-white text-cma-navy hover:bg-cma-blue-light font-black"
 								>
 									Young Professionals

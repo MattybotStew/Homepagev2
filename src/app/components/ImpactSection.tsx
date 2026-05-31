@@ -139,13 +139,13 @@ export default function ImpactSection({
 							}}
 						>
 							<a
-								href="#donate"
+								href="#/donate"
 								className="cma-btn border-2 border-cma-teal-dark bg-white text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white w-full sm:w-auto font-black"
 							>
 								Donate
 							</a>
 							<a
-								href="#membership"
+								href="#/memberships"
 								className="cma-btn border-2 border-white bg-white text-cma-navy hover:bg-transparent hover:text-white w-full sm:w-auto font-black"
 							>
 								Memberships

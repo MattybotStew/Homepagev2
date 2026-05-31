@@ -44,7 +44,7 @@ const impactItems = [
 
 export default function DonateImpact() {
 	return (
-		<section className="bg-cma-navy w-full py-[80px] md:py-[120px] relative">
+		<section id="ways-to-give" className="bg-cma-navy w-full py-[80px] md:py-[120px] relative">
 			<div className="cma-section-container flex flex-col gap-[56px]">
 				{/* Header */}
 				<motion.div

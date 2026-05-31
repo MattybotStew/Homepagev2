@@ -45,7 +45,7 @@ const sections = [
 
 export default function MuseumStoreContent() {
 	return (
-		<section className="bg-white w-full py-[80px] md:py-[120px]">
+		<section id="education" className="bg-white w-full py-[80px] md:py-[120px]">
 			<div className="cma-section-container flex flex-col gap-[64px] md:gap-[80px]">
 				{sections.map((section, i) => (
 					<motion.div

@@ -208,7 +208,7 @@ export default function ImpactPage() {
 							organization. Our tax-exempt number is 58-1785484.
 						</p>
 						<a
-							href="#donate"
+							href="#/donate"
 							className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black mt-[4px]"
 						>
 							Donate Now
@@ -314,7 +314,7 @@ export default function ImpactPage() {
 									Your support makes play possible for every child in Atlanta.
 								</p>
 								<a
-									href="#donate"
+									href="#/donate"
 									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black w-full justify-center"
 								>
 									Learn More
