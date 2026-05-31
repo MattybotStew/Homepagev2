@@ -4,14 +4,19 @@ import {
 	faBrush,
 	faBuilding,
 	faCalendar,
+	faCircleInfo,
+	faCircleQuestion,
 	faClock,
+	faClipboard,
 	faDownload,
 	faFlask,
 	faGlobe,
 	faGraduationCap,
 	faMinus,
+	faPaperPlane,
 	faPhone,
 	faPlus,
+	faStar,
 	faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -27,14 +32,14 @@ import imgSummer from "../../assets/exhibits-summer-hero.jpg";
 // ── Data ────────────────────────────────────────────────────────────────────
 
 const sections = [
-	{ id: "overview", label: "Overview" },
-	{ id: "field-trip-details", label: "Field Trip Details" },
-	{ id: "learning-zones", label: "Learning Zones" },
-	{ id: "educational-standards", label: "Educational Standards" },
-	{ id: "field-trip-plus", label: "Field Trip +" },
-	{ id: "featured-exhibits", label: "Featured Exhibits" },
-	{ id: "faqs", label: "Field Trip FAQs" },
-	{ id: "request-visit", label: "Request Visit" },
+	{ id: "overview", label: "Overview", icon: faCircleInfo },
+	{ id: "field-trip-details", label: "Field Trip Details", icon: faClipboard },
+	{ id: "learning-zones", label: "Learning Zones", icon: faStar },
+	{ id: "educational-standards", label: "Educational Standards", icon: faGraduationCap },
+	{ id: "field-trip-plus", label: "Field Trip +", icon: faPlus },
+	{ id: "featured-exhibits", label: "Featured Exhibits", icon: faBuilding },
+	{ id: "faqs", label: "Field Trip FAQs", icon: faCircleQuestion },
+	{ id: "request-visit", label: "Request Visit", icon: faPaperPlane },
 ];
 
 const tripIncludes = [
@@ -329,8 +334,9 @@ export default function FieldTripsProgramContent() {
 											: "text-cma-navy/45 hover:text-cma-navy hover:bg-cma-navy/5"
 									}`}
 								>
-									<span
-										className={`w-[6px] h-[6px] rounded-full shrink-0 transition-colors ${activeSection === section.id ? "bg-cma-orange" : "bg-cma-navy/20"}`}
+									<FontAwesomeIcon
+										icon={section.icon}
+										className={`w-[13px] text-[12px] shrink-0 transition-colors ${activeSection === section.id ? "text-cma-orange" : "text-cma-navy/25"}`}
 									/>
 									{section.label}
 								</button>
