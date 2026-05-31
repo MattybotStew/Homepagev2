@@ -136,8 +136,16 @@ const pricingCards = [
 
 export default function AdmissionPricing({
 	navyBottomWave = false,
+	heading = "Admission Pricing",
+	subtitle = "Whether you're visiting with your family or a larger group, here's some helpful information about admission prices",
+	primaryCta = { label: "Ready to Visit?", href: "#tickets" },
+	secondaryCta = { label: "Location, Parking & Directions", href: "#directions" },
 }: {
 	navyBottomWave?: boolean;
+	heading?: string;
+	subtitle?: string;
+	primaryCta?: { label: string; href: string };
+	secondaryCta?: { label: string; href: string };
 }) {
 	return (
 		<section className="bg-white w-full py-[80px] md:py-[120px] relative overflow-hidden">
@@ -150,23 +158,22 @@ export default function AdmissionPricing({
 					viewport={{ once: true, margin: "-80px" }}
 					transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
 				>
-					<h2 className="text-cma-navy">Admission Pricing</h2>
+					<h2 className="text-cma-navy">{heading}</h2>
 					<p className="text-cma-navy text-[clamp(15px,1.25vw,18px)] leading-[1.7] max-w-[720px]">
-						Whether you're visiting with your family or a larger group, here's
-						some helpful information about admission prices
+						{subtitle}
 					</p>
 					<div className="flex flex-col sm:flex-row gap-3">
 						<a
-							href="#tickets"
+							href={primaryCta.href}
 							className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 						>
-							Ready to Visit?
+							{primaryCta.label}
 						</a>
 						<a
-							href="#directions"
+							href={secondaryCta.href}
 							className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
 						>
-							Location, Parking &amp; Directions
+							{secondaryCta.label}
 						</a>
 					</div>
 				</motion.div>

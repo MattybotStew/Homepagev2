@@ -2,7 +2,8 @@ import AlertBanner from "../components/AlertBanner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
-import MembershipPricing from "../components/MembershipPricing";
+import AdmissionPricing from "../components/AdmissionPricing";
+import MembershipPlanTable from "../components/MembershipPlanTable";
 import MembershipSavingsCalculator from "../components/MembershipSavingsCalculator";
 import MobileHeader from "../components/MobileHeader";
 import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee";
@@ -36,7 +37,13 @@ export default function MembershipsPage() {
 			/>
 
 			<MembershipSavingsCalculator />
-			<MembershipPricing />
+			<AdmissionPricing
+				heading="Membership Plans & Pricing"
+				subtitle="One family membership pays for itself in just 2 visits — and comes with exclusive perks, early access hours, and savings on every return visit."
+				primaryCta={{ label: "Become a Member", href: "https://www.childrensmuseumatlanta.org/memberships/" }}
+				secondaryCta={{ label: "Compare Plan Features", href: "#plan-table" }}
+			/>
+			<MembershipPlanTable />
 
 			<Testimonials heading="What Families Are Saying" showWave={false} />
 
