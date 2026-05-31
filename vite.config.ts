@@ -26,7 +26,7 @@ export default defineConfig({
     // Bundle analyzer (run with: npm run build -- --visualizer)
     visualizer({
       filename: 'dist/bundle-stats.html',
-      open: true,
+      open: false,
       gzipSize: true,
       brotliSize: true,
     }),
