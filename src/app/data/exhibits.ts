@@ -100,7 +100,7 @@ export const exhibits: Exhibit[] = [
 		heroImage: imgA,
 		cardImage: imgA,
 		paragraphs: [
-			`Choose vegetables and fruits from the farm, climb on our John Deere tractor, milk our milking cow, "Buttercup," load boxes on our delivery truck, and operate a fork lift. Shop 'til you drop in our grocery store. Enjoy a healthy pretend meal while relaxing at our play diner.`,
+			"Climb tractors, milk a dairy cow, load delivery trucks, shop a bustling grocery store, and cook pretend meals together. Through playful farm-to-table fun, explore where our food comes from, how it moves, and how food helps families grow strong and healthy.",
 		],
 		sections: [
 			{
@@ -132,7 +132,7 @@ export const exhibits: Exhibit[] = [
 		heroImage: imgB,
 		cardImage: imgB,
 		paragraphs: [
-			"Travel the world right here at the Children's Museum of Atlanta. Visit six continents, launch a rocket, and climb through the layers of the Earth in the Museum's newest and largest permanent exhibit.",
+			"Travel the globe through hands-on play. Guide trains across continents, launch rockets to planets in our solar system, and climb a two-story Earth. Along the way, explore geography, movement, and the ways our world is connected, from the ground beneath their feet to far beyond the sky.",
 		],
 		sections: [
 			{
