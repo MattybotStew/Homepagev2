@@ -14,7 +14,6 @@ const dailyItems = [
 
 const memberItems = [
 	"Unlimited visits",
-	"Exclusive Museum access (9–10am weekdays)",
 	"50% off guest tickets",
 	"Gift shop, party, and special event discounts",
 ];

@@ -94,14 +94,6 @@ export default function MuseumHoursWidget() {
 								</p>
 								<div className="bg-white rounded-[10px] py-[10px] px-[14px] flex flex-col items-center gap-[4px]">
 									<p className="font-black text-[12px] text-cma-navy [text-box-trim:trim-both] [text-box-edge:cap_alphabetic]">
-										Members Early Access
-									</p>
-									<p className="font-medium text-[12px] text-cma-teal-dark [text-box-trim:trim-both] [text-box-edge:cap_alphabetic]">
-										9:00 – 10:00 AM
-									</p>
-								</div>
-								<div className="bg-white rounded-[10px] py-[10px] px-[14px] flex flex-col items-center gap-[4px]">
-									<p className="font-black text-[12px] text-cma-navy [text-box-trim:trim-both] [text-box-edge:cap_alphabetic]">
 										General Admission
 									</p>
 									<p className="font-medium text-[12px] text-cma-teal-dark [text-box-trim:trim-both] [text-box-edge:cap_alphabetic]">

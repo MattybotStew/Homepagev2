@@ -19,11 +19,6 @@ const employeeRows: { label: string; sub?: string; cells: Cell[] }[] = [
 		cells: ["50 families", "100 families", "200 families", "500 families", "1,000 families"],
 	},
 	{
-		label: "Member-exclusive hours",
-		sub: "And exhibit previews",
-		cells: ["check", "check", "check", "check", "check"],
-	},
-	{
 		label: "50% off 2 tickets per visit",
 		cells: ["check", "check", "check", "check", "check"],
 	},

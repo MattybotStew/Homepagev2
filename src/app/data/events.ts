@@ -27,19 +27,6 @@ export const allEvents: EventItem[] = [
 		],
 	},
 	{
-		slug: "members-only-hour",
-		image: imgB,
-		badge: "August 1–31, 2026 • Ages: 1–8",
-		title: "Members-Only Hour",
-		description:
-			"The first hour of play from 9:00 AM – 10:00 AM is reserved exclusively for our Members on weekdays: Monday, Tuesday, Thursday and Friday.",
-		categories: ["Featured", "Members-Only"],
-		paragraphs: [
-			"Every day in August, CMA members get a head start on the fun. Members-Only Hour runs from 9–10am daily, giving member families a full hour of quiet, crowd-free access to all exhibits before general admission opens. It's the best way to get more out of every visit.",
-			"This perk is available to all active CMA member households at no additional cost. Simply show your member card or digital membership confirmation at the door. Not a member yet? August is a great time to join — this exclusive access is just one of many benefits waiting for your family.",
-		],
-	},
-	{
 		slug: "tinycon",
 		image: imgC,
 		badge: "September 5–6, 2026 • Ages: 4–8",

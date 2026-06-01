@@ -180,12 +180,6 @@ function TabContent({ item }: { item: string }) {
 						Looking for a Quieter Experience?
 					</h2>
 					<p className="text-cma-blue-light">
-						<span className="font-black text-white">Member-Only Hours: </span>
-						Monday, Tuesday, Thursday, Friday, 9–10 a.m. Enjoy exclusive early
-						access before general admission opens. It's quieter, less crowded,
-						and perfect for young children.
-					</p>
-					<p className="text-cma-blue-light">
 						<span className="font-black text-white">
 							Avoid Field Trip Groups:{" "}
 						</span>

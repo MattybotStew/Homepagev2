@@ -41,7 +41,7 @@ export default function MembershipsPage() {
 			<MembershipSavingsCalculator />
 			<AdmissionPricing
 				heading="Membership Plans & Pricing"
-				subtitle="One family membership pays for itself in just 2 visits — and comes with exclusive perks, early access hours, and savings on every return visit."
+				subtitle="One family membership pays for itself in just 2 visits — and comes with exclusive perks and savings on every return visit."
 				primaryCta={{ label: "Become a Member", href: "https://www.childrensmuseumatlanta.org/memberships/" }}
 				secondaryCta={{ label: "Compare Plan Features", href: "#plan-table" }}
 			/>

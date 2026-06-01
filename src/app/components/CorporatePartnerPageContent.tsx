@@ -301,8 +301,7 @@ export default function CorporatePartnerPageContent() {
 										Give your team and their families the gift of play. CMA's
 										Corporate Membership program offers structured annual packages
 										— from 50 to 1,000 employee families — with tiered benefits
-										including free admission, member-exclusive hours, museum
-										buy-out discounts, and more. Bulk ticket options are also
+										including free admission, museum buy-out discounts, and more. Bulk ticket options are also
 										available for companies looking for one-time access.
 									</p>
 									<div>
