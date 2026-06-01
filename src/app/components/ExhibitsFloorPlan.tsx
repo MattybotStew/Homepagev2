@@ -62,6 +62,15 @@ const floors: Floor[] = [
 						</li>
 					))}
 				</ul>
+				<div className="flex flex-col gap-[6px] pt-[8px] border-t border-black/10">
+					<p className="text-cma-navy font-extrabold">Mezzanine</p>
+					<p className="text-cma-navy">
+						Take the piano stairs or elevator to the Mezzanine and play in Step
+						Up to Science, the Science Bar, and Jane's Innovation Station.
+						Explore and experiment with the forces and phenomena that make our
+						world wonderful.
+					</p>
+				</div>
 			</div>
 		),
 		image: imgFloorPlan,
