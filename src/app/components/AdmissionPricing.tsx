@@ -92,12 +92,13 @@ const pricingCards = [
 		bg: "bg-cma-cream",
 		eyebrow: "Daily Admission",
 		price: "$19.95",
+		pricePrefix: "",
 		priceSuffix: "per person",
 		items: dailyItems,
 		white: false,
 		cta: {
 			label: "Buy Tickets",
-			href: "/book-your-visit",
+			href: "#/book-your-visit",
 			style:
 				"cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black",
 		},
@@ -107,12 +108,13 @@ const pricingCards = [
 		bg: "bg-cma-teal-dark",
 		eyebrow: "Save Money with Memberships!",
 		price: "$125",
+		pricePrefix: "Starting at ",
 		priceSuffix: "/ year",
 		items: memberItems,
 		white: true,
 		cta: {
 			label: "View Plans",
-			href: "#memberships",
+			href: "#/memberships/information",
 			style: "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black",
 		},
 		badge: "Best Value",
@@ -121,12 +123,13 @@ const pricingCards = [
 		bg: "bg-cma-cream",
 		eyebrow: "Groups & Field Trips",
 		price: "$11.95",
+		pricePrefix: "",
 		priceSuffix: "per student",
 		items: groupItems,
 		white: false,
 		cta: {
 			label: "Request a Field Trip",
-			href: "#field-trips",
+			href: "#/program/field-trips",
 			style:
 				"cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black",
 		},
@@ -211,7 +214,12 @@ export default function AdmissionPricing({
 									{card.eyebrow}
 								</p>
 							)}
-							<div className="flex gap-2 items-end min-w-0">
+							<div className="flex gap-2 items-end min-w-0 flex-wrap">
+								{card.pricePrefix && (
+									<span className={`text-[13px] font-semibold pb-1 shrink-0 ${card.white ? "text-white/70" : "text-cma-navy/60"}`}>
+										{card.pricePrefix}
+									</span>
+								)}
 								<span
 									className={`font-extrabold leading-none tracking-[-1px] shrink-0 ${card.white ? "text-white font-black text-[clamp(48px,5.5vw,72px)]" : "text-cma-orange text-[clamp(36px,3.5vw,48px)]"}`}
 								>

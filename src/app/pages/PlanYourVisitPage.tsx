@@ -4,7 +4,6 @@ import AdmissionPricing from "../components/AdmissionPricing";
 import AlertBanner from "../components/AlertBanner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import MembershipPricing from "../components/MembershipPricing";
 import MobileHeader from "../components/MobileHeader";
 import PlanTabs from "../components/PlanTabs";
 import PlanYourVisitFAQs from "../components/PlanYourVisitFAQs";
@@ -64,13 +63,6 @@ export default function PlanYourVisitPage() {
 
 			{/* FAQs */}
 			<PlanYourVisitFAQs />
-
-			{/* Wave + Membership Pricing */}
-			<div className="relative">
-				<WaveStrip src={imgWaveNavy} position="top" />
-				<MembershipPricing />
-				<WaveStrip src={imgWaveWhite} position="bottom" />
-			</div>
 
 			<PowerOfPlayMarquee />
 			<Footer />
