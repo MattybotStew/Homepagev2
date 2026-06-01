@@ -30,7 +30,7 @@ export default function MembershipPricing() {
 					</h2>
 					<div className="flex flex-col items-center gap-[6px]">
 						<p className="text-center font-medium text-[18px] text-cma-navy leading-[1.4]">
-							One family membership pays for itself in just 2 visits
+							One family membership pays for itself in just 3 visits
 						</p>
 						<p className="text-center font-black text-[18px] text-cma-navy leading-[1.4]">
 							Membership Benefit: Helps bring play to ALL of Atlanta's children
