@@ -9,21 +9,21 @@ import imgWaveWhite from "../../assets/wave-white.svg";
 const popUpExhibits = [
 	{
 		image: imgA,
-		badge: "Coming Soon",
+		badge: "Fall 2026",
 		title: "Outside the Box",
 		body: "Transform everyday boxes into anything you imagine: cars, houses, rockets, and more! Build creativity while exploring the basics of math, engineering, and science through imaginative, constructive play.",
 		href: "#/exhibits/outside-the-box",
 	},
 	{
 		image: imgB,
-		badge: "Coming Soon",
+		badge: "Spring 2027",
 		title: "Obstacle Adventure: Make Your Own Path",
 		body: "Climb, crawl, balance, and explore your way through a giant obstacle course where you choose your own path, take on new challenges, and discover fun, unexpected ways to move.",
 		href: "#/exhibits/obstacle-adventure",
 	},
 	{
 		image: imgC,
-		badge: "Coming Soon",
+		badge: "Summer 2027",
 		title: "Our Place in Space",
 		body: "Blast off into our solar system! Enter the planetarium to explore the planets and orbits in our solar system.",
 		href: "#/exhibits/our-place-in-space",

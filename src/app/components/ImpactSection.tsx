@@ -97,9 +97,10 @@ export default function ImpactSection({
 							viewport={{ once: true, margin: "-80px" }}
 							transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
 						>
-							<h2 className="leading-none text-white">
-								Making an Impact Together
-							</h2>
+							<p className="cma-eyebrow text-cma-orange">Take Action Now</p>
+						<h2 className="leading-none text-white">
+							Making an Impact Together
+						</h2>
 						</motion.div>
 
 						<motion.div

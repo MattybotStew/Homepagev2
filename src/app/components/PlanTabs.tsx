@@ -59,6 +59,10 @@ const navItems = [
 	"Food & Amenities",
 	"Safety & Cleanliness",
 	"Accessibility",
+	"Code of Conduct",
+	"What to Wear",
+	"Arrival Window",
+	"Policies & Rules",
 ];
 
 const tabSlugs: Record<string, string> = {
@@ -68,6 +72,10 @@ const tabSlugs: Record<string, string> = {
 	amenities: "Food & Amenities",
 	safety: "Safety & Cleanliness",
 	accessibility: "Accessibility",
+	conduct: "Code of Conduct",
+	wear: "What to Wear",
+	arrival: "Arrival Window",
+	policies: "Policies & Rules",
 };
 
 function TabContent({ item }: { item: string }) {
@@ -517,6 +525,65 @@ function TabContent({ item }: { item: string }) {
 					>
 						Contact Us
 					</a>
+				</div>
+			</div>
+		);
+	}
+
+	if (item === "Code of Conduct") {
+		return (
+			<div className="flex flex-col gap-6">
+				<h3 className="text-cma-navy">Code of Conduct</h3>
+				<ul className="flex flex-col gap-3 pl-4 list-disc">
+					<li className="text-cma-navy"><strong>We Exercise Kindness:</strong> Please use positive, encouraging behavior. Avoid profane and explicit language, harassment, and aggressive behavior.</li>
+					<li className="text-cma-navy"><strong>We Engage In Respectful Behavior:</strong> Please share and take turns. Treat the exhibits well so that other guests have a chance to experience them.</li>
+					<li className="text-cma-navy"><strong>We Assume Good Intentions:</strong> Children may unintentionally touch or bump into each other. Please be patient and understanding.</li>
+					<li className="text-cma-navy"><strong>Stay Together, Play Together:</strong> Adults must stay with their children at all times.</li>
+					<li className="text-cma-navy"><strong>Use Walking Feet:</strong> No running, please.</li>
+					<li className="text-cma-navy"><strong>Make Memories, Don't Miss Them:</strong> We encourage a screen-free experience, unless capturing precious memories.</li>
+				</ul>
+			</div>
+		);
+	}
+
+	if (item === "What to Wear") {
+		return (
+			<div className="flex flex-col gap-6">
+				<h3 className="text-cma-navy">What to Wear</h3>
+				<p className="text-cma-navy">We recommend wearing comfortable "play clothes" and rubber-soled sneakers or shoes since children will be very active. Open-toe sandals, flip-flops, and high heels are strongly discouraged. Shoes must be worn at all times. Consider bringing a change of clothes. Coat racks are available in the Museum.</p>
+			</div>
+		);
+	}
+
+	if (item === "Arrival Window") {
+		return (
+			<div className="flex flex-col gap-6">
+				<h3 className="text-cma-navy">Arrival Window</h3>
+				<p className="text-cma-navy">When purchasing/reserving your tickets online, you will need to select the hour block in which you want to arrive. If you arrive earlier or later than your arrival window, you may be asked to wait if the Museum is already at capacity.</p>
+			</div>
+		);
+	}
+
+	if (item === "Policies & Rules") {
+		return (
+			<div className="flex flex-col gap-6">
+				<h3 className="text-cma-navy">Policies &amp; Rules</h3>
+				<p className="text-cma-navy">Children's Museum of Atlanta is designed to be enjoyed by families with young children. Exhibits and educational content are planned to be appropriate for children 8 and younger.</p>
+				<ul className="flex flex-col gap-3 pl-4 list-disc">
+					<li className="text-cma-navy"><strong>Adult Supervision:</strong> 1 adult chaperone required for every 5 children. Adults must supervise children at all times.</li>
+					<li className="text-cma-navy"><strong>Animals:</strong> Service animals only permitted (not pets, emotional support, or therapy animals).</li>
+					<li className="text-cma-navy"><strong>Food, Snacks, and Drinks:</strong> Food and snacks only in Snack Stop area. Water and soda bottles with caps allowed on the exhibit floor.</li>
+					<li className="text-cma-navy"><strong>Inappropriate Language/Clothing:</strong> Swearing and inappropriate language not permitted. Guests must wear proper attire.</li>
+					<li className="text-cma-navy"><strong>Party Celebrations:</strong> Museum party packages only; no outside party items permitted.</li>
+					<li className="text-cma-navy"><strong>Photography:</strong> Families may photograph their own family members only. By entering the facility, you consent to CMA using your image for marketing.</li>
+					<li className="text-cma-navy"><strong>Re-entry:</strong> Re-entry permitted if Museum has not reached capacity. Get your hand stamped at security before exiting.</li>
+					<li className="text-cma-navy"><strong>Refunds:</strong> General Admission tickets are non-refundable; unused tickets may be rescheduled within 90 days. Event and group tickets are non-refundable. Memberships are non-refundable and non-transferable.</li>
+					<li className="text-cma-navy"><strong>Sick Policy:</strong> Guests with elevated temperatures, contagious illness, or who are too sick to go to school/work should not visit.</li>
+					<li className="text-cma-navy"><strong>Unaccompanied Adults:</strong> No adult is permitted on the Museum floor without an accompanying child.</li>
+				</ul>
+				<div className="flex flex-col gap-4">
+					<h4 className="text-cma-navy font-bold">Prohibited Items</h4>
+					<p className="text-cma-navy">Alcohol, Balloons, Bicycles/Scooters, Cake/Cupcakes, Cigarettes/E-cigarettes, Coolers, Controlled substances, Costume Characters, Food, Gifts, Professional Photographers, Weapons (exception: uniformed police officer)</p>
 				</div>
 			</div>
 		);

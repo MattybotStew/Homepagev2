@@ -25,48 +25,6 @@ const testimonials: Testimonial[] = [
 		text: "It's the closest thing you'll find to Mr. Magorium's Wonder Emporium in real life — pure magic, creativity, and joy. If you live in Atlanta and have a young child, and you're only getting one membership, make it this one. If you're visiting with little ones, this is a must. Trust me: don't sleep on it like I did.",
 		name: "Tara",
 	},
-	// Page 2
-	{
-		text: "Amazing birthday party experience! The staff took care of everything and the kids had a blast. The party room was perfect and clean. Will definitely book again next year!",
-		name: "Rachel M.",
-		location: "Buckhead, GA",
-	},
-	{
-		text: "We visit every month and our kids never get bored! The exhibits are always well-maintained and the educational programs are fantastic. Great value for the membership price!",
-		name: "David K.",
-		location: "Roswell, GA",
-	},
-	{
-		text: "Such a wonderful place for learning through play! My twins spent hours exploring and trying new things. The museum makes learning fun and interactive. Highly recommend!",
-		name: "Jennifer P.",
-		location: "Dunwoody, GA",
-	},
-	{
-		text: "Best children's museum we've visited! Clean facilities, friendly staff, and so many activities. Our daughter asks to come back every weekend. Absolutely love this place!",
-		name: "Thomas R.",
-		location: "Alpharetta, GA",
-	},
-	// Page 3
-	{
-		text: "Incredible experience from start to finish! The exhibits are thoughtfully designed and age-appropriate. My kids learned so much while having fun. Can't recommend enough!",
-		name: "Lisa H.",
-		location: "Midtown, GA",
-	},
-	{
-		text: "We drove an hour to get here and it was worth every minute! The interactive displays are amazing and the staff truly cares about the children's experience. Will visit again soon!",
-		name: "Kevin B.",
-		location: "Duluth, GA",
-	},
-	{
-		text: "Perfect place for curious minds! My son loves the science exhibits and my daughter enjoys the creative art stations. There's something for every child here. Fantastic museum!",
-		name: "Amanda S.",
-		location: "Johns Creek, GA",
-	},
-	{
-		text: "Five stars all around! The museum exceeded our expectations. Clean, safe, educational, and most importantly - fun! Our kids talk about it for days after every visit.",
-		name: "Brian D.",
-		location: "Smyrna, GA",
-	},
 ];
 
 function StarIcon() {
