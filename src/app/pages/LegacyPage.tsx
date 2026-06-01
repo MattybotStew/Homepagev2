@@ -3,6 +3,7 @@ import imgCutCMA from "../../assets/cutCMA.png";
 import imgHero from "../../assets/donate-donor-foundations.webp";
 import imgPhoto from "../../assets/educators-img-0.webp";
 import imgWaveBottom from "../../assets/impact-wave-bottom.svg";
+import imgWaveWhite from "../../assets/wave-white.svg";
 import AlertBanner from "../components/AlertBanner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -106,7 +107,7 @@ export default function LegacyPage() {
 					{Array.from({ length: 10 }).map((_, i) => (
 						<img
 							key={i}
-							src={imgWaveBottom}
+							src={imgWaveWhite}
 							alt=""
 							className="w-[422px] h-[57px] shrink-0 block"
 						/>

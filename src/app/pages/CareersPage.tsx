@@ -139,7 +139,7 @@ export default function CareersPage() {
 					{Array.from({ length: 10 }).map((_, i) => (
 						<img
 							key={i}
-							src={imgWaveBottom}
+							src={imgWaveWhite}
 							alt=""
 							className="w-[422px] h-[57px] shrink-0 block"
 						/>

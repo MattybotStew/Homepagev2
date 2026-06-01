@@ -1,7 +1,7 @@
 import { faBookOpen, faBus, faCalendarDays, faStar, faUnlockKeyhole, faUsersLine } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
-import imgWaveBottom from "../../assets/impact-wave-bottom.svg";
+import imgWaveWhite from "../../assets/wave-white.svg";
 
 const impactItems = [
 	{
@@ -120,7 +120,7 @@ export default function DonateImpact() {
 				{Array.from({ length: 10 }).map((_, i) => (
 					<img
 						key={`item-${i}`}
-						src={imgWaveBottom}
+						src={imgWaveWhite}
 						alt=""
 						className="w-[422px] h-[57px] shrink-0 block"
 					/>

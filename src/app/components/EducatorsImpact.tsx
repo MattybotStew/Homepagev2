@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import { useState } from "react";
 import imgContact from "../../assets/educators-contact.webp";
-import imgWaveBottom from "../../assets/impact-wave-bottom.svg";
+import imgWaveWhite from "../../assets/wave-white.svg";
 
 const impactItems = [
 	{
@@ -199,7 +199,7 @@ export default function EducatorsImpact() {
 				{Array.from({ length: 10 }).map((_, i) => (
 					<img
 						key={`item-${i}`}
-						src={imgWaveBottom}
+						src={imgWaveWhite}
 						alt=""
 						className="w-[422px] h-[57px] shrink-0 block"
 					/>

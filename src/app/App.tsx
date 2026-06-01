@@ -75,7 +75,7 @@ export default function App() {
 			<Testimonials />
 
 			{/* Impact Section */}
-			<ImpactSection />
+			<ImpactSection bottomWave="white" />
 
 			{/* Instagram Section */}
 			<InstagramSection />

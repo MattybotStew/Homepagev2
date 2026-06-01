@@ -10,6 +10,7 @@ import imgB from "../../assets/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp";
 import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp";
 import imgC from "../../assets/39da2bd0af3dceef1e3b406cd981247f82778d27.webp";
 import imgWaveBottom from "../../assets/impact-wave-bottom.svg";
+import imgWaveWhite from "../../assets/wave-white.svg";
 import imgHeroBg from "../../assets/store-hero-bg.svg";
 import AlertBanner from "../components/AlertBanner";
 import Footer from "../components/Footer";
@@ -183,7 +184,7 @@ export default function ImpactPage() {
 					{Array.from({ length: 10 }).map((_, i) => (
 						<img
 							key={i}
-							src={imgWaveBottom}
+							src={imgWaveWhite}
 							alt=""
 							className="w-[422px] h-[57px] shrink-0 block"
 						/>

@@ -6,7 +6,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import { useState } from "react";
-import imgWaveBottom from "../../assets/impact-wave-bottom.svg";
+import imgWaveWhite from "../../assets/wave-white.svg";
 import imgFaqPhoto from "../../assets/pyv-faq-photo.webp";
 
 const faqs = [
@@ -202,7 +202,7 @@ export default function PlanYourVisitFAQs({
 					{Array.from({ length: 10 }).map((_, i) => (
 						<img
 							key={`item-${i}`}
-							src={imgWaveBottom}
+							src={imgWaveWhite}
 							alt=""
 							className="w-[422px] h-[57px] shrink-0 block"
 						/>
