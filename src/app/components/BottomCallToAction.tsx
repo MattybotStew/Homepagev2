@@ -140,7 +140,7 @@ export default function BottomCallToAction() {
 						variants={fadeInUpVariants}
 					>
 						<motion.a
-							href="#/memberships/information"
+							href="#/memberships"
 							className="bg-cma-teal rounded-full shadow-cma-btn px-6 py-4 md:px-[34px] md:py-[22px] hover:bg-cma-teal-dark transition-colors w-full sm:w-auto min-h-[44px] flex items-center justify-center"
 							variants={buttonVariants}
 							whileHover={{ scale: 1.05 }}

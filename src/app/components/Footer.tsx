@@ -196,7 +196,7 @@ export default function Footer() {
 						<h3 className="cma-footer-heading">SUPPORT</h3>
 						<ul className="flex flex-col gap-3">
 							<li>
-								<a href="#/memberships/information" className="cma-footer-link">
+								<a href="#/memberships" className="cma-footer-link">
 									Memberships
 								</a>
 							</li>

@@ -12,7 +12,6 @@ export const navLinks: NavLink[] = [
 			{ label: "Food & Amenities", href: "#/plan-your-visit?tab=amenities" },
 			{ label: "Safety & Cleanliness", href: "#/plan-your-visit?tab=safety" },
 			{ label: "Accessibility", href: "#/plan-your-visit?tab=accessibility" },
-			{ label: "Book Your Visit", href: "#/book-your-visit" },
 			{ label: "Museum Store", href: "#/museum-store" },
 		],
 	},

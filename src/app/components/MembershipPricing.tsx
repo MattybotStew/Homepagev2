@@ -89,7 +89,7 @@ export default function MembershipPricing() {
 									</span>
 								</div>
 								<a
-									href="#/memberships/information"
+									href="#/memberships"
 									className="cma-btn shrink-0 bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 								>
 									Become a Member

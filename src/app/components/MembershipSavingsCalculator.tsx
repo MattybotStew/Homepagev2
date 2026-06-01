@@ -266,7 +266,7 @@ export default function MembershipSavingsCalculator() {
 							{/* CTAs */}
 							<div className="flex flex-wrap items-center gap-[12px]">
 								<a
-									href="#/memberships/information"
+									href="#/memberships"
 									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 								>
 									Become a Member
