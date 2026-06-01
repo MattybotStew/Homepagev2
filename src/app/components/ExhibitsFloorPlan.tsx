@@ -91,6 +91,7 @@ const floors: Floor[] = [
 					href="https://childrensmuseumatlanta.org/plan-your-visit/tour-the-museum/museum-walk-through/"
 					target="_blank"
 					rel="noopener noreferrer"
+					tabIndex={-1}
 					className="group relative w-full rounded-[20px] overflow-hidden block"
 				>
 					<img
