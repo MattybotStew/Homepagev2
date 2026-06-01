@@ -7,7 +7,7 @@ import imgWaveWhite from "../../assets/wave-white.svg";
 
 const membershipBenefits = [
 	["Unlimited visits for 1 year", "50% off guest tickets"],
-	["Helps bring the power of play to ALL of Atlanta's children"],
+	["Gift shop, birthday party & special event discounts", "Helps bring the power of play to ALL of Atlanta's children"],
 ];
 
 export default function MembershipPricing() {

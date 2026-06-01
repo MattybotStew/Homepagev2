@@ -16,6 +16,7 @@ const memberItems = [
 	"Unlimited visits",
 	"50% off guest tickets",
 	"Gift shop, party, and special event discounts",
+	"Helps bring the power of play to ALL of Atlanta's children",
 ];
 
 const groupItems = [
