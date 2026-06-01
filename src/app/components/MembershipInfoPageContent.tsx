@@ -29,7 +29,7 @@ const tableRows = {
 			values: ["✓", "✓", "✓", "✓", "✓"],
 		},
 		{
-			label: "Member-exclusive hours (Mon–Thu 9–10 AM)",
+			label: "Member-exclusive hours (Mon, Tue, Thu & Fri 9–10 AM)",
 			values: ["✓", "✓", "✓", "✓", "✓"],
 		},
 		{
@@ -75,7 +75,7 @@ const tableRows = {
 
 const membershipBenefits = [
 	"Unlimited FREE general admission for one adult during regular operating hours",
-	"Members-only hours: Monday–Thursday 9–10 AM for Members",
+	"Members-only hours: Mon, Tue, Thu & Fri 9–10 AM",
 	"50% off general admission for up to four accompanying guests on every visit (admission must be purchased at member discount price)",
 	"Reciprocity to select Association of Children's Museums (ACM) member institutions",
 	"10% off Museum Store purchases",

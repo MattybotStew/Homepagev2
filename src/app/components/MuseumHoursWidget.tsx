@@ -54,7 +54,7 @@ function TriggerRow({ isExpanded }: { isExpanded: boolean }) {
 					Opening Times Today
 				</p>
 				<p className="font-medium text-[12px] text-cma-teal-dark leading-[1.3] whitespace-nowrap overflow-hidden text-ellipsis">
-					Members 9–10 AM | General 10 AM–3:30 PM
+					Mon–Fri 10 AM–3:30 PM | Sat–Sun 9:30 AM–4:30 PM
 				</p>
 			</div>
 			<ChevronIcon up={isExpanded} />
@@ -90,7 +90,7 @@ export default function MuseumHoursWidget() {
 
 							<div className="bg-cma-cream rounded-[8px] px-[16px] py-[16px] flex flex-col gap-[10px]">
 								<p className="text-[12px] font-black text-cma-navy text-center [text-box-trim:trim-both] [text-box-edge:cap_alphabetic]">
-									Weekday Hours: Tuesday – Friday
+									Weekday Hours: Mon, Tue, Thu &amp; Fri
 								</p>
 								<div className="bg-white rounded-[10px] py-[10px] px-[14px] flex flex-col items-center gap-[4px]">
 									<p className="font-black text-[12px] text-cma-navy [text-box-trim:trim-both] [text-box-edge:cap_alphabetic]">
@@ -110,19 +110,19 @@ export default function MuseumHoursWidget() {
 								</div>
 
 								<p className="text-[12px] font-black text-cma-navy text-center [text-box-trim:trim-both] [text-box-edge:cap_alphabetic]">
-									Weekend Hours: Saturday
+									Weekend Hours: Saturday &amp; Sunday
 								</p>
 								<div className="bg-white rounded-[10px] py-[10px] px-[14px] flex flex-col items-center gap-[4px]">
 									<p className="font-black text-[12px] text-cma-navy [text-box-trim:trim-both] [text-box-edge:cap_alphabetic]">
 										Open to All
 									</p>
 									<p className="font-medium text-[12px] text-cma-teal-dark [text-box-trim:trim-both] [text-box-edge:cap_alphabetic]">
-										9:00 AM – 4:30 PM
+										9:30 AM – 4:30 PM
 									</p>
 								</div>
 
 								<p className="text-[12px] font-black text-cma-navy text-center [text-box-trim:trim-both] [text-box-edge:cap_alphabetic]">
-									Closed Sundays &amp; Mondays
+									Closed Wednesdays
 								</p>
 
 								<a
