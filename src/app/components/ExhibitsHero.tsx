@@ -64,9 +64,10 @@ export default function ExhibitsHero() {
 				{/* Featured exhibit cards */}
 				<div className="flex flex-col md:flex-row gap-5">
 					{featuredExhibits.map((exhibit, i) => (
-						<motion.div
+						<motion.a
 							key={exhibit.title}
-							className="flex-1 bg-cma-cream border-2 border-black/5 rounded-[24px] pt-[24px] px-[24px] pb-[48px] flex flex-col gap-[32px] relative"
+							href={exhibit.href}
+							className="flex-1 bg-cma-cream border-2 border-black/5 rounded-[24px] pt-[24px] px-[24px] pb-[48px] flex flex-col gap-[32px] relative transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
 							initial={{ opacity: 0, y: 24 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true, margin: "-60px" }}
@@ -83,29 +84,27 @@ export default function ExhibitsHero() {
 									alt={exhibit.title}
 									className="absolute inset-0 w-full h-full object-cover"
 								/>
-								<div className="absolute top-[10px] left-[10px] bg-cma-teal-dark px-[18px] py-[12px] rounded-[8px]">
-									<p className="font-extrabold text-[14px] text-white leading-[1.5] whitespace-nowrap">
-										{exhibit.badge}
-									</p>
-								</div>
 							</div>
 
 							{/* Text */}
 							<div className="flex flex-col gap-[24px]">
-								<p className="text-cma-teal-dark">{exhibit.ages}</p>
-								<p className="font-extrabold text-[22px] md:text-[30px] text-cma-navy leading-[1.1] tracking-[-1px]">
-									{exhibit.title}
-								</p>
+								<div className="flex flex-col gap-[8px]">
+									<p className="text-cma-teal-dark font-bold text-[12px]">{exhibit.badge}</p>
+									<p className="font-extrabold text-[22px] md:text-[30px] text-cma-navy leading-[1.1] tracking-[-1px]">
+										{exhibit.title}
+									</p>
+								</div>
+								<p className="text-cma-teal-dark text-[13px] font-medium">{exhibit.ages}</p>
 								<p className="text-cma-navy">{exhibit.body}</p>
-								<a href={exhibit.href} className="cma-text-link">
+								<span className="cma-text-link">
 									See Exhibit{" "}
 									<FontAwesomeIcon
 										icon={faArrowRight}
 										className="text-[13px]"
 									/>
-								</a>
+								</span>
 							</div>
-						</motion.div>
+						</motion.a>
 					))}
 				</div>
 			</div>

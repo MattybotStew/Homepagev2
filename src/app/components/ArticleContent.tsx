@@ -114,9 +114,10 @@ export default function ArticleContent({ exhibit, related }: Props) {
 							</p>
 							<div className="flex flex-col gap-[16px]">
 								{related.map((rel, i) => (
-									<motion.div
+									<motion.a
 										key={rel.slug}
-										className="bg-white border-2 border-black/5 rounded-[24px] p-[24px] flex flex-col md:flex-row gap-[32px] md:items-center"
+										href={`#/exhibits/${rel.slug}`}
+										className="bg-white border-2 border-black/5 rounded-[24px] p-[24px] flex flex-col md:flex-row gap-[32px] md:items-center transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
 										initial={{ opacity: 0, y: 20 }}
 										whileInView={{ opacity: 1, y: 0 }}
 										viewport={{ once: true }}
@@ -132,9 +133,9 @@ export default function ArticleContent({ exhibit, related }: Props) {
 											className="w-full md:w-[266px] md:h-[220px] h-[180px] rounded-[24px] object-cover shrink-0"
 										/>
 										<div className="flex flex-col gap-[20px] md:gap-[32px] flex-1 min-w-0 md:justify-center">
-											<div className="flex flex-col gap-[8px] md:gap-[24px]">
+											<div className="flex flex-col gap-[8px]">
 												{rel.eyebrow && (
-													<p className="text-cma-teal-dark">{rel.eyebrow}</p>
+													<p className="text-cma-teal-dark font-bold text-[12px]">{rel.eyebrow}</p>
 												)}
 												<p className="text-cma-navy font-extrabold text-[24px] md:text-[30px] leading-[1.3] tracking-[-0.5px] md:tracking-[-1px]">
 													{rel.title}
@@ -143,18 +144,15 @@ export default function ArticleContent({ exhibit, related }: Props) {
 											<p className="text-cma-navy line-clamp-3">
 												{rel.paragraphs[0]}
 											</p>
-											<a
-												href={`/#/exhibits/${rel.slug}`}
-												className="cma-text-link"
-											>
+											<span className="cma-text-link">
 												See Exhibit{" "}
 												<FontAwesomeIcon
 													icon={faArrowRight}
 													className="text-[13px]"
 												/>
-											</a>
+											</span>
 										</div>
-									</motion.div>
+									</motion.a>
 								))}
 							</div>
 						</div>

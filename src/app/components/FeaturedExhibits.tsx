@@ -190,8 +190,8 @@ export default function FeaturedExhibits() {
 				</motion.h2>
 
 				<a
-					onClick={() => document.getElementById("exhibits")?.scrollIntoView({ behavior: "smooth" })}
-					className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark"
+					href="#/exhibits"
+					className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 				>
 					See All Exhibits
 				</a>

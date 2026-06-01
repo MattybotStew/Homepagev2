@@ -58,7 +58,11 @@ export default function ResourcePage() {
 							</div>
 
 							{/* Body */}
-							<p className="text-cma-navy text-[16px] leading-[1.7]">{resource.description}</p>
+							<div className="cma-prose flex flex-col">
+								{resource.paragraphs.map((p, i) => (
+									<p key={i}>{p}</p>
+								))}
+							</div>
 
 							{/* Related */}
 							{related.length > 0 && (
