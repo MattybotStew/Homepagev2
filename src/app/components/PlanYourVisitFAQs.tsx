@@ -101,7 +101,7 @@ const faqs = [
 ];
 
 export default function PlanYourVisitFAQs({
-	showWave = true,
+	showWave = false,
 }: {
 	showWave?: boolean;
 }) {
