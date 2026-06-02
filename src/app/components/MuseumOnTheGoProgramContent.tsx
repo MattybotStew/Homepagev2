@@ -150,7 +150,7 @@ const faqItems = [
 	{
 		question: "How do I book a Museum On-the-Go visit?",
 		answer:
-			"Contact our education team at education@cmatlanta.org or call 404.527.3693. We'll work with you to schedule a session that fits your calendar and matches your current unit of study. Sessions book up quickly, so we recommend reaching out at least 3–4 weeks in advance.",
+			"Contact our education team at education@childrensmuseumatlanta.org or call 404.527.3693. We'll work with you to schedule a session that fits your calendar and matches your current unit of study. Sessions book up quickly, so we recommend reaching out at least 3–4 weeks in advance.",
 	},
 	{
 		question: "What grades are eligible?",
@@ -474,7 +474,7 @@ export default function MuseumOnTheGoProgramContent() {
 										financial assistance options.
 									</p>
 									<a
-										href="mailto:education@cmatlanta.org"
+										href="mailto:education@childrensmuseumatlanta.org"
 										className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start"
 									>
 										Contact Education Team
@@ -774,10 +774,10 @@ export default function MuseumOnTheGoProgramContent() {
 								<p className="font-extrabold text-cma-navy">Availability Calendar</p>
 								<p className="text-cma-navy/60 text-[14px] max-w-[360px]">
 									To check availability and reserve your date, contact our
-									Education team at 404.527.3693 or education@cmatlanta.org.
+									Education team at 404.527.3693 or education@childrensmuseumatlanta.org.
 								</p>
 								<a
-									href="mailto:education@cmatlanta.org"
+									href="mailto:education@childrensmuseumatlanta.org"
 									className="cma-btn bg-cma-teal-dark text-white hover:bg-cma-navy font-black"
 								>
 									Email the Education Team

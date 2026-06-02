@@ -2,7 +2,7 @@ import { faUnlockKeyhole, faBus, faCalendarDays, faUsersLine } from "@fortawesom
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import { useState } from "react";
-import imgContact from "../../assets/educators-contact.webp";
+import imgContact from "../../assets/educators-img-1.webp";
 import imgWaveTop from "../../assets/impact-wave-top.svg";
 import imgWaveWhite from "../../assets/wave-white.svg";
 
@@ -107,10 +107,10 @@ export default function EducatorsImpact() {
 								Make Play Possible — Donate
 							</a>
 							<a
-								href="#/educators"
+								href="#/about/impact"
 								className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black"
 							>
-								Learn More
+								Our Impact
 							</a>
 						</div>
 
@@ -145,7 +145,7 @@ export default function EducatorsImpact() {
 								help!
 							</p>
 							<a
-								href="mailto:education@childrensmuseumatlanta.org"
+								href="mailto:reservations@childrensmuseumatlanta.org"
 								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start"
 							>
 								Connect with Our Team

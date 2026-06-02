@@ -126,7 +126,7 @@ const faqItems = [
 	{
 		question: "How do I register for a PD session?",
 		answer:
-			"Fill out the registration form below or contact our education team at education@cmatlanta.org or 404.527.3693. Sessions require a minimum of 10 participants to be confirmed and should be booked at least 4–6 weeks in advance.",
+			"Fill out the registration form below or contact our education team at education@childrensmuseumatlanta.org or 404.527.3693. Sessions require a minimum of 10 participants to be confirmed and should be booked at least 4–6 weeks in advance.",
 	},
 	{
 		question: "What PLU credit will we receive?",
@@ -434,7 +434,7 @@ export default function EducatorPDProgramContent() {
 										our education team to discuss your needs.
 									</p>
 									<a
-										href="mailto:education@cmatlanta.org"
+										href="mailto:education@childrensmuseumatlanta.org"
 										className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start"
 									>
 										Inquire About Custom PD
@@ -696,10 +696,10 @@ export default function EducatorPDProgramContent() {
 								<p className="text-cma-navy/60 text-[14px] max-w-[360px]">
 									To check available PD dates and reserve your group's session,
 									contact our Education team at 404.527.3693 or
-									education@cmatlanta.org.
+									education@childrensmuseumatlanta.org.
 								</p>
 								<a
-									href="mailto:education@cmatlanta.org"
+									href="mailto:education@childrensmuseumatlanta.org"
 									className="cma-btn bg-cma-teal-dark text-white hover:bg-cma-navy font-black"
 								>
 									Email the Education Team

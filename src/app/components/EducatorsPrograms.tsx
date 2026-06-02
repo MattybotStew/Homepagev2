@@ -76,9 +76,9 @@ export default function EducatorsPrograms() {
 									className="absolute inset-0 w-full h-full object-cover"
 								/>
 							</div>
-							<p className="font-extrabold text-[22px] text-cma-navy leading-[1.2] tracking-[-0.5px]">
+							<h3 className="text-cma-navy">
 								{program.title}
-							</p>
+							</h3>
 							<p className="text-cma-navy flex-1">{program.body}</p>
 							<a href={program.href} className="cma-text-link mt-auto">
 								Learn More{" "}

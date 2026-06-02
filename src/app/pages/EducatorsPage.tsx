@@ -50,12 +50,12 @@ export default function EducatorsPage() {
 				ctas={[
 					{
 						label: "Education at the Museum",
-						href: "#programs",
+						href: "#/educators",
 						variant: "orange",
 					},
 					{
 						label: "Connect with Our Team",
-						href: "#contact",
+						href: "mailto:reservations@childrensmuseumatlanta.org",
 						variant: "teal-outline",
 					},
 				]}
@@ -72,10 +72,11 @@ export default function EducatorsPage() {
 				eyebrow="Education at CMA"
 				heading="Education at the Museum"
 				body="CMA offers programs for every type of learner — from field trips and scout workshops to in-school outreach and professional development for educators. Explore everything we have to offer."
-				cta={{ label: "Education Resources", href: "#programs" }}
+				cta={{ label: "View Field Trips", href: "#/program/field-trips" }}
 				bg="bg-cma-navy"
 				showCountdown={false}
-				showTopWave={true}
+				showRightCta={false}
+				showTopWave={false}
 			/>
 			<PowerOfPlayMarquee />
 			<Footer />
