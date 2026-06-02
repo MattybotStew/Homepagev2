@@ -9,6 +9,8 @@ export type SidebarSection = {
 	href?: string;
 };
 
+export type ContentBlock = string | { h3: string; id?: string };
+
 type ArticleItem = {
 	slug: string;
 	title: string;
@@ -17,7 +19,7 @@ type ArticleItem = {
 	eyebrow: string;
 	heroImage: string;
 	cardImage: string;
-	paragraphs: string[];
+	paragraphs: ContentBlock[];
 };
 
 type Props = {
@@ -26,6 +28,8 @@ type Props = {
 	sections?: SidebarSection[];
 	breadcrumb?: { label: string; href: string };
 	relatedHrefBase?: string;
+	relatedHeading?: string;
+	relatedCta?: string;
 };
 
 const defaultSections: SidebarSection[] = [
@@ -46,6 +50,8 @@ export default function ArticleContentWithSidebar({
 	sections = defaultSections,
 	breadcrumb = { label: "Exhibits", href: "#/exhibits" },
 	relatedHrefBase = "#/exhibits",
+	relatedHeading = "Related Exhibits",
+	relatedCta = "See Exhibit",
 }: Props) {
 	const [activeSection, setActiveSection] = useState(sections[0]?.id ?? "");
 	const badgeBg =
@@ -152,8 +158,12 @@ export default function ArticleContentWithSidebar({
 									/>
 								);
 								return section.href ? (
-									<a key={section.id} href={section.href} className={itemClass}>
-										{dot}
+									<a
+										key={section.id}
+										href={section.href}
+										className="flex items-center gap-[10px] py-[8px] px-[10px] rounded-[10px] text-[13px] font-bold leading-[1.3] transition-colors w-full text-left text-cma-teal-dark hover:text-cma-teal hover:bg-cma-teal-pale/50"
+									>
+										<span className="w-[6px] h-[6px] rounded-full shrink-0 bg-cma-teal" />
 										{section.label}
 									</a>
 								) : (
@@ -200,11 +210,13 @@ export default function ArticleContentWithSidebar({
 							</div>
 
 							{/* Body */}
-							{exhibit.paragraphs.map((para, i) => (
-								<p key={`item-${i}`} className="text-cma-navy">
-									{para}
-								</p>
-							))}
+							{exhibit.paragraphs.map((block, i) =>
+								typeof block === "string" ? (
+									<p key={`item-${i}`} className="text-cma-navy">{block}</p>
+								) : (
+									<h3 key={`item-${i}`} id={block.id} className="text-cma-navy scroll-mt-[140px]">{block.h3}</h3>
+								)
+							)}
 
 							{/* Divider */}
 							<div className="bg-black/15 h-px w-full" />
@@ -214,9 +226,7 @@ export default function ArticleContentWithSidebar({
 								id="related"
 								className="flex flex-col gap-[48px] scroll-mt-[140px]"
 							>
-								<p className="text-cma-navy font-extrabold text-[28px] md:text-[36px] leading-[1.1]">
-									Related Exhibits
-								</p>
+								<h2 className="text-cma-navy">{relatedHeading}</h2>
 								<div className="flex flex-col gap-[16px]">
 									{related.map((rel, i) => (
 										<motion.div
@@ -241,9 +251,9 @@ export default function ArticleContentWithSidebar({
 													{rel.eyebrow && (
 														<p className="text-cma-teal-dark">{rel.eyebrow}</p>
 													)}
-													<p className="text-cma-navy font-extrabold text-[24px] md:text-[30px] leading-[1.3] tracking-[-0.5px] md:tracking-[-1px]">
+													<h3 className="text-cma-navy">
 														{rel.title}
-													</p>
+													</h3>
 												</div>
 												<p className="text-cma-navy line-clamp-3">
 													{rel.paragraphs[0]}
@@ -252,7 +262,7 @@ export default function ArticleContentWithSidebar({
 													href={`${relatedHrefBase}/${rel.slug}`}
 													className="cma-text-link"
 												>
-													See Exhibit{" "}
+													{relatedCta}{" "}
 													<FontAwesomeIcon
 														icon={faArrowRight}
 														className="text-[13px]"

@@ -2,7 +2,7 @@ import img0 from "../../assets/educators-img-0.webp";
 import img1 from "../../assets/educators-img-1.webp";
 import img2 from "../../assets/educators-img-2.webp";
 import img3 from "../../assets/educators-img-3.webp";
-import type { SidebarSection } from "../components/ArticleContentWithSidebar";
+import type { ContentBlock, SidebarSection } from "../components/ArticleContentWithSidebar";
 
 export type Program = {
 	slug: string;
@@ -12,7 +12,7 @@ export type Program = {
 	eyebrow: string;
 	heroImage: string;
 	cardImage: string;
-	paragraphs: string[];
+	paragraphs: ContentBlock[];
 	sections: SidebarSection[];
 };
 

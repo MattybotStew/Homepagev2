@@ -34,6 +34,8 @@ export default function GivingCirclePage() {
 				sections={circle.sections}
 				breadcrumb={{ label: "Support", href: "#/support" }}
 				relatedHrefBase="#/giving-circles"
+				relatedHeading="Other Ways to Give"
+				relatedCta="Learn More"
 			/>
 			<PowerOfPlayMarquee />
 			<Footer />
