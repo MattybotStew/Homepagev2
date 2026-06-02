@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import imgHero from "../../assets/donate-donor-corporate.webp";
+import imgCutCMA from "../../assets/cutCMA.png";
 
 const sections = [
 	{ id: "overview", label: "Overview" },
@@ -56,21 +56,19 @@ export default function CorporatePartnerPageContent() {
 	return (
 		<>
 			{/* Page banner */}
-			<section className="relative overflow-hidden bg-cma-navy">
-				<div className="absolute inset-0 overflow-hidden pointer-events-none bg-black" aria-hidden>
-					<img src={imgHero} alt="" className="absolute inset-0 w-full h-full object-cover object-center" />
-					<div className="absolute inset-0 bg-cma-hero-overlay" />
-				</div>
+			<section className="relative w-full bg-cma-navy overflow-hidden flex flex-col items-center justify-center py-[80px] md:py-[120px]">
+				<img src={imgCutCMA} alt="" aria-hidden className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] opacity-15 pointer-events-none select-none object-contain object-bottom" />
 				<div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
-				<div className="cma-section-container py-[48px] md:py-[64px]">
-					<p className="cma-eyebrow text-cma-orange mb-[16px]">
-						Children's Museum of Atlanta
-					</p>
-					<h1 className="text-white mb-[16px]">Partner With Us at CMA</h1>
-					<p className="text-white/75 max-w-[580px]">
+				<div className="cma-section-container relative z-[1] flex flex-col items-center gap-8 text-center max-w-[800px] mx-auto">
+					<p className="cma-eyebrow text-cma-teal">Children's Museum of Atlanta</p>
+					<h1 className="text-white">Partner With Us at CMA</h1>
+					<p className="text-cma-blue-light font-semibold text-[clamp(16px,1.67vw,24px)] leading-[1.4] max-w-[620px]">
 						When your company invests in CMA, you invest in Atlanta's children
 						and their future. From exhibit sponsorships to volunteer days,
 						there's a partnership that fits your goals.
+					</p>
+					<p className="text-white/50 text-[12px] leading-[1.6] max-w-[560px]">
+						All gifts are tax-deductible to the fullest extent allowed by law. The Museum is a 501(c)(3) tax-exempt organization. Our tax-ID number is 58-1785484.
 					</p>
 				</div>
 			</section>
@@ -128,10 +126,10 @@ export default function CorporatePartnerPageContent() {
 									partnerships team to get started.
 								</p>
 								<a
-									href="mailto:kmcneely@childrensmuseumatlanta.org"
+									href="mailto:ebrooks@childrensmuseumatlanta.org"
 									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 								>
-									Contact Kate McNeely
+									Contact Erin Brooks
 								</a>
 							</div>
 						</aside>
@@ -144,13 +142,11 @@ export default function CorporatePartnerPageContent() {
 								<div id="overview" className="flex flex-col gap-[20px]">
 									<h2 className="text-cma-navy">Corporate Partnership</h2>
 									<p className="text-cma-navy">
-										Corporate leadership is vital to CMA's mission. Your
-										partnership doesn't just put your brand in front of thousands
-										of Atlanta families — it shapes the early-learning
-										experiences of the children who will become tomorrow's
-										workforce, neighbors, and leaders. CMA is the only
-										organization in Atlanta doing this work. Your investment here
-										goes further than anywhere else.
+										Corporate leadership is a vital part of supporting the Museum's mission to change the world by sparking every child's sense of learning through the power of play. Exhibit and program sponsorships, support of community outreach initiatives, and corporate volunteerism are all ways corporations can contribute to the Museum and invest in both Georgia's children and the economic vibrancy of Atlanta's downtown district.
+									</p>
+									<p className="text-cma-navy">
+										We offer year-round opportunities for Corporate or Foundation contributions to match any marketing or company philanthropy budget. For more information, please contact the Advancement Team at{" "}
+										<a href="tel:4044209195" className="cma-text-link">(404) 420-9195</a>.
 									</p>
 								</div>
 
@@ -207,10 +203,10 @@ export default function CorporatePartnerPageContent() {
 											Explore Partnership Options
 										</a>
 										<a
-											href="mailto:kmcneely@childrensmuseumatlanta.org"
+											href="mailto:ebrooks@childrensmuseumatlanta.org"
 											className="cma-btn cma-btn-outline-teal font-black w-full sm:w-auto"
 										>
-											Contact Kate McNeely
+											Contact Erin Brooks
 										</a>
 									</div>
 								</div>
@@ -231,10 +227,10 @@ export default function CorporatePartnerPageContent() {
 									</p>
 									<div>
 										<a
-											href="mailto:kmcneely@childrensmuseumatlanta.org"
+											href="mailto:ebrooks@childrensmuseumatlanta.org"
 											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 										>
-											Contact Kate McNeely
+											Contact Erin Brooks
 										</a>
 									</div>
 								</div>
@@ -255,10 +251,10 @@ export default function CorporatePartnerPageContent() {
 									</p>
 									<div>
 										<a
-											href="mailto:kmcneely@childrensmuseumatlanta.org"
+											href="mailto:ebrooks@childrensmuseumatlanta.org"
 											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 										>
-											Contact Kate McNeely
+											Contact Erin Brooks
 										</a>
 									</div>
 								</div>
@@ -269,20 +265,16 @@ export default function CorporatePartnerPageContent() {
 								<div id="matching-gifts" className="flex flex-col gap-[20px]">
 									<h2 className="text-cma-navy">Matching Gifts</h2>
 									<p className="text-cma-navy">
-										A gift to Children's Museum of Atlanta is an investment in
-										our children's future. Exhibit sponsorships place your
-										company's name at the center of hands-on, play-based learning
-										experiences that reach over 180,000 visitors each year. From
-										naming rights to custom activations, exhibit partnerships
-										offer lasting brand presence in one of Atlanta's most visited
-										family destinations.
+										Let your company double your impact! Please inquire with your Human Resources department to explore how you can increase your contribution. If an employee makes a donation to a non-profit organization, companies with a matching gift program will make a matching gift to the same nonprofit based on the employee's donation.
 									</p>
 									<div>
 										<a
-											href="mailto:kmcneely@childrensmuseumatlanta.org"
+											href="https://childrensmuseumatlanta.org/wp-content/uploads/2018/08/Matching-Gifts-PDF-3.pdf"
+											target="_blank"
+											rel="noopener noreferrer"
 											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 										>
-											Contact Kate McNeely
+											Download Matching Gifts PDF
 										</a>
 									</div>
 								</div>
@@ -330,10 +322,10 @@ export default function CorporatePartnerPageContent() {
 									</p>
 									<div>
 										<a
-											href="mailto:kmcneely@childrensmuseumatlanta.org"
+											href="mailto:ebrooks@childrensmuseumatlanta.org"
 											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 										>
-											Contact Kate McNeely
+											Contact Erin Brooks
 										</a>
 									</div>
 								</div>
@@ -356,10 +348,10 @@ export default function CorporatePartnerPageContent() {
 									</p>
 									<div>
 										<a
-											href="mailto:kmcneely@childrensmuseumatlanta.org"
+											href="mailto:ebrooks@childrensmuseumatlanta.org"
 											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 										>
-											Contact Kate McNeely
+											Contact Erin Brooks
 										</a>
 									</div>
 								</div>
@@ -379,7 +371,7 @@ export default function CorporatePartnerPageContent() {
 									</p>
 									<div>
 										<a
-											href="mailto:kmcneely@childrensmuseumatlanta.org"
+											href="mailto:ebrooks@childrensmuseumatlanta.org"
 											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 										>
 											Submit an In-Kind Donation Inquiry

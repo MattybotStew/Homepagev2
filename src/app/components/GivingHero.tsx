@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import donateHeroBg from "../../assets/Donatehero.jpg";
+import imgCutCMA from "../../assets/cutCMA.png";
 
 type Stat = { value: string; orange?: boolean };
 type Cta = { label: string; href: string; variant: "orange" | "outline" };
@@ -11,7 +11,6 @@ type GivingHeroProps = {
 	body?: string;
 	stats?: Stat[];
 	ctas?: Cta[];
-	bgImage?: string;
 };
 
 export default function GivingHero({
@@ -21,119 +20,68 @@ export default function GivingHero({
 	body,
 	stats = [],
 	ctas = [],
-	bgImage = donateHeroBg,
 }: GivingHeroProps) {
 	return (
 		<section
 			aria-label="Hero"
-			className="relative w-full flex flex-col px-5 sm:px-10 md:px-[80px]"
+			className="relative w-full bg-cma-navy overflow-hidden flex flex-col items-center justify-center py-[80px] md:py-[120px]"
 		>
-			<div
-				className="absolute inset-0 overflow-hidden pointer-events-none bg-black"
+			<img
+				src={imgCutCMA}
+				alt=""
 				aria-hidden
-			>
-				<img
-					src={bgImage}
-					alt=""
-					className="absolute inset-0 w-full h-full object-cover object-[60%_50%] md:object-center"
-				/>
-				<div className="absolute inset-0 bg-cma-hero-overlay" />
-			</div>
+				className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] opacity-15 pointer-events-none select-none object-contain object-bottom"
+			/>
 
 			<div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
 
-			<div className="relative flex-1 flex items-center py-[60px] md:py-[80px] lg:py-[100px]">
-				<div className="w-full flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 lg:gap-[64px]">
-					<div className="flex flex-col gap-5 md:gap-6 text-white max-w-[560px]">
-						<motion.p
-							className="cma-eyebrow opacity-80"
-							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-						>
-							{eyebrow}
-						</motion.p>
+			<div className="cma-section-container relative z-[1] flex flex-col items-center gap-8">
+				<motion.div
+					className="flex flex-col items-center gap-8 text-center max-w-[800px] mx-auto w-full"
+					initial={{ opacity: 0, y: 24 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+				>
+					<p className="cma-eyebrow text-cma-teal">{eyebrow}</p>
 
-						<motion.h1
-							className="font-extrabold text-white leading-[0.95]"
-							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-						>
-							{heading}
-						</motion.h1>
+					<h1 className="text-white">{heading}</h1>
 
-						{subtitle && (
-							<motion.p
-								className="font-semibold text-[clamp(16px,2.1vw,24px)] text-cma-blue-light leading-[1.3] tracking-[-0.5px] max-w-[480px]"
-								initial={{ opacity: 0, y: 20 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
-							>
-								{subtitle}
-							</motion.p>
-						)}
+					{subtitle && (
+						<p className="font-semibold text-[clamp(16px,1.67vw,24px)] text-cma-blue-light leading-[1.4] tracking-[-0.5px] max-w-[620px]">
+							{subtitle}
+						</p>
+					)}
 
-						{body && (
-							<motion.p
-								className="text-white/80 text-[14px] leading-[1.65] max-w-[480px]"
-								initial={{ opacity: 0, y: 20 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
-							>
-								{body}
-							</motion.p>
-						)}
+					{body && (
+						<p className="text-white/80 text-[14px] leading-[1.65] max-w-[560px]">
+							{body}
+						</p>
+					)}
 
-						{ctas.length > 0 && (
-							<motion.div
-								className="flex flex-col sm:flex-row gap-3 pt-1"
-								initial={{ opacity: 0, y: 20 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-							>
-								{ctas.map((cta) => (
-									<a
-										key={cta.label}
-										href={cta.href}
-										className={
-											cta.variant === "orange"
-												? "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
-												: "cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
-										}
-									>
-										{cta.label}
-									</a>
-								))}
-							</motion.div>
-						)}
-					</div>
-
-					{stats.length > 0 && (
-						<div className="w-full lg:w-[340px] shrink-0 flex flex-col gap-3">
-							{stats.map((stat, i) => (
-								<motion.div
-									key={stat.value}
-									className={`rounded-[16px] px-5 py-4 ${stat.orange ? "bg-cma-orange" : "bg-cma-navy border border-white/10"}`}
-									initial={{ opacity: 0, x: 24 }}
-									animate={{ opacity: 1, x: 0 }}
-									transition={{
-										duration: 0.8,
-										ease: [0.16, 1, 0.3, 1],
-										delay: 0.3 + i * 0.1,
-									}}
+					{ctas.length > 0 && (
+						<div className="flex flex-col sm:flex-row gap-3">
+							{ctas.map((cta) => (
+								<a
+									key={cta.label}
+									href={cta.href}
+									className={
+										cta.variant === "orange"
+											? "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+											: "cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
+									}
 								>
-									<p className="text-white font-black text-[clamp(22px,2.5vw,30px)] leading-none">
-										{stat.value}
-									</p>
-								</motion.div>
+									{cta.label}
+								</a>
 							))}
 						</div>
 					)}
-				</div>
-			</div>
+				</motion.div>
 
-			<div className="shrink-0 h-[40px] md:h-[60px]" />
+				</div>
+
+			<p className="relative z-[1] text-white/50 text-[12px] text-center leading-[1.6] max-w-[560px] mx-auto px-5 mt-8">
+				All gifts are tax-deductible to the fullest extent allowed by law. The Museum is a 501(c)(3) tax-exempt organization. Our tax-ID number is 58-1785484.
+			</p>
 		</section>
 	);
 }

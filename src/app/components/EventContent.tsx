@@ -1,6 +1,6 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faCalendarPlus } from "@fortawesome/free-solid-svg-icons";
+import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Facebook, Instagram } from "lucide-react";
 import { motion } from "motion/react";
 import type { EventItem } from "../data/events";
 
@@ -9,6 +9,34 @@ type Props = {
 	related: EventItem[];
 };
 
+function toICSDate(iso: string) {
+	return iso.replace(/[-:]/g, "").replace("T", "T");
+}
+
+function downloadICS(event: EventItem) {
+	const ics = [
+		"BEGIN:VCALENDAR",
+		"VERSION:2.0",
+		"PRODID:-//Children's Museum of Atlanta//EN",
+		"BEGIN:VEVENT",
+		`DTSTART:${toICSDate(event.dateStart)}`,
+		`DTEND:${toICSDate(event.dateEnd)}`,
+		`SUMMARY:${event.title}`,
+		`DESCRIPTION:${event.description}`,
+		`LOCATION:${event.location}`,
+		"END:VEVENT",
+		"END:VCALENDAR",
+	].join("\r\n");
+
+	const blob = new Blob([ics], { type: "text/calendar" });
+	const url = URL.createObjectURL(blob);
+	const a = document.createElement("a");
+	a.href = url;
+	a.download = `${event.slug}.ics`;
+	a.click();
+	URL.revokeObjectURL(url);
+}
+
 export default function EventContent({ event, related }: Props) {
 	return (
 		<section className="bg-cma-cream py-[60px] md:py-[80px]">
@@ -16,7 +44,7 @@ export default function EventContent({ event, related }: Props) {
 
 			<div className="cma-section-container">
 				<div className="max-w-[1024px] mx-auto flex flex-col gap-[24px]">
-					{/* Breadcrumbs + Social Share */}
+					{/* Breadcrumbs + Social */}
 					<div className="flex items-center justify-between flex-wrap gap-[12px]">
 						<div className="flex items-center gap-[8px] flex-wrap text-[15px]">
 							<a href="#/events" className="text-cma-navy hover:underline">
@@ -31,18 +59,18 @@ export default function EventContent({ event, related }: Props) {
 								target="_blank"
 								rel="noopener noreferrer"
 								className="cma-social-btn-filled shrink-0"
-								aria-label="Share on Facebook"
+								aria-label="Follow us on Facebook"
 							>
-								<Facebook className="size-5 text-white" />
+								<FontAwesomeIcon icon={faFacebook} className="text-white text-[18px]" />
 							</a>
 							<a
 								href="https://www.instagram.com/childrensmuseumofatlanta/"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="cma-social-btn-filled shrink-0"
-								aria-label="Share on Instagram"
+								aria-label="Follow us on Instagram"
 							>
-								<Instagram className="size-5 text-white" />
+								<FontAwesomeIcon icon={faInstagram} className="text-white text-[18px]" />
 							</a>
 						</div>
 					</div>
@@ -87,7 +115,7 @@ export default function EventContent({ event, related }: Props) {
 							</p>
 						))}
 
-						{/* CTA */}
+						{/* CTAs */}
 						<div className="flex flex-col sm:flex-row gap-3">
 							<a
 								href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf"
@@ -95,9 +123,16 @@ export default function EventContent({ event, related }: Props) {
 							>
 								Buy Tickets
 							</a>
+							<button
+								onClick={() => downloadICS(event)}
+								className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black flex items-center gap-2"
+							>
+								<FontAwesomeIcon icon={faCalendarPlus} className="text-[14px]" />
+								Add to Calendar
+							</button>
 							<a
 								href="#/events"
-								className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black"
+								className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black"
 							>
 								View All Events
 							</a>
@@ -143,7 +178,7 @@ export default function EventContent({ event, related }: Props) {
 												{rel.description}
 											</p>
 											<a
-												href={`/#/events/${rel.slug}`}
+												href={`#/events/${rel.slug}`}
 												className="cma-text-link"
 											>
 												See Event{" "}

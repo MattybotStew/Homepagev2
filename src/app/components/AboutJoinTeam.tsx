@@ -1,19 +1,24 @@
+import { faChartLine, faGraduationCap, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import imgTeam from "../../assets/educators-img-4.webp";
 
 const benefits = [
 	{
 		iconBg: "bg-cma-teal",
+		icon: faHeart,
 		title: "Meaningful Work",
 		body: "Every day at Children's Museum of Atlanta is an opportunity to make a real difference in the lives of children and families. You'll be part of a mission-driven team that believes in the transformative power of play.",
 	},
 	{
 		iconBg: "bg-cma-orange",
+		icon: faGraduationCap,
 		title: "Competitive Benefits",
 		body: "We offer a comprehensive benefits package including health, dental, and vision coverage, paid time off, and free museum membership for you and your family.",
 	},
 	{
 		iconBg: "bg-cma-orange",
+		icon: faChartLine,
 		title: "Growth & Learning",
 		body: "We invest in our people. From professional development opportunities to cross-department collaboration, there's always room to grow your skills and advance your career.",
 	},
@@ -83,8 +88,10 @@ export default function AboutJoinTeam() {
 								}}
 							>
 								<div
-									className={`w-[40px] h-[40px] rounded-[10px] shrink-0 mt-[2px] ${b.iconBg}`}
-								/>
+									className={`rounded-full size-[48px] flex items-center justify-center shrink-0 mt-[2px] ${b.iconBg}`}
+								>
+									<FontAwesomeIcon icon={b.icon} className="text-white text-[18px]" />
+								</div>
 								<div className="flex flex-col gap-1">
 									<p className="text-cma-navy font-black text-[15px] leading-snug">
 										{b.title}
@@ -110,7 +117,7 @@ export default function AboutJoinTeam() {
 							Contact HR
 						</a>
 						<a
-							onClick={() => document.getElementById("volunteer")?.scrollIntoView({ behavior: "smooth" })}
+							href="#/about/careers"
 							className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black"
 						>
 							Volunteer

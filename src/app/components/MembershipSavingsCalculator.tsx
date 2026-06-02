@@ -20,9 +20,9 @@ const PLAN_DETAILS: Record<
 		description: "Covers two adults in the household.",
 		benefits: [
 			"Unlimited visits for a full year",
-			"Members-only event invitations",
-			"10% off Museum Store purchases",
-			"Reciprocal access at partner museums",
+			"50% off guest tickets",
+			"Gift shop, birthday party & special event discounts",
+			"Helps bring the power of play to ALL of Atlanta's children",
 		],
 	},
 	"Family Membership": {
@@ -30,18 +30,18 @@ const PLAN_DETAILS: Record<
 			"Covers two adults and up to four children in the household.",
 		benefits: [
 			"Unlimited visits for a full year",
-			"Members-only event invitations",
-			"10% off Museum Store purchases",
-			"Reciprocal access at partner museums",
+			"50% off guest tickets",
+			"Gift shop, birthday party & special event discounts",
+			"Helps bring the power of play to ALL of Atlanta's children",
 		],
 	},
 	"Family Plus": {
 		description: "For larger families — up to six household members.",
 		benefits: [
 			"Unlimited visits for a full year",
-			"Members-only event invitations",
-			"10% off Museum Store purchases",
-			"Reciprocal access at partner museums",
+			"50% off guest tickets",
+			"Gift shop, birthday party & special event discounts",
+			"Helps bring the power of play to ALL of Atlanta's children",
 		],
 	},
 };
@@ -114,7 +114,11 @@ function Stepper({
 	);
 }
 
-export default function MembershipSavingsCalculator() {
+export default function MembershipSavingsCalculator({
+	becomeMemberHref = "#/memberships",
+}: {
+	becomeMemberHref?: string;
+}) {
 	const [adults, setAdults] = useState(2);
 	const [children, setChildren] = useState(2);
 	const [visits, setVisits] = useState(4);
@@ -266,7 +270,7 @@ export default function MembershipSavingsCalculator() {
 							{/* CTAs */}
 							<div className="flex flex-wrap items-center gap-[12px]">
 								<a
-									href="#/memberships"
+									href={becomeMemberHref}
 									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 								>
 									Become a Member

@@ -151,7 +151,7 @@ export default function BottomCallToAction() {
 							</p>
 						</motion.a>
 						<motion.a
-							href="#/donate"
+							href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
 							className="bg-white rounded-full shadow-cma-btn px-6 py-4 md:px-[34px] md:py-[22px] hover:bg-gray-50 transition-colors w-full sm:w-auto min-h-[44px] flex items-center justify-center"
 							variants={buttonVariants}
 							whileHover={{ scale: 1.05 }}

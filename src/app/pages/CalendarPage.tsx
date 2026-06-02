@@ -157,6 +157,7 @@ export default function CalendarPage() {
 											<p className="font-extrabold text-[22px] md:text-[30px] text-cma-navy leading-[1.3] tracking-[-1px]">
 												{event.title}
 											</p>
+											<p className="text-cma-navy/60 font-semibold text-[13px]">{event.badge}</p>
 										</div>
 
 										<p className="text-cma-navy">{event.description}</p>

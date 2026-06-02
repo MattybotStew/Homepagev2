@@ -110,7 +110,7 @@ export default function SupportWaysToGive() {
 
 						<div className="flex flex-col sm:flex-row gap-3 pt-2">
 							<a
-								href="#/donate"
+								href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
 								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 							>
 								Donate Now

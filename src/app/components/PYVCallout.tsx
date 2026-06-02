@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import imgWaveTop from "../../assets/impact-wave-top.svg";
 import { useEffect, useState } from "react";
 
 const DEFAULT_TARGET_DATE = new Date("2026-08-16T17:30:00");
@@ -47,6 +48,8 @@ type Props = {
 	cta?: { label: string; href: string };
 	bg?: string;
 	showCountdown?: boolean;
+	showRightCta?: boolean;
+	showTopWave?: boolean;
 	countdownTarget?: Date;
 };
 
@@ -57,6 +60,8 @@ export default function PYVCallout({
 	cta = { label: "Explore Memberships", href: "#tickets" },
 	bg = "bg-cma-teal-dark",
 	showCountdown = true,
+	showRightCta = true,
+	showTopWave = false,
 	countdownTarget = DEFAULT_TARGET_DATE,
 }: Props) {
 	const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(countdownTarget));
@@ -71,7 +76,14 @@ export default function PYVCallout({
 	}, [showCountdown, countdownTarget]);
 
 	return (
-		<div className="bg-white pt-[48px]">
+		<div className="bg-white pt-[48px] relative">
+			{showTopWave && (
+				<div aria-hidden className="absolute top-0 left-0 flex overflow-hidden h-[13px] w-full">
+					{Array.from({ length: 10 }).map((_, i) => (
+						<img key={`item-${i}`} src={imgWaveTop} alt="" className="w-[422px] h-[57px] shrink-0 block" />
+					))}
+				</div>
+			)}
 			<div className="cma-section-container">
 				<div
 					className={`${bg} rounded-[24px] border-2 border-black/5 flex flex-col sm:flex-row items-center gap-8 p-8 relative overflow-hidden`}
@@ -133,7 +145,7 @@ export default function PYVCallout({
 								delay={0.36}
 							/>
 						</div>
-					) : (
+					) : showRightCta ? (
 						<motion.div
 							className="shrink-0 relative z-[1] hidden sm:block"
 							initial={{ opacity: 0, x: 16 }}
@@ -152,7 +164,7 @@ export default function PYVCallout({
 								{cta.label}
 							</a>
 						</motion.div>
-					)}
+					) : null}
 				</div>
 			</div>
 		</div>

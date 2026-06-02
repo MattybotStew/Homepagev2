@@ -75,6 +75,7 @@ export default function EducatorsPage() {
 				cta={{ label: "Education Resources", href: "#programs" }}
 				bg="bg-cma-navy"
 				showCountdown={false}
+				showTopWave={true}
 			/>
 			<PowerOfPlayMarquee />
 			<Footer />

@@ -1,3 +1,5 @@
+import { faBriefcase, faGraduationCap, faHandHoldingHeart, faHeart, faPeopleGroup, faTicket } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon, type IconProp } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import imgCutCMA from "../../assets/cutCMA.png";
 import imgVolunteer from "../../assets/educators-contact.webp";
@@ -15,16 +17,19 @@ import ScrollProgress from "../components/ScrollProgress";
 const careerBenefits = [
 	{
 		color: "bg-cma-teal",
+		icon: faTicket,
 		title: "Free Museum Admission",
 		body: "Enjoy complimentary admission for you and your family — a perk that lets you experience the museum's magic beyond your shift.",
 	},
 	{
 		color: "bg-cma-orange",
+		icon: faGraduationCap,
 		title: "Professional Growth",
 		body: "Develop your career through hands-on training, mentorship, and opportunities across education, nonprofit management, and guest experience.",
 	},
 	{
 		color: "bg-[#fbb040]",
+		icon: faHeart,
 		title: "Mission-Driven Work",
 		body: "Make a real difference every day by sparking curiosity and play-based learning for thousands of children and families across Atlanta.",
 	},
@@ -33,16 +38,19 @@ const careerBenefits = [
 const volunteerBenefits = [
 	{
 		color: "bg-cma-teal",
+		icon: faHandHoldingHeart,
 		title: "Make a Difference",
 		body: "Contribute your time and talent to a nonprofit that reaches thousands of children and families in Atlanta every single year.",
 	},
 	{
 		color: "bg-cma-orange",
+		icon: faBriefcase,
 		title: "Build Experience",
 		body: "Gain valuable hands-on experience in education, event support, guest services, and nonprofit operations — great for any resume.",
 	},
 	{
 		color: "bg-[#fbb040]",
+		icon: faPeopleGroup,
 		title: "Community Connection",
 		body: "Join a community of passionate volunteers who share a commitment to play-based learning and child development in Atlanta.",
 	},
@@ -50,11 +58,13 @@ const volunteerBenefits = [
 
 function BenefitItem({
 	color,
+	icon,
 	title,
 	body,
 	light = false,
 }: {
 	color: string;
+	icon: IconProp;
 	title: string;
 	body: string;
 	light?: boolean;
@@ -62,9 +72,9 @@ function BenefitItem({
 	return (
 		<div className="flex gap-[16px] items-start">
 			<div
-				className={`${color} rounded-[14px] size-[48px] flex items-center justify-center shrink-0`}
+				className={`${color} rounded-full size-[48px] flex items-center justify-center shrink-0`}
 			>
-				<div className="bg-white/50 rounded-[6px] size-[24px]" />
+				<FontAwesomeIcon icon={icon} className="text-white text-[18px]" />
 			</div>
 			<div className="flex flex-col gap-[8px] flex-1 min-w-0">
 				<p
@@ -150,7 +160,7 @@ export default function CareersPage() {
 			{/* Join the Team */}
 			<section id="careers" className="bg-white w-full py-[80px] md:py-[120px]">
 				<div className="cma-section-container">
-					<div className="flex flex-col lg:flex-row gap-[48px] lg:gap-[64px] items-center">
+					<div className="flex flex-col lg:flex-row gap-[48px] lg:gap-[64px] items-start">
 						{/* Photo */}
 						<motion.div
 							className="w-full lg:w-[480px] xl:w-[520px] shrink-0"
@@ -159,11 +169,13 @@ export default function CareersPage() {
 							viewport={{ once: true, margin: "-80px" }}
 							transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
 						>
-							<img
-								src={imgJoin}
-								alt="Children's Museum of Atlanta staff"
-								className="w-full h-[340px] md:h-[460px] object-cover rounded-[24px]"
-							/>
+							<div className="w-full h-[340px] md:h-[460px] rounded-[24px] overflow-hidden relative">
+								<img
+									src={imgJoin}
+									alt="Children's Museum of Atlanta staff"
+									className="absolute inset-0 w-full h-full object-cover object-top origin-center rotate-90 scale-[1.35]"
+								/>
+							</div>
 						</motion.div>
 
 						{/* Text */}
@@ -253,7 +265,7 @@ export default function CareersPage() {
 				</div>
 
 				<div className="cma-section-container">
-					<div className="flex flex-col lg:flex-row gap-[48px] lg:gap-[64px] items-center">
+					<div className="flex flex-col lg:flex-row gap-[48px] lg:gap-[64px] items-start">
 						{/* Text */}
 						<motion.div
 							className="flex-1 flex flex-col gap-[32px]"
@@ -266,16 +278,10 @@ export default function CareersPage() {
 								Volunteer at CMA
 							</h2>
 							<p className="text-cma-blue-light text-[clamp(15px,1.25vw,18px)] leading-[1.7]">
-								We seek talented individuals with a passion for providing
-								outstanding service to our guests to help us fulfill our mission
-								of sparking imagination and inspiring discovery and learning for
-								all children through the power of play.
+								Volunteers play a vital role in the day-to-day life of the Museum. Whether you're welcoming families at the entrance, supporting a special event, or helping in our exhibits, your time makes a direct difference for every child who walks through our doors.
 							</p>
 							<p className="text-cma-blue-light/70 leading-[1.7]">
-								Volunteers play a vital role in the day-to-day operation of the
-								Museum. Whether you're greeting families at the entrance or
-								supporting a special event, your time directly impacts the
-								experience of every child who walks through our doors.
+								No experience required — just a passion for children, learning, and community. We provide all the training you need to make your volunteer experience meaningful and fun.
 							</p>
 
 							<div className="flex flex-col gap-[24px]">
@@ -327,7 +333,7 @@ export default function CareersPage() {
 							<img
 								src={imgVolunteer}
 								alt="Volunteer at Children's Museum of Atlanta"
-								className="w-full h-[340px] md:h-[460px] object-cover rounded-[24px]"
+								className="w-full h-[340px] md:h-[460px] object-cover object-top rounded-[24px]"
 							/>
 						</motion.div>
 					</div>

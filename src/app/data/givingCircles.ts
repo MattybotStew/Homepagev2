@@ -21,8 +21,9 @@ export const givingCircles: Program[] = [
 			{ id: "related", label: "Other Ways to Give", href: "/support" },
 		] satisfies SidebarSection[],
 		paragraphs: [
-			"The Imagination Ball is the Children's Museum of Atlanta's signature annual gala — an elegant evening of dinner, entertainment, and celebration of the power of play. Every year, hundreds of Atlanta's most dedicated community leaders gather to raise critical funds that support CMA's mission to bring hands-on learning to all children.",
-			"Proceeds from the Imagination Ball fund access initiatives, subsidized admissions, and community outreach programs that extend CMA's reach beyond our walls. Sponsorship packages and individual tickets are available. Contact our development team to learn how your support can make a difference.",
+			"Imagination Ball is Children's Museum of Atlanta's playful charity ball for grownups. Every dollar raised goes towards making learning through play accessible to all children — breaking down barriers while building up the skills kids need to thrive.",
+			"Imagination Ball 2026 was a wildly successful evening where we raised over $430,000 to support CMA programs that increase the number of children who can access play-based learning experiences, regardless of their circumstances.",
+			"We are looking forward to next year's Imagination Ball which will take place in March 2027. To learn more about Imagination Ball or to become a sponsor, please email the advancement office.",
 		],
 	},
 	{
@@ -40,8 +41,9 @@ export const givingCircles: Program[] = [
 			{ id: "related", label: "Other Ways to Give", href: "/support" },
 		] satisfies SidebarSection[],
 		paragraphs: [
-			"Tournament For Play is CMA's annual golf tournament — a fun-filled day on the course that doubles as one of our most impactful fundraising events. Golfers of all skill levels are welcome to participate while supporting Atlanta's children through the power of play.",
-			"All proceeds benefit CMA's access programs, including Community Free Days and the Access It! initiative, which provides free and reduced-price admission to families in need. Sponsorship opportunities range from hole sponsors to presenting sponsor packages. Tee times and team registration open each spring.",
+			"The 14th Annual Tournament for Play is held at Peachtree Golf Club (4600 Peachtree Rd NE, Atlanta, GA 30319) on August 17, 2026. The tournament raises significant funds for educational exhibits and community outreach programs. This year's presenting sponsor is PNC Bank.",
+			"Schedule: 8:30 AM Registration & Breakfast · 9:00 AM Practice Range & Putting Green · 9:45 AM Welcome Remarks · 10:00 AM Shotgun Start · 3:30 PM Awards Ceremony & Reception. The tournament foursomes are limited to 30 foursomes distributed between four sponsorship levels.",
+			"All proceeds benefit CMA's mission to spark every child's imagination, sense of discovery, and learning through the power of play. For non-player sponsorship opportunities, contact the advancement office.",
 		],
 	},
 	{

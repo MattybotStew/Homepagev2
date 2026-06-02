@@ -98,7 +98,7 @@ export default function DonateHero() {
 								delay: 0.45,
 							}}
 						>
-							We are so grateful for our donors who provide the opportunity for Atlanta's families to explore and grow through hands-on play. As a nonprofit, ticket and membership sales cover approximately half of what it takes to bring the power of play to over 180,000 children and caregivers each year. Community support provides the rest. Thank you for helping us achieve our mission as we envision a bright future for all children. We couldn't do it without you!
+							We are so grateful for our donors who help us provide the opportunity for Atlanta's families to explore and grow through hands-on play. As a nonprofit, admissions and membership sales cover approximately half of what it takes to bring the power of play to over 180,000 children and caregivers each year. Your support is vital! Thank you for helping us achieve our mission as we envision a bright future for all children — we couldn't do it without you.
 						</motion.p>
 
 						<motion.div
@@ -153,6 +153,9 @@ export default function DonateHero() {
 				</div>
 			</div>
 
+			<p className="relative text-white/50 text-[12px] text-center leading-[1.6] max-w-[560px] mx-auto px-5">
+				All gifts are tax-deductible to the fullest extent allowed by law. The Museum is a 501(c)(3) tax-exempt organization. Our tax-ID number is 58-1785484.
+			</p>
 			{/* Bottom spacing */}
 			<div className="shrink-0 h-[40px] md:h-[60px]" />
 		</section>

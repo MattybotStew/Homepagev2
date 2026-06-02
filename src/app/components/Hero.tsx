@@ -13,6 +13,7 @@ type HeroProps = {
 	subtitle?: string;
 	ctas?: Cta[];
 	showHoursWidget?: boolean;
+	showWaves?: boolean;
 };
 
 export default function Hero({
@@ -25,6 +26,7 @@ export default function Hero({
 		{ label: "Memberships", href: "#/memberships/information", variant: "teal-outline" },
 	],
 	showHoursWidget = true,
+	showWaves = true,
 }: HeroProps) {
 	return (
 		<section
@@ -71,14 +73,16 @@ export default function Hero({
 							<h1 className="font-extrabold text-white">{heading}</h1>
 						</motion.div>
 
-						<div className="h-12 md:h-[40px] lg:h-[60px] xl:h-[80px] flex items-center justify-end shrink-0">
-							<img
-								src={imgWaveOrange}
-								alt=""
-								aria-hidden
-								className="w-[249px] h-[15px] block cma-wave-float"
-							/>
-						</div>
+						{showWaves && (
+							<div className="h-12 md:h-[40px] lg:h-[60px] xl:h-[80px] flex items-center justify-end shrink-0">
+								<img
+									src={imgWaveOrange}
+									alt=""
+									aria-hidden
+									className="w-[249px] h-[15px] block cma-wave-float"
+								/>
+							</div>
+						)}
 
 						<motion.div
 							initial={{ opacity: 0, y: 24 }}
@@ -94,14 +98,16 @@ export default function Hero({
 							</p>
 						</motion.div>
 
-						<div className="h-12 md:h-[40px] lg:h-[60px] xl:h-[80px] flex items-center justify-start shrink-0">
-							<img
-								src={imgWaveTeal}
-								alt=""
-								aria-hidden
-								className="w-[257px] h-[16px] block cma-wave-float-reverse"
-							/>
-						</div>
+						{showWaves && (
+							<div className="h-12 md:h-[40px] lg:h-[60px] xl:h-[80px] flex items-center justify-start shrink-0">
+								<img
+									src={imgWaveTeal}
+									alt=""
+									aria-hidden
+									className="w-[257px] h-[16px] block cma-wave-float-reverse"
+								/>
+							</div>
+						)}
 
 						<motion.div
 							className="flex flex-col sm:flex-row gap-3"

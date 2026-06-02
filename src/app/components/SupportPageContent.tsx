@@ -2,7 +2,6 @@ import { faDownload, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import imgCutCMA from "../../assets/cutCMA.png";
-import imgHero from "../../assets/donate-donor-young-professionals.webp";
 
 const sections = [
 	{ id: "overview", label: "Overview" },
@@ -77,21 +76,20 @@ export default function SupportPageContent() {
 	return (
 		<>
 			{/* Page banner */}
-			<section className="relative overflow-hidden bg-cma-navy">
-				<div className="absolute inset-0 overflow-hidden pointer-events-none bg-black" aria-hidden>
-					<img src={imgHero} alt="" className="absolute inset-0 w-full h-full object-cover object-center" />
-					<div className="absolute inset-0 bg-cma-hero-overlay" />
-				</div>
-				<img src={imgCutCMA} alt="" aria-hidden className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] opacity-10 pointer-events-none select-none object-contain object-bottom" />
+			<section className="relative w-full bg-cma-navy overflow-hidden flex flex-col items-center justify-center py-[80px] md:py-[120px]">
+				<img src={imgCutCMA} alt="" aria-hidden className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] opacity-15 pointer-events-none select-none object-contain object-bottom" />
 				<div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
-				<div className="cma-section-container py-[80px] md:py-[120px] relative flex flex-col items-center text-center">
-					<p className="cma-eyebrow text-cma-teal mb-[16px]">
+				<div className="cma-section-container relative z-[1] flex flex-col items-center gap-8 text-center max-w-[800px] mx-auto">
+					<p className="cma-eyebrow text-cma-teal">
 						Children's Museum of Atlanta
 					</p>
-					<h1 className="text-white mb-[16px]">Other Ways to Support</h1>
-					<p className="text-white/75 max-w-[580px]">
+					<h1 className="text-white">Other Ways to Support</h1>
+					<p className="text-cma-blue-light font-semibold text-[clamp(16px,1.67vw,24px)] leading-[1.4] max-w-[620px]">
 						Changing the world by sparking every child's imagination, sense of
 						discovery and learning through the power of play.
+					</p>
+					<p className="text-white/50 text-[12px] leading-[1.6] max-w-[560px]">
+						All gifts are tax-deductible to the fullest extent allowed by law. The Museum is a 501(c)(3) tax-exempt organization. Our tax-ID number is 58-1785484.
 					</p>
 				</div>
 			</section>
@@ -149,7 +147,7 @@ export default function SupportPageContent() {
 									to children and families across Atlanta.
 								</p>
 								<a
-									href="#/donate"
+									href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
 									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 								>
 									Donate Now
@@ -186,13 +184,12 @@ export default function SupportPageContent() {
 										<h3 className="text-cma-navy">Giving for Impact</h3>
 										<p className="text-cma-navy">
 											To make a gift over $5,000 or designate your donation to
-											support a specific CMA program, please reach out to Kate
-											McNeely, Director of Strategic Advancement and Marketing at{" "}
+											support a specific CMA program, please reach out to Erin Brooks, Director of Strategic Advancement at{" "}
 											<a
-												href="mailto:kmcneely@childrensmuseumatlanta.org"
+												href="mailto:ebrooks@childrensmuseumatlanta.org"
 												className="cma-text-link"
 											>
-												kmcneely@childrensmuseumatlanta.org
+												ebrooks@childrensmuseumatlanta.org
 											</a>
 											.
 										</p>
@@ -209,13 +206,13 @@ export default function SupportPageContent() {
 											through the power of play. Please note that the giving
 											levels listed above are calculated for annual fund giving
 											over the course of the Museum's fiscal year, and do not
-											include gifts at special events. Contact Peyton Gordan,
+											include gifts at special events. Contact Peyton Corder,
 											Strategic Advancement Manager, at{" "}
 											<a
-												href="mailto:pgordan@childrensmuseumatlanta.org"
+												href="mailto:pcorder@childrensmuseumatlanta.org"
 												className="cma-text-link"
 											>
-												pgordan@childrensmuseumatlanta.org
+												pcorder@childrensmuseumatlanta.org
 											</a>{" "}
 											to learn more, or to find out how to donate via stock gifts
 											or donor-advised funds.
@@ -224,16 +221,16 @@ export default function SupportPageContent() {
 
 									<div className="flex flex-col sm:flex-row flex-wrap gap-[12px]">
 										<a
-											href="#/donate"
+											href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
 											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black w-full sm:w-auto"
 										>
 											Donate Now
 										</a>
 										<a
-											href="mailto:kmcneely@childrensmuseumatlanta.org"
+											href="mailto:ebrooks@childrensmuseumatlanta.org"
 											className="cma-btn cma-btn-outline-teal font-black w-full sm:w-auto"
 										>
-											Contact Kate McNeely
+											Contact Erin Brooks
 										</a>
 									</div>
 								</div>
@@ -295,10 +292,10 @@ export default function SupportPageContent() {
 											Corporate Memberships
 										</a>
 										<a
-											href="mailto:kmcneely@childrensmuseumatlanta.org"
+											href="mailto:ebrooks@childrensmuseumatlanta.org"
 											className="cma-btn cma-btn-outline-teal font-black w-full sm:w-auto"
 										>
-											Contact Kate McNeely
+											Contact Erin Brooks
 										</a>
 									</div>
 								</div>
@@ -322,7 +319,9 @@ export default function SupportPageContent() {
 									</p>
 									<div>
 										<a
-											href="#"
+											href="https://childrensmuseumatlanta.org/wp-content/uploads/2018/08/Matching-Gifts-PDF-3.pdf"
+											target="_blank"
+											rel="noopener noreferrer"
 											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 										>
 											Download Matching Gifts{" "}
@@ -347,15 +346,15 @@ export default function SupportPageContent() {
 										learning at the Museum. Planned gifts of all sizes support
 										Children's Museum of Atlanta's long-term fiscal stability. We
 										are pleased to assist you in a wire transfer when donating
-										securities. Click below to reach out to Laura Hilaei,
+										securities. Click below to reach out to Laura Halad,
 										Assistant Director of Advancement & Special Events.
 									</p>
 									<div>
 										<a
-											href="mailto:lhilaei@childrensmuseumatlanta.org"
+											href="mailto:lhalad@childrensmuseumatlanta.org"
 											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 										>
-											Reach out to Laura Hilaei
+											Reach out to Laura Halad
 										</a>
 									</div>
 								</div>
@@ -371,7 +370,9 @@ export default function SupportPageContent() {
 									</p>
 									<div>
 										<a
-											href="#"
+											href="https://childrensmuseumatlanta.sharepoint.com/:b:/g/Development%20Team/EUFVg81ojL5LrR8Pmr_7i94Bepz-z6gSbQ5lfngeLGJFyQ?e=2YVnrT"
+											target="_blank"
+											rel="noopener noreferrer"
 											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 										>
 											Download Stock Transfer Letter{" "}
@@ -491,10 +492,12 @@ export default function SupportPageContent() {
 									</p>
 									<div>
 										<a
-											href="#"
+											href="https://childrensmuseumatlanta.org/wp-content/uploads/2025/03/FY24-Annual-Report.pdf"
+											target="_blank"
+											rel="noopener noreferrer"
 											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 										>
-											Download Annual Report{" "}
+											View FY24 Annual Report{" "}
 											<FontAwesomeIcon
 												icon={faDownload}
 												className="ml-[6px] text-[13px]"

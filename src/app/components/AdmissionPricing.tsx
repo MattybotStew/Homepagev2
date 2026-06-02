@@ -139,12 +139,14 @@ const pricingCards = [
 
 export default function AdmissionPricing({
 	navyBottomWave = false,
+	showBottomWave = true,
 	heading = "Admission Pricing",
 	subtitle = "Whether you're visiting with your family or a larger group, here's some helpful information about admission prices",
 	primaryCta = { label: "Ready to Visit?", href: "#tickets" },
 	secondaryCta = { label: "Location, Parking & Directions", href: "#directions" },
 }: {
 	navyBottomWave?: boolean;
+	showBottomWave?: boolean;
 	heading?: string;
 	subtitle?: string;
 	primaryCta?: { label: string; href: string };
@@ -241,69 +243,7 @@ export default function AdmissionPricing({
 					))}
 				</div>
 
-				{/* Info boxes */}
-				<div className="flex flex-col lg:flex-row gap-4 items-stretch w-full">
-					{[
-						{
-							title: "Your admission ticket includes:",
-							content: (
-								<div className="flex flex-col">
-									{includesItems.map((item) => (
-										<InfoRow key={item} label={item} />
-									))}
-								</div>
-							),
-						},
-						{
-							title: null,
-							content: (
-								<>
-									<h3 className="text-cma-navy">Not Included:</h3>
-									<div className="flex flex-col">
-										{notIncludedItems.map((item) => (
-											<InfoRow key={item} label={item} />
-										))}
-									</div>
-									<h3 className="text-cma-navy mt-2">Refund policy</h3>
-									<p className="text-cma-navy">
-										Tickets are non-refundable but we are happy to reschedule
-										tickets to a new date and time as capacity permits.
-									</p>
-								</>
-							),
-						},
-						{
-							title: "Age policy",
-							content: (
-								<div className="flex flex-col gap-4">
-									{agePolicyItems.map((item) => (
-										<p key={item} className="text-cma-navy">
-											{item}
-										</p>
-									))}
-								</div>
-							),
-						},
-					].map((box, i) => (
-						<motion.div
-							key={`item-${i}`}
-							className="bg-white border border-[#e4e8ee] rounded-[18px] flex-1 p-[33px] flex flex-col gap-6"
-							initial={{ opacity: 0, y: 24 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							viewport={{ once: true, margin: "-60px" }}
-							transition={{
-								duration: 0.7,
-								ease: [0.16, 1, 0.3, 1],
-								delay: i * 0.1,
-							}}
-						>
-							{box.title && <h3 className="text-cma-navy">{box.title}</h3>}
-							{box.content}
-						</motion.div>
-					))}
-				</div>
-
-				{/* Bottom CTA */}
+{/* Bottom CTA */}
 				<motion.a
 					onClick={() => document.getElementById("faqs")?.scrollIntoView({ behavior: "smooth" })}
 					className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
@@ -316,19 +256,21 @@ export default function AdmissionPricing({
 				</motion.a>
 			</div>
 
-			<div
-				aria-hidden
-				className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full"
-			>
-				{Array.from({ length: 10 }).map((_, i) => (
-					<img
-						key={`item-${i}`}
-						src={navyBottomWave ? imgWaveNavy : imgWaveBottom}
-						alt=""
-						className="w-[422px] h-[57px] shrink-0 block"
-					/>
-				))}
-			</div>
+			{showBottomWave && (
+				<div
+					aria-hidden
+					className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full"
+				>
+					{Array.from({ length: 10 }).map((_, i) => (
+						<img
+							key={`item-${i}`}
+							src={navyBottomWave ? imgWaveNavy : imgWaveBottom}
+							alt=""
+							className="w-[422px] h-[57px] shrink-0 block"
+						/>
+					))}
+				</div>
+			)}
 		</section>
 	);
 }

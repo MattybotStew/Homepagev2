@@ -25,10 +25,10 @@ const tiers = [
 			"Georgia Power",
 			"Georgia-Pacific Foundation",
 			"Cathy and Phillip Hodges",
-			"Home-Grown Industries of GA, Inc.",
-			"Invesco Foundation, Inc.",
+			"Home-Grown Industries of GA Inc.",
+			"Invesco Foundation Inc.",
 			"Invest Atlanta",
-			"John H. and Wilhelmina D. Harland Charitable Foundation, Inc.",
+			"John H. and Wilhelmina D. Harland Charitable Foundation Inc.",
 			"Kaiser Permanente",
 			"LexisNexis Risk Solutions",
 			"Lilly Endowment Inc.",
@@ -37,14 +37,14 @@ const tiers = [
 			"Novelis",
 			"Osprey Corporation",
 			"PNC Bank",
-			"Price Gilbert, Jr. Charitable Fund",
+			"Price Gilbert Jr. Charitable Fund",
 			"Publix Super Markets Charities",
 			"Southern Company Gas Foundation",
 			"The Coca-Cola Company",
 			"The Lattner Family Foundation",
 			"The Liz Blake Giving Fund",
-			"The Sartain Lanier Family Foundation, Inc.",
-			"The Zeist Foundation, Inc.",
+			"The Sartain Lanier Family Foundation Inc.",
+			"The Zeist Foundation Inc.",
 			"United Way of Greater Atlanta",
 		],
 	},
@@ -64,7 +64,7 @@ const tiers = [
 			"Jones Day",
 			"Amy and Randall Kirsch",
 			"KSM",
-			"Lazlo 326, Corp.",
+			"Lazlo 326 Corp.",
 			"Sarah Hess Mackenzie",
 			"Todd Oglesby",
 			"Andy Sanford / Ameriprise",
@@ -122,7 +122,7 @@ const tiers = [
 			"Jason Bearden",
 			"BlackRock",
 			"Rita and John Breen",
-			"Carr, Riggs & Ingram, LLC",
+			"Carr Riggs & Ingram LLC",
 			"The Deutsch Family Philanthropic Fund",
 			"Elizabeth and Brandon Duany",
 			"Lauren Estrin and Andy Deutsch",
@@ -132,7 +132,7 @@ const tiers = [
 			"Jabian Consulting",
 			"Frances and John Jackson",
 			"Melissa and Larry Jackson",
-			"Kessler & Solomiany, Family Law Attorneys",
+			"Kessler & Solomiany Family Law Attorneys",
 			"Sheri and Steve Labovitz",
 			"Suzanne Lindsay-Walker",
 			"Kathleen and Edwin Link",
@@ -149,7 +149,7 @@ const tiers = [
 			"Mary Spanburgh and Patrick Mulvaney",
 			"James R. Summer III",
 			"Beth Tanis and John Chandler",
-			"The Richard C. Munroe Foundation, Inc.",
+			"The Richard C. Munroe Foundation Inc.",
 			"Ryan Trepte",
 			"Chelsea and Caleb Turner",
 			"Melissa and Richard Valladares",
@@ -196,14 +196,14 @@ export default function DonorRecognitionTiers() {
 	return (
 		<section className="bg-cma-cream w-full py-[80px] md:py-[120px]">
 			<div className="cma-section-container flex flex-col gap-[40px]">
-				<div className="flex flex-col gap-[12px]">
+				<div className="flex flex-col gap-[12px] items-center text-center">
 					<h2 className="text-cma-navy">Supporters: July 2024 – June 2025</h2>
-					<p className="text-cma-navy">
+					<p className="text-cma-navy max-w-[720px]">
 						Thank you to the generous individuals, corporations, foundations, and
 						government agencies for annually supporting our hands-on exhibits,
 						educational programming, and community outreach efforts. Want to
 						support the power of play?{" "}
-						<a href="#/donate" className="cma-text-link">
+						<a href="https://16707.blackbaudhosting.com/16707/Annual-Fund" className="cma-text-link">
 							Donate today!
 						</a>
 					</p>
@@ -250,7 +250,7 @@ export default function DonorRecognitionTiers() {
 										</div>
 										<div>
 											<a
-												href="#/donate"
+												href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
 												className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 											>
 												Become a {tier.name}

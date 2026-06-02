@@ -1,19 +1,24 @@
+import { faCompass, faFlask, faWandMagicSparkles } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import imgPlay from "../../assets/educators-img-2.webp";
 
 const items = [
 	{
 		iconBg: "bg-cma-teal",
+		icon: faCompass,
 		title: "Explore",
 		body: "Our exhibits invite children to investigate the world around them at their own pace, building curiosity and a love of discovery that lasts a lifetime.",
 	},
 	{
 		iconBg: "bg-cma-orange",
+		icon: faFlask,
 		title: "Experiment",
 		body: "From science to art to storytelling, every experience at CMA is hands-on. Children learn by doing, testing ideas, and seeing what happens.",
 	},
 	{
 		iconBg: "bg-cma-orange",
+		icon: faWandMagicSparkles,
 		title: "Imagine",
 		body: "Play is where creativity is born. Our spaces are designed to spark imaginative thinking and give children the freedom to create without limits.",
 	},
@@ -55,8 +60,10 @@ export default function AboutPhilosophy() {
 								}}
 							>
 								<div
-									className={`w-[40px] h-[40px] rounded-[10px] shrink-0 mt-[2px] ${item.iconBg}`}
-								/>
+									className={`rounded-full size-[48px] flex items-center justify-center shrink-0 mt-[2px] ${item.iconBg}`}
+								>
+									<FontAwesomeIcon icon={item.icon} className="text-white text-[18px]" />
+								</div>
 								<div className="flex flex-col gap-1">
 									<p className="text-cma-teal-dark font-bold text-[15px] leading-snug">
 										{item.title}

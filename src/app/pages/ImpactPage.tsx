@@ -1,7 +1,6 @@
 import {
 	faArrowRight,
 	faChevronRight,
-	faDownload,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
@@ -9,9 +8,7 @@ import { useState } from "react";
 import imgB from "../../assets/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp";
 import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp";
 import imgC from "../../assets/39da2bd0af3dceef1e3b406cd981247f82778d27.webp";
-import imgWaveBottom from "../../assets/impact-wave-bottom.svg";
-import imgWaveWhite from "../../assets/wave-white.svg";
-import imgHeroBg from "../../assets/store-hero-bg.svg";
+import imgCutCMA from "../../assets/cutCMA.png";
 import AlertBanner from "../components/AlertBanner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -48,79 +45,49 @@ const stats = [
 
 const programs = [
 	{
-		id: "step-up-to-science",
-		label: "Step Up To Science",
-		title: "Step Up To Science",
-		body: "All field trips are geared towards providing an immersive, standards-based learning experience and cross-curriculum learning opportunities focusing on math, science, social studies, language arts, geography, and arts.",
-		exhibits: [
-			{ image: imgA, title: "Step Up to Science", slug: "step-up-to-science" },
-			{
-				image: imgB,
-				title: "Tools for Solutions",
-				slug: "tools-for-solutions",
-			},
-		],
-	},
-	{
-		id: "cultural-programs",
-		label: "Cultural Programs",
-		title: "Cultural Programs",
-		body: "Our Cultural Programs celebrate the rich diversity of Atlanta and beyond. Through hands-on activities, storytelling, and immersive experiences, we bring global traditions and perspectives to life for young learners.",
-		exhibits: [
-			{
-				image: imgC,
-				title: "Gateway to the World",
-				slug: "gateway-to-the-world",
-			},
-			{ image: imgA, title: "Fundamentally Food", slug: "fundamentally-food" },
-		],
-	},
-	{
 		id: "connected-learning",
 		label: "Connected Learning Connected Communities",
 		title: "Connected Learning Connected Communities",
-		body: "In-depth outreach across 17+ partner sites supporting literacy and nutrition in under-resourced neighborhoods. CLCC reaches 4,456 students annually with standards-aligned programs delivered directly in their communities.",
+		body: "Established in 2007, CLCC collaborates with key figures in children's lives — parents, educators, and neighborhood organizations — to advance literacy and nutrition support for children ages 0–8. The program operates in 17 partner schools, child development centers, and homeless shelters across seven of Atlanta's most under-resourced neighborhoods. Includes Spread the Word Workshops, which enhance language development by building on existing communication skills and encouraging household conversations to expand vocabulary.",
 		exhibits: [
-			{
-				image: imgB,
-				title: "Leaping into Learning",
-				slug: "leaping-into-learning",
-			},
-			{
-				image: imgC,
-				title: "Let Your Creativity Flow",
-				slug: "let-your-creativity-flow",
-			},
+			{ image: imgB, title: "Leaping into Learning", slug: "leaping-into-learning" },
+			{ image: imgC, title: "Let Your Creativity Flow", slug: "let-your-creativity-flow" },
+		],
+	},
+	{
+		id: "mobile-learning",
+		label: "Mobile Learning Spaces",
+		title: "Mobile Learning Spaces Powered by CMA",
+		body: "In partnership with United Way of Greater Atlanta and supported by the Joseph B. Whitehead Foundation, Mobile Learning Spaces delivers weekly mobile preschool experiences in Clayton and Fulton Counties. The program targets children birth to age five at housing complexes and parks, emphasizing parental involvement as their child's first teacher.",
+		exhibits: [
+			{ image: imgC, title: "Our Place in Space", slug: "our-place-in-space" },
+			{ image: imgA, title: "Gateway to the World", slug: "gateway-to-the-world" },
 		],
 	},
 	{
 		id: "family-free-day",
 		label: "Family Free Day",
 		title: "Family Free Day",
-		body: "Four times a year, the Children's Museum opens its doors at no charge to all families. Family Free Days remove financial barriers and ensure that every child in Atlanta has access to the transformative power of play-based learning.",
+		body: "The Museum offers complimentary admission quarterly through the generous support of sponsors including CareSource, Publix, and additional community partners. Family Free Days remove financial barriers and ensure that every child in Atlanta has access to the transformative power of play-based learning.",
 		exhibits: [
 			{ image: imgA, title: "Obstacle Adventure", slug: "obstacle-adventure" },
 			{ image: imgB, title: "Outside the Box", slug: "outside-the-box" },
 		],
 	},
 	{
-		id: "mobile-learning",
-		label: "Mobile Learning Spaces",
-		title: "Mobile Learning Spaces",
-		body: "Weekly mobile preschool experiences in partnership with United Way, bringing play to children not yet in traditional preschool settings. Our mobile educators bring portable exhibits and hands-on activities to neighborhoods across metro Atlanta.",
+		id: "access-it",
+		label: "Access It!",
+		title: "Access It!",
+		body: "A subsidized admission program ensuring no child or family is turned away from the Museum due to an inability to pay. Access It! partners with organizations across Atlanta including Atlanta Urban Ministry, YMCA, Children's Healthcare of Atlanta, Easter Seals, Genesis Shelter, Quality Care for Children, Sheltering Arms, The Atlanta Children's Shelter, The Salvation Army, United Way of Metro Atlanta, and VSA Georgia.",
 		exhibits: [
-			{ image: imgC, title: "Our Place in Space", slug: "our-place-in-space" },
-			{
-				image: imgA,
-				title: "Gateway to the World",
-				slug: "gateway-to-the-world",
-			},
+			{ image: imgB, title: "Leaping into Learning", slug: "leaping-into-learning" },
+			{ image: imgC, title: "Let Your Creativity Flow", slug: "let-your-creativity-flow" },
 		],
 	},
 ];
 
 export default function ImpactPage() {
-	const [activeProgram, setActiveProgram] = useState("step-up-to-science");
+	const [activeProgram, setActiveProgram] = useState("connected-learning");
 	const current = programs.find((p) => p.id === activeProgram)!;
 
 	return (
@@ -136,17 +103,20 @@ export default function ImpactPage() {
 				<ScrollProgress />
 			</div>
 			{/* Hero */}
-			<section className="relative w-full bg-cma-navy overflow-hidden flex flex-col items-center pt-[80px] pb-[100px] md:pt-[100px] md:pb-[140px]">
-				<div
-					className="absolute inset-0 pointer-events-none opacity-10 flex items-center justify-center"
+			<section
+				aria-label="Impact & Community"
+				className="relative w-full bg-cma-navy overflow-hidden flex flex-col items-center justify-center py-[80px] md:py-[120px]"
+			>
+				<img
+					src={imgCutCMA}
+					alt=""
 					aria-hidden
-				>
-					<img src={imgHeroBg} alt="" className="w-full h-full object-cover" />
-				</div>
+					className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] opacity-15 pointer-events-none select-none object-contain object-bottom"
+				/>
 				<div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
 				<div className="cma-section-container relative z-[1]">
 					<motion.div
-						className="flex flex-col items-center gap-[24px] md:gap-[32px] text-center max-w-[800px] mx-auto"
+						className="flex flex-col items-center gap-8 text-center max-w-[800px] mx-auto"
 						initial={{ opacity: 0, y: 24 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
@@ -159,36 +129,21 @@ export default function ImpactPage() {
 							Changing the world by sparking every child's imagination, sense of
 							discovery and learning through the power of play.
 						</p>
-						<div className="flex flex-col sm:flex-row gap-3 mt-2">
+						<div className="flex flex-col sm:flex-row gap-3">
 							<a
 								onClick={() => document.getElementById("programs")?.scrollIntoView({ behavior: "smooth" })}
 								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 							>
-								Our Impact
+								Our Programs
 							</a>
 							<a
-								onClick={() => document.getElementById("annual-report")?.scrollIntoView({ behavior: "smooth" })}
+								href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
 								className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black"
 							>
-								Annual Report
+								Donate Now
 							</a>
 						</div>
 					</motion.div>
-				</div>
-
-				{/* Wave bottom */}
-				<div
-					aria-hidden
-					className="absolute bottom-0 left-0 flex overflow-hidden h-[13px] w-full"
-				>
-					{Array.from({ length: 10 }).map((_, i) => (
-						<img
-							key={i}
-							src={imgWaveWhite}
-							alt=""
-							className="w-[422px] h-[57px] shrink-0 block"
-						/>
-					))}
 				</div>
 			</section>
 
@@ -208,12 +163,6 @@ export default function ImpactPage() {
 							The Museum is a 501(c)(3) tax-exempt &amp; charitable
 							organization. Our tax-exempt number is 58-1785484.
 						</p>
-						<a
-							href="#/donate"
-							className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black mt-[4px]"
-						>
-							Donate Now
-						</a>
 					</motion.div>
 
 					<div className="grid grid-cols-2 md:grid-cols-4 gap-x-[32px] gap-y-[48px]">
@@ -254,7 +203,7 @@ export default function ImpactPage() {
 			>
 				<div className="cma-section-container">
 					<motion.div
-						className="flex flex-col gap-[16px] mb-[48px]"
+						className="flex flex-col items-center text-center gap-[16px] mb-[48px]"
 						initial={{ opacity: 0, y: 24 }}
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true, margin: "-80px" }}
@@ -315,7 +264,7 @@ export default function ImpactPage() {
 									Your support makes play possible for every child in Atlanta.
 								</p>
 								<a
-									href="#/donate"
+									href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
 									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black w-full justify-center"
 								>
 									Learn More
@@ -341,15 +290,10 @@ export default function ImpactPage() {
 								</p>
 								<div>
 									<a
-										href="/social-story.pdf"
-										download
+										href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
 										className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black inline-flex"
 									>
-										Download Social Story{" "}
-										<FontAwesomeIcon
-											icon={faDownload}
-											className="ml-[6px] text-[13px]"
-										/>
+										Support This Program
 									</a>
 								</div>
 							</div>

@@ -1,3 +1,5 @@
+import { faFlag, faLocationDot, faPeopleGroup, faRocket } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import imgHistory from "../../assets/history.webp";
 
@@ -5,24 +7,28 @@ const milestones = [
 	{
 		year: "1988",
 		iconBg: "bg-cma-teal",
+		icon: faFlag,
 		yearColor: "text-cma-orange",
 		body: "Children's Museum of Atlanta is founded, with a passionate group of community leaders committed to bringing play-based learning to the children of Atlanta.",
 	},
 	{
 		year: "2003",
 		iconBg: "bg-cma-orange",
+		icon: faLocationDot,
 		yearColor: "text-cma-teal-dark",
 		body: "After a major community fundraising campaign, the museum opens its permanent home at 275 Centennial Olympic Park Drive — right in the heart of downtown Atlanta.",
 	},
 	{
 		year: "3.8M+",
 		iconBg: "bg-cma-orange",
+		icon: faPeopleGroup,
 		yearColor: "text-cma-navy",
 		body: "Total visitors have passed through our doors since opening — families, school groups, and community members creating a lifetime of play-based memories.",
 	},
 	{
 		year: "Today",
 		iconBg: "bg-cma-teal",
+		icon: faRocket,
 		yearColor: "text-cma-orange",
 		body: "We continue to grow as Atlanta's premier destination for hands-on learning, issuing 34,000+ free and reduced tickets annually and reaching 8,000+ kids through community outreach.",
 	},
@@ -68,8 +74,10 @@ export default function AboutHistory() {
 								{/* Icon + year label row */}
 								<div className="flex items-center gap-4">
 									<div
-										className={`w-[32px] h-[32px] rounded-[8px] shrink-0 ${m.iconBg}`}
-									/>
+										className={`rounded-full size-[48px] flex items-center justify-center shrink-0 ${m.iconBg}`}
+									>
+										<FontAwesomeIcon icon={m.icon} className="text-white text-[18px]" />
+									</div>
 									<p
 										className={`font-black text-[clamp(28px,3.75vw,48px)] leading-none ${m.yearColor}`}
 									>
@@ -77,7 +85,7 @@ export default function AboutHistory() {
 									</p>
 								</div>
 								{/* Body text — indented to align with year */}
-								<div className="pl-[48px]">
+								<div className="pl-[64px]">
 									<p className="text-cma-navy">{m.body}</p>
 								</div>
 							</motion.div>

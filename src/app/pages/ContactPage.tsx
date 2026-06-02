@@ -121,7 +121,7 @@ const holidayHours = [
 
 const faqs = [
 	{
-		question: "Your admission ticket includes",
+		question: "What does my admission ticket include?",
 		answer:
 			"General admission tickets include unlimited access to all permanent exhibit floors, the Super Spectacular Science Show on stage, and access to featured traveling exhibits (included in general admission). Tickets are valid for one-time entry on the date of purchase.",
 	},
@@ -160,7 +160,7 @@ const helpfulLinks = [
 		icon: faTicket,
 		color: "bg-cma-orange",
 		label: "Buy Tickets",
-		description: "Pricing, discounts, group rates, SNAP EBT.",
+		description: "Pricing, discounts, and group rates.",
 		cta: "Buy Tickets",
 		href: "#/book-your-visit",
 	},
@@ -192,7 +192,7 @@ const helpfulLinks = [
 		icon: faBook,
 		color: "bg-cma-navy",
 		label: "Rules & Policies",
-		description: "See all content, attractions, terms & conditions.",
+		description: "Museum policies, refunds, and terms & conditions.",
 		cta: "Learn More",
 		href: "#/plan-your-visit",
 	},
@@ -427,7 +427,7 @@ export default function ContactPage() {
 												<a href="#/book-your-visit" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
 													Buy Tickets
 												</a>
-												<a onClick={() => document.getElementById("parking")?.scrollIntoView({ behavior: "smooth" })} className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black">
+												<a href="#/plan-your-visit" className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black">
 													Parking Guide
 												</a>
 											</div>
@@ -492,7 +492,7 @@ export default function ContactPage() {
 											</div>
 											<div>
 												<button type="submit" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
-													Request Visit
+													Send Message
 												</button>
 											</div>
 										</form>

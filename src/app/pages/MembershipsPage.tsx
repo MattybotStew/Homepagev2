@@ -3,14 +3,15 @@ import AlertBanner from "../components/AlertBanner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
-import AdmissionPricing from "../components/AdmissionPricing";
-import MembershipPlanTable from "../components/MembershipPlanTable";
+import MembershipPlans from "../components/MembershipPlans";
 import MembershipSavingsCalculator from "../components/MembershipSavingsCalculator";
 import MobileHeader from "../components/MobileHeader";
 import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee";
 import PYVCallout from "../components/PYVCallout";
 import ScrollProgress from "../components/ScrollProgress";
 import Testimonials from "../components/Testimonials";
+
+const BLACKBAUD_MEMBERSHIPS = "https://16707.blackbaudhosting.com/16707/CMA-Memberships";
 
 export default function MembershipsPage() {
 	return (
@@ -30,32 +31,27 @@ export default function MembershipsPage() {
 				bgImage={imgMembershipsHero}
 				eyebrow="memberships"
 				heading="Unlimited Play. Endless Memories."
-				subtitle="Give your family year-round access to Atlanta's favorite children's museum — plus exclusive perks, early hours, and endless fun."
+				subtitle="Give your family year-round access to Atlanta's favorite children's museum — plus exclusive perks, discounts, and endless fun."
 				ctas={[
-					{ label: "Become a Member Today", href: "https://www.childrensmuseumatlanta.org/memberships/", variant: "orange" },
-					{ label: "Membership Information", href: "#membership", variant: "teal-outline" },
+					{ label: "Become a Member Today", href: BLACKBAUD_MEMBERSHIPS, variant: "orange" },
+					{ label: "Membership Information", href: "#/memberships/information", variant: "teal-outline" },
 				]}
 				showHoursWidget={false}
 			/>
 
-			<MembershipSavingsCalculator />
-			<AdmissionPricing
-				heading="Membership Plans & Pricing"
-				subtitle="One family membership pays for itself in just 3 visits — and comes with exclusive perks and savings on every return visit."
-				primaryCta={{ label: "Become a Member", href: "https://www.childrensmuseumatlanta.org/memberships/" }}
-				secondaryCta={{ label: "Compare Plan Features", href: "#plan-table" }}
-			/>
-			<MembershipPlanTable />
+			<MembershipSavingsCalculator becomeMemberHref={BLACKBAUD_MEMBERSHIPS} />
+			<MembershipPlans becomeMemberHref={BLACKBAUD_MEMBERSHIPS} />
 
 			<Testimonials heading="What Families Are Saying" showWave={false} />
 
 			<PYVCallout
 				eyebrow="memberships"
 				heading="Membership Information"
-				body="Your generosity helps us bring the power of play to over 180,000 children and families each year. Whether you give once or make an ongoing commitment, every gift makes a meaningful difference in the lives of Atlanta's children."
-				cta={{ label: "Membership Information", href: "https://www.childrensmuseumatlanta.org/memberships/" }}
+				body="Get unlimited access to Atlanta's favorite children's museum for a full year — starting at just $125. Members enjoy 50% off guest tickets, gift shop discounts, and the satisfaction of helping bring play to every child in Atlanta."
+				cta={{ label: "Membership Information", href: "#/memberships/information" }}
 				bg="bg-cma-teal-dark"
 				showCountdown={false}
+				showRightCta={false}
 			/>
 
 			<PowerOfPlayMarquee />

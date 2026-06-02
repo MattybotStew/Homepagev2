@@ -5,14 +5,14 @@ import AboutJoinTeam from "../components/AboutJoinTeam";
 import AboutPartners from "../components/AboutPartners";
 import AboutPeople from "../components/AboutPeople";
 import AboutPhilosophy from "../components/AboutPhilosophy";
+import AboutImpact from "../components/AboutImpact";
+import AboutTestimonials from "../components/AboutTestimonials";
 import AlertBanner from "../components/AlertBanner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import ImpactSection from "../components/ImpactSection";
 import MobileHeader from "../components/MobileHeader";
 import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee";
 import ScrollProgress from "../components/ScrollProgress";
-import Testimonials from "../components/Testimonials";
 
 export default function AboutPage() {
 	return (
@@ -32,8 +32,8 @@ export default function AboutPage() {
 			<AboutPartners />
 			<AboutContent />
 			<AboutPhilosophy />
-			<Testimonials />
-			<ImpactSection bottomWave="white" />
+			<AboutTestimonials />
+			<AboutImpact />
 			<AboutHistory />
 			<AboutPeople />
 			<AboutJoinTeam />

@@ -1,69 +1,77 @@
-import { faBookOpen, faBus, faCalendarDays, faStar, faUnlockKeyhole, faUsersLine } from "@fortawesome/free-solid-svg-icons";
+import { faBookOpen, faBus, faStar, faUsersLine } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
+import imgWaveTop from "../../assets/impact-wave-top.svg";
 import imgWaveWhite from "../../assets/wave-white.svg";
 
 const impactItems = [
 	{
 		color: "bg-cma-teal",
 		icon: faBookOpen,
-		title: "Early Learning",
-		body: "Every day at the Museum, engaging, interactive, hands-on programs are designed and implemented to help build knowledge and socialization skills to help prepare for school.",
+		title: "Early Learning Initiatives",
+		body: "Engaging, interactive, hands-on programs are designed to build knowledge and socialization skills geared towards school readiness.",
 	},
 	{
 		color: "bg-cma-orange",
 		icon: faBus,
 		title: "Community Outreach",
-		body: "Beyond the Museum walls, CMA brings a unique blend of performance-based and hands-on educational programming to underserved families living in the Atlanta area.",
+		body: "Beyond the Museum walls, CMA brings a unique blend of performance-based and hands-on educational programs to deserving families and children living throughout Atlanta.",
 	},
 	{
 		color: "bg-[#fbb040]",
 		icon: faStar,
 		title: "Traveling Exhibits",
-		body: "Three to four times a year, the Museum's Morph Gallery transforms into a new, exciting space to keep young visitors coming back for more.",
+		body: "Throughout the year, the Museum's Morph Gallery transforms into new and exciting spaces opening a world of possibilities to young guests.",
 	},
 	{
-		color: "bg-[#fbb040]",
+		color: "bg-cma-navy border border-white/20",
 		icon: faUsersLine,
 		title: "Subsidized Field Trips",
-		body: "Nearly 12,000 Title I students have visited the Museum for free or at a reduced cost through CMA's immersive field trip program and subsidized ticket initiatives in the past fiscal year alone.",
-	},
-	{
-		color: "bg-cma-teal",
-		icon: faCalendarDays,
-		title: "Family Free Days",
-		body: "Free admission days held throughout the year ensure every Atlanta family can walk through our doors, regardless of financial circumstance.",
-	},
-	{
-		color: "bg-cma-orange",
-		icon: faUnlockKeyhole,
-		title: "Access It!",
-		body: "Subsidized admission and partnerships with social service agencies ensure no child is ever turned away due to inability to pay.",
+		body: "Nearly 2,000 students who attend Title 1 schools benefit from the Museum's immersive Field Trip programs through our subsidized ticket initiatives.",
 	},
 ];
 
 export default function DonateImpact() {
 	return (
 		<section id="ways-to-give" className="bg-cma-navy w-full py-[80px] md:py-[120px] relative">
+			<div aria-hidden className="absolute top-0 left-0 flex overflow-hidden h-[13px] w-full">
+				{Array.from({ length: 10 }).map((_, i) => (
+					<img key={`item-${i}`} src={imgWaveTop} alt="" className="w-[422px] h-[57px] shrink-0 block" />
+				))}
+			</div>
 			<div className="cma-section-container flex flex-col gap-[56px]">
 				{/* Header */}
 				<motion.div
-					className="flex flex-col gap-[16px] max-w-[720px]"
+					className="flex flex-col gap-[16px] items-center text-center"
 					initial={{ opacity: 0, y: 24 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true, margin: "-80px" }}
 					transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
 				>
 					<h2 className="text-white leading-none">
-						There are many ways that your support can have a long-lasting, wide impact on the community.
+						Your gift helps us continue our mission to inspire learning and a sense of discovery through the power of play.
 					</h2>
 					<p className="text-cma-blue-light text-[clamp(15px,1.25vw,18px)] leading-[1.7]">
 						There are many ways that your support can have a long-lasting, wide impact on the community.
 					</p>
+					<div className="flex flex-col sm:flex-row gap-3 justify-center">
+						<a
+							href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
+							className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+						>
+							Donate Now
+						</a>
+						<a
+							href="#/support"
+							className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black"
+						>
+							Ways to Give
+						</a>
+					</div>
 				</motion.div>
 
 				{/* Cards grid */}
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 					{impactItems.map((item, i) => (
 						<motion.div
 							key={item.title}
@@ -90,27 +98,6 @@ export default function DonateImpact() {
 					))}
 				</div>
 
-				{/* CTAs */}
-				<motion.div
-					className="flex flex-col sm:flex-row gap-3"
-					initial={{ opacity: 0, y: 16 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true, margin: "-40px" }}
-					transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-				>
-					<a
-						href="#/donate"
-						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
-					>
-						Donate Now
-					</a>
-					<a
-						onClick={() => document.getElementById("ways-to-give")?.scrollIntoView({ behavior: "smooth" })}
-						className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black"
-					>
-						Ways to Give
-					</a>
-				</motion.div>
 			</div>
 
 			<div

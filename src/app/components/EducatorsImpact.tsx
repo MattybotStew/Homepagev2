@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import { useState } from "react";
 import imgContact from "../../assets/educators-contact.webp";
+import imgWaveTop from "../../assets/impact-wave-top.svg";
 import imgWaveWhite from "../../assets/wave-white.svg";
 
 const impactItems = [
@@ -40,6 +41,11 @@ export default function EducatorsImpact() {
 			id="contact"
 			className="bg-cma-navy w-full py-[80px] md:py-[120px] relative"
 		>
+			<div aria-hidden className="absolute top-0 left-0 flex overflow-hidden h-[13px] w-full">
+				{Array.from({ length: 10 }).map((_, i) => (
+					<img key={`item-${i}`} src={imgWaveTop} alt="" className="w-[422px] h-[57px] shrink-0 block" />
+				))}
+			</div>
 			<div className="cma-section-container">
 				<div className="flex flex-col lg:flex-row gap-[48px] lg:gap-[60px]">
 					{/* Left column */}
@@ -95,7 +101,7 @@ export default function EducatorsImpact() {
 
 						<div className="flex flex-col sm:flex-row gap-3">
 							<a
-								href="#/donate"
+								href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
 								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 							>
 								Make Play Possible — Donate
