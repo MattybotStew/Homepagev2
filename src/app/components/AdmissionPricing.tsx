@@ -140,6 +140,7 @@ const pricingCards = [
 export default function AdmissionPricing({
 	navyBottomWave = false,
 	showBottomWave = true,
+	showCtas = true,
 	heading = "Admission Pricing",
 	subtitle = "Whether you're visiting with your family or a larger group, here's some helpful information about admission prices",
 	primaryCta = { label: "Ready to Visit?", href: "#tickets" },
@@ -147,6 +148,7 @@ export default function AdmissionPricing({
 }: {
 	navyBottomWave?: boolean;
 	showBottomWave?: boolean;
+	showCtas?: boolean;
 	heading?: string;
 	subtitle?: string;
 	primaryCta?: { label: string; href: string };
@@ -167,20 +169,22 @@ export default function AdmissionPricing({
 					<p className="text-cma-navy text-[clamp(15px,1.25vw,18px)] leading-[1.7] max-w-[720px]">
 						{subtitle}
 					</p>
-					<div className="flex flex-col sm:flex-row gap-3">
-						<a
-							href={primaryCta.href}
-							className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
-						>
-							{primaryCta.label}
-						</a>
-						<a
-							href={secondaryCta.href}
-							className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
-						>
-							{secondaryCta.label}
-						</a>
-					</div>
+					{showCtas && (
+						<div className="flex flex-col sm:flex-row gap-3">
+							<a
+								href={primaryCta.href}
+								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+							>
+								{primaryCta.label}
+							</a>
+							<a
+								href={secondaryCta.href}
+								className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
+							>
+								{secondaryCta.label}
+							</a>
+						</div>
+					)}
 				</motion.div>
 
 				{/* Pricing cards */}

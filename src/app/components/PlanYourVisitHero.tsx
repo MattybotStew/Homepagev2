@@ -28,7 +28,15 @@ const cards = [
 	},
 ];
 
-export default function PlanYourVisitHero({ bgImage = imgHeroBgDefault }: { bgImage?: string }) {
+export default function PlanYourVisitHero({
+	bgImage = imgHeroBgDefault,
+	heading = "Plan Your Visit",
+	subtitle = "Everything you need to know before you play — from tickets & hours to parking & what to bring.",
+}: {
+	bgImage?: string;
+	heading?: string;
+	subtitle?: string;
+}) {
 	return (
 		<section
 			aria-label="Plan Your Visit Hero"
@@ -78,7 +86,7 @@ export default function PlanYourVisitHero({ bgImage = imgHeroBgDefault }: { bgIm
 								delay: 0.2,
 							}}
 						>
-							Plan Your Visit
+							{heading}
 						</motion.h1>
 
 						<motion.p
@@ -91,8 +99,7 @@ export default function PlanYourVisitHero({ bgImage = imgHeroBgDefault }: { bgIm
 								delay: 0.35,
 							}}
 						>
-							Everything you need to know before you play — from tickets &amp;
-							hours to parking &amp; what to bring.
+							{subtitle}
 						</motion.p>
 
 						<motion.div
