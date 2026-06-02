@@ -29,6 +29,8 @@ export default function BookYourVisitPage() {
 				bgImage={imgBYVHero}
 				heading="Book Your Visit"
 				subtitle="Reserve your tickets online and guarantee your family's spot. Advance purchase is highly encouraged — walk-up availability is limited."
+				primaryCta={{ label: "Buy Tickets Now", href: "https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf" }}
+				secondaryCta={{ label: "Plan Your Visit", href: "#/plan-your-visit" }}
 			/>
 
 			<AdmissionPricing showCtas={false} navyBottomWave />

@@ -32,10 +32,14 @@ export default function PlanYourVisitHero({
 	bgImage = imgHeroBgDefault,
 	heading = "Plan Your Visit",
 	subtitle = "Everything you need to know before you play — from tickets & hours to parking & what to bring.",
+	primaryCta = { label: "Buy Tickets Now", href: "#/book-your-visit" },
+	secondaryCta = { label: "Download Visitor Guide", href: "#/plan-your-visit" },
 }: {
 	bgImage?: string;
 	heading?: string;
 	subtitle?: string;
+	primaryCta?: { label: string; href: string };
+	secondaryCta?: { label: string; href: string };
 }) {
 	return (
 		<section
@@ -113,16 +117,16 @@ export default function PlanYourVisitHero({
 							}}
 						>
 							<a
-								href="#/book-your-visit"
+								href={primaryCta.href}
 								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 							>
-								Buy Tickets Now
+								{primaryCta.label}
 							</a>
 							<a
-								href="#/plan-your-visit"
+								href={secondaryCta.href}
 								className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
 							>
-								Download Visitor Guide
+								{secondaryCta.label}
 							</a>
 						</motion.div>
 					</div>
