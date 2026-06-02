@@ -525,6 +525,32 @@ export default function StyleguidePage() {
 									</div>
 								</Card>
 
+								<Card title="PlanYourVisitHero — configurable props">
+									<div className="bg-cma-navy/5 rounded-[12px] p-[16px]">
+										<pre className="text-[12px] text-cma-navy font-mono overflow-x-auto whitespace-pre">{`<PlanYourVisitHero
+  bgImage={imgBYVHero}
+  heading="Book Your Visit"
+  subtitle="Reserve your tickets online…"
+  primaryCta={{ label: "Buy Tickets Now", href: "https://…" }}
+  secondaryCta={{ label: "Plan Your Visit", href: "#/plan-your-visit" }}
+/>`}</pre>
+									</div>
+									<div className="flex flex-col gap-[4px]">
+										<Spec label="bgImage" value="optional — falls back to PYV hero default" />
+										<Spec label="heading" value="optional — defaults to 'Plan Your Visit'" />
+										<Spec label="subtitle" value="optional — defaults to PYV subtitle" />
+										<Spec label="primaryCta" value="{ label, href } — orange button" />
+										<Spec label="secondaryCta" value="{ label, href } — teal outline button" />
+									</div>
+								</Card>
+
+								<Card title="AdmissionPricing — showCtas prop">
+									<p className="text-cma-navy text-[13px]">
+										Pass <span className="font-mono font-bold">showCtas={"{false}"}</span> to hide the CTA button row (used on BookYourVisitPage where CTAs live in BuyOnlineBenefits instead).
+									</p>
+									<Spec label="Default" value="showCtas={true}" />
+								</Card>
+
 								<Card title="Section vertical padding (site standard)">
 									<div className="flex flex-col gap-[4px]">
 										<Spec label="Standard" value="py-[80px] md:py-[120px]" />
@@ -624,6 +650,56 @@ export default function StyleguidePage() {
 										<Spec label="Aspect" value="16:9 (always landscape)" />
 										<Spec label="Radius" value="rounded-[24px] overflow-hidden" />
 										<Spec label="Use" value="Events, exhibits, article card thumbnails" />
+									</div>
+								</Card>
+
+								<Card title="Info callout banner (e.g. ACM Reciprocity on BookYourVisitPage)">
+									<div className="bg-white rounded-[20px] border border-[rgba(107,126,160,0.15)] px-[32px] py-[24px] flex flex-col sm:flex-row items-start sm:items-center gap-[16px]">
+										<div className="flex-1 flex flex-col gap-[6px]">
+											<p className="font-extrabold text-cma-navy text-[15px]">Callout Title</p>
+											<p className="text-cma-navy/70 text-[14px] leading-[1.5]">
+												Supplementary information or eligibility note. Use <strong className="text-cma-navy">promo codes</strong> or key terms in bold.
+											</p>
+										</div>
+										<a href="#" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black shrink-0">
+											CTA Button
+										</a>
+									</div>
+									<div className="flex flex-col gap-[4px]">
+										<Spec label="Wrapper" value="bg-cma-cream py-[48px] (tight padding, not full section)" />
+										<Spec label="Card" value="bg-white rounded-[20px] border border-[rgba(107,126,160,0.15)] px-[32px] py-[24px]" />
+										<Spec label="Layout" value="flex-col sm:flex-row items-start sm:items-center gap-[16px]" />
+										<Spec label="Title" value="font-extrabold text-cma-navy text-[15px]" />
+										<Spec label="Body" value="text-cma-navy/70 text-[14px] leading-[1.5]" />
+										<Spec label="CTA" value="shrink-0 so it never wraps with the text block" />
+									</div>
+								</Card>
+
+								<Card title="Icon feature list (e.g. BuyOnlineBenefits on BookYourVisitPage)">
+									<div className="flex flex-col gap-[24px]">
+										{[
+											{ iconBg: "bg-cma-teal", title: "Guaranteed Entry", body: "Advance online ticket purchase is highly encouraged. Walk-up availability is limited." },
+											{ iconBg: "bg-cma-orange", title: "Choose Your Arrival Window", body: "Select the hour block in which you want to arrive." },
+											{ iconBg: "bg-[#fbb040]", title: "Mobile Tickets", body: "Tickets are sent via email — just show on your phone or print at home." },
+										].map((item) => (
+											<div key={item.title} className="flex gap-[16px] items-start">
+												<div className={`${item.iconBg} rounded-full size-[48px] flex items-center justify-center shrink-0`}>
+													<FontAwesomeIcon icon={faStar} className="text-white text-[18px]" />
+												</div>
+												<div className="flex flex-col gap-[8px]">
+													<p className="font-extrabold text-[18px] leading-[1.2] text-cma-navy">{item.title}</p>
+													<p className="text-cma-navy/70 leading-[1.65]">{item.body}</p>
+												</div>
+											</div>
+										))}
+									</div>
+									<div className="flex flex-col gap-[4px]">
+										<Spec label="Row" value="flex gap-[16px] items-start" />
+										<Spec label="Icon" value="rounded-full size-[48px] flex items-center justify-center shrink-0" />
+										<Spec label="Title" value="font-extrabold text-[18px] leading-[1.2]" />
+										<Spec label="Body" value="standard p (15px 500 1.65)" />
+										<Spec label="Stagger" value="motion delay: i * 0.08 · initial={{ x: -16 }}" />
+										<Spec label="On dark bg" value="title → text-white · body → text-cma-blue-light" />
 									</div>
 								</Card>
 							</Section>
