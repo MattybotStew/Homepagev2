@@ -18,6 +18,10 @@ function figmaAssetResolver() {
 export default defineConfig({
   base: '/Homepagev2/',
   
+  define: {
+    'process.env': {}  // ✅ FIX: prevents "process is not defined" error
+  },
+  
   plugins: [
     figmaAssetResolver(),
     react(),
@@ -32,44 +36,29 @@ export default defineConfig({
 
   assetsInclude: ['**/*.svg', '**/*.csv'],
 
-  // BUILD OPTIMIZATIONS
   build: {
-    // Enable minification (terser is more aggressive than esbuild)
     minify: 'terser',
-    
-    // Terser options for better compression
     terserOptions: {
       compress: {
-        drop_console: true,      // Remove console.logs
-        drop_debugger: true,     // Remove debugger statements
+        drop_console: true,
+        drop_debugger: true,
         pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn'],
-        passes: 2,               // Multiple passes for better compression
+        passes: 2,
       },
       mangle: {
-        toplevel: true,          // Mangle top-level variables
+        toplevel: true,
       },
       format: {
-        comments: false,         // Remove comments
+        comments: false,
       },
     },
-    
-    // Target modern browsers for smaller bundles
     target: 'es2020',
-    
-    // Chunk splitting strategy
     rollupOptions: {
       output: {
         manualChunks: {
-          // React core
           'vendor-react': ['react', 'react-dom', 'react-dom/client', 'react-router-dom'],
-          
-          // Animation libraries
           'vendor-motion': ['motion', 'framer-motion'],
-          
-          // Icon libraries
           'vendor-icons': ['lucide-react', '@fortawesome/react-fontawesome', '@fortawesome/free-solid-svg-icons'],
-          
-          // UI libraries (Radix UI)
           'vendor-ui': [
             '@radix-ui/react-accordion',
             '@radix-ui/react-dialog',
@@ -77,37 +66,25 @@ export default defineConfig({
             '@radix-ui/react-tabs',
             '@radix-ui/react-tooltip',
           ],
-          
-          // Utilities
           'vendor-utils': ['clsx', 'class-variance-authority', 'tailwind-merge'],
         },
-        
-        // Optimize chunk filenames
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',
         assetFileNames: 'assets/[name]-[hash].[ext]',
       },
     },
-    
-    // Disable source maps in production (smaller build)
     sourcemap: false,
-    
-    // Increase chunk size warning limit (1MB)
     chunkSizeWarningLimit: 1000,
-    
-    // CSS optimization
     cssCodeSplit: true,
     cssMinify: true,
   },
 
-  // Development optimizations
   server: {
     port: 5173,
     strictPort: false,
     open: true,
   },
 
-  // Preview optimizations
   preview: {
     port: 4173,
     strictPort: false,

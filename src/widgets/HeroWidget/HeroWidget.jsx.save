@@ -1,0 +1,266 @@
+import { motion } from 'framer-motion';
+
+// WDesignKit Widget configuration
+export const widgetConfig = {
+  name: 'HeroWidget',
+  label: 'Hero Section',
+  category: 'Hero',
+  editableProps: ['title', 'subtitle', 'buttonText', 'bgImage'],
+  defaultProps: {
+    title: 'Welcome to CMA Museum',
+    subtitle: 'Discover art and culture at the Cleveland Museum of Art',
+    buttonText: 'Plan Your Visit',
+    bgImage: '/default-hero.jpg'
+  }
+};
+
+function HeroWidget({ 
+  title = widgetConfig.defaultProps.title,
+  subtitle = widgetConfig.defaultProps.subtitle,
+  buttonText = widgetConfig.defaultProps.buttonText,
+  bgImage = widgetConfig.defaultProps.bgImage,
+  // Additional props for styling
+  overlayOpacity = 0.5,
+  textColor = '#ffffff',
+  buttonColor = '#4CAF50',
+  height = '100vh'
+}) {
+  
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  return (
+    <motion.section
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        minHeight: height,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative'
+      }}
+      data-widget="HeroWidget"
+    >
+      {/* Dynamic overlay */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: `rgba(0,0,0,${overlayOpacity})`,
+        zIndex: 1
+      }} />
+      
+      <motion.div
+        variants={itemVariants}
+        style={{
+          position: 'relative',
+          zIndex: 2,
+          textAlign: 'center',
+          color: textColor,
+          padding: '2rem',
+          maxWidth: '800px',
+          margin: '0 auto'
+        }}
+      >
+        <motion.h1 
+          variants={itemVariants}
+          style={{
+            fontSize: '3rem',
+            marginBottom: '1rem',
+            fontWeight: 'bold'
+          }}
+        >
+          {title}
+        </motion.h1>
+        
+        <motion.p 
+          variants={itemVariants}
+          style={{
+            fontSize: '1.2rem',
+            marginBottom: '2rem',
+            lineHeight: 1.6
+          }}
+        >
+          {subtitle}
+        </motion.p>
+        
+        <motion.button
+          variants={itemVariants}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          style={{
+            padding: '12px 24px',
+            fontSize: '1.1rem',
+            backgroundColor: buttonColor,
+            color: textColor,
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease'
+          }}
+import { motion } from 'framer-motion';
+
+// WDesignKit Widget configuration
+export const widgetConfig = {
+  name: 'HeroWidget',
+  label: 'Hero Section',
+  category: 'Hero',
+  editableProps: ['title', 'subtitle', 'buttonText', 'bgImage'],
+  defaultProps: {
+    title: 'Welcome to CMA Museum',
+    subtitle: 'Discover art and culture at the Cleveland Museum of Art',
+    buttonText: 'Plan Your Visit',
+    bgImage: '/default-hero.jpg'
+  }
+};
+
+function HeroWidget({ 
+  title = widgetConfig.defaultProps.title,
+  subtitle = widgetConfig.defaultProps.subtitle,
+  buttonText = widgetConfig.defaultProps.buttonText,
+  bgImage = widgetConfig.defaultProps.bgImage,
+  overlayOpacity = 0.5,
+  textColor = '#ffffff',
+  buttonColor = '#4CAF50',
+  height = '100vh'
+}) {
+  
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  return (
+    <motion.section
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        minHeight: height,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative'
+      }}
+      data-widget="HeroWidget"
+    >
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: `rgba(0,0,0,${overlayOpacity})`,
+        zIndex: 1
+      }} />
+      
+      <motion.div
+        variants={itemVariants}
+        style={{
+          position: 'relative',
+          zIndex: 2,
+          textAlign: 'center',
+          color: textColor,
+          padding: '2rem',
+          maxWidth: '800px',
+          margin: '0 auto'
+        }}
+      >
+        <motion.h1 
+          variants={itemVariants}
+          style={{
+            fontSize: '3rem',
+            marginBottom: '1rem',
+            fontWeight: 'bold'
+          }}
+        >
+          {title}
+        </motion.h1>
+        
+        <motion.p 
+          variants={itemVariants}
+          style={{
+            fontSize: '1.2rem',
+            marginBottom: '2rem',
+            lineHeight: 1.6
+          }}
+        >
+          {subtitle}
+        </motion.p>
+        
+        <motion.button
+          variants={itemVariants}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          style={{
+            padding: '12px 24px',
+            fontSize: '1.1rem',
+            backgroundColor: buttonColor,
+            color: textColor,
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease'
+          }}
+        >
+          {buttonText}
+        </motion.button>
+      </motion.div>
+    </motion.section>
+  );
+}
+
+export default HeroWidget;
+0
+
