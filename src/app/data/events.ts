@@ -23,7 +23,7 @@ export const allEvents: EventItem[] = [
 		title: "Sensory Friendly Playtime",
 		description:
 			"Enjoy a sensory-modified experience on select Sunday mornings. This experience includes lowered lighting, limited admission and sound adjustments.",
-		categories: ["Featured", "Special Events"],
+		categories: ["Special Events", "Sensory Friendly"],
 		dateStart: "2026-08-02T09:00:00",
 		dateEnd: "2026-08-02T11:00:00",
 		location: "275 Centennial Olympic Park Dr NW, Atlanta, GA 30313",
@@ -39,7 +39,7 @@ export const allEvents: EventItem[] = [
 		title: "TinyCON®",
 		description:
 			"A con just for kids! Held annually on Labor Day weekend, TinyCON® is a multi-day celebration of fantasy, science fiction, and your favorite fictional universes!",
-		categories: ["Featured", "Special Events"],
+		categories: ["Special Events"],
 		dateStart: "2026-09-05T10:00:00",
 		dateEnd: "2026-09-06T17:00:00",
 		location: "275 Centennial Olympic Park Dr NW, Atlanta, GA 30313",
@@ -55,7 +55,7 @@ export const allEvents: EventItem[] = [
 		title: "Gabby's Dollhouse MEOWseum Discovery Days",
 		description:
 			"Join us for a purr-fectly fun day with Gabby's Dollhouse MEOWseum Discovery Days! Families will have the chance to meet and snap a photo with the beloved costumed character Gabby, of Gabby's Dollhouse!",
-		categories: ["Special Events", "Seasonal"],
+		categories: ["Special Events"],
 		dateStart: "2026-10-09T10:00:00",
 		dateEnd: "2026-10-11T17:00:00",
 		location: "275 Centennial Olympic Park Dr NW, Atlanta, GA 30313",
@@ -71,7 +71,7 @@ export const allEvents: EventItem[] = [
 		title: "Trick-Or-Treat",
 		description:
 			"Spooktacular family fun! Pull on your costume for trick-or-treating and fang-tastically fun hands-on play. With a live DJ, candy galore, and more! Trick-or-Treat at the Museum is always a ghoulishly good time!",
-		categories: ["Featured", "Seasonal"],
+		categories: ["Special Events"],
 		dateStart: "2026-10-24T10:00:00",
 		dateEnd: "2026-10-24T17:00:00",
 		location: "275 Centennial Olympic Park Dr NW, Atlanta, GA 30313",
@@ -87,7 +87,7 @@ export const allEvents: EventItem[] = [
 		title: "Bubble Bash",
 		description:
 			"Join us for a special kid-friendly New Year's countdown! We'll laugh, dance, play games, and more. Enjoy music from our DJ, hands-on fun, and ring in the new year with our yearly bubble-wrap-popping tradition!",
-		categories: ["Featured", "Special Events"],
+		categories: ["Special Events"],
 		dateStart: "2026-12-31T10:00:00",
 		dateEnd: "2026-12-31T15:00:00",
 		location: "275 Centennial Olympic Park Dr NW, Atlanta, GA 30313",
@@ -116,14 +116,14 @@ export const allEvents: EventItem[] = [
 
 export const eventFilters = [
 	"All",
-	"Featured",
 	"Today",
 	"This Week",
-	"Members-Only",
-	"Free Events",
-	"Workshops",
-	"Seasonal",
 	"Special Events",
+	"Members-Only",
+	"Sensory Friendly",
+	"For Toddlers",
+	"Workshops",
+	"Adults-Only",
 ];
 
 export const eventsByCategory: Record<string, EventItem[]> = {

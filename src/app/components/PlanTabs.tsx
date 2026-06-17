@@ -624,7 +624,7 @@ export default function PlanTabs() {
 				>
 					<h2 className="text-cma-navy">Before You Arrive</h2>
 					<p className="text-cma-navy max-w-[560px]">
-						Find everything you need to pick your perfect play day.
+						Find everything you need to plan your perfect play day.
 					</p>
 					<div className="bg-white border border-[rgba(107,126,160,0.25)] rounded-[200px] px-[25px] py-[17px] text-cma-blue-mid text-center max-w-[720px]">
 						<span className="font-black">Important: </span>
