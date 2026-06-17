@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import imgWaveTop from "../../assets/impact-wave-top.svg";
 import { useEffect, useState } from "react";
 
-const DEFAULT_TARGET_DATE = new Date("2026-08-16T17:30:00");
+const DEFAULT_TARGET_DATE = new Date("2026-09-05T10:00:00");
 
 function getTimeLeft(target: Date) {
 	const now = new Date();
@@ -46,6 +46,7 @@ type Props = {
 	heading?: string;
 	body?: string;
 	cta?: { label: string; href: string };
+	secondaryCta?: { label: string; href: string };
 	bg?: string;
 	showCountdown?: boolean;
 	showRightCta?: boolean;
@@ -54,10 +55,14 @@ type Props = {
 };
 
 export default function PYVCallout({
-	eyebrow = "AUG 16 @ 5:30–7:30 PM",
-	heading = "TinyCON® Returns This August!",
-	body = "Join us for our annual celebration of all things tiny! Interactive exhibits, special guests, and hands-on activities for the whole family.",
-	cta = { label: "Explore Memberships", href: "#tickets" },
+	eyebrow = "SEP 5–6 @ 10:00 AM–5:00 PM",
+	heading = "TinyCON® Returns September 5–6!",
+	body = "Join us for our annual two-day celebration of fantasy, sci-fi, and your favorite fictional universes — cosplay, character meet-and-greets, and hands-on activities for the whole family.",
+	cta = {
+		label: "Buy Tickets",
+		href: "https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf",
+	},
+	secondaryCta,
 	bg = "bg-cma-teal-dark",
 	showCountdown = true,
 	showRightCta = true,
@@ -115,14 +120,22 @@ export default function PYVCallout({
 							{heading}
 						</h2>
 						<p className="text-cma-blue-light">{body}</p>
-						{!showCountdown && (
+						<div className="flex flex-wrap gap-3">
 							<a
 								href={cta.href}
 								className="cma-btn bg-white border-2 border-cma-navy text-cma-navy hover:bg-cma-blue-light font-black self-start"
 							>
 								{cta.label}
 							</a>
-						)}
+							{secondaryCta && (
+								<a
+									href={secondaryCta.href}
+									className="cma-btn border-2 border-white bg-transparent text-white hover:bg-white hover:text-cma-navy font-black self-start"
+								>
+									{secondaryCta.label}
+								</a>
+							)}
+						</div>
 					</motion.div>
 
 					{/* Countdown or CTA button */}

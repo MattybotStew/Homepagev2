@@ -53,7 +53,9 @@ export default function PlanYourVisitPage() {
 
 			<PlanYourVisitHero />
 
-			<PYVCallout />
+			<PYVCallout
+				secondaryCta={{ label: "Learn More", href: "#/events/tinycon" }}
+			/>
 
 			{/* Admission Pricing */}
 			<AdmissionPricing />
