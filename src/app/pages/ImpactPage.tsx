@@ -1,13 +1,7 @@
-import {
-	faArrowRight,
-	faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import { useState } from "react";
-import imgB from "../../assets/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp";
-import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp";
-import imgC from "../../assets/39da2bd0af3dceef1e3b406cd981247f82778d27.webp";
 import imgCutCMA from "../../assets/cutCMA.png";
 import AlertBanner from "../components/AlertBanner";
 import Footer from "../components/Footer";
@@ -49,40 +43,24 @@ const programs = [
 		label: "Connected Learning Connected Communities",
 		title: "Connected Learning Connected Communities",
 		body: "Established in 2007, CLCC collaborates with key figures in children's lives — parents, educators, and neighborhood organizations — to advance literacy and nutrition support for children ages 0–8. The program operates in 17 partner schools, child development centers, and homeless shelters across seven of Atlanta's most under-resourced neighborhoods. Includes Spread the Word Workshops, which enhance language development by building on existing communication skills and encouraging household conversations to expand vocabulary.",
-		exhibits: [
-			{ image: imgB, title: "Leaping into Learning", slug: "leaping-into-learning" },
-			{ image: imgC, title: "Let Your Creativity Flow", slug: "let-your-creativity-flow" },
-		],
 	},
 	{
 		id: "mobile-learning",
 		label: "Mobile Learning Spaces",
 		title: "Mobile Learning Spaces Powered by CMA",
 		body: "In partnership with United Way of Greater Atlanta and supported by the Joseph B. Whitehead Foundation, Mobile Learning Spaces delivers weekly mobile preschool experiences in Clayton and Fulton Counties. The program targets children birth to age five at housing complexes and parks, emphasizing parental involvement as their child's first teacher.",
-		exhibits: [
-			{ image: imgC, title: "Our Place in Space", slug: "our-place-in-space" },
-			{ image: imgA, title: "Gateway to the World", slug: "gateway-to-the-world" },
-		],
 	},
 	{
 		id: "family-free-day",
 		label: "Family Free Day",
 		title: "Family Free Day",
 		body: "The Museum offers complimentary admission quarterly through the generous support of sponsors including CareSource, Publix, and additional community partners. Family Free Days remove financial barriers and ensure that every child in Atlanta has access to the transformative power of play-based learning.",
-		exhibits: [
-			{ image: imgA, title: "Obstacle Adventure", slug: "obstacle-adventure" },
-			{ image: imgB, title: "Outside the Box", slug: "outside-the-box" },
-		],
 	},
 	{
 		id: "access-it",
 		label: "Access It!",
 		title: "Access It!",
 		body: "A subsidized admission program ensuring no child or family is turned away from the Museum due to an inability to pay. Access It! partners with organizations across Atlanta including Atlanta Urban Ministry, YMCA, Children's Healthcare of Atlanta, Easter Seals, Genesis Shelter, Quality Care for Children, Sheltering Arms, The Atlanta Children's Shelter, The Salvation Army, United Way of Metro Atlanta, and VSA Georgia.",
-		exhibits: [
-			{ image: imgB, title: "Leaping into Learning", slug: "leaping-into-learning" },
-			{ image: imgC, title: "Let Your Creativity Flow", slug: "let-your-creativity-flow" },
-		],
 	},
 ];
 
@@ -298,48 +276,6 @@ export default function ImpactPage() {
 								</div>
 							</div>
 
-							{/* Featured Exhibits */}
-							<div className="flex flex-col gap-[24px]">
-								<p className="font-extrabold text-[clamp(22px,2.5vw,36px)] text-cma-navy leading-[1.1] tracking-[-0.5px]">
-									Featured Exhibits
-								</p>
-								<div className="flex flex-col gap-[16px]">
-									{current.exhibits.map((exhibit, i) => (
-										<motion.div
-											key={exhibit.slug}
-											className="bg-white border-2 border-black/5 rounded-[20px] p-[20px] flex gap-[20px] md:gap-[28px] items-center"
-											initial={{ opacity: 0, y: 12 }}
-											animate={{ opacity: 1, y: 0 }}
-											transition={{
-												duration: 0.4,
-												delay: i * 0.08,
-												ease: [0.16, 1, 0.3, 1],
-											}}
-										>
-											<img
-												src={exhibit.image}
-												alt={exhibit.title}
-												className="w-[100px] md:w-[140px] h-[80px] md:h-[100px] rounded-[12px] object-cover shrink-0"
-											/>
-											<div className="flex flex-col gap-[10px] flex-1 min-w-0">
-												<p className="font-extrabold text-[18px] md:text-[22px] text-cma-navy leading-[1.2] tracking-[-0.5px]">
-													{exhibit.title}
-												</p>
-												<a
-													href={`#/exhibits/${exhibit.slug}`}
-													className="cma-text-link"
-												>
-													See Exhibit{" "}
-													<FontAwesomeIcon
-														icon={faArrowRight}
-														className="text-[13px]"
-													/>
-												</a>
-											</div>
-										</motion.div>
-									))}
-								</div>
-							</div>
 						</motion.div>
 					</div>
 				</div>

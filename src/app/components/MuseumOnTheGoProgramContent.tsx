@@ -48,13 +48,13 @@ const programDetails = [
 		icon: faUsers,
 		color: "bg-cma-teal-dark",
 		label: "Age Range",
-		description: "PreK through 3rd grade — sessions tailored by grade level.",
+		description: "PreK through 5th grade — sessions tailored by grade level.",
 	},
 	{
 		icon: faClock,
 		color: "bg-cma-orange",
 		label: "Session Length",
-		description: "45–60 minutes per session, scheduled at your convenience.",
+		description: "30–45 minutes per session, scheduled at your convenience.",
 	},
 	{
 		icon: faBus,
@@ -148,29 +148,14 @@ const featuredExhibits = [
 
 const faqItems = [
 	{
-		question: "How do I book a Museum On-the-Go visit?",
-		answer:
-			"Contact our education team at education@childrensmuseumatlanta.org or call 404.527.3693. We'll work with you to schedule a session that fits your calendar and matches your current unit of study. Sessions book up quickly, so we recommend reaching out at least 3–4 weeks in advance.",
-	},
-	{
 		question: "What grades are eligible?",
 		answer:
 			"Museum On-the-Go serves learners ages 2 through 5th grade across three program tiers: Crafted For Littles (ages 2–4), Made for Curious Minds (PreK–3rd grade), and Igniting Young Innovators (4th–5th grade). Each session is tailored by age and grade level.",
 	},
 	{
-		question: "How much space is needed in the classroom?",
-		answer:
-			"Our educators are experienced in working within standard classroom spaces. A cleared area of approximately 10×10 feet is ideal, but we can adapt to most classroom configurations.",
-	},
-	{
 		question: "How many students can participate per session?",
 		answer:
-			"Sessions accommodate up to one standard classroom (approximately 25–30 students). Multiple sessions can be booked on the same visit day to serve additional classrooms.",
-	},
-	{
-		question: "Is there a cost for Museum On-the-Go?",
-		answer:
-			"Pricing is $250 (ages 2–4), $275 (PreK–3rd grade), or $300 (4th–5th grade) for up to 25 students. Groups of 26–35 add $12 per child. Pricing includes 20 miles round trip; $0.70/mile for additional miles. Financial assistance may be available for Title I schools — contact our education team to inquire.",
+			"Sessions accommodate up to one standard classroom (approximately 25–30 students). Multiple sessions can be booked on the same visit day to serve additional classrooms. Discounts may be available when multiple programs are booked, check with our team for details.",
 	},
 	{
 		question: "What topics are available?",
@@ -182,10 +167,56 @@ const faqItems = [
 		answer:
 			"Yes — when you book, our education team will ask about your current unit of study and grade level to select the activity kit that best aligns. While we can't create fully custom programs from scratch, our library of kits covers a broad range of topics.",
 	},
+	{ type: "subheading", label: "Booking Your Museum On-the-Go" },
+	{
+		question: "How do I book a Museum On-the-Go visit?",
+		answer: (
+			<>
+				Fill out the online request form or contact our education team at{" "}
+				<a href="mailto:education@childrensmuseumatlanta.org" className="underline hover:text-cma-teal-dark transition-colors">
+					education@childrensmuseumatlanta.org
+				</a>{" "}
+				or 404.527.3693. We'll work with you to schedule a session that fits your calendar and matches your current unit of study. Sessions book up quickly, so we recommend reaching out at least 3–4 weeks in advance.
+			</>
+		),
+	},
 	{
 		question: "How far in advance should we book?",
 		answer:
 			"We recommend booking at least 3–4 weeks in advance. Popular dates fill quickly, especially in fall and spring. Contact us early to secure your preferred date.",
+	},
+	{
+		question: "Is there a cost for Museum On-the-Go?",
+		answer: (
+			<>
+				Pricing is $250 (ages 2–4), $275 (PreK–3rd grade), or $300 (4th–5th grade) for up to 25 students. Groups of 26–35 add $12 per child. Pricing includes 20 miles round trip; $0.70/mile for additional miles.
+				<br /><br />
+				A 50% non-refundable deposit is due two (2) weeks after the time of booking.
+				<br /><br />
+				Discounts may be available when multiple programs are booked, check with our team for details.
+			</>
+		),
+	},
+	{
+		question: "How Can I Pay for My On-the-Go?",
+		answer:
+			"School checks made out to Children's Museum of Atlanta, or credit cards (American Express, Discover, MasterCard and Visa) are acceptable forms of payment. School checks or school credit cards must be used for tax-exempt status.",
+	},
+	{
+		question: "Can I Reschedule or Cancel My Session?",
+		answer:
+			"Call as soon as possible to reschedule or cancel a reservation. Organizations must cancel within six (6) weeks of the scheduled program to apply the deposit to a different date within the same school year. Rescheduling a program is based on availability. Reservations are held with a 50% non-refundable deposit. Cancellations made less than six (6) weeks prior to visit will result in forfeiture of 50% deposit.",
+	},
+	{ type: "subheading", label: "Virtual Museum On-the-Go" },
+	{
+		question: "What's Included in the Activity Kits?",
+		answer:
+			"Activity kits include all workshop materials for up to 25 students and are included in the price of your Museum On-the-Go. For virtual Museum On-the-Gos, activity kits can be delivered by CMA, picked up by someone from your organization, or shipped via UPS (rates will vary). All materials for up to 25 students will be available after receiving a deposit.",
+	},
+	{
+		question: "What Do I Need To Connect Virtually?",
+		answer:
+			"You will need access to technology that will support a Teams session in your classroom to participate in a virtual Museum On-the-Go.",
 	},
 ];
 
@@ -616,25 +647,31 @@ export default function MuseumOnTheGoProgramContent() {
 									booking a Museum On-the-Go session.
 								</p>
 								<div className="flex flex-col">
-									{faqItems.map((faq, i) => (
-										<div key={`item-${i}`} className="border-b border-black/10 last:border-0">
-											<button
-												onClick={() => setOpenFaq(openFaq === i ? null : i)}
-												className="w-full flex items-center justify-between py-[18px] text-left gap-[16px]"
-											>
-												<span className="font-extrabold text-cma-navy">
-													{faq.question}
-												</span>
-												<FontAwesomeIcon
-													icon={openFaq === i ? faMinus : faPlus}
-													className="text-cma-orange shrink-0 text-[12px]"
-												/>
-											</button>
-											{openFaq === i && (
-												<p className="text-cma-navy pb-[18px]">{faq.answer}</p>
-											)}
-										</div>
-									))}
+									{faqItems.map((faq, i) =>
+										"type" in faq && faq.type === "subheading" ? (
+											<h3 key={`sub-${i}`} className="text-cma-navy font-extrabold text-[clamp(16px,1.25vw,20px)] pt-[24px] pb-[8px] first:pt-0">
+												{faq.label}
+											</h3>
+										) : (
+											<div key={`item-${i}`} className="border-b border-black/10 last:border-0">
+												<button
+													onClick={() => setOpenFaq(openFaq === i ? null : i)}
+													className="w-full flex items-center justify-between py-[18px] text-left gap-[16px]"
+												>
+													<span className="font-extrabold text-cma-navy">
+														{"question" in faq ? faq.question : ""}
+													</span>
+													<FontAwesomeIcon
+														icon={openFaq === i ? faMinus : faPlus}
+														className="text-cma-orange shrink-0 text-[12px]"
+													/>
+												</button>
+												{openFaq === i && (
+													<div className="text-cma-navy pb-[18px]">{"answer" in faq ? faq.answer : null}</div>
+												)}
+											</div>
+										)
+									)}
 								</div>
 							</div>
 
@@ -774,7 +811,11 @@ export default function MuseumOnTheGoProgramContent() {
 								<p className="font-extrabold text-cma-navy">Availability Calendar</p>
 								<p className="text-cma-navy/60 text-[14px] max-w-[360px]">
 									To check availability and reserve your date, contact our
-									Education team at 404.527.3693 or education@childrensmuseumatlanta.org.
+									Education team at 404.527.3693 or{" "}
+									<a href="mailto:education@childrensmuseumatlanta.org" className="underline hover:text-cma-navy transition-colors">
+										education@childrensmuseumatlanta.org
+									</a>
+									.
 								</p>
 								<a
 									href="mailto:education@childrensmuseumatlanta.org"

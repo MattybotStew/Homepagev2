@@ -16,7 +16,7 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
-  base: '/Homepagev2/',
+  base: './',
   
   define: {
     'process.env': {}  // ✅ FIX: prevents "process is not defined" error
