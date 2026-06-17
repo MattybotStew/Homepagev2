@@ -30,15 +30,6 @@ const sections = [
 	{ id: "annual-report", label: "Annual Report" },
 ];
 
-const wishlistItems = [
-	{ label: "Sensory Play Studio Renovation", range: "$75,000–$100,000" },
-	{ label: "Outdoor Discovery Garden", range: "$150,000–$250,000" },
-	{ label: "STEM Innovation Lab", range: "$50,000–$80,000" },
-	{ label: "Family Free Day Presenting Sponsor", range: "$10,000–$15,000" },
-	{ label: "Community Outreach Van", range: "$45,000" },
-	{ label: "Welcome Center Refresh", range: "$25,000–$40,000" },
-];
-
 function scrollToSection(id: string) {
 	const el = document.getElementById(id);
 	if (!el) return;
@@ -164,6 +155,22 @@ export default function CorporatePartnerPageContent() {
 										We offer year-round opportunities for Corporate or Foundation contributions to match any marketing or company philanthropy budget. For more information, please contact the Advancement Team at{" "}
 										<a href="tel:4044209195" className="cma-text-link">(404) 420-9195</a>.
 									</p>
+									<div className="bg-cma-teal-pale rounded-[16px] p-[20px] flex flex-col sm:flex-row sm:items-center gap-[16px] sm:justify-between">
+										<div className="flex flex-col gap-[2px]">
+											<p className="font-extrabold text-cma-navy text-[15px] leading-[1.3]">
+												Erin Brooks
+											</p>
+											<p className="text-cma-navy/70 text-[13px] leading-[1.4]">
+												Director of Strategic Advancement
+											</p>
+										</div>
+										<a
+											href="mailto:ebrooks@childrensmuseumatlanta.org"
+											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start sm:self-auto"
+										>
+											Contact Erin Brooks
+										</a>
+									</div>
 								</div>
 
 								<Divider />
@@ -180,36 +187,6 @@ export default function CorporatePartnerPageContent() {
 										organization in Atlanta doing this work. Your investment here
 										goes further than anywhere else.
 									</p>
-
-									<div className="flex flex-col gap-[16px]">
-										<h3 className="text-cma-navy">
-											Our Wishlist: Make Your Mark on CMA
-										</h3>
-										<p className="text-cma-navy">
-											Every item on this list represents a real opportunity to
-											shape the future of play-based learning in Atlanta. Choose
-											what resonates with your company's mission and let's build
-											it together.
-										</p>
-										<div className="flex flex-col">
-											{wishlistItems.map((item) => (
-												<div
-													key={item.label}
-													className="flex items-center justify-between py-[14px] border-b border-black/8 last:border-0 gap-[16px]"
-												>
-													<div className="flex items-center gap-[10px]">
-														<span className="w-[6px] h-[6px] rounded-full bg-cma-orange shrink-0" />
-														<span className="font-bold text-cma-navy">
-															{item.label}
-														</span>
-													</div>
-													<span className="text-cma-navy/60 text-[14px] shrink-0">
-														{item.range}
-													</span>
-												</div>
-											))}
-										</div>
-									</div>
 
 									<div>
 										<a
