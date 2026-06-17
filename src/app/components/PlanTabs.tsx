@@ -59,11 +59,10 @@ const navItems = [
 	"Food & Amenities",
 	"Safety & Cleanliness",
 	"Accessibility",
-	"Private Events",
 	"Parties",
-	"Code of Conduct",
-	"What to Wear",
+	"Private Events",
 	"Arrival Window",
+	"Code of Conduct",
 	"Policies & Rules",
 ];
 
@@ -74,11 +73,10 @@ const tabSlugs: Record<string, string> = {
 	amenities: "Food & Amenities",
 	safety: "Safety & Cleanliness",
 	accessibility: "Accessibility",
-	private: "Private Events",
 	parties: "Parties",
-	conduct: "Code of Conduct",
-	wear: "What to Wear",
+	private: "Private Events",
 	arrival: "Arrival Window",
+	conduct: "Code of Conduct",
 	policies: "Policies & Rules",
 };
 
@@ -322,8 +320,10 @@ function TabContent({ item }: { item: string }) {
 				<h3 className="text-cma-navy">What to Bring</h3>
 				<ul className="flex flex-col gap-3 pl-4 list-disc">
 					<li className="text-cma-navy">
-						<strong>Comfortable Clothes:</strong> Wear comfy play clothes and
-						closed-toe shoes.
+						<strong>Comfortable Clothes:</strong> Wear comfortable "play
+						clothes" and rubber-soled sneakers or shoes since children will
+						be very active. Open-toe sandals, flip-flops, and high heels are
+						strongly discouraged. Shoes must be worn at all times.
 					</li>
 					<li className="text-cma-navy">
 						<strong>Change of Clothes:</strong> While we provide aprons and
@@ -611,15 +611,6 @@ function TabContent({ item }: { item: string }) {
 					<li className="text-cma-navy"><strong>Make Memories, Don't Miss Them:</strong> We encourage a screen-free experience, unless capturing precious memories.</li>
 				</ul>
 				<p className="text-cma-navy">By visiting Children's Museum of Atlanta or a Museum event, you accept our Code of Conduct and further acknowledge that the Museum reserves the right to deny or revoke access to any person whom the Museum believes is violating our Code of Conduct. Noncooperation with our Code of Conduct may result in your being required to leave and being denied access to the Museum in the future.</p>
-			</div>
-		);
-	}
-
-	if (item === "What to Wear") {
-		return (
-			<div className="flex flex-col gap-6">
-				<h3 className="text-cma-navy">What to Wear</h3>
-				<p className="text-cma-navy">We recommend wearing comfortable "play clothes" and rubber-soled sneakers or shoes since children will be very active. Open-toe sandals, flip-flops, and high heels are strongly discouraged. Shoes must be worn at all times. Consider bringing a change of clothes. Coat racks are available in the Museum.</p>
 			</div>
 		);
 	}
