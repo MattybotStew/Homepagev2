@@ -15,22 +15,108 @@ import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee";
 import ScrollProgress from "../components/ScrollProgress";
 import { allEvents, eventFilters, eventsByCategory } from "../data/events";
 
+function SectionBullet({ children }: { children: ReactNode }) {
+	return (
+		<li className="flex items-start gap-[10px]">
+			<span className="w-[6px] h-[6px] rounded-full bg-cma-teal-dark mt-[8px] shrink-0" />
+			<span className="text-cma-navy">{children}</span>
+		</li>
+	);
+}
+
 const faqs: { q: string; a: ReactNode }[] = [
 	{
-		q: "Admission & Age Policy",
-		a: "Guests ages 1–100 years old will pay for admission. Babies 11 months and younger and members receive free general admission. Advance online ticket purchase is highly encouraged. Walk-up availability is limited. Members are encouraged to reserve tickets for peak times. The Museum does not allow adults to enter alone without a child and requires at least 1 adult (18+) for every 5 children. Call (404) 527-3693 for more information.",
+		q: "Do I Need To Buy Tickets in Advance?",
+		a: "Tickets may be purchased upon arrival. Advance online reservations are strongly encouraged during weekends, holidays, and school breaks, as entry times may sell out.",
 	},
 	{
-		q: "Arrival Window",
-		a: "Select an hour block for your arrival window when purchasing tickets online. If you arrive earlier or later than your arrival window and the Museum is at capacity, you may be asked to wait.",
+		q: "When Are Member-Only Hours?",
+		a: "The first hour of play (9:00–10:00 am) is reserved exclusively for Members on Monday, Tuesday, Thursday, and Friday during the school year. There are no Member-Only Hours during school breaks and holidays.",
 	},
 	{
-		q: "Re-Entry",
-		a: "Tickets are good for all day after your entry time. Leave and re-enter if capacity permits — get your hand stamped at Security before exiting. Re-entry may not be permitted without the proper stamp.",
+		q: "When Is Sensory Friendly Playtime?",
+		a: (
+			<>
+				<p className="text-cma-navy">
+					We offer Sensory Friendly Playtime on select Sunday mornings from
+					9:00–11:00 am.
+				</p>
+				<p className="text-cma-navy">
+					<strong>2026 Dates:</strong> October 4 | November 1 | December 6
+					<br />
+					<strong>2027 Dates:</strong> January 3 | March 7 | April 4, 11, 18,
+					25 | June 6
+				</p>
+				<p className="text-cma-navy">
+					Sensory Friendly Playtime includes a sensory-modified setting,
+					limited admission, and sound adjustments. A social story is
+					available to help families prepare for their visit. Sensory Packs
+					(headphones, sunglasses, and sensory toys) are available upon
+					request at the Welcome Center. Our quiet room is always available
+					in the Leaping Into Learning exhibit, to the left of the pond.
+				</p>
+				<p className="text-cma-navy">
+					Admission is $17.95 plus tax per person for non-members; free for
+					members.
+				</p>
+			</>
+		),
 	},
 	{
-		q: "Refund/Exchange Policy",
-		a: "Tickets may not be refunded. To reschedule, contact Reservations at (404) 527-3693 or reservations@childrensmuseumatlanta.org.",
+		q: "When Is Preschool Playtime?",
+		a: "Preschool Playtime will return in September!",
+	},
+	{
+		q: "Are Events and Daily Programs Included in Admission?",
+		a: (
+			<>
+				<p className="text-cma-navy">
+					Yes! Your admission ticket includes:
+				</p>
+				<ul className="flex flex-col gap-[6px]">
+					<SectionBullet>All-day access to 7 hands-on exhibits</SectionBullet>
+					<SectionBullet>
+						Daily programs and activities, including storytimes, art
+						projects, and science demonstrations
+					</SectionBullet>
+					<SectionBullet>Same-day re-entry (capacity permitting)</SectionBullet>
+					<SectionBullet>Stroller parking and family restrooms</SectionBullet>
+					<SectionBullet>Sensory-friendly quiet room</SectionBullet>
+					<SectionBullet>Snack Stop seating areas</SectionBullet>
+				</ul>
+				<p className="text-cma-navy mt-[12px]">Admission does not include:</p>
+				<ul className="flex flex-col gap-[6px]">
+					<SectionBullet>
+						Private party rooms or birthday party packages
+					</SectionBullet>
+					<SectionBullet>Museum Store purchases</SectionBullet>
+					<SectionBullet>Food and beverages</SectionBullet>
+					<SectionBullet>
+						Member-exclusive events and activities
+					</SectionBullet>
+					<SectionBullet>
+						Special events such as TinyCON, Trick-or-Treat, Bubble Bash, and
+						Lil'Palooza
+					</SectionBullet>
+				</ul>
+			</>
+		),
+	},
+	{
+		q: "How Do I Reserve Tickets for a Special Event?",
+		a: "Every special event has its own page on the calendar with a link to purchase tickets. Use the special event filter to find the event page more easily.",
+	},
+	{
+		q: "Do Members Get Discounts on Events?",
+		a: "Yes! Members have access to discounted tickets for special events. Log into your Membership account to access the discount.",
+	},
+	{
+		q: "Are There Age Limits for Daily Programs or Special Events?",
+		a: "Daily programs and special events are fun for the whole family and are especially designed for children ages 2–8. Preschool Playtime is designed for ages 2–4.",
+	},
+	{
+		q: "Can I Leave and Re-Enter the Museum?",
+		a: "Yes! Your ticket is valid for the entire day. Before exiting, stop by Security for a hand stamp — re-entry requires a proper stamp. If the Museum reaches capacity, returning guests may be asked to wait until space becomes available.",
 	},
 ];
 

@@ -37,10 +37,10 @@ const sections = [
 ];
 
 const programIncludes = [
-	"A portable, hands-on exhibit brought directly to your classroom.",
-	"A facilitated 45–60 minute session led by a CMA educator.",
-	"Activity kits and take-home materials to extend the learning.",
-	"Curriculum-aligned content matched to your current unit of study.",
+	"A facilitated 30-45 minute session led by a Museum educator",
+	"An interactive storytime enhanced by science-backed methods to build vocabulary and encourage interest in reading",
+	"Activity kits and a hands-on playful learning activity",
+	"Curriculum-aligned content meeting GELDS and Georgia Standards of Excellence",
 ];
 
 const programDetails = [
@@ -410,8 +410,10 @@ export default function MuseumOnTheGoProgramContent() {
 								<p className="text-cma-navy">
 									Can't make it to the Museum? Our Museum On-the-Go educators
 									travel directly to schools and community centers with portable,
-									hands-on exhibits and activity kits designed to turn any space
-									into an interactive learning environment.
+									hands-on experiences and activity kits designed to turn any space
+									into an interactive learning environment. With programs designed
+									to engage 2 year olds to 5th graders, there's fun to discover
+									for everyone!
 								</p>
 								<div className="bg-cma-teal-pale rounded-[16px] p-[24px] flex flex-col gap-[12px]">
 									<p className="font-extrabold text-cma-navy">
