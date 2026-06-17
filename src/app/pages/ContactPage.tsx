@@ -100,22 +100,22 @@ const departments = [
 ];
 
 const regularHours = [
-	{ day: "Monday", hours: "10:00 AM – 3:30 PM" },
-	{ day: "Tuesday", hours: "10:00 AM – 3:30 PM" },
+	{ day: "Monday", hours: "10:00 am – 3:30 pm" },
+	{ day: "Tuesday", hours: "10:00 am – 3:30 pm" },
 	{ day: "Wednesday", hours: "Closed" },
-	{ day: "Thursday", hours: "10:00 AM – 3:30 PM" },
-	{ day: "Friday", hours: "10:00 AM – 3:30 PM" },
-	{ day: "Saturday", hours: "9:30 AM – 4:30 PM" },
-	{ day: "Sunday", hours: "9:30 AM – 4:30 PM" },
+	{ day: "Thursday", hours: "10:00 am – 3:30 pm" },
+	{ day: "Friday", hours: "10:00 am – 3:30 pm" },
+	{ day: "Saturday", hours: "9:30 am – 4:30 pm" },
+	{ day: "Sunday", hours: "9:30 am – 4:30 pm" },
 ];
 
 const holidayHours = [
-	{ day: "New Year's Day", hours: "10:00 AM – 3:30 PM" },
-	{ day: "Memorial Day", hours: "10:00 AM – 3:30 PM" },
-	{ day: "July 4th", hours: "10:00 AM – 3:30 PM" },
-	{ day: "Labor Day", hours: "10:00 AM – 3:30 PM" },
+	{ day: "New Year's Day", hours: "10:00 am – 3:30 pm" },
+	{ day: "Memorial Day", hours: "10:00 am – 3:30 pm" },
+	{ day: "July 4th", hours: "10:00 am – 3:30 pm" },
+	{ day: "Labor Day", hours: "10:00 am – 3:30 pm" },
 	{ day: "Thanksgiving", hours: "Closed" },
-	{ day: "Christmas Eve", hours: "10:00 AM – 3:30 PM" },
+	{ day: "Christmas Eve", hours: "10:00 am – 3:30 pm" },
 	{ day: "Christmas Day", hours: "Closed" },
 ];
 
@@ -316,7 +316,7 @@ export default function ContactPage() {
 								<a href="tel:4046595437" className="font-extrabold text-[20px] text-cma-orange leading-none hover:text-cma-orange-dark transition-colors">
 									404.659.5437
 								</a>
-								<p className="text-white/60 text-[12px]">Mon–Fri 9 AM–5 PM</p>
+								<p className="text-white/60 text-[12px]">Mon–Fri 9 am–5 pm</p>
 							</div>
 						</aside>
 

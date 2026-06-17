@@ -55,7 +55,7 @@ type Props = {
 };
 
 export default function PYVCallout({
-	eyebrow = "SEP 5–6 @ 10:00 AM–5:00 PM",
+	eyebrow = "SEP 5–6 @ 10:00 am–5:00 pm",
 	heading = "TinyCON® Returns September 5–6!",
 	body = "Join us for our annual two-day celebration of fantasy, sci-fi, and your favorite fictional universes — cosplay, character meet-and-greets, and hands-on activities for the whole family.",
 	cta = {

@@ -79,7 +79,7 @@ export default function MuseumStoreContent() {
 										The Museum Store is open when the Museum is open!
 									</p>
 									<p className="text-cma-navy font-black mt-2">
-										Monday–Sunday: 10:00 AM – 5:00 PM
+										Monday–Sunday: 10:00 am – 5:00 pm
 									</p>
 								</div>
 							)}

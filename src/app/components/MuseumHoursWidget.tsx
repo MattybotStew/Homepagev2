@@ -54,7 +54,7 @@ function TriggerRow({ isExpanded }: { isExpanded: boolean }) {
 					Opening Times Today
 				</p>
 				<p className="font-medium text-[12px] text-cma-teal-dark leading-[1.3] whitespace-nowrap overflow-hidden text-ellipsis">
-					Mon–Fri 10 AM–3:30 PM | Sat–Sun 9:30 AM–4:30 PM
+					Mon–Fri 10 am–3:30 pm | Sat–Sun 9:30 am–4:30 pm
 				</p>
 			</div>
 			<ChevronIcon up={isExpanded} />
@@ -97,7 +97,7 @@ export default function MuseumHoursWidget() {
 										General Admission
 									</p>
 									<p className="font-medium text-[12px] text-cma-teal-dark [text-box-trim:trim-both] [text-box-edge:cap_alphabetic]">
-										10:00 AM – 3:30 PM
+										10:00 am – 3:30 pm
 									</p>
 								</div>
 
@@ -109,7 +109,7 @@ export default function MuseumHoursWidget() {
 										Open to All
 									</p>
 									<p className="font-medium text-[12px] text-cma-teal-dark [text-box-trim:trim-both] [text-box-edge:cap_alphabetic]">
-										9:30 AM – 4:30 PM
+										9:30 am – 4:30 pm
 									</p>
 								</div>
 

@@ -418,12 +418,12 @@ export default function ScoutsProgramContent() {
 											<select className={inputClass}>
 												<option value="">Select preferred time</option>
 												<option>
-													Morning Workshop — Entrance: 10:00 AM | Workshop
-													Start: 12:00 PM
+													Morning Workshop — Entrance: 10:00 am | Workshop
+													Start: 12:00 pm
 												</option>
 												<option>
-													Afternoon Workshop — Entrance: 1:00 PM | Workshop
-													Start: 3:00 PM
+													Afternoon Workshop — Entrance: 1:00 pm | Workshop
+													Start: 3:00 pm
 												</option>
 											</select>
 										</div>

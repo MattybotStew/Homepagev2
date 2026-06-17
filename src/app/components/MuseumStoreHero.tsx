@@ -36,7 +36,7 @@ export default function MuseumStoreHero() {
 							going after you leave.
 						</p>
 						<p className="text-white font-black text-[clamp(15px,1.5vw,20px)] leading-[1.5] mt-4">
-							Hours Of Operation: Monday-Sunday: 10:00 AM - 5:00 PM
+							Hours Of Operation: Monday-Sunday: 10:00 am - 5:00 pm
 						</p>
 					</div>
 				</motion.div>

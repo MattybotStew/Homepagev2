@@ -4,7 +4,7 @@ export default function Marquee() {
 	const marqueeItems = [
 		{ text: "Tickets from $19.95" },
 		{ text: "404.659.5437" },
-		{ text: "Weekdays 10 AM–3:30 PM | Weekends 9:30 AM–4:30 PM" },
+		{ text: "Weekdays 10 am–3:30 pm | Weekends 9:30 am–4:30 pm" },
 		{ text: "Closed Wednesdays" },
 		{ text: "Downtown Atlanta" },
 	];

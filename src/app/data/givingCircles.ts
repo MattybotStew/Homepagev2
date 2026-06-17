@@ -45,7 +45,7 @@ export const givingCircles: Program[] = [
 		paragraphs: [
 			"The 14th Annual Tournament for Play is held at Peachtree Golf Club (4600 Peachtree Rd NE, Atlanta, GA 30319) on August 17, 2026. The tournament is limited to 30 foursomes distributed between four sponsorship levels. Tournament foursomes are SOLD OUT — join the waitlist or inquire about non-player sponsorship opportunities.",
 			{ h3: "Schedule", id: "details" },
-			"8:30 AM — Registration & Breakfast · 9:00 AM — Practice Range & Putting Green Open · 9:45 AM — Welcome Remarks & Player Instruction · 10:00 AM — Shotgun Start · 3:30 PM — Awards Ceremony & Reception.",
+			"8:30 am — Registration & Breakfast · 9:00 am — Practice Range & Putting Green Open · 9:45 am — Welcome Remarks & Player Instruction · 10:00 am — Shotgun Start · 3:30 pm — Awards Ceremony & Reception.",
 			"Player bundles include a Par 3 Poker game card and 2 mulligans — the best poker hand wins $500.",
 			{ h3: "Sponsors", id: "sponsorship" },
 			"Presenting: PNC Bank · Albatross: Mellow Mushroom · Golf Cart: Osprey · Early Birdie: Anonymous, Christopher Childs, Coca-Cola Company, Georgia Power, Hawkins Parnell Young & Young LLP, JVP Management, KSM, Lazlo 326 Corp, Andy Sanford/Ameriprise, Southern Company, Stanton Barton/McBrayer/Mozley Finlayson Loggins, Tokio Marine HCC.",

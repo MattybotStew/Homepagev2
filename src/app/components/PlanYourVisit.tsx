@@ -65,7 +65,7 @@ const cards = [
 			/>
 		),
 		title: "Hours & What to Expect",
-		description: "Mon, Tue, Thu, Fri: 10 AM–3:30 PM\nSat & Sun: 9:30 AM–4:30 PM\nClosed Wednesdays",
+		description: "Mon, Tue, Thu, Fri: 10 am–3:30 pm\nSat & Sun: 9:30 am–4:30 pm\nClosed Wednesdays",
 		linkLabel: "Plan Your Day",
 		href: "#hours",
 	},
