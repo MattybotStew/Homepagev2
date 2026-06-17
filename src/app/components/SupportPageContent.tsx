@@ -2,6 +2,7 @@ import { faDownload, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import imgCutCMA from "../../assets/cutCMA.png";
+import DafWidgetButton from "./DafWidgetButton";
 
 const sections = [
 	{ id: "overview", label: "Overview" },
@@ -15,6 +16,21 @@ const sections = [
 	{ id: "annual-report", label: "Annual Report" },
 ];
 
+const annualReports = [
+	{
+		label: "FY24 Annual Report",
+		href: "https://childrensmuseumatlanta.org/wp-content/uploads/2025/03/FY24-Annual-Report.pdf",
+	},
+	{
+		label: "FY23 Annual Report",
+		href: "https://childrensmuseumatlanta.org/wp-content/uploads/2024/08/8-7-DIGITAL-FINAL-FY23-Annual-Report-8.5-x-11-in.pdf",
+	},
+	{
+		label: "FY22 Annual Report",
+		href: "https://childrensmuseumatlanta.org/wp-content/uploads/2023/12/Annual-Report-FY22-online.pdf",
+	},
+];
+
 const documents = [
 	{
 		label: "IRS Letter",
@@ -26,14 +42,6 @@ const documents = [
 	},
 	{
 		label: "EIN Number",
-		years: [
-			{ year: "2025", href: "#" },
-			{ year: "2024", href: "#" },
-			{ year: "2023", href: "#" },
-		],
-	},
-	{
-		label: "Annual Report",
 		years: [
 			{ year: "2025", href: "#" },
 			{ year: "2024", href: "#" },
@@ -88,9 +96,11 @@ export default function SupportPageContent() {
 						Changing the world by sparking every child's imagination, sense of
 						discovery and learning through the power of play.
 					</p>
-					<p className="text-white/50 text-[12px] leading-[1.6] max-w-[560px]">
-						All gifts are tax-deductible to the fullest extent allowed by law. The Museum is a 501(c)(3) tax-exempt organization. Our tax-ID number is 58-1785484.
-					</p>
+					<div className="bg-cma-navy rounded-[16px] px-[24px] py-[16px] max-w-[560px]">
+						<p className="text-white/50 text-[12px] leading-[1.6]">
+							All gifts are tax-deductible to the fullest extent allowed by law. The Museum is a 501(c)(3) tax-exempt organization. Our tax-ID number is 58-1785484.
+						</p>
+					</div>
 				</div>
 			</section>
 
@@ -422,14 +432,7 @@ export default function SupportPageContent() {
 										fund listed? Let us know and we'll help you find a way to
 										give.
 									</p>
-									<div>
-										<a
-											href="#"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
-										>
-											Give Now From Your Donor-Advised Fund
-										</a>
-									</div>
+									<DafWidgetButton />
 								</div>
 
 								<Divider />
@@ -502,23 +505,26 @@ export default function SupportPageContent() {
 										possible. Our Annual Report highlights the children and
 										families we've served, the programs we've delivered, and the
 										milestones we've achieved — all thanks to the generous support
-										of donors, members, and partners like you. Click the button
-										below to explore our 2025 Annual Report and see firsthand how
-										your investment in play is transforming lives.
+										of donors, members, and partners like you. Click a button
+										below to explore our recent Annual Reports and see firsthand
+										how your investment in play is transforming lives.
 									</p>
-									<div>
-										<a
-											href="https://childrensmuseumatlanta.org/wp-content/uploads/2025/03/FY24-Annual-Report.pdf"
-											target="_blank"
-											rel="noopener noreferrer"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
-										>
-											View FY24 Annual Report{" "}
-											<FontAwesomeIcon
-												icon={faDownload}
-												className="ml-[6px] text-[13px]"
-											/>
-										</a>
+									<div className="flex flex-wrap gap-[16px]">
+										{annualReports.map((report) => (
+											<a
+												key={report.label}
+												href={report.href}
+												target="_blank"
+												rel="noopener noreferrer"
+												className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+											>
+												{report.label}{" "}
+												<FontAwesomeIcon
+													icon={faDownload}
+													className="ml-[6px] text-[13px]"
+												/>
+											</a>
+										))}
 									</div>
 								</div>
 							</div>

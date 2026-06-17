@@ -54,18 +54,12 @@ export default function DonateImpact() {
 					<p className="text-cma-blue-light text-[clamp(15px,1.25vw,18px)] leading-[1.7]">
 						There are many ways that your support can have a long-lasting, wide impact on the community.
 					</p>
-					<div className="flex flex-col sm:flex-row gap-3 justify-center">
+					<div className="flex justify-center">
 						<a
 							href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
 							className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 						>
 							Donate Now
-						</a>
-						<a
-							href="#/support"
-							className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black"
-						>
-							Ways to Give
 						</a>
 					</div>
 				</motion.div>

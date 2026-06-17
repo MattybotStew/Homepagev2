@@ -74,9 +74,11 @@ export default function CorporatePartnerPageContent() {
 						and their future. From exhibit sponsorships to volunteer days,
 						there's a partnership that fits your goals.
 					</p>
-					<p className="text-white/50 text-[12px] leading-[1.6] max-w-[560px]">
-						All gifts are tax-deductible to the fullest extent allowed by law. The Museum is a 501(c)(3) tax-exempt organization. Our tax-ID number is 58-1785484.
-					</p>
+					<div className="bg-cma-navy rounded-[16px] px-[24px] py-[16px] max-w-[560px]">
+						<p className="text-white/50 text-[12px] leading-[1.6]">
+							All gifts are tax-deductible to the fullest extent allowed by law. The Museum is a 501(c)(3) tax-exempt organization. Our tax-ID number is 58-1785484.
+						</p>
+					</div>
 				</div>
 			</section>
 

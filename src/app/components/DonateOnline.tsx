@@ -1,4 +1,4 @@
-import { faArrowRight, faHeart, faRotate } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faGift, faHeart, faRotate } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 
@@ -20,6 +20,16 @@ const options = [
 		cta: "Donate Monthly",
 		href: "https://16707.blackbaudhosting.com/16707/Annual-Fund",
 		highlight: false,
+		cardBg: "bg-cma-teal-pale border-cma-teal-pale",
+	},
+	{
+		icon: faGift,
+		iconBg: "bg-cma-orange-dark",
+		label: "Other Ways to Give",
+		description: "Explore matching gifts, stock donations, DAFs, and more ways to support CMA.",
+		cta: "Ways to Give",
+		href: "#/support",
+		highlight: false,
 	},
 ];
 
@@ -38,7 +48,7 @@ export default function DonateOnline() {
 					<h2 className="text-cma-navy">Your gift helps us continue our mission to inspire learning and a sense of discovery through the power of play.</h2>
 				</motion.div>
 
-				<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px] max-w-[720px] mx-auto w-full">
+				<div className="grid grid-cols-1 sm:grid-cols-3 gap-[16px] max-w-[1000px] mx-auto w-full">
 					{options.map((opt, i) => (
 						<motion.a
 							key={opt.label}
@@ -46,7 +56,7 @@ export default function DonateOnline() {
 							className={`rounded-[24px] p-[32px] flex flex-col gap-[20px] border-2 transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_8px_24px_rgba(0,0,0,0.1)] ${
 								opt.highlight
 									? "bg-cma-navy border-cma-navy"
-									: "bg-white border-black/8"
+									: opt.cardBg ?? "bg-white border-black/8"
 							}`}
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}

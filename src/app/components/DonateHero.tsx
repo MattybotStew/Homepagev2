@@ -112,16 +112,16 @@ export default function DonateHero() {
 							}}
 						>
 							<a
-								href="#/about/impact"
+								href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
 								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 							>
-								Our Impact
+								Donate
 							</a>
 							<a
-								onClick={() => document.getElementById("ways-to-give")?.scrollIntoView({ behavior: "smooth" })}
+								href="#/about/impact"
 								className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
 							>
-								Other ways to give
+								Our Impact
 							</a>
 						</motion.div>
 					</div>
@@ -153,9 +153,11 @@ export default function DonateHero() {
 				</div>
 			</div>
 
-			<p className="relative text-white/50 text-[12px] text-center leading-[1.6] max-w-[560px] mx-auto px-5">
-				All gifts are tax-deductible to the fullest extent allowed by law. The Museum is a 501(c)(3) tax-exempt organization. Our tax-ID number is 58-1785484.
-			</p>
+			<div className="relative bg-cma-navy rounded-[16px] px-[24px] py-[16px] max-w-[560px] mx-auto">
+				<p className="text-white/50 text-[12px] text-center leading-[1.6]">
+					All gifts are tax-deductible to the fullest extent allowed by law. The Museum is a 501(c)(3) tax-exempt organization. Our tax-ID number is 58-1785484.
+				</p>
+			</div>
 			{/* Bottom spacing */}
 			<div className="shrink-0 h-[40px] md:h-[60px]" />
 		</section>

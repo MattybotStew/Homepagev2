@@ -9,7 +9,6 @@ const tiers = [
 	{
 		number: 1,
 		name: "Visionary",
-		threshold: "$50,000 and Up",
 		donors: [
 			"Anonymous",
 			"Anonymous",
@@ -51,7 +50,6 @@ const tiers = [
 	{
 		number: 2,
 		name: "Creator",
-		threshold: "$25,000 and Up",
 		donors: [
 			"Anonymous",
 			"Aileen Reischl and Andrew Chang",
@@ -81,7 +79,6 @@ const tiers = [
 	{
 		number: 3,
 		name: "Champion",
-		threshold: "$10,000 and Up",
 		donors: [
 			"Alston & Bird LLP",
 			"American Cancer Society",
@@ -116,7 +113,6 @@ const tiers = [
 	{
 		number: 4,
 		name: "Adventurer",
-		threshold: "$5,000 and Up",
 		donors: [
 			"Heather Balkema",
 			"Jason Bearden",
@@ -161,7 +157,6 @@ const tiers = [
 	{
 		number: 5,
 		name: "Innovator",
-		threshold: "$1,000 and Up",
 		donors: [
 			"ADP",
 			"Bank of America",
@@ -224,11 +219,7 @@ export default function DonorRecognitionTiers() {
 									<span
 										className={`text-cma-navy text-[16px] leading-[1.3] ${isOpen ? "font-black" : "font-semibold"}`}
 									>
-										TIER {tier.number} —{" "}
-										<span className={isOpen ? "" : ""}>{tier.name}</span>{" "}
-										<span className="text-cma-navy/50 font-medium">
-											${tier.threshold}
-										</span>
+										TIER {tier.number} — {tier.name}
 									</span>
 									<FontAwesomeIcon
 										icon={isOpen ? faMinus : faPlus}
