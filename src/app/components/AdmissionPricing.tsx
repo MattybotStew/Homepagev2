@@ -93,7 +93,7 @@ const pricingCards = [
 		eyebrow: "Daily Admission",
 		price: "$19.95",
 		pricePrefix: "",
-		priceSuffix: "per person",
+		priceSuffix: "per child",
 		items: dailyItems,
 		white: false,
 		cta: {
