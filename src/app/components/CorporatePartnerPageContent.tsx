@@ -1,12 +1,28 @@
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import imgCutCMA from "../../assets/cutCMA.png";
+
+const annualReports = [
+	{
+		label: "FY24 Annual Report",
+		href: "https://childrensmuseumatlanta.org/wp-content/uploads/2025/03/FY24-Annual-Report.pdf",
+	},
+	{
+		label: "FY23 Annual Report",
+		href: "https://childrensmuseumatlanta.org/wp-content/uploads/2024/08/8-7-DIGITAL-FINAL-FY23-Annual-Report-8.5-x-11-in.pdf",
+	},
+	{
+		label: "FY22 Annual Report",
+		href: "https://childrensmuseumatlanta.org/wp-content/uploads/2023/12/Annual-Report-FY22-online.pdf",
+	},
+];
 
 const sections = [
 	{ id: "overview", label: "Overview" },
 	{ id: "why-partner", label: "Why Partner With CMA?" },
 	{ id: "sponsor-event", label: "Sponsor an Event" },
 	{ id: "sponsor-exhibit", label: "Sponsor an Exhibit" },
-	{ id: "matching-gifts", label: "Matching Gifts" },
 	{ id: "corporate-membership", label: "Corporate Membership & Bulk Tickets" },
 	{ id: "rent-our-space", label: "Rent Our Space" },
 	{ id: "volunteer-your-team", label: "Volunteer Your Team" },
@@ -195,16 +211,10 @@ export default function CorporatePartnerPageContent() {
 										</div>
 									</div>
 
-									<div className="flex flex-col sm:flex-row flex-wrap gap-[12px]">
-										<a
-											href="#/support/corporate-partners"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black w-full sm:w-auto"
-										>
-											Explore Partnership Options
-										</a>
+									<div>
 										<a
 											href="mailto:ebrooks@childrensmuseumatlanta.org"
-											className="cma-btn cma-btn-outline-teal font-black w-full sm:w-auto"
+											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black w-full sm:w-auto"
 										>
 											Contact Erin Brooks
 										</a>
@@ -261,26 +271,6 @@ export default function CorporatePartnerPageContent() {
 
 								<Divider />
 
-								{/* Matching Gifts */}
-								<div id="matching-gifts" className="flex flex-col gap-[20px]">
-									<h2 className="text-cma-navy">Matching Gifts</h2>
-									<p className="text-cma-navy">
-										Let your company double your impact! Please inquire with your Human Resources department to explore how you can increase your contribution. If an employee makes a donation to a non-profit organization, companies with a matching gift program will make a matching gift to the same nonprofit based on the employee's donation.
-									</p>
-									<div>
-										<a
-											href="https://childrensmuseumatlanta.org/wp-content/uploads/2018/08/Matching-Gifts-PDF-3.pdf"
-											target="_blank"
-											rel="noopener noreferrer"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
-										>
-											Download Matching Gifts PDF
-										</a>
-									</div>
-								</div>
-
-								<Divider />
-
 								{/* Corporate Membership & Bulk Tickets */}
 								<div
 									id="corporate-membership"
@@ -322,10 +312,10 @@ export default function CorporatePartnerPageContent() {
 									</p>
 									<div>
 										<a
-											href="mailto:ebrooks@childrensmuseumatlanta.org"
+											href="mailto:rjackson@childrensmuseumatlanta.org"
 											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 										>
-											Contact Erin Brooks
+											Contact Rebecca Jackson
 										</a>
 									</div>
 								</div>
@@ -369,12 +359,18 @@ export default function CorporatePartnerPageContent() {
 										can make a real difference for the children and families we
 										serve.
 									</p>
-									<div>
+									<div className="flex flex-col sm:flex-row flex-wrap gap-[12px]">
 										<a
 											href="mailto:ebrooks@childrensmuseumatlanta.org"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black w-full sm:w-auto"
 										>
 											Submit an In-Kind Donation Inquiry
+										</a>
+										<a
+											href="mailto:ebrooks@childrensmuseumatlanta.org"
+											className="cma-btn cma-btn-outline-teal font-black w-full sm:w-auto"
+										>
+											Contact Erin Brooks
 										</a>
 									</div>
 								</div>
@@ -390,17 +386,26 @@ export default function CorporatePartnerPageContent() {
 										possible. Our Annual Report highlights the children and
 										families we've served, the programs we've delivered, and the
 										milestones we've achieved — all thanks to the generous support
-										of donors, members, and partners like you. Click the button
-										below to explore our 2025 Annual Report and see firsthand how
-										your investment in play is transforming lives.
+										of donors, members, and partners like you. Click a button
+										below to explore our recent Annual Reports and see firsthand
+										how your investment in play is transforming lives.
 									</p>
-									<div>
-										<a
-											href="#"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
-										>
-											Download Annual Report
-										</a>
+									<div className="flex flex-wrap gap-[16px]">
+										{annualReports.map((report) => (
+											<a
+												key={report.label}
+												href={report.href}
+												target="_blank"
+												rel="noopener noreferrer"
+												className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+											>
+												{report.label}{" "}
+												<FontAwesomeIcon
+													icon={faDownload}
+													className="ml-[6px] text-[13px]"
+												/>
+											</a>
+										))}
 									</div>
 								</div>
 							</div>
