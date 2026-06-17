@@ -9,22 +9,22 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
 const regularHours = [
-	{ day: "Monday", hours: "10:00 AM – 3:30 PM" },
-	{ day: "Tuesday", hours: "10:00 AM – 3:30 PM" },
+	{ day: "Monday", hours: "10:00 am – 3:30 pm" },
+	{ day: "Tuesday", hours: "10:00 am – 3:30 pm" },
 	{ day: "Wednesday", hours: "Closed" },
-	{ day: "Thursday", hours: "10:00 AM – 3:30 PM" },
-	{ day: "Friday", hours: "10:00 AM – 3:30 PM" },
-	{ day: "Saturday", hours: "9:30 AM – 4:30 PM" },
-	{ day: "Sunday", hours: "9:30 AM – 4:30 PM" },
+	{ day: "Thursday", hours: "10:00 am – 3:30 pm" },
+	{ day: "Friday", hours: "10:00 am – 3:30 pm" },
+	{ day: "Saturday", hours: "9:30 am – 4:30 pm" },
+	{ day: "Sunday", hours: "9:30 am – 4:30 pm" },
 ];
 
 const holidayHours = [
-	{ day: "New Year's Day", hours: "10:00 AM – 3:30 PM" },
-	{ day: "Memorial Day", hours: "10:00 AM – 3:30 PM" },
-	{ day: "July 4th", hours: "10:00 AM – 3:30 PM" },
-	{ day: "Labor Day", hours: "10:00 AM – 3:30 PM" },
+	{ day: "New Year's Day", hours: "10:00 am – 3:30 pm" },
+	{ day: "Memorial Day", hours: "10:00 am – 3:30 pm" },
+	{ day: "July 4th", hours: "10:00 am – 3:30 pm" },
+	{ day: "Labor Day", hours: "10:00 am – 3:30 pm" },
 	{ day: "Thanksgiving", hours: "Closed" },
-	{ day: "Christmas Eve", hours: "10:00 AM – 3:30 PM" },
+	{ day: "Christmas Eve", hours: "10:00 am – 3:30 pm" },
 	{ day: "Christmas Day", hours: "Closed" },
 ];
 
@@ -59,6 +59,8 @@ const navItems = [
 	"Food & Amenities",
 	"Safety & Cleanliness",
 	"Accessibility",
+	"Private Events",
+	"Parties",
 	"Code of Conduct",
 	"What to Wear",
 	"Arrival Window",
@@ -72,6 +74,8 @@ const tabSlugs: Record<string, string> = {
 	amenities: "Food & Amenities",
 	safety: "Safety & Cleanliness",
 	accessibility: "Accessibility",
+	private: "Private Events",
+	parties: "Parties",
 	conduct: "Code of Conduct",
 	wear: "What to Wear",
 	arrival: "Arrival Window",
@@ -183,13 +187,13 @@ function TabContent({ item }: { item: string }) {
 						<span className="font-black text-white">
 							Avoid Field Trip Groups:{" "}
 						</span>
-						School groups visit Monday–Friday from 10 a.m. – 12:30 p.m. For a
-						quieter experience, visit after 12:30 on weekdays.
+						School groups visit Monday–Friday from 10 am – 12:30 pm. For a
+						quieter experience, visit after 12:30 pm on weekdays.
 					</p>
 					<p className="text-cma-blue-light">
 						<span className="font-black text-white">Pro-tip: </span>
 						Escape weekday crowds during the school year and head to Building
-						Blocks in the Art Studio from 10 a.m.–12 p.m. for fun facilitated
+						Blocks in the Art Studio from 10 am–12 pm for fun facilitated
 						activities for babies, toddlers, and pre-kindergarteners.
 					</p>
 				</div>
@@ -524,6 +528,76 @@ function TabContent({ item }: { item: string }) {
 		);
 	}
 
+	if (item === "Private Events") {
+		return (
+			<div className="flex flex-col gap-6">
+				<h3 className="text-cma-navy">Private Events</h3>
+				<p className="text-cma-navy">
+					The Museum is available for private events. With over 16,000
+					square feet of interactive exhibits, we're sure to make a
+					memorable impression on your guests. Rental options are available
+					on weekdays, weekends, and after hours.
+				</p>
+				<div className="flex flex-col sm:flex-row gap-3">
+					<a
+						href="#/contact#department-contacts"
+						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+					>
+						Explore Private Events
+					</a>
+					<a
+						href="#/book-your-visit"
+						className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
+					>
+						Book Your Event
+					</a>
+				</div>
+			</div>
+		);
+	}
+
+	if (item === "Parties") {
+		return (
+			<div className="flex flex-col gap-6">
+				<h3 className="text-cma-navy">Parties</h3>
+				<p className="text-cma-navy">
+					Celebrate your child with a birthday party full of creativity,
+					discovery, and hands-on fun!
+				</p>
+				<p className="text-cma-navy">
+					Parties are available on weekends in the morning and afternoon.
+				</p>
+				<div className="flex flex-col gap-3">
+					<p className="text-cma-navy font-bold">Party packages include:</p>
+					<ul className="flex flex-col gap-3 pl-4 list-disc">
+						<li className="text-cma-navy">
+							Admission for up to 20 guests, including the birthday child and
+							immediate family
+						</li>
+						<li className="text-cma-navy">
+							One hour in a private party room
+						</li>
+					</ul>
+				</div>
+				<p className="text-cma-navy">Advance booking required.</p>
+				<div className="flex flex-col sm:flex-row gap-3">
+					<a
+						href="#/contact#department-contacts"
+						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+					>
+						Explore Parties
+					</a>
+					<a
+						href="#/book-your-visit"
+						className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
+					>
+						Book Your Party
+					</a>
+				</div>
+			</div>
+		);
+	}
+
 	if (item === "Code of Conduct") {
 		return (
 			<div className="flex flex-col gap-6">
@@ -536,6 +610,7 @@ function TabContent({ item }: { item: string }) {
 					<li className="text-cma-navy"><strong>Use Walking Feet:</strong> No running, please.</li>
 					<li className="text-cma-navy"><strong>Make Memories, Don't Miss Them:</strong> We encourage a screen-free experience, unless capturing precious memories.</li>
 				</ul>
+				<p className="text-cma-navy">By visiting Children's Museum of Atlanta or a Museum event, you accept our Code of Conduct and further acknowledge that the Museum reserves the right to deny or revoke access to any person whom the Museum believes is violating our Code of Conduct. Noncooperation with our Code of Conduct may result in your being required to leave and being denied access to the Museum in the future.</p>
 			</div>
 		);
 	}
