@@ -447,7 +447,7 @@ export default function MuseumOnTheGoProgramContent() {
 									</p>
 									<p className="text-cma-navy/70 text-[14px]">
 										Sessions available Monday–Friday. Contact us at least 3–4
-										weeks in advance to secure your preferred date.
+										weeks in advance to secure your preferred date. Museum On-the-Gos are also available virtually!
 									</p>
 								</div>
 								<button
