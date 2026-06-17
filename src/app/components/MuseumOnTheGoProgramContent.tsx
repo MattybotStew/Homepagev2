@@ -48,7 +48,7 @@ const programDetails = [
 		icon: faUsers,
 		color: "bg-cma-teal-dark",
 		label: "Age Range",
-		description: "PreK through 5th grade — sessions tailored by grade level.",
+		description: "Pre-K through 5th grade — sessions tailored by grade level.",
 	},
 	{
 		icon: faClock,
