@@ -231,7 +231,7 @@ const standards = [
 		icon: faGlobe,
 		color: "bg-cma-orange",
 		label: "Social Studies",
-		description: "Community, culture, and geography explored through portable exhibits.",
+		description: "Community, culture, and geography explored through hands-on experiences.",
 	},
 	{
 		icon: faBook,
@@ -243,7 +243,7 @@ const standards = [
 		icon: faBrush,
 		color: "bg-[#3a9e6e]",
 		label: "Arts & STEAM",
-		description: "Creative expression and engineering in portable kit formats.",
+		description: "Creative expression, engineering and natural science through play.",
 	},
 ];
 
@@ -567,8 +567,8 @@ export default function MuseumOnTheGoProgramContent() {
 								<h2 className="text-cma-navy">Educational Standards</h2>
 								<p className="text-cma-navy">
 									All Museum On-the-Go sessions are aligned to Georgia Standards
-									of Excellence and GELDS (Georgia Early Learning and Development
-									Standards) for PreK learners.
+									of Excellence and GELDS (Georgia Early
+									Learning and Development Standards) for Pre-K learners.
 								</p>
 								<div className="flex flex-col">
 									{standards.map((item) => (
