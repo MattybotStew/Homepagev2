@@ -7,7 +7,6 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import MobileHeader from "../components/MobileHeader";
 import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee";
-import PYVCallout from "../components/PYVCallout";
 import ScrollProgress from "../components/ScrollProgress";
 import Testimonials from "../components/Testimonials";
 
@@ -67,16 +66,6 @@ export default function EducatorsPage() {
 				heading="What Teachers Are Saying"
 				items={educatorTestimonials}
 				showWave={false}
-			/>
-			<PYVCallout
-				eyebrow="Education at CMA"
-				heading="Education at the Museum"
-				body="CMA offers programs for every type of learner — from field trips and scout workshops to in-school outreach and professional development for educators. Explore everything we have to offer."
-				cta={{ label: "View Field Trips", href: "#/program/field-trips" }}
-				bg="bg-cma-navy"
-				showCountdown={false}
-				showRightCta={false}
-				showTopWave={false}
 			/>
 			<PowerOfPlayMarquee />
 			<Footer />
