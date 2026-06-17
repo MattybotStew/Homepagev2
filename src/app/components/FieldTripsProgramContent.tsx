@@ -102,7 +102,7 @@ const faqItems = [
 	{
 		question: "Booking & Deposits",
 		answer:
-			"Space is limited and dates go quickly, so reserve early! A 50% non-refundable credit card or check deposit is required within two weeks of booking. Have at least three possible dates selected for your visit as well as the number of students and adults (one adult for every five students is required). Additional adults must be booked through the school. Final payment for all in-person programs is due on the day of the visit. Call Reservations at 404.527.3693, email reservations@childrensmuseumatlanta.org, or fill out our online request form.",
+			"Space is limited and dates go quickly, so reserve early! A 50% non-refundable credit card or check deposit is required within two weeks of booking. Have at least three possible dates selected for your visit as well as the number of students and adults (one adult for every five students is required). Final payment for all in-person programs is due on the day of the visit. Call Reservations at 404.527.3693, email reservations@childrensmuseumatlanta.org, or fill out our online request form.",
 	},
 	{
 		question: "Cancellations",
@@ -112,12 +112,12 @@ const faqItems = [
 	{
 		question: "Chaperones",
 		answer:
-			"The Museum defines a chaperone as any adult (including teachers), 18 years and older attending the field trip. One chaperone is required for every five students. Required chaperones are free at the 1:5 student to chaperone ratio. Chaperones must remain with their students at all times. Group will not be admitted until all required chaperones have arrived. Additional adult chaperones MUST be reserved/paid through the school for an admission fee of $15.95 plus tax per person. For security purposes, adults with tickets purchased separately via website will not be admitted.",
+			"The Museum defines a chaperone as any adult (including teachers), 18 years and older attending the field trip. One chaperone is required for every five students. Required chaperones are free at the 1:5 student to chaperone ratio. Chaperones must remain with their students at all times. Group will not be admitted until all required chaperones have arrived. Chaperones beyond the 1:5 ratio must be reserved and paid through the school for an admission fee of $19.95 plus tax per person. For security purposes, adults with tickets purchased separately via website will not be admitted.",
 	},
 	{
 		question: "Capacity",
 		answer:
-			"The Museum has a maximum field trip capacity of 250 people (this includes students, teachers and all adults). One adult (teachers & caregivers) is required for every 5 students. These required adult chaperones are free. All additional adults must pay chaperone pricing. We require 10 students minimum to qualify for field trip pricing.",
+			"The Museum has a maximum field trip capacity of 250 people (this includes students, teachers and all adults). One adult (teachers & caregivers) is required for every 5 students. We require 10 students minimum to qualify for field trip pricing.",
 	},
 	{
 		question: "Lunch",
@@ -440,11 +440,9 @@ export default function FieldTripsProgramContent() {
 									(5) children.
 								</p>
 								<p className="text-cma-navy">
-									Required adults are free and counted towards the 250 capacity.
-									Additional adult chaperones <strong>must</strong> be paid
-									through the school and cannot purchase individual tickets
-									online. Any additional adult arriving without a
-									school-purchased ticket will be turned away.
+									Adult chaperones <strong>must</strong> be paid through the
+									school. Adults arriving without a school-purchased ticket will
+									be turned away.
 								</p>
 
 								<div className="flex flex-col">
