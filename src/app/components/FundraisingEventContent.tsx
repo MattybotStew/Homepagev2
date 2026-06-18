@@ -247,7 +247,7 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 												href={resource.href}
 												target="_blank"
 												rel="noopener noreferrer"
-												className="cma-text-link font-black flex items-center gap-[6px] whitespace-nowrap"
+												className="cma-btn cma-btn-outline-teal font-black"
 											>
 												{resource.label}
 												<FontAwesomeIcon icon={faDownload} className="text-[13px]" />
