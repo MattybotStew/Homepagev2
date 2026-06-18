@@ -1,5 +1,6 @@
 import { faBriefcase, faGraduationCap, faHandHoldingHeart, faHeart, faPeopleGroup, faTicket } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon, type IconProp } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { motion } from "motion/react";
 import imgCutCMA from "../../assets/cutCMA.png";
 import imgVolunteer from "../../assets/careers2.png";
