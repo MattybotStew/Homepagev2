@@ -6,7 +6,7 @@
 
 **Architecture:** `GivingCirclePage.tsx` special-cases the `tournament-for-play` slug and renders a new, fully self-contained `TournamentForPlayContent.tsx` component instead of `ArticleContentWithSidebar`. The `givingCircles.ts` data entry for `tournament-for-play` is untouched (other circles still link to it via their related-cards list); all new copy/structured data lives directly in the new component, matching how `CorporatePartnerPageContent.tsx` is built.
 
-**Tech Stack:** React + TypeScript + Vite, Tailwind v4 (arbitrary values + `--cma-*` tokens), `motion/react` for scroll-triggered animation, Font Awesome (`@fortawesome/react-fontawesome`) + `lucide-react` icons. No unit test framework exists in this repo — verification is `npx tsc --noEmit` (type safety) plus visual confirmation in the browser via the `webapp-testing` skill, per this project's established convention.
+**Tech Stack:** React + TypeScript + Vite, Tailwind v4 (arbitrary values + `--cma-*` tokens), `motion/react` for scroll-triggered animation, Font Awesome (`@fortawesome/react-fontawesome`) + `lucide-react` icons. No unit test framework exists in this repo, and `typescript` is not a project dependency — there is no `tsc` binary available, so no type-checking step exists in this toolchain. Verification is `npm run build` (a Vite/esbuild production build — catches syntax errors, unresolved imports, and JSX errors, though not type errors) plus visual confirmation in the browser via the `webapp-testing` skill, per this project's established convention.
 
 ## Global Constraints
 
@@ -225,10 +225,10 @@ export default function GivingCirclePage() {
 }
 ```
 
-- [ ] **Step 3: Type-check**
+- [ ] **Step 3: Build check**
 
-Run: `npx tsc --noEmit`
-Expected: no output, exit code 0.
+Run: `npm run build`
+Expected: build completes with no errors, exit code 0.
 
 - [ ] **Step 4: Visually verify**
 
@@ -292,10 +292,10 @@ In `src/app/components/TournamentForPlayContent.tsx`, insert this new `<section>
 			</section>
 ```
 
-- [ ] **Step 2: Type-check**
+- [ ] **Step 2: Build check**
 
-Run: `npx tsc --noEmit`
-Expected: no output, exit code 0.
+Run: `npm run build`
+Expected: build completes with no errors, exit code 0.
 
 - [ ] **Step 3: Visually verify**
 
@@ -361,10 +361,10 @@ Insert this new `<section>` immediately after the stats `</section>` from Task 2
 			</section>
 ```
 
-- [ ] **Step 2: Type-check**
+- [ ] **Step 2: Build check**
 
-Run: `npx tsc --noEmit`
-Expected: no output, exit code 0.
+Run: `npm run build`
+Expected: build completes with no errors, exit code 0.
 
 - [ ] **Step 3: Visually verify**
 
@@ -441,10 +441,10 @@ Insert this new `<section>` immediately after the schedule `</section>` from Tas
 			</section>
 ```
 
-- [ ] **Step 2: Type-check**
+- [ ] **Step 2: Build check**
 
-Run: `npx tsc --noEmit`
-Expected: no output, exit code 0.
+Run: `npm run build`
+Expected: build completes with no errors, exit code 0.
 
 - [ ] **Step 3: Visually verify**
 
@@ -491,10 +491,10 @@ Insert this new `<section>` immediately after the sponsor tiers `</section>` fro
 			</section>
 ```
 
-- [ ] **Step 2: Type-check**
+- [ ] **Step 2: Build check**
 
-Run: `npx tsc --noEmit`
-Expected: no output, exit code 0.
+Run: `npm run build`
+Expected: build completes with no errors, exit code 0.
 
 - [ ] **Step 3: Visually verify**
 
@@ -605,21 +605,16 @@ Insert these two new `<section>` elements immediately after the photo strip `</s
 			</section>
 ```
 
-- [ ] **Step 2: Type-check**
-
-Run: `npx tsc --noEmit`
-Expected: no output, exit code 0.
-
-- [ ] **Step 3: Full production build**
+- [ ] **Step 2: Full production build**
 
 Run: `npm run build`
 Expected: build completes with no errors (exit code 0).
 
-- [ ] **Step 4: Visually verify the complete page**
+- [ ] **Step 3: Visually verify the complete page**
 
 Run `npm run dev` in the background. Use the `webapp-testing` skill to open `http://localhost:5173/#/giving-circles/tournament-for-play` and confirm, top to bottom: hero → breadcrumb → stats → schedule → sponsor tiers → photo strip → closing CTA → "Other Ways to Give" related cards (Imagination Ball, Young Professionals, Dream Builders, each linking to its own `#/giving-circles/:slug` page). Click through to each related card and confirm it still renders the original `ArticleContentWithSidebar` layout. Also re-check `#/giving-circles/young-professionals` and `#/giving-circles/dream-builders` directly to confirm they're unaffected. Stop the dev server after confirming.
 
-- [ ] **Step 5: Commit**
+- [ ] **Step 4: Commit**
 
 ```bash
 git add src/app/components/TournamentForPlayContent.tsx
