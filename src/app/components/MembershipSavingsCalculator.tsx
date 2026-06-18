@@ -47,13 +47,13 @@ const PLAN_DETAILS: Record<
 };
 
 function planFits(name: string, adults: number, children: number) {
-	if (name === "Two of Us") return adults + children <= 2;
+	if (name === "Two of Us") return adults === 1 && children === 1;
 	if (name === "Family Membership") return adults <= 2 && children <= 4;
 	return true;
 }
 
 function getRecommended(adults: number, children: number) {
-	if (adults + children <= 2) return "Two of Us";
+	if (adults === 1 && children === 1) return "Two of Us";
 	if (adults <= 2 && children <= 4) return "Family Membership";
 	return "Family Plus";
 }
@@ -176,7 +176,7 @@ export default function MembershipSavingsCalculator({
 									label="No. of Children"
 									sublabel="Ages 1–12 (under 1 free)"
 									value={children}
-									min={0}
+									min={1}
 									max={8}
 									onChange={setChildren}
 								/>

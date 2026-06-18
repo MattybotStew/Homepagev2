@@ -290,13 +290,13 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 										{tier.sponsors.map((sponsor, j) => (
 											<div
 												key={`${sponsor}-${j}`}
-												className="flex flex-col items-center gap-2 w-[120px]"
+												className={`flex flex-col items-center gap-2 ${tier.featured ? "w-[220px]" : "w-[120px]"}`}
 											>
 												<div
-													className="w-full h-[64px] rounded-[12px] bg-black/10 flex items-center justify-center"
+													className={`w-full rounded-[12px] bg-black/10 flex items-center justify-center ${tier.featured ? "h-[140px]" : "h-[64px]"}`}
 													aria-hidden
 												>
-													<span className="text-cma-navy/30 text-[11px] font-bold">
+													<span className={`text-cma-navy/30 font-bold ${tier.featured ? "text-[18px]" : "text-[11px]"}`}>
 														LOGO
 													</span>
 												</div>
