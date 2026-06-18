@@ -5,7 +5,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
-import imgHeroBgDefault from "../../assets/PYVhero.webp";
+import imgHeroBgDefault from "../../assets/ChildrensMuseumAtlantaExt.webp";
 
 const cards = [
 	{
