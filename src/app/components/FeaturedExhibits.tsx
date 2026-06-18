@@ -1,12 +1,12 @@
 import imgEllipse from "figma:asset/exhibits-ellipse.svg";
 import imgExhibitCreativity from "../../assets/exhibit-creativity.webp";
-import imgExhibitDoc from "../../assets/exhibit-doc-mcstuffins.webp";
+import imgExhibitDoc from "../../assets/mcstuff.png";
 import imgExhibitFood from "../../assets/exhibit-food.webp";
 import imgExhibitGateway from "../../assets/exhibit-gateway.webp";
 import imgExhibitLeaping from "../../assets/exhibit-leaping.webp";
 import imgExhibitScience from "../../assets/exhibit-science.webp";
 import imgExhibitTools from "../../assets/exhibit-tools.webp";
-import imgExhibitWildKratts from "../../assets/exhibits-summer-hero.jpg";
+import imgExhibitWildKratts from "../../assets/kratts.png";
 import {
 	AnimatePresence,
 	animate,
