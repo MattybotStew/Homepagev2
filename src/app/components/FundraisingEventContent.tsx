@@ -274,12 +274,12 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 				<div className="cma-section-container flex flex-col gap-8">
 					<div className={event.sponsorsImage ? "flex flex-col lg:flex-row gap-[40px] items-center" : ""}>
 						<div className="flex flex-col gap-8 flex-1 min-w-0">
-							<h2 className="text-cma-navy text-center">{event.sponsorsHeading}</h2>
+							<h2 className="text-cma-navy">{event.sponsorsHeading}</h2>
 							{event.sponsorsBody && (
 								<p className="text-cma-navy max-w-[760px]">{event.sponsorsBody}</p>
 							)}
 							{event.resources && (
-								<div className="flex flex-wrap items-center justify-center gap-[20px]">
+								<div className="flex flex-wrap items-center gap-[20px]">
 									{event.resources.map((resource) => (
 										<a
 											key={resource.label}
