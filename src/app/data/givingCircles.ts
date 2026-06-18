@@ -5,7 +5,38 @@ import img3 from "../../assets/educators-img-3.webp";
 import type { ContentBlock, SidebarSection } from "../components/ArticleContentWithSidebar";
 import type { Program } from "./programs";
 
-export const givingCircles: Program[] = [
+export type FundraisingEventDetails = {
+	heroSubtitle: string;
+	heroCtas: { label: string; href: string }[];
+	stats: { value: string; label: string }[];
+	scheduleHeading: string;
+	scheduleItems: { time: string; activity: string }[];
+	scheduleNote?: string;
+	sponsorsHeading: string;
+	sponsorTiers: { name: string; featured: boolean; sponsors: string[] }[];
+	photosHeading: string;
+	photos: string[];
+	closingHeading: string;
+	closingBody: string;
+	closingCtas: { label: string; href: string }[];
+};
+
+export type GivingCircle = Program & { fundraisingEvent?: FundraisingEventDetails };
+
+const WAITLIST_HREF =
+	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Tournament%20For%20Play%20Waitlist";
+const TFP_SPONSOR_HREF =
+	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Tournament%20For%20Play%20Sponsorship";
+const IB_TICKETS_HREF =
+	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Imagination%20Ball%20Tickets";
+const IB_SPONSOR_HREF =
+	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Imagination%20Ball%20Sponsorship";
+const FOT_TICKETS_HREF =
+	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Fun%20On%20Tap%20Tickets";
+const FOT_SPONSOR_HREF =
+	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Fun%20On%20Tap%20Sponsorship";
+
+export const givingCircles: GivingCircle[] = [
 	{
 		slug: "imagination-ball",
 		title: "Imagination Ball",
@@ -27,6 +58,49 @@ export const givingCircles: Program[] = [
 			{ h3: "Sponsorship", id: "sponsorship" },
 			"We are looking forward to next year's Imagination Ball which will take place in March 2027. To learn more about Imagination Ball or to become a sponsor, please email the advancement office.",
 		],
+		fundraisingEvent: {
+			heroSubtitle:
+				"Imagination Ball is Children's Museum of Atlanta's playful charity ball for grownups. Join us in March 2027 for an evening of dinner, dancing, and play that fuels access to learning for every child.",
+			heroCtas: [
+				{ label: "Buy Tickets", href: IB_TICKETS_HREF },
+				{ label: "Sponsorship Inquiry", href: IB_SPONSOR_HREF },
+			],
+			stats: [
+				{ value: "7th", label: "Annual Imagination Ball" },
+				{ value: "$430K+", label: "Raised in 2026" },
+				{ value: "400+", label: "Guests" },
+				{ value: "March 2027", label: "Date TBA" },
+			],
+			scheduleHeading: "Evening Schedule",
+			scheduleItems: [
+				{ time: "6:00 pm", activity: "Cocktail Hour & Silent Auction" },
+				{ time: "7:00 pm", activity: "Dinner & Program" },
+				{ time: "8:00 pm", activity: "Live Auction" },
+				{ time: "9:00 pm", activity: "Dancing & After Party" },
+			],
+			scheduleNote:
+				"Black-tie optional. Full schedule and venue details to be announced closer to the event.",
+			sponsorsHeading: "Sponsors",
+			sponsorTiers: [
+				{ name: "Presenting", featured: true, sponsors: ["Sponsor TBA"] },
+				{ name: "Gold", featured: false, sponsors: ["Sponsor TBA"] },
+				{ name: "Silver", featured: false, sponsors: ["Sponsor TBA"] },
+				{
+					name: "Bronze",
+					featured: false,
+					sponsors: ["Sponsor TBA", "Sponsor TBA", "Sponsor TBA"],
+				},
+			],
+			photosHeading: "From Past Imagination Balls",
+			photos: [img0, img1, img2, img3],
+			closingHeading: "Interested in Attending or Sponsoring?",
+			closingBody:
+				"Imagination Ball 2027 details are coming soon — join the list to be the first to know, or ask about sponsorship.",
+			closingCtas: [
+				{ label: "Buy Tickets", href: IB_TICKETS_HREF },
+				{ label: "Sponsorship Inquiry", href: IB_SPONSOR_HREF },
+			],
+		},
 	},
 	{
 		slug: "tournament-for-play",
@@ -50,6 +124,124 @@ export const givingCircles: Program[] = [
 			{ h3: "Sponsors", id: "sponsorship" },
 			"Presenting: PNC Bank · Albatross: Mellow Mushroom · Golf Cart: Osprey · Early Birdie: Anonymous, Christopher Childs, Coca-Cola Company, Georgia Power, Hawkins Parnell Young & Young LLP, JVP Management, KSM, Lazlo 326 Corp, Andy Sanford/Ameriprise, Southern Company, Stanton Barton/McBrayer/Mozley Finlayson Loggins, Tokio Marine HCC.",
 		],
+		fundraisingEvent: {
+			heroSubtitle:
+				"The 14th Annual Tournament for Play tees off at Peachtree Golf Club on August 17, 2026. Foursomes are sold out — join the waitlist or ask about non-player sponsorship.",
+			heroCtas: [
+				{ label: "Join Waitlist", href: WAITLIST_HREF },
+				{ label: "Sponsorship Inquiry", href: TFP_SPONSOR_HREF },
+			],
+			stats: [
+				{ value: "14th", label: "Annual Tournament" },
+				{ value: "$430K+", label: "Raised in 2026" },
+				{ value: "30", label: "Foursomes" },
+				{ value: "Aug 17, 2026", label: "Peachtree Golf Club" },
+			],
+			scheduleHeading: "Schedule",
+			scheduleItems: [
+				{ time: "8:30 am", activity: "Registration & Breakfast" },
+				{ time: "9:00 am", activity: "Practice Range & Putting Green Open" },
+				{ time: "9:45 am", activity: "Welcome Remarks & Player Instruction" },
+				{ time: "10:00 am", activity: "Shotgun Start" },
+				{ time: "3:30 pm", activity: "Awards Ceremony & Reception" },
+			],
+			scheduleNote:
+				"Player bundles include a Par 3 Poker game card and 2 mulligans — the best poker hand wins $500.",
+			sponsorsHeading: "Sponsors",
+			sponsorTiers: [
+				{ name: "Presenting", featured: true, sponsors: ["PNC Bank"] },
+				{ name: "Albatross", featured: false, sponsors: ["Mellow Mushroom"] },
+				{ name: "Golf Cart", featured: false, sponsors: ["Osprey"] },
+				{
+					name: "Early Birdie",
+					featured: false,
+					sponsors: [
+						"Anonymous",
+						"Christopher Childs",
+						"Coca-Cola Company",
+						"Georgia Power",
+						"Hawkins Parnell Young & Young LLP",
+						"JVP Management",
+						"KSM",
+						"Lazlo 326 Corp",
+						"Andy Sanford/Ameriprise",
+						"Southern Company",
+						"Stanton Barton/McBrayer/Mozley Finlayson Loggins",
+						"Tokio Marine HCC",
+					],
+				},
+			],
+			photosHeading: "From Past Tournaments",
+			photos: [img0, img1, img2, img3],
+			closingHeading: "Interested in Sponsoring or Joining the Waitlist?",
+			closingBody:
+				"Tournament foursomes are sold out for 2026, but waitlist spots and non-player sponsorships are still open.",
+			closingCtas: [
+				{ label: "Join Waitlist", href: WAITLIST_HREF },
+				{ label: "Sponsorship Inquiry", href: TFP_SPONSOR_HREF },
+			],
+		},
+	},
+	{
+		slug: "fun-on-tap",
+		title: "Fun On Tap",
+		badge: "Trivia Night",
+		badgeColor: "teal-dark",
+		eyebrow: "Trivia Night Fundraiser",
+		heroImage: img2,
+		cardImage: img2,
+		sections: [
+			{ id: "overview", label: "Overview" },
+			{ id: "details", label: "Schedule" },
+			{ id: "sponsorship", label: "Sponsors" },
+			{ id: "related", label: "Other Ways to Give", href: "#/support" },
+		] satisfies SidebarSection[],
+		paragraphs: [
+			"Fun On Tap is Children's Museum of Atlanta's trivia night fundraiser — gather your team, grab a drink, and test your knowledge for a good cause. Details for the next event are coming soon.",
+		],
+		fundraisingEvent: {
+			heroSubtitle:
+				"Gather your team for a night of trivia, drinks, and friendly competition — all to support play-based learning at CMA. Date and venue coming soon.",
+			heroCtas: [
+				{ label: "Get Tickets", href: FOT_TICKETS_HREF },
+				{ label: "Sponsorship Inquiry", href: FOT_SPONSOR_HREF },
+			],
+			stats: [
+				{ value: "1st", label: "Annual Fun On Tap" },
+				{ value: "$10K", label: "Fundraising Goal" },
+				{ value: "20+", label: "Teams" },
+				{ value: "Date TBA", label: "Venue TBA" },
+			],
+			scheduleHeading: "Game Night Schedule",
+			scheduleItems: [
+				{ time: "6:30 pm", activity: "Doors Open & Team Check-In" },
+				{ time: "7:00 pm", activity: "Round 1 — Warm Up" },
+				{ time: "7:30 pm", activity: "Round 2 — Brain Teasers" },
+				{ time: "8:00 pm", activity: "Round 3 — Lightning Round" },
+				{ time: "8:30 pm", activity: "Final Round & Awards" },
+			],
+			scheduleNote:
+				"Teams of up to 6. Prizes for top three teams plus best team name.",
+			sponsorsHeading: "Sponsors",
+			sponsorTiers: [
+				{ name: "Presenting", featured: true, sponsors: ["Sponsor TBA"] },
+				{ name: "Round", featured: false, sponsors: ["Sponsor TBA", "Sponsor TBA"] },
+				{
+					name: "Team",
+					featured: false,
+					sponsors: ["Sponsor TBA", "Sponsor TBA", "Sponsor TBA"],
+				},
+			],
+			photosHeading: "From Past Events",
+			photos: [img2, img3, img0, img1],
+			closingHeading: "Interested in Playing or Sponsoring?",
+			closingBody:
+				"Fun On Tap details are coming soon — join the list to be the first to know, or ask about sponsorship.",
+			closingCtas: [
+				{ label: "Get Tickets", href: FOT_TICKETS_HREF },
+				{ label: "Sponsorship Inquiry", href: FOT_SPONSOR_HREF },
+			],
+		},
 	},
 	{
 		slug: "young-professionals",

@@ -2,89 +2,43 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Facebook, Instagram } from "lucide-react";
 import { motion } from "motion/react";
-import imgPhoto0 from "../../assets/educators-img-0.webp";
-import imgPhoto1 from "../../assets/educators-img-1.webp";
-import imgPhoto2 from "../../assets/educators-img-2.webp";
-import imgPhoto3 from "../../assets/educators-img-3.webp";
+import type { GivingCircle } from "../data/givingCircles";
 import type { Program } from "../data/programs";
 
 type Props = {
+	circle: GivingCircle;
 	related: Program[];
 };
 
-const stats = [
-	{ value: "14th", label: "Annual Tournament" },
-	{ value: "$430K+", label: "Raised in 2026" },
-	{ value: "30", label: "Foursomes" },
-	{ value: "Aug 17, 2026", label: "Peachtree Golf Club" },
-];
+export default function FundraisingEventContent({ circle, related }: Props) {
+	const event = circle.fundraisingEvent;
+	if (!event) return null;
 
-const schedule = [
-	{ time: "8:30 am", activity: "Registration & Breakfast" },
-	{ time: "9:00 am", activity: "Practice Range & Putting Green Open" },
-	{ time: "9:45 am", activity: "Welcome Remarks & Player Instruction" },
-	{ time: "10:00 am", activity: "Shotgun Start" },
-	{ time: "3:30 pm", activity: "Awards Ceremony & Reception" },
-];
-
-const sponsorTiers = [
-	{ name: "Presenting", featured: true, sponsors: ["PNC Bank"] },
-	{ name: "Albatross", featured: false, sponsors: ["Mellow Mushroom"] },
-	{ name: "Golf Cart", featured: false, sponsors: ["Osprey"] },
-	{
-		name: "Early Birdie",
-		featured: false,
-		sponsors: [
-			"Anonymous",
-			"Christopher Childs",
-			"Coca-Cola Company",
-			"Georgia Power",
-			"Hawkins Parnell Young & Young LLP",
-			"JVP Management",
-			"KSM",
-			"Lazlo 326 Corp",
-			"Andy Sanford/Ameriprise",
-			"Southern Company",
-			"Stanton Barton/McBrayer/Mozley Finlayson Loggins",
-			"Tokio Marine HCC",
-		],
-	},
-];
-
-const photos = [imgPhoto0, imgPhoto1, imgPhoto2, imgPhoto3];
-
-const WAITLIST_HREF =
-	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Tournament%20For%20Play%20Waitlist";
-const SPONSOR_HREF =
-	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Tournament%20For%20Play%20Sponsorship";
-
-export default function TournamentForPlayContent({ related }: Props) {
 	return (
 		<>
 			{/* Hero */}
 			<section className="relative w-full bg-cma-navy overflow-hidden flex flex-col items-center justify-center py-[80px] md:py-[120px]">
 				<div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
 				<div className="cma-section-container relative z-[1] flex flex-col items-center gap-8 text-center max-w-[800px] mx-auto">
-					<p className="cma-eyebrow text-cma-teal">Annual Golf Fundraiser</p>
-					<h1 className="text-white">Tournament For Play</h1>
+					<p className="cma-eyebrow text-cma-teal">{circle.eyebrow}</p>
+					<h1 className="text-white">{circle.title}</h1>
 					<p className="text-cma-blue-light font-semibold text-[clamp(16px,1.67vw,24px)] leading-[1.4] max-w-[620px]">
-						The 14th Annual Tournament for Play tees off at Peachtree Golf
-						Club on August 17, 2026. Foursomes are sold out — join the
-						waitlist or ask about non-player sponsorship.
+						{event.heroSubtitle}
 					</p>
 					<div className="flex flex-col sm:flex-row gap-3">
-						<a
-							href={WAITLIST_HREF}
-							className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
-						>
-							Join Waitlist
-						</a>
-						<a
-							href={SPONSOR_HREF}
-							className="cma-btn cma-btn-outline-teal hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
-						>
-							Sponsorship Inquiry
-						</a>
+						{event.heroCtas.map((cta, i) => (
+							<a
+								key={cta.label}
+								href={cta.href}
+								className={
+									i === 0
+										? "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+										: "cma-btn cma-btn-outline-teal hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
+								}
+							>
+								{cta.label}
+							</a>
+						))}
 					</div>
 				</div>
 			</section>
@@ -98,7 +52,7 @@ export default function TournamentForPlayContent({ related }: Props) {
 								Donate
 							</a>
 							<span className="text-cma-navy text-[18px]">›</span>
-							<span className="text-cma-teal-dark">Tournament For Play</span>
+							<span className="text-cma-teal-dark">{circle.title}</span>
 						</div>
 						<div className="flex gap-[16px] items-center shrink-0">
 							<a
@@ -128,7 +82,7 @@ export default function TournamentForPlayContent({ related }: Props) {
 			<section className="bg-cma-cream w-full py-[60px] md:py-[80px]">
 				<div className="cma-section-container">
 					<div className="grid grid-cols-2 md:grid-cols-4 gap-x-[32px] gap-y-[48px]">
-						{stats.map((stat, i) => (
+						{event.stats.map((stat, i) => (
 							<motion.div
 								key={stat.label}
 								className="flex flex-col gap-[10px] text-center items-center"
@@ -157,9 +111,9 @@ export default function TournamentForPlayContent({ related }: Props) {
 			<section className="bg-cma-cream w-full pb-[60px] md:pb-[80px]">
 				<div className="cma-section-container">
 					<div className="bg-white rounded-[24px] border-2 border-black/5 p-[24px] md:p-[48px] flex flex-col gap-[32px]">
-						<h2 className="text-cma-navy">Schedule</h2>
+						<h2 className="text-cma-navy">{event.scheduleHeading}</h2>
 						<div className="flex flex-col border-t border-black/10">
-							{schedule.map((row, i) => (
+							{event.scheduleItems.map((row, i) => (
 								<motion.div
 									key={row.time}
 									className="flex items-center gap-[24px] py-[16px] border-b border-black/10"
@@ -181,10 +135,9 @@ export default function TournamentForPlayContent({ related }: Props) {
 								</motion.div>
 							))}
 						</div>
-						<p className="text-cma-navy">
-							Player bundles include a Par 3 Poker game card and 2
-							mulligans — the best poker hand wins $500.
-						</p>
+						{event.scheduleNote && (
+							<p className="text-cma-navy">{event.scheduleNote}</p>
+						)}
 					</div>
 				</div>
 			</section>
@@ -192,9 +145,9 @@ export default function TournamentForPlayContent({ related }: Props) {
 			{/* Sponsor tiers */}
 			<section className="bg-white w-full py-[60px] md:py-[80px]">
 				<div className="cma-section-container flex flex-col gap-8">
-					<h2 className="text-cma-navy">Sponsors</h2>
+					<h2 className="text-cma-navy">{event.sponsorsHeading}</h2>
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-						{sponsorTiers.map((tier, i) => (
+						{event.sponsorTiers.map((tier, i) => (
 							<motion.div
 								key={tier.name}
 								className={`bg-cma-cream rounded-[24px] p-8 flex flex-col gap-4 border border-black/5 ${
@@ -211,9 +164,9 @@ export default function TournamentForPlayContent({ related }: Props) {
 							>
 								<h3 className="text-cma-navy">{tier.name}</h3>
 								<div className="flex flex-wrap gap-3">
-									{tier.sponsors.map((sponsor) => (
+									{tier.sponsors.map((sponsor, j) => (
 										<div
-											key={sponsor}
+											key={`${sponsor}-${j}`}
 											className="flex flex-col items-center gap-2 w-[120px]"
 										>
 											<div
@@ -239,9 +192,9 @@ export default function TournamentForPlayContent({ related }: Props) {
 			{/* Photo strip */}
 			<section className="bg-cma-cream w-full py-[60px] md:py-[80px]">
 				<div className="cma-section-container flex flex-col gap-8">
-					<h2 className="text-cma-navy">From Past Tournaments</h2>
+					<h2 className="text-cma-navy">{event.photosHeading}</h2>
 					<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-						{photos.map((photo, i) => (
+						{event.photos.map((photo, i) => (
 							<img
 								key={i}
 								src={photo}
@@ -257,26 +210,24 @@ export default function TournamentForPlayContent({ related }: Props) {
 			<section className="bg-white w-full py-[60px] md:py-[80px]">
 				<div className="cma-section-container">
 					<div className="bg-cma-navy rounded-[24px] p-8 md:p-12 flex flex-col items-center text-center gap-6">
-						<h2 className="text-white">
-							Interested in Sponsoring or Joining the Waitlist?
-						</h2>
+						<h2 className="text-white">{event.closingHeading}</h2>
 						<p className="text-cma-blue-light max-w-[560px]">
-							Tournament foursomes are sold out for 2026, but waitlist spots
-							and non-player sponsorships are still open.
+							{event.closingBody}
 						</p>
 						<div className="flex flex-col sm:flex-row gap-3">
-							<a
-								href={WAITLIST_HREF}
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
-							>
-								Join Waitlist
-							</a>
-							<a
-								href={SPONSOR_HREF}
-								className="cma-btn cma-btn-outline-teal font-black"
-							>
-								Sponsorship Inquiry
-							</a>
+							{event.closingCtas.map((cta, i) => (
+								<a
+									key={cta.label}
+									href={cta.href}
+									className={
+										i === 0
+											? "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+											: "cma-btn cma-btn-outline-teal font-black"
+									}
+								>
+									{cta.label}
+								</a>
+							))}
 						</div>
 					</div>
 				</div>

@@ -152,7 +152,10 @@ Full-width sections stacked vertically. Use `Hero` or a custom navy hero at top.
 Two-column: sticky 210px sidebar with jump-nav + newsletter widget; main white `rounded-[24px]` card with `Divider`-separated sections. Use for educator programs with 6+ deep sections, FAQs, and a request form. To add a new program: create `*ProgramContent.tsx` cloning the field trips shell, add the slug condition in `ProgramPage.tsx`, and add the data entry to `src/app/data/programs.ts`.
 
 ### 3. ArticleContentWithSidebar (e.g. `GivingCirclePage`, `ExhibitPage`)
-Generic detail page. Data-driven via `givingCircles.ts` or `programs.ts`. Use for fundraising events (Tournament For Play, Imagination Ball, Young Professionals, Dream Builders) and giving circles. Add entries to `src/app/data/givingCircles.ts`; the route `/giving-circles/:slug` handles them automatically.
+Generic detail page. Data-driven via `givingCircles.ts` or `programs.ts`. Use for giving circles without a dedicated event format (Young Professionals, Dream Builders). Add entries to `src/app/data/givingCircles.ts`; the route `/giving-circles/:slug` handles them automatically.
+
+### 3b. FundraisingEventContent (e.g. Tournament For Play, Imagination Ball, Fun On Tap)
+Bespoke single-event layout: navy hero → breadcrumb/social → stats → schedule card → sponsor tiers → photo strip → closing CTA → "Other Ways to Give". Used for ticketed fundraising events (galas, tournaments, trivia nights). Driven by the optional `fundraisingEvent` field on a `givingCircles.ts` entry — `GivingCirclePage` renders `FundraisingEventContent` automatically whenever that field is present, otherwise falls back to `ArticleContentWithSidebar`. To add a new event: add a `givingCircles.ts` entry with `fundraisingEvent` data, and link it from `Header.tsx`'s `donateSubPages`.
 
 ### 4. GivingHero + sections (e.g. `SupportPage`, `CorporatePartnerPage`)
 `GivingHero` component at top (accepts `eyebrow`, `heading`, `subtitle`, `body`, `stats[]`, `ctas[]`), followed by a content-specific component, then `Testimonials` + `PYVCallout` + `PowerOfPlayMarquee`. Use for all giving/fundraising landing pages.
@@ -202,7 +205,7 @@ All routes registered in `src/main.tsx`:
 | `/support` | SupportPage |
 | `/support/corporate-partners` | CorporatePartnerPage |
 | `/support/donor-recognition` | DonorRecognitionPage |
-| `/giving-circles/:slug` | GivingCirclePage (imagination-ball, tournament-for-play, young-professionals, dream-builders) |
+| `/giving-circles/:slug` | GivingCirclePage (imagination-ball, tournament-for-play, fun-on-tap, young-professionals, dream-builders) |
 | `/contact` | ContactPage |
 
 **No dedicated pages yet:** Birthday Parties (→ `/plan-your-visit`), Press/Media (→ `/contact`).

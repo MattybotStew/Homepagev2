@@ -149,6 +149,7 @@ const donateSubPages: NavSubPage[] = [
 	{ label: "Donor Recognition", href: "#/support/donor-recognition" },
 	{ label: "Tournament For Play", href: "#/giving-circles/tournament-for-play" },
 	{ label: "Imagination Ball", href: "#/giving-circles/imagination-ball" },
+	{ label: "Fun On Tap", href: "#/giving-circles/fun-on-tap" },
 	{ label: "Young Professionals", href: "#/giving-circles/young-professionals" },
 	{
 		label: "Dream Builders Giving Circle",

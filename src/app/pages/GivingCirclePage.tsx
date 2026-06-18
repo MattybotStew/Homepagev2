@@ -2,11 +2,11 @@ import { Navigate, useParams } from "react-router-dom";
 import AlertBanner from "../components/AlertBanner";
 import ArticleContentWithSidebar from "../components/ArticleContentWithSidebar";
 import Footer from "../components/Footer";
+import FundraisingEventContent from "../components/FundraisingEventContent";
 import Header from "../components/Header";
 import MobileHeader from "../components/MobileHeader";
 import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee";
 import ScrollProgress from "../components/ScrollProgress";
-import TournamentForPlayContent from "../components/TournamentForPlayContent";
 import { givingCircles } from "../data/givingCircles";
 
 export default function GivingCirclePage() {
@@ -29,8 +29,8 @@ export default function GivingCirclePage() {
 			<div className="hidden lg:block">
 				<ScrollProgress />
 			</div>
-			{slug === "tournament-for-play" ? (
-				<TournamentForPlayContent related={related} />
+			{circle.fundraisingEvent ? (
+				<FundraisingEventContent circle={circle} related={related} />
 			) : (
 				<ArticleContentWithSidebar
 					exhibit={circle}
