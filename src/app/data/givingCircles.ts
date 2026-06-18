@@ -68,8 +68,8 @@ export const givingCircles: GivingCircle[] = [
 		badge: "Annual Gala",
 		badgeColor: "navy",
 		eyebrow: "CMA's Premier Fundraising Gala",
-		heroImage: imgFallback,
-		cardImage: imgFallback,
+		heroImage: imgIB1,
+		cardImage: imgIB1,
 		sections: [
 			{ id: "overview", label: "Overview" },
 			{ id: "details", label: "2026 Highlights" },
