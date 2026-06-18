@@ -136,8 +136,11 @@ function Logo() {
 	);
 }
 
+const MEMBERSHIP_TICKETS_URL = "https://16707.blackbaudhosting.com/16707/CMA-Memberships";
+
 const membershipsSubPages: NavSubPage[] = [
 	{ label: "Memberships", href: "#/memberships" },
+	{ label: "Membership Tickets", href: MEMBERSHIP_TICKETS_URL },
 	{ label: "Corporate Membership", href: "#/memberships/corporate" },
 	{ label: "Information", href: "#/memberships/information" },
 ];

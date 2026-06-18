@@ -26,6 +26,10 @@ export const navLinks: NavLink[] = [
 		label: "Memberships",
 		href: "#/memberships",
 		subPages: [
+			{
+				label: "Membership Tickets",
+				href: "https://16707.blackbaudhosting.com/16707/CMA-Memberships",
+			},
 			{ label: "Corporate Membership", href: "#/memberships/corporate" },
 			{ label: "Information", href: "#/memberships/information" },
 		],
