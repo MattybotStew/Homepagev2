@@ -263,6 +263,28 @@ export default function CalendarPage() {
 				</div>
 			</section>
 
+			{/* Featured Exhibits */}
+			<section id="featured-exhibits" className="bg-cma-cream w-full py-[80px] md:py-[100px]">
+				<div className="cma-section-container flex flex-col items-center gap-[24px] text-center">
+					<motion.div
+						className="flex flex-col items-center gap-[16px]"
+						initial={{ opacity: 0, y: 24 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true, margin: "-80px" }}
+						transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+					>
+						<h2 className="text-cma-navy">Featured Exhibits</h2>
+						<p className="text-cma-navy max-w-[680px]">
+							Placeholder copy — lorem ipsum dolor sit amet, consectetur
+							adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+							dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+							exercitation ullamco laboris nisi ut aliquip ex ea commodo
+							consequat.
+						</p>
+					</motion.div>
+				</div>
+			</section>
+
 			{/* Calendar & Events FAQs */}
 			<section id="faqs" className="bg-white w-full py-[80px] md:py-[120px]">
 				<div className="cma-section-container flex flex-col gap-12 items-center">

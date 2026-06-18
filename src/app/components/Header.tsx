@@ -145,7 +145,6 @@ const TICKETS_URL = "https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&
 
 const buyTicketsSubPages = [
 	{ label: "Buy Tickets Now", href: TICKETS_URL, external: true },
-	{ label: "Book Your Visit", href: "#/book-your-visit", external: false },
 ];
 
 const donateSubPages: NavSubPage[] = [
@@ -581,12 +580,6 @@ export default function Header() {
 								className="bg-cma-navy px-4 py-3 rounded-full w-full hover:bg-cma-slate transition-colors flex items-center justify-center"
 							>
 								<p className="font-black text-[14px] text-white">Buy Tickets Now</p>
-							</a>
-							<a
-								href="#/book-your-visit"
-								className="bg-cma-blue-mid px-4 py-3 rounded-full w-full hover:bg-[#2a4d76] transition-colors flex items-center justify-center"
-							>
-								<p className="font-black text-[14px] text-white">Book Your Visit</p>
 							</a>
 						</div>
 					</div>

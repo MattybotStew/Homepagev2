@@ -69,7 +69,7 @@ const navyCard = {
 	bodyColor: "text-white",
 	cta: {
 		label: "Book a Group Visit",
-		href: "#/book-your-visit",
+		href: "#/plan-your-visit",
 		style: "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark",
 	},
 };

@@ -462,6 +462,23 @@
 	display: none;
 }
 
+/* ── Off-canvas card slider (EducatorsPrograms and similar) ───────────────── */
+.cma-card-slider {
+	display: flex;
+	gap: 16px;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	scrollbar-width: none;
+	padding-bottom: 4px;
+}
+.cma-card-slider::-webkit-scrollbar {
+	display: none;
+}
+.cma-card-slider > * {
+	scroll-snap-align: start;
+}
+
 .cma-nav-pill {
 	flex-shrink: 0;
 	padding: 8px 16px;

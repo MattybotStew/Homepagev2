@@ -10,6 +10,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 
+const TICKETS_URL = "https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf";
+const BLACKBAUD_MEMBERSHIPS = "https://16707.blackbaudhosting.com/16707/CMA-Memberships";
+
 function ParkingIcon() {
 	return (
 		<div className="relative shrink-0 w-16 h-16">
@@ -53,7 +56,7 @@ const cards = [
 		title: "Plan Your Visit",
 		description: "Advance tickets recommended. Preview pricing & book online.",
 		linkLabel: "Buy Now",
-		href: "https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf",
+		href: "#/plan-your-visit",
 	},
 	{
 		icon: (
@@ -67,7 +70,7 @@ const cards = [
 		title: "Hours & What to Expect",
 		description: "Mon, Tue, Thu, Fri: 10 am–3:30 pm\nSat & Sun: 9:30 am–4:30 pm\nClosed Wednesdays",
 		linkLabel: "Plan Your Day",
-		href: "#hours",
+		href: "#/plan-your-visit?tab=hours",
 	},
 	{
 		icon: (
@@ -82,14 +85,14 @@ const cards = [
 		description:
 			"Snack and drinks on-site. Outside snacks welcome. Lockers & diaper stations available.",
 		linkLabel: "See Amenities",
-		href: "#amenities",
+		href: "#/plan-your-visit?tab=amenities",
 	},
 	{
 		icon: <ParkingIcon />,
 		title: "Parking & Directions",
 		description: "Pre-purchase parking nearby. Easy access via MARTA",
 		linkLabel: "Get Directions",
-		href: "#parking",
+		href: "#/plan-your-visit?tab=parking",
 	},
 ];
 
@@ -153,13 +156,17 @@ export default function PlanYourVisit() {
 					</p>
 					<div className="flex flex-col sm:flex-row gap-3">
 						<a
-							href="#/book-your-visit"
+							href={TICKETS_URL}
+							target="_blank"
+							rel="noopener noreferrer"
 							className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 						>
 							Buy Tickets
 						</a>
 						<a
-							href="#/memberships"
+							href={BLACKBAUD_MEMBERSHIPS}
+							target="_blank"
+							rel="noopener noreferrer"
 							className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
 						>
 							Memberships

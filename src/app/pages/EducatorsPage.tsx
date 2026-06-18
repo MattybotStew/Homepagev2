@@ -46,18 +46,7 @@ export default function EducatorsPage() {
 				eyebrow="Children's Museum of Atlanta"
 				heading="Education Programs"
 				subtitle="The Museum has plenty to offer, whether you're visiting for a fun field trip, a Scout workshop, or bringing the Museum right into your classroom!"
-				ctas={[
-					{
-						label: "Education at the Museum",
-						href: "#/educators",
-						variant: "orange",
-					},
-					{
-						label: "Connect with Our Team",
-						href: "mailto:reservations@childrensmuseumatlanta.org",
-						variant: "teal-outline",
-					},
-				]}
+				ctas={[]}
 				showHoursWidget={false}
 			/>
 			<EducatorsPrograms />

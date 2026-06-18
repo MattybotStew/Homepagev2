@@ -32,7 +32,7 @@ export default function PlanYourVisitHero({
 	bgImage = imgHeroBgDefault,
 	heading = "Plan Your Visit",
 	subtitle = "Everything you need to know before you play — from tickets & hours to parking & what to bring.",
-	primaryCta = { label: "Buy Tickets Now", href: "#/book-your-visit" },
+	primaryCta = { label: "Buy Tickets Now", href: "#/plan-your-visit" },
 	secondaryCta = { label: "Download Visitor Guide", href: "#/plan-your-visit" },
 }: {
 	bgImage?: string;

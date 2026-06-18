@@ -5,6 +5,8 @@ import { useState } from "react";
 import imgCheck from "../../assets/pricing-check.svg";
 import imgWaveWhite from "../../assets/wave-white.svg";
 
+const BLACKBAUD_MEMBERSHIPS = "https://16707.blackbaudhosting.com/16707/CMA-Memberships";
+
 const membershipBenefits = [
 	["Unlimited visits for 1 year", "50% off guest tickets"],
 	["Gift shop, birthday party & special event discounts", "Helps bring the power of play to ALL of Atlanta's children"],
@@ -89,7 +91,7 @@ export default function MembershipPricing() {
 									</span>
 								</div>
 								<a
-									href="#/memberships"
+									href={BLACKBAUD_MEMBERSHIPS}
 									className="cma-btn shrink-0 bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 								>
 									Become a Member
@@ -146,7 +148,7 @@ export default function MembershipPricing() {
 
 							<div className="h-px bg-black/15" />
 
-							<div className="grid grid-cols-1 sm:grid-cols-3 gap-x-[16px] gap-y-6 sm:gap-y-[32px]">
+							<div className="flex flex-col sm:flex-row sm:justify-between gap-y-6 sm:gap-y-[32px]">
 								{[
 									{ label: "Child / Senior", price: "$19.95" },
 									{ label: "Adult", price: "$21.95" },

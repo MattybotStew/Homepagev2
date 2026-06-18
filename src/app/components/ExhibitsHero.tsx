@@ -61,6 +61,24 @@ export default function ExhibitsHero() {
 					</div>
 				</motion.div>
 
+				{/* Featured Exhibits heading */}
+				<motion.div
+					className="flex flex-col items-center gap-[16px] text-center"
+					initial={{ opacity: 0, y: 24 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, margin: "-80px" }}
+					transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+				>
+					<h2 className="text-cma-navy">Featured Exhibits</h2>
+					<p className="text-cma-navy max-w-[680px]">
+						Placeholder copy — lorem ipsum dolor sit amet, consectetur
+						adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+						dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+						exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat.
+					</p>
+				</motion.div>
+
 				{/* Featured exhibit cards */}
 				<div className="flex flex-col md:flex-row gap-5">
 					{featuredExhibits.map((exhibit, i) => (

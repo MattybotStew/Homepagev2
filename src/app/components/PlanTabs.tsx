@@ -3,6 +3,7 @@ import {
 	faInstagram,
 	faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import { useState, useEffect } from "react";
@@ -523,6 +524,14 @@ function TabContent({ item }: { item: string }) {
 					>
 						Contact Us
 					</a>
+					<a
+						href="/social-story.pdf"
+						download
+						className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
+					>
+						Download Social Story{" "}
+						<FontAwesomeIcon icon={faDownload} className="ml-[6px] text-[13px]" />
+					</a>
 				</div>
 			</div>
 		);
@@ -546,7 +555,7 @@ function TabContent({ item }: { item: string }) {
 						Explore Private Events
 					</a>
 					<a
-						href="#/book-your-visit"
+						href="#/plan-your-visit"
 						className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
 					>
 						Book Your Event
@@ -588,7 +597,7 @@ function TabContent({ item }: { item: string }) {
 						Explore Parties
 					</a>
 					<a
-						href="#/book-your-visit"
+						href="#/plan-your-visit"
 						className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
 					>
 						Book Your Party

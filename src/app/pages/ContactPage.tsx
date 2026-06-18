@@ -45,7 +45,7 @@ const departments = [
 		phoneTel: "4045273693",
 		description: "Reservations, group sales, gift certificates, re-entry, and lost & found.",
 		cta: "Buy Tickets",
-		ctaHref: "#/book-your-visit",
+		ctaHref: "#/plan-your-visit",
 	},
 	{
 		icon: faUsers,
@@ -85,7 +85,7 @@ const departments = [
 		phoneTel: "4045273693",
 		description: "Birthday party packages, private events, and group bookings for 10–30 people.",
 		cta: "Book a Party",
-		ctaHref: "#/book-your-visit",
+		ctaHref: "#/plan-your-visit",
 	},
 	{
 		icon: faBriefcase,
@@ -162,7 +162,7 @@ const helpfulLinks = [
 		label: "Buy Tickets",
 		description: "Pricing, discounts, and group rates.",
 		cta: "Buy Tickets",
-		href: "#/book-your-visit",
+		href: "#/plan-your-visit",
 	},
 	{
 		icon: faBook,
@@ -424,7 +424,7 @@ export default function ContactPage() {
 												/>
 											</div>
 											<div className="flex gap-[10px] flex-wrap">
-												<a href="#/book-your-visit" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
+												<a href="#/plan-your-visit" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
 													Buy Tickets
 												</a>
 												<a href="#/plan-your-visit" className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black">
