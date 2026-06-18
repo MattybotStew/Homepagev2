@@ -1,6 +1,8 @@
 import imgB from "../../assets/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp";
 import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp";
 import imgC from "../../assets/39da2bd0af3dceef1e3b406cd981247f82778d27.webp";
+import imgEducatorPlay from "../../assets/educators-img-2.webp";
+import imgEducatorSpotlight from "../../assets/educators-img-3.webp";
 
 export type ArticleItem = {
 	slug: string;
@@ -148,7 +150,7 @@ export const allArticles: ArticleItem[] = [
 	},
 	{
 		slug: "why-play-matters",
-		image: imgA,
+		image: imgEducatorPlay,
 		badge: "Museum News • May 12, 2026",
 		title: "Why Play Matters More Than Ever",
 		description:
@@ -187,7 +189,7 @@ export const allArticles: ArticleItem[] = [
 	},
 	{
 		slug: "educator-spotlight-ms-jones",
-		image: imgA,
+		image: imgEducatorSpotlight,
 		badge: "Education • March 30, 2026",
 		title: "Educator Spotlight: Ms. Jones and the Art of Asking",
 		description:

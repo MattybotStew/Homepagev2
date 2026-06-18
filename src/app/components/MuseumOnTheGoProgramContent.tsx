@@ -400,6 +400,14 @@ export default function MuseumOnTheGoProgramContent() {
 					<div className="flex-1 min-w-0">
 						<div className="bg-white rounded-[24px] border-2 border-black/5 p-[24px] md:p-[48px] flex flex-col gap-[32px] md:gap-[48px]">
 							{/* ── Overview ── */}
+							<div className="relative">
+								<img
+									src={imgMezz}
+									alt="Museum On-the-Go"
+									className="w-full h-[220px] sm:h-[300px] md:h-[380px] object-cover rounded-[24px]"
+								/>
+							</div>
+
 							<div id="overview" className="flex flex-col gap-[24px]">
 								<h1 className="text-cma-navy !text-[clamp(28px,3.75vw,48px)] !leading-[1.05] !tracking-[-1px] !font-extrabold">
 									Museum On-the-Go
@@ -495,23 +503,6 @@ export default function MuseumOnTheGoProgramContent() {
 											</div>
 										</div>
 									))}
-								</div>
-
-								<div className="bg-cma-navy rounded-[16px] p-[24px] flex flex-col gap-[12px]">
-									<p className="cma-eyebrow text-cma-orange">
-										Title I Schools
-									</p>
-									<p className="text-white">
-										Scholarship and grant funding may be available for Title I
-										schools. Contact our education team to learn more about
-										financial assistance options.
-									</p>
-									<a
-										href="mailto:education@childrensmuseumatlanta.org"
-										className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start"
-									>
-										Contact Education Team
-									</a>
 								</div>
 							</div>
 

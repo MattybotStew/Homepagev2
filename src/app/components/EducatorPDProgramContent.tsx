@@ -323,6 +323,14 @@ export default function EducatorPDProgramContent() {
 					<div className="flex-1 min-w-0">
 						<div className="bg-white rounded-[24px] border-2 border-black/5 p-[24px] md:p-[48px] flex flex-col gap-[32px] md:gap-[48px]">
 							{/* ── Overview ── */}
+							<div className="relative">
+								<img
+									src={imgPD}
+									alt="Educator Professional Development"
+									className="w-full h-[220px] sm:h-[300px] md:h-[380px] object-cover rounded-[24px]"
+								/>
+							</div>
+
 							<div id="overview" className="flex flex-col gap-[24px]">
 								<h1 className="text-cma-navy !text-[clamp(28px,3.75vw,48px)] !leading-[1.05] !tracking-[-1px] !font-extrabold">
 									Educator Professional Development
@@ -368,13 +376,6 @@ export default function EducatorPDProgramContent() {
 									</button>
 								</div>
 							</div>
-
-							{/* Hero image */}
-							<img
-								src={imgPD}
-								alt="Educators in professional development session at CMA"
-								className="w-full h-[280px] object-cover rounded-[20px]"
-							/>
 
 							{/* Register callout */}
 							<div className="bg-cma-teal-pale rounded-[16px] p-[24px] flex flex-col sm:flex-row sm:items-center gap-[16px] sm:gap-[24px]">

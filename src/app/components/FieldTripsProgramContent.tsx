@@ -31,7 +31,6 @@ const sections = [
 	{ id: "field-trip-details", label: "Field Trip Details" },
 	{ id: "learning-zones", label: "Learning Zones" },
 	{ id: "educational-standards", label: "Educational Standards" },
-	{ id: "field-trip-plus", label: "Field Trip +" },
 	{ id: "featured-exhibits", label: "Featured Exhibits" },
 	{ id: "faqs", label: "Field Trip FAQs" },
 	{ id: "request-visit", label: "Request Visit" },
@@ -364,6 +363,14 @@ export default function FieldTripsProgramContent() {
 					<div className="flex-1 min-w-0">
 						<div className="bg-white rounded-[24px] border-2 border-black/5 p-[24px] md:p-[48px] flex flex-col gap-[32px] md:gap-[48px]">
 							{/* ── Overview ── */}
+							<div className="relative">
+								<img
+									src={imgFloor}
+									alt="Field Trips"
+									className="w-full h-[220px] sm:h-[300px] md:h-[380px] object-cover rounded-[24px]"
+								/>
+							</div>
+
 							<div id="overview" className="flex flex-col gap-[24px]">
 								<h1 className="text-cma-navy !text-[clamp(28px,3.75vw,48px)] !leading-[1.05] !tracking-[-1px] !font-extrabold">
 									Field Trips
@@ -488,6 +495,23 @@ export default function FieldTripsProgramContent() {
 										reservations@childrensmuseumatlanta.org.
 									</p>
 								</div>
+
+								<div className="bg-cma-navy rounded-[16px] p-[24px] flex flex-col gap-[12px]">
+									<p className="cma-eyebrow text-cma-orange">
+										Title I Schools
+									</p>
+									<p className="text-white">
+										Scholarship and grant funding may be available for Title I
+										schools. Contact our education team to learn more about
+										financial assistance options.
+									</p>
+									<a
+										href="mailto:education@childrensmuseumatlanta.org"
+										className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start"
+									>
+										Contact Education Team
+									</a>
+								</div>
 							</div>
 
 							<Divider />
@@ -575,29 +599,6 @@ export default function FieldTripsProgramContent() {
 											className="ml-[6px] text-[13px]"
 										/>
 									</a>
-								</div>
-							</div>
-
-							<Divider />
-
-							{/* ── Field Trip + ── */}
-							<div id="field-trip-plus" className="flex flex-col gap-[24px]">
-								<h2 className="text-cma-navy">Field Trip +</h2>
-								<div className="bg-cma-navy rounded-[16px] p-[24px] flex flex-col gap-[12px]">
-									<p className="cma-eyebrow text-cma-orange">
-										Enhanced Experience
-									</p>
-									<p className="text-white">
-										Field Trip+: an enhanced field trip experience featuring
-										guided STEAM activities and exclusive access to the Museum
-										on select Wednesdays.
-									</p>
-									<button
-										onClick={() => scrollToSection("request-visit")}
-										className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start"
-									>
-										Learn More & Book
-									</button>
 								</div>
 							</div>
 
