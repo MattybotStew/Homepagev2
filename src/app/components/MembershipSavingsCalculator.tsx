@@ -78,12 +78,12 @@ function Stepper({
 	onChange: (n: number) => void;
 }) {
 	return (
-		<div className="grid grid-cols-[1fr_auto] gap-x-[16px] items-center h-[44px]">
-			<div className="flex items-baseline gap-[6px] min-w-0">
+		<div className="grid grid-cols-[1fr_auto] gap-x-[16px] items-center min-h-[44px]">
+			<div className="flex flex-col gap-[2px] min-w-0">
 				<span className="font-semibold text-[17px] text-cma-navy leading-none">
 					{label}
 				</span>
-				<span className="text-[12px] font-medium text-cma-blue-mid opacity-70 whitespace-nowrap">
+				<span className="text-[12px] font-medium text-cma-blue-mid opacity-70">
 					{sublabel}
 				</span>
 			</div>
