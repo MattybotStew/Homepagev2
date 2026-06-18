@@ -55,7 +55,7 @@ export default function PlanYourVisitPage() {
 			<PlanYourVisitHero />
 
 			{/* Admission Pricing */}
-			<AdmissionPricing showBottomWave={false} />
+			<AdmissionPricing showBottomWave={false} showCtas={false} />
 
 			<div className="relative pb-[60px] md:pb-[80px]">
 				<PYVCallout
