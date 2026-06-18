@@ -44,7 +44,7 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 			</section>
 
 			{/* Breadcrumb + social */}
-			<section className="bg-cma-cream pt-[40px]">
+			<section className={`bg-cma-cream pt-[40px] ${event.stats ? "" : "pb-[40px]"}`}>
 				<div className="cma-section-container">
 					<div className="flex items-center justify-between flex-wrap gap-[12px]">
 						<div className="flex items-center gap-[8px] flex-wrap text-[15px]">
@@ -79,33 +79,35 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 			</section>
 
 			{/* Stats */}
-			<section className="bg-cma-cream w-full py-[60px] md:py-[80px]">
-				<div className="cma-section-container">
-					<div className="grid grid-cols-2 md:grid-cols-4 gap-x-[32px] gap-y-[48px]">
-						{event.stats.map((stat, i) => (
-							<motion.div
-								key={stat.label}
-								className="flex flex-col gap-[10px] text-center items-center"
-								initial={{ opacity: 0, y: 24 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								viewport={{ once: true, margin: "-60px" }}
-								transition={{
-									duration: 0.7,
-									ease: [0.16, 1, 0.3, 1],
-									delay: i * 0.1,
-								}}
-							>
-								<p className="text-cma-orange font-black text-[clamp(28px,3vw,40px)] leading-none">
-									{stat.value}
-								</p>
-								<p className="font-extrabold text-[15px] text-cma-navy leading-[1.2]">
-									{stat.label}
-								</p>
-							</motion.div>
-						))}
+			{event.stats && (
+				<section className="bg-cma-cream w-full py-[60px] md:py-[80px]">
+					<div className="cma-section-container">
+						<div className="grid grid-cols-2 md:grid-cols-4 gap-x-[32px] gap-y-[48px]">
+							{event.stats.map((stat, i) => (
+								<motion.div
+									key={stat.label}
+									className="flex flex-col gap-[10px] text-center items-center"
+									initial={{ opacity: 0, y: 24 }}
+									whileInView={{ opacity: 1, y: 0 }}
+									viewport={{ once: true, margin: "-60px" }}
+									transition={{
+										duration: 0.7,
+										ease: [0.16, 1, 0.3, 1],
+										delay: i * 0.1,
+									}}
+								>
+									<p className="text-cma-orange font-black text-[clamp(28px,3vw,40px)] leading-none">
+										{stat.value}
+									</p>
+									<p className="font-extrabold text-[15px] text-cma-navy leading-[1.2]">
+										{stat.label}
+									</p>
+								</motion.div>
+							))}
+						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+			)}
 
 			{/* Schedule / Award / Leadership */}
 			{(event.scheduleItems || event.award || event.leadership) && (
@@ -205,46 +207,51 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 							</div>
 						)}
 					</div>
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-						{event.sponsorTiers.map((tier, i) => (
-							<motion.div
-								key={tier.name}
-								className={`bg-cma-cream rounded-[24px] p-8 flex flex-col gap-4 border border-black/5 ${
-									tier.featured ? "md:col-span-2" : ""
-								}`}
-								initial={{ opacity: 0, y: 24 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								viewport={{ once: true, margin: "-60px" }}
-								transition={{
-									duration: 0.7,
-									ease: [0.16, 1, 0.3, 1],
-									delay: i * 0.06,
-								}}
-							>
-								<h3 className="text-cma-navy">{tier.name}</h3>
-								<div className="flex flex-wrap gap-3">
-									{tier.sponsors.map((sponsor, j) => (
-										<div
-											key={`${sponsor}-${j}`}
-											className="flex flex-col items-center gap-2 w-[120px]"
-										>
+					{event.sponsorsBody && (
+						<p className="text-cma-navy max-w-[760px]">{event.sponsorsBody}</p>
+					)}
+					{event.sponsorTiers && (
+						<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+							{event.sponsorTiers.map((tier, i) => (
+								<motion.div
+									key={tier.name}
+									className={`bg-cma-cream rounded-[24px] p-8 flex flex-col gap-4 border border-black/5 ${
+										tier.featured ? "md:col-span-2" : ""
+									}`}
+									initial={{ opacity: 0, y: 24 }}
+									whileInView={{ opacity: 1, y: 0 }}
+									viewport={{ once: true, margin: "-60px" }}
+									transition={{
+										duration: 0.7,
+										ease: [0.16, 1, 0.3, 1],
+										delay: i * 0.06,
+									}}
+								>
+									<h3 className="text-cma-navy">{tier.name}</h3>
+									<div className="flex flex-wrap gap-3">
+										{tier.sponsors.map((sponsor, j) => (
 											<div
-												className="w-full h-[64px] rounded-[12px] bg-black/10 flex items-center justify-center"
-												aria-hidden
+												key={`${sponsor}-${j}`}
+												className="flex flex-col items-center gap-2 w-[120px]"
 											>
-												<span className="text-cma-navy/30 text-[11px] font-bold">
-													LOGO
-												</span>
+												<div
+													className="w-full h-[64px] rounded-[12px] bg-black/10 flex items-center justify-center"
+													aria-hidden
+												>
+													<span className="text-cma-navy/30 text-[11px] font-bold">
+														LOGO
+													</span>
+												</div>
+												<p className="text-cma-navy text-[12px] font-semibold text-center leading-[1.3]">
+													{sponsor}
+												</p>
 											</div>
-											<p className="text-cma-navy text-[12px] font-semibold text-center leading-[1.3]">
-												{sponsor}
-											</p>
-										</div>
-									))}
-								</div>
-							</motion.div>
-						))}
-					</div>
+										))}
+									</div>
+								</motion.div>
+							))}
+						</div>
+					)}
 				</div>
 			</section>
 

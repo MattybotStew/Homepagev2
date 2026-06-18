@@ -8,7 +8,7 @@ import type { Program } from "./programs";
 export type FundraisingEventDetails = {
 	heroSubtitle: string;
 	heroCtas: { label: string; href: string }[];
-	stats: { value: string; label: string }[];
+	stats?: { value: string; label: string }[];
 	award?: {
 		heading: string;
 		recipientName: string;
@@ -26,7 +26,8 @@ export type FundraisingEventDetails = {
 		committee: string[];
 	};
 	sponsorsHeading: string;
-	sponsorTiers: { name: string; featured: boolean; sponsors: string[] }[];
+	sponsorsBody?: string;
+	sponsorTiers?: { name: string; featured: boolean; sponsors: string[] }[];
 	photosHeading: string;
 	photos: string[];
 	resources?: { label: string; href: string }[];
@@ -45,10 +46,8 @@ const TFP_SPONSOR_HREF =
 	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Tournament%20For%20Play%20Sponsorship";
 const IB_SPONSOR_HREF =
 	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Imagination%20Ball%20Sponsorship";
-const FOT_TICKETS_HREF =
-	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Fun%20On%20Tap%20Tickets";
 const FOT_SPONSOR_HREF =
-	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Fun%20On%20Tap%20Sponsorship";
+	"mailto:lhalad@childrensmuseumatlanta.org?cc=pcorder@childrensmuseumatlanta.org&subject=Fun%20On%20Tap%20Sponsorship";
 
 export const givingCircles: GivingCircle[] = [
 	{
@@ -283,62 +282,38 @@ export const givingCircles: GivingCircle[] = [
 	{
 		slug: "fun-on-tap",
 		title: "Fun On Tap",
-		badge: "Trivia Night",
+		badge: "21+ Beer Festival",
 		badgeColor: "teal-dark",
-		eyebrow: "Trivia Night Fundraiser",
+		eyebrow: "Friday, September 18, 2026",
 		heroImage: img2,
 		cardImage: img2,
 		sections: [
 			{ id: "overview", label: "Overview" },
-			{ id: "details", label: "Schedule" },
-			{ id: "sponsorship", label: "Sponsors" },
+			{ id: "sponsorship", label: "Sponsorship" },
 			{ id: "related", label: "Other Ways to Give", href: "#/support" },
 		] satisfies SidebarSection[],
 		paragraphs: [
-			"Fun On Tap is Children's Museum of Atlanta's trivia night fundraiser — gather your team, grab a drink, and test your knowledge for a good cause. Details for the next event are coming soon.",
+			"Children's Museum of Atlanta will host a 21+ beer festival. Guests will discover new beers from local breweries, light bites, fun games, and best of all — an evening of play in the Museum's exhibits. Be a kid again, without the kids!",
 		],
 		fundraisingEvent: {
 			heroSubtitle:
-				"Gather your team for a night of trivia, drinks, and friendly competition — all to support play-based learning at CMA. Date and venue coming soon.",
-			heroCtas: [
-				{ label: "Get Tickets", href: FOT_TICKETS_HREF },
-				{ label: "Sponsorship Inquiry", href: FOT_SPONSOR_HREF },
-			],
-			stats: [
-				{ value: "1st", label: "Annual Fun On Tap" },
-				{ value: "$10K", label: "Fundraising Goal" },
-				{ value: "20+", label: "Teams" },
-				{ value: "Date TBA", label: "Venue TBA" },
-			],
-			scheduleHeading: "Game Night Schedule",
-			scheduleItems: [
-				{ time: "6:30 pm", activity: "Doors Open & Team Check-In" },
-				{ time: "7:00 pm", activity: "Round 1 — Warm Up" },
-				{ time: "7:30 pm", activity: "Round 2 — Brain Teasers" },
-				{ time: "8:00 pm", activity: "Round 3 — Lightning Round" },
-				{ time: "8:30 pm", activity: "Final Round & Awards" },
-			],
-			scheduleNote:
-				"Teams of up to 6. Prizes for top three teams plus best team name.",
-			sponsorsHeading: "Sponsors",
-			sponsorTiers: [
-				{ name: "Presenting", featured: true, sponsors: ["Sponsor TBA"] },
-				{ name: "Round", featured: false, sponsors: ["Sponsor TBA", "Sponsor TBA"] },
+				"Children's Museum of Atlanta will host a 21+ beer festival. Guests will discover new beers from local breweries, light bites, fun games, and best of all — an evening of play in the Museum's exhibits. Be a kid again, without the kids! While guests enjoy craft brews and an evening of play, they're also making a lasting impact one sip at a time. Check back here for tickets and more information!",
+			heroCtas: [{ label: "Become A Sponsor", href: FOT_SPONSOR_HREF }],
+			sponsorsHeading: "Sponsorship Opportunities Available Now!",
+			sponsorsBody:
+				"More than just a great time, Fun on Tap is a fundraiser with a purpose. Fun on Tap is a playful take on a classic beer fest. We are inviting local breweries and companies to join us for our first brewery night — Fun on Tap. As a sponsor, your support brings this adults-only evening at the Museum to life. Email Laura Halad at lhalad@childrensmuseumatlanta.org for more information.",
+			resources: [
 				{
-					name: "Team",
-					featured: false,
-					sponsors: ["Sponsor TBA", "Sponsor TBA", "Sponsor TBA"],
+					label: "Sponsorship Brochure (PDF)",
+					href: "https://childrensmuseumatlanta.org/wp-content/uploads/2026/06/2026-FUN-ON-TAP-Sponsor-Booklet_Main.pdf",
 				},
 			],
-			photosHeading: "From Past Events",
+			photosHeading: "What to Expect at CMA",
 			photos: [img2, img3, img0, img1],
-			closingHeading: "Interested in Playing or Sponsoring?",
+			closingHeading: "Tickets Coming Soon",
 			closingBody:
-				"Fun On Tap details are coming soon — join the list to be the first to know, or ask about sponsorship.",
-			closingCtas: [
-				{ label: "Get Tickets", href: FOT_TICKETS_HREF },
-				{ label: "Sponsorship Inquiry", href: FOT_SPONSOR_HREF },
-			],
+				"Check back here for tickets and more information, or reach out now about sponsorship opportunities.",
+			closingCtas: [{ label: "Become A Sponsor", href: FOT_SPONSOR_HREF }],
 		},
 	},
 	{
