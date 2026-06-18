@@ -256,6 +256,10 @@ export default function Footer() {
 							Copyright © 2026 Children's Museum of Atlanta · Children's Museum of
 							Atlanta is a 501(c)(3) organization [EIN 58-1785484]
 						</p>
+						<span className="inline-flex items-center gap-[6px] self-start bg-white/10 border border-white/20 text-white font-bold text-[12px] px-[12px] py-[6px] rounded-full">
+							<span className="w-[8px] h-[8px] rounded-full bg-cma-teal-light shrink-0" />
+							GuideStar Platinum Transparency
+						</span>
 						<div className="flex gap-[16px]">
 							<a href="#/privacy" className="text-white/50 text-[13px] hover:text-white transition-colors">Privacy Policy</a>
 							<a href="#/terms" className="text-white/50 text-[13px] hover:text-white transition-colors">Terms of Use</a>
