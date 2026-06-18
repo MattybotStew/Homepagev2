@@ -1,0 +1,128 @@
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Facebook, Instagram } from "lucide-react";
+import { motion } from "motion/react";
+import imgPhoto0 from "../../assets/educators-img-0.webp";
+import imgPhoto1 from "../../assets/educators-img-1.webp";
+import imgPhoto2 from "../../assets/educators-img-2.webp";
+import imgPhoto3 from "../../assets/educators-img-3.webp";
+import type { Program } from "../data/programs";
+
+type Props = {
+	related: Program[];
+};
+
+const stats = [
+	{ value: "14th", label: "Annual Tournament" },
+	{ value: "$430K+", label: "Raised in 2026" },
+	{ value: "30", label: "Foursomes" },
+	{ value: "Aug 17, 2026", label: "Peachtree Golf Club" },
+];
+
+const schedule = [
+	{ time: "8:30 am", activity: "Registration & Breakfast" },
+	{ time: "9:00 am", activity: "Practice Range & Putting Green Open" },
+	{ time: "9:45 am", activity: "Welcome Remarks & Player Instruction" },
+	{ time: "10:00 am", activity: "Shotgun Start" },
+	{ time: "3:30 pm", activity: "Awards Ceremony & Reception" },
+];
+
+const sponsorTiers = [
+	{ name: "Presenting", featured: true, sponsors: ["PNC Bank"] },
+	{ name: "Albatross", featured: false, sponsors: ["Mellow Mushroom"] },
+	{ name: "Golf Cart", featured: false, sponsors: ["Osprey"] },
+	{
+		name: "Early Birdie",
+		featured: false,
+		sponsors: [
+			"Anonymous",
+			"Christopher Childs",
+			"Coca-Cola Company",
+			"Georgia Power",
+			"Hawkins Parnell Young & Young LLP",
+			"JVP Management",
+			"KSM",
+			"Lazlo 326 Corp",
+			"Andy Sanford/Ameriprise",
+			"Southern Company",
+			"Stanton Barton/McBrayer/Mozley Finlayson Loggins",
+			"Tokio Marine HCC",
+		],
+	},
+];
+
+const photos = [imgPhoto0, imgPhoto1, imgPhoto2, imgPhoto3];
+
+const WAITLIST_HREF =
+	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Tournament%20For%20Play%20Waitlist";
+const SPONSOR_HREF =
+	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Tournament%20For%20Play%20Sponsorship";
+
+export default function TournamentForPlayContent({ related }: Props) {
+	return (
+		<>
+			{/* Hero */}
+			<section className="relative w-full bg-cma-navy overflow-hidden flex flex-col items-center justify-center py-[80px] md:py-[120px]">
+				<div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
+				<div className="cma-section-container relative z-[1] flex flex-col items-center gap-8 text-center max-w-[800px] mx-auto">
+					<p className="cma-eyebrow text-cma-teal">Annual Golf Fundraiser</p>
+					<h1 className="text-white">Tournament For Play</h1>
+					<p className="text-cma-blue-light font-semibold text-[clamp(16px,1.67vw,24px)] leading-[1.4] max-w-[620px]">
+						The 14th Annual Tournament for Play tees off at Peachtree Golf
+						Club on August 17, 2026. Foursomes are sold out — join the
+						waitlist or ask about non-player sponsorship.
+					</p>
+					<div className="flex flex-col sm:flex-row gap-3">
+						<a
+							href={WAITLIST_HREF}
+							className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+						>
+							Join Waitlist
+						</a>
+						<a
+							href={SPONSOR_HREF}
+							className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
+						>
+							Sponsorship Inquiry
+						</a>
+					</div>
+				</div>
+			</section>
+
+			{/* Breadcrumb + social */}
+			<section className="bg-cma-cream pt-[40px]">
+				<div className="cma-section-container">
+					<div className="flex items-center justify-between flex-wrap gap-[12px]">
+						<div className="flex items-center gap-[8px] flex-wrap text-[15px]">
+							<a href="#/donate" className="text-cma-navy hover:underline">
+								Donate
+							</a>
+							<span className="text-cma-navy text-[18px]">›</span>
+							<span className="text-cma-teal-dark">Tournament For Play</span>
+						</div>
+						<div className="flex gap-[16px] items-center shrink-0">
+							<a
+								href="https://www.facebook.com/childrensmuseumofatlanta"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="cma-social-btn-filled shrink-0"
+								aria-label="Share on Facebook"
+							>
+								<Facebook className="size-5 text-white" />
+							</a>
+							<a
+								href="https://www.instagram.com/childrensmuseumofatlanta/"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="cma-social-btn-filled shrink-0"
+								aria-label="Share on Instagram"
+							>
+								<Instagram className="size-5 text-white" />
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</>
+	);
+}

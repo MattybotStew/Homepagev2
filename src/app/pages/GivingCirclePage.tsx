@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import MobileHeader from "../components/MobileHeader";
 import PowerOfPlayMarquee from "../components/PowerOfPlayMarquee";
 import ScrollProgress from "../components/ScrollProgress";
+import TournamentForPlayContent from "../components/TournamentForPlayContent";
 import { givingCircles } from "../data/givingCircles";
 
 export default function GivingCirclePage() {
@@ -28,15 +29,19 @@ export default function GivingCirclePage() {
 			<div className="hidden lg:block">
 				<ScrollProgress />
 			</div>
-			<ArticleContentWithSidebar
-				exhibit={circle}
-				related={related}
-				sections={circle.sections}
-				breadcrumb={{ label: "Support", href: "#/support" }}
-				relatedHrefBase="#/giving-circles"
-				relatedHeading="Other Ways to Give"
-				relatedCta="Learn More"
-			/>
+			{slug === "tournament-for-play" ? (
+				<TournamentForPlayContent related={related} />
+			) : (
+				<ArticleContentWithSidebar
+					exhibit={circle}
+					related={related}
+					sections={circle.sections}
+					breadcrumb={{ label: "Support", href: "#/support" }}
+					relatedHrefBase="#/giving-circles"
+					relatedHeading="Other Ways to Give"
+					relatedCta="Learn More"
+				/>
+			)}
 			<PowerOfPlayMarquee />
 			<Footer />
 		</div>
