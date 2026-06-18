@@ -2,6 +2,7 @@ import img0 from "../../assets/educators-img-0.webp";
 import img1 from "../../assets/educators-img-1.webp";
 import img2 from "../../assets/educators-img-2.webp";
 import img3 from "../../assets/educators-img-3.webp";
+import imgFunOnTap from "../../assets/fun-on-tap-final.webp";
 import type { ContentBlock, SidebarSection } from "../components/ArticleContentWithSidebar";
 import type { Program } from "./programs";
 
@@ -27,6 +28,7 @@ export type FundraisingEventDetails = {
 	};
 	sponsorsHeading: string;
 	sponsorsBody?: string;
+	sponsorsImage?: string;
 	sponsorTiers?: { name: string; featured: boolean; sponsors: string[] }[];
 	photosHeading: string;
 	photos: string[];
@@ -302,6 +304,7 @@ export const givingCircles: GivingCircle[] = [
 			sponsorsHeading: "Sponsorship Opportunities Available Now!",
 			sponsorsBody:
 				"More than just a great time, Fun on Tap is a fundraiser with a purpose. Fun on Tap is a playful take on a classic beer fest. We are inviting local breweries and companies to join us for our first brewery night — Fun on Tap. As a sponsor, your support brings this adults-only evening at the Museum to life. Email Laura Halad at lhalad@childrensmuseumatlanta.org for more information.",
+			sponsorsImage: imgFunOnTap,
 			resources: [
 				{
 					label: "Sponsorship Brochure (PDF)",
