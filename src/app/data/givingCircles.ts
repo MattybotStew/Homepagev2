@@ -13,6 +13,7 @@ import imgFOT2 from "../../assets/educators-img-3.webp";
 import imgFOT3 from "../../assets/educators-img-0.webp";
 import imgFOT4 from "../../assets/educators-img-1.webp";
 import imgFallback from "../../assets/educators-img-0.webp";
+import imgPYV from "../../assets/PYVhero.webp";
 import imgYoung from "../../assets/young.png";
 import type { ContentBlock, SidebarSection } from "../components/ArticleContentWithSidebar";
 import type { Program } from "./programs";
@@ -298,8 +299,8 @@ export const givingCircles: GivingCircle[] = [
 		badge: "21+ Beer Festival",
 		badgeColor: "teal-dark",
 		eyebrow: "Friday, September 18, 2026",
-		heroImage: imgFallback,
-		cardImage: imgFallback,
+		heroImage: imgPYV,
+		cardImage: imgPYV,
 		sections: [
 			{ id: "overview", label: "Overview" },
 			{ id: "sponsorship", label: "Sponsorship" },
