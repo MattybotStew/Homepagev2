@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import { type ReactNode, useState } from "react";
 import imgWaveWhite from "../../assets/wave-white.svg";
-import imgFaqPhoto from "../../assets/pyv-faq-photo.webp";
+import imgFaqPhoto from "../../assets/FRONT.png";
 
 function FaqBullet({ children }: { children: ReactNode }) {
 	return (

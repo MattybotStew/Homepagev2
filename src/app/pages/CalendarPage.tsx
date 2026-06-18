@@ -6,7 +6,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AnimatePresence, motion } from "motion/react";
 import { type ReactNode, useState } from "react";
-import imgFaq from "../../assets/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp";
+import imgFaq from "../../assets/FRONT.png";
 import AlertBanner from "../components/AlertBanner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
