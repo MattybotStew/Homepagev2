@@ -66,7 +66,9 @@ export default function App() {
 			<FeaturedExhibits />
 
 			{/* Special Experiences / Events Section */}
-			<SpecialExperiences />
+			<SpecialExperiences
+				ctaButton={{ label: "See All Events", href: "#/events" }}
+			/>
 
 			{/* Membership Pricing Section */}
 			<MembershipPricing />

@@ -336,23 +336,6 @@ export default function FeaturedExhibits() {
 				</AnimatePresence>
 			</div>
 
-			{/* View Exhibit Details CTA */}
-			<div className="relative z-10 flex justify-center mt-[24px] md:mt-[-120px] mb-[24px] md:mb-0 px-5">
-				<AnimatePresence mode="wait">
-					<motion.a
-						key={exhibits[activeIndex].id}
-						href={exhibits[activeIndex].href}
-						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black whitespace-nowrap"
-						initial={{ opacity: 0, y: 8 }}
-						animate={{ opacity: 1, y: 0 }}
-						exit={{ opacity: 0, y: -8 }}
-						transition={{ duration: 0.25 }}
-					>
-						View Exhibit Details
-					</motion.a>
-				</AnimatePresence>
-			</div>
-
 			{/* Dot indicators — mobile only; desktop uses filter pills */}
 			<div className="cma-dot-indicators">
 				{exhibits.map((_, j) => (
