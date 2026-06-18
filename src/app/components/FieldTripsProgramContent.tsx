@@ -18,6 +18,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Facebook, Instagram } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp";
 import imgFloor from "../../assets/educators-img-0.webp";
 import imgMezz from "../../assets/educators-img-1.webp";
@@ -240,8 +241,23 @@ function SectionBullet({ children }: { children: string }) {
 // ── Component ────────────────────────────────────────────────────────────────
 
 export default function FieldTripsProgramContent() {
+	const [searchParams] = useSearchParams();
 	const [activeSection, setActiveSection] = useState("overview");
 	const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+	// Scroll to this section on initial arrival with a section param (e.g. from nav/CTA links)
+	useEffect(() => {
+		const section = searchParams.get("section");
+		if (!section) return;
+		const timer = setTimeout(() => {
+			const el = document.getElementById(section);
+			if (!el) return;
+			setActiveSection(section);
+			window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 140, behavior: "smooth" });
+		}, 150);
+		return () => clearTimeout(timer);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	useEffect(() => {
 		const observers = sections.map((section) => {
