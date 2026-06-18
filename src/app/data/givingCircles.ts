@@ -9,9 +9,22 @@ export type FundraisingEventDetails = {
 	heroSubtitle: string;
 	heroCtas: { label: string; href: string }[];
 	stats: { value: string; label: string }[];
-	scheduleHeading: string;
-	scheduleItems: { time: string; activity: string }[];
+	award?: {
+		heading: string;
+		recipientName: string;
+		recipientDate: string;
+		recipientBio: string;
+	};
+	scheduleHeading?: string;
+	scheduleItems?: { time: string; activity: string }[];
 	scheduleNote?: string;
+	leadership?: {
+		heading: string;
+		chairsLabel: string;
+		chairs: string[];
+		committeeLabel: string;
+		committee: string[];
+	};
 	sponsorsHeading: string;
 	sponsorTiers: { name: string; featured: boolean; sponsors: string[] }[];
 	photosHeading: string;
@@ -30,8 +43,6 @@ const WAITLIST_HREF =
 	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Tournament%20For%20Play%20Waitlist";
 const TFP_SPONSOR_HREF =
 	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Tournament%20For%20Play%20Sponsorship";
-const IB_TICKETS_HREF =
-	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Imagination%20Ball%20Tickets";
 const IB_SPONSOR_HREF =
 	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Imagination%20Ball%20Sponsorship";
 const FOT_TICKETS_HREF =
@@ -63,45 +74,122 @@ export const givingCircles: GivingCircle[] = [
 		],
 		fundraisingEvent: {
 			heroSubtitle:
-				"Imagination Ball is Children's Museum of Atlanta's playful charity ball for grownups. Join us in March 2027 for an evening of dinner, dancing, and play that fuels access to learning for every child.",
+				"Imagination Ball is Children's Museum of Atlanta's playful charity ball for grownups. Every dollar raised goes towards making learning through play accessible to all children.",
 			heroCtas: [
-				{ label: "Buy Tickets", href: IB_TICKETS_HREF },
-				{ label: "Sponsorship Inquiry", href: IB_SPONSOR_HREF },
+				{ label: "Email Advancement Office", href: IB_SPONSOR_HREF },
 			],
 			stats: [
-				{ value: "7th", label: "Annual Imagination Ball" },
 				{ value: "$430K+", label: "Raised in 2026" },
-				{ value: "400+", label: "Guests" },
-				{ value: "March 2027", label: "Date TBA" },
+				{ value: "March 2027", label: "Next Imagination Ball" },
 			],
-			scheduleHeading: "Evening Schedule",
-			scheduleItems: [
-				{ time: "6:00 pm", activity: "Cocktail Hour & Silent Auction" },
-				{ time: "7:00 pm", activity: "Dinner & Program" },
-				{ time: "8:00 pm", activity: "Live Auction" },
-				{ time: "9:00 pm", activity: "Dancing & After Party" },
-			],
-			scheduleNote:
-				"Black-tie optional. Full schedule and venue details to be announced closer to the event.",
+			award: {
+				heading: "Power of Play Award",
+				recipientName: "Andrea Montag",
+				recipientDate: "March 13, 2026",
+				recipientBio:
+					"Andrea currently serves on the Boards of the WABE, Skyland Trail, A Million Matters, and Washington University Atlanta Alumni.",
+			},
+			leadership: {
+				heading: "Event Leadership",
+				chairsLabel: "Event Chairs",
+				chairs: ["Stephanie Blank", "Serena Levy"],
+				committeeLabel: "Host Committee",
+				committee: [
+					"Madelyn Adams",
+					"Maurice Baker",
+					"Erin & Pete Boorn",
+					"Aileen Reischl & Andrew Chang",
+					"Nina Cheney",
+					"Kristin & Tom Clyde",
+					"Burch & Mark Hanson",
+					"Jane & Derek Hardesty",
+					"Christine & William Hunt",
+					"Mary & Neil Johnson",
+					"Wonya Lucas",
+					"Elizabeth & John Ralls",
+					"Justin A. Sullivan",
+					"Elizabeth Klump & Kevin Thomas",
+					"Jane & David Turner",
+					"Halli Cohn & Rich Warren",
+				],
+			},
 			sponsorsHeading: "Sponsors",
 			sponsorTiers: [
-				{ name: "Presenting", featured: true, sponsors: ["Sponsor TBA"] },
-				{ name: "Gold", featured: false, sponsors: ["Sponsor TBA"] },
-				{ name: "Silver", featured: false, sponsors: ["Sponsor TBA"] },
+				{ name: "Presenting", featured: true, sponsors: ["GNG"] },
+				{ name: "Emerald", featured: false, sponsors: ["Montag"] },
+				{
+					name: "Diamond",
+					featured: false,
+					sponsors: [
+						"Arthur M Blank Family Foundation",
+						"Coca-Cola",
+						"Georgia Power",
+					],
+				},
+				{
+					name: "Platinum",
+					featured: false,
+					sponsors: [
+						"Atlanta Braves",
+						"AGS",
+						"Community Foundation for Greater Atlanta",
+						"Kaiser Permanente",
+						"Liz Blake",
+						"PNC",
+						"United Way",
+					],
+				},
+				{
+					name: "Gold",
+					featured: false,
+					sponsors: [
+						"CareSource",
+						"Children's Healthcare of Atlanta",
+						"EY",
+						"The Herschend Family Foundation",
+						"Novelis",
+						"Wonya Lucas",
+						"Halli Cohn & Richard J. Warren",
+					],
+				},
+				{
+					name: "Silver",
+					featured: false,
+					sponsors: [
+						"Greenberg Traurig, LLP",
+						"Perkins&Will",
+						"Madelyn R. Adams",
+						"Julie and Randy Bassett",
+						"Aileen Reischl & Andrew Chang",
+						"Nina Cheney",
+						"Kristin & Tom Clyde",
+						"Jane and Derek Hardesty",
+						"Caryl and Kendrick Smith",
+						"Elaine and Allan Tanenbaum",
+						"Elizabeth Klump and Kevin Thomas",
+						"Jane & David Turner",
+					],
+				},
 				{
 					name: "Bronze",
 					featured: false,
-					sponsors: ["Sponsor TBA", "Sponsor TBA", "Sponsor TBA"],
+					sponsors: [
+						"Alston & Bird",
+						"Carr, Riggs & Ingram, LLC",
+						"Decide DeKalb Development Authority",
+						"Erin & Pete Boorn",
+						"Burch and Mark Hanson",
+						"Christine & William Hunt",
+					],
 				},
 			],
-			photosHeading: "From Past Imagination Balls",
+			photosHeading: "From Imagination Ball 2026",
 			photos: [img0, img1, img2, img3],
-			closingHeading: "Interested in Attending or Sponsoring?",
+			closingHeading: "Interested in Imagination Ball 2027?",
 			closingBody:
-				"Imagination Ball 2027 details are coming soon — join the list to be the first to know, or ask about sponsorship.",
+				"To learn more about Imagination Ball or to become a sponsor, please email the advancement office.",
 			closingCtas: [
-				{ label: "Buy Tickets", href: IB_TICKETS_HREF },
-				{ label: "Sponsorship Inquiry", href: IB_SPONSOR_HREF },
+				{ label: "Email Advancement Office", href: IB_SPONSOR_HREF },
 			],
 		},
 	},
