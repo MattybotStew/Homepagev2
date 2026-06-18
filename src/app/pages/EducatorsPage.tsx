@@ -52,7 +52,7 @@ export default function EducatorsPage() {
 			<EducatorsPrograms />
 			<EducatorsImpact />
 			<Testimonials
-				heading="What Teachers Are Saying"
+				heading="What the Community is Saying"
 				items={educatorTestimonials}
 				showWave={false}
 			/>

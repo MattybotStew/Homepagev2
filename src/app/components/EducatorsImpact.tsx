@@ -5,7 +5,10 @@ import { useState } from "react";
 import imgContact from "../../assets/educators-img-1.webp";
 import imgWaveTop from "../../assets/impact-wave-top.svg";
 import imgWaveWhite from "../../assets/wave-white.svg";
-import DafWidgetButton from "./DafWidgetButton";
+
+const inputClass =
+	"px-[14px] py-[12px] rounded-[10px] border border-[rgba(107,126,160,0.3)] bg-white text-cma-navy placeholder:text-cma-navy/30 outline-none focus:border-cma-teal-dark transition-colors w-full";
+const labelClass = "text-cma-navy font-bold text-[13px]";
 
 const impactItems = [
 	{
@@ -145,7 +148,33 @@ export default function EducatorsImpact() {
 								field trip or program. Get in touch and let us know how we can
 								help!
 							</p>
-							<DafWidgetButton />
+							<form
+								onSubmit={(e) => e.preventDefault()}
+								className="flex flex-col gap-[16px]"
+							>
+								<div className="flex flex-col gap-[6px]">
+									<label className={labelClass}>Name</label>
+									<input type="text" placeholder="Your Name" className={inputClass} />
+								</div>
+								<div className="flex flex-col gap-[6px]">
+									<label className={labelClass}>Email</label>
+									<input type="email" placeholder="you@email.com" className={inputClass} />
+								</div>
+								<div className="flex flex-col gap-[6px]">
+									<label className={labelClass}>Message</label>
+									<textarea
+										rows={4}
+										placeholder="Tell us how we can help..."
+										className={`${inputClass} resize-none`}
+									/>
+								</div>
+								<button
+									type="submit"
+									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start"
+								>
+									Send Message
+								</button>
+							</form>
 						</div>
 
 						{/* Newsletter card */}

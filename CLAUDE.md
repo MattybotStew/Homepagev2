@@ -185,7 +185,6 @@ All routes registered in `src/main.tsx`:
 |---|---|
 | `/` | Homepage |
 | `/plan-your-visit` | PlanYourVisitPage |
-| `/book-your-visit` | BookYourVisitPage |
 | `/exhibits` | ExhibitsPage |
 | `/exhibits/:slug` | ExhibitPage |
 | `/events` | CalendarPage |
@@ -206,7 +205,7 @@ All routes registered in `src/main.tsx`:
 | `/giving-circles/:slug` | GivingCirclePage (imagination-ball, tournament-for-play, young-professionals, dream-builders) |
 | `/contact` | ContactPage |
 
-**No dedicated pages yet:** Birthday Parties (→ `/book-your-visit`), Press/Media (→ `/contact`).
+**No dedicated pages yet:** Birthday Parties (→ `/plan-your-visit`), Press/Media (→ `/contact`).
 
 ---
 

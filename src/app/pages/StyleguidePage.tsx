@@ -546,7 +546,7 @@ export default function StyleguidePage() {
 
 								<Card title="AdmissionPricing — showCtas prop">
 									<p className="text-cma-navy text-[13px]">
-										Pass <span className="font-mono font-bold">showCtas={"{false}"}</span> to hide the CTA button row (used on BookYourVisitPage where CTAs live in BuyOnlineBenefits instead).
+										Pass <span className="font-mono font-bold">showCtas={"{false}"}</span> to hide the CTA button row (used on PlanYourVisitPage where CTAs live in BuyOnlineBenefits instead).
 									</p>
 									<Spec label="Default" value="showCtas={true}" />
 								</Card>
@@ -653,7 +653,7 @@ export default function StyleguidePage() {
 									</div>
 								</Card>
 
-								<Card title="Info callout banner (e.g. ACM Reciprocity on BookYourVisitPage)">
+								<Card title="Info callout banner (e.g. ACM Reciprocity on PlanYourVisitPage)">
 									<div className="bg-white rounded-[20px] border border-[rgba(107,126,160,0.15)] px-[32px] py-[24px] flex flex-col sm:flex-row items-start sm:items-center gap-[16px]">
 										<div className="flex-1 flex flex-col gap-[6px]">
 											<p className="font-extrabold text-cma-navy text-[15px]">Callout Title</p>
@@ -675,7 +675,7 @@ export default function StyleguidePage() {
 									</div>
 								</Card>
 
-								<Card title="Icon feature list (e.g. BuyOnlineBenefits on BookYourVisitPage)">
+								<Card title="Icon feature list (e.g. BuyOnlineBenefits on PlanYourVisitPage)">
 									<div className="flex flex-col gap-[24px]">
 										{[
 											{ iconBg: "bg-cma-teal", title: "Guaranteed Entry", body: "Advance online ticket purchase is highly encouraged. Walk-up availability is limited." },

@@ -687,7 +687,7 @@ export default function PlanTabs() {
 	}, []);
 
 	return (
-		<section id="parking" className="bg-cma-cream w-full py-[80px] md:py-[120px]">
+		<section id="parking" className="bg-cma-cream w-full pt-[80px] md:pt-[120px] pb-[40px] md:pb-[60px]">
 			<div className="cma-section-container flex flex-col gap-12 items-center">
 				{/* Heading */}
 				<motion.div
