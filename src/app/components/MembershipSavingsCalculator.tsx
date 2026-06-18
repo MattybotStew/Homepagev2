@@ -302,7 +302,7 @@ export default function MembershipSavingsCalculator({
 										<span className="font-semibold text-[17px] text-cma-navy leading-none">
 											{plan.name}
 										</span>
-										<div className="flex items-center justify-between gap-[8px]">
+										<div className="flex flex-wrap items-center justify-between gap-[4px]">
 											<div className="flex items-baseline gap-[3px]">
 												<span className="font-bold text-[20px] text-cma-navy">
 													${plan.price}

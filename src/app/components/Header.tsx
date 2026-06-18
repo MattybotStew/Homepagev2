@@ -169,7 +169,7 @@ function DropdownPanel({
 }) {
 	return (
 		<div className="absolute top-full left-0 pt-2 z-50 hidden group-hover:block">
-			<div className="bg-white rounded-[16px] shadow-cma-panel overflow-hidden min-w-[200px]">
+			<div className="bg-white rounded-[16px] shadow-cma-panel overflow-y-auto max-h-[calc(100vh-140px)] min-w-[200px]">
 				{subPages.map((sub, i) => {
 					const isActive = isSubPageActive(sub, pathname);
 					return (
