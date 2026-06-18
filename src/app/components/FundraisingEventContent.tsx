@@ -1,4 +1,4 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Facebook, Instagram } from "lucide-react";
 import { motion } from "motion/react";
@@ -145,7 +145,25 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 			{/* Sponsor tiers */}
 			<section className="bg-white w-full py-[60px] md:py-[80px]">
 				<div className="cma-section-container flex flex-col gap-8">
-					<h2 className="text-cma-navy">{event.sponsorsHeading}</h2>
+					<div className="flex flex-wrap items-center justify-between gap-[16px]">
+						<h2 className="text-cma-navy">{event.sponsorsHeading}</h2>
+						{event.resources && (
+							<div className="flex flex-wrap items-center gap-[20px]">
+								{event.resources.map((resource) => (
+									<a
+										key={resource.label}
+										href={resource.href}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="cma-text-link font-black flex items-center gap-[6px] whitespace-nowrap"
+									>
+										{resource.label}
+										<FontAwesomeIcon icon={faDownload} className="text-[13px]" />
+									</a>
+								))}
+							</div>
+						)}
+					</div>
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 						{event.sponsorTiers.map((tier, i) => (
 							<motion.div

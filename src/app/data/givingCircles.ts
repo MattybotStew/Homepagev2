@@ -16,6 +16,7 @@ export type FundraisingEventDetails = {
 	sponsorTiers: { name: string; featured: boolean; sponsors: string[] }[];
 	photosHeading: string;
 	photos: string[];
+	resources?: { label: string; href: string }[];
 	closingHeading: string;
 	closingBody: string;
 	closingCtas: { label: string; href: string }[];
@@ -23,6 +24,8 @@ export type FundraisingEventDetails = {
 
 export type GivingCircle = Program & { fundraisingEvent?: FundraisingEventDetails };
 
+const REGISTER_HREF =
+	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Tournament%20For%20Play%20Registration";
 const WAITLIST_HREF =
 	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Tournament%20For%20Play%20Waitlist";
 const TFP_SPONSOR_HREF =
@@ -126,8 +129,9 @@ export const givingCircles: GivingCircle[] = [
 		],
 		fundraisingEvent: {
 			heroSubtitle:
-				"The 14th Annual Tournament for Play tees off at Peachtree Golf Club on August 17, 2026. Foursomes are sold out — join the waitlist or ask about non-player sponsorship.",
+				"The 14th Annual Tournament for Play tees off at Peachtree Golf Club (4600 Peachtree Rd NE, Atlanta, GA 30319) on August 17, 2026. Foursomes are sold out — join the waitlist or ask about non-player sponsorship.",
 			heroCtas: [
+				{ label: "Register", href: REGISTER_HREF },
 				{ label: "Join Waitlist", href: WAITLIST_HREF },
 				{ label: "Sponsorship Inquiry", href: TFP_SPONSOR_HREF },
 			],
@@ -152,6 +156,7 @@ export const givingCircles: GivingCircle[] = [
 				{ name: "Presenting", featured: true, sponsors: ["PNC Bank"] },
 				{ name: "Albatross", featured: false, sponsors: ["Mellow Mushroom"] },
 				{ name: "Golf Cart", featured: false, sponsors: ["Osprey"] },
+				{ name: "Breakfast", featured: false, sponsors: ["Lexis Nexis"] },
 				{
 					name: "Early Birdie",
 					featured: false,
@@ -164,6 +169,7 @@ export const givingCircles: GivingCircle[] = [
 						"JVP Management",
 						"KSM",
 						"Lazlo 326 Corp",
+						"ML Healthcare",
 						"Andy Sanford/Ameriprise",
 						"Southern Company",
 						"Stanton Barton/McBrayer/Mozley Finlayson Loggins",
@@ -173,6 +179,10 @@ export const givingCircles: GivingCircle[] = [
 			],
 			photosHeading: "From Past Tournaments",
 			photos: [img0, img1, img2, img3],
+			resources: [
+				{ label: "Sponsorship Brochure (PDF)", href: "#" },
+				{ label: "Foursomes and Sponsorship Levels (PDF)", href: "#" },
+			],
 			closingHeading: "Interested in Sponsoring or Joining the Waitlist?",
 			closingBody:
 				"Tournament foursomes are sold out for 2026, but waitlist spots and non-player sponsorships are still open.",
