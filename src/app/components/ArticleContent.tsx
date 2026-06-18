@@ -110,7 +110,7 @@ export default function ArticleContent({ exhibit, related }: Props) {
 						{/* Related Exhibits */}
 						<div className="flex flex-col gap-[48px]">
 							<p className="text-cma-navy font-extrabold text-[28px] md:text-[36px] leading-[1.1]">
-								Related Exhibits
+								Explore More Exhibits
 							</p>
 							<div className="flex flex-col gap-[16px]">
 								{related.map((rel, i) => (
