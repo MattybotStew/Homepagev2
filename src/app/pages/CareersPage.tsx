@@ -174,7 +174,7 @@ export default function CareersPage() {
 								<img
 									src={imgJoin}
 									alt="Children's Museum of Atlanta staff"
-									className="absolute inset-0 w-full h-full object-cover object-top origin-center rotate-90 scale-[1.35]"
+									className="absolute inset-0 w-full h-full object-cover"
 								/>
 							</div>
 						</motion.div>
