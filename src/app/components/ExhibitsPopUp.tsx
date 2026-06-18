@@ -1,28 +1,28 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AnimatePresence, motion } from "motion/react";
-import imgB from "../../assets/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp";
-import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp";
-import imgC from "../../assets/39da2bd0af3dceef1e3b406cd981247f82778d27.webp";
+import imgObstacle from "../../assets/ObstacleAdventure.png";
+import imgOutside from "../../assets/outside-the-box.png";
+import imgSpace from "../../assets/place-in-space.png";
 import imgWaveWhite from "../../assets/wave-white.svg";
 
 const popUpExhibits = [
 	{
-		image: imgA,
+		image: imgOutside,
 		badge: "Fall 2026",
 		title: "Outside the Box",
 		body: "Transform everyday boxes into anything you imagine: cars, houses, rockets, and more! Build creativity while exploring the basics of math, engineering, and science through imaginative, constructive play.",
 		href: "#/exhibits/outside-the-box",
 	},
 	{
-		image: imgB,
+		image: imgObstacle,
 		badge: "Spring 2027",
 		title: "Obstacle Adventure: Make Your Own Path",
 		body: "Climb, crawl, balance, and explore your way through a giant obstacle course where you choose your own path, take on new challenges, and discover fun, unexpected ways to move.",
 		href: "#/exhibits/obstacle-adventure",
 	},
 	{
-		image: imgC,
+		image: imgSpace,
 		badge: "Summer 2027",
 		title: "Our Place in Space",
 		body: "Blast off into our solar system! Enter the planetarium to explore the planets and orbits in our solar system.",

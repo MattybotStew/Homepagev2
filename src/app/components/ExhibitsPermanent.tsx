@@ -1,49 +1,52 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AnimatePresence, motion } from "motion/react";
-import imgB from "../../assets/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp";
-import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp";
-import imgC from "../../assets/39da2bd0af3dceef1e3b406cd981247f82778d27.webp";
+import imgCreativity from "../../assets/exhibit-creativity.webp";
+import imgFood from "../../assets/fundamentally-foods.png";
+import imgGateway from "../../assets/gateway-to-the-world.png";
+import imgLeaping from "../../assets/Leaping-into-Learning.png";
+import imgScience from "../../assets/step-up-to-science.png";
+import imgTools from "../../assets/exhibit-tools.webp";
 import imgWaveBottom from "../../assets/impact-wave-bottom.svg";
 
 const permanentExhibits = [
 	{
-		image: imgA,
+		image: imgFood,
 		badge: "Permanent",
 		title: "Fundamentally Food",
 		body: "Climb tractors, milk a dairy cow, load delivery trucks, shop a bustling grocery store, and cook pretend meals together. Through playful farm-to-table fun, explore where our food comes from, how it moves, and how food helps families grow strong and healthy.",
 		href: "#/exhibits/fundamentally-food",
 	},
 	{
-		image: imgB,
+		image: imgGateway,
 		badge: "Permanent",
 		title: "Gateway to the World",
 		body: "Travel the globe through hands-on play. Guide trains across continents, launch rockets to planets in our solar system, and climb a two-story Earth. Along the way, explore geography, movement, and the ways our world is connected, from the ground beneath their feet to far beyond the sky.",
 		href: "#/exhibits/gateway-to-the-world",
 	},
 	{
-		image: imgC,
+		image: imgLeaping,
 		badge: "Permanent",
 		title: "Leaping into Learning",
 		body: "Step into a magical forest! Cast your rod, catch colorful fish, and slip behind a waterfall without getting wet. Climb the treehouse, spot forest animals, and let little ones explore a cozy space filled with bubbles, a play car, and a house just their size.",
 		href: "#/exhibits/leaping-into-learning",
 	},
 	{
-		image: imgA,
+		image: imgCreativity,
 		badge: "Permanent",
 		title: "Let Your Creativity Flow",
 		body: "Create a masterpiece on the paint wall, shape and reshape sand into living landscapes, and watch digital topography shift beneath your hands. Create your own avatar and share an act of kindness, adding your voice to a growing world of creativity, connection, and care.",
 		href: "#/exhibits/let-your-creativity-flow",
 	},
 	{
-		image: imgB,
+		image: imgScience,
 		badge: "Permanent",
 		title: "Step Up to Science",
 		body: "Experiment with light and sound through playful, hands-on activities — creating shadows, exploring color, and making vibrations move. Discover how waves work, how science and creativity connect, and how experimenting leads to exciting, sometimes surprising results.",
 		href: "#/exhibits/step-up-to-science",
 	},
 	{
-		image: imgC,
+		image: imgTools,
 		badge: "Permanent",
 		title: "Tools for Solutions",
 		body: "Guide balls through a giant machine using six simple machines, connect make-believe wires and pipes in the Construction House, build skyscrapers, and design a city of the future with blocks. Along the way, explore engineering, problem-solving, and how structures respond to forces.",

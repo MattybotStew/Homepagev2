@@ -1,7 +1,6 @@
-import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp";
-import imgC from "../../assets/39da2bd0af3dceef1e3b406cd981247f82778d27.webp";
+import imgCreativity from "../../assets/exhibit-creativity.webp";
+import imgTools from "../../assets/exhibit-tools.webp";
 import imgSpring from "../../assets/exhibits-spring-hero.webp";
-import imgSummer from "../../assets/exhibits-summer-hero.jpg";
 import kratts from "../../assets/kratts.png";
 import mcstuff from "../../assets/mcstuff.png";
 import amazingCastle from "../../assets/amazing-castle.png";
@@ -52,7 +51,7 @@ export const exhibits: Exhibit[] = [
 		badgeColor: "teal-dark",
 		eyebrow: "Ages: 4–14 | May 23 – Sep 13, 2026 | 25–30 minutes",
 		heroImage: kratts,
-		cardImage: imgSummer,
+		cardImage: kratts,
 		paragraphs: [
 			"Wild Kratts®: Ocean Adventure!, a brand-new temporary exhibit at the Museum, immerses the young explorers in your life in whole body explorations of ocean habitats and the fascinating creatures within them. Using Wild Kratts technology and the powers of science and teamwork, visitors will join the Wild Kratts team to solve problems, help animals, and foil the villains' nefarious plans.",
 			"This exhibit is only at Children's Museum of Atlanta for a limited time. Catch this adventure before it leaves town! Plan your visit today.",
@@ -181,8 +180,8 @@ export const exhibits: Exhibit[] = [
 		badge: "Permanent",
 		badgeColor: "navy",
 		eyebrow: "",
-		heroImage: imgA,
-		cardImage: imgA,
+		heroImage: imgCreativity,
+		cardImage: imgCreativity,
 		paragraphs: [
 			"Create a masterpiece on the paint wall, shape and reshape sand into living landscapes, and watch digital topography shift beneath your hands. Create your own avatar and share an act of kindness — then see how that ripple travels through the museum's interactive network.",
 			"Let Your Creativity Flow is where art and technology meet in a joyful, expressive space. Children of all abilities find their medium here: visual art, digital design, or collaborative creation. There are no wrong answers — only new ideas waiting to be born.",
@@ -207,8 +206,8 @@ export const exhibits: Exhibit[] = [
 		badge: "Permanent",
 		badgeColor: "navy",
 		eyebrow: "",
-		heroImage: imgC,
-		cardImage: imgC,
+		heroImage: imgTools,
+		cardImage: imgTools,
 		paragraphs: [
 			"Guide balls through a giant machine using six simple machines, connect make-believe wires and pipes in the Construction House, build skyscrapers, and design a city of the future with blocks. Tools for Solutions is where young engineers discover that every big problem has a clever solution.",
 			"This exhibit introduces the fundamentals of engineering, architecture, and systems thinking through child-directed play. Visitors collaborate, prototype, fail, and try again — building not just structures but the growth mindset that turns future thinkers into makers and problem-solvers.",
