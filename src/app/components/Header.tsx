@@ -152,7 +152,6 @@ const donateSubPages: NavSubPage[] = [
 	{ label: "Support", href: "#/support" },
 	{ label: "Corporate Partners", href: "#/support/corporate-partners" },
 	{ label: "Donor Recognition", href: "#/support/donor-recognition" },
-	{ label: "Legacy Giving", href: "#/support/legacy" },
 	{ label: "Tournament For Play", href: "#/giving-circles/tournament-for-play" },
 	{ label: "Imagination Ball", href: "#/giving-circles/imagination-ball" },
 	{ label: "Young Professionals", href: "#/giving-circles/young-professionals" },

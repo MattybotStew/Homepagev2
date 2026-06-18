@@ -17,7 +17,7 @@ const PLAN_DETAILS: Record<
 	{ description: string; benefits: string[] }
 > = {
 	"Two of Us": {
-		description: "Covers two adults in the household.",
+		description: "Covers any two members of the household.",
 		benefits: [
 			"Unlimited visits for a full year",
 			"50% off guest tickets",
@@ -47,13 +47,13 @@ const PLAN_DETAILS: Record<
 };
 
 function planFits(name: string, adults: number, children: number) {
-	if (name === "Two of Us") return adults <= 2 && children === 0;
+	if (name === "Two of Us") return adults + children <= 2;
 	if (name === "Family Membership") return adults <= 2 && children <= 4;
 	return true;
 }
 
 function getRecommended(adults: number, children: number) {
-	if (adults <= 2 && children === 0) return "Two of Us";
+	if (adults + children <= 2) return "Two of Us";
 	if (adults <= 2 && children <= 4) return "Family Membership";
 	return "Family Plus";
 }

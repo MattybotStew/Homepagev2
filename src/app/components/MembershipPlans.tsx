@@ -6,7 +6,7 @@ const plans = [
 	{
 		name: "Two of Us",
 		price: 125,
-		description: "Covers two adults in the household.",
+		description: "Covers any two members of the household.",
 		highlight: false,
 		cta: "Get Started",
 	},

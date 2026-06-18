@@ -1,15 +1,42 @@
-import { faDownload, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faChartLine, faDownload, faMinus, faPlus, faScroll, faSeedling, faShield } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import imgCutCMA from "../../assets/cutCMA.png";
 import DafWidgetButton from "./DafWidgetButton";
+
+const legacyGivingMethods = [
+	{
+		color: "bg-cma-teal",
+		icon: faScroll,
+		title: "Estate & Will Planning",
+		body: "Include CMA as a beneficiary in your will or trust. A bequest of any size helps secure our mission for future generations. Your attorney can help you add CMA to an existing plan.",
+	},
+	{
+		color: "bg-cma-orange",
+		icon: faChartLine,
+		title: "Stock Donations",
+		body: "CMA makes stock donations simple — complete in 10 minutes or less. Donating appreciated securities may offer significant tax advantages over a cash gift.",
+	},
+	{
+		color: "bg-[#fbb040]",
+		icon: faSeedling,
+		title: "Endowments",
+		body: "An endowed gift creates a permanent, named fund at CMA. The principal is invested and the earnings support CMA's programs in perpetuity — a true lasting legacy.",
+	},
+	{
+		color: "bg-cma-teal-dark",
+		icon: faShield,
+		title: "Retirement Assets / IRA",
+		body: "Name CMA as a full or partial beneficiary of your IRA or retirement plan. This is often one of the most tax-efficient ways to make a planned gift.",
+	},
+];
 
 const sections = [
 	{ id: "overview", label: "Overview" },
 	{ id: "individual-giving", label: "Individual Giving" },
 	{ id: "corporate-foundation", label: "Corporate & Foundation Giving" },
 	{ id: "matching-gifts", label: "Matching Gifts" },
-	{ id: "planned-giving", label: "Planned Giving, bonds, & securities" },
+	{ id: "planned-giving", label: "Legacy & Planned Giving" },
 	{ id: "donate-stock", label: "Donate Stock" },
 	{ id: "daf", label: "Add us to your DAF" },
 	{ id: "documents", label: "Documents" },
@@ -362,25 +389,61 @@ export default function SupportPageContent() {
 								<Divider />
 
 								{/* Planned Giving */}
-								<div id="planned-giving" className="flex flex-col gap-[20px]">
+								<div id="planned-giving" className="flex flex-col gap-[24px]">
 									<h2 className="text-cma-navy">
-										Planned Giving, bonds, & securities
+										Legacy & Planned Giving
 									</h2>
 									<p className="text-cma-navy">
-										Your generous support today helps ensure that future
-										generations will benefit from play-based, educational,
-										learning at the Museum. Planned gifts of all sizes support
-										Children's Museum of Atlanta's long-term fiscal stability. We
-										are pleased to assist you in a wire transfer when donating
+										A planned gift to CMA is one of the most meaningful ways to
+										ensure every child in Atlanta has a place to learn, grow, and
+										discover — for generations to come. Planned gifts of all
+										sizes form the foundation of CMA's long-term fiscal
+										stability. When you include CMA in your estate plan, you're
+										not just making a donation — you're ensuring that the power
+										of play reaches children in Atlanta long after you're gone.
+									</p>
+
+									<div className="flex flex-col gap-[20px]">
+										{legacyGivingMethods.map((method) => (
+											<div key={method.title} className="flex gap-[16px] items-start">
+												<div className={`${method.color} rounded-full size-[48px] flex items-center justify-center shrink-0`}>
+													<FontAwesomeIcon icon={method.icon} className="text-white text-[18px]" />
+												</div>
+												<div className="flex flex-col gap-[8px] flex-1 min-w-0">
+													<p className="font-extrabold text-[18px] leading-[1.2] text-cma-navy">
+														{method.title}
+													</p>
+													<p className="leading-[1.65] text-cma-navy">{method.body}</p>
+												</div>
+											</div>
+										))}
+									</div>
+
+									<p className="text-cma-navy">
+										We are pleased to assist you in a wire transfer when donating
 										securities. Click below to reach out to Laura Halad,
 										Assistant Director of Advancement & Special Events.
 									</p>
-									<div>
+
+									<div className="self-start">
+										<span className="inline-flex items-center gap-[6px] bg-cma-teal-pale text-cma-teal-dark font-bold text-[12px] px-[12px] py-[6px] rounded-full border border-cma-teal/30">
+											<span className="w-[8px] h-[8px] rounded-full bg-cma-teal-dark shrink-0" />
+											GuideStar Platinum Transparency
+										</span>
+									</div>
+
+									<div className="flex flex-col sm:flex-row flex-wrap gap-[12px]">
 										<a
 											href="mailto:lhalad@childrensmuseumatlanta.org"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black w-full sm:w-auto"
 										>
 											Reach out to Laura Halad
+										</a>
+										<a
+											href="mailto:kmcneely@childrensmuseumatlanta.org"
+											className="cma-btn cma-btn-outline-teal font-black w-full sm:w-auto"
+										>
+											Contact Kate McNeely
 										</a>
 									</div>
 								</div>

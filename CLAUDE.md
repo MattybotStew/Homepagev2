@@ -154,7 +154,7 @@ Two-column: sticky 210px sidebar with jump-nav + newsletter widget; main white `
 ### 3. ArticleContentWithSidebar (e.g. `GivingCirclePage`, `ExhibitPage`)
 Generic detail page. Data-driven via `givingCircles.ts` or `programs.ts`. Use for fundraising events (Tournament For Play, Imagination Ball, Young Professionals, Dream Builders) and giving circles. Add entries to `src/app/data/givingCircles.ts`; the route `/giving-circles/:slug` handles them automatically.
 
-### 4. GivingHero + sections (e.g. `SupportPage`, `LegacyPage`, `CorporatePartnerPage`)
+### 4. GivingHero + sections (e.g. `SupportPage`, `CorporatePartnerPage`)
 `GivingHero` component at top (accepts `eyebrow`, `heading`, `subtitle`, `body`, `stats[]`, `ctas[]`), followed by a content-specific component, then `Testimonials` + `PYVCallout` + `PowerOfPlayMarquee`. Use for all giving/fundraising landing pages.
 
 ---
@@ -201,7 +201,6 @@ All routes registered in `src/main.tsx`:
 | `/donate` | DonatePage |
 | `/memberships` | MembershipsPage |
 | `/support` | SupportPage |
-| `/support/legacy` | LegacyPage |
 | `/support/corporate-partners` | CorporatePartnerPage |
 | `/support/donor-recognition` | DonorRecognitionPage |
 | `/giving-circles/:slug` | GivingCirclePage (imagination-ball, tournament-for-play, young-professionals, dream-builders) |

@@ -124,6 +124,22 @@ export default function DonateHero() {
 								Our Impact
 							</a>
 						</motion.div>
+
+						<motion.div
+							className="self-start"
+							initial={{ opacity: 0, y: 20 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{
+								duration: 1.0,
+								ease: [0.16, 1, 0.3, 1],
+								delay: 0.55,
+							}}
+						>
+							<span className="inline-flex items-center gap-[6px] bg-white/10 border border-white/20 text-white font-bold text-[12px] px-[12px] py-[6px] rounded-full">
+								<span className="w-[8px] h-[8px] rounded-full bg-cma-teal-light shrink-0" />
+								GuideStar Platinum Transparency
+							</span>
+						</motion.div>
 					</div>
 
 					{/* Right: stat cards */}
