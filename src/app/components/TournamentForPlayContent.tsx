@@ -152,6 +152,42 @@ export default function TournamentForPlayContent({ related }: Props) {
 					</div>
 				</div>
 			</section>
+
+			{/* Schedule */}
+			<section className="bg-cma-cream w-full pb-[60px] md:pb-[80px]">
+				<div className="cma-section-container">
+					<div className="bg-white rounded-[24px] border-2 border-black/5 p-[24px] md:p-[48px] flex flex-col gap-[32px]">
+						<h2 className="text-cma-navy">Schedule</h2>
+						<div className="flex flex-col border-t border-black/10">
+							{schedule.map((row, i) => (
+								<motion.div
+									key={row.time}
+									className="flex items-center gap-[24px] py-[16px] border-b border-black/10"
+									initial={{ opacity: 0, x: -16 }}
+									whileInView={{ opacity: 1, x: 0 }}
+									viewport={{ once: true, margin: "-40px" }}
+									transition={{
+										duration: 0.5,
+										ease: [0.16, 1, 0.3, 1],
+										delay: i * 0.06,
+									}}
+								>
+									<span className="text-cma-orange font-black text-[15px] w-[90px] shrink-0">
+										{row.time}
+									</span>
+									<span className="text-cma-navy font-semibold">
+										{row.activity}
+									</span>
+								</motion.div>
+							))}
+						</div>
+						<p className="text-cma-navy">
+							Player bundles include a Par 3 Poker game card and 2
+							mulligans — the best poker hand wins $500.
+						</p>
+					</div>
+				</div>
+			</section>
 		</>
 	);
 }
