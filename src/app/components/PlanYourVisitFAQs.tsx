@@ -325,38 +325,37 @@ export default function PlanYourVisitFAQs({
 								>
 									{faq.label}
 								</h3>
-							) : (
-								(() => {
-									const isOpen = open === i;
-									return (
-										<div
-											key={`item-${i}`}
-											className={`border-2 border-black/5 rounded-[24px] overflow-hidden transition-colors ${isOpen ? "bg-cma-teal-pale" : "bg-white"}`}
+							) : (() => {
+								const q = faq as { question: string; answer: ReactNode };
+								const isOpen = open === i;
+								return (
+									<div
+										key={`item-${i}`}
+										className={`border-2 border-black/5 rounded-[24px] overflow-hidden transition-colors ${isOpen ? "bg-cma-teal-pale" : "bg-white"}`}
+									>
+										<button
+											className="w-full flex items-center justify-between px-6 py-8 text-left gap-4"
+											onClick={() => setOpen(isOpen ? null : i)}
+											aria-expanded={isOpen}
 										>
-											<button
-												className="w-full flex items-center justify-between px-6 py-8 text-left gap-4"
-												onClick={() => setOpen(isOpen ? null : i)}
-												aria-expanded={isOpen}
+											<h3
+												className={`${isOpen ? "font-black" : "font-semibold"} text-cma-navy`}
 											>
-												<h3
-													className={`${isOpen ? "font-black" : "font-semibold"} text-cma-navy`}
-												>
-													{faq.question}
-												</h3>
-												<FontAwesomeIcon
-													icon={isOpen ? faMinus : faPlus}
-													className="shrink-0 text-cma-orange text-[12px]"
-												/>
-											</button>
-											{isOpen && (
-												<div className="px-6 pb-8 flex flex-col gap-2">
-													{faq.answer}
-												</div>
-											)}
-										</div>
-									);
-								})()
-							),
+												{q.question}
+											</h3>
+											<FontAwesomeIcon
+												icon={isOpen ? faMinus : faPlus}
+												className="shrink-0 text-cma-orange text-[12px]"
+											/>
+										</button>
+										{isOpen && (
+											<div className="px-6 pb-8 flex flex-col gap-2">
+												{q.answer}
+											</div>
+										)}
+									</div>
+								);
+							})(),
 						)}
 					</motion.div>
 
