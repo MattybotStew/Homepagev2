@@ -50,6 +50,7 @@ export type FundraisingEventDetails = {
 	sponsorTiers?: { name: string; featured: boolean; sponsors: string[] }[];
 	photosHeading: string;
 	photos: string[];
+	photosAfterSponsors?: boolean;
 	resources?: { label: string; href: string }[];
 	closingHeading: string;
 	closingBody: string;
@@ -333,6 +334,7 @@ export const givingCircles: GivingCircle[] = [
 			],
 			photosHeading: "What to Expect at CMA",
 			photos: [imgFOT1, imgFOT2, imgFOT3, imgFOT4],
+			photosAfterSponsors: true,
 			closingHeading: "Tickets Coming Soon",
 			closingBody:
 				"Check back here for tickets and more information, or reach out now about sponsorship opportunities.",

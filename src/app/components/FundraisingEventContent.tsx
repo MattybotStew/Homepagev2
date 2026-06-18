@@ -14,6 +14,116 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 	const event = circle.fundraisingEvent;
 	if (!event) return null;
 
+	const photoStripSection = (
+		<section className="bg-cma-navy w-full py-[60px] md:py-[80px]">
+			<div className="cma-section-container flex flex-col gap-8 items-center">
+				<h2 className="text-white text-center">{event.photosHeading}</h2>
+				<div className="flex flex-wrap justify-center gap-4 max-w-[1200px] mx-auto">
+					{event.photos.map((photo, i) => (
+						<img
+							key={i}
+							src={photo}
+							alt=""
+							className="w-[calc(50%-8px)] sm:w-[calc(33.333%-11px)] lg:w-[calc(20%-13px)] aspect-[4/3] object-cover rounded-[16px]"
+						/>
+					))}
+				</div>
+			</div>
+		</section>
+	);
+
+	const sponsorIsFirstSection =
+		event.photosAfterSponsors &&
+		!(event.scheduleItems || event.award || event.leadership);
+
+	const sponsorSection = (
+		<section
+			className={`bg-cma-cream w-full ${
+				sponsorIsFirstSection
+					? "pb-[60px] md:pb-[80px]"
+					: "py-[60px] md:py-[80px]"
+			}`}
+		>
+			<div className="cma-section-container">
+				<div className="bg-white rounded-[24px] border-2 border-black/5 p-[24px] md:p-[48px] flex flex-col gap-8">
+					<div className={event.sponsorsImage ? "flex flex-col lg:flex-row gap-[40px] items-center" : ""}>
+						<div className="flex flex-col gap-8 flex-1 min-w-0">
+							<h2 className="text-cma-navy">{event.sponsorsHeading}</h2>
+							{event.sponsorsBody && (
+								<p className="text-cma-navy max-w-[760px]">{event.sponsorsBody}</p>
+							)}
+							{event.resources && (
+								<div className="flex flex-wrap items-center gap-[20px]">
+									{event.resources.map((resource) => (
+										<a
+											key={resource.label}
+											href={resource.href}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="cma-btn cma-btn-outline-teal font-black"
+										>
+											{resource.label}
+											<FontAwesomeIcon icon={faDownload} className="text-[13px]" />
+										</a>
+									))}
+								</div>
+							)}
+						</div>
+						{event.sponsorsImage && (
+							<img
+								src={event.sponsorsImage}
+								alt=""
+								className="w-full lg:w-[280px] shrink-0 rounded-[24px] object-cover"
+							/>
+						)}
+					</div>
+					{event.sponsorTiers && (
+						<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+							{event.sponsorTiers.map((tier, i) => (
+								<motion.div
+									key={tier.name}
+									className={`bg-cma-cream rounded-[24px] p-8 flex flex-col gap-4 border border-black/5 ${
+										tier.featured ? "md:col-span-2" : ""
+									}`}
+									initial={{ opacity: 0, y: 24 }}
+									whileInView={{ opacity: 1, y: 0 }}
+									viewport={{ once: true, margin: "-60px" }}
+									transition={{
+										duration: 0.7,
+										ease: [0.16, 1, 0.3, 1],
+										delay: i * 0.06,
+									}}
+								>
+									<h3 className="text-cma-navy">{tier.name}</h3>
+									<div className="flex flex-wrap gap-3">
+										{tier.sponsors.map((sponsor, j) => (
+											<div
+												key={`${sponsor}-${j}`}
+												className={`flex flex-col items-center gap-2 ${tier.featured ? "w-[220px]" : "w-[120px]"}`}
+											>
+												<div
+													className={`w-full rounded-[12px] bg-black/10 flex items-center justify-center ${tier.featured ? "h-[140px]" : "h-[64px]"}`}
+													aria-hidden
+												>
+													<span className={`text-cma-navy/30 font-bold ${tier.featured ? "text-[18px]" : "text-[11px]"}`}>
+														LOGO
+													</span>
+												</div>
+												<p className="text-cma-navy text-[12px] font-semibold text-center leading-[1.3]">
+													{sponsor}
+												</p>
+											</div>
+										))}
+									</div>
+								</motion.div>
+							))}
+						</div>
+					)}
+				</div>
+			</div>
+		</section>
+	);
+
 	return (
 		<>
 			{/* Hero */}
@@ -252,101 +362,17 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 				</section>
 			)}
 
-			{/* Photo strip */}
-			<section className="bg-cma-navy w-full py-[60px] md:py-[80px]">
-				<div className="cma-section-container flex flex-col gap-8 items-center">
-					<h2 className="text-white text-center">{event.photosHeading}</h2>
-					<div className="flex flex-wrap justify-center gap-4 max-w-[1200px] mx-auto">
-						{event.photos.map((photo, i) => (
-							<img
-								key={i}
-								src={photo}
-								alt=""
-								className="w-[calc(50%-8px)] sm:w-[calc(33.333%-11px)] lg:w-[calc(20%-13px)] aspect-[4/3] object-cover rounded-[16px]"
-							/>
-						))}
-					</div>
-				</div>
-			</section>
-
-			{/* Sponsor tiers */}
-			<section className="bg-white w-full py-[60px] md:py-[80px]">
-				<div className="cma-section-container flex flex-col gap-8">
-					<div className={event.sponsorsImage ? "flex flex-col lg:flex-row gap-[40px] items-center" : ""}>
-						<div className="flex flex-col gap-8 flex-1 min-w-0">
-							<h2 className="text-cma-navy">{event.sponsorsHeading}</h2>
-							{event.sponsorsBody && (
-								<p className="text-cma-navy max-w-[760px]">{event.sponsorsBody}</p>
-							)}
-							{event.resources && (
-								<div className="flex flex-wrap items-center gap-[20px]">
-									{event.resources.map((resource) => (
-										<a
-											key={resource.label}
-											href={resource.href}
-											target="_blank"
-											rel="noopener noreferrer"
-											className="cma-btn cma-btn-outline-teal font-black"
-										>
-											{resource.label}
-											<FontAwesomeIcon icon={faDownload} className="text-[13px]" />
-										</a>
-									))}
-								</div>
-							)}
-						</div>
-						{event.sponsorsImage && (
-							<img
-								src={event.sponsorsImage}
-								alt=""
-								className="w-full lg:w-[280px] shrink-0 rounded-[24px] object-cover"
-							/>
-						)}
-					</div>
-					{event.sponsorTiers && (
-						<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-							{event.sponsorTiers.map((tier, i) => (
-								<motion.div
-									key={tier.name}
-									className={`bg-cma-cream rounded-[24px] p-8 flex flex-col gap-4 border border-black/5 ${
-										tier.featured ? "md:col-span-2" : ""
-									}`}
-									initial={{ opacity: 0, y: 24 }}
-									whileInView={{ opacity: 1, y: 0 }}
-									viewport={{ once: true, margin: "-60px" }}
-									transition={{
-										duration: 0.7,
-										ease: [0.16, 1, 0.3, 1],
-										delay: i * 0.06,
-									}}
-								>
-									<h3 className="text-cma-navy">{tier.name}</h3>
-									<div className="flex flex-wrap gap-3">
-										{tier.sponsors.map((sponsor, j) => (
-											<div
-												key={`${sponsor}-${j}`}
-												className={`flex flex-col items-center gap-2 ${tier.featured ? "w-[220px]" : "w-[120px]"}`}
-											>
-												<div
-													className={`w-full rounded-[12px] bg-black/10 flex items-center justify-center ${tier.featured ? "h-[140px]" : "h-[64px]"}`}
-													aria-hidden
-												>
-													<span className={`text-cma-navy/30 font-bold ${tier.featured ? "text-[18px]" : "text-[11px]"}`}>
-														LOGO
-													</span>
-												</div>
-												<p className="text-cma-navy text-[12px] font-semibold text-center leading-[1.3]">
-													{sponsor}
-												</p>
-											</div>
-										))}
-									</div>
-								</motion.div>
-							))}
-						</div>
-					)}
-				</div>
-			</section>
+			{event.photosAfterSponsors ? (
+				<>
+					{sponsorSection}
+					{photoStripSection}
+				</>
+			) : (
+				<>
+					{photoStripSection}
+					{sponsorSection}
+				</>
+			)}
 
 			{/* Closing CTA */}
 			<section className="bg-white w-full py-[60px] md:py-[80px]">
