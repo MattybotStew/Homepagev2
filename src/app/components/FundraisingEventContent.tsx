@@ -162,29 +162,38 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 					<div className="cma-section-container flex flex-col gap-[32px]">
 						{event.scheduleItems && (
 							<div className="bg-white rounded-[24px] border-2 border-black/5 p-[24px] md:p-[48px] flex flex-col gap-[32px]">
-								<h2 className="text-cma-navy">{event.scheduleHeading}</h2>
-								<div className="flex flex-col border-t border-black/10">
-									{event.scheduleItems.map((row, i) => (
-										<motion.div
-											key={row.time}
-											className="flex items-center gap-[24px] py-[16px] border-b border-black/10"
-											initial={{ opacity: 0, x: -16 }}
-											whileInView={{ opacity: 1, x: 0 }}
-											viewport={{ once: true, margin: "-40px" }}
-											transition={{
-												duration: 0.5,
-												ease: [0.16, 1, 0.3, 1],
-												delay: i * 0.06,
-											}}
-										>
-											<span className="text-cma-orange font-black text-[15px] w-[90px] shrink-0">
-												{row.time}
-											</span>
-											<span className="text-cma-navy font-semibold">
-												{row.activity}
-											</span>
-										</motion.div>
-									))}
+								<h2 className="text-cma-navy text-center">{event.scheduleHeading}</h2>
+								<div className="flex flex-col lg:flex-row gap-[32px] lg:gap-[60px] items-start">
+									<div className="flex flex-col border-t border-black/10 flex-1 min-w-0 w-full">
+										{event.scheduleItems.map((row, i) => (
+											<motion.div
+												key={row.time}
+												className="flex items-center gap-[24px] py-[16px] border-b border-black/10"
+												initial={{ opacity: 0, x: -16 }}
+												whileInView={{ opacity: 1, x: 0 }}
+												viewport={{ once: true, margin: "-40px" }}
+												transition={{
+													duration: 0.5,
+													ease: [0.16, 1, 0.3, 1],
+													delay: i * 0.06,
+												}}
+											>
+												<span className="text-cma-orange font-black text-[15px] w-[90px] shrink-0">
+													{row.time}
+												</span>
+												<span className="text-cma-navy font-semibold">
+													{row.activity}
+												</span>
+											</motion.div>
+										))}
+									</div>
+									{event.scheduleImage && (
+										<img
+											src={event.scheduleImage}
+											alt=""
+											className="w-full max-w-[291px] lg:w-[291px] h-auto object-cover shrink-0"
+										/>
+									)}
 								</div>
 								{event.scheduleNote && (
 									<p className="text-cma-navy">{event.scheduleNote}</p>
@@ -193,23 +202,34 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 						)}
 
 						{event.award && (
-							<div className="bg-white rounded-[24px] border-2 border-black/5 p-[24px] md:p-[48px] flex flex-col gap-[16px]">
-								<h2 className="text-cma-navy">{event.award.heading}</h2>
-								<div className="flex flex-col gap-[4px]">
-									<p className="text-cma-orange font-black text-[24px] leading-[1.2]">
-										{event.award.recipientName}
-									</p>
-									<p className="text-cma-teal-dark font-bold text-[13px]">
-										{event.award.recipientDate}
-									</p>
+							<div className="bg-white rounded-[24px] border-2 border-black/5 p-[24px] md:p-[48px] flex flex-col lg:flex-row gap-[32px] lg:gap-[64px] items-center">
+								<div className="flex flex-col gap-[16px] flex-1 min-w-0">
+									<h2 className="text-cma-navy text-center">{event.award.heading}</h2>
+									<div className="flex flex-col gap-[4px]">
+										<p className="text-cma-orange font-black text-[24px] leading-[1.2]">
+											{event.award.recipientName}
+										</p>
+										<p className="text-cma-teal-dark font-bold text-[13px]">
+											{event.award.recipientDate}
+										</p>
+									</div>
+									<p className="text-cma-navy">{event.award.recipientBio}</p>
 								</div>
-								<p className="text-cma-navy">{event.award.recipientBio}</p>
+								{event.award.image && (
+									<div className="bg-cma-teal-pale rounded-[20px] p-[20px] shrink-0 w-full lg:w-auto flex items-center justify-center">
+										<img
+											src={event.award.image}
+											alt=""
+											className="w-full lg:w-[344px] h-auto object-cover"
+										/>
+									</div>
+								)}
 							</div>
 						)}
 
 						{event.leadership && (
 							<div className="bg-white rounded-[24px] border-2 border-black/5 p-[24px] md:p-[48px] flex flex-col gap-[24px]">
-								<h2 className="text-cma-navy">{event.leadership.heading}</h2>
+								<h2 className="text-cma-navy text-center">{event.leadership.heading}</h2>
 								<div className="flex flex-col gap-[6px]">
 									<p className="font-extrabold text-cma-navy">
 										{event.leadership.chairsLabel}
@@ -232,17 +252,34 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 				</section>
 			)}
 
+			{/* Photo strip */}
+			<section className="bg-cma-navy w-full py-[60px] md:py-[80px]">
+				<div className="cma-section-container flex flex-col gap-8">
+					<h2 className="text-white text-center">{event.photosHeading}</h2>
+					<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+						{event.photos.map((photo, i) => (
+							<img
+								key={i}
+								src={photo}
+								alt=""
+								className="w-full aspect-[4/3] object-cover rounded-[16px]"
+							/>
+						))}
+					</div>
+				</div>
+			</section>
+
 			{/* Sponsor tiers */}
 			<section className="bg-white w-full py-[60px] md:py-[80px]">
 				<div className="cma-section-container flex flex-col gap-8">
 					<div className={event.sponsorsImage ? "flex flex-col lg:flex-row gap-[40px] items-center" : ""}>
 						<div className="flex flex-col gap-8 flex-1 min-w-0">
-							<h2 className="text-cma-navy">{event.sponsorsHeading}</h2>
+							<h2 className="text-cma-navy text-center">{event.sponsorsHeading}</h2>
 							{event.sponsorsBody && (
 								<p className="text-cma-navy max-w-[760px]">{event.sponsorsBody}</p>
 							)}
 							{event.resources && (
-								<div className="flex flex-wrap items-center gap-[20px]">
+								<div className="flex flex-wrap items-center justify-center gap-[20px]">
 									{event.resources.map((resource) => (
 										<a
 											key={resource.label}
@@ -311,23 +348,6 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 				</div>
 			</section>
 
-			{/* Photo strip */}
-			<section className="bg-cma-cream w-full py-[60px] md:py-[80px]">
-				<div className="cma-section-container flex flex-col gap-8">
-					<h2 className="text-cma-navy">{event.photosHeading}</h2>
-					<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-						{event.photos.map((photo, i) => (
-							<img
-								key={i}
-								src={photo}
-								alt=""
-								className="w-full aspect-[4/3] object-cover rounded-[16px]"
-							/>
-						))}
-					</div>
-				</div>
-			</section>
-
 			{/* Closing CTA */}
 			<section className="bg-white w-full py-[60px] md:py-[80px]">
 				<div className="cma-section-container">
@@ -358,7 +378,7 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 			{/* Related */}
 			<section className="bg-cma-cream w-full py-[60px] md:py-[80px]">
 				<div className="cma-section-container flex flex-col gap-[48px]">
-					<h2 className="text-cma-navy">Other Ways to Give</h2>
+					<h2 className="text-cma-navy text-center">Other Ways to Give</h2>
 					<div className="flex flex-col gap-[16px]">
 						{related.map((rel, i) => (
 							<motion.div

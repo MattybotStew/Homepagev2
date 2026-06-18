@@ -2,9 +2,11 @@ import imgIB1 from "../../assets/imaginationBall1.png";
 import imgIB2 from "../../assets/imaginationBall2.png";
 import imgIB3 from "../../assets/imaginationBall3.png";
 import imgIB4 from "../../assets/imaginationBall4.png";
+import imgIBLogo from "../../assets/imBall-dark.png";
 import imgTFP1 from "../../assets/pnc1.png";
 import imgTFP2 from "../../assets/pnc2.png";
 import imgTFP3 from "../../assets/pnc3.png";
+import imgTFPHero from "../../assets/pnncHero.png";
 import imgTFP4 from "../../assets/pnc4.png";
 import imgTFP5 from "../../assets/pnc5.png";
 import imgFunOnTap from "../../assets/fun-on-tap-final.webp";
@@ -16,6 +18,7 @@ import imgDreamBuilders from "../../assets/educator-professional.png";
 import imgFallback from "../../assets/educators-img-0.webp";
 import imgPYV from "../../assets/PYVhero.webp";
 import imgYoung from "../../assets/young.png";
+import imgTFPLogo from "../../assets/pNC-Tour-logo.png";
 import type { ContentBlock, SidebarSection } from "../components/ArticleContentWithSidebar";
 import type { Program } from "./programs";
 
@@ -28,10 +31,12 @@ export type FundraisingEventDetails = {
 		recipientName: string;
 		recipientDate: string;
 		recipientBio: string;
+		image?: string;
 	};
 	scheduleHeading?: string;
 	scheduleItems?: { time: string; activity: string }[];
 	scheduleNote?: string;
+	scheduleImage?: string;
 	leadership?: {
 		heading: string;
 		chairsLabel: string;
@@ -102,6 +107,7 @@ export const givingCircles: GivingCircle[] = [
 				recipientDate: "March 13, 2026",
 				recipientBio:
 					"Andrea currently serves on the Boards of the WABE, Skyland Trail, A Million Matters, and Washington University Atlanta Alumni.",
+				image: imgIBLogo,
 			},
 			leadership: {
 				heading: "Event Leadership",
@@ -213,8 +219,8 @@ export const givingCircles: GivingCircle[] = [
 		badge: "Golf Tournament",
 		badgeColor: "teal-dark",
 		eyebrow: "Annual Golf Fundraiser",
-		heroImage: imgTFP3,
-		cardImage: imgTFP3,
+		heroImage: imgTFPHero,
+		cardImage: imgTFPHero,
 		sections: [
 			{ id: "overview", label: "Overview" },
 			{ id: "details", label: "Schedule" },
@@ -253,6 +259,7 @@ export const givingCircles: GivingCircle[] = [
 			],
 			scheduleNote:
 				"Player bundles include a Par 3 Poker game card and 2 mulligans — the best poker hand wins $500.",
+			scheduleImage: imgTFPLogo,
 			sponsorsHeading: "Sponsors",
 			sponsorTiers: [
 				{ name: "Presenting", featured: true, sponsors: ["PNC Bank"] },
