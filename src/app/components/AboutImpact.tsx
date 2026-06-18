@@ -2,7 +2,7 @@ import { faBusSimple, faCalendarDay, faHandshake } from "@fortawesome/free-solid
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
-import imgPhoto from "../../assets/hero-donate.webp";
+import imgPhoto from "../../assets/about4.png";
 import imgWaveBottom from "../../assets/impact-wave-bottom.svg";
 import imgWaveTop from "../../assets/impact-wave-top.svg";
 import imgWaveWhite from "../../assets/wave-white.svg";

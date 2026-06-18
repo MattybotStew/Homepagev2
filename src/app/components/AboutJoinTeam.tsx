@@ -1,7 +1,7 @@
 import { faChartLine, faGraduationCap, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
-import imgTeam from "../../assets/careers1.png";
+import imgTeam from "../../assets/about6.png";
 
 const benefits = [
 	{

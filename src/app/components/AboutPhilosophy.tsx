@@ -1,7 +1,7 @@
 import { faCompass, faFlask, faWandMagicSparkles } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
-import imgPlay from "../../assets/educators-img-2.webp";
+import imgPlay from "../../assets/about3.png";
 
 const items = [
 	{

@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import imgPlay from "../../assets/educators-img-1.webp";
+import imgPlay from "../../assets/about2.png";
 
 export default function AboutContent() {
 	return (
