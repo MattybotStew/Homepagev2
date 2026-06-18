@@ -123,6 +123,35 @@ export default function TournamentForPlayContent({ related }: Props) {
 					</div>
 				</div>
 			</section>
+
+			{/* Stats */}
+			<section className="bg-cma-cream w-full py-[60px] md:py-[80px]">
+				<div className="cma-section-container">
+					<div className="grid grid-cols-2 md:grid-cols-4 gap-x-[32px] gap-y-[48px]">
+						{stats.map((stat, i) => (
+							<motion.div
+								key={stat.label}
+								className="flex flex-col gap-[10px] text-center items-center"
+								initial={{ opacity: 0, y: 24 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true, margin: "-60px" }}
+								transition={{
+									duration: 0.7,
+									ease: [0.16, 1, 0.3, 1],
+									delay: i * 0.1,
+								}}
+							>
+								<p className="text-cma-orange font-black text-[clamp(28px,3vw,40px)] leading-none">
+									{stat.value}
+								</p>
+								<p className="font-extrabold text-[15px] text-cma-navy leading-[1.2]">
+									{stat.label}
+								</p>
+							</motion.div>
+						))}
+					</div>
+				</div>
+			</section>
 		</>
 	);
 }
