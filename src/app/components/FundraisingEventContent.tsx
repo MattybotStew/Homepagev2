@@ -204,7 +204,7 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 						{event.award && (
 							<div className="bg-white rounded-[24px] border-2 border-black/5 p-[24px] md:p-[48px] flex flex-col lg:flex-row gap-[32px] lg:gap-[64px] items-center">
 								<div className="flex flex-col gap-[16px] flex-1 min-w-0">
-									<h2 className="text-cma-navy text-center">{event.award.heading}</h2>
+									<h2 className="text-cma-navy">{event.award.heading}</h2>
 									<div className="flex flex-col gap-[4px]">
 										<p className="text-cma-orange font-black text-[24px] leading-[1.2]">
 											{event.award.recipientName}
@@ -229,7 +229,7 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 
 						{event.leadership && (
 							<div className="bg-white rounded-[24px] border-2 border-black/5 p-[24px] md:p-[48px] flex flex-col gap-[24px]">
-								<h2 className="text-cma-navy text-center">{event.leadership.heading}</h2>
+								<h2 className="text-cma-navy">{event.leadership.heading}</h2>
 								<div className="flex flex-col gap-[6px]">
 									<p className="font-extrabold text-cma-navy">
 										{event.leadership.chairsLabel}
@@ -251,6 +251,23 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 					</div>
 				</section>
 			)}
+
+			{/* Photo strip */}
+			<section className="bg-cma-navy w-full py-[60px] md:py-[80px]">
+				<div className="cma-section-container flex flex-col gap-8 items-center">
+					<h2 className="text-white text-center">{event.photosHeading}</h2>
+					<div className="flex flex-wrap justify-center gap-4 max-w-[1200px] mx-auto">
+						{event.photos.map((photo, i) => (
+							<img
+								key={i}
+								src={photo}
+								alt=""
+								className="w-[calc(50%-8px)] sm:w-[calc(33.333%-11px)] lg:w-[calc(20%-13px)] aspect-[4/3] object-cover rounded-[16px]"
+							/>
+						))}
+					</div>
+				</div>
+			</section>
 
 			{/* Sponsor tiers */}
 			<section className="bg-white w-full py-[60px] md:py-[80px]">
@@ -328,23 +345,6 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 							))}
 						</div>
 					)}
-				</div>
-			</section>
-
-			{/* Photo strip */}
-			<section className="bg-cma-navy w-full py-[60px] md:py-[80px]">
-				<div className="cma-section-container flex flex-col gap-8 items-center">
-					<h2 className="text-white text-center">{event.photosHeading}</h2>
-					<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-[1200px] mx-auto place-items-center">
-						{event.photos.map((photo, i) => (
-							<img
-								key={i}
-								src={photo}
-								alt=""
-								className="w-full aspect-[4/3] object-cover rounded-[16px]"
-							/>
-						))}
-					</div>
 				</div>
 			</section>
 
