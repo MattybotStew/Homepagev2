@@ -235,6 +235,23 @@ export default function TournamentForPlayContent({ related }: Props) {
 					</div>
 				</div>
 			</section>
+
+			{/* Photo strip */}
+			<section className="bg-cma-cream w-full py-[60px] md:py-[80px]">
+				<div className="cma-section-container flex flex-col gap-8">
+					<h2 className="text-cma-navy">From Past Tournaments</h2>
+					<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+						{photos.map((photo, i) => (
+							<img
+								key={i}
+								src={photo}
+								alt=""
+								className="w-full h-[160px] md:h-[200px] object-cover rounded-[16px]"
+							/>
+						))}
+					</div>
+				</div>
+			</section>
 		</>
 	);
 }
