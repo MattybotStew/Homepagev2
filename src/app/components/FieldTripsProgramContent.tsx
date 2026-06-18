@@ -19,6 +19,7 @@ import { Facebook, Instagram } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import imgFieldTrips from "../../assets/field-trip.png";
 import imgFloor from "../../assets/FT-Museum-Floor.png";
 import imgMezz from "../../assets/FT-Mezz.png";
 import imgKratts from "../../assets/kratts.png";
@@ -381,7 +382,7 @@ export default function FieldTripsProgramContent() {
 							{/* ── Overview ── */}
 							<div className="relative">
 								<img
-									src={imgFloor}
+									src={imgFieldTrips}
 									alt="Field Trips"
 									className="w-full h-[220px] sm:h-[300px] md:h-[380px] object-cover rounded-[24px]"
 								/>
