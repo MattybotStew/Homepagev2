@@ -237,27 +237,25 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 				<div className="cma-section-container flex flex-col gap-8">
 					<div className={event.sponsorsImage ? "flex flex-col lg:flex-row gap-[40px] items-center" : ""}>
 						<div className="flex flex-col gap-8 flex-1 min-w-0">
-							<div className="flex flex-wrap items-center justify-between gap-[16px]">
-								<h2 className="text-cma-navy">{event.sponsorsHeading}</h2>
-								{event.resources && (
-									<div className="flex flex-wrap items-center gap-[20px]">
-										{event.resources.map((resource) => (
-											<a
-												key={resource.label}
-												href={resource.href}
-												target="_blank"
-												rel="noopener noreferrer"
-												className="cma-btn cma-btn-outline-teal font-black"
-											>
-												{resource.label}
-												<FontAwesomeIcon icon={faDownload} className="text-[13px]" />
-											</a>
-										))}
-									</div>
-								)}
-							</div>
+							<h2 className="text-cma-navy">{event.sponsorsHeading}</h2>
 							{event.sponsorsBody && (
 								<p className="text-cma-navy max-w-[760px]">{event.sponsorsBody}</p>
+							)}
+							{event.resources && (
+								<div className="flex flex-wrap items-center gap-[20px]">
+									{event.resources.map((resource) => (
+										<a
+											key={resource.label}
+											href={resource.href}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="cma-btn cma-btn-outline-teal font-black"
+										>
+											{resource.label}
+											<FontAwesomeIcon icon={faDownload} className="text-[13px]" />
+										</a>
+									))}
+								</div>
 							)}
 						</div>
 						{event.sponsorsImage && (
