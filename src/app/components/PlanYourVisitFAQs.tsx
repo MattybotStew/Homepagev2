@@ -295,7 +295,7 @@ export default function PlanYourVisitFAQs({
 	return (
 		<section
 			id="faqs"
-			className="bg-white w-full py-[80px] md:py-[120px] relative overflow-hidden"
+			className="bg-white w-full py-[80px] md:py-[120px] relative"
 		>
 			<div className="cma-section-container flex flex-col gap-12 items-center">
 				<motion.h2
@@ -308,7 +308,7 @@ export default function PlanYourVisitFAQs({
 					Plan Your Visit FAQs
 				</motion.h2>
 
-				<div className="flex flex-col lg:flex-row gap-8 items-start w-full">
+				<div className="flex flex-col lg:flex-row gap-8 w-full">
 					{/* Accordion */}
 					<motion.div
 						className="flex-1 min-w-0 flex flex-col gap-[10px]"
@@ -361,32 +361,34 @@ export default function PlanYourVisitFAQs({
 					</motion.div>
 
 					{/* Sidebar card */}
-					<motion.div
-						className="w-full lg:w-[380px] shrink-0 bg-white border-2 border-black/5 rounded-[24px] overflow-hidden"
-						initial={{ opacity: 0, y: 24 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						viewport={{ once: true, margin: "-60px" }}
-						transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-					>
-						<div className="h-[266px] overflow-hidden rounded-t-[20px]">
-							<img
-								src={imgFaqPhoto}
-								alt=""
-								className="w-full h-full object-cover"
-							/>
-						</div>
-						<div className="p-6 flex flex-col gap-6">
-							<h3 className="text-cma-navy">Still have questions?</h3>
-							<p className="text-cma-navy">
-								Got questions? We've got answers! Find everything you need to
-								know about visiting our museum.
-							</p>
-							<a onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })} className="cma-text-link">
-								Contact Us{" "}
-								<FontAwesomeIcon icon={faArrowRight} className="text-[11px]" />
-							</a>
-						</div>
-					</motion.div>
+					<div className="w-full lg:w-[380px] shrink-0">
+						<motion.div
+							className="bg-white border-2 border-black/5 rounded-[24px] overflow-hidden lg:sticky lg:top-[140px]"
+							initial={{ opacity: 0, y: 24 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true, margin: "-60px" }}
+							transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+						>
+							<div className="h-[266px] overflow-hidden rounded-t-[20px]">
+								<img
+									src={imgFaqPhoto}
+									alt=""
+									className="w-full h-full object-cover"
+								/>
+							</div>
+							<div className="p-6 flex flex-col gap-6">
+								<h3 className="text-cma-navy">Still have questions?</h3>
+								<p className="text-cma-navy">
+									Got questions? We've got answers! Find everything you need to
+									know about visiting our museum.
+								</p>
+								<a onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })} className="cma-text-link">
+									Contact Us{" "}
+									<FontAwesomeIcon icon={faArrowRight} className="text-[11px]" />
+								</a>
+							</div>
+						</motion.div>
+					</div>
 				</div>
 			</div>
 
