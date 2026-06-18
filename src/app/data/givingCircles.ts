@@ -12,6 +12,7 @@ import imgFOT1 from "../../assets/educators-img-2.webp";
 import imgFOT2 from "../../assets/educators-img-3.webp";
 import imgFOT3 from "../../assets/educators-img-0.webp";
 import imgFOT4 from "../../assets/educators-img-1.webp";
+import imgDreamBuilders from "../../assets/educator-professional.png";
 import imgFallback from "../../assets/educators-img-0.webp";
 import imgPYV from "../../assets/PYVhero.webp";
 import imgYoung from "../../assets/young.png";
@@ -359,8 +360,8 @@ export const givingCircles: GivingCircle[] = [
 		badge: "Major Gifts",
 		badgeColor: "navy",
 		eyebrow: "Giving Circle · $1,000+ Annually",
-		heroImage: imgFallback,
-		cardImage: imgFallback,
+		heroImage: imgDreamBuilders,
+		cardImage: imgDreamBuilders,
 		sections: [
 			{ id: "overview", label: "Overview" },
 			{ id: "impact", label: "Your Impact" },
