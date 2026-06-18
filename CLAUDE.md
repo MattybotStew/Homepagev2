@@ -202,6 +202,8 @@ All routes registered in `src/main.tsx`:
 | `/about/careers` | CareersPage |
 | `/donate` | DonatePage |
 | `/memberships` | MembershipsPage |
+| `/memberships/information` | MembershipInfoPage |
+| `/memberships/corporate` | CorporateMembershipPage |
 | `/support` | SupportPage |
 | `/support/corporate-partners` | CorporatePartnerPage |
 | `/support/donor-recognition` | DonorRecognitionPage |

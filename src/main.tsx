@@ -21,6 +21,7 @@ const PlanYourVisitPage = lazy(() => import("./app/pages/PlanYourVisitPage.tsx")
 const PlayfulLearningPage = lazy(() => import("./app/pages/PlayfulLearningPage.tsx"));
 const MembershipsPage = lazy(() => import("./app/pages/MembershipsPage.tsx"));
 const MembershipInfoPage = lazy(() => import("./app/pages/MembershipInfoPage.tsx"));
+const CorporateMembershipPage = lazy(() => import("./app/pages/CorporateMembershipPage.tsx"));
 const ProgramPage = lazy(() => import("./app/pages/ProgramPage.tsx"));
 const SupportPage = lazy(() => import("./app/pages/SupportPage.tsx"));
 const CorporatePartnerPage = lazy(() => import("./app/pages/CorporatePartnerPage.tsx"));
@@ -127,6 +128,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/donate" element={<DonatePage />} />
           <Route path="/memberships" element={<MembershipsPage />} />
           <Route path="/memberships/information" element={<MembershipInfoPage />} />
+          <Route path="/memberships/corporate" element={<CorporateMembershipPage />} />
           <Route path="/support" element={<SupportPage />} />
           <Route path="/support/corporate-partners" element={<CorporatePartnerPage />} />
           <Route path="/support/donor-recognition" element={<DonorRecognitionPage />} />

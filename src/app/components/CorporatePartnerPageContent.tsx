@@ -267,7 +267,7 @@ export default function CorporatePartnerPageContent() {
 									</p>
 									<div>
 										<a
-											href="#/memberships"
+											href="#/memberships/corporate"
 											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 										>
 											Learn About Corporate Memberships
