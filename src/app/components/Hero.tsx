@@ -22,8 +22,8 @@ export default function Hero({
 	heading = "Where Families Come to Play",
 	subtitle = "Welcome to a safe, joyful place where children and caregivers have fun, explore, connect and grow through play.",
 	ctas = [
-		{ label: "Buy Tickets Now", href: "#/plan-your-visit", variant: "orange" },
-		{ label: "Memberships", href: "#/memberships/information", variant: "teal-outline" },
+		{ label: "Plan Your Visit", href: "#/plan-your-visit", variant: "orange" },
+		{ label: "Memberships", href: "#/memberships", variant: "teal-outline" },
 	],
 	showHoursWidget = true,
 	showWaves = true,
