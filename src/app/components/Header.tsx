@@ -143,10 +143,6 @@ const membershipsSubPages: NavSubPage[] = [
 
 const TICKETS_URL = "https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf";
 
-const buyTicketsSubPages = [
-	{ label: "Buy Tickets Now", href: TICKETS_URL, external: true },
-];
-
 const donateSubPages: NavSubPage[] = [
 	{ label: "Support", href: "#/support" },
 	{ label: "Corporate Partners", href: "#/support/corporate-partners" },
@@ -299,52 +295,22 @@ function MembershipsDropdown({
 	);
 }
 
-function BuyTicketsDropdown({
-	compact,
-	pathname,
-}: {
-	compact?: boolean;
-	pathname: string;
-}) {
+function BuyTicketsButton({ compact }: { compact?: boolean }) {
 	const px = compact ? "px-[12px]" : "px-[16px]";
 	const py = compact ? "py-[8px]" : "py-[12px]";
 	const textSize = compact ? "text-[10px]" : "text-[12px]";
-	const chevronSize = compact ? "size-2.5" : "size-3";
 
 	return (
-		<div className="relative group">
-			<a
-				href={TICKETS_URL}
-				target="_blank"
-				rel="noopener noreferrer"
-				className={`bg-cma-navy flex items-center justify-center gap-1 ${px} ${py} rounded-full shadow-cma-btn shrink-0 hover:bg-cma-slate transition-colors`}
-			>
-				<p className={`font-black leading-[1.5] shrink-0 ${textSize} text-white whitespace-nowrap`}>
-					Buy Tickets
-				</p>
-				<ChevronDown className={`${chevronSize} text-white/70 transition-transform duration-200 group-hover:rotate-180`} />
-			</a>
-			<div className="absolute top-full right-0 pt-2 z-50 hidden group-hover:block">
-				<div className="bg-white rounded-[16px] shadow-cma-panel overflow-hidden min-w-[200px]">
-					{buyTicketsSubPages.map((sub, i) => (
-						<div key={sub.label}>
-							<a
-								href={sub.href}
-								{...(sub.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-								className={`flex items-center px-5 min-h-[52px] transition-colors ${sub.href === "#" + pathname ? "bg-cma-teal-pale" : "hover:bg-gray-50"}`}
-							>
-								<p className={`whitespace-nowrap ${sub.href === "#" + pathname ? "text-cma-navy font-semibold" : "text-cma-gray font-normal"}`}>
-									{sub.label}
-								</p>
-							</a>
-							{i < buyTicketsSubPages.length - 1 && (
-								<div className="h-px bg-gray-100 mx-5" />
-							)}
-						</div>
-					))}
-				</div>
-			</div>
-		</div>
+		<a
+			href={TICKETS_URL}
+			target="_blank"
+			rel="noopener noreferrer"
+			className={`bg-cma-navy flex items-center justify-center ${px} ${py} rounded-full shadow-cma-btn shrink-0 hover:bg-cma-slate transition-colors`}
+		>
+			<p className={`font-black leading-[1.5] shrink-0 ${textSize} text-white whitespace-nowrap`}>
+				Buy Tickets
+			</p>
+		</a>
 	);
 }
 
@@ -422,7 +388,7 @@ export default function Header() {
 					<div className="flex gap-[5.699px] items-center">
 						<DonateDropdown pathname={pathname} />
 						<MembershipsDropdown pathname={pathname} />
-						<BuyTicketsDropdown pathname={pathname} />
+						<BuyTicketsButton />
 					</div>
 				</div>
 
@@ -441,7 +407,7 @@ export default function Header() {
 					<div className="flex gap-[4px] items-center">
 						<DonateDropdown compact pathname={pathname} />
 						<MembershipsDropdown compact pathname={pathname} />
-						<BuyTicketsDropdown compact pathname={pathname} />
+						<BuyTicketsButton compact />
 					</div>
 				</div>
 
