@@ -63,7 +63,7 @@ export const allResources: ResourceItem[] = [
 	{
 		slug: "reading-aloud-techniques",
 		image: imgA,
-		badge: "Educator Resource • PreK–Grade 2",
+		badge: "Educator Resource • Pre-K–Grade 2",
 		title: "The Art of Reading Aloud: Techniques That Spark Imagination",
 		description:
 			"A practitioner's guide to read-aloud strategies that build comprehension, empathy, and a lifelong love of stories — from voice work to post-book conversation.",

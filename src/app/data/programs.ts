@@ -22,7 +22,7 @@ export const programs: Program[] = [
 		title: "Field Trips",
 		badge: "Educators",
 		badgeColor: "teal-dark",
-		eyebrow: "Grades PreK–5 | 2-hour experiences",
+		eyebrow: "Grades Pre-K–5 | 2-hour experiences",
 		heroImage: img0,
 		cardImage: img0,
 		sections: [
@@ -33,7 +33,7 @@ export const programs: Program[] = [
 		],
 		paragraphs: [
 			"Bring your class to the Children's Museum of Atlanta for a hands-on learning adventure unlike anything in the classroom. Our field trips align with Georgia Standards of Excellence and spark curiosity through play-based exploration across 20,000 square feet of immersive exhibits.",
-			"Each field trip is guided by our education team and tailored by grade level — from PreK through 5th grade. Students rotate through exhibit zones, participate in a facilitated learning activity, and have free exploration time. Groups of 11–30 students are welcome Monday through Friday from 10am–12pm.",
+			"Each field trip is guided by our education team and tailored by grade level — from Pre-K through 5th grade. Students rotate through exhibit zones, participate in a facilitated learning activity, and have free exploration time. Groups of 11–30 students are welcome Monday through Friday from 10am–12pm.",
 		],
 	},
 	{
@@ -41,7 +41,7 @@ export const programs: Program[] = [
 		title: "Museum On-the-Go",
 		badge: "Educators",
 		badgeColor: "teal-dark",
-		eyebrow: "Grades PreK–3 | 45–60 minute sessions",
+		eyebrow: "Grades Pre-K–3 | 45–60 minute sessions",
 		heroImage: img1,
 		cardImage: img1,
 		sections: [
@@ -52,7 +52,7 @@ export const programs: Program[] = [
 		],
 		paragraphs: [
 			"Can't make it to the Museum? We bring the fun to you. Our Museum On-the-Go educators travel directly to schools with portable, hands-on exhibits and activity kits designed to turn any classroom into an interactive learning space.",
-			"Sessions are available for PreK through 3rd grade and run 45–60 minutes. Each visit includes a facilitated activity aligned to your current unit of study, plus take-home materials to extend the learning. Book a visit by contacting our education team at education@cmatlanta.org.",
+			"Sessions are available for Pre-K through 3rd grade and run 45–60 minutes. Each visit includes a facilitated activity aligned to your current unit of study, plus take-home materials to extend the learning. Book a visit by contacting our education team at education@cmatlanta.org.",
 		],
 	},
 	{

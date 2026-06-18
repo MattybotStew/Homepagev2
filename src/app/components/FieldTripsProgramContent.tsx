@@ -157,7 +157,7 @@ const tripDetails = [
 		color: "bg-cma-teal-dark",
 		label: "Age Range",
 		description:
-			"PreK through 5th grade — structured by grade level for a tailored experience.",
+			"Pre-K through 5th grade — structured by grade level for a tailored experience.",
 	},
 	{
 		icon: faClock,
@@ -918,7 +918,7 @@ export default function FieldTripsProgramContent() {
 												<label className={labelClass}>Grade Level(s) *</label>
 												<select className={inputClass}>
 													<option value="">Select grade level</option>
-													<option>PreK</option>
+													<option>Pre-K</option>
 													<option>Kindergarten</option>
 													<option>1st Grade</option>
 													<option>2nd Grade</option>

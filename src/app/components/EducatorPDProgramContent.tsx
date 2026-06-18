@@ -87,7 +87,7 @@ const learningOutcomes = [
 	{
 		title: "Differentiation for Early Childhood",
 		description:
-			"Gain strategies for meeting diverse learning needs in PreK–3rd grade classrooms through flexible, open-ended activities.",
+			"Gain strategies for meeting diverse learning needs in Pre-K–3rd grade classrooms through flexible, open-ended activities.",
 	},
 	{
 		title: "Observation & Documentation",
@@ -348,7 +348,7 @@ export default function EducatorPDProgramContent() {
 								<p className="text-cma-navy">
 									Available in half-day and full-day formats for groups of 10–40
 									educators, our workshops are aligned to Georgia educator
-									certification renewal requirements and designed for PreK–5
+									certification renewal requirements and designed for Pre-K–5
 									teachers across all subject areas.
 								</p>
 								<div className="bg-cma-teal-pale rounded-[16px] p-[24px] flex flex-col gap-[12px]">

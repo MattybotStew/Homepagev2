@@ -88,7 +88,7 @@ const programTiers = [
 	{
 		label: "Made for Curious Minds",
 		icon: faFlask,
-		ages: "PreK–3rd Grade",
+		ages: "Pre-K–3rd Grade",
 		price: "$275",
 		subtitle: "$275 for up to 25 children.",
 		programs: [
@@ -150,7 +150,7 @@ const faqItems = [
 	{
 		question: "What grades are eligible?",
 		answer:
-			"Museum On-the-Go serves learners ages 2 through 5th grade across three program tiers: Crafted For Littles (ages 2–4), Made for Curious Minds (PreK–3rd grade), and Igniting Young Innovators (4th–5th grade). Each session is tailored by age and grade level.",
+			"Museum On-the-Go serves learners ages 2 through 5th grade across three program tiers: Crafted For Littles (ages 2–4), Made for Curious Minds (Pre-K–3rd grade), and Igniting Young Innovators (4th–5th grade). Each session is tailored by age and grade level.",
 	},
 	{
 		question: "How many students can participate per session?",
@@ -189,7 +189,7 @@ const faqItems = [
 		question: "Is there a cost for Museum On-the-Go?",
 		answer: (
 			<>
-				Pricing is $250 (ages 2–4), $275 (PreK–3rd grade), or $300 (4th–5th grade) for up to 25 students. Groups of 26–35 add $12 per child. Pricing includes 20 miles round trip; $0.70/mile for additional miles.
+				Pricing is $250 (ages 2–4), $275 (Pre-K–3rd grade), or $300 (4th–5th grade) for up to 25 students. Groups of 26–35 add $12 per child. Pricing includes 20 miles round trip; $0.70/mile for additional miles.
 				<br /><br />
 				A 50% non-refundable deposit is due two (2) weeks after the time of booking.
 				<br /><br />
@@ -680,9 +680,6 @@ export default function MuseumOnTheGoProgramContent() {
 										Our education team is happy to help you plan the perfect
 										session for your students.
 									</p>
-									<p className="text-cma-blue-light font-bold mt-[8px]">
-										Education Team
-									</p>
 								</div>
 								<a
 									href="tel:4045273693"
@@ -741,7 +738,7 @@ export default function MuseumOnTheGoProgramContent() {
 												<label className={labelClass}>Grade Level(s) *</label>
 												<select className={inputClass}>
 													<option value="">Select grade level</option>
-													<option>PreK</option>
+													<option>Pre-K</option>
 													<option>Kindergarten</option>
 													<option>1st Grade</option>
 													<option>2nd Grade</option>
