@@ -29,6 +29,73 @@ const holidayHours = [
 	{ day: "Christmas Day", hours: "Closed" },
 ];
 
+function AddressBlock({ stacked = false }: { stacked?: boolean }) {
+	return (
+		<div className={`flex flex-col gap-8 ${stacked ? "" : "sm:flex-row"}`}>
+			<div className="flex-1 flex flex-col gap-8">
+				<h3 className="text-cma-navy">Address</h3>
+				<a
+					href="https://maps.google.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="text-cma-teal-dark leading-[1.65] hover:underline"
+				>
+					275 Centennial Olympic Park Dr NW
+					<br />
+					Atlanta, GA 30313
+				</a>
+				<a
+					href="tel:4046595437"
+					className="text-cma-teal-dark text-[20px] font-black leading-[1.1] hover:underline"
+				>
+					404-659-5437
+				</a>
+				<div className="flex gap-4 items-center">
+					{[
+						{
+							icon: faFacebook,
+							href: "https://www.facebook.com/childrensmuseumofatlanta",
+						},
+						{
+							icon: faInstagram,
+							href: "https://www.instagram.com/childrensmuseumofatlanta/",
+						},
+						{
+							icon: faTiktok,
+							href: "https://www.tiktok.com/@childrensmuseumatlanta",
+						},
+					].map(({ icon, href }) => (
+						<a
+							key={href}
+							href={href}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="cma-social-btn-filled"
+						>
+							<FontAwesomeIcon
+								icon={icon}
+								className="text-[18px] text-white"
+							/>
+						</a>
+					))}
+				</div>
+			</div>
+			<div className="flex-1 rounded-[24px] overflow-hidden min-h-[240px]">
+				<iframe
+					title="Children's Museum of Atlanta map"
+					src="https://maps.google.com/maps?q=275+Centennial+Olympic+Park+Dr+NW,+Atlanta,+GA+30313&output=embed"
+					width="100%"
+					height="100%"
+					style={{ border: 0 }}
+					allowFullScreen
+					loading="lazy"
+					referrerPolicy="no-referrer-when-downgrade"
+				/>
+			</div>
+		</div>
+	);
+}
+
 function HoursTable({ rows }: { rows: { day: string; hours: string }[] }) {
 	return (
 		<div className="flex flex-col">
@@ -99,65 +166,8 @@ function TabContent({ item }: { item: string }) {
 					</div>
 
 					{/* Address sidebar */}
-					<div className="w-full xl:w-[360px] shrink-0 flex flex-col gap-8">
-						<h3 className="text-cma-navy">Address</h3>
-						<a
-							href="https://maps.google.com"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="text-cma-teal-dark leading-[1.65] hover:underline"
-						>
-							275 Centennial Olympic Park Dr NW
-							<br />
-							Atlanta, GA 30313
-						</a>
-						<a
-							href="tel:4046595437"
-							className="text-cma-teal-dark text-[20px] font-black leading-[1.1] hover:underline"
-						>
-							404-659-5437
-						</a>
-						<div className="flex gap-4 items-center">
-							{[
-								{
-									icon: faFacebook,
-									href: "https://www.facebook.com/childrensmuseumofatlanta",
-								},
-								{
-									icon: faInstagram,
-									href: "https://www.instagram.com/childrensmuseumofatlanta/",
-								},
-								{
-									icon: faTiktok,
-									href: "https://www.tiktok.com/@childrensmuseumatlanta",
-								},
-							].map(({ icon, href }) => (
-								<a
-									key={href}
-									href={href}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="cma-social-btn-filled"
-								>
-									<FontAwesomeIcon
-										icon={icon}
-										className="text-[18px] text-white"
-									/>
-								</a>
-							))}
-						</div>
-						<div className="rounded-[24px] overflow-hidden h-[200px]">
-							<iframe
-								title="Children's Museum of Atlanta map"
-								src="https://maps.google.com/maps?q=275+Centennial+Olympic+Park+Dr+NW,+Atlanta,+GA+30313&output=embed"
-								width="100%"
-								height="100%"
-								style={{ border: 0 }}
-								allowFullScreen
-								loading="lazy"
-								referrerPolicy="no-referrer-when-downgrade"
-							/>
-						</div>
+					<div className="w-full xl:w-[360px] shrink-0">
+						<AddressBlock stacked />
 					</div>
 				</div>
 
@@ -203,6 +213,7 @@ function TabContent({ item }: { item: string }) {
 	if (item === "Location, Parking & Directions") {
 		return (
 			<div className="flex flex-col gap-8">
+				<AddressBlock />
 				<div className="flex flex-col lg:flex-row gap-8">
 					{/* Driving */}
 					<div className="flex-1 flex flex-col gap-5">
