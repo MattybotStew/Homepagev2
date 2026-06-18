@@ -1,7 +1,7 @@
 import { faClock, faMobileScreen, faTicket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
-import imgPhoto from "../../assets/educators-img-3.webp";
+import imgPhoto from "../../assets/whyBuyOnline.png";
 import imgWaveBottom from "../../assets/impact-wave-bottom.svg";
 import imgWaveTop from "../../assets/impact-wave-top.svg";
 

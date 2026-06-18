@@ -1,8 +1,17 @@
-import imgB from "../../assets/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp";
 import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp";
 import imgC from "../../assets/39da2bd0af3dceef1e3b406cd981247f82778d27.webp";
 import imgSpring from "../../assets/exhibits-spring-hero.webp";
 import imgSummer from "../../assets/exhibits-summer-hero.jpg";
+import kratts from "../../assets/kratts.png";
+import mcstuff from "../../assets/mcstuff.png";
+import amazingCastle from "../../assets/amazing-castle.png";
+import fundamentallyFoods from "../../assets/fundamentally-foods.png";
+import gatewayToTheWorld from "../../assets/gateway-to-the-world.png";
+import outsideTheBox from "../../assets/outside-the-box.png";
+import placeInSpace from "../../assets/place-in-space.png";
+import stepUpToScience from "../../assets/step-up-to-science.png";
+import leapingIntoLearning from "../../assets/Leaping-into-Learning.png";
+import obstacleAdventure from "../../assets/ObstacleAdventure.png";
 
 export type ExhibitSection = {
 	title: string;
@@ -42,7 +51,7 @@ export const exhibits: Exhibit[] = [
 		badge: "Summer 2026",
 		badgeColor: "teal-dark",
 		eyebrow: "Ages: 4–14 | May 23 – Sep 13, 2026 | 25–30 minutes",
-		heroImage: imgSummer,
+		heroImage: kratts,
 		cardImage: imgSummer,
 		paragraphs: [
 			"Wild Kratts®: Ocean Adventure!, a brand-new temporary exhibit at the Museum, immerses the young explorers in your life in whole body explorations of ocean habitats and the fascinating creatures within them. Using Wild Kratts technology and the powers of science and teamwork, visitors will join the Wild Kratts team to solve problems, help animals, and foil the villains' nefarious plans.",
@@ -58,8 +67,8 @@ export const exhibits: Exhibit[] = [
 		badge: "Coming Soon",
 		badgeColor: "teal-dark",
 		eyebrow: "",
-		heroImage: imgA,
-		cardImage: imgA,
+		heroImage: outsideTheBox,
+		cardImage: outsideTheBox,
 		paragraphs: [
 			"Transform everyday boxes into anything you can imagine: cars, houses, rockets, robots, and more! At Outside the Box, the only limit is your creativity. Young inventors explore the basics of math, engineering, and science by building, testing, and redesigning their own constructions from scratch.",
 			"This pop-up exhibit is designed to spark a love of making and experimentation. From collaborative group builds to solo creations, every visit produces something new. Outside the Box celebrates the spirit of curiosity — the same spirit that drives every great inventor.",
@@ -71,8 +80,8 @@ export const exhibits: Exhibit[] = [
 		badge: "Coming Soon",
 		badgeColor: "teal-dark",
 		eyebrow: "",
-		heroImage: imgB,
-		cardImage: imgB,
+		heroImage: obstacleAdventure,
+		cardImage: obstacleAdventure,
 		paragraphs: [
 			"Climb, crawl, balance, and explore your way through a giant obstacle course where you choose your own path, take on new challenges, and discover fun, unexpected ways to move your body. Obstacle Adventure transforms the museum into a playground — scaling walls, crossing bridges, and navigating tunnels that test coordination, strength, and bravery.",
 			"This pop-up exhibit celebrates physical literacy and adventurous play. Every child's journey through Obstacle Adventure is unique — some go fast, some go slow, and all arrive at the same destination: confidence, joy, and the satisfaction of a challenge conquered.",
@@ -84,8 +93,8 @@ export const exhibits: Exhibit[] = [
 		badge: "Coming Soon",
 		badgeColor: "teal-dark",
 		eyebrow: "",
-		heroImage: imgC,
-		cardImage: imgC,
+		heroImage: placeInSpace,
+		cardImage: placeInSpace,
 		paragraphs: [
 			"Blast off into our solar system! Enter the planetarium to explore the planets and their orbits, discover the difference between stars and galaxies, and find out just how far away the nearest planet really is. Our Place in Space brings the universe down to earth — or rather, lets little explorers leave it behind.",
 			"This immersive pop-up exhibit is part digital experience, part hands-on science lab. Visitors plot courses between planets, learn what gravity feels like on other worlds, and design their own spacecraft. Whether you're dreaming of Mars or just curious about the night sky, Our Place in Space is your launchpad.",
@@ -97,8 +106,8 @@ export const exhibits: Exhibit[] = [
 		badge: "Permanent",
 		badgeColor: "navy",
 		eyebrow: "Ages: 10 months – 8 years",
-		heroImage: imgA,
-		cardImage: imgA,
+		heroImage: fundamentallyFoods,
+		cardImage: fundamentallyFoods,
 		paragraphs: [
 			"Climb tractors, milk a dairy cow, load delivery trucks, shop a bustling grocery store, and cook pretend meals together. Through playful farm-to-table fun, explore where our food comes from, how it moves, and how food helps families grow strong and healthy.",
 		],
@@ -129,8 +138,8 @@ export const exhibits: Exhibit[] = [
 		badge: "Permanent",
 		badgeColor: "navy",
 		eyebrow: "Ages: 10 months – 8 years",
-		heroImage: imgB,
-		cardImage: imgB,
+		heroImage: gatewayToTheWorld,
+		cardImage: gatewayToTheWorld,
 		paragraphs: [
 			"Travel the globe through hands-on play. Guide trains across continents, launch rockets to planets in our solar system, and climb a two-story Earth. Along the way, explore geography, movement, and the ways our world is connected, from the ground beneath their feet to far beyond the sky.",
 		],
@@ -159,8 +168,8 @@ export const exhibits: Exhibit[] = [
 		badge: "Permanent",
 		badgeColor: "navy",
 		eyebrow: "",
-		heroImage: imgC,
-		cardImage: imgC,
+		heroImage: leapingIntoLearning,
+		cardImage: leapingIntoLearning,
 		paragraphs: [
 			"Step into a magical forest! Cast your rod, catch colorful fish, and slip behind a waterfall without getting wet. Climb the treehouse, spot hidden forest animals, and let little ones explore a cozy space filled with bubbles, wonder, and gentle discovery at every turn.",
 			"Leaping into Learning is a sensory-rich environment designed especially for our youngest visitors. Soft textures, gentle sounds, and whimsical visuals create a calming, imaginative space where toddlers and infants can safely explore the natural world through play.",
@@ -185,8 +194,8 @@ export const exhibits: Exhibit[] = [
 		badge: "Permanent",
 		badgeColor: "navy",
 		eyebrow: "",
-		heroImage: imgB,
-		cardImage: imgB,
+		heroImage: stepUpToScience,
+		cardImage: stepUpToScience,
 		paragraphs: [
 			"Experiment with light and sound through playful, hands-on activities — creating shadows, exploring color mixing, and making vibrations move through different materials. Discover how waves work, how science and creativity connect, and how a simple experiment can lead to an exciting new discovery.",
 			"Step Up to Science turns everyday phenomena into wonder. Every station is designed to spark the scientific method: observe, question, experiment, discover. Whether your child is a future physicist or just loves watching things glow and beep, this exhibit is built for curious minds at every stage.",

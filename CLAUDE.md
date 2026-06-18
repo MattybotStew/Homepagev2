@@ -214,6 +214,45 @@ All routes registered in `src/main.tsx`:
 
 ---
 
+## Pending: Real Photography Batch (src/assets)
+
+A batch of real exhibit/event/program photos and sponsor logos was dropped into `src/assets`, replacing the generic `educators-img-*`/`exhibits-*-hero`/gray "LOGO" placeholders used across the site. Remove this section once the batch is fully wired in or resolved.
+
+**Confirmed mappings (ready to wire in):**
+
+| Asset | Replaces | Location |
+|---|---|---|
+| `kratts.png` | Wild Kratts placeholder | FieldTrips/MuseumOnTheGo featured exhibits, exhibits.ts |
+| `mcstuff.png` | Doc McStuffins placeholder | Featured exhibits (href="#" currently) |
+| `amazing-castle.png` | Amazing Castle placeholder | Featured exhibits (href="#" currently) |
+| `fundamentally-foods.png`, `gateway-to-the-world.png`, `outside-the-box.png`, `place-in-space.png`, `step-up-to-science.png`, `Leaping-into-Learning.png`, `ObstacleAdventure.png` | generic exhibit placeholders | `exhibits.ts` (1:1 slug match) |
+| `Tiny-con.png`, `gabby-doll-house.png`, `bubble-bash.png`, `artsy-Mondays.png` | generic event placeholders | `events.ts` (1:1 slug match) |
+| `FT-Museum-Floor.png`, `FT-Mezz.png` | imgFloor/imgMezz | Field Trips + Museum-On-the-Go "Museum Floor / Mezzanine" cards |
+| `donateHerp.png` | hero-donate.webp | DonateHero background |
+| `memhero.png` | hero-memberships.webp | MembershipsPage hero background |
+| `whyBuyOnline.png` | imgPhoto | BuyOnlineBenefits "Why Buy Online" photo |
+| `careers1.png` / `careers2.png` | imgJoin/imgVolunteer | CareersPage "Join Our Team" / "Volunteer" photos |
+| `educator-professional.png` | imgPD | EducatorPD overview photo (alt text matches exactly) |
+| `museum-on-the-go.png` | imgMezz (overview slot) | MuseumOnTheGo overview photo (alt="Museum On-the-Go") |
+| `imgBall-logo.png` (dup of old `imgBall.png`) | — | Imagination Ball logo |
+| `pNC-Tour-logo.png` (dup of old `tounyLogo.png`) | gray "LOGO" placeholder | Tournament For Play "Presenting" sponsor (PNC Bank) |
+| `pnc1-5.png`, `imaginationBall1-4.png` | generic photo-strip images | Tournament For Play / Imagination Ball photo strips |
+
+**Unresolved — ask the user before guessing:**
+
+| Asset | Open question |
+|---|---|
+| `fun1-4.png` (520×460) | Fun On Tap has no past-event photo strip (event hasn't happened) — add one? |
+| `FUnOnTap-logo.png` (4500×4500) | Different/higher-res version of the already-wired `fun-on-tap-final.webp` logo — replace it, or used elsewhere? |
+| `about2/3/4/6.png` | No matching 4-image slot found on the About page. |
+| `mus-store2/3.png` | No matching slot found on Museum Store page. |
+| `ep-make.png` (376×226) | No clear destination in EducatorPD content. |
+| `FRONT.png`, `develop-1.png`, `young.png` | Generic names, no obvious destination. |
+| `ed-contact2.png` vs `education-contact.png` | Both look like candidates for EducatorsImpact's "Meet Your Education Contact" photo — unclear which, or if one goes elsewhere. |
+| ` field-trip.png` (note leading space in filename), `MOTG.png` | Likely `programs.ts` card images for Field Trips / Museum On-the-Go, not fully certain. |
+
+---
+
 ## Figma MCP
 
 The Figma Dev Mode MCP server runs locally on the Figma desktop app at `http://127.0.0.1:3845`. It uses SSE — you must open a persistent SSE connection first to get a session ID, then POST messages to `/messages?sessionId=<id>`.

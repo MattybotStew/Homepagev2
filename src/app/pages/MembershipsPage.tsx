@@ -1,4 +1,4 @@
-import imgMembershipsHero from "../../assets/hero-memberships.webp";
+import imgMembershipsHero from "../../assets/memhero.png";
 import AlertBanner from "../components/AlertBanner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";

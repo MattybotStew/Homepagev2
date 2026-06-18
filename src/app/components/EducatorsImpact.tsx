@@ -2,7 +2,7 @@ import { faUnlockKeyhole, faBus, faCalendarDays, faUsersLine } from "@fortawesom
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import { useState } from "react";
-import imgContact from "../../assets/educators-img-1.webp";
+import imgContact from "../../assets/education-contact.png";
 import imgWaveTop from "../../assets/impact-wave-top.svg";
 import imgWaveWhite from "../../assets/wave-white.svg";
 

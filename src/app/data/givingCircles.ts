@@ -1,8 +1,18 @@
-import img0 from "../../assets/educators-img-0.webp";
-import img1 from "../../assets/educators-img-1.webp";
-import img2 from "../../assets/educators-img-2.webp";
-import img3 from "../../assets/educators-img-3.webp";
+import imgIB1 from "../../assets/imaginationBall1.png";
+import imgIB2 from "../../assets/imaginationBall2.png";
+import imgIB3 from "../../assets/imaginationBall3.png";
+import imgIB4 from "../../assets/imaginationBall4.png";
+import imgTFP1 from "../../assets/pnc1.png";
+import imgTFP2 from "../../assets/pnc2.png";
+import imgTFP3 from "../../assets/pnc3.png";
+import imgTFP4 from "../../assets/pnc4.png";
+import imgTFP5 from "../../assets/pnc5.png";
 import imgFunOnTap from "../../assets/fun-on-tap-final.webp";
+import imgFOT1 from "../../assets/educators-img-2.webp";
+import imgFOT2 from "../../assets/educators-img-3.webp";
+import imgFOT3 from "../../assets/educators-img-0.webp";
+import imgFOT4 from "../../assets/educators-img-1.webp";
+import imgFallback from "../../assets/educators-img-0.webp";
 import type { ContentBlock, SidebarSection } from "../components/ArticleContentWithSidebar";
 import type { Program } from "./programs";
 
@@ -58,8 +68,8 @@ export const givingCircles: GivingCircle[] = [
 		badge: "Annual Gala",
 		badgeColor: "navy",
 		eyebrow: "CMA's Premier Fundraising Gala",
-		heroImage: img0,
-		cardImage: img0,
+		heroImage: imgFallback,
+		cardImage: imgFallback,
 		sections: [
 			{ id: "overview", label: "Overview" },
 			{ id: "details", label: "2026 Highlights" },
@@ -185,7 +195,7 @@ export const givingCircles: GivingCircle[] = [
 				},
 			],
 			photosHeading: "From Imagination Ball 2026",
-			photos: [img0, img1, img2, img3],
+			photos: [imgIB1, imgIB2, imgIB3, imgIB4],
 			closingHeading: "Interested in Imagination Ball 2027?",
 			closingBody:
 				"To learn more about Imagination Ball or to become a sponsor, please email the advancement office.",
@@ -200,8 +210,8 @@ export const givingCircles: GivingCircle[] = [
 		badge: "Golf Tournament",
 		badgeColor: "teal-dark",
 		eyebrow: "Annual Golf Fundraiser",
-		heroImage: img1,
-		cardImage: img1,
+		heroImage: imgFallback,
+		cardImage: imgFallback,
 		sections: [
 			{ id: "overview", label: "Overview" },
 			{ id: "details", label: "Schedule" },
@@ -267,7 +277,7 @@ export const givingCircles: GivingCircle[] = [
 				},
 			],
 			photosHeading: "From Past Tournaments",
-			photos: [img0, img1, img2, img3],
+			photos: [imgTFP1, imgTFP2, imgTFP3, imgTFP4, imgTFP5],
 			resources: [
 				{ label: "Sponsorship Brochure (PDF)", href: "#" },
 				{ label: "Foursomes and Sponsorship Levels (PDF)", href: "#" },
@@ -287,8 +297,8 @@ export const givingCircles: GivingCircle[] = [
 		badge: "21+ Beer Festival",
 		badgeColor: "teal-dark",
 		eyebrow: "Friday, September 18, 2026",
-		heroImage: img2,
-		cardImage: img2,
+		heroImage: imgFallback,
+		cardImage: imgFallback,
 		sections: [
 			{ id: "overview", label: "Overview" },
 			{ id: "sponsorship", label: "Sponsorship" },
@@ -312,7 +322,7 @@ export const givingCircles: GivingCircle[] = [
 				},
 			],
 			photosHeading: "What to Expect at CMA",
-			photos: [img2, img3, img0, img1],
+			photos: [imgFOT1, imgFOT2, imgFOT3, imgFOT4],
 			closingHeading: "Tickets Coming Soon",
 			closingBody:
 				"Check back here for tickets and more information, or reach out now about sponsorship opportunities.",
@@ -325,8 +335,8 @@ export const givingCircles: GivingCircle[] = [
 		badge: "Giving Circle",
 		badgeColor: "teal-dark",
 		eyebrow: "Next-Generation Philanthropists",
-		heroImage: img2,
-		cardImage: img2,
+		heroImage: imgFallback,
+		cardImage: imgFallback,
 		sections: [
 			{ id: "overview", label: "Overview" },
 			{ id: "benefits", label: "Member Benefits" },
@@ -347,8 +357,8 @@ export const givingCircles: GivingCircle[] = [
 		badge: "Major Gifts",
 		badgeColor: "navy",
 		eyebrow: "Giving Circle · $1,000+ Annually",
-		heroImage: img3,
-		cardImage: img3,
+		heroImage: imgFallback,
+		cardImage: imgFallback,
 		sections: [
 			{ id: "overview", label: "Overview" },
 			{ id: "impact", label: "Your Impact" },

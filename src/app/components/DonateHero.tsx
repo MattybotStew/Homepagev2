@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import donateHeroBg from "../../assets/hero-donate.webp";
+import donateHeroBg from "../../assets/donateHerp.png";
 
 const stats = [
 	{

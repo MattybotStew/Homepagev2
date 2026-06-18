@@ -19,7 +19,7 @@ import { useEffect, useState } from "react";
 import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp";
 import imgSpring from "../../assets/exhibits-spring-hero.webp";
 import imgSummer from "../../assets/exhibits-summer-hero.jpg";
-import imgPD from "../../assets/educators-img-3.webp";
+import imgPD from "../../assets/educator-professional.png";
 
 // ── Data ────────────────────────────────────────────────────────────────────
 

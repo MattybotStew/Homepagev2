@@ -1,6 +1,8 @@
-import imgB from "../../assets/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp";
-import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp";
-import imgC from "../../assets/39da2bd0af3dceef1e3b406cd981247f82778d27.webp";
+import tinyconImg from "../../assets/Tiny-con.png";
+import gabbyImg from "../../assets/gabby-doll-house.png";
+import bubbleBashImg from "../../assets/bubble-bash.png";
+import artsyMondaysImg from "../../assets/artsy-Mondays.png";
+import imgFallback from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp";
 
 export type EventItem = {
 	slug: string;
@@ -18,7 +20,7 @@ export type EventItem = {
 export const allEvents: EventItem[] = [
 	{
 		slug: "sensory-friendly-playtime",
-		image: imgA,
+		image: imgFallback,
 		badge: "August 2, 2026 • Ages: 4–8",
 		title: "Sensory Friendly Playtime",
 		description:
@@ -34,7 +36,7 @@ export const allEvents: EventItem[] = [
 	},
 	{
 		slug: "tinycon",
-		image: imgC,
+		image: tinyconImg,
 		badge: "September 5–6, 2026 • Ages: 4–8",
 		title: "TinyCON®",
 		description:
@@ -50,7 +52,7 @@ export const allEvents: EventItem[] = [
 	},
 	{
 		slug: "gabbys-dollhouse",
-		image: imgA,
+		image: gabbyImg,
 		badge: "October 9–11, 2026 • Ages: 4–8",
 		title: "Gabby's Dollhouse MEOWseum Discovery Days",
 		description:
@@ -66,7 +68,7 @@ export const allEvents: EventItem[] = [
 	},
 	{
 		slug: "trick-or-treat",
-		image: imgB,
+		image: imgFallback,
 		badge: "October 24, 2026 • Ages: 4–8",
 		title: "Trick-Or-Treat",
 		description:
@@ -82,7 +84,7 @@ export const allEvents: EventItem[] = [
 	},
 	{
 		slug: "bubble-bash",
-		image: imgC,
+		image: bubbleBashImg,
 		badge: "December 31, 2026 • Ages: 4–8",
 		title: "Bubble Bash",
 		description:
@@ -98,7 +100,7 @@ export const allEvents: EventItem[] = [
 	},
 	{
 		slug: "artsy-mondays",
-		image: imgA,
+		image: artsyMondaysImg,
 		badge: "September 7, 2026 • Building Blocks",
 		title: "Artsy Mondays",
 		description:

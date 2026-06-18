@@ -2,8 +2,8 @@ import { faBriefcase, faGraduationCap, faHandHoldingHeart, faHeart, faPeopleGrou
 import { FontAwesomeIcon, type IconProp } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import imgCutCMA from "../../assets/cutCMA.png";
-import imgVolunteer from "../../assets/educators-contact.webp";
-import imgJoin from "../../assets/educators-img-0.webp";
+import imgVolunteer from "../../assets/careers2.png";
+import imgJoin from "../../assets/careers1.png";
 import imgWaveBottom from "../../assets/impact-wave-bottom.svg";
 import imgWaveTop from "../../assets/impact-wave-top.svg";
 import imgWaveWhite from "../../assets/wave-white.svg";

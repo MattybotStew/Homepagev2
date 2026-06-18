@@ -1,7 +1,7 @@
-import img0 from "../../assets/educators-img-0.webp";
-import img1 from "../../assets/educators-img-1.webp";
-import img2 from "../../assets/educators-img-2.webp";
-import img3 from "../../assets/educators-img-3.webp";
+import imgFieldTrips from "../../assets/field-trip.png";
+import imgMOTG from "../../assets/MOTG.png";
+import imgScouts from "../../assets/educators-img-2.webp";
+import imgEducatorPD from "../../assets/educator-professional.png";
 import type { ContentBlock, SidebarSection } from "../components/ArticleContentWithSidebar";
 
 export type Program = {
@@ -23,8 +23,8 @@ export const programs: Program[] = [
 		badge: "Educators",
 		badgeColor: "teal-dark",
 		eyebrow: "Grades Pre-K–5 | 2-hour experiences",
-		heroImage: img0,
-		cardImage: img0,
+		heroImage: imgFieldTrips,
+		cardImage: imgFieldTrips,
 		sections: [
 			{ id: "overview", label: "Overview" },
 			{ id: "details", label: "Trip Details" },
@@ -42,8 +42,8 @@ export const programs: Program[] = [
 		badge: "Educators",
 		badgeColor: "teal-dark",
 		eyebrow: "Grades Pre-K–3 | 45–60 minute sessions",
-		heroImage: img1,
-		cardImage: img1,
+		heroImage: imgMOTG,
+		cardImage: imgMOTG,
 		sections: [
 			{ id: "overview", label: "Overview" },
 			{ id: "details", label: "Program Details" },
@@ -61,8 +61,8 @@ export const programs: Program[] = [
 		badge: "Educators",
 		badgeColor: "navy",
 		eyebrow: "Ages 6–17 | 90-minute workshops",
-		heroImage: img2,
-		cardImage: img2,
+		heroImage: imgScouts,
+		cardImage: imgScouts,
 		sections: [
 			{ id: "overview", label: "Overview" },
 			{ id: "details", label: "Workshop Details" },
@@ -80,8 +80,8 @@ export const programs: Program[] = [
 		badge: "Educators",
 		badgeColor: "navy",
 		eyebrow: "All grade levels | Half-day & full-day formats",
-		heroImage: img3,
-		cardImage: img3,
+		heroImage: imgEducatorPD,
+		cardImage: imgEducatorPD,
 		sections: [
 			{ id: "overview", label: "Overview" },
 			{ id: "details", label: "PD Details" },
