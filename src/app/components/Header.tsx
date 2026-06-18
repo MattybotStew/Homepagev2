@@ -138,8 +138,8 @@ function Logo() {
 
 const membershipsSubPages: NavSubPage[] = [
 	{ label: "Memberships", href: "#/memberships" },
-	{ label: "Information", href: "#/memberships/information" },
 	{ label: "Corporate Membership", href: "#/memberships/corporate" },
+	{ label: "Information", href: "#/memberships/information" },
 ];
 
 const TICKETS_URL = "https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf";

@@ -23,6 +23,14 @@ export const navLinks: NavLink[] = [
 	{ label: "Exhibits", href: "#/exhibits" },
 	{ label: "Calendar & Events", href: "#/events" },
 	{
+		label: "Memberships",
+		href: "#/memberships",
+		subPages: [
+			{ label: "Corporate Membership", href: "#/memberships/corporate" },
+			{ label: "Information", href: "#/memberships/information" },
+		],
+	},
+	{
 		label: "For Educators",
 		href: "#/educators",
 		subPages: [
