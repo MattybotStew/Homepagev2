@@ -59,7 +59,7 @@ const workshopDetails = [
 		color: "bg-cma-teal-dark",
 		label: "Pricing",
 		description:
-			"$250 per workshop — includes workshop experience, playtime, Museum fun patch, and completion certificate for up to 12 scouts and 3 adults. Contact Reservations for additional-person pricing.",
+			"Scout tickets are $27.95 and include a 45-minute workshop, two hours of Museum playtime, a museum fun patch, and a completion certificate. Accompanying adult tickets are $17.95. Tickets may be purchased individually or for your entire troop.",
 	},
 	{
 		icon: faClock,
@@ -73,7 +73,7 @@ const workshopDetails = [
 		color: "bg-cma-slate",
 		label: "Group Size",
 		description:
-			"Up to 12 scouts and 3 adults per workshop. Additional scouts and adults may be added for an additional cost per person.",
+			"There is no minimum group size. Families and troops with up to 10 total guests may book online. Groups with more than 10 guests (scouts and adults combined) must contact Reservations for assistance with booking.",
 	},
 	{
 		icon: faStar,
@@ -267,13 +267,15 @@ export default function ScoutsProgramContent() {
 							<div id="workshop-weekends" className="flex flex-col gap-[24px]">
 								<h2 className="text-cma-navy">Girl Scout Workshop Weekends</h2>
 								<p className="text-cma-navy">
-									Bring your troop to the Museum for STEM-themed workshop
+									Bring your scout to the Museum for STEM-themed workshop
 									weekends! Scouts can earn select Daisy and Brownie STEM
 									badges, take home a special Museum patch, and receive a badge
-									completion certificate. Workshops include a 45-minute–1 hour
-									session with one of our trained educators and 2 hours of free
-									play in the Museum for up to 12 scouts and 3 adults — a
-									perfect mix of learning, play, and fun!
+									completion certificate.
+								</p>
+								<p className="text-cma-navy">
+									Each ticket includes a 45-minute to 1-hour session with one
+									of our trained educators and 2 hours of Museum playtime,
+									creating the perfect mix of learning, play, and fun.
 								</p>
 
 								<div className="flex flex-col gap-[16px]">

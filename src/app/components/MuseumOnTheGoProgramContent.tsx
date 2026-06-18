@@ -3,7 +3,6 @@ import {
 	faBook,
 	faBrush,
 	faBus,
-	faCalendar,
 	faClock,
 	faFlask,
 	faGlobe,
@@ -791,28 +790,6 @@ export default function MuseumOnTheGoProgramContent() {
 										</div>
 									</form>
 								</div>
-							</div>
-
-							{/* ── Availability Calendar ── */}
-							<div className="bg-cma-teal-pale rounded-[16px] p-[24px] md:p-[48px] flex flex-col items-center justify-center gap-[16px] text-center">
-								<div className="w-[56px] h-[56px] bg-white rounded-full flex items-center justify-center">
-									<FontAwesomeIcon icon={faCalendar} className="text-cma-teal-dark text-[22px]" />
-								</div>
-								<p className="font-extrabold text-cma-navy">Availability Calendar</p>
-								<p className="text-cma-navy/60 text-[14px] max-w-[360px]">
-									To check availability and reserve your date, contact our
-									Education team at 404.527.3693 or{" "}
-									<a href="mailto:education@childrensmuseumatlanta.org" className="underline hover:text-cma-navy transition-colors">
-										education@childrensmuseumatlanta.org
-									</a>
-									.
-								</p>
-								<a
-									href="mailto:education@childrensmuseumatlanta.org"
-									className="cma-btn bg-cma-teal-dark text-white hover:bg-cma-navy font-black"
-								>
-									Email the Education Team
-								</a>
 							</div>
 
 							{/* ── Tour the Museum ── */}
