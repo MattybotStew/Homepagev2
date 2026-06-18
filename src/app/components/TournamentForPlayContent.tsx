@@ -188,6 +188,53 @@ export default function TournamentForPlayContent({ related }: Props) {
 					</div>
 				</div>
 			</section>
+
+			{/* Sponsor tiers */}
+			<section className="bg-white w-full py-[60px] md:py-[80px]">
+				<div className="cma-section-container flex flex-col gap-8">
+					<h2 className="text-cma-navy">Sponsors</h2>
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+						{sponsorTiers.map((tier, i) => (
+							<motion.div
+								key={tier.name}
+								className={`bg-cma-cream rounded-[24px] p-8 flex flex-col gap-4 border border-black/5 ${
+									tier.featured ? "md:col-span-2" : ""
+								}`}
+								initial={{ opacity: 0, y: 24 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true, margin: "-60px" }}
+								transition={{
+									duration: 0.7,
+									ease: [0.16, 1, 0.3, 1],
+									delay: i * 0.06,
+								}}
+							>
+								<h3 className="text-cma-navy">{tier.name}</h3>
+								<div className="flex flex-wrap gap-3">
+									{tier.sponsors.map((sponsor) => (
+										<div
+											key={sponsor}
+											className="flex flex-col items-center gap-2 w-[120px]"
+										>
+											<div
+												className="w-full h-[64px] rounded-[12px] bg-black/10 flex items-center justify-center"
+												aria-hidden
+											>
+												<span className="text-cma-navy/30 text-[11px] font-bold">
+													LOGO
+												</span>
+											</div>
+											<p className="text-cma-navy text-[12px] font-semibold text-center leading-[1.3]">
+												{sponsor}
+											</p>
+										</div>
+									))}
+								</div>
+							</motion.div>
+						))}
+					</div>
+				</div>
+			</section>
 		</>
 	);
 }
