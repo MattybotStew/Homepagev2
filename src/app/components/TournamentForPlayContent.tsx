@@ -252,6 +252,87 @@ export default function TournamentForPlayContent({ related }: Props) {
 					</div>
 				</div>
 			</section>
+
+			{/* Closing CTA */}
+			<section className="bg-white w-full py-[60px] md:py-[80px]">
+				<div className="cma-section-container">
+					<div className="bg-cma-navy rounded-[24px] p-8 md:p-12 flex flex-col items-center text-center gap-6">
+						<h2 className="text-white">
+							Interested in Sponsoring or Joining the Waitlist?
+						</h2>
+						<p className="text-cma-blue-light max-w-[560px]">
+							Tournament foursomes are sold out for 2026, but waitlist spots
+							and non-player sponsorships are still open.
+						</p>
+						<div className="flex flex-col sm:flex-row gap-3">
+							<a
+								href={WAITLIST_HREF}
+								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+							>
+								Join Waitlist
+							</a>
+							<a
+								href={SPONSOR_HREF}
+								className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white font-black"
+							>
+								Sponsorship Inquiry
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Related */}
+			<section className="bg-cma-cream w-full py-[60px] md:py-[80px]">
+				<div className="cma-section-container flex flex-col gap-[48px]">
+					<h2 className="text-cma-navy">Other Ways to Give</h2>
+					<div className="flex flex-col gap-[16px]">
+						{related.map((rel, i) => (
+							<motion.div
+								key={rel.slug}
+								className="bg-white border-2 border-black/5 rounded-[24px] p-[24px] flex flex-col md:flex-row gap-[32px] md:items-center"
+								initial={{ opacity: 0, y: 20 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true }}
+								transition={{
+									duration: 0.5,
+									delay: i * 0.1,
+									ease: [0.16, 1, 0.3, 1],
+								}}
+							>
+								<img
+									src={rel.cardImage}
+									alt={rel.title}
+									className="w-full md:w-[266px] md:h-[220px] h-[180px] rounded-[24px] object-cover shrink-0"
+								/>
+								<div className="flex flex-col gap-[20px] md:gap-[32px] flex-1 min-w-0 md:justify-center">
+									<div className="flex flex-col gap-[8px] md:gap-[24px]">
+										{rel.eyebrow && (
+											<p className="text-cma-teal-dark">{rel.eyebrow}</p>
+										)}
+										<h3 className="text-cma-navy">{rel.title}</h3>
+									</div>
+									<p className="text-cma-navy line-clamp-3">
+										{typeof rel.paragraphs[0] === "string"
+											? rel.paragraphs[0]
+											: ""}
+									</p>
+									<a
+										href={`#/giving-circles/${rel.slug}`}
+										className="cma-text-link"
+									>
+										Learn More{" "}
+										<FontAwesomeIcon
+											icon={faArrowRight}
+											className="text-[13px]"
+										/>
+									</a>
+								</div>
+							</motion.div>
+						))}
+					</div>
+				</div>
+			</section>
 		</>
 	);
 }
