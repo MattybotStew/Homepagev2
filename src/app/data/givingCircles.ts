@@ -210,8 +210,8 @@ export const givingCircles: GivingCircle[] = [
 		badge: "Golf Tournament",
 		badgeColor: "teal-dark",
 		eyebrow: "Annual Golf Fundraiser",
-		heroImage: imgFallback,
-		cardImage: imgFallback,
+		heroImage: imgTFP3,
+		cardImage: imgTFP3,
 		sections: [
 			{ id: "overview", label: "Overview" },
 			{ id: "details", label: "Schedule" },
