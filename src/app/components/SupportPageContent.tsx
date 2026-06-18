@@ -439,12 +439,6 @@ export default function SupportPageContent() {
 										>
 											Reach out to Laura Halad
 										</a>
-										<a
-											href="mailto:kmcneely@childrensmuseumatlanta.org"
-											className="cma-btn cma-btn-outline-teal font-black w-full sm:w-auto"
-										>
-											Contact Kate McNeely
-										</a>
 									</div>
 								</div>
 
