@@ -92,11 +92,8 @@ export default function ExhibitsHero() {
 					>
 						<h2 className="text-cma-navy">Featured Exhibits</h2>
 						<p className="text-cma-navy max-w-[680px]">
-							Placeholder copy — lorem ipsum dolor sit amet, consectetur
-							adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-							dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-							exercitation ullamco laboris nisi ut aliquip ex ea commodo
-							consequat.
+							Rotating exhibits offer something new to discover throughout the
+							year.
 						</p>
 					</motion.div>
 

@@ -26,6 +26,11 @@ const educatorTestimonials = [
 		name: "Brandi",
 		location: "2nd & 3rd Grade Teacher",
 	},
+	{
+		text: "I would absolutely recommend this event to other scout troops. It has definitely been a top Girl Scout experience.",
+		name: "Brianna",
+		location: "Troop 25057 Parent",
+	},
 ];
 
 export default function EducatorsPage() {
