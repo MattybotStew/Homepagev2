@@ -332,10 +332,10 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 			</section>
 
 			{/* Photo strip */}
-			<section className="bg-cma-cream w-full py-[60px] md:py-[80px]">
-				<div className="cma-section-container flex flex-col gap-8">
-					<h2 className="text-cma-navy">{event.photosHeading}</h2>
-					<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+			<section className="bg-cma-navy w-full py-[60px] md:py-[80px]">
+				<div className="cma-section-container flex flex-col gap-8 items-center">
+					<h2 className="text-white text-center">{event.photosHeading}</h2>
+					<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 w-full place-items-center">
 						{event.photos.map((photo, i) => (
 							<img
 								key={i}
