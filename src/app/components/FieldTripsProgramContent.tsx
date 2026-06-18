@@ -19,11 +19,11 @@ import { Facebook, Instagram } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp";
 import imgFloor from "../../assets/FT-Museum-Floor.png";
 import imgMezz from "../../assets/FT-Mezz.png";
+import imgKratts from "../../assets/kratts.png";
+import imgMcstuffins from "../../assets/mcstuff.png";
 import imgSpring from "../../assets/exhibits-spring-hero.webp";
-import imgSummer from "../../assets/exhibits-summer-hero.jpg";
 
 // ── Data ────────────────────────────────────────────────────────────────────
 
@@ -74,7 +74,7 @@ const learningZones = [
 
 const featuredExhibits = [
 	{
-		image: imgSummer,
+		image: imgKratts,
 		eyebrow: "Summer 2026",
 		title: "Wild Kratts®: Ocean Adventure",
 		description:
@@ -82,7 +82,7 @@ const featuredExhibits = [
 		href: "#/exhibits/wild-kratts-ocean-adventure",
 	},
 	{
-		image: imgA,
+		image: imgMcstuffins,
 		eyebrow: "Fall 2026",
 		title: "Doc McStuffins: The Exhibit",
 		description: "Help Doc and her friends in the new McStuffins Toy Hospital!",
