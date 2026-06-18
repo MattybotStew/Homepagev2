@@ -17,34 +17,112 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 	return (
 		<>
 			{/* Hero */}
-			<section className="relative w-full bg-cma-navy overflow-hidden flex flex-col items-center justify-center py-[80px] md:py-[120px]">
+			<section className="relative w-full flex flex-col px-5 sm:px-10 md:px-[80px] overflow-hidden">
+				<div
+					className="absolute inset-0 overflow-hidden pointer-events-none bg-black"
+					aria-hidden
+				>
+					<img
+						src={circle.heroImage}
+						alt=""
+						className="absolute inset-0 w-full h-full object-cover object-center"
+					/>
+					<div className="absolute inset-0 bg-cma-hero-overlay" />
+				</div>
+
 				<div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
-				<div className="cma-section-container relative z-[1] flex flex-col items-center gap-8 text-center max-w-[800px] mx-auto">
-					<p className="cma-eyebrow text-cma-teal">{circle.eyebrow}</p>
-					<h1 className="text-white">{circle.title}</h1>
-					<p className="text-cma-blue-light font-semibold text-[clamp(16px,1.67vw,24px)] leading-[1.4] max-w-[620px]">
-						{event.heroSubtitle}
-					</p>
-					<div className="flex flex-col sm:flex-row gap-3">
-						{event.heroCtas.map((cta, i) => (
-							<a
-								key={cta.label}
-								href={cta.href}
-								className={
-									i === 0
-										? "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
-										: "cma-btn cma-btn-outline-teal hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
-								}
+
+				<div className="relative flex-1 flex items-center py-[60px] md:py-[80px] lg:py-[100px]">
+					<div className="w-full flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 lg:gap-[64px]">
+						{/* Left: text */}
+						<div className="flex flex-col gap-5 md:gap-6 text-white max-w-[560px]">
+							<motion.p
+								className="cma-eyebrow opacity-80"
+								initial={{ opacity: 0, y: 20 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
 							>
-								{cta.label}
-							</a>
-						))}
+								{circle.eyebrow}
+							</motion.p>
+
+							<motion.h1
+								className="font-extrabold text-white leading-[0.95]"
+								initial={{ opacity: 0, y: 20 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+							>
+								{circle.title}
+							</motion.h1>
+
+							<motion.p
+								className="font-semibold text-[clamp(16px,2.1vw,24px)] text-cma-blue-light leading-[1.3] tracking-[-0.5px] max-w-[480px]"
+								initial={{ opacity: 0, y: 20 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
+							>
+								{event.heroSubtitle}
+							</motion.p>
+
+							<motion.div
+								className="flex flex-col sm:flex-row gap-3"
+								initial={{ opacity: 0, y: 20 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+							>
+								{event.heroCtas.map((cta, i) => (
+									<a
+										key={cta.label}
+										href={cta.href}
+										className={
+											i === 0
+												? "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+												: "cma-btn cma-btn-outline-teal hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
+										}
+									>
+										{cta.label}
+									</a>
+								))}
+							</motion.div>
+						</div>
+
+						{/* Right: stat cards */}
+						{event.stats && (
+							<div className="w-full lg:w-[340px] shrink-0 flex flex-col gap-3">
+								{event.stats.map((stat, i) => (
+									<motion.div
+										key={stat.label}
+										className={`rounded-[16px] px-5 py-4 flex flex-col gap-1 ${
+											i % 2 === 0
+												? "bg-cma-orange"
+												: "bg-cma-navy border border-white/10"
+										}`}
+										initial={{ opacity: 0, x: 24 }}
+										animate={{ opacity: 1, x: 0 }}
+										transition={{
+											duration: 0.8,
+											ease: [0.16, 1, 0.3, 1],
+											delay: 0.3 + i * 0.1,
+										}}
+									>
+										<p className="text-white font-black text-[clamp(22px,2.5vw,30px)] leading-none">
+											{stat.value}
+										</p>
+										<p className="text-white/80 text-[13px] font-semibold">
+											{stat.label}
+										</p>
+									</motion.div>
+								))}
+							</div>
+						)}
 					</div>
 				</div>
+
+				{/* Bottom spacing */}
+				<div className="shrink-0 h-[40px] md:h-[60px]" />
 			</section>
 
 			{/* Breadcrumb + social */}
-			<section className={`bg-cma-cream pt-[40px] ${event.stats ? "" : "pb-[40px]"}`}>
+			<section className="bg-cma-cream py-[40px]">
 				<div className="cma-section-container">
 					<div className="flex items-center justify-between flex-wrap gap-[12px]">
 						<div className="flex items-center gap-[8px] flex-wrap text-[15px]">
@@ -77,37 +155,6 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 					</div>
 				</div>
 			</section>
-
-			{/* Stats */}
-			{event.stats && (
-				<section className="bg-cma-cream w-full py-[60px] md:py-[80px]">
-					<div className="cma-section-container">
-						<div className="grid grid-cols-2 md:grid-cols-4 gap-x-[32px] gap-y-[48px]">
-							{event.stats.map((stat, i) => (
-								<motion.div
-									key={stat.label}
-									className="flex flex-col gap-[10px] text-center items-center"
-									initial={{ opacity: 0, y: 24 }}
-									whileInView={{ opacity: 1, y: 0 }}
-									viewport={{ once: true, margin: "-60px" }}
-									transition={{
-										duration: 0.7,
-										ease: [0.16, 1, 0.3, 1],
-										delay: i * 0.1,
-									}}
-								>
-									<p className="text-cma-orange font-black text-[clamp(28px,3vw,40px)] leading-none">
-										{stat.value}
-									</p>
-									<p className="font-extrabold text-[15px] text-cma-navy leading-[1.2]">
-										{stat.label}
-									</p>
-								</motion.div>
-							))}
-						</div>
-					</div>
-				</section>
-			)}
 
 			{/* Schedule / Award / Leadership */}
 			{(event.scheduleItems || event.award || event.leadership) && (
