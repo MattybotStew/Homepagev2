@@ -140,8 +140,7 @@ export default function ExhibitsFloorPlan() {
 					</p>
 					<div className="flex flex-col sm:flex-row gap-3">
 						<a
-							href="/social-story.pdf"
-							download
+							href="#"
 							className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 						>
 							Download Social Story{" "}

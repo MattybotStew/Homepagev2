@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import imgCutCMA from "../../assets/cutCMA.png";
 import AlertBanner from "../components/AlertBanner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -16,7 +17,7 @@ export default function NotFoundPage() {
 
 			<section className="relative bg-cma-navy overflow-hidden min-h-[70vh] flex items-center">
 				<img
-					src="/Homepagev2/assets/cutCMA.png"
+					src={imgCutCMA}
 					alt=""
 					aria-hidden
 					className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] opacity-15 pointer-events-none select-none object-contain object-bottom"

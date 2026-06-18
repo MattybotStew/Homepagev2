@@ -214,7 +214,7 @@ export const allArticles: ArticleItem[] = [
 		],
 	},
 	{
-		slug: "tinycage-recap",
+		slug: "tinycon-recap",
 		image: imgC,
 		badge: "Events Recap • February 20, 2026",
 		title: "TinyCON 2025: A Look Back at Our Biggest Event Yet",

@@ -71,7 +71,7 @@ function search(query: string): Result[] {
 			results.push({
 				title: a.title,
 				description: a.description?.slice(0, 140) + "…",
-				href: `/news`,
+				href: `/news/${a.slug}`,
 				type: "News",
 				typeColor: "bg-cma-slate",
 			});
