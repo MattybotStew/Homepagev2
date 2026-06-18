@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const tiers = [
 	{
-		number: 1,
+		range: "$10,000+",
 		name: "Visionary",
 		donors: [
 			"Anonymous",
@@ -48,7 +48,7 @@ const tiers = [
 		],
 	},
 	{
-		number: 2,
+		range: "$5,000 - $9,999",
 		name: "Creator",
 		donors: [
 			"Anonymous",
@@ -77,7 +77,7 @@ const tiers = [
 		],
 	},
 	{
-		number: 3,
+		range: "$2,500 - $4,999",
 		name: "Champion",
 		donors: [
 			"Alston & Bird LLP",
@@ -111,7 +111,7 @@ const tiers = [
 		],
 	},
 	{
-		number: 4,
+		range: "$1,000 - $2,499",
 		name: "Adventurer",
 		donors: [
 			"Heather Balkema",
@@ -155,7 +155,7 @@ const tiers = [
 		],
 	},
 	{
-		number: 5,
+		range: "$500 - $999",
 		name: "Innovator",
 		donors: [
 			"ADP",
@@ -219,7 +219,7 @@ export default function DonorRecognitionTiers() {
 									<span
 										className={`text-cma-navy text-[16px] leading-[1.3] ${isOpen ? "font-black" : "font-semibold"}`}
 									>
-										TIER {tier.number} — {tier.name}
+										{tier.name} — {tier.range}
 									</span>
 									<FontAwesomeIcon
 										icon={isOpen ? faMinus : faPlus}

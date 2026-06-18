@@ -212,17 +212,17 @@ export default function SupportPageContent() {
 									<div className="bg-cma-teal-pale rounded-[16px] p-[20px] flex flex-col sm:flex-row sm:items-center gap-[16px] sm:justify-between">
 										<div className="flex flex-col gap-[2px]">
 											<p className="font-extrabold text-cma-navy text-[15px] leading-[1.3]">
-												Erin Brooks
+												Rebecca Jackson
 											</p>
 											<p className="text-cma-navy/70 text-[13px] leading-[1.4]">
-												Director of Strategic Advancement
+												Director of Marketing and Sales
 											</p>
 										</div>
 										<a
-											href="mailto:ebrooks@childrensmuseumatlanta.org"
+											href="mailto:rjackson@childrensmuseumatlanta.org"
 											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start sm:self-auto"
 										>
-											Contact Erin Brooks
+											Contact Rebecca Jackson
 										</a>
 									</div>
 								</div>
