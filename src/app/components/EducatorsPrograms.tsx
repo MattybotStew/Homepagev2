@@ -6,20 +6,22 @@ import { useEffect, useRef } from "react";
 import img0 from "../../assets/educators-img-0.webp";
 import img1 from "../../assets/educators-img-1.webp";
 import img2 from "../../assets/educators-img-2.webp";
-import img3 from "../../assets/educators-img-3.webp";
+import imgFieldTrips from "../../assets/field-trip.png";
+import imgMOTG from "../../assets/MOTG.png";
+import imgEducatorPD from "../../assets/educator-professional.png";
 import imgWaveTop from "../../assets/impact-wave-top.svg";
 
 // TODO: "Homeschool Days", "Birthday Workshops", and "Summer Camp Partnerships"
 // are placeholders pending real program content and photography.
 const programs = [
 	{
-		image: img0,
+		image: imgFieldTrips,
 		title: "Field Trips",
 		body: "Bring your curriculum to life through standards-aligned field trips rooted in learning through play.",
 		href: "#/program/field-trips",
 	},
 	{
-		image: img1,
+		image: imgMOTG,
 		title: "Museum On-the-Go",
 		body: "Engage learners ages 2 through 5th grade with hands-on, play-based learning — brought directly to your classroom or community space.",
 		href: "#/program/museum-on-the-go",
@@ -31,7 +33,7 @@ const programs = [
 		href: "#/program/scout-workshops",
 	},
 	{
-		image: img3,
+		image: imgEducatorPD,
 		title: "Educator Professional Development",
 		body: "Hands-on, play-based professional development that inspires and supports your classroom teaching.",
 		href: "#/program/educator-professional-development",
