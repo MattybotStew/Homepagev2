@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
-import imgGift from "../../assets/gift.webp";
-import imgHours from "../../assets/hours.webp";
+import imgGift from "../../assets/mus-store3.png";
+import imgHours from "../../assets/mus-store2.png";
 import imgShop from "../../assets/Shop.webp";
 
 const sections = [
