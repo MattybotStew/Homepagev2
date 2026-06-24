@@ -265,7 +265,7 @@ export default function Footer() {
 							<p className="text-black text-[14px] font-medium leading-none whitespace-nowrap">
 								Platinum Transparency <strong className="font-bold" style={{ fontFamily: "Georgia, serif" }}>2026</strong>
 							</p>
-							<img src={candidLogo} alt="Candid" className="h-[12px] w-auto" />
+							<img src={candidLogo} alt="Candid" className="h-[12px] w-[55px]" />
 						</div>
 					</div>
 
