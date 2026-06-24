@@ -2,7 +2,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import imgSpring from "../../assets/exhibits-spring-hero.webp";
-import imgSummer from "../../assets/exhibits-summer-hero.jpg";
+import imgKratts from "../../assets/kratts.png";
 import imgWaveBottom from "../../assets/impact-wave-bottom.svg";
 import imgWaveWhite from "../../assets/wave-white.svg";
 
@@ -16,7 +16,7 @@ const featuredExhibits = [
 		href: "#/exhibits/aim-high-soaring-with-the-tuskegee-airmen",
 	},
 	{
-		image: imgSummer,
+		image: imgKratts,
 		badge: "Summer 2026",
 		ages: "Ages: 4–14 | May 23 – Sep 13, 2026 | 25–30 minutes",
 		title: "Wild Kratts®: Ocean Adventure!",
