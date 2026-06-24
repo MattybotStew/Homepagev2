@@ -320,7 +320,7 @@ export const givingCircles: GivingCircle[] = [
 		fundraisingEvent: {
 			heroSubtitle:
 				"Children's Museum of Atlanta will host a 21+ beer festival. Guests will discover new beers from local breweries, light bites, fun games, and best of all — an evening of play in the Museum's exhibits. Be a kid again, without the kids! While guests enjoy craft brews and an evening of play, they're also making a lasting impact one sip at a time. Check back here for tickets and more information!",
-			heroCtas: [],
+			heroCtas: [{ label: "Become A Sponsor", href: FOT_SPONSOR_HREF }],
 			sponsorsHeading: "Sponsorship Opportunities Available Now!",
 			sponsorsBody:
 				"More than just a great time, Fun on Tap is a fundraiser with a purpose. Fun on Tap is a playful take on a classic beer fest. We are inviting local breweries and companies to join us for our first brewery night — Fun on Tap. As a sponsor, your support brings this adults-only evening at the Museum to life. Email Laura Halad at lhalad@childrensmuseumatlanta.org for more information.",
