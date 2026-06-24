@@ -17,7 +17,7 @@ const options = [
 		title: "Corporate Membership & Bulk Tickets",
 		description:
 			"Give your team and their families the gift of play. CMA's Corporate Membership program offers structured annual packages — from 50 to 1,000 employee families — with tiered benefits including free admission and museum buy-out discounts.",
-		cta: { label: "Learn About Corporate Memberships", href: "#/memberships" },
+		cta: { label: "Learn About Corporate Memberships", href: "#/memberships/corporate" },
 	},
 	{
 		title: "Rent Our Space",
