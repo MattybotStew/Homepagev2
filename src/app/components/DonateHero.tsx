@@ -135,10 +135,11 @@ export default function DonateHero() {
 								delay: 0.55,
 							}}
 						>
-							<span className="inline-flex items-center gap-[6px] bg-white/10 border border-white/20 text-white font-bold text-[12px] px-[12px] py-[6px] rounded-full">
-								<span className="w-[8px] h-[8px] rounded-full bg-cma-teal-light shrink-0" />
-								GuideStar Platinum Transparency
-							</span>
+							<img
+								src="https://widgets.guidestar.org/DonationPortal/img/2024/candid-seal-platinum-2024.svg"
+								alt="Candid Platinum Transparency 2024"
+								className="h-[48px] w-auto"
+							/>
 						</motion.div>
 					</div>
 

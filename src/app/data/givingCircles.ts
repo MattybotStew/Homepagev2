@@ -10,12 +10,11 @@ import imgTFPHero from "../../assets/pnncHero.png";
 import imgTFP4 from "../../assets/pnc4.png";
 import imgTFP5 from "../../assets/pnc5.png";
 import imgFunOnTap from "../../assets/fun-on-tap-final.webp";
-import imgFOT1 from "../../assets/educators-img-2.webp";
-import imgFOT2 from "../../assets/educators-img-3.webp";
-import imgFOT3 from "../../assets/educators-img-0.webp";
-import imgFOT4 from "../../assets/educators-img-1.webp";
+import imgFOT1 from "../../assets/fun1.png";
+import imgFOT2 from "../../assets/fun2.png";
+import imgFOT3 from "../../assets/fun3.png";
+import imgFOT4 from "../../assets/fun4.png";
 import imgDreamBuilders from "../../assets/educator-professional.png";
-import imgFallback from "../../assets/educators-img-0.webp";
 import imgPYV from "../../assets/PYVhero.webp";
 import imgYoung from "../../assets/young.png";
 import imgTFPLogo from "../../assets/pNC-Tour-logo.png";
@@ -57,7 +56,7 @@ export type FundraisingEventDetails = {
 	closingCtas: { label: string; href: string }[];
 };
 
-export type GivingCircle = Program & { fundraisingEvent?: FundraisingEventDetails };
+export type GivingCircle = Program & { fundraisingEvent?: FundraisingEventDetails; draft?: boolean };
 
 const REGISTER_HREF =
 	"mailto:ebrooks@childrensmuseumatlanta.org?subject=Tournament%20For%20Play%20Registration";
@@ -321,7 +320,7 @@ export const givingCircles: GivingCircle[] = [
 		fundraisingEvent: {
 			heroSubtitle:
 				"Children's Museum of Atlanta will host a 21+ beer festival. Guests will discover new beers from local breweries, light bites, fun games, and best of all — an evening of play in the Museum's exhibits. Be a kid again, without the kids! While guests enjoy craft brews and an evening of play, they're also making a lasting impact one sip at a time. Check back here for tickets and more information!",
-			heroCtas: [{ label: "Become A Sponsor", href: FOT_SPONSOR_HREF }],
+			heroCtas: [],
 			sponsorsHeading: "Sponsorship Opportunities Available Now!",
 			sponsorsBody:
 				"More than just a great time, Fun on Tap is a fundraiser with a purpose. Fun on Tap is a playful take on a classic beer fest. We are inviting local breweries and companies to join us for our first brewery night — Fun on Tap. As a sponsor, your support brings this adults-only evening at the Museum to life. Email Laura Halad at lhalad@childrensmuseumatlanta.org for more information.",
@@ -343,6 +342,7 @@ export const givingCircles: GivingCircle[] = [
 	},
 	{
 		slug: "young-professionals",
+		draft: true,
 		title: "Young Professionals",
 		badge: "Giving Circle",
 		badgeColor: "teal-dark",
@@ -365,6 +365,7 @@ export const givingCircles: GivingCircle[] = [
 	},
 	{
 		slug: "dream-builders",
+		draft: true,
 		title: "Dream Builders Giving Circle",
 		badge: "Major Gifts",
 		badgeColor: "navy",

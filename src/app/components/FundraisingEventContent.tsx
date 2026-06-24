@@ -45,7 +45,7 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 			}`}
 		>
 			<div className="cma-section-container">
-				<div className="bg-white rounded-[24px] border-2 border-black/5 p-[24px] md:p-[48px] flex flex-col gap-8">
+				<div className="cma-content-card flex flex-col gap-8">
 					<div className={event.sponsorsImage ? "flex flex-col lg:flex-row gap-[40px] items-center" : ""}>
 						<div className="flex flex-col gap-8 flex-1 min-w-0">
 							<h2 className="text-cma-navy">{event.sponsorsHeading}</h2>
@@ -99,10 +99,10 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 										{tier.sponsors.map((sponsor, j) => (
 											<div
 												key={`${sponsor}-${j}`}
-												className={`flex flex-col items-center gap-2 ${tier.featured ? "w-[220px]" : "w-[120px]"}`}
+												className={`flex flex-col items-center gap-2 ${tier.featured ? "w-[360px]" : "w-[120px]"}`}
 											>
 												<div
-													className={`w-full rounded-[12px] bg-black/10 flex items-center justify-center ${tier.featured ? "h-[140px]" : "h-[64px]"}`}
+													className={`w-full rounded-[12px] bg-black/10 flex items-center justify-center ${tier.featured ? "h-[220px]" : "h-[64px]"}`}
 													aria-hidden
 												>
 													<span className={`text-cma-navy/30 font-bold ${tier.featured ? "text-[18px]" : "text-[11px]"}`}>
@@ -271,7 +271,7 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 				<section className="bg-cma-cream w-full pb-[60px] md:pb-[80px]">
 					<div className="cma-section-container flex flex-col gap-[32px]">
 						{event.scheduleItems && (
-							<div className="bg-white rounded-[24px] border-2 border-black/5 p-[24px] md:p-[48px] flex flex-col gap-[32px]">
+							<div className="cma-content-card flex flex-col gap-[32px]">
 								<h2 className="text-cma-navy text-center">{event.scheduleHeading}</h2>
 								<div className="flex flex-col lg:flex-row gap-[32px] lg:gap-[60px] items-start">
 									<div className="flex flex-col border-t border-black/10 flex-1 min-w-0 w-full">
@@ -312,7 +312,7 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 						)}
 
 						{event.award && (
-							<div className="bg-white rounded-[24px] border-2 border-black/5 p-[24px] md:p-[48px] flex flex-col lg:flex-row gap-[32px] lg:gap-[64px] items-center">
+							<div className="cma-content-card flex flex-col lg:flex-row gap-[32px] lg:gap-[64px] items-center">
 								<div className="flex flex-col gap-[16px] flex-1 min-w-0">
 									<h2 className="text-cma-navy">{event.award.heading}</h2>
 									<div className="flex flex-col gap-[4px]">
@@ -338,7 +338,7 @@ export default function FundraisingEventContent({ circle, related }: Props) {
 						)}
 
 						{event.leadership && (
-							<div className="bg-white rounded-[24px] border-2 border-black/5 p-[24px] md:p-[48px] flex flex-col gap-[24px]">
+							<div className="cma-content-card flex flex-col gap-[24px]">
 								<h2 className="text-cma-navy">{event.leadership.heading}</h2>
 								<div className="flex flex-col gap-[6px]">
 									<p className="font-extrabold text-cma-navy">

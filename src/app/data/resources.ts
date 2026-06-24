@@ -1,6 +1,12 @@
-import imgB from "../../assets/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp";
-import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp";
-import imgC from "../../assets/39da2bd0af3dceef1e3b406cd981247f82778d27.webp";
+import img01 from "../../assets/5e9e706a4edd098b94b55ffc8289a25c57fcd860.webp";
+import img02 from "../../assets/5fbbcf6f08bc318f43c2c8d00d447df6318200dd.webp";
+import img03 from "../../assets/70606b144d42e6d7ed328be28058d6611206d0a2.webp";
+import img04 from "../../assets/797b45911a1d0a1f965f58bc294a8d4a73f9d367.webp";
+import img05 from "../../assets/8e645b3ddbfe23ad58c5f50d546a674c0731f054.webp";
+import img06 from "../../assets/95c906e032d463c9a1af96c555cb8b8b38c3355e.webp";
+import img07 from "../../assets/b125d7cd6a5d7d4c157e4fe139575f17a032648f.webp";
+import img08 from "../../assets/b8f9ea4dd58f1866ed3c25d4adb731014fe690e2.webp";
+import img09 from "../../assets/c175e874c4aacf4ffa7f1e2ab0fc3be96ac8d0aa.webp";
 
 export type ResourceItem = {
 	slug: string;
@@ -15,7 +21,7 @@ export type ResourceItem = {
 export const allResources: ResourceItem[] = [
 	{
 		slug: "loose-parts-play-guide",
-		image: imgA,
+		image: img01,
 		badge: "Activity Guide • Ages 2–8",
 		title: "Loose Parts Play: A Guide for Caregivers",
 		description:
@@ -30,7 +36,7 @@ export const allResources: ResourceItem[] = [
 	},
 	{
 		slug: "language-rich-play",
-		image: imgB,
+		image: img02,
 		badge: "Research Summary • All Ages",
 		title: "Talk More, Ask More: Building Language Through Play",
 		description:
@@ -45,7 +51,7 @@ export const allResources: ResourceItem[] = [
 	},
 	{
 		slug: "sensory-bin-recipes",
-		image: imgC,
+		image: img03,
 		badge: "Activity Guide • Ages 1–5",
 		title: "Sensory Bin Recipes for Every Season",
 		description:
@@ -62,7 +68,7 @@ export const allResources: ResourceItem[] = [
 	},
 	{
 		slug: "reading-aloud-techniques",
-		image: imgA,
+		image: img04,
 		badge: "Educator Resource • Pre-K–Grade 2",
 		title: "The Art of Reading Aloud: Techniques That Spark Imagination",
 		description:
@@ -78,7 +84,7 @@ export const allResources: ResourceItem[] = [
 	},
 	{
 		slug: "executive-function-games",
-		image: imgB,
+		image: img05,
 		badge: "Activity Guide • Ages 3–7",
 		title: "Games That Build Executive Function",
 		description:
@@ -94,7 +100,7 @@ export const allResources: ResourceItem[] = [
 	},
 	{
 		slug: "nature-play-benefits",
-		image: imgC,
+		image: img06,
 		badge: "Research Summary • All Ages",
 		title: "Why Nature Play Matters: The Science Behind Outdoor Learning",
 		description:
@@ -109,7 +115,7 @@ export const allResources: ResourceItem[] = [
 	},
 	{
 		slug: "dramatic-play-setup",
-		image: imgA,
+		image: img07,
 		badge: "Activity Guide • Ages 2–6",
 		title: "Setting Up Dramatic Play Spaces at Home",
 		description:
@@ -124,7 +130,7 @@ export const allResources: ResourceItem[] = [
 	},
 	{
 		slug: "steam-kitchen-experiments",
-		image: imgB,
+		image: img08,
 		badge: "Activity Guide • Ages 4–8",
 		title: "Kitchen STEAM: Science Experiments with Pantry Staples",
 		description:
@@ -140,7 +146,7 @@ export const allResources: ResourceItem[] = [
 	},
 	{
 		slug: "museum-at-home-tips",
-		image: imgC,
+		image: img09,
 		badge: "Educator Resource • All Ages",
 		title: "Bringing the Museum Home: Tips from Our Educators",
 		description:

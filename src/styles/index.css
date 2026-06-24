@@ -366,6 +366,21 @@
 	flex-shrink: 0;
 }
 
+/* ── Content card ────────────────────────────────────────────────────────── */
+/* White bordered card used for article/program/event body sections.        */
+/* Combine with a layout class (flex flex-col gap-...) for the inner stack. */
+.cma-content-card {
+	background-color: #fff;
+	border-radius: 24px;
+	border: 2px solid rgba(0, 0, 0, 0.05);
+	padding: 24px;
+}
+@media (min-width: 768px) {
+	.cma-content-card {
+		padding: 48px;
+	}
+}
+
 /* ── Section container ──────────────────────────────────────────────────── */
 .cma-section-container {
 	max-width: 1280px;

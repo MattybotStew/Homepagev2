@@ -13,9 +13,9 @@ export default function GivingCirclePage() {
 	const { slug } = useParams<{ slug: string }>();
 	const circle = givingCircles.find((c) => c.slug === slug);
 
-	if (!circle) return <Navigate to="/support" replace />;
+	if (!circle || circle.draft) return <Navigate to="/support" replace />;
 
-	const related = givingCircles.filter((c) => c.slug !== slug).slice(0, 3);
+	const related = givingCircles.filter((c) => c.slug !== slug && !c.draft).slice(0, 3);
 
 	return (
 		<div className="size-full relative">

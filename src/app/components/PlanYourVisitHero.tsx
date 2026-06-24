@@ -33,10 +33,10 @@ export default function PlanYourVisitHero({
 	heading = "Plan Your Visit",
 	subtitle = "Everything you need to know before you play — from tickets & hours to parking & what to bring.",
 	primaryCta = {
-		label: "Buy Tickets Now",
-		href: "https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf",
+		label: "Plan Your Visit",
+		href: "#/plan-your-visit",
 	},
-	secondaryCta = { label: "Download Visitor Guide", href: "#/plan-your-visit" },
+	secondaryCta = { label: "Buy Tickets Now", href: "https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf" },
 }: {
 	bgImage?: string;
 	heading?: string;

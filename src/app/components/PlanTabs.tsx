@@ -306,6 +306,18 @@ function TabContent({ item }: { item: string }) {
 						</div>
 					</div>
 				</div>
+				<div className="rounded-[24px] overflow-hidden min-h-[300px]">
+					<iframe
+						title="Children's Museum of Atlanta - Get Directions"
+						src="https://maps.google.com/maps?q=275+Centennial+Olympic+Park+Dr+NW,+Atlanta,+GA+30313&output=embed"
+						width="100%"
+						height="300"
+						style={{ border: 0 }}
+						allowFullScreen
+						loading="lazy"
+						referrerPolicy="no-referrer-when-downgrade"
+					/>
+				</div>
 				<div className="flex flex-col sm:flex-row gap-3">
 					<a
 						href="https://maps.google.com/maps?q=275+Centennial+Olympic+Park+Dr+NW,+Atlanta,+GA+30313"

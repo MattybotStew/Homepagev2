@@ -194,7 +194,7 @@ const helpfulLinks = [
 		label: "Rules & Policies",
 		description: "Museum policies, refunds, and terms & conditions.",
 		cta: "Learn More",
-		href: "#/plan-your-visit",
+		href: "#/terms",
 	},
 ];
 

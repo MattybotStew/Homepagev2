@@ -1,6 +1,8 @@
-import imgB from "../../assets/1bfa9acf43f185f4d4031bdadb934f4c9dec4b57.webp";
 import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp";
 import imgC from "../../assets/39da2bd0af3dceef1e3b406cd981247f82778d27.webp";
+import img10 from "../../assets/d1164ccabdda53ce7212976c9699db7b05f6c336.webp";
+import img11 from "../../assets/d83f9a80814ccc977216de3c0728e23db20372e5.webp";
+import img12 from "../../assets/e8d56ebc415002dbd15dc991825ef1684a7a8be2.webp";
 import imgEducatorPlay from "../../assets/educators-img-2.webp";
 import imgEducatorSpotlight from "../../assets/educators-img-3.webp";
 
@@ -163,7 +165,7 @@ export const allArticles: ArticleItem[] = [
 	},
 	{
 		slug: "behind-the-scenes-exhibit-build",
-		image: imgB,
+		image: img10,
 		badge: "Behind the Scenes • April 28, 2026",
 		title: "Building an Exhibit: A Look Behind the Curtain",
 		description:
@@ -176,7 +178,7 @@ export const allArticles: ArticleItem[] = [
 	},
 	{
 		slug: "summer-reading-partnership",
-		image: imgC,
+		image: img11,
 		badge: "Community • April 15, 2026",
 		title: "Our Summer Reading Partnership with Atlanta Public Libraries",
 		description:
@@ -202,7 +204,7 @@ export const allArticles: ArticleItem[] = [
 	},
 	{
 		slug: "new-accessible-entrance",
-		image: imgB,
+		image: img12,
 		badge: "Museum News • March 10, 2026",
 		title: "A More Accessible Museum: Our New Entrance Experience",
 		description:

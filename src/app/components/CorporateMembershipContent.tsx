@@ -12,31 +12,38 @@ const LANA_EMAIL_HREF =
 
 const tiers = [
 	{
-		name: "Sprout",
-		quantity: "5 Memberships",
+		name: "Explorer",
+		quantity: "50 Families",
 		description:
-			"Perfect for small teams looking to offer a meaningful family benefit. Includes 5 household memberships, giving employees and their families unlimited general admission for one year.",
+			"Perfect for small teams looking to offer a meaningful family benefit. Includes 50 household memberships, giving employees and their families unlimited general admission for one year.",
 		featured: false,
 	},
 	{
-		name: "Bloom",
-		quantity: "10 Memberships",
+		name: "Inventor",
+		quantity: "100 Families",
 		description:
-			"A popular choice for growing companies investing in their people. Includes 10 household memberships with full member benefits, including Members-Only Hours and discounts on guest tickets.",
+			"A popular choice for growing companies investing in their people. Includes 100 household memberships with full member benefits, including Members-Only Hours and discounts on guest tickets.",
 		featured: false,
 	},
 	{
-		name: "Thrive",
-		quantity: "25 Memberships",
+		name: "Achiever",
+		quantity: "200 Families",
 		description:
-			"Ideal for mid-size organizations making a visible commitment to Atlanta families. Includes 25 household memberships plus recognition on CMA's Corporate Member list.",
+			"Ideal for mid-size organizations making a visible commitment to Atlanta families. Includes 200 household memberships plus recognition on CMA's Corporate Member list.",
+		featured: false,
+	},
+	{
+		name: "Patron",
+		quantity: "500 Families",
+		description:
+			"For large organizations making a broad community impact. Includes 500 household memberships, corporate recognition, and priority access to Museum events and programming.",
 		featured: false,
 	},
 	{
 		name: "Champion",
-		quantity: "50 Memberships",
+		quantity: "1,000 Families",
 		description:
-			"Our premier level for companies making a community-wide impact. Includes 50 household memberships, corporate recognition, and a complimentary private event booking for your team.",
+			"Our premier level for companies making a community-wide impact. Includes 1,000 household memberships, top-tier corporate recognition, and a complimentary private event booking for your team.",
 		featured: true,
 	},
 ];
@@ -74,29 +81,6 @@ const steps = [
 	},
 ];
 
-// Placeholder quotes — replace with real corporate member testimonials before launch.
-const testimonials = [
-	{
-		text: "Partnering with Children's Museum of Atlanta has been one of the most well-received benefits we've added in years. Our employees love having a place to take their kids on weekends, and knowing their membership supports the local community makes it even better.",
-		name: "[Company Name]",
-		location: "[Title]",
-	},
-	{
-		text: "We were looking for a benefit that felt personal and meaningful — not just another perk. CMA memberships checked every box. Our team talks about it, uses it, and it's become a real point of pride for us as a company.",
-		name: "[Company Name]",
-		location: "[Title]",
-	},
-	{
-		text: "The process was simple and Lana made it incredibly easy to get set up. Within a week our employees had their memberships ready to go. It's one of those benefits you don't overthink — it just makes sense.",
-		name: "[Company Name]",
-		location: "[Title]",
-	},
-	{
-		text: "As a company rooted in Atlanta, supporting Children's Museum of Atlanta felt like a natural fit. Our corporate membership lets us give back to the community while also giving our employees something truly valuable.",
-		name: "[Company Name]",
-		location: "[Title]",
-	},
-];
 
 const inputClass =
 	"px-[14px] py-[12px] rounded-[10px] border border-[rgba(107,126,160,0.3)] bg-white text-cma-navy placeholder:text-cma-navy/30 outline-none focus:border-cma-teal-dark transition-colors w-full";
@@ -269,42 +253,6 @@ export default function CorporateMembershipContent() {
 				</div>
 			</section>
 
-			{/* Testimonials */}
-			<section className="bg-white w-full py-[80px] md:py-[120px]">
-				<div className="cma-section-container flex flex-col gap-[48px]">
-					<motion.div
-						className="flex flex-col items-center gap-[16px] text-center"
-						initial={{ opacity: 0, y: 24 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						viewport={{ once: true, margin: "-80px" }}
-						transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-					>
-						<p className="cma-eyebrow text-cma-teal">Testimonials</p>
-						<h2 className="text-cma-navy">What Companies Are Saying</h2>
-					</motion.div>
-
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-[24px]">
-						{testimonials.map((testimonial, i) => (
-							<motion.div
-								key={testimonial.text}
-								className="bg-cma-cream rounded-[24px] p-[28px] flex flex-col gap-[16px]"
-								initial={{ opacity: 0, y: 24 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								viewport={{ once: true, margin: "-60px" }}
-								transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.08 }}
-							>
-								<p className="text-cma-navy text-[14px] leading-[1.6] italic">
-									"{testimonial.text}"
-								</p>
-								<p className="font-extrabold text-cma-navy text-[14px]">
-									{testimonial.name}, {testimonial.location}
-								</p>
-							</motion.div>
-						))}
-					</div>
-				</div>
-			</section>
-
 			{/* Get in Touch / Interest Form */}
 			<section
 				id="corporate-interest-form"
@@ -365,10 +313,11 @@ export default function CorporateMembershipContent() {
 								<label className={labelClass}>Membership Level</label>
 								<select className={inputClass}>
 									<option value="">Not sure yet</option>
-									<option>Sprout — 5 Memberships</option>
-									<option>Bloom — 10 Memberships</option>
-									<option>Thrive — 25 Memberships</option>
-									<option>Champion — 50 Memberships</option>
+									<option>Explorer — 50 Families</option>
+									<option>Inventor — 100 Families</option>
+									<option>Achiever — 200 Families</option>
+									<option>Patron — 500 Families</option>
+									<option>Champion — 1,000 Families</option>
 								</select>
 							</div>
 							<div className="flex flex-col gap-[6px]">

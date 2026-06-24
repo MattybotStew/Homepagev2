@@ -244,6 +244,11 @@ export default function CalendarPage() {
 												{event.title}
 											</p>
 											<p className="text-cma-navy/60 font-semibold text-[13px]">{event.badge}</p>
+											{event.separateTicket && (
+												<span className="w-fit text-[11px] font-bold text-cma-orange bg-cma-orange/10 px-[10px] py-[4px] rounded-full">
+													Separate Ticket Required
+												</span>
+											)}
 										</div>
 
 										<p className="text-cma-navy">{event.description}</p>

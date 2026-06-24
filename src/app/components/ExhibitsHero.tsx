@@ -2,7 +2,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import imgSpring from "../../assets/exhibits-spring-hero.webp";
-import imgSummer from "../../assets/kratts.png";
+import imgSummer from "../../assets/exhibits-summer-hero.jpg";
 import imgWaveBottom from "../../assets/impact-wave-bottom.svg";
 import imgWaveWhite from "../../assets/wave-white.svg";
 

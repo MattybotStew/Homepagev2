@@ -197,6 +197,22 @@ const faqItems = [
 			</>
 		),
 	},
+	{ type: "subheading", label: "Learning Standards & Objectives" },
+	{
+		question: "How do Museum On-the-Go programs align with Georgia learning standards?",
+		answer:
+			"All Museum On-the-Go programs are aligned to Georgia Standards of Excellence (GSE) for Math, Science, Language Arts, and Social Studies. Early childhood programs (ages 2–4 and Pre-K) also align with the Georgia Early Learning and Development Standards (GELDS). Each program includes a standards-alignment document that maps specific session activities to relevant grade-level standards, which is shared with teachers upon booking.",
+	},
+	{
+		question: "Can I share standards documentation with administration or curriculum coordinators?",
+		answer:
+			"Yes. Our education team provides a standards-alignment summary for each program upon request. These documents are designed to support grant applications, curriculum planning, and administrator approval. Contact education@childrensmuseumatlanta.org to request documentation for a specific program.",
+	},
+	{
+		question: "What specific learning objectives does each program address?",
+		answer:
+			"Each program targets multiple domains: literacy (vocabulary building, story comprehension, oral language skills), STEM (scientific inquiry, engineering design, mathematical reasoning), social-emotional learning (self-regulation, empathy, cooperation), and creative expression. Specific objectives vary by program — our education team will work with you during booking to select the program that best aligns with your current unit of study and learning goals.",
+	},
 	{
 		question: "How Can I Pay for My On-the-Go?",
 		answer:
@@ -771,6 +787,45 @@ export default function MuseumOnTheGoProgramContent() {
 												<option>Social Studies & Community</option>
 												<option>Arts & Creativity</option>
 												<option>No preference — let CMA choose</option>
+											</select>
+										</div>
+										<div className="flex flex-col gap-[6px]">
+											<label className={labelClass}>Preferred Time of Day</label>
+											<select className={inputClass}>
+												<option value="">Select preferred time</option>
+												<option>Morning (9am – 12pm)</option>
+												<option>Afternoon (12pm – 3pm)</option>
+												<option>No preference</option>
+											</select>
+										</div>
+										<div className="flex flex-col gap-[6px]">
+											<label className={labelClass}>Tax-Exempt Status</label>
+											<div className="flex items-center gap-[24px] py-[8px]">
+												<label className="flex items-center gap-[8px] cursor-pointer">
+													<input type="radio" name="tax-exempt" value="yes" className="accent-cma-teal-dark w-[16px] h-[16px]" />
+													<span className="text-cma-navy text-[14px]">Yes</span>
+												</label>
+												<label className="flex items-center gap-[8px] cursor-pointer">
+													<input type="radio" name="tax-exempt" value="no" className="accent-cma-teal-dark w-[16px] h-[16px]" />
+													<span className="text-cma-navy text-[14px]">No</span>
+												</label>
+											</div>
+										</div>
+										<div className="flex flex-col gap-[6px]">
+											<label className={labelClass}>Billing Contact (if different)</label>
+											<input type="text" placeholder="Name and email for billing" className={inputClass} />
+										</div>
+										<div className="flex flex-col gap-[6px]">
+											<label className={labelClass}>How Did You Hear About Us?</label>
+											<select className={inputClass}>
+												<option value="">Select an option</option>
+												<option>CMA Website</option>
+												<option>CMA Educator Newsletter</option>
+												<option>Colleague / Word of Mouth</option>
+												<option>Social Media</option>
+												<option>Conference or Event</option>
+												<option>Search Engine</option>
+												<option>Other</option>
 											</select>
 										</div>
 										<div className="flex flex-col gap-[6px]">

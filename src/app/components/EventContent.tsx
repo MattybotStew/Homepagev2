@@ -102,6 +102,11 @@ export default function EventContent({ event, related }: Props) {
 										{cat}
 									</span>
 								))}
+								{event.separateTicket && (
+									<span className="text-[12px] font-bold text-cma-orange bg-cma-orange/10 px-[12px] py-[6px] rounded-full">
+										Separate Ticket Required
+									</span>
+								)}
 							</div>
 							<h1 className="text-cma-navy !text-[clamp(28px,3.75vw,48px)] !leading-none !tracking-[-1px] !font-extrabold">
 								{event.title}
