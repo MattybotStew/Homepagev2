@@ -16,6 +16,7 @@ export type EventItem = {
 	dateEnd: string;
 	location: string;
 	separateTicket?: boolean;
+	eventHours?: string;
 };
 
 export const allEvents: EventItem[] = [
@@ -73,6 +74,7 @@ export const allEvents: EventItem[] = [
 		badge: "October 24, 2026 • Ages: 4–8",
 		title: "Trick-Or-Treat",
 		separateTicket: true,
+		eventHours: "6:00 PM – 9:00 PM",
 		description:
 			"Spooktacular family fun! Pull on your costume for trick-or-treating and fang-tastically fun hands-on play. With a live DJ, candy galore, and more! Trick-or-Treat at the Museum is always a ghoulishly good time!",
 		categories: ["Special Events"],
@@ -90,6 +92,7 @@ export const allEvents: EventItem[] = [
 		badge: "December 31, 2026 • Ages: 4–8",
 		title: "Bubble Bash",
 		separateTicket: true,
+		eventHours: "10:00 AM – 3:00 PM",
 		description:
 			"Join us for a special kid-friendly New Year's countdown! We'll laugh, dance, play games, and more. Enjoy music from our DJ, hands-on fun, and ring in the new year with our yearly bubble-wrap-popping tradition!",
 		categories: ["Special Events"],

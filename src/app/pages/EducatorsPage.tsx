@@ -1,4 +1,4 @@
-import imgEducatorsHero from "../../assets/educators-hero.webp";
+import imgEducatorsHero from "../../assets/edhero2.png";
 import AlertBanner from "../components/AlertBanner";
 import EducatorsImpact from "../components/EducatorsImpact";
 import EducatorsPrograms from "../components/EducatorsPrograms";

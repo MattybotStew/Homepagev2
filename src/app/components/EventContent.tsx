@@ -1,4 +1,4 @@
-import { faArrowRight, faCalendarPlus } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faCalendarPlus, faClock } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
@@ -111,6 +111,12 @@ export default function EventContent({ event, related }: Props) {
 							<h1 className="text-cma-navy !text-[clamp(28px,3.75vw,48px)] !leading-none !tracking-[-1px] !font-extrabold">
 								{event.title}
 							</h1>
+							{event.eventHours && (
+								<p className="text-[15px] font-bold text-cma-orange flex items-center gap-[8px]">
+									<FontAwesomeIcon icon={faClock} className="text-[13px]" />
+									{event.eventHours}
+								</p>
+							)}
 						</div>
 
 						{/* Body */}

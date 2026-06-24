@@ -1,0 +1,294 @@
+# Children's Museum of Atlanta — Homepage v2
+## Cline Rules (keep in sync with CLAUDE.md)
+
+---
+
+## Stack
+
+- React 18 + TypeScript + Vite 6
+- Tailwind CSS v4 with CSS custom properties (`--cma-*` tokens)
+- `motion/react` for animations
+- `react-router-dom` with **HashRouter** — all internal `<a>` hrefs must use `#/` prefix
+- Font Awesome free tier (`@fortawesome/react-fontawesome`)
+- Deploy: GitHub Pages at `https://mattybotstew.github.io/Homepagev2/`
+
+---
+
+## File Structure
+
+```
+src/
+├── main.tsx                  # Entry: router, lazy page imports, ErrorBoundary
+├── app/
+│   ├── App.tsx               # Homepage (route "/")
+│   ├── pages/                # One file per route (all lazy-loaded)
+│   ├── components/           # Section/feature components
+│   └── data/                 # All static content as typed TS arrays
+├── assets/                   # Images and SVGs
+└── styles/
+    ├── theme.css             # Design tokens + base element styles (h1–p, button)
+    └── index.css             # Utility classes (.cma-*), @keyframes
+```
+
+`src/imports/` is dead code from Figma exports — never reference it.
+
+---
+
+## Routes (main.tsx)
+
+| Path | Component |
+|---|---|
+| `/` | App.tsx (Homepage) |
+| `/plan-your-visit` | PlanYourVisitPage |
+| `/exhibits` | ExhibitsPage |
+| `/exhibits/:slug` | ExhibitPage |
+| `/events` | CalendarPage |
+| `/events/:slug` | EventPage |
+| `/educators` | EducatorsPage |
+| `/program/:slug` | ProgramPage (field-trips, scout-workshops, museum-on-the-go, educator-professional-development) |
+| `/museum-store` | MuseumStorePage |
+| `/news` | NewsPage |
+| `/news/:slug` | ArticlePage |
+| `/resources/playful-learning` | PlayfulLearningPage |
+| `/resources/playful-learning/:slug` | ResourcePage |
+| `/about` | AboutPage |
+| `/about/impact` | ImpactPage |
+| `/about/careers` | CareersPage |
+| `/donate` | DonatePage |
+| `/memberships` | MembershipsPage |
+| `/memberships/information` | MembershipInfoPage |
+| `/memberships/corporate` | CorporateMembershipPage |
+| `/support` | SupportPage |
+| `/support/corporate-partners` | CorporatePartnerPage |
+| `/support/donor-recognition` | DonorRecognitionPage |
+| `/giving-circles/young-professionals` | → redirects to /support (draft, launching 2027) |
+| `/giving-circles/dream-builders` | → redirects to /support (draft, launching 2027) |
+| `/giving-circles/:slug` | GivingCirclePage (imagination-ball, tournament-for-play, fun-on-tap) |
+| `/contact` | ContactPage |
+| `/terms` | TermsPage |
+| `/privacy` | PrivacyPage |
+| `/search` | SearchPage |
+
+---
+
+## Design Tokens
+
+All colors are CSS custom properties exposed as Tailwind via `--color-cma-*`. Never hardcode hex values that match a token.
+
+| Token | Hex |
+|---|---|
+| `cma-navy` | `#1d3e6b` |
+| `cma-orange` | `#f7941e` |
+| `cma-orange-dark` | `#b8620a` |
+| `cma-teal` | `#00ADBB` |
+| `cma-teal-dark` | `#007c87` |
+| `cma-teal-light` | `#4AD1DC` |
+| `cma-teal-pale` | `#cceff1` |
+| `cma-blue-mid` | `#346094` |
+| `cma-blue-light` | `#d4e3f3` |
+| `cma-cream` | `#fdf6ee` |
+| `cma-slate` | `#2c3a52` |
+
+---
+
+## CSS Architecture
+
+**Two files only — strict separation:**
+
+- `theme.css` — tokens + global element styles (`h1`–`h4`, `p`, `button`, `input`, `label`). Nothing component-specific.
+- `index.css` — `.cma-*` utility classes, `@keyframes`, component helpers.
+
+**Rule:** Extract repeating styles to these files. Never duplicate Tailwind inline classes across components when a shared utility exists.
+
+Global element styles are inherited — do not re-declare `font-family`, `font-size`, or `font-weight` on `h1`–`p` elements inline.
+
+---
+
+## Type Scale
+
+| Element | Size | Weight | Line-height |
+|---|---|---|---|
+| `h1` | `clamp(34px, 5.9vw, 75px)` | 900 | 0.95 |
+| `h2` | `clamp(28px, 3.75vw, 48px)` | 800 | 1.1 |
+| `h3` | `20px` | 900 | 1.1 |
+| `p` | `15px` | 500 | 1.65 |
+| `.cma-eyebrow` | `15px` | 700 | uppercase, 3.9px letter-spacing |
+
+---
+
+## Page Shell (every page)
+
+```tsx
+<div className="size-full relative">
+  <AlertBanner />
+  <div className="lg:hidden"><MobileHeader /></div>
+  <div className="hidden lg:block"><Header /></div>
+  <div className="hidden lg:block"><ScrollProgress /></div>
+  {/* page content */}
+  <PowerOfPlayMarquee />
+  <Footer />
+</div>
+```
+
+---
+
+## Page Templates
+
+1. **Hero + stacked sections** — `ContactPage`, `DonatePage`
+2. **Sidebar + article card** — `FieldTripsProgramContent`, `MuseumOnTheGoProgramContent`, `ScoutsProgramContent`, `EducatorPDProgramContent`
+3. **ArticleContentWithSidebar** — `GivingCirclePage` (non-event), `ExhibitPage`
+4. **FundraisingEventContent** — `imagination-ball`, `tournament-for-play`, `fun-on-tap`. Driven by `fundraisingEvent` field on `givingCircles.ts` entry. `photosAfterSponsors: true` swaps photo/sponsor section order.
+5. **GivingHero + sections** — `SupportPage`, `CorporatePartnerPage`
+
+---
+
+## Data Layer
+
+All content is in `src/app/data/`. No runtime API calls (WordPress integration in progress but not yet used).
+
+| File | Type | Used by |
+|---|---|---|
+| `exhibits.ts` | `Exhibit[]` | ExhibitsPage, ExhibitPage |
+| `events.ts` | event objects | CalendarPage, EventPage |
+| `programs.ts` | `Program[]` | ProgramPage, EducatorsPage |
+| `givingCircles.ts` | `GivingCircle[]` | GivingCirclePage |
+| `articles.ts` | `ArticleItem[]` | NewsPage, ArticlePage |
+| `resources.ts` | `ResourceItem[]` | PlayfulLearningPage, ResourcePage |
+| `navLinks.ts` | `NavLink[]` | Header, MobileHeader, Footer |
+
+**EventItem fields of note:**
+- `separateTicket?: boolean` — set `true` on after-hours ticketed events (Trick-or-Treat, Bubble Bash, etc.). CalendarPage card + EventPage detail should render a "Separate Ticket Required" pill when true; nothing extra when false/absent.
+
+**Giving Circles draft system:** Entries with `draft: true` in `givingCircles.ts` are excluded from the "Other Ways to Give" related section and redirect to `/support`. Currently `young-professionals` and `dream-builders` are draft (launching spring/summer 2027).
+
+---
+
+## Button & Link Conventions
+
+```tsx
+// Primary CTA (pill button)
+<a href="#/..." className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
+// <a> tags need font-black explicitly — global button style only applies to <button>
+
+// Outline variant
+<a href="#/..." className="cma-btn cma-btn-outline-teal font-black">
+
+// Text link (standalone, outside paragraph copy)
+<a href="#/..." className="cma-text-link">Learn More</a>
+```
+
+Standard CTA padding: `px-[24px] py-[13px]`, `rounded-[1000px]`.
+
+---
+
+## Shadows
+
+| Class | Use |
+|---|---|
+| `shadow-cma-warm` | Cards with orange accent |
+| `shadow-cma-panel` | Expanded overlay panels |
+| `shadow-cma-btn` | Buttons |
+| `shadow-cma-card` | General content cards |
+
+---
+
+## Images
+
+- Import as ES modules: `import img from '../../assets/file.webp'`
+- Prefer `.webp`; `.png` is acceptable for assets that haven't been converted
+- Many assets use Figma-exported hash names (e.g. `1bfa9acf….webp`) — use as-is
+- Never use string paths for images
+
+---
+
+## Eyebrow Sections
+
+Always wrap sections containing `.cma-eyebrow` in `overflow-hidden` — 3.9px letter-spacing overflows at narrow viewports.
+
+---
+
+## Section Container
+
+```tsx
+<div className="cma-section-container"> {/* max-w-[1280px], auto margins, px 20→40→80px */}
+```
+
+---
+
+## Sponsor Tier Display (FundraisingEventContent)
+
+- Featured/Presenting tier: `w-[360px] h-[220px]` logo placeholder
+- Standard tiers: `w-[120px] h-[64px]` logo placeholder
+- Featured tier spans `md:col-span-2`
+
+---
+
+## Corporate Membership Tiers (CorporateMembershipContent)
+
+Current correct tiers (updated per client — Rebecca Jackson):
+- Explorer — 50 families
+- Inventor — 100 families
+- Achiever — 200 families
+- Patron — 500 families
+- Champion — 1,000 families (featured)
+
+Testimonials section has been **removed** — future feature, no placeholder content.
+
+---
+
+## FAQ Patterns
+
+**Standalone FAQ** (PlanYourVisitFAQs, ContactPage):
+- Each item: own `rounded-[24px]` card, `border-2 border-black/5`
+- Open: `bg-cma-teal-pale`, `font-black` label
+- Closed: `bg-white`, `font-semibold` label
+- Icon: `faPlus`/`faMinus`, `text-cma-orange text-[12px]`, right-aligned
+
+**Embedded FAQ** (inside program sidebar+article pages):
+- Flat `border-b border-black/10` list — do not change to card style
+
+---
+
+## What NOT To Do
+
+- Never use `<a href="/path">` for internal links — use `#/path` or `<Link to="/path">`
+- Never hardcode brand hex values — use `cma-*` tokens
+- Never use `BrowserRouter` — app uses `HashRouter`
+- Never reference `src/imports/` — dead code
+- Never add comments explaining what code does — only for non-obvious constraints
+- Never add error handling for scenarios that can't happen in a static SPA
+- Never create a 6th page template — match one of the five above
+- Never add features beyond what the task requires
+
+---
+
+## Outstanding Figma Items (as of 2026-06-24)
+
+Items still needing PM clarification:
+
+| # | Item | Notes |
+|---|---|---|
+| #317 | Fun On Tap contact photo | No component field exists yet; PM must confirm asset filename and whether closing section needs a photo added |
+
+Items confirmed done:
+- #265 `separateTicket?: boolean` on `EventItem`; Trick-or-Treat + Bubble Bash flagged; "Separate Ticket Required" orange pill on CalendarPage cards + EventContent detail
+- #274 MOTG per-program GELDS/GSE standards added to all 18 programs in MuseumOnTheGoProgramContent
+- #277 Draft mode: young-professionals + dream-builders hidden from nav + redirected to /support
+- #285 Fun On Tap hero "Become A Sponsor" CTA removed (`heroCtas: []`)
+- #301 Testimonials removed from CorporateMembershipContent (future feature)
+- #302 Corporate Membership tiers updated (Explorer/Inventor/Achiever/Patron/Champion + family counts)
+- #311 Presenting sponsor logo placeholder resized to 360×220 in FundraisingEventContent
+- #313 TermsPage routed at `/terms`; ContactPage "Rules & Policies" link fixed → `#/terms`
+- #315 Fun On Tap "What to Expect" photos → fun1-4.png wired
+- #287/#288 Careers photos → careers1.png (join), careers2.png (volunteer) wired in CareersPage
+- #299 Educator PD photo → educator-professional.png wired in EducatorPDProgramContent
+- #300 Tournament for Play photos → pnc1-5.png wired
+- #314 Imagination Ball dark text logo → imBall-dark.png wired
+- #321 Educators page hero → edhero2.png (EducatorsPage.tsx)
+- #326 Wild Kratts exhibit card → kratts.png wired in exhibits.ts
+- #329-#338 Playful Learning resource card photos → 9 unique hash-named webps wired in resources.ts
+- ExhibitsHero summer tab → exhibits-summer-hero.jpg
+- Navigation: "Before You Visit", "Parties" in Plan Your Visit dropdown
+- DonateHero badge → Candid Platinum seal SVG
+- 404 page redesigned with animated elements and playful copy
+- `.cma-content-card` utility class added to index.css; applied in FundraisingEventContent
