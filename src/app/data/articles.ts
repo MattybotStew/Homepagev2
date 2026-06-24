@@ -1,6 +1,6 @@
 import imgA from "../../assets/1fc4baecdde9a2932370e7a6c6cbbddba70e38a1.webp";
 import imgC from "../../assets/39da2bd0af3dceef1e3b406cd981247f82778d27.webp";
-import img10 from "../../assets/d1164ccabdda53ce7212976c9699db7b05f6c336.webp";
+import img10 from "../../assets/develop-1.png";
 import img11 from "../../assets/d83f9a80814ccc977216de3c0728e23db20372e5.webp";
 import img12 from "../../assets/e8d56ebc415002dbd15dc991825ef1684a7a8be2.webp";
 import imgEducatorPlay from "../../assets/educators-img-2.webp";
