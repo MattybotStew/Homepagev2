@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import donateHeroBg from "../../assets/donateHerp.png";
+import candidLogo from "../../assets/candid-logo.svg";
 
 const stats = [
 	{
@@ -135,11 +136,12 @@ export default function DonateHero() {
 								delay: 0.55,
 							}}
 						>
-							<img
-								src="https://widgets.guidestar.org/DonationPortal/img/2024/candid-seal-platinum-2024.svg"
-								alt="Candid Platinum Transparency 2024"
-								className="h-[48px] w-auto"
-							/>
+							<div className="inline-flex items-center gap-[4px] bg-white border border-[#a6c0ce] px-[8px] py-[8px]">
+								<p className="text-black text-[14px] font-medium leading-none whitespace-nowrap">
+									Platinum Transparency <strong className="font-bold" style={{ fontFamily: "Georgia, serif" }}>2026</strong>
+								</p>
+								<img src={candidLogo} alt="Candid" className="h-[12px] w-auto" />
+							</div>
 						</motion.div>
 					</div>
 
