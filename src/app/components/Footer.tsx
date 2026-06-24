@@ -1,6 +1,7 @@
 import { faTiktok } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Facebook, Instagram, Mail } from "lucide-react";
+import candidLogo from "../../assets/candid-logo.svg";
 import { useState } from "react";
 import svgPaths from "../../imports/svg-gv66wwumqa";
 
@@ -256,13 +257,15 @@ export default function Footer() {
 							Copyright © 2026 Children's Museum of Atlanta · Children's Museum of
 							Atlanta is a 501(c)(3) organization [EIN 58-1785484]
 						</p>
-						<span className="inline-flex items-center gap-[6px] self-start bg-white/10 border border-white/20 text-white font-bold text-[12px] px-[12px] py-[6px] rounded-full">
-							<span className="w-[8px] h-[8px] rounded-full bg-cma-teal-light shrink-0" />
-							GuideStar Platinum Transparency
-						</span>
 						<div className="flex gap-[16px]">
 							<a href="#/privacy" className="text-white/50 text-[13px] hover:text-white transition-colors">Privacy Policy</a>
 							<a href="#/terms" className="text-white/50 text-[13px] hover:text-white transition-colors">Terms of Use</a>
+						</div>
+						<div className="inline-flex items-center gap-[4px] bg-white border border-[#a6c0ce] px-[8px] py-[8px] self-start">
+							<p className="text-black text-[14px] font-medium leading-none whitespace-nowrap">
+								Platinum Transparency <strong className="font-bold" style={{ fontFamily: "Georgia, serif" }}>2026</strong>
+							</p>
+							<img src={candidLogo} alt="Candid" className="h-[12px] w-auto" />
 						</div>
 					</div>
 
