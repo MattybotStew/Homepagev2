@@ -1,12 +1,12 @@
-import img01 from "../../assets/5e9e706a4edd098b94b55ffc8289a25c57fcd860.webp";
-import img02 from "../../assets/5fbbcf6f08bc318f43c2c8d00d447df6318200dd.webp";
-import img03 from "../../assets/70606b144d42e6d7ed328be28058d6611206d0a2.webp";
-import img04 from "../../assets/797b45911a1d0a1f965f58bc294a8d4a73f9d367.webp";
-import img05 from "../../assets/8e645b3ddbfe23ad58c5f50d546a674c0731f054.webp";
-import img06 from "../../assets/95c906e032d463c9a1af96c555cb8b8b38c3355e.webp";
-import img07 from "../../assets/b125d7cd6a5d7d4c157e4fe139575f17a032648f.webp";
-import img08 from "../../assets/b8f9ea4dd58f1866ed3c25d4adb731014fe690e2.webp";
-import img09 from "../../assets/c175e874c4aacf4ffa7f1e2ab0fc3be96ac8d0aa.webp";
+import img01 from "../../assets/loosepartplaythumb.png";
+import img02 from "../../assets/talkMorethumb.png";
+import img03 from "../../assets/sensorythumb.png";
+import img04 from "../../assets/theActofReading.png";
+import img05 from "../../assets/gamesThatBuild.png";
+import img06 from "../../assets/whyNatureThumb.png";
+import img07 from "../../assets/settingupdramatic.png";
+import img08 from "../../assets/kitchenSTEAM.png";
+import img09 from "../../assets/bringMuseumHome.png";
 
 export type ResourceItem = {
 	slug: string;
