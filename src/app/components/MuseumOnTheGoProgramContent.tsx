@@ -80,9 +80,9 @@ const programTiers = [
 		price: "$250",
 		subtitle: "$250 for up to 25 children.",
 		programs: [
-			{ title: "Bug Rescue", description: "Students enjoy a storytime featuring I Love Bugs by Philemon Sturges, learn about different types of bugs, and take part in an interactive activity to save bug friends from a tangled web while building language and fine motor skills. Ends with a simple take-home craft." },
-			{ title: "Farmyard Friends", description: "Students experience a day in the life of a farmer as they collect eggs, go on a pig hunt, and create a fun take-home craft. Read-aloud of On the Farm by Brooke Vitale." },
-			{ title: "Bounce and Boogie", description: "Interactive, upbeat program with move-along storytime using Stomp, Wiggle and Clap by Rachelle Burk. Students dance and move while learning about colors and numbers, then play a dancing game to grow spatial awareness and gross motor skills." },
+			{ title: "Bug Rescue", description: "Students enjoy a storytime featuring I Love Bugs by Philemon Sturges, learn about different types of bugs, and take part in an interactive activity to save bug friends from a tangled web while building language and fine motor skills. Ends with a simple take-home craft.", standards: ["GELDS: PDM3, PDM5, CD-CR1, CLL5"] },
+			{ title: "Farmyard Friends", description: "Students experience a day in the life of a farmer as they collect eggs, go on a pig hunt, and create a fun take-home craft. Read-aloud of On the Farm by Brooke Vitale.", standards: ["GELDS: CLL2, CLL1, CD-MA1, SED5"] },
+			{ title: "Bounce and Boogie", description: "Interactive, upbeat program with move-along storytime using Stomp, Wiggle and Clap by Rachelle Burk. Students dance and move while learning about colors and numbers, then play a dancing game to grow spatial awareness and gross motor skills.", standards: ["GELDS: CLL2, CLL1, CD-MA1, SED5"] },
 		],
 	},
 	{
@@ -92,17 +92,17 @@ const programTiers = [
 		price: "$275",
 		subtitle: "$275 for up to 25 children.",
 		programs: [
-			{ title: "Busy Bees, Our Pollinating Friends", description: "Learn about bees and pollination. Includes a poetic story, followed by a pollinating activity where children make a bee and see how pollination works." },
-			{ title: "Our Place in Space", description: "STEM journey through our solar system. Read Me and My Place in Space by Joan Sweeney, then create a mini galaxy jar to take home." },
-			{ title: "Animals in My Backyard", description: "Story time featuring Over the Forest by Marianne Burke. Discusses ecosystems and Georgia geography. Students create a mask based on native animals." },
-			{ title: "Gloopy Glop", description: "Students learn about chemical reactions while conducting a hands-on experiment resulting in Gloopy Glop." },
-			{ title: "Homegrown Greens: the Life of a Plant", description: "Read Harlem Grown by Tony Hillery. Learn steps to turn a seed into food. Students grow their own wheatgrass heads." },
-			{ title: "Emotion Commotion: What's a Monster to Do?", description: "SEL program using Color Monster by Anna Llenas. Brief yoga session, and students create their own artistic Color Monster." },
-			{ title: "Potion Blast: A Rainbow Reaction", description: "Chemistry program. Read Ada Twist, Scientist by Andrea Beaty, then lead a safe scientific experiment." },
-			{ title: "B is for Brave", description: "Students learn to identify and express emotions and what it means to be brave. Opens with Jabari Jumps by Gaia Cornwall." },
-			{ title: "Jr. Engineering Challenge", description: "Inspired by Rosie Revere, Engineer by Andrea Beaty. Students create a simple gliding device." },
-			{ title: "Awesome Architecture", description: "Read Iggy Peck, Architect by Andrea Beaty. Students build structures, combining math and engineering skills." },
-			{ title: "Head in the Clouds", description: "Explore the water cycle and types of clouds using Little Raindrop by Melanie Joyce. Students watch a real cloud form and create a cloud in a cup." },
+			{ title: "Busy Bees, Our Pollinating Friends", description: "Learn about bees and pollination. Includes a poetic story, followed by a pollinating activity where children make a bee and see how pollination works.", standards: ["GELDS: CD-SC3, CD-SC5, PDM4, PDM6, SED1, APL2, CLL1", "GSE: S1L1, S2E3, SKL2, SSIPS1, K.F.PA, S3L2"] },
+			{ title: "Our Place in Space", description: "STEM journey through our solar system. Read Me and My Place in Space by Joan Sweeney, then create a mini galaxy jar to take home.", standards: ["GELDS: PDM3, SED1, APL3, CLL2, CD-MA5, CD-SC2", "GSE: S2E2, SKE1, S1P2, 3.L.V II"] },
+			{ title: "Animals in My Backyard", description: "Story time featuring Over the Forest by Marianne Burke. Discusses ecosystems and Georgia geography. Students create a mask based on native animals.", standards: ["GELDS: APL3, SED2, PDM6, CLL5, CD-MA6, CD-CR2", "GSE: S3L1, S3L2, 2.T,3.L, 3.P, S2L1, S1L1"] },
+			{ title: "Gloopy Glop", description: "Students learn about chemical reactions while conducting a hands-on experiment resulting in Gloopy Glop.", standards: ["GELDS: CLL4a, CLL4-4d, CLL4.3d", "GSE: SKP1, S2P2"] },
+			{ title: "Homegrown Greens: the Life of a Plant", description: "Read Harlem Grown by Tony Hillery. Learn steps to turn a seed into food. Students grow their own wheatgrass heads.", standards: ["GELDS: CD-SC5, CD-CP1, CD-SC3", "GSE: S1L1, S2L1, S3L2, HEK.8"] },
+			{ title: "Emotion Commotion: What's a Monster to Do?", description: "SEL program using Color Monster by Anna Llenas. Brief yoga session, and students create their own artistic Color Monster.", standards: ["GELDS: PDM3, SED5, APL3, CD-CR2, CD-CP1", "GSE: VAK.CR2, VAC.CN.3, K.L.V, PEK.1, PE1.1, HE1.4"] },
+			{ title: "Potion Blast: A Rainbow Reaction", description: "Chemistry program. Read Ada Twist, Scientist by Andrea Beaty, then lead a safe scientific experiment.", standards: ["GELDS: CD-CP1, CD-SC1, CLL2, APL2, SED3", "GSE: SKP1, PEK.1, PE1.1, K.F.PA, S2P1, 3.F.P"] },
+			{ title: "B is for Brave", description: "Students learn to identify and express emotions and what it means to be brave. Opens with Jabari Jumps by Gaia Cornwall.", standards: ["GELDS: CD-CP1, CLL2, APL3, SED4, PDM6, ED1, HEK.4", "GSE: PEK.4, VAC.CN.3, K.L.V, K.F.PA, PE1.5, HE2.8"] },
+			{ title: "Jr. Engineering Challenge", description: "Inspired by Rosie Revere, Engineer by Andrea Beaty. Students create a simple gliding device.", standards: ["GELDS: PDM6, PDM3, SED3, APL2, CLL2CD-MA3CD-SC4", "GSE: K.F.PA, K.P.ST, K-12.L.GC.1.1, S2P2, 3MP"] },
+			{ title: "Awesome Architecture", description: "Read Iggy Peck, Architect by Andrea Beaty. Students build structures, combining math and engineering skills.", standards: ["GELDS: APL3, SED2, PDM6, CLL5, CD-MA6, CD-CR2", "GSE: K.GSR.8, 1.GSR.4, SSIPS3, SKP1.c, PEK.1, 2.GSR.7 1.MP 3GSR6 VA3.CR.1"] },
+			{ title: "Head in the Clouds", description: "Explore the water cycle and types of clouds using Little Raindrop by Melanie Joyce. Students watch a real cloud form and create a cloud in a cup.", standards: ["GELDS: S3P1, S4E3, S4E4", "GSE: S1E1, S2E3, 1.F, 1.L, 3.L"] },
 		],
 	},
 	{
@@ -112,10 +112,10 @@ const programTiers = [
 		price: "$300",
 		subtitle: "$300 for up to 25 children.",
 		programs: [
-			{ title: "Hydrologic Disruption", description: "Students build a structure that can withstand the power of a hurricane. Discusses the hydrologic cycle and climate phenomena." },
-			{ title: "Terrific Terrariums: A Sustainable World", description: "Advanced gardeners learn plant-ecosystem interactions: photosynthesis, water cycle. Students make their own terrariums." },
-			{ title: "The Mechanics of Aerodynamics", description: "Learn about the four fundamental forces of flight. Build and test a gliding device through a series of challenges." },
-			{ title: "A Quest through the Cosmos", description: "Journey through the stars — celestial bodies, stars, planet/moon orbits. Students make models of Earth's orbit." },
+			{ title: "Hydrologic Disruption", description: "Students build a structure that can withstand the power of a hurricane. Discusses the hydrologic cycle and climate phenomena.", standards: ["GSE: S3P1, S4E3, S4E4, S6E3, S6E4"] },
+			{ title: "Terrific Terrariums: A Sustainable World", description: "Advanced gardeners learn plant-ecosystem interactions: photosynthesis, water cycle. Students make their own terrariums.", standards: ["GSE: S4L1, S4E3, S6E3, S5L4"] },
+			{ title: "The Mechanics of Aerodynamics", description: "Learn about the four fundamental forces of flight. Build and test a gliding device through a series of challenges.", standards: ["GSE: S2P2, 5MP, 4MP, 4.GSR.7, 3GSR.6, PE5.4, PE5.2, PE4.1, 4.L.GC"] },
+			{ title: "A Quest through the Cosmos", description: "Journey through the stars — celestial bodies, stars, planet/moon orbits. Students make models of Earth's orbit.", standards: ["GSE: S4E1, S4E2, S6E2, S5P3.b"] },
 		],
 	},
 ];
@@ -560,6 +560,14 @@ export default function MuseumOnTheGoProgramContent() {
 														<div key={prog.title} className="flex flex-col gap-[4px] py-[12px] border-t border-black/5">
 															<p className="font-bold text-cma-navy text-[14px]">{prog.title}</p>
 															<p className="text-cma-navy/65 text-[13px] leading-[1.5]">{prog.description}</p>
+															{"standards" in prog && prog.standards && prog.standards.length > 0 && (
+																<div className="flex flex-col gap-[4px] mt-[8px] pt-[8px] border-t border-cma-teal-dark/20">
+																	<p className="text-[11px] font-extrabold text-cma-teal-dark uppercase tracking-[1.5px]">Learning Standards</p>
+																	{prog.standards.map((s, j) => (
+																		<p key={j} className="text-[12px] text-cma-navy/60 leading-[1.6]">{s}</p>
+																	))}
+																</div>
+															)}
 														</div>
 													))}
 												</div>
