@@ -117,7 +117,7 @@ export default function Footer() {
 
 			{/* Navigation Links Section */}
 			<div className="border-b border-[#faf9f6] px-5 md:px-12 lg:px-[71.5px] py-8 md:py-10 lg:py-8">
-				<div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-8">
+				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
 					{/* VISIT Column */}
 					<div className="flex flex-col gap-5">
 						<h3 className="cma-footer-heading">VISIT</h3>

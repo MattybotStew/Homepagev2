@@ -13,7 +13,6 @@ import {
 	motion,
 	useInView,
 	useMotionValue,
-	useSpring,
 	useTransform,
 } from "motion/react";
 import { useEffect, useRef, useState } from "react";
@@ -118,11 +117,13 @@ export default function FeaturedExhibits() {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [wrapIndex, setWrapIndex] = useState<number | null>(null);
 	const [cursorOver, setCursorOver] = useState(false);
+	const [isDragging, setIsDragging] = useState(false);
+	const [dragDir, setDragDir] = useState<"left" | "right" | null>(null);
+	const [isHinting, setIsHinting] = useState(false);
+	const [hintPlayed, setHintPlayed] = useState(false);
 
 	const rawX = useMotionValue(-200);
 	const rawY = useMotionValue(-200);
-	const smoothX = useSpring(rawX, { damping: 20, stiffness: 250 });
-	const smoothY = useSpring(rawY, { damping: 20, stiffness: 250 });
 
 	const statueRef = useRef<HTMLDivElement>(null);
 	const statueInView = useInView(statueRef, { once: true });
@@ -152,17 +153,39 @@ export default function FeaturedExhibits() {
 		});
 	}, [statueInView, statueY]);
 
+	const cancelHint = () => {
+		setHintPlayed(true);
+		setIsHinting(false);
+	};
+
 	const go = (dir: number) => {
+		cancelHint();
 		setWrapIndex(dir > 0 ? (activeIndex - 1 + n) % n : (activeIndex + 1) % n);
 		setActiveIndex((prev) => (prev + dir + n) % n);
 	};
 
 	const jumpTo = (i: number) => {
 		if (i === activeIndex) return;
+		cancelHint();
 		const dir = (i - activeIndex + n) % n <= n / 2 ? 1 : -1;
 		setWrapIndex(dir > 0 ? (activeIndex - 1 + n) % n : (activeIndex + 1) % n);
 		setActiveIndex(i);
 	};
+
+	useEffect(() => {
+		if (hintPlayed) return;
+		const HINT_DELAY = 2500;
+		const HINT_DURATION = 1500;
+		const start = setTimeout(() => setIsHinting(true), HINT_DELAY);
+		const end = setTimeout(() => {
+			setIsHinting(false);
+			setHintPlayed(true);
+		}, HINT_DELAY + HINT_DURATION);
+		return () => {
+			clearTimeout(start);
+			clearTimeout(end);
+		};
+	}, [hintPlayed]);
 
 	useEffect(() => {
 		if (wrapIndex === null) return;
@@ -252,18 +275,25 @@ export default function FeaturedExhibits() {
 					onMouseEnter={() => setCursorOver(true)}
 					onMouseLeave={() => setCursorOver(false)}
 					onMouseMove={(e) => {
-						rawX.set(e.clientX - 60);
-						rawY.set(e.clientY - 60);
+						rawX.set(e.clientX - 27);
+						rawY.set(e.clientY - 27);
 					}}
 				>
 					{/* Invisible drag overlay — framer handles velocity + inertia for both mouse and touch */}
 					<motion.div
-						className="absolute inset-0 z-20 md:cursor-none"
+						className={`absolute inset-0 z-20 ${isDragging ? "md:cursor-none" : "md:cursor-grab"}`}
 						style={{ touchAction: "pan-y" }}
 						drag="x"
 						dragConstraints={{ left: 0, right: 0 }}
 						dragElastic={0.15}
+						onDragStart={() => { setIsDragging(true); cancelHint(); }}
+						onDrag={(_, info) => {
+							if (info.delta.x > 0) setDragDir("right");
+							else if (info.delta.x < 0) setDragDir("left");
+						}}
 						onDragEnd={(_, { offset, velocity }) => {
+							setIsDragging(false);
+							setDragDir(null);
 							if (offset.x < -60 || velocity.x < -400) go(1);
 							else if (offset.x > 60 || velocity.x > 400) go(-1);
 						}}
@@ -287,8 +317,18 @@ export default function FeaturedExhibits() {
 							<motion.div
 								key={exhibit.id}
 								className={`absolute overflow-hidden rounded-[25px] w-[min(565px,88vw)] aspect-[565/652] left-1/2 top-[120px] ml-[calc(-1*min(282.5px,44vw))] ${isCenter ? "z-10" : "z-[1]"}`}
-								animate={SLOTS[slot]}
-								transition={wrapIndex === i ? INSTANT : TRANSITION}
+								animate={
+									isCenter && isHinting
+										? { ...SLOTS.center, x: [0, -50, 0, 50, 0] }
+										: SLOTS[slot]
+								}
+								transition={
+									wrapIndex === i
+										? INSTANT
+										: isCenter && isHinting
+											? { duration: 1.4, times: [0, 0.25, 0.5, 0.75, 1], ease: "easeInOut" }
+											: TRANSITION
+								}
 							>
 								<img
 									src={exhibit.image}
@@ -316,21 +356,24 @@ export default function FeaturedExhibits() {
 					})}
 				</div>
 
-			{/* Custom cursor — follows mouse, fixed so overflow:hidden doesn't clip it */}
+			{/* Directional arrow cursor — fixed so overflow:hidden doesn't clip it */}
 				<AnimatePresence>
-					{cursorOver && (
+					{isDragging && dragDir && (
 						<motion.div
-							className="fixed top-0 left-0 w-[120px] h-[120px] rounded-full bg-cma-blue-mid flex items-center justify-center pointer-events-none z-[100]"
-							style={{ x: smoothX, y: smoothY }}
-							initial={{ opacity: 0, scale: 0.5 }}
+							className="fixed top-0 left-0 pointer-events-none z-[100]"
+							style={{ x: rawX, y: rawY }}
+							initial={{ opacity: 0, scale: 0.6 }}
 							animate={{ opacity: 1, scale: 1 }}
-							exit={{ opacity: 0, scale: 0.5 }}
-							transition={{ duration: 0.2 }}
+							exit={{ opacity: 0, scale: 0.6 }}
+							transition={{ duration: 0.12 }}
 							aria-hidden
 						>
-							<span className="font-bold text-[18px] text-white leading-none">
-								DRAG
-							</span>
+							<div style={{ transform: dragDir === "left" ? "scaleX(-1)" : undefined }}>
+								{/* Right-arrow circle from Figma node 5708:6523; flipped via scaleX(-1) for left */}
+								<svg width="54" height="54" viewBox="779 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M806.181 24.2816L797.654 24.2816C796.899 24.2816 796.265 24.5374 795.754 25.0491C795.242 25.5608 794.987 26.1932 794.989 26.9465C794.991 27.6998 795.246 28.333 795.756 28.8465C796.266 29.36 796.899 29.6148 797.654 29.6113L806.181 29.6113L803.783 32.0097C803.294 32.4982 803.05 33.1202 803.05 33.8751C803.05 34.6301 803.294 35.2521 803.783 35.7405C804.271 36.229 804.893 36.4734 805.648 36.4734C806.403 36.4734 807.025 36.229 807.514 35.7405L814.442 28.8119C814.975 28.2789 815.242 27.6572 815.242 26.9465C815.242 26.2358 814.975 25.6141 814.442 25.0811L807.514 18.1524C807.025 17.6639 806.403 17.4196 805.648 17.4196C804.893 17.4196 804.271 17.6639 803.783 18.1524C803.294 18.641 803.05 19.2628 803.05 20.0178C803.05 20.7729 803.294 21.3947 803.783 21.8832L806.181 24.2816ZM779 26.9465C779 23.2601 779.7 19.7958 781.1 16.5535C782.499 13.3113 784.398 10.491 786.794 8.09257C789.191 5.6942 792.011 3.79594 795.255 2.39776C798.499 0.999602 801.964 0.29963 805.648 0.297854C809.333 0.296077 812.797 0.996047 816.041 2.39777C819.285 3.79948 822.106 5.69774 824.502 8.09258C826.899 10.4874 828.797 13.3077 830.197 16.5535C831.597 19.7993 832.297 23.2636 832.297 26.9465C832.297 30.6293 831.597 34.0936 830.197 37.3394C828.797 40.5853 826.899 43.4055 824.502 45.8004C822.106 48.1953 819.285 50.0943 816.041 51.4979C812.797 52.9014 809.333 53.6004 805.648 53.5951C801.964 53.5898 798.499 52.8897 795.255 51.4952C792.011 50.1007 789.191 48.2022 786.794 45.8004C784.398 43.3985 782.499 40.5781 781.097 37.3394C779.695 34.1008 778.996 30.6365 779 26.9465Z" fill="#1D3E6B"/>
+								</svg>
+							</div>
 						</motion.div>
 					)}
 				</AnimatePresence>
