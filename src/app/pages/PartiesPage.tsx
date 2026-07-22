@@ -27,10 +27,8 @@ const sections = [
 	{ id: "party-information", label: "Overview" },
 	{ id: "schedule-price", label: "Schedule & Price" },
 	{ id: "booking", label: "Booking Your Party" },
-	{ id: "party-room", label: "Party Room" },
-	{ id: "capacity", label: "Capacity" },
-	{ id: "food", label: "Food" },
-	{ id: "decorations", label: "Decorations" },
+	{ id: "party-room-capacity", label: "Party Room & Capacity" },
+	{ id: "food-decorations", label: "Food & Decorations" },
 	{ id: "policies", label: "Policies" },
 	{ id: "faqs", label: "FAQs" },
 ];
@@ -348,79 +346,77 @@ export default function PartiesPage() {
 
 								<Divider />
 
-								{/* ── Party Room ── */}
-								<div id="party-room" className="flex flex-col gap-[16px]">
-									<h2 className="text-cma-navy">Party Room</h2>
-									<p className="text-cma-navy">
-										One hour in a private party room is included with your
-										booking. The room is equipped with tables and chairs. The
-										tables are provided with colorful coverings.
-									</p>
-									<p className="text-cma-navy">
-										The host family is welcome to bring themed tablecloths.
-										Additional decorations are not permitted.
-									</p>
-									<p className="text-cma-navy">
-										The party room will be opened 15 minutes prior to the party
-										time for the host family to set up.
-									</p>
+								{/* ── Party Room & Capacity ── */}
+								<div id="party-room-capacity" className="flex flex-col gap-[16px]">
+									<h2 className="text-cma-navy">Party Room & Capacity</h2>
+									<div className="flex flex-col gap-[8px]">
+										<h3 className="text-cma-navy !text-[16px] font-bold">Party Room</h3>
+										<p className="text-cma-navy">
+											One hour in a private party room is included with your
+											booking. The room is equipped with tables and chairs. The
+											tables are provided with colorful coverings.
+										</p>
+										<p className="text-cma-navy">
+											The host family is welcome to bring themed tablecloths.
+											Additional decorations are not permitted.
+										</p>
+										<p className="text-cma-navy">
+											The party room will be opened 15 minutes prior to the party
+											time for the host family to set up.
+										</p>
+									</div>
+									<div className="flex flex-col gap-[8px]">
+										<h3 className="text-cma-navy !text-[16px] font-bold">Capacity</h3>
+										<p className="text-cma-navy">
+											Museum parties include free admission for up to 20 guests,
+											including the party child and immediate family. Up to 10
+											additional guests can be added at an additional fee per
+											guest for a maximum of 30 total people.
+										</p>
+										<p className="text-cma-navy">
+											Party rooms have a maximum capacity of 30 guests. If you
+											wish to host a party with more than 30 guests, you may book
+											a second party room for an additional fee.
+										</p>
+										<p className="text-cma-navy">
+											Babies 11 months and younger are free and do not count
+											towards the total number of guests.
+										</p>
+									</div>
 								</div>
 
 								<Divider />
 
-								{/* ── Capacity ── */}
-								<div id="capacity" className="flex flex-col gap-[16px]">
-									<h2 className="text-cma-navy">Capacity</h2>
-									<p className="text-cma-navy">
-										Museum parties include free admission for up to 20 guests,
-										including the party child and immediate family. Up to 10
-										additional guests can be added at an additional fee per guest
-										for a maximum of 30 total people.
-									</p>
-									<p className="text-cma-navy">
-										Party rooms have a maximum capacity of 30 guests. If you wish
-										to host a party with more than 30 guests, you may book a
-										second party room for an additional fee.
-									</p>
-									<p className="text-cma-navy">
-										Babies 11 months and younger are free and do not count
-										towards the total number of guests.
-									</p>
-								</div>
-
-								<Divider />
-
-								{/* ── Food ── */}
-								<div id="food" className="flex flex-col gap-[16px]">
-									<h2 className="text-cma-navy">Food</h2>
-									<p className="text-cma-navy">
-										You may bring cake, cupcakes, and prepackaged individual
-										snacks and drinks to your party. Examples include boxed
-										meals, prepackaged bags of chips, cookies, pretzels, go-go
-										squeeze, goldfish, juice boxes and bottled water.
-									</p>
-									<p className="text-cma-navy">
-										No other food is permitted on site. Food deliveries,
-										platters, and items requiring refrigeration or a freezer are
-										not permitted.
-									</p>
-								</div>
-
-								<Divider />
-
-								{/* ── Decorations ── */}
-								<div id="decorations" className="flex flex-col gap-[16px]">
-									<h2 className="text-cma-navy">Decorations</h2>
-									<p className="text-cma-navy">
-										Your party room is decorated for a celebration. You are
-										welcome to bring your own themed tablecloths.
-									</p>
-									<p className="text-cma-navy">
-										Additional decorations, including table decor and items that
-										hang from the walls and ceiling, are not allowed. Due to
-										choking hazard and latex allergies, all balloons are
-										prohibited.
-									</p>
+								{/* ── Food & Decorations ── */}
+								<div id="food-decorations" className="flex flex-col gap-[16px]">
+									<h2 className="text-cma-navy">Food & Decorations</h2>
+									<div className="flex flex-col gap-[8px]">
+										<h3 className="text-cma-navy !text-[16px] font-bold">Food</h3>
+										<p className="text-cma-navy">
+											You may bring cake, cupcakes, and prepackaged individual
+											snacks and drinks to your party. Examples include boxed
+											meals, prepackaged bags of chips, cookies, pretzels, go-go
+											squeeze, goldfish, juice boxes and bottled water.
+										</p>
+										<p className="text-cma-navy">
+											No other food is permitted on site. Food deliveries,
+											platters, and items requiring refrigeration or a freezer
+											are not permitted.
+										</p>
+									</div>
+									<div className="flex flex-col gap-[8px]">
+										<h3 className="text-cma-navy !text-[16px] font-bold">Decorations</h3>
+										<p className="text-cma-navy">
+											Your party room is decorated for a celebration. You are
+											welcome to bring your own themed tablecloths.
+										</p>
+										<p className="text-cma-navy">
+											Additional decorations, including table decor and items
+											that hang from the walls and ceiling, are not allowed. Due
+											to choking hazard and latex allergies, all balloons are
+											prohibited.
+										</p>
+									</div>
 								</div>
 
 								<Divider />
