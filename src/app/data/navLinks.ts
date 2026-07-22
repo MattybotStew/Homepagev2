@@ -7,7 +7,7 @@ export const navLinks: NavLink[] = [
 		href: "#/plan-your-visit",
 		subPages: [
 			{ label: "Before You Visit", href: "#/plan-your-visit?tab=hours" },
-			{ label: "Parties", href: "#/plan-your-visit?tab=parties" },
+			{ label: "Parties", href: "#/parties" },
 			{ label: "Museum Store", href: "#/museum-store" },
 		],
 	},

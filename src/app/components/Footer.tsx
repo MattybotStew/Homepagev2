@@ -170,7 +170,7 @@ export default function Footer() {
 								</a>
 							</li>
 							<li>
-								<a href="#/plan-your-visit?tab=parties" className="cma-footer-link">
+								<a href="#/parties" className="cma-footer-link">
 									Birthday Parties
 								</a>
 							</li>

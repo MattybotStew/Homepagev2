@@ -85,7 +85,7 @@ const departments = [
 		phoneTel: "4045273693",
 		description: "Birthday party packages, private events, and group bookings for 10–30 people.",
 		cta: "Book a Party",
-		ctaHref: "#/plan-your-visit",
+		ctaHref: "#/parties",
 	},
 	{
 		icon: faBriefcase,

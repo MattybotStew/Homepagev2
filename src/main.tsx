@@ -18,6 +18,7 @@ const ImpactPage = lazy(() => import("./app/pages/ImpactPage.tsx"));
 const MuseumStorePage = lazy(() => import("./app/pages/MuseumStorePage.tsx"));
 const NewsPage = lazy(() => import("./app/pages/NewsPage.tsx"));
 const PlanYourVisitPage = lazy(() => import("./app/pages/PlanYourVisitPage.tsx"));
+const PartiesPage = lazy(() => import("./app/pages/PartiesPage.tsx"));
 const PlayfulLearningPage = lazy(() => import("./app/pages/PlayfulLearningPage.tsx"));
 const MembershipsPage = lazy(() => import("./app/pages/MembershipsPage.tsx"));
 const MembershipInfoPage = lazy(() => import("./app/pages/MembershipInfoPage.tsx"));
@@ -111,6 +112,7 @@ createRoot(document.getElementById("root")!).render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/plan-your-visit" element={<PlanYourVisitPage />} />
+          <Route path="/parties" element={<PartiesPage />} />
           <Route path="/museum-store" element={<MuseumStorePage />} />
           <Route path="/exhibits" element={<ExhibitsPage />} />
           <Route path="/news/:slug" element={<ArticlePage />} />

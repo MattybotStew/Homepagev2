@@ -613,13 +613,13 @@ function TabContent({ item }: { item: string }) {
 				<p className="text-cma-navy">Advance booking required.</p>
 				<div className="flex flex-col sm:flex-row gap-3">
 					<a
-						href="#/contact#department-contacts"
+						href="#/parties"
 						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
 					>
 						Explore Parties
 					</a>
 					<a
-						href="#/plan-your-visit"
+						href="#/parties"
 						className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
 					>
 						Book Your Party

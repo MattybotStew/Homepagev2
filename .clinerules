@@ -40,6 +40,7 @@ src/
 |---|---|
 | `/` | App.tsx (Homepage) |
 | `/plan-your-visit` | PlanYourVisitPage |
+| `/parties` | PartiesPage |
 | `/exhibits` | ExhibitsPage |
 | `/exhibits/:slug` | ExhibitPage |
 | `/events` | CalendarPage |
