@@ -2,6 +2,8 @@ import {
 
 	faArrowRight,
 
+	faCalendarDays,
+
 	faClock,
 
 	faMinus,
@@ -21,6 +23,8 @@ import imgFaq from "../../assets/FRONT.png";
 import AlertBanner from "../components/AlertBanner";
 
 import Footer from "../components/Footer";
+
+import GridEmptyState from "../components/GridEmptyState";
 
 import Header from "../components/Header";
 
@@ -428,21 +432,37 @@ export default function CalendarPage() {
 
 							{events.length === 0 ? (
 
-								<motion.p
+								<GridEmptyState
 
-									className="text-cma-navy col-span-full text-center py-[40px]"
+									eyebrow="Coming Soon"
 
-									initial={{ opacity: 0 }}
+									heading="Nothing on the calendar yet"
 
-									animate={{ opacity: 1 }}
+									body="No events scheduled for this category right now. Check back soon — we add new programs and special events throughout the year."
+
+									icon={faCalendarDays}
 
 								>
 
-									No events scheduled for this category right now. Check back
+									{activeFilter !== "All" && (
 
-									soon!
+										<button
 
-								</motion.p>
+											type="button"
+
+											onClick={() => setActiveFilter("All")}
+
+											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+
+										>
+
+											View All Events
+
+										</button>
+
+									)}
+
+								</GridEmptyState>
 
 							) : (
 
