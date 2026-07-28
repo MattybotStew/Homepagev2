@@ -148,6 +148,9 @@ All content is in `src/app/data/`. No runtime API calls (WordPress integration i
 | File | Type | Used by |
 |---|---|---|
 | `exhibits.ts` | `Exhibit[]` | ExhibitsPage, ExhibitPage |
+
+**Exhibit body rich text:** Prefer optional `content?: string` (HTML) rendered with `.cma-prose` in `ArticleContent` — same contract as News `ArticleItem.content`. Zone and sponsor rows use WordPress Media & Text markup (`.wp-block-media-text.has-media-on-the-right`; sponsor logos add `.is-sponsor-row`). Keep `paragraphs` / `sections` as fallback for exhibits not yet migrated.
+
 | `events.ts` | event objects | CalendarPage, EventPage |
 | `programs.ts` | `Program[]` | ProgramPage, EducatorsPage |
 | `givingCircles.ts` | `GivingCircle[]` | GivingCirclePage |

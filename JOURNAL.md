@@ -3,9 +3,10 @@
 Shared session log for all AI agents. Newest entries at the top.
 
 ## 2026-07-28 — Cursor (Grok)
-- Restored **Young Professionals** and **Dream Builders Giving Circle** to the Donate dropdown (`Header.tsx` `donateSubPages`).
-- Undrafted both entries in `givingCircles.ts` and removed the `/support` redirect routes in `main.tsx` so `#/giving-circles/young-professionals` and `#/giving-circles/dream-builders` render again via `GivingCirclePage`.
-- Updated `.clinerules` route map / draft-system note accordingly.
+- Exhibit body is rich-text-first: optional `content?: string` on `Exhibit`, rendered via `.cma-prose` in `ArticleContent` (paragraphs/sections remain fallback).
+- Added `.cma-prose .wp-block-media-text` styles matching Figma text-left / image-right zone rows (276×200, rounded 20px).
+- Seeded **Wild Kratts®: Ocean Adventure!** with HTML content + five Media & Text rows; zone photos pulled from live CMA (`wk-tortuga/seahorse/shallow-seas/deep-sea/tot-spot.png`). Sponsors card remains structured outside prose.
+- Earlier same day: restored Young Professionals + Dream Builders to Donate nav and undrafted their routes.
 
 ## 2026-07-22 — Cursor (Opus 4.8)
 - Added dedicated **Parties** page (`/parties`, `PartiesPage.tsx`) from client content spreadsheet.

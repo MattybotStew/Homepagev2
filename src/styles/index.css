@@ -808,6 +808,104 @@
 .cma-prose .has-text-align-center { text-align: center; }
 .cma-prose .has-text-align-right { text-align: right; }
 
+/* Media & Text — Figma exhibit zone rows (text left, image floated right) */
+.cma-prose .wp-block-media-text {
+	margin: 16px 0;
+	overflow: hidden;
+}
+.cma-prose .wp-block-media-text::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.cma-prose .wp-block-media-text figure.wp-block-media-text__media {
+	float: right;
+	width: 276px;
+	max-width: 276px;
+	height: 200px;
+	margin: 0 0 16px 32px;
+	padding: 0;
+	overflow: hidden;
+	border-radius: 20px;
+}
+.cma-prose .wp-block-media-text.has-media-on-the-right figure.wp-block-media-text__media {
+	float: right;
+	margin: 0 0 16px 32px;
+}
+.cma-prose .wp-block-media-text figure.wp-block-media-text__media img {
+	width: 276px;
+	max-width: 276px;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 20px;
+	margin: 0;
+	display: block;
+}
+.cma-prose .wp-block-media-text__content {
+	display: block;
+	min-width: 0;
+}
+.cma-prose .wp-block-media-text__content h3 {
+	margin: 0 0 32px;
+	font-size: 20px;
+	font-weight: 900;
+	line-height: 1.1;
+	color: var(--cma-navy);
+}
+.cma-prose .wp-block-media-text__content p {
+	margin: 0 0 1.25em;
+}
+.cma-prose .wp-block-media-text__content p:last-child {
+	margin-bottom: 0;
+}
+.cma-prose .wp-block-media-text.is-sponsor-row figure.wp-block-media-text__media {
+	width: 220px;
+	max-width: 220px;
+	height: 100px;
+	border-radius: 0;
+	background: transparent;
+}
+.cma-prose .wp-block-media-text.is-sponsor-row figure.wp-block-media-text__media img {
+	width: 220px;
+	max-width: 220px;
+	height: 100px;
+	object-fit: contain;
+	border-radius: 0;
+}
+.cma-prose .wp-block-media-text.is-sponsor-row .wp-block-media-text__content p {
+	font-size: 13px;
+	line-height: 1.5;
+}
+@media (max-width: 767px) {
+	.cma-prose .wp-block-media-text figure.wp-block-media-text__media {
+		float: none;
+		width: 100%;
+		max-width: 100%;
+		height: 200px;
+		margin: 0 0 20px;
+	}
+	.cma-prose .wp-block-media-text figure.wp-block-media-text__media img {
+		width: 100%;
+		max-width: 100%;
+		height: 200px;
+	}
+	.cma-prose .wp-block-media-text.is-sponsor-row figure.wp-block-media-text__media {
+		float: none;
+		width: 220px;
+		max-width: 220px;
+		height: 100px;
+		margin: 0 auto 16px;
+	}
+	.cma-prose .wp-block-media-text.is-sponsor-row figure.wp-block-media-text__media img {
+		width: 220px;
+		max-width: 220px;
+		height: 100px;
+	}
+	.cma-prose .wp-block-media-text__content h3 {
+		margin-bottom: 16px;
+	}
+}
+
 /* ── First heading no top margin ── */
 .cma-prose > h1:first-child,
 .cma-prose > h2:first-child,

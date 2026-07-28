@@ -79,80 +79,47 @@ export default function ArticleContent({ exhibit, related }: Props) {
 						</div>
 
 						{/* Body */}
-						{exhibit.paragraphs.map((para, i) => (
-							<p key={`item-${i}`} className="text-cma-navy">
-								{para}
-							</p>
-						))}
-
-						{/* Sections */}
-						{exhibit.sections && exhibit.sections.length > 0 && (
-							<div className="flex flex-col gap-[48px]">
-								{exhibit.sections.map((section) => (
-									<div key={section.title} className="flex flex-col gap-[16px]">
-										<div className="flex flex-wrap items-baseline gap-x-[10px]">
-											<h3 className="text-cma-navy">{section.title}</h3>
-											{section.subtitle && (
-												<span className="text-cma-navy/60 text-[14px] font-medium">
-													{section.subtitle}
-												</span>
-											)}
-										</div>
-										<p className="text-cma-navy">{section.body}</p>
-									</div>
+						{exhibit.content ? (
+							<div
+								className="cma-prose"
+								dangerouslySetInnerHTML={{ __html: exhibit.content }}
+							/>
+						) : (
+							<>
+								{exhibit.paragraphs.map((para, i) => (
+									<p key={`item-${i}`} className="text-cma-navy">
+										{para}
+									</p>
 								))}
-							</div>
+								{exhibit.sections && exhibit.sections.length > 0 && (
+									<div className="flex flex-col gap-[48px]">
+										{exhibit.sections.map((section) => (
+											<div key={section.title} className="flex flex-col gap-[16px]">
+												<div className="flex flex-wrap items-baseline gap-x-[10px]">
+													<h3 className="text-cma-navy">{section.title}</h3>
+													{section.subtitle && (
+														<span className="text-cma-navy/60 text-[14px] font-medium">
+															{section.subtitle}
+														</span>
+													)}
+												</div>
+												<p className="text-cma-navy">{section.body}</p>
+											</div>
+										))}
+									</div>
+								)}
+							</>
 						)}
 
-						{/* Divider */}
 						<div className="bg-black/15 h-px w-full" />
 
-						{/* Related Exhibits */}
 						<div className="flex flex-col gap-[48px]">
 							<p className="text-cma-navy font-extrabold text-[28px] md:text-[36px] leading-[1.1]">
 								Explore More Exhibits
 							</p>
 							<div className="flex flex-col gap-[16px]">
 								{related.map((rel, i) => (
-									<motion.a
-										key={rel.slug}
-										href={`#/exhibits/${rel.slug}`}
-										className="bg-white border-2 border-black/5 rounded-[24px] p-[24px] flex flex-col md:flex-row gap-[32px] md:items-center transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
-										initial={{ opacity: 0, y: 20 }}
-										whileInView={{ opacity: 1, y: 0 }}
-										viewport={{ once: true }}
-										transition={{
-											duration: 0.5,
-											delay: i * 0.1,
-											ease: [0.16, 1, 0.3, 1],
-										}}
-									>
-										<img
-											src={rel.cardImage}
-											alt={rel.title}
-											className="w-full md:w-[266px] md:h-[220px] h-[180px] rounded-[24px] object-cover shrink-0"
-										/>
-										<div className="flex flex-col gap-[20px] md:gap-[32px] flex-1 min-w-0 md:justify-center">
-											<div className="flex flex-col gap-[8px]">
-												{rel.eyebrow && (
-													<p className="text-cma-teal-dark font-bold text-[12px]">{rel.eyebrow}</p>
-												)}
-												<p className="text-cma-navy font-extrabold text-[24px] md:text-[30px] leading-[1.3] tracking-[-0.5px] md:tracking-[-1px]">
-													{rel.title}
-												</p>
-											</div>
-											<p className="text-cma-navy line-clamp-3">
-												{rel.paragraphs[0]}
-											</p>
-											<span className="cma-text-link">
-												See Exhibit{" "}
-												<FontAwesomeIcon
-													icon={faArrowRight}
-													className="text-[13px]"
-												/>
-											</span>
-										</div>
-									</motion.a>
+									<RelatedExhibitCard key={rel.slug} rel={rel} index={i} />
 								))}
 							</div>
 						</div>
@@ -160,5 +127,48 @@ export default function ArticleContent({ exhibit, related }: Props) {
 				</div>
 			</div>
 		</section>
+	);
+}
+
+function RelatedExhibitCard({
+	rel,
+	index,
+}: {
+	rel: Exhibit;
+	index: number;
+}) {
+	return (
+		<motion.a
+			href={`#/exhibits/${rel.slug}`}
+			className="bg-white border-2 border-black/5 rounded-[24px] p-[24px] flex flex-col md:flex-row gap-[32px] md:items-center transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
+			initial={{ opacity: 0, y: 20 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true }}
+			transition={{
+				duration: 0.5,
+				delay: index * 0.1,
+				ease: [0.16, 1, 0.3, 1],
+			}}
+		>
+			<img
+				src={rel.cardImage}
+				alt={rel.title}
+				className="w-full md:w-[266px] md:h-[220px] h-[180px] rounded-[24px] object-cover shrink-0"
+			/>
+			<div className="flex flex-col gap-[20px] md:gap-[32px] flex-1 min-w-0 md:justify-center">
+				<div className="flex flex-col gap-[8px]">
+					{rel.eyebrow && (
+						<p className="text-cma-teal-dark font-bold text-[12px]">{rel.eyebrow}</p>
+					)}
+					<p className="text-cma-navy font-extrabold text-[24px] md:text-[30px] leading-[1.3] tracking-[-0.5px] md:tracking-[-1px]">
+						{rel.title}
+					</p>
+				</div>
+				<p className="text-cma-navy line-clamp-3">{rel.paragraphs[0]}</p>
+				<span className="cma-text-link">
+					See Exhibit <FontAwesomeIcon icon={faArrowRight} className="text-[13px]" />
+				</span>
+			</div>
+		</motion.a>
 	);
 }

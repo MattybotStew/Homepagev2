@@ -11,6 +11,13 @@ import placeInSpace from "../../assets/place-in-space.png";
 import stepUpToScience from "../../assets/step-up-to-science.png";
 import leapingIntoLearning from "../../assets/Leaping-into-Learning.png";
 import obstacleAdventure from "../../assets/ObstacleAdventure.png";
+import sponsorAtlMoca from "../../assets/sponsor-atl-moca.png";
+import sponsorFultonArts from "../../assets/sponsor-fulton-arts.png";
+import wkTortuga from "../../assets/wk-tortuga.png";
+import wkSeahorse from "../../assets/wk-seahorse.png";
+import wkShallowSeas from "../../assets/wk-shallow-seas.png";
+import wkDeepSea from "../../assets/wk-deep-sea.png";
+import wkTotSpot from "../../assets/wk-tot-spot.png";
 
 export type ExhibitSection = {
 	title: string;
@@ -28,6 +35,8 @@ export type Exhibit = {
 	cardImage: string;
 	paragraphs: string[];
 	sections?: ExhibitSection[];
+	/** HTML rich text — preferred body when present (WordPress-ready) */
+	content?: string;
 };
 
 export const exhibits: Exhibit[] = [
@@ -53,12 +62,74 @@ export const exhibits: Exhibit[] = [
 		heroImage: kratts,
 		cardImage: kratts,
 		paragraphs: [
-			"Wild Kratts®: Ocean Adventure!, a brand-new temporary exhibit at the Museum, immerses the young explorers in your life in whole body explorations of ocean habitats and the fascinating creatures within them. Using Wild Kratts technology and the powers of science and teamwork, visitors will join the Wild Kratts team to solve problems, help animals, and foil the villains' nefarious plans.",
-			"This exhibit is only at Children's Museum of Atlanta for a limited time. Catch this adventure before it leaves town! Plan your visit today.",
-			"Ocean habitats immerse children and families in whole body explorations of animals, habitats, and the relationships between them.",
-			"This exhibit is made possible through the generous support of the City of Atlanta Mayor's Office of Cultural Affairs and the Fulton County Board of Commissioners.",
-			"Wild Kratts®: Ocean Adventure! was created by Minnesota Children's Museum and The Kratt Brothers Company. Wild Kratts® © 2026 Kratt Brothers Company Ltd. / 9 Story Media Group Inc. Wild Kratts® and Ocean Adventure and associated characters, trademarks, and design elements are owned by Kratt Brothers Company Ltd. Licensed by Kratt Brothers Company Ltd. All Rights Reserved.",
+			"Wild Kratts®: Ocean Adventure!, a brand-new temporary exhibit at the Museum, immerses the young explorers in your life in whole body explorations of ocean habitats and the fascinating creatures within them.",
 		],
+		content: `
+<p>Wild Kratts®: Ocean Adventure!, a brand-new temporary exhibit at the Museum, immerses the young explorers in your life in whole body explorations of ocean habitats and the fascinating creatures within them. Using Wild Kratts technology and the powers of science and teamwork, visitors will join the Wild Kratts team to solve problems, help animals, and foil the villains' nefarious plans.</p>
+<p>This exhibit is recommended for children ages 3 – 9, and includes a “tot spot” specifically for children under three years of age. This exhibit is only at Children's Museum of Atlanta for a limited time. Catch this adventure before it leaves town!</p>
+
+<div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-right">
+	<figure class="wp-block-media-text__media"><img src="${wkTortuga}" alt="The Tortuga zone in Wild Kratts Ocean Adventure" /></figure>
+	<div class="wp-block-media-text__content">
+		<h3>The Tortuga</h3>
+		<p>Stepping through the entry arch brings visitors straight into the Tortuga, where a large scenic graphic provides context and subtly cues a narrative of the work happening in Wild Kratts HQ.</p>
+		<p>Children don a creature power vest and begin their creature adventure by working alongside the Wild Kratts team, testing a prototype for the colossal squid creature power suit, and researching marine animals. Here they're also prompted to take on missions throughout the exhibit to help animals and foil the villains.</p>
+	</div>
+</div>
+
+<div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-right">
+	<figure class="wp-block-media-text__media"><img src="${wkSeahorse}" alt="Seahorse tide pool zone in Wild Kratts Ocean Adventure" /></figure>
+	<div class="wp-block-media-text__content">
+		<h3>Seahorse</h3>
+		<p>A structure based on a rocky coastline provides the perimeter of an oversized tide pool within. Visitors take notice of the tide pool creatures featured on the rocky exterior and are enticed to enter the space within.</p>
+		<p>Stepping across the miniaturizer, they “shrink down” and enter an oversized, otherworldly environment where they get an up-close experience with hardy tide pool creatures.</p>
+	</div>
+</div>
+
+<div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-right">
+	<figure class="wp-block-media-text__media"><img src="${wkShallowSeas}" alt="Shallow Seas zone in Wild Kratts Ocean Adventure" /></figure>
+	<div class="wp-block-media-text__content">
+		<h3>Shallow Seas</h3>
+		<p>A large coral arch welcomes visitors to the shallow seas. Visitors dive into explorations of some of the most popular marine animals, cleaning algae off a shark, creating their own dolphin names, and replacing a shark's lost teeth.</p>
+	</div>
+</div>
+
+<div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-right">
+	<figure class="wp-block-media-text__media"><img src="${wkDeepSea}" alt="Deep Sea zone in Wild Kratts Ocean Adventure" /></figure>
+	<div class="wp-block-media-text__content">
+		<h3>Deep Sea</h3>
+		<p>Traveling to the darkest ocean depths, visitors pilot the amphisub to view creatures living along the sea floor, simulate a sperm whale's booming power, and interact with rarely seen deep-sea creatures.</p>
+	</div>
+</div>
+
+<div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-right">
+	<figure class="wp-block-media-text__media"><img src="${wkTotSpot}" alt="Tot Spot zone in Wild Kratts Ocean Adventure" /></figure>
+	<div class="wp-block-media-text__content">
+		<h3>Tot Spot</h3>
+		<p>Based loosely on a commercial boat slip, a ring of fenders attached to a bulkhead provides a safe harbor for the youngest visitors. The space within protects crawlers and walkers from the activity of older children, and ocean-themed busy wall activities delight and entertain.</p>
+		<p>Parents and caregivers can sit on the fender wall and engage with their children while keeping an eye on any older children playing elsewhere in the exhibit.</p>
+	</div>
+</div>
+
+<h2>Sponsors</h2>
+<p>The exhibit has been made possible by the generous support of:</p>
+
+<div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-right is-sponsor-row">
+	<figure class="wp-block-media-text__media"><img src="${sponsorAtlMoca}" alt="City of Atlanta — Moving Atlanta Forward" /></figure>
+	<div class="wp-block-media-text__content">
+		<p><em>This program is supported in part by the City of Atlanta Mayor's Office of Cultural Affairs.</em></p>
+	</div>
+</div>
+
+<div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-right is-sponsor-row">
+	<figure class="wp-block-media-text__media"><img src="${sponsorFultonArts}" alt="Fulton County Arts &amp; Culture" /></figure>
+	<div class="wp-block-media-text__content">
+		<p><em>Major funding for this organization is provided by the Fulton County Board of Commissioners.</em></p>
+	</div>
+</div>
+
+<p>Wild Kratts®: Ocean Adventure! was created by Minnesota Children's Museum and The Kratt Brothers Company. Wild Kratts® © 2026 Kratt Brothers Company Ltd. / 9 Story Media Group Inc. Wild Kratts® and Ocean Adventure and associated characters, trademarks, and design elements are owned by Kratt Brothers Company Ltd. Licensed by Kratt Brothers Company Ltd. All Rights Reserved.</p>
+`.trim(),
 	},
 	{
 		slug: "outside-the-box",
