@@ -858,10 +858,14 @@
 .cma-prose .wp-block-media-text__content p:last-child {
 	margin-bottom: 0;
 }
-.cma-prose .wp-block-media-text.is-sponsor-row figure.wp-block-media-text__media {
+.cma-prose .wp-block-media-text.is-sponsor-row figure.wp-block-media-text__media,
+.cma-prose .wp-block-media-text.is-sponsor-row.has-media-on-the-right figure.wp-block-media-text__media,
+.cma-prose .wp-block-media-text.is-sponsor-row.has-media-on-the-left figure.wp-block-media-text__media {
+	float: left;
 	width: 220px;
 	max-width: 220px;
 	height: 100px;
+	margin: 0 32px 16px 0;
 	border-radius: 0;
 	background: transparent;
 }
