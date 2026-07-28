@@ -1,6 +1,6 @@
 import { Component, type ReactNode, Suspense, lazy, useEffect } from "react";
 import { createRoot } from "react-dom/client";
-import { HashRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
 
 // Lazy load all page components
 const App = lazy(() => import("./app/App.tsx"));
@@ -134,8 +134,6 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/support" element={<SupportPage />} />
           <Route path="/support/corporate-partners" element={<CorporatePartnerPage />} />
           <Route path="/support/donor-recognition" element={<DonorRecognitionPage />} />
-          <Route path="/giving-circles/young-professionals" element={<Navigate to="/support" replace />} />
-          <Route path="/giving-circles/dream-builders" element={<Navigate to="/support" replace />} />
           <Route path="/giving-circles/:slug" element={<GivingCirclePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/search" element={<SearchPage />} />

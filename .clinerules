@@ -62,9 +62,7 @@ src/
 | `/support` | SupportPage |
 | `/support/corporate-partners` | CorporatePartnerPage |
 | `/support/donor-recognition` | DonorRecognitionPage |
-| `/giving-circles/young-professionals` | → redirects to /support (draft, launching 2027) |
-| `/giving-circles/dream-builders` | → redirects to /support (draft, launching 2027) |
-| `/giving-circles/:slug` | GivingCirclePage (imagination-ball, tournament-for-play, fun-on-tap) |
+| `/giving-circles/:slug` | GivingCirclePage (imagination-ball, tournament-for-play, fun-on-tap, young-professionals, dream-builders) |
 | `/contact` | ContactPage |
 | `/terms` | TermsPage |
 | `/privacy` | PrivacyPage |
@@ -160,7 +158,7 @@ All content is in `src/app/data/`. No runtime API calls (WordPress integration i
 **EventItem fields of note:**
 - `separateTicket?: boolean` — set `true` on after-hours ticketed events (Trick-or-Treat, Bubble Bash, etc.). CalendarPage card + EventPage detail should render a "Separate Ticket Required" pill when true; nothing extra when false/absent.
 
-**Giving Circles draft system:** Entries with `draft: true` in `givingCircles.ts` are excluded from the "Other Ways to Give" related section and redirect to `/support`. Currently `young-professionals` and `dream-builders` are draft (launching spring/summer 2027).
+**Giving Circles draft system:** Entries with `draft: true` in `givingCircles.ts` are excluded from the "Other Ways to Give" related section and redirect to `/support`. No circles are currently draft.
 
 ---
 
@@ -274,7 +272,7 @@ Items still needing PM clarification:
 Items confirmed done:
 - #265 `separateTicket?: boolean` on `EventItem`; Trick-or-Treat + Bubble Bash flagged; "Separate Ticket Required" orange pill on CalendarPage cards + EventContent detail
 - #274 MOTG per-program GELDS/GSE standards added to all 18 programs in MuseumOnTheGoProgramContent
-- #277 Draft mode: young-professionals + dream-builders hidden from nav + redirected to /support
+- #277 Draft mode removed: young-professionals + dream-builders restored to Donate nav and live at `/giving-circles/:slug`
 - #285 Fun On Tap hero "Become A Sponsor" CTA removed (`heroCtas: []`)
 - #301 Testimonials removed from CorporateMembershipContent (future feature)
 - #302 Corporate Membership tiers updated (Explorer/Inventor/Achiever/Patron/Champion + family counts)

@@ -342,7 +342,6 @@ export const givingCircles: GivingCircle[] = [
 	},
 	{
 		slug: "young-professionals",
-		draft: true,
 		title: "Young Professionals",
 		badge: "Giving Circle",
 		badgeColor: "teal-dark",
@@ -365,7 +364,6 @@ export const givingCircles: GivingCircle[] = [
 	},
 	{
 		slug: "dream-builders",
-		draft: true,
 		title: "Dream Builders Giving Circle",
 		badge: "Major Gifts",
 		badgeColor: "navy",

@@ -2,6 +2,11 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-07-28 — Cursor (Grok)
+- Restored **Young Professionals** and **Dream Builders Giving Circle** to the Donate dropdown (`Header.tsx` `donateSubPages`).
+- Undrafted both entries in `givingCircles.ts` and removed the `/support` redirect routes in `main.tsx` so `#/giving-circles/young-professionals` and `#/giving-circles/dream-builders` render again via `GivingCirclePage`.
+- Updated `.clinerules` route map / draft-system note accordingly.
+
 ## 2026-07-22 — Cursor (Opus 4.8)
 - Added dedicated **Parties** page (`/parties`, `PartiesPage.tsx`) from client content spreadsheet.
   - Template 2 clone of `ContactPage` (navy hero → sticky sidebar jump-nav + "Ready to Celebrate?" widget → white article card with Divider-separated sections: Overview, Schedule & Price, Booking, Party Room, Capacity, Food, Decorations, Policies, Party FAQs).
