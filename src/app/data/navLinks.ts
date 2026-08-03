@@ -47,6 +47,33 @@ export const navLinks: NavLink[] = [
 	},
 ];
 
+export const TICKETS_URL =
+	"https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf";
+
+export const MEMBERSHIP_TICKETS_URL =
+	"https://16707.blackbaudhosting.com/16707/CMA-Memberships";
+
+export const membershipsSubPages: NavSubPage[] = [
+	{ label: "Memberships", href: "#/memberships" },
+	{ label: "Membership Tickets", href: MEMBERSHIP_TICKETS_URL },
+	{ label: "Corporate Membership", href: "#/memberships/corporate" },
+	{ label: "Information", href: "#/memberships/information" },
+];
+
+export const donateSubPages: NavSubPage[] = [
+	{ label: "Support", href: "#/support" },
+	{ label: "Corporate Partners", href: "#/support/corporate-partners" },
+	{ label: "Donor Recognition", href: "#/support/donor-recognition" },
+	{ label: "Tournament For Play", href: "#/giving-circles/tournament-for-play" },
+	{ label: "Imagination Ball", href: "#/giving-circles/imagination-ball" },
+	{ label: "Fun On Tap", href: "#/giving-circles/fun-on-tap" },
+	{ label: "Young Professionals", href: "#/giving-circles/young-professionals" },
+	{
+		label: "Dream Builders Giving Circle",
+		href: "#/giving-circles/dream-builders",
+	},
+];
+
 export function isNavLinkActive(link: NavLink, pathname: string): boolean {
 	const linkPath = link.href.replace(/^#/, "");
 	return (

@@ -1,14 +1,17 @@
 import { ChevronDown, Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import textSvgPaths from "../../imports/svg-1ph89gknrj";
 import logoSvgPaths from "../../imports/svg-jpmbtvi5vn";
 import {
+	donateSubPages,
 	isNavLinkActive,
 	isSubPageActive,
+	membershipsSubPages,
 	type NavLink,
 	type NavSubPage,
 	navLinks,
+	TICKETS_URL,
 } from "../data/navLinks";
 
 function AnimatedLogoIcon() {
@@ -136,31 +139,6 @@ function Logo() {
 	);
 }
 
-const MEMBERSHIP_TICKETS_URL = "https://16707.blackbaudhosting.com/16707/CMA-Memberships";
-
-const membershipsSubPages: NavSubPage[] = [
-	{ label: "Memberships", href: "#/memberships" },
-	{ label: "Membership Tickets", href: MEMBERSHIP_TICKETS_URL },
-	{ label: "Corporate Membership", href: "#/memberships/corporate" },
-	{ label: "Information", href: "#/memberships/information" },
-];
-
-const TICKETS_URL = "https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf";
-
-const donateSubPages: NavSubPage[] = [
-	{ label: "Support", href: "#/support" },
-	{ label: "Corporate Partners", href: "#/support/corporate-partners" },
-	{ label: "Donor Recognition", href: "#/support/donor-recognition" },
-	{ label: "Tournament For Play", href: "#/giving-circles/tournament-for-play" },
-	{ label: "Imagination Ball", href: "#/giving-circles/imagination-ball" },
-	{ label: "Fun On Tap", href: "#/giving-circles/fun-on-tap" },
-	{ label: "Young Professionals", href: "#/giving-circles/young-professionals" },
-	{
-		label: "Dream Builders Giving Circle",
-		href: "#/giving-circles/dream-builders",
-	},
-];
-
 function DropdownPanel({
 	subPages,
 	pathname,
@@ -207,11 +185,24 @@ function DonateDropdown({
 	const py = compact ? "py-[8px]" : "py-[12px]";
 	const textSize = compact ? "text-[10px]" : "text-[12px]";
 	const chevronSize = compact ? "size-2.5" : "size-3";
+	const [open, setOpen] = useState(false);
+	const ref = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const handleClickOutside = (e: MouseEvent) => {
+			if (ref.current && !ref.current.contains(e.target as Node)) {
+				setOpen(false);
+			}
+		};
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => document.removeEventListener("mousedown", handleClickOutside);
+	}, []);
 
 	return (
-		<div className="relative group">
-			<a
-				href="#/donate"
+		<div className="relative" ref={ref}>
+			<button
+				type="button"
+				onClick={() => setOpen(!open)}
 				className={`bg-cma-orange flex items-center justify-center gap-1 ${px} ${py} rounded-full shadow-cma-btn shrink-0 hover:bg-cma-orange-dark transition-colors`}
 			>
 				<p
@@ -220,33 +211,35 @@ function DonateDropdown({
 					Donate
 				</p>
 				<ChevronDown
-					className={`${chevronSize} text-cma-navy/70 transition-transform duration-200 group-hover:rotate-180`}
+					className={`${chevronSize} text-cma-navy/70 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
 				/>
-			</a>
-			<div className="absolute top-full right-0 pt-2 z-50 hidden group-hover:block">
-				<div className="bg-white rounded-[16px] shadow-cma-panel overflow-hidden min-w-[230px]">
-					{donateSubPages.map((sub, i) => {
-						const isActive = isSubPageActive(sub, pathname);
-						return (
-							<div key={sub.label}>
-								<a
-									href={sub.href}
-									className={`flex items-center px-5 min-h-[52px] transition-colors ${isActive ? "bg-cma-teal-pale" : "hover:bg-gray-50"}`}
-								>
-									<p
-										className={`whitespace-nowrap ${isActive ? "text-cma-navy font-semibold" : "text-cma-gray font-normal"}`}
+			</button>
+			{open && (
+				<div className="absolute top-full right-0 pt-2 z-50">
+					<div className="bg-white rounded-[16px] shadow-cma-panel overflow-hidden min-w-[230px]">
+						{donateSubPages.map((sub, i) => {
+							const isActive = isSubPageActive(sub, pathname);
+							return (
+								<div key={sub.label}>
+									<a
+										href={sub.href}
+										className={`flex items-center px-5 min-h-[52px] transition-colors ${isActive ? "bg-cma-teal-pale" : "hover:bg-gray-50"}`}
 									>
-										{sub.label}
-									</p>
-								</a>
-								{i < donateSubPages.length - 1 && (
-									<div className="h-px bg-gray-100 mx-5" />
-								)}
-							</div>
-						);
-					})}
+										<p
+											className={`whitespace-nowrap ${isActive ? "text-cma-navy font-semibold" : "text-cma-gray font-normal"}`}
+										>
+											{sub.label}
+										</p>
+									</a>
+									{i < donateSubPages.length - 1 && (
+										<div className="h-px bg-gray-100 mx-5" />
+									)}
+								</div>
+							);
+						})}
+					</div>
 				</div>
-			</div>
+			)}
 		</div>
 	);
 }
@@ -262,40 +255,55 @@ function MembershipsDropdown({
 	const py = compact ? "py-[8px]" : "py-[12px]";
 	const textSize = compact ? "text-[10px]" : "text-[12px]";
 	const chevronSize = compact ? "size-2.5" : "size-3";
+	const [open, setOpen] = useState(false);
+	const ref = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const handleClickOutside = (e: MouseEvent) => {
+			if (ref.current && !ref.current.contains(e.target as Node)) {
+				setOpen(false);
+			}
+		};
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => document.removeEventListener("mousedown", handleClickOutside);
+	}, []);
 
 	return (
-		<div className="relative group">
-			<a
-				href="#/memberships"
+		<div className="relative" ref={ref}>
+			<button
+				type="button"
+				onClick={() => setOpen(!open)}
 				className={`bg-white flex items-center justify-center gap-1 ${px} ${py} rounded-full shadow-cma-btn shrink-0 hover:bg-white/90 transition-colors`}
 			>
 				<p className={`font-black leading-[1.5] shrink-0 ${textSize} text-cma-teal-dark whitespace-nowrap`}>
 					Memberships
 				</p>
-				<ChevronDown className={`${chevronSize} text-cma-teal-dark/70 transition-transform duration-200 group-hover:rotate-180`} />
-			</a>
-			<div className="absolute top-full right-0 pt-2 z-50 hidden group-hover:block">
-				<div className="bg-white rounded-[16px] shadow-cma-panel overflow-hidden min-w-[180px]">
-					{membershipsSubPages.map((sub, i) => {
-						const isActive = isSubPageActive(sub, pathname);
-						return (
-							<div key={sub.label}>
-								<a
-									href={sub.href}
-									className={`flex items-center px-5 min-h-[52px] transition-colors ${isActive ? "bg-cma-teal-pale" : "hover:bg-gray-50"}`}
-								>
-									<p className={`whitespace-nowrap ${isActive ? "text-cma-navy font-semibold" : "text-cma-gray font-normal"}`}>
-										{sub.label}
-									</p>
-								</a>
-								{i < membershipsSubPages.length - 1 && (
-									<div className="h-px bg-gray-100 mx-5" />
-								)}
-							</div>
-						);
-					})}
+				<ChevronDown className={`${chevronSize} text-cma-teal-dark/70 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+			</button>
+			{open && (
+				<div className="absolute top-full right-0 pt-2 z-50">
+					<div className="bg-white rounded-[16px] shadow-cma-panel overflow-hidden min-w-[180px]">
+						{membershipsSubPages.map((sub, i) => {
+							const isActive = isSubPageActive(sub, pathname);
+							return (
+								<div key={sub.label}>
+									<a
+										href={sub.href}
+										className={`flex items-center px-5 min-h-[52px] transition-colors ${isActive ? "bg-cma-teal-pale" : "hover:bg-gray-50"}`}
+									>
+										<p className={`whitespace-nowrap ${isActive ? "text-cma-navy font-semibold" : "text-cma-gray font-normal"}`}>
+											{sub.label}
+										</p>
+									</a>
+									{i < membershipsSubPages.length - 1 && (
+										<div className="h-px bg-gray-100 mx-5" />
+									)}
+								</div>
+							);
+						})}
+					</div>
 				</div>
-			</div>
+			)}
 		</div>
 	);
 }

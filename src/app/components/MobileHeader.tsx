@@ -5,7 +5,14 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import textSvgPaths from "../../imports/svg-1ph89gknrj";
 import logoSvgPaths from "../../imports/svg-jpmbtvi5vn";
-import { isNavLinkActive, isSubPageActive, navLinks } from "../data/navLinks";
+import {
+	donateSubPages,
+	isNavLinkActive,
+	isSubPageActive,
+	membershipsSubPages,
+	navLinks,
+	TICKETS_URL,
+} from "../data/navLinks";
 
 function MobileLogo() {
 	return (
@@ -205,7 +212,7 @@ export default function MobileHeader() {
 							</div>
 
 							{/* Nav links */}
-							<div className="mb-6">
+							<div>
 								{navLinks.map((item, index) => {
 									const isParentActive = isNavLinkActive(item, pathname);
 									return (
@@ -268,37 +275,110 @@ export default function MobileHeader() {
 												</a>
 											)}
 											{index < navLinks.length - 1 && (
-												<div className="h-[1px] bg-gray-200 mx-5" />
+												<div className="h-[1px] bg-gray-200 mx-5 shrink-0" />
 											)}
 										</div>
 									);
 								})}
 							</div>
 
-							<div className="h-[1px] bg-gray-200 mx-5 mb-6" />
+							<div className="h-[1px] bg-gray-200 mx-5 shrink-0" />
 
-							{/* CTA buttons */}
-							<div className="px-5 mb-6 flex flex-col gap-3">
-								<a
-									href="#/donate"
-									onClick={() => setMenuOpen(false)}
-									className="bg-cma-orange text-white font-black text-[16px] rounded-lg px-6 py-3 min-h-[52px] flex items-center justify-center hover:bg-cma-orange-dark transition-colors"
+							{/* CTA links — same pattern as nav rows above */}
+							<div>
+								<button
+									className="w-full flex items-center justify-between px-5 py-0 min-h-[64px] hover:bg-gray-50 transition-colors"
+									onClick={() =>
+										setExpandedItem(expandedItem === "Donate" ? null : "Donate")
+									}
 								>
-									Donate
-								</a>
-								<a
-									href="#/plan-your-visit"
-									onClick={() => setMenuOpen(false)}
-									className="bg-cma-teal text-white font-black text-[16px] rounded-lg px-6 py-3 min-h-[52px] flex items-center justify-center hover:bg-cma-teal-dark transition-colors"
+									<p
+										className={`text-[18px] font-normal ${donateSubPages.some((sub) => isSubPageActive(sub, pathname)) ? "text-cma-teal font-semibold" : "text-cma-gray"}`}
+									>
+										Donate
+									</p>
+									<ChevronDown
+										className={`size-5 text-cma-gray transition-transform duration-200 ${expandedItem === "Donate" ? "rotate-180" : ""}`}
+									/>
+								</button>
+								{expandedItem === "Donate" && (
+									<div className="bg-gray-50 border-t border-gray-100">
+										{donateSubPages.map((sub) => {
+											const isSubActive = isSubPageActive(sub, pathname);
+											return (
+												<a
+													key={sub.label}
+													href={sub.href}
+													className="flex items-center pl-9 pr-5 min-h-[52px] hover:bg-gray-100 transition-colors border-b border-gray-100 last:border-b-0"
+													onClick={() => setMenuOpen(false)}
+												>
+													<p
+														className={`text-[16px] font-normal ${isSubActive ? "text-cma-teal font-semibold" : "text-cma-gray"}`}
+													>
+														{sub.label}
+													</p>
+												</a>
+											);
+										})}
+									</div>
+								)}
+							</div>
+							<div className="h-[1px] bg-gray-200 mx-5 shrink-0" />
+							<div>
+								<button
+									className="w-full flex items-center justify-between px-5 py-0 min-h-[64px] hover:bg-gray-50 transition-colors"
+									onClick={() =>
+										setExpandedItem(
+											expandedItem === "Memberships" ? null : "Memberships",
+										)
+									}
 								>
-									Memberships
-								</a>
+									<p
+										className={`text-[18px] font-normal ${membershipsSubPages.some((sub) => isSubPageActive(sub, pathname)) ? "text-cma-teal font-semibold" : "text-cma-gray"}`}
+									>
+										Memberships
+									</p>
+									<ChevronDown
+										className={`size-5 text-cma-gray transition-transform duration-200 ${expandedItem === "Memberships" ? "rotate-180" : ""}`}
+									/>
+								</button>
+								{expandedItem === "Memberships" && (
+									<div className="bg-gray-50 border-t border-gray-100">
+										{membershipsSubPages.map((sub) => {
+											const isSubActive = isSubPageActive(sub, pathname);
+											const isExternal = sub.href.startsWith("http");
+											return (
+												<a
+													key={sub.label}
+													href={sub.href}
+													{...(isExternal
+														? { target: "_blank", rel: "noopener noreferrer" }
+														: {})}
+													className="flex items-center pl-9 pr-5 min-h-[52px] hover:bg-gray-100 transition-colors border-b border-gray-100 last:border-b-0"
+													onClick={() => setMenuOpen(false)}
+												>
+													<p
+														className={`text-[16px] font-normal ${isSubActive ? "text-cma-teal font-semibold" : "text-cma-gray"}`}
+													>
+														{sub.label}
+													</p>
+												</a>
+											);
+										})}
+									</div>
+								)}
+							</div>
+
+							<div className="h-[1px] bg-gray-200 mx-5 shrink-0" />
+
+							{/* Buy Tickets — pill button, uniform with header bar + desktop CTAs */}
+							<div className="px-5 mt-8 mb-6">
 								<a
-									href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf"
+									href={TICKETS_URL}
 									target="_blank"
 									rel="noopener noreferrer"
 									onClick={() => setMenuOpen(false)}
-									className="bg-cma-navy text-white font-black text-[16px] rounded-lg px-6 py-3 min-h-[52px] flex items-center justify-center hover:opacity-90 transition-colors"
+									className="bg-cma-navy text-white font-black text-[16px] rounded-full px-6 py-3 min-h-[52px] flex items-center justify-center hover:opacity-90 transition-colors"
 								>
 									Buy Tickets
 								</a>

@@ -2,6 +2,16 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-03 — Cline
+- Converted desktop CTA dropdowns in `Header.tsx` from hover-triggered to click-based accordion (mobile-style): `DonateDropdown` and `MembershipsDropdown` now use `useState` + outside-click close via `useRef`/`useEffect`, trigger is a `<button>` that toggles, chevron rotates on open, panel renders conditionally. `BuyTicketsButton` unchanged (plain external link). Main nav `NavItem` hover dropdowns left as-is (out of scope).
+- Follow-up (user feedback "still buttons"): converted the CTA buttons inside the **mobile overlay menu** (`MobileHeader.tsx`) — Donate + Memberships are now accordion toggles (chevron rotates, expands to sub-page list), Buy Tickets stays a plain external link.
+- Follow-up 2 (user: "normal mobile style links rather than buttons"): restyled mobile menu Donate + Memberships to look identical to the nav-link rows (plain text row, 18px, min-h-64px, chevron right, divider lines, indented sub-panel). Buy Tickets kept as a navy button but now `rounded-full` pill to match the header-bar + desktop CTA pills.
+- Follow-up 3: removed `mb-6` gap between main nav list and the Donate/Memberships rows (one continuous stroked list); Buy Tickets spacing above bumped `mt-6` → `mt-8`.
+- Follow-up 4: added the missing hairline stroke (`h-[1px] bg-gray-200 mx-5`) between the Memberships row and the Buy Tickets pill.
+- Follow-up 5 (user screenshot: strokes invisible): root cause — the standalone 1px dividers are direct children of the `flex flex-col overflow-y-auto` nav; with the menu overflowing, `flex-shrink: 1` compressed them to 0px. Fixed by adding `shrink-0` to all four divider divs in `MobileHeader.tsx`.
+- Moved `donateSubPages`, `membershipsSubPages`, `TICKETS_URL`, `MEMBERSHIP_TICKETS_URL` into `src/app/data/navLinks.ts` (shared by Header + MobileHeader); removed the local copies from `Header.tsx`.
+- Verified: `pnpm install` ran, dev server hot-reloads all three files cleanly. NOTE: `npm run build` fails on a PRE-EXISTING issue — `vite.config.ts` manualChunks references `framer-motion`, which isn't installed (project uses `motion`). Unrelated to these changes.
+
 ## 2026-07-28 — Cursor (Composer)
 - Added reusable `GridEmptyState` for calendar/events grid when a filter has no results — cream card, icon, optional CTA.
 - `CalendarPage` empty state replaces plain paragraph; filtered views get "View All Events" button.
