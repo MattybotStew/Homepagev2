@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMA Membership Savings Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+<!--
+  Children's Museum of Atlanta — Membership Savings Calculator
+  Self-contained HTML widget. Drop into any WordPress page via a Custom HTML block.
+  No external dependencies beyond Google Fonts (Nunito).
+  All icons are inline SVG — no icon library required.
+-->
+<style>
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.cma-calc, .cma-calc * { font-family: 'Nunito', sans-serif; }
+.cma-calc { -webkit-font-smoothing: antialiased; }
+
+/* ── Typography ── */
+.cma-calc h2 { font-size: clamp(28px, 3.75vw, 48px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; color: #1d3e6b; }
+.cma-calc h3 { font-size: 20px; font-weight: 900; line-height: 1.1; }
+.cma-calc p  { font-size: 15px; font-weight: 500; line-height: 1.65; }
+.cma-calc a  { text-decoration: none; }
+
+/* ── Section ── */
+.cma-calc { max-width: 100%; background: #fff; padding: 80px 0; }
+.cma-calc-container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+@media (min-width: 768px)  { .cma-calc-container { padding: 0 40px; } }
+@media (min-width: 1024px) { .cma-calc-container { padding: 0 80px; } }
+
+/* ── Heading ── */
+.cma-calc-heading { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; margin-bottom: 48px; }
+.cma-calc-heading p { color: rgba(29,62,107,0.6); font-weight: 600; max-width: 500px; }
+
+/* ── Widget Shell ── */
+.cma-calc-widget { background: #cceff1; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 32px; }
+@media (min-width: 768px) { .cma-calc-widget { padding: 44px; } }
+
+/* ── Grid: inputs + result ── */
+.cma-calc-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 1024px) { .cma-calc-grid { grid-template-columns: 1fr 1fr; gap: 36px; } }
+
+/* ── Left Panel ── */
+.cma-calc-left { display: flex; flex-direction: column; gap: 20px; }
+.cma-calc-eyebrow { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: rgba(29,62,107,0.7); }
+
+/* ── Stepper ── */
+.cma-stepper { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; min-height: 44px; }
+.cma-stepper-label { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.cma-stepper-label .title { font-weight: 600; font-size: 17px; color: #1d3e6b; line-height: 1; }
+.cma-stepper-label .sub  { font-size: 12px; font-weight: 500; color: rgba(52,96,148,0.7); }
+.cma-stepper-controls { display: flex; align-items: center; gap: 10px; }
+.cma-stepper-btn { width: 36px; height: 36px; border: none; border-radius: 50%; background: #00ADBB; color: #fff; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; flex-shrink: 0; }
+.cma-stepper-btn:hover { background: #007c87; }
+.cma-stepper-btn:disabled { opacity: 0.4; cursor: default; }
+.cma-stepper-btn:disabled:hover { background: #00ADBB; }
+.cma-stepper-btn svg { width: 12px; height: 12px; }
+.cma-stepper-value { width: 72px; height: 40px; background: #fff; border: 1px solid #cceff1; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: #1d3e6b; }
+.cma-calc-divider { height: 1px; background: rgba(29,62,107,0.1); }
+
+/* ── Regular admission total ── */
+.cma-regular-total { background: #fff; border-radius: 16px; padding: 18px 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.cma-regular-total .label { font-size: 15px; font-weight: 500; color: #346094; }
+.cma-regular-total .value { font-size: 22px; font-weight: 600; color: #1d3e6b; white-space: nowrap; }
+
+/* ── Right: recommendation card ── */
+.cma-recommend-card { background: #fff; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 20px; }
+@media (min-width: 768px) { .cma-recommend-card { padding: 30px; } }
+
+.cma-recommend-badge { display: inline-flex; align-items: center; gap: 8px; background: #fff1de; padding: 6px 12px; border-radius: 999px; align-self: flex-start; }
+.cma-recommend-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: #f7941e; flex-shrink: 0; }
+.cma-recommend-badge span { color: #c77423; font-size: 12px; font-weight: 500; white-space: nowrap; }
+
+.cma-recommend-info { display: flex; flex-direction: column; gap: 6px; }
+.cma-recommend-info h3 { font-size: 28px; font-weight: 800; color: #1d3e6b; line-height: 1; }
+.cma-recommend-info p  { font-size: 15px; font-weight: 500; color: #346094; line-height: 1.5; }
+
+.cma-recommend-price { display: flex; align-items: flex-end; gap: 8px; }
+.cma-recommend-price .amount { font-size: 44px; font-weight: 700; color: #1d3e6b; line-height: 1; }
+.cma-recommend-price .period { font-size: 15px; font-weight: 600; color: #346094; padding-bottom: 4px; }
+
+.cma-savings-box { background: #e7f7f0; border-radius: 14px; padding: 14px 18px; display: flex; align-items: center; gap: 14px; }
+.cma-savings-icon { width: 40px; height: 40px; border-radius: 50%; background: #007c87; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.cma-savings-icon svg { width: 14px; height: 14px; color: #fff; }
+.cma-savings-text { display: flex; flex-direction: column; gap: 2px; }
+.cma-savings-text .save  { font-size: 16px; font-weight: 700; color: #1d3e6b; line-height: 1; }
+.cma-savings-text .vs    { font-size: 13px; font-weight: 500; color: #346094; line-height: 1.4; }
+
+.cma-benefits-list { display: flex; flex-direction: column; gap: 8px; }
+.cma-benefit-item { display: flex; align-items: center; gap: 10px; }
+.cma-benefit-check { width: 16px; height: 16px; border-radius: 4px; background: #00ADBB; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.cma-benefit-check svg { width: 9px; height: 9px; color: #fff; }
+.cma-benefit-item span { font-size: 14px; font-weight: 500; color: #346094; line-height: 1.5; }
+
+.cma-card-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.cma-btn-orange { display: inline-block; padding: 13px 24px; border-radius: 1000px; background: #f7941e; color: #1d3e6b; font-size: 15px; font-weight: 900; line-height: 1; transition: background 0.2s; }
+.cma-btn-orange:hover { background: #b8620a; color: #1d3e6b; }
+.cma-text-link { font-size: 14px; font-weight: 600; color: #346094; text-decoration: underline; transition: color 0.2s; }
+.cma-text-link:hover { color: #007c87; }
+
+/* ── All Tiers Strip ── */
+.cma-tiers-strip { border-top: 2px dashed rgba(29,62,107,0.15); padding-top: 24px; display: flex; flex-direction: column; gap: 16px; }
+.cma-tiers-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 640px) { .cma-tiers-grid { grid-template-columns: repeat(3, 1fr); } }
+.cma-tier-card { background: #fff; border-radius: 14px; padding: 14px 18px; display: flex; flex-direction: column; gap: 6px; border: 2px solid transparent; transition: border-color 0.2s; }
+.cma-tier-card.active { border-color: #f7941e; }
+.cma-tier-card .tier-name { font-size: 17px; font-weight: 600; color: #1d3e6b; line-height: 1; }
+.cma-tier-card-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px; }
+.cma-tier-price { display: flex; align-items: baseline; gap: 3px; }
+.cma-tier-price .amt { font-size: 20px; font-weight: 700; color: #1d3e6b; }
+.cma-tier-price .yr  { font-size: 13px; font-weight: 600; color: #346094; }
+.cma-tier-fit { font-size: 14px; font-weight: 500; white-space: nowrap; }
+.cma-tier-fit.fits     { color: #007c87; }
+.cma-tier-fit.no-fit   { color: #b8620a; }
+
+/* ── Responsive fine-tuning ── */
+@media (max-width: 639px) {
+  .cma-recommend-price .amount { font-size: 36px; }
+  .cma-recommend-info h3 { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+
+<section class="cma-calc" id="cma-membership-calculator">
+  <div class="cma-calc-container">
+
+    <!-- Heading -->
+    <div class="cma-calc-heading">
+      <h2>Find Out How Much You'll Save</h2>
+      <p>Adjust the options below to see your personalized annual savings.</p>
+    </div>
+
+    <!-- Calculator Widget -->
+    <div class="cma-calc-widget">
+
+      <!-- Top: inputs + result -->
+      <div class="cma-calc-grid">
+
+        <!-- LEFT: steppers -->
+        <div class="cma-calc-left">
+          <p class="cma-calc-eyebrow">Your Visit</p>
+
+          <div id="stepper-adults" class="cma-stepper">
+            <div class="cma-stepper-label">
+              <span class="title">No. of Adults</span>
+              <span class="sub">Ages 13+</span>
+            </div>
+            <div class="cma-stepper-controls">
+              <button class="cma-stepper-btn" data-action="decr" aria-label="Decrease Adults">
+                <svg viewBox="0 0 12 2" fill="currentColor"><rect y="0" width="12" height="2" rx="1"/></svg>
+              </button>
+              <div class="cma-stepper-value">2</div>
+              <button class="cma-stepper-btn" data-action="incr" aria-label="Increase Adults">
+                <svg viewBox="0 0 12 12" fill="currentColor"><rect x="5" y="0" width="2" height="12" rx="1"/><rect x="0" y="5" width="12" height="2" rx="1"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="cma-calc-divider"></div>
+
+          <div id="stepper-children" class="cma-stepper">
+            <div class="cma-stepper-label">
+              <span class="title">No. of Children</span>
+              <span class="sub">Ages 1&ndash;12 (under 1 free)</span>
+            </div>
+            <div class="cma-stepper-controls">
+              <button class="cma-stepper-btn" data-action="decr" aria-label="Decrease Children">
+                <svg viewBox="0 0 12 2" fill="currentColor"><rect y="0" width="12" height="2" rx="1"/></svg>
+              </button>
+              <div class="cma-stepper-value">2</div>
+              <button class="cma-stepper-btn" data-action="incr" aria-label="Increase Children">
+                <svg viewBox="0 0 12 12" fill="currentColor"><rect x="5" y="0" width="2" height="12" rx="1"/><rect x="0" y="5" width="12" height="2" rx="1"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="cma-calc-divider"></div>
+
+          <div id="stepper-visits" class="cma-stepper">
+            <div class="cma-stepper-label">
+              <span class="title">No. of Visits</span>
+              <span class="sub">Per year</span>
+            </div>
+            <div class="cma-stepper-controls">
+              <button class="cma-stepper-btn" data-action="decr" aria-label="Decrease Visits">
+                <svg viewBox="0 0 12 2" fill="currentColor"><rect y="0" width="12" height="2" rx="1"/></svg>
+              </button>
+              <div class="cma-stepper-value">4</div>
+              <button class="cma-stepper-btn" data-action="incr" aria-label="Increase Visits">
+                <svg viewBox="0 0 12 12" fill="currentColor"><rect x="5" y="0" width="2" height="12" rx="1"/><rect x="0" y="5" width="12" height="2" rx="1"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Regular admission total -->
+          <div class="cma-regular-total" id="regular-total">
+            <span class="label">Regular admission, per year</span>
+            <span class="value">$335.60</span>
+          </div>
+        </div>
+
+        <!-- RIGHT: recommendation card -->
+        <div class="cma-recommend-card" id="recommend-card">
+          <!-- Recommended badge -->
+          <div class="cma-recommend-badge">
+            <span class="dot"></span>
+            <span>Recommended for you</span>
+          </div>
+
+          <!-- Plan name + description -->
+          <div class="cma-recommend-info">
+            <h3 id="rec-name">Family Membership</h3>
+            <p id="rec-desc">Covers two adults and up to four children in the household.</p>
+          </div>
+
+          <!-- Price -->
+          <div class="cma-recommend-price">
+            <span class="amount" id="rec-price">$175</span>
+            <span class="period">/ year</span>
+          </div>
+
+          <!-- Savings box -->
+          <div class="cma-savings-box">
+            <div class="cma-savings-icon">
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="2 8 5.5 11.5 12 3.5"/>
+              </svg>
+            </div>
+            <div class="cma-savings-text">
+              <span class="save" id="savings-text">You save $160.60 per year</span>
+              <span class="vs" id="savings-vs">vs. paying regular admission for 4 visits</span>
+            </div>
+          </div>
+
+          <!-- Benefits list -->
+          <div class="cma-benefits-list" id="benefits-list"></div>
+
+          <!-- CTAs -->
+          <div class="cma-card-ctas">
+            <a href="https://16707.blackbaudhosting.com/16707/CMA-Memberships" class="cma-btn-orange">Become a Member</a>
+            <a href="/memberships/information" class="cma-text-link">Find out About Our Discounts</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom: all tiers strip -->
+      <div class="cma-tiers-strip">
+        <p class="cma-calc-eyebrow">All Membership Tiers</p>
+        <div class="cma-tiers-grid" id="tiers-grid"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  // ── Constants ──
+  var ADULT_PRICE = 21.95;
+  var CHILD_PRICE = 19.95;
+
+  var PLANS = [
+    { name: "Two of Us",          price: 125 },
+    { name: "Family Membership",  price: 175 },
+    { name: "Family Plus",        price: 250 }
+  ];
+
+  var PLAN_DETAILS = {
+    "Two of Us": {
+      description: "Covers any two members of the household.",
+      benefits: [
+        "Unlimited visits for a full year",
+        "50% off guest tickets",
+        "Gift shop, birthday party & special event discounts",
+        "Helps bring the power of play to ALL of Atlanta\u2019s children"
+      ]
+    },
+    "Family Membership": {
+      description: "Covers two adults and up to four children in the household.",
+      benefits: [
+        "Unlimited visits for a full year",
+        "50% off guest tickets",
+        "Gift shop, birthday party & special event discounts",
+        "Helps bring the power of play to ALL of Atlanta\u2019s children"
+      ]
+    },
+    "Family Plus": {
+      description: "For larger families \u2014 up to six household members.",
+      benefits: [
+        "Unlimited visits for a full year",
+        "50% off guest tickets",
+        "Gift shop, birthday party & special event discounts",
+        "Helps bring the power of play to ALL of Atlanta\u2019s children"
+      ]
+    }
+  };
+
+  // ── State ──
+  var state = {
+    adults: 2,
+    children: 2,
+    visits: 4,
+    steppers: {
+      adults:  { min: 1, max: 8 },
+      children: { min: 1, max: 8 },
+      visits:   { min: 1, max: 20 }
+    }
+  };
+
+  // ── Helpers ──
+  function fmt(n) { return '$' + n.toFixed(2); }
+  function planFits(name, a, c) {
+    if (name === "Two of Us") return a === 1 && c === 1;
+    if (name === "Family Membership") return a <= 2 && c <= 4;
+    return true;
+  }
+  function getRecommended(a, c) {
+    if (a === 1 && c === 1) return "Two of Us";
+    if (a <= 2 && c <= 4) return "Family Membership";
+    return "Family Plus";
+  }
+
+  // ── Render ──
+  function render() {
+    var a = state.adults;
+    var c = state.children;
+    var v = state.visits;
+
+    var regularAdmission = (a * ADULT_PRICE + c * CHILD_PRICE) * v;
+    var recommendedName = getRecommended(a, c);
+    var recPlan = PLANS.find(function(p) { return p.name === recommendedName; });
+    var savings = regularAdmission - recPlan.price;
+    var details = PLAN_DETAILS[recommendedName];
+
+    // Regular total
+    document.querySelector('#regular-total .value').textContent = fmt(regularAdmission);
+
+    // Recommendation card
+    document.getElementById('rec-name').textContent = recommendedName;
+    document.getElementById('rec-desc').textContent = details.description;
+    document.getElementById('rec-price').textContent = '$' + recPlan.price;
+
+    if (savings > 0) {
+      document.getElementById('savings-text').textContent = 'You save ' + fmt(savings) + ' per year';
+    } else {
+      document.getElementById('savings-text').textContent = 'Great value at any visit count';
+    }
+    document.getElementById('savings-vs').textContent =
+      'vs. paying regular admission for ' + v + ' visit' + (v !== 1 ? 's' : '');
+
+    // Benefits
+    var benefitsHtml = details.benefits.map(function(b) {
+      return '<div class="cma-benefit-item">' +
+        '<div class="cma-benefit-check">' +
+          '<svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">' +
+            '<polyline points="1.5 4.5 3.8 7 7.5 2"/>' +
+          '</svg>' +
+        '</div>' +
+        '<span>' + b + '</span>' +
+      '</div>';
+    }).join('');
+    document.getElementById('benefits-list').innerHTML = benefitsHtml;
+
+    // Tiers
+    var tiersHtml = PLANS.map(function(plan) {
+      var fits = planFits(plan.name, a, c);
+      var isRecommended = plan.name === recommendedName;
+      return '<div class="cma-tier-card' + (isRecommended ? ' active' : '') + '">' +
+        '<span class="tier-name">' + plan.name + '</span>' +
+        '<div class="cma-tier-card-row">' +
+          '<div class="cma-tier-price">' +
+            '<span class="amt">$' + plan.price + '</span>' +
+            '<span class="yr">/yr</span>' +
+          '</div>' +
+          '<span class="cma-tier-fit ' + (fits ? 'fits' : 'no-fit') + '">' +
+            (fits ? '\u2713 Fits your party' : '\u2717 Party too large') +
+          '</span>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+    document.getElementById('tiers-grid').innerHTML = tiersHtml;
+
+    updateStepperDisplay();
+  }
+
+  function updateStepperDisplay() {
+    Object.keys(state.steppers).forEach(function(key) {
+      var val = state[key];
+      var cfg = state.steppers[key];
+      var container = document.getElementById('stepper-' + key);
+      container.querySelector('.cma-stepper-value').textContent = val;
+      var btns = container.querySelectorAll('.cma-stepper-btn');
+      btns[0].disabled = val <= cfg.min;
+      btns[1].disabled = val >= cfg.max;
+    });
+  }
+
+  // ── Events ──
+  document.querySelectorAll('.cma-stepper').forEach(function(stepper) {
+    var id = stepper.id.replace('stepper-', '');
+    stepper.querySelectorAll('.cma-stepper-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var action = btn.getAttribute('data-action');
+        var cfg = state.steppers[id];
+        var val = state[id];
+        if (action === 'decr') {
+          state[id] = Math.max(cfg.min, val - 1);
+        } else {
+          state[id] = Math.min(cfg.max, val + 1);
+        }
+        render();
+      });
+    });
+  });
+
+  // ── Init ──
+  render();
+})();
+</script>
+
+</body>
+</html>
