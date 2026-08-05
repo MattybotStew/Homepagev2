@@ -1,8 +1,7 @@
 import { faDownload, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
-import { useState } from "react";
-import imgFloorPlan from "../../assets/exhibits-floor-plan.webp";
+import { useState, type ReactNode } from "react";
 import imgTourThumb from "../../assets/exhibits-slide-1.webp";
 
 const mainFloorExhibits = [
@@ -33,19 +32,52 @@ const mainFloorExhibits = [
 	},
 ];
 
+function TourMapEmbed() {
+	// Floor plan PNG is 1675×1515 (Museum Floor + Mezzanine stacked).
+	// Padding-bottom box is more reliable than iframe height/aspect-ratio alone.
+	return (
+		<div
+			className="relative w-full bg-white rounded-[20px]"
+			style={{ paddingBottom: "90.45%" }}
+		>
+			<iframe
+				src="/museum-tour-map.html?embed=1"
+				title="Interactive museum floor map"
+				loading="lazy"
+				scrolling="no"
+				className="absolute inset-0 size-full border-0 rounded-[20px]"
+			/>
+		</div>
+	);
+}
+
 type Floor = {
 	id: string;
 	label: string;
-	content: React.ReactNode;
-	image: string | null;
+	content: ReactNode;
 };
 
 const floors: Floor[] = [
 	{
 		id: "main",
-		label: "Main Floor",
+		label: "Tour the Museum",
 		content: (
 			<div className="flex flex-col gap-[16px]">
+				<TourMapEmbed />
+				<p className="text-cma-navy">
+					Hover over a pulse point and a 360° image of the area will open.
+					Click, hold, and drag inside the viewer to look around.
+					Alternatively, visit our{" "}
+					<a
+						className="cma-text-link"
+						href="https://childrensmuseumatlanta.org/plan-your-visit/tour-the-museum/museum-walk-through/"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						museum walk-through
+					</a>{" "}
+					to move from room to room.
+				</p>
 				<p className="text-cma-navy">
 					Five permanent exhibits fill the main floor — plus the CMA stage, art
 					studio, and a sensory-friendly room.
@@ -74,7 +106,6 @@ const floors: Floor[] = [
 				</div>
 			</div>
 		),
-		image: imgFloorPlan,
 	},
 	{
 		id: "walkthrough",
@@ -112,7 +143,6 @@ const floors: Floor[] = [
 				</a>
 			</div>
 		),
-		image: null,
 	},
 ];
 
@@ -164,7 +194,7 @@ export default function ExhibitsFloorPlan() {
 						return (
 							<div
 								key={floor.id}
-								className={`border-2 border-black/5 rounded-[24px] overflow-hidden transition-colors ${isOpen ? "bg-cma-teal-pale" : "bg-white"}`}
+								className={`border-2 border-black/5 rounded-[24px] transition-colors ${isOpen ? "bg-cma-teal-pale overflow-visible" : "bg-white overflow-hidden"}`}
 							>
 								<button
 									className="w-full flex items-center justify-between px-[24px] py-[20px] md:py-[32px]"
@@ -184,15 +214,6 @@ export default function ExhibitsFloorPlan() {
 								{isOpen && (
 									<div className="px-[24px] pb-[32px] flex flex-col gap-[24px]">
 										{floor.content}
-										{floor.image && (
-											<div className="bg-white rounded-[20px] p-[24px] overflow-hidden">
-												<img
-													src={floor.image}
-													alt={`${floor.label} floor plan`}
-													className="w-full h-auto rounded-[12px]"
-												/>
-											</div>
-										)}
 									</div>
 								)}
 							</div>

@@ -2,6 +2,14 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-05 — Cursor (Composer)
+- Exhibits accordion: renamed **Main Floor** → **Tour the Museum**; map iframe first, hover tip + exhibit/mezzanine copy below images.
+- Embed mode hides widget intro (copy lives in React); standalone WPBakery keeps intro *below* the map stage. Iframe sized to PNG aspect (`padding-bottom: 90.45%` for 1675×1515) so Museum Floor + Mezzanine show without clipping; open accordion uses `overflow-visible`.
+
+## 2026-08-05 — Cursor (Composer)
+- Built WPBakery-ready interactive museum tour map: `public/museum-tour-map.html` (START/END Raw HTML paste + instructions), 12 pulse pins → Pannellum 360° viewer, assets in `public/museum-tour-map/` with `ASSET_MODE` local/cdn toggle.
+- Embedded on `#/exhibits` via iframe (`?embed=1`) in `ExhibitsFloorPlan` Main Floor accordion (replaced static floor-plan image).
+
 ## 2026-08-03 — Cline
 - Converted desktop CTA dropdowns in `Header.tsx` from hover-triggered to click-based accordion (mobile-style): `DonateDropdown` and `MembershipsDropdown` now use `useState` + outside-click close via `useRef`/`useEffect`, trigger is a `<button>` that toggles, chevron rotates on open, panel renders conditionally. `BuyTicketsButton` unchanged (plain external link). Main nav `NavItem` hover dropdowns left as-is (out of scope).
 - Follow-up (user feedback "still buttons"): converted the CTA buttons inside the **mobile overlay menu** (`MobileHeader.tsx`) — Donate + Memberships are now accordion toggles (chevron rotates, expands to sub-page list), Buy Tickets stays a plain external link.

@@ -15,6 +15,9 @@ build-output.log
 # Public assets
 public/*
 !public/membership-calculator.html
+!public/museum-tour-map.html
+!public/museum-tour-map/
+!public/museum-tour-map/**
 
 # Local env files
 .env.local
