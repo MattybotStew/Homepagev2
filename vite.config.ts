@@ -16,7 +16,10 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
-  base: './',
+  // Absolute base required for GitHub Pages project site (/Homepagev2/).
+  // Relative "./" breaks iframe/asset URLs when the path has no trailing slash
+  // (resolves to mattybotstew.github.io/museum-tour-map.html → GH Pages 404).
+  base: '/Homepagev2/',
   
   define: {
     'process.env': {}  // ✅ FIX: prevents "process is not defined" error

@@ -34,7 +34,7 @@ const mainFloorExhibits = [
 
 function TourMapEmbed() {
 	// Floor plan PNG is 1675×1515 (Museum Floor + Mezzanine stacked).
-	// BASE_URL keeps the iframe working under Vite base "./" / GitHub Pages /Homepagev2/
+	// Absolute BASE_URL (/Homepagev2/) — relative "./" 404s on GH Pages without a trailing slash
 	const mapSrc = `${import.meta.env.BASE_URL}museum-tour-map.html?embed=1`;
 	return (
 		<div className="relative w-full aspect-[1675/1515] bg-white rounded-[20px]">
