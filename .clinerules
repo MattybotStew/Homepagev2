@@ -18,9 +18,9 @@
 
 - **Last Updated:** 2026-08-05
 - **Active Agent:** Cursor (Composer)
-- **Last Commit:** Restore Vite base /Homepagev2/ for GH Pages map iframe
-- **In Progress:** Walk-Through Tour embed (museum-walk-through.html) — not committed yet
-- **Newly Unblocked:** —
+- **Last Commit:** c50df93 Embed room-to-room 360 walk-through on exhibits Walk-Through Tour tab
+- **In Progress:** —
+- **Newly Unblocked:** ExhibitsFloorPlan accordion scroll-jump fix (uncommitted)
 - **Still Blocked:** —
 
 ---

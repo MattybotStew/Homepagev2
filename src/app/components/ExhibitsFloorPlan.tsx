@@ -1,7 +1,7 @@
 import { faDownload, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
-import { useState, type ReactNode } from "react";
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 
 const mainFloorExhibits = [
 	{
@@ -36,12 +36,13 @@ function TourMapEmbed() {
 	// Absolute BASE_URL (/Homepagev2/) — relative "./" 404s on GH Pages without a trailing slash
 	const mapSrc = `${import.meta.env.BASE_URL}museum-tour-map.html?embed=1`;
 	return (
-		<div className="relative w-full aspect-[1675/1515] bg-white rounded-[20px]">
+		<div className="relative w-full aspect-[1675/1515] bg-white rounded-[20px] [overflow-anchor:none]">
 			<iframe
 				src={mapSrc}
 				title="Interactive museum floor map"
 				loading="lazy"
 				scrolling="no"
+				tabIndex={-1}
 				className="absolute inset-0 size-full border-0 rounded-[20px]"
 			/>
 		</div>
@@ -51,11 +52,12 @@ function TourMapEmbed() {
 function WalkThroughEmbed() {
 	const walkSrc = `${import.meta.env.BASE_URL}museum-walk-through.html?embed=1`;
 	return (
-		<div className="w-full bg-white rounded-[20px] overflow-hidden">
+		<div className="w-full bg-white rounded-[20px] overflow-hidden [overflow-anchor:none]">
 			<iframe
 				src={walkSrc}
 				title="Museum 360 walk-through tour"
 				loading="lazy"
+				tabIndex={-1}
 				className="block w-full border-0 rounded-[20px] h-[520px] md:h-[640px]"
 			/>
 		</div>
@@ -137,6 +139,28 @@ const floors: Floor[] = [
 
 export default function ExhibitsFloorPlan() {
 	const [openId, setOpenId] = useState("main");
+	// Switching Tour ↔ Walk-Through collapses ~viewport of height; without this,
+	// scrollY clamps to the new document bottom and the page jumps to the footer.
+	const scrollAnchorRef = useRef<HTMLElement | null>(null);
+	const scrollAnchorTopRef = useRef(0);
+
+	useLayoutEffect(() => {
+		const el = scrollAnchorRef.current;
+		if (!el) return;
+		const delta = el.getBoundingClientRect().top - scrollAnchorTopRef.current;
+		if (delta !== 0) window.scrollBy(0, delta);
+		scrollAnchorRef.current = null;
+	}, [openId]);
+
+	const toggleFloor = (
+		floorId: string,
+		isOpen: boolean,
+		button: HTMLButtonElement,
+	) => {
+		scrollAnchorRef.current = button;
+		scrollAnchorTopRef.current = button.getBoundingClientRect().top;
+		setOpenId(isOpen ? "" : floorId);
+	};
 
 	return (
 		<section id="tour" className="bg-cma-cream w-full py-[80px] md:py-[120px]">
@@ -172,7 +196,7 @@ export default function ExhibitsFloorPlan() {
 				</motion.div>
 
 				<motion.div
-					className="flex flex-col gap-[10px]"
+					className="flex flex-col gap-[10px] [overflow-anchor:none]"
 					initial={{ opacity: 0, y: 24 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true, margin: "-60px" }}
@@ -183,11 +207,14 @@ export default function ExhibitsFloorPlan() {
 						return (
 							<div
 								key={floor.id}
-								className={`border-2 border-black/5 rounded-[24px] transition-colors ${isOpen ? "bg-cma-teal-pale overflow-visible" : "bg-white overflow-hidden"}`}
+								className={`border-2 border-black/5 rounded-[24px] transition-colors [overflow-anchor:none] ${isOpen ? "bg-cma-teal-pale overflow-visible" : "bg-white overflow-hidden"}`}
 							>
 								<button
+									type="button"
 									className="w-full flex items-center justify-between px-[24px] py-[20px] md:py-[32px]"
-									onClick={() => setOpenId(isOpen ? "" : floor.id)}
+									onClick={(e) =>
+										toggleFloor(floor.id, isOpen, e.currentTarget)
+									}
 								>
 									<h3
 										className={`${isOpen ? "font-black" : "font-semibold"} text-cma-navy`}
@@ -201,7 +228,7 @@ export default function ExhibitsFloorPlan() {
 								</button>
 
 								{isOpen && (
-									<div className="px-[24px] pb-[32px] flex flex-col gap-[24px]">
+									<div className="px-[24px] pb-[32px] flex flex-col gap-[24px] [overflow-anchor:none]">
 										{floor.content}
 									</div>
 								)}
