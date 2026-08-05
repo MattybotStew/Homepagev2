@@ -3,6 +3,9 @@
 Shared session log for all AI agents. Newest entries at the top.
 
 ## 2026-08-05 — Cursor (Composer)
+- Museum tour map pin panoramas failed on `file://` (Pannellum XHR blocked). `USE_CDN` now forces spot.cdn / MAP_CDN when `location.protocol === "file:"`; on http(s) local mode resolves via `new URL(rel, location.href)` so Vite + GH Pages `/Homepagev2/` stay correct. Floor img uses same `mapSrc()`. ExhibitsFloorPlan iframe unchanged (`BASE_URL`).
+
+## 2026-08-05 — Cursor (Composer)
 - Fixed museum tour map images missing on GitHub Pages: root-absolute `/museum-tour-map/...` and iframe `/museum-tour-map.html` ignored Vite `base: './'` / `/Homepagev2/`. Switched HTML `LOCAL_BASE` + floor `<img>` to relative `museum-tour-map/`; Exhibits iframe uses `import.meta.env.BASE_URL`. Assets were already tracked/deployed (not a gitignore issue).
 
 ## 2026-08-05 — Cursor (Composer)

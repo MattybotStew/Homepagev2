@@ -20,7 +20,7 @@
 - **Active Agent:** Cursor (Composer)
 - **Last Commit:** Hide Buy Tickets on very narrow mobile header widths
 - **In Progress:** —
-- **Newly Unblocked:** Museum tour map GH Pages base-path fix (relative LOCAL_BASE + BASE_URL iframe)
+- **Newly Unblocked:** Museum tour map file:// pano fix (auto-CDN) + GH Pages relative LOCAL_BASE
 - **Still Blocked:** —
 
 ---
