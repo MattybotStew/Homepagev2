@@ -3,8 +3,12 @@
 Shared session log for all AI agents. Newest entries at the top.
 
 ## 2026-08-05 — Cursor (Composer)
+- Fixed museum tour map images missing on GitHub Pages: root-absolute `/museum-tour-map/...` and iframe `/museum-tour-map.html` ignored Vite `base: './'` / `/Homepagev2/`. Switched HTML `LOCAL_BASE` + floor `<img>` to relative `museum-tour-map/`; Exhibits iframe uses `import.meta.env.BASE_URL`. Assets were already tracked/deployed (not a gitignore issue).
+
+## 2026-08-05 — Cursor (Composer)
 - Exhibits accordion: renamed **Main Floor** → **Tour the Museum**; map iframe first, hover tip + exhibit/mezzanine copy below images.
-- Embed mode hides widget intro (copy lives in React); standalone WPBakery keeps intro *below* the map stage. Iframe sized to PNG aspect (`padding-bottom: 90.45%` for 1675×1515) so Museum Floor + Mezzanine show without clipping; open accordion uses `overflow-visible`.
+- Embed mode hides widget intro (copy lives in React); standalone WPBakery keeps intro *below* the map stage.
+- Full map height: iframe uses `aspect-[1675/1515]` (Museum Floor + Mezzanine); open accordion `overflow-visible`; embed CSS no longer caps height / letterboxes the PNG.
 
 ## 2026-08-05 — Cursor (Composer)
 - Built WPBakery-ready interactive museum tour map: `public/museum-tour-map.html` (START/END Raw HTML paste + instructions), 12 pulse pins → Pannellum 360° viewer, assets in `public/museum-tour-map/` with `ASSET_MODE` local/cdn toggle.

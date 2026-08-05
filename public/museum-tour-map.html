@@ -240,7 +240,7 @@ body.cma-tour-map-embed .cma-tour-map-page-only { display: none !important; }
     <div class="cma-tour-map-stage" id="cma-tour-map-stage">
       <img
         class="cma-tour-map-floor"
-        src="/museum-tour-map/Updated-Museum-Map.png"
+        src="museum-tour-map/Updated-Museum-Map.png"
         alt="Children's Museum of Atlanta floor plan"
         width="1675"
         height="1515"
@@ -277,10 +277,11 @@ body.cma-tour-map-embed .cma-tour-map-page-only { display: none !important; }
 <script>
 (function () {
   // Asset mode:
-  // - "local"  → files in /museum-tour-map/ (prototype + GH Pages; upload that folder to WP for Raw HTML)
+  // - "local"  → files in museum-tour-map/ next to this HTML (relative paths work with Vite base + GH Pages)
   // - "cdn"    → hotlink existing CMA media library URLs (no re-upload on production WordPress)
   var ASSET_MODE = "local";
-  var LOCAL_BASE = "/museum-tour-map/";
+  // Relative to this HTML file — NOT root-absolute (/museum-tour-map/), which breaks under /Homepagev2/
+  var LOCAL_BASE = "museum-tour-map/";
 
   var MAP_CDN = "https://childrensmuseumatlanta.org/wp-content/uploads/2025/04/Updated-Museum-Map.png";
   var MAP_LOCAL = LOCAL_BASE + "Updated-Museum-Map.png";

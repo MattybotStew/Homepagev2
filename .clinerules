@@ -20,7 +20,7 @@
 - **Active Agent:** Cursor (Composer)
 - **Last Commit:** Hide Buy Tickets on very narrow mobile header widths
 - **In Progress:** —
-- **Newly Unblocked:** Tour the Museum accordion (map first, copy below; full floor+mezzanine aspect)
+- **Newly Unblocked:** Museum tour map GH Pages base-path fix (relative LOCAL_BASE + BASE_URL iframe)
 - **Still Blocked:** —
 
 ---

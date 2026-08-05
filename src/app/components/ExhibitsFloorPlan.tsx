@@ -34,14 +34,12 @@ const mainFloorExhibits = [
 
 function TourMapEmbed() {
 	// Floor plan PNG is 1675×1515 (Museum Floor + Mezzanine stacked).
-	// Padding-bottom box is more reliable than iframe height/aspect-ratio alone.
+	// BASE_URL keeps the iframe working under Vite base "./" / GitHub Pages /Homepagev2/
+	const mapSrc = `${import.meta.env.BASE_URL}museum-tour-map.html?embed=1`;
 	return (
-		<div
-			className="relative w-full bg-white rounded-[20px]"
-			style={{ paddingBottom: "90.45%" }}
-		>
+		<div className="relative w-full aspect-[1675/1515] bg-white rounded-[20px]">
 			<iframe
-				src="/museum-tour-map.html?embed=1"
+				src={mapSrc}
 				title="Interactive museum floor map"
 				loading="lazy"
 				scrolling="no"
