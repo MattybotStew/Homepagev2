@@ -10,7 +10,10 @@
 <!--
   Children's Museum of Atlanta — Museum Walk-Through (room-to-room 360°)
   Self-contained HTML widget. Drop into any WordPress page via a WPBakery Raw HTML block.
-  360 viewer: Pannellum (CDN). Reuses museum-tour-map/ panoramas (or CMA CDN).
+  Panoramas hotlink existing CMA media library URLs (ASSET_MODE cdn) or museum-tour-map/ files (local).
+  360 viewer: Pannellum (CDN). No React / build step required.
+  Companion map widget: museum-tour-map.html
+  Standalone preview: https://mattybotstew.github.io/Homepagev2/museum-walk-through.html
 -->
 </head>
 <body>
@@ -44,6 +47,8 @@
 
 .cma-walk-intro { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; margin-bottom: 24px; }
 .cma-walk-intro p { color: #1d3e6b; max-width: 640px; }
+.cma-walk-intro a.cma-walk-link { color: #00ADBB; font-weight: 700; text-decoration: none; }
+.cma-walk-intro a.cma-walk-link:hover { color: #005a63; text-decoration: underline; }
 
 .cma-walk-shell {
   display: flex;
@@ -117,8 +122,11 @@ html.cma-walk-embed, html.cma-walk-embed body {
 html.cma-walk-embed .cma-walk { padding: 0; background: transparent; }
 html.cma-walk-embed .cma-walk-container { max-width: none; padding: 0; }
 html.cma-walk-embed .cma-walk-intro,
+html.cma-walk-embed .cma-walk-intro h2,
 html.cma-walk-embed .cma-walk-page-only,
 html.cma-walk-embed .cma-walk-wpbakery { display: none !important; }
+body.cma-walk-embed .cma-walk-wpbakery,
+body.cma-walk-embed .cma-walk-page-only { display: none !important; }
 html.cma-walk-embed .cma-walk-shell {
   border: none;
   background: transparent;
@@ -164,6 +172,8 @@ html.cma-walk-embed .cma-walk-hint { display: none; }
         View the rooms in our museum and travel between them by selecting a room
         below or clicking the orange markers inside the 360&deg; view.
         Click and drag to look around.
+        Prefer a floor-plan overview? Try the
+        <a class="cma-walk-link" href="museum-tour-map.html">interactive museum tour map</a>.
       </p>
     </div>
 
@@ -178,18 +188,32 @@ html.cma-walk-embed .cma-walk-hint { display: none; }
 <script>
 (function () {
   // Asset mode:
-  // - "local" → files in museum-tour-map/ next to this HTML
-  // - "cdn"   → hotlink CMA media library (for WordPress paste)
-  // file:// always uses CDN: Pannellum XHR cannot load local file URLs.
+  // - "local"  → files in museum-tour-map/ next to this HTML (relative paths work with Vite base + GH Pages)
+  // - "cdn"    → hotlink existing CMA media library URLs (no re-upload on production WordPress)
+  // file:// always uses CDN: Pannellum loads panos via XHR, which browsers block for local file URLs.
   var ASSET_MODE = "local";
+  // Relative to this HTML file — NOT root-absolute (/museum-tour-map/), which breaks under /Homepagev2/
   var LOCAL_BASE = "museum-tour-map/";
   var USE_CDN = ASSET_MODE === "cdn" || location.protocol === "file:";
 
+  // Absolute http(s) URL from a path relative to this HTML (Vite + GH Pages /Homepagev2/).
   function resolveLocal(relPath) {
     return new URL(relPath, location.href).href;
   }
   function panoSrc(spot) {
     return USE_CDN ? spot.cdn : resolveLocal(LOCAL_BASE + spot.file);
+  }
+
+  // Embed mode also set early on <html>/<body> via head-of-body script
+  if (/(?:^|[?&])embed=1(?:&|$)/.test(window.location.search)) {
+    document.documentElement.classList.add("cma-walk-embed");
+    document.body.classList.add("cma-walk-embed");
+    setTimeout(function () {
+      document.querySelectorAll(".cma-walk-wpbakery, .cma-walk-page-only").forEach(function (el) {
+        el.hidden = true;
+        el.setAttribute("aria-hidden", "true");
+      });
+    }, 0);
   }
 
   // Room-to-room tour. Hotspot yaw/pitch are approximate navigation cues.
@@ -417,14 +441,104 @@ html.cma-walk-embed .cma-walk-hint { display: none; }
 <!-- END: CMA Museum Walk-Through -->
 <!-- ═══════════════════════════════════════════════════════════════════════════ -->
 
-<div class="cma-walk-wpbakery" style="max-width:720px;margin:40px auto;padding:24px;background:#cceff1;border-radius:16px;font-family:Nunito,sans-serif;">
-  <p style="margin:0 0 12px;font-weight:900;color:#1d3e6b;font-size:18px;">WPBakery handoff</p>
-  <ol style="margin:0;padding-left:20px;color:#1d3e6b;font-size:14px;line-height:1.6;">
-    <li>Copy everything between the <strong>START</strong> and <strong>END</strong> markers above.</li>
-    <li>Paste into a WPBakery <strong>Raw HTML</strong> block.</li>
-    <li>Before pasting on production WordPress, set <code>ASSET_MODE = "cdn"</code> so panoramas hotlink the media library.</li>
-    <li>Or keep <code>ASSET_MODE = "local"</code> and upload the <code>museum-tour-map/</code> folder next to this HTML.</li>
-  </ol>
+<!-- ═══════════════════════════════════════════════════════════════════════════ -->
+<!-- WPBakery Integration Instructions -->
+<!-- ═══════════════════════════════════════════════════════════════════════════ -->
+
+<div class="cma-walk cma-walk-wpbakery" style="background:#fff;padding:0 0 80px 0;">
+  <div class="cma-walk-container" style="max-width:1280px;margin:0 auto;padding:0 20px;">
+
+    <div style="
+      background:#fdf6ee;
+      border:2px solid #f7941e;
+      border-radius:20px;
+      padding:32px 28px;
+      display:flex;
+      flex-direction:column;
+      gap:24px;
+    ">
+      <h3 style="color:#1d3e6b;font-size:22px;font-weight:900;margin:0;font-family:Nunito,sans-serif;">How to Add This Walk-Through to WPBakery</h3>
+
+      <ol style="display:flex;flex-direction:column;gap:16px;list-style:none;padding:0;margin:0;font-family:Nunito,sans-serif;">
+        <li style="display:flex;gap:16px;align-items:flex-start;">
+          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">1</span>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <strong style="color:#1d3e6b;font-size:15px;">Open the Walk-Through (or Tour the Museum) page in WordPress</strong>
+            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Navigate to Pages &rarr; All Pages, find the destination page, and click <em>Edit with WPBakery</em>.</p>
+          </div>
+        </li>
+        <li style="display:flex;gap:16px;align-items:flex-start;">
+          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">2</span>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <strong style="color:#1d3e6b;font-size:15px;">Add a "Raw HTML" element</strong>
+            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Click the <strong>+</strong> button to add a new element. Search for <strong>Raw HTML</strong> and add it where the room-to-room walk-through should appear.</p>
+          </div>
+        </li>
+        <li style="display:flex;gap:16px;align-items:flex-start;">
+          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">3</span>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <strong style="color:#1d3e6b;font-size:15px;">Copy the walk-through code</strong>
+            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Open this HTML file in a text editor. Copy <strong>everything</strong> between the <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;">&lt;!-- START: CMA Museum Walk-Through --&gt;</code> and <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;">&lt;!-- END: CMA Museum Walk-Through --&gt;</code> comments. That gives you the <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;">&lt;style&gt;</code>, markup, and <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;">&lt;script&gt;</code> together.</p>
+          </div>
+        </li>
+        <li style="display:flex;gap:16px;align-items:flex-start;">
+          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">4</span>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <strong style="color:#1d3e6b;font-size:15px;">Paste into the Raw HTML block</strong>
+            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Paste the copied code into the Raw HTML element's content area. <strong>Do not</strong> wrap it in anything else — paste it exactly as-is.</p>
+          </div>
+        </li>
+        <li style="display:flex;gap:16px;align-items:flex-start;">
+          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">5</span>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <strong style="color:#1d3e6b;font-size:15px;">Save and preview</strong>
+            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Click <strong>Update</strong>, then preview. Room chips and orange markers should move you between 360&deg; scenes. Drag to look around. The paste block already includes the Pannellum CDN CSS/JS tags.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div style="
+        background:#cceff1;
+        border-radius:12px;
+        padding:16px 20px;
+        display:flex;
+        flex-direction:column;
+        gap:8px;
+        font-family:Nunito,sans-serif;
+      ">
+        <strong style="color:#007c87;font-size:15px;">&#9888; Troubleshooting Tips</strong>
+        <ul style="display:flex;flex-direction:column;gap:6px;padding-left:20px;margin:0;color:#346094;font-size:14px;line-height:1.5;">
+          <li>If the viewer appears but room buttons do nothing, WPBakery may be stripping <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">&lt;script&gt;</code> tags. Move the script into a <strong>Raw JS</strong> element.</li>
+          <li>If you see &ldquo;360 viewer failed to load,&rdquo; confirm the Pannellum CDN script is present above the walk-through and not blocked by CSP.</li>
+          <li>Styles are scoped under <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">.cma-walk</code> to avoid theme conflicts.</li>
+          <li>Room order and hotspot yaw/pitch live in the <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ROOMS</code> array near the top of the script — edit <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">links</code> to retarget orange markers.</li>
+        </ul>
+      </div>
+
+      <div style="
+        background:#e7f7f0;
+        border-radius:12px;
+        padding:16px 20px;
+        display:flex;
+        flex-direction:column;
+        gap:8px;
+        font-family:Nunito,sans-serif;
+      ">
+        <strong style="color:#007c87;font-size:15px;">&#9432; Media URLs</strong>
+        <ul style="display:flex;flex-direction:column;gap:6px;padding-left:20px;margin:0;color:#346094;font-size:14px;line-height:1.5;">
+          <li>Before pasting into CMA WordPress, set <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ASSET_MODE = "cdn"</code> near the top of the script so panoramas hotlink the live media library (no re-upload).</li>
+          <li>Or keep <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ASSET_MODE = "local"</code> and upload the <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">public/museum-tour-map/</code> folder next to this HTML (same panos as the tour map), then point <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">LOCAL_BASE</code> at that path. Opening this HTML via <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">file://</code> auto-falls back to CDN (Pannellum cannot XHR local files).</li>
+          <li>Companion floor-plan map widget: <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">public/museum-tour-map.html</code> — standalone at <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">/Homepagev2/museum-tour-map.html</code>.</li>
+        </ul>
+      </div>
+
+      <p style="color:#346094;font-size:13px;line-height:1.5;margin:0;font-family:Nunito,sans-serif;">
+        <strong>Need help?</strong> Reference file: <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;">public/museum-walk-through.html</code> in the Homepagev2 repo.
+        Live preview: <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;">https://mattybotstew.github.io/Homepagev2/museum-walk-through.html</code>
+      </p>
+    </div>
+
+  </div>
 </div>
 
 </body>

@@ -3,6 +3,9 @@
 Shared session log for all AI agents. Newest entries at the top.
 
 ## 2026-08-05 — Cursor (Composer)
+- Brought `public/museum-walk-through.html` up to WPBakery handoff parity with `museum-tour-map.html`: full numbered instructions + troubleshooting + Media URLs, ASSET_MODE comments, embed hide for instructions, cross-link to tour map. Standalone: https://mattybotstew.github.io/Homepagev2/museum-walk-through.html — copy START→END into Raw HTML; set `ASSET_MODE = "cdn"` for prod WP.
+
+## 2026-08-05 — Cursor (Composer)
 - Fixed `#/exhibits` accordion jump-to-footer when opening Walk-Through Tour (and switching back to Tour the Museum). Cause: tall map panel → short walk-through shrinks document height so `scrollY` clamps to the bottom. Fix in `ExhibitsFloorPlan`: pin clicked header’s viewport Y via `useLayoutEffect` + `overflow-anchor: none`; `tabIndex={-1}` on embeds to avoid iframe focus steal.
 
 ## 2026-08-05 — Cursor (Composer)

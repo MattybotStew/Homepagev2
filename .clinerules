@@ -18,10 +18,21 @@
 
 - **Last Updated:** 2026-08-05
 - **Active Agent:** Cursor (Composer)
-- **Last Commit:** c50df93 Embed room-to-room 360 walk-through on exhibits Walk-Through Tour tab
+- **Last Commit:** (pending) Walk-through WPBakery handoff parity with tour map
 - **In Progress:** —
-- **Newly Unblocked:** ExhibitsFloorPlan accordion scroll-jump fix (uncommitted)
+- **Newly Unblocked:** —
 - **Still Blocked:** —
+
+## WPBakery / standalone tour widgets
+
+Self-contained HTML in `public/` (force-added — `public/*` is gitignored). Same pattern for both:
+
+| Widget | Standalone URL | Embed on `#/exhibits` |
+|---|---|---|
+| Tour the Museum (floor map + pins) | https://mattybotstew.github.io/Homepagev2/museum-tour-map.html | `museum-tour-map.html?embed=1` |
+| Walk-Through Tour (room-to-room 360°) | https://mattybotstew.github.io/Homepagev2/museum-walk-through.html | `museum-walk-through.html?embed=1` |
+
+Handoff: open the standalone page → copy START→END markers into WPBakery Raw HTML. Set `ASSET_MODE = "cdn"` for production WordPress (hotlinks CMA media library). Assets folder: `public/museum-tour-map/`.
 
 ---
 
