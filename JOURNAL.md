@@ -3,6 +3,10 @@
 Shared session log for all AI agents. Newest entries at the top.
 
 ## 2026-08-05 — Cursor (Composer)
+- Walk-Through Tour accordion on `#/exhibits`: replaced outbound “Start Virtual Tour” thumbnail with an embedded room-to-room 360° viewer (`public/museum-walk-through.html?embed=1`). Live CMA page cannot be iframed (`X-Frame-Options: SAMEORIGIN`); built Pannellum multi-scene tour reusing `museum-tour-map/` panos + room chips / orange hotspots. WPBakery START/END markers included.
+- Standalone: `/museum-walk-through.html`
+
+## 2026-08-05 — Cursor (Composer)
 - GH Pages 404 for museum tour map: Vite `base: './'` made the exhibits iframe resolve to `https://mattybotstew.github.io/museum-tour-map.html` when the document path lacked a trailing slash. Restored `base: '/Homepagev2/'` (matches PROJECT_CONTEXT). Standalone + assets were already in `dist/` and return 200 at the correct URL.
 - Working URLs: `https://mattybotstew.github.io/Homepagev2/museum-tour-map.html` (standalone), `https://mattybotstew.github.io/Homepagev2/#/exhibits` (embed).
 

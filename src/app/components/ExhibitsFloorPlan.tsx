@@ -2,7 +2,6 @@ import { faDownload, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import { useState, type ReactNode } from "react";
-import imgTourThumb from "../../assets/exhibits-slide-1.webp";
 
 const mainFloorExhibits = [
 	{
@@ -44,6 +43,20 @@ function TourMapEmbed() {
 				loading="lazy"
 				scrolling="no"
 				className="absolute inset-0 size-full border-0 rounded-[20px]"
+			/>
+		</div>
+	);
+}
+
+function WalkThroughEmbed() {
+	const walkSrc = `${import.meta.env.BASE_URL}museum-walk-through.html?embed=1`;
+	return (
+		<div className="w-full bg-white rounded-[20px] overflow-hidden">
+			<iframe
+				src={walkSrc}
+				title="Museum 360 walk-through tour"
+				loading="lazy"
+				className="block w-full border-0 rounded-[20px] h-[520px] md:h-[640px]"
 			/>
 		</div>
 	);
@@ -111,34 +124,12 @@ const floors: Floor[] = [
 		content: (
 			<div className="flex flex-col gap-[20px]">
 				<p className="text-cma-navy">
-					View the rooms in our museum and travel between them by clicking on
-					the markers. Explore six permanent exhibits, the CMA stage, art
-					studio, sensory-friendly room, and the Mezzanine — all from home
-					before your visit.
+					View the rooms in our museum and travel between them by selecting a
+					room or clicking the markers inside the 360° view. Explore permanent
+					exhibits, the Museum Store, Snack Shop, and the Mezzanine — all from
+					home before your visit.
 				</p>
-				<a
-					href="https://childrensmuseumatlanta.org/plan-your-visit/tour-the-museum/museum-walk-through/"
-					target="_blank"
-					rel="noopener noreferrer"
-					tabIndex={-1}
-					className="group relative w-full rounded-[20px] overflow-hidden block"
-				>
-					<img
-						src={imgTourThumb}
-						alt="Museum interior"
-						className="w-full h-[280px] md:h-[360px] object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-					/>
-					<div className="absolute inset-0 bg-cma-navy/50 flex flex-col items-center justify-center gap-[16px] transition-colors duration-300 group-hover:bg-cma-navy/60">
-						<div className="w-[72px] h-[72px] rounded-full bg-white/20 border-2 border-white flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
-							<svg className="w-[28px] h-[28px] text-white ml-[4px]" fill="currentColor" viewBox="0 0 24 24">
-								<path d="M8 5v14l11-7z" />
-							</svg>
-						</div>
-						<span className="font-black text-white text-[16px] tracking-wide">
-							Start Virtual Tour
-						</span>
-					</div>
-				</a>
+				<WalkThroughEmbed />
 			</div>
 		),
 	},

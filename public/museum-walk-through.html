@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMA Museum Walk-Through</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+<!--
+  Children's Museum of Atlanta — Museum Walk-Through (room-to-room 360°)
+  Self-contained HTML widget. Drop into any WordPress page via a WPBakery Raw HTML block.
+  360 viewer: Pannellum (CDN). Reuses museum-tour-map/ panoramas (or CMA CDN).
+-->
+</head>
+<body>
+<script>
+  if (/(?:^|[?&])embed=1(?:&|$)/.test(window.location.search)) {
+    document.documentElement.classList.add("cma-walk-embed");
+    document.body.classList.add("cma-walk-embed");
+  }
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════ -->
+<!-- START: CMA Museum Walk-Through -->
+<!-- To extract just the walk-through: copy everything from this line through -->
+<!-- the END marker below and paste into a WPBakery Raw HTML or Custom HTML block. -->
+<!-- ═══════════════════════════════════════════════════════════════════════════ -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+<script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+.cma-walk, .cma-walk * { font-family: 'Nunito', sans-serif; }
+.cma-walk { -webkit-font-smoothing: antialiased; margin: 0; }
+.cma-walk p { font-size: 15px; font-weight: 500; line-height: 1.65; margin: 0; }
+.cma-walk h2 { font-size: clamp(28px, 3.75vw, 48px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; color: #1d3e6b; margin: 0; }
+
+.cma-walk { max-width: 100%; background: #fff; padding: 48px 0; }
+.cma-walk-container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+@media (min-width: 768px)  { .cma-walk-container { padding: 0 40px; } }
+@media (min-width: 1024px) { .cma-walk-container { padding: 0 80px; } }
+
+.cma-walk-intro { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; margin-bottom: 24px; }
+.cma-walk-intro p { color: #1d3e6b; max-width: 640px; }
+
+.cma-walk-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fdf6ee;
+  border: 2px solid rgba(0,0,0,0.05);
+  border-radius: 20px;
+  padding: 12px;
+}
+.cma-walk-viewer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 280px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #1d3e6b;
+}
+.cma-walk-viewer .pnlm-container { width: 100% !important; height: 100% !important; }
+
+.cma-walk-rooms {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 2px 8px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.cma-walk-room {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 10px 14px;
+  border: 2px solid rgba(29,62,107,0.15);
+  border-radius: 1000px;
+  background: #fff;
+  color: #1d3e6b;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.cma-walk-room:hover { border-color: #00ADBB; color: #007c87; }
+.cma-walk-room.is-active {
+  background: #00ADBB;
+  border-color: #00ADBB;
+  color: #fff;
+}
+.cma-walk-room:focus-visible {
+  outline: 2px solid #f7941e;
+  outline-offset: 2px;
+}
+
+.cma-walk-hint {
+  color: #346094;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  padding: 0 8px 4px;
+}
+
+html.cma-walk-embed, html.cma-walk-embed body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  overflow: hidden;
+}
+html.cma-walk-embed .cma-walk { padding: 0; background: transparent; }
+html.cma-walk-embed .cma-walk-container { max-width: none; padding: 0; }
+html.cma-walk-embed .cma-walk-intro,
+html.cma-walk-embed .cma-walk-page-only,
+html.cma-walk-embed .cma-walk-wpbakery { display: none !important; }
+html.cma-walk-embed .cma-walk-shell {
+  border: none;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  gap: 10px;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+html.cma-walk-embed .cma-walk,
+html.cma-walk-embed .cma-walk-container {
+  height: 100%;
+}
+html.cma-walk-embed .cma-walk-viewer {
+  aspect-ratio: auto;
+  flex: 1 1 auto;
+  height: auto;
+  min-height: 0;
+  border-radius: 20px;
+}
+html.cma-walk-embed .cma-walk-rooms { flex: 0 0 auto; }
+html.cma-walk-embed .cma-walk-hint { display: none; }
+
+/* Scene-change markers inside the viewer */
+.pnlm-hotspot-base.cma-walk-hotspot,
+.cma-walk-hotspot {
+  background: #f7941e;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  box-shadow: 0 2px 8px rgba(29,62,107,0.35);
+}
+</style>
+
+<section class="cma-walk" id="cma-museum-walk-through">
+  <div class="cma-walk-container">
+    <div class="cma-walk-intro cma-walk-page-only">
+      <h2>Museum Walk-Through</h2>
+      <p>
+        View the rooms in our museum and travel between them by selecting a room
+        below or clicking the orange markers inside the 360&deg; view.
+        Click and drag to look around.
+      </p>
+    </div>
+
+    <div class="cma-walk-shell">
+      <div class="cma-walk-viewer" id="cma-walk-viewer" role="img" aria-label="Museum 360 degree walk-through"></div>
+      <div class="cma-walk-rooms" id="cma-walk-rooms" role="tablist" aria-label="Museum rooms"></div>
+      <p class="cma-walk-hint">Click and drag to look around. Use room buttons or orange markers to move between spaces.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  // Asset mode:
+  // - "local" → files in museum-tour-map/ next to this HTML
+  // - "cdn"   → hotlink CMA media library (for WordPress paste)
+  // file:// always uses CDN: Pannellum XHR cannot load local file URLs.
+  var ASSET_MODE = "local";
+  var LOCAL_BASE = "museum-tour-map/";
+  var USE_CDN = ASSET_MODE === "cdn" || location.protocol === "file:";
+
+  function resolveLocal(relPath) {
+    return new URL(relPath, location.href).href;
+  }
+  function panoSrc(spot) {
+    return USE_CDN ? spot.cdn : resolveLocal(LOCAL_BASE + spot.file);
+  }
+
+  // Room-to-room tour. Hotspot yaw/pitch are approximate navigation cues.
+  var ROOMS = [
+    {
+      id: "kitchen",
+      title: "Fundamentally Food Kitchen",
+      file: "fundamentally-food-kitchen.webp",
+      cdn: "https://childrensmuseumatlanta.org/wp-content/uploads/2026/05/20260430_173004_348-scaled.webp",
+      links: [
+        { sceneId: "food", text: "Fundamentally Food", yaw: 40, pitch: -2 },
+        { sceneId: "publix", text: "Publix", yaw: -50, pitch: -2 }
+      ]
+    },
+    {
+      id: "food",
+      title: "Fundamentally Food",
+      file: "fundamentally-food.webp",
+      cdn: "https://childrensmuseumatlanta.org/wp-content/uploads/2026/05/20260430_173052_302-scaled.webp",
+      links: [
+        { sceneId: "kitchen", text: "Kitchen", yaw: -80, pitch: -2 },
+        { sceneId: "publix", text: "Publix", yaw: 70, pitch: -2 },
+        { sceneId: "tools", text: "Tools For Solutions", yaw: 160, pitch: -2 }
+      ]
+    },
+    {
+      id: "publix",
+      title: "Fundamentally Food — Publix",
+      file: "fundamentally-food-publix.webp",
+      cdn: "https://childrensmuseumatlanta.org/wp-content/uploads/2026/05/20260430_173100_451-scaled.webp",
+      links: [
+        { sceneId: "food", text: "Fundamentally Food", yaw: 100, pitch: -2 },
+        { sceneId: "kitchen", text: "Kitchen", yaw: -30, pitch: -2 }
+      ]
+    },
+    {
+      id: "tools",
+      title: "Tools For Solutions",
+      file: "tools-for-solutions.webp",
+      cdn: "https://childrensmuseumatlanta.org/wp-content/uploads/2026/05/20260430_173056_440-scaled.webp",
+      links: [
+        { sceneId: "food", text: "Fundamentally Food", yaw: -120, pitch: -2 },
+        { sceneId: "gateway", text: "Gateway to the World", yaw: 40, pitch: -2 },
+        { sceneId: "creativity", text: "Creativity Flow", yaw: 110, pitch: -2 }
+      ]
+    },
+    {
+      id: "gateway",
+      title: "Gateway to the World",
+      file: "gateway-to-the-world.webp",
+      cdn: "https://childrensmuseumatlanta.org/wp-content/uploads/2026/05/20260430_173050_276-scaled.webp",
+      links: [
+        { sceneId: "tools", text: "Tools For Solutions", yaw: -90, pitch: -2 },
+        { sceneId: "creativity", text: "Creativity Flow", yaw: 50, pitch: -2 },
+        { sceneId: "leaping", text: "Leaping into Learning", yaw: 140, pitch: -2 }
+      ]
+    },
+    {
+      id: "creativity",
+      title: "Let Your Creativity Flow",
+      file: "let-your-creativity-flow.webp",
+      cdn: "https://childrensmuseumatlanta.org/wp-content/uploads/2026/05/20260430_173048_353-scaled.webp",
+      links: [
+        { sceneId: "gateway", text: "Gateway to the World", yaw: -60, pitch: -2 },
+        { sceneId: "tools", text: "Tools For Solutions", yaw: 160, pitch: -2 },
+        { sceneId: "leaping", text: "Leaping into Learning", yaw: 80, pitch: -2 }
+      ]
+    },
+    {
+      id: "leaping",
+      title: "Leaping into Learning",
+      file: "leaping-into-learning.jpg",
+      cdn: "https://childrensmuseumatlanta.org/wp-content/uploads/2023/09/IMG_20230628_131842_00_168-scaled.jpg",
+      links: [
+        { sceneId: "gateway", text: "Gateway to the World", yaw: -100, pitch: -2 },
+        { sceneId: "creativity", text: "Creativity Flow", yaw: 30, pitch: -2 },
+        { sceneId: "science", text: "Step Up To Science", yaw: 120, pitch: -2 }
+      ]
+    },
+    {
+      id: "science",
+      title: "Step Up To Science",
+      file: "step-up-to-science.jpg",
+      cdn: "https://childrensmuseumatlanta.org/wp-content/uploads/2023/09/IMG_20230628_132711_00_186_PureShot-1-scaled.jpg",
+      links: [
+        { sceneId: "janes", text: "Jane's Innovation Station", yaw: 70, pitch: -2 },
+        { sceneId: "leaping", text: "Leaping into Learning", yaw: -140, pitch: -2 }
+      ]
+    },
+    {
+      id: "janes",
+      title: "Jane's Innovation Station",
+      file: "janes-innovation-station.jpg",
+      cdn: "https://childrensmuseumatlanta.org/wp-content/uploads/2023/09/IMG_20230628_132859_00_194_PureShot-scaled.jpg",
+      links: [
+        { sceneId: "science", text: "Step Up To Science", yaw: -80, pitch: -2 }
+      ]
+    },
+    {
+      id: "store",
+      title: "Museum Store",
+      file: "museum-store.jpg",
+      cdn: "https://childrensmuseumatlanta.org/wp-content/uploads/2023/09/IMG_20230628_130656_00_138-scaled.jpg",
+      links: [
+        { sceneId: "security", text: "Security", yaw: 90, pitch: -2 },
+        { sceneId: "snack", text: "Snack Shop", yaw: 40, pitch: -2 }
+      ]
+    },
+    {
+      id: "snack",
+      title: "Snack Shop",
+      file: "snack-shop.jpg",
+      cdn: "https://childrensmuseumatlanta.org/wp-content/uploads/2023/09/IMG_20230628_130929_00_140-scaled.jpg",
+      links: [
+        { sceneId: "store", text: "Museum Store", yaw: -50, pitch: -2 },
+        { sceneId: "security", text: "Security", yaw: 60, pitch: -2 }
+      ]
+    },
+    {
+      id: "security",
+      title: "Security",
+      file: "security.jpg",
+      cdn: "https://childrensmuseumatlanta.org/wp-content/uploads/2023/09/IMG_20230628_131107_00_146_PureShot-scaled.jpg",
+      links: [
+        { sceneId: "store", text: "Museum Store", yaw: -100, pitch: -2 },
+        { sceneId: "snack", text: "Snack Shop", yaw: -40, pitch: -2 },
+        { sceneId: "food", text: "Fundamentally Food", yaw: 80, pitch: -2 }
+      ]
+    }
+  ];
+
+  var FIRST_SCENE = "kitchen";
+  var viewerEl = document.getElementById("cma-walk-viewer");
+  var roomsEl = document.getElementById("cma-walk-rooms");
+  var viewer = null;
+  var activeId = FIRST_SCENE;
+
+  function buildScenes() {
+    var scenes = {};
+    ROOMS.forEach(function (room) {
+      scenes[room.id] = {
+        title: room.title,
+        type: "equirectangular",
+        panorama: panoSrc(room),
+        autoLoad: true,
+        autoRotate: -0.4,
+        hotSpots: (room.links || []).map(function (link) {
+          return {
+            pitch: link.pitch,
+            yaw: link.yaw,
+            type: "scene",
+            text: link.text,
+            sceneId: link.sceneId,
+            cssClass: "cma-walk-hotspot"
+          };
+        })
+      };
+    });
+    return scenes;
+  }
+
+  function setActiveButton(id) {
+    activeId = id;
+    roomsEl.querySelectorAll(".cma-walk-room").forEach(function (btn) {
+      var on = btn.getAttribute("data-scene") === id;
+      btn.classList.toggle("is-active", on);
+      btn.setAttribute("aria-selected", on ? "true" : "false");
+    });
+  }
+
+  function buildRoomButtons() {
+    ROOMS.forEach(function (room) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "cma-walk-room" + (room.id === FIRST_SCENE ? " is-active" : "");
+      btn.setAttribute("role", "tab");
+      btn.setAttribute("data-scene", room.id);
+      btn.setAttribute("aria-selected", room.id === FIRST_SCENE ? "true" : "false");
+      btn.textContent = room.title;
+      btn.addEventListener("click", function () {
+        if (!viewer || room.id === activeId) return;
+        viewer.loadScene(room.id);
+        setActiveButton(room.id);
+      });
+      roomsEl.appendChild(btn);
+    });
+  }
+
+  function init() {
+    if (typeof pannellum === "undefined") {
+      viewerEl.innerHTML =
+        '<p style="color:#fff;padding:24px;text-align:center;">360 viewer failed to load. Check that the Pannellum CDN is not blocked.</p>';
+      return;
+    }
+
+    buildRoomButtons();
+
+    viewer = pannellum.viewer(viewerEl, {
+      default: {
+        firstScene: FIRST_SCENE,
+        sceneFadeDuration: 800,
+        compass: false,
+        showControls: true,
+        mouseZoom: true,
+        draggable: true,
+        friction: 0.15
+      },
+      scenes: buildScenes()
+    });
+
+    viewer.on("scenechange", function (id) {
+      setActiveButton(id);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════ -->
+<!-- END: CMA Museum Walk-Through -->
+<!-- ═══════════════════════════════════════════════════════════════════════════ -->
+
+<div class="cma-walk-wpbakery" style="max-width:720px;margin:40px auto;padding:24px;background:#cceff1;border-radius:16px;font-family:Nunito,sans-serif;">
+  <p style="margin:0 0 12px;font-weight:900;color:#1d3e6b;font-size:18px;">WPBakery handoff</p>
+  <ol style="margin:0;padding-left:20px;color:#1d3e6b;font-size:14px;line-height:1.6;">
+    <li>Copy everything between the <strong>START</strong> and <strong>END</strong> markers above.</li>
+    <li>Paste into a WPBakery <strong>Raw HTML</strong> block.</li>
+    <li>Before pasting on production WordPress, set <code>ASSET_MODE = "cdn"</code> so panoramas hotlink the media library.</li>
+    <li>Or keep <code>ASSET_MODE = "local"</code> and upload the <code>museum-tour-map/</code> folder next to this HTML.</li>
+  </ol>
+</div>
+
+</body>
+</html>
