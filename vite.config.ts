@@ -60,7 +60,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           'vendor-react': ['react', 'react-dom', 'react-dom/client', 'react-router-dom'],
-          'vendor-motion': ['motion', 'framer-motion'],
+          'vendor-motion': ['motion', 'motion/react'],
           'vendor-icons': ['lucide-react', '@fortawesome/react-fontawesome', '@fortawesome/free-solid-svg-icons'],
           'vendor-ui': [
             '@radix-ui/react-accordion',
