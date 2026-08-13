@@ -111,19 +111,15 @@ export const exhibits: Exhibit[] = [
 	</div>
 </div>
 
-<h2>Sponsors</h2>
-<p>The exhibit has been made possible by the generous support of:</p>
-
-<div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-left is-sponsor-row">
-	<figure class="wp-block-media-text__media"><img src="${sponsorAtlMoca}" alt="City of Atlanta — Moving Atlanta Forward" /></figure>
+<div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-right is-sponsor-float">
+	<figure class="wp-block-media-text__media">
+		<img src="${sponsorAtlMoca}" alt="City of Atlanta — Moving Atlanta Forward" />
+		<img src="${sponsorFultonArts}" alt="Fulton County Arts &amp; Culture" />
+	</figure>
 	<div class="wp-block-media-text__content">
+		<h2>Sponsors</h2>
+		<p>The exhibit has been made possible by the generous support of:</p>
 		<p><em>This program is supported in part by the City of Atlanta Mayor's Office of Cultural Affairs.</em></p>
-	</div>
-</div>
-
-<div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-left is-sponsor-row">
-	<figure class="wp-block-media-text__media"><img src="${sponsorFultonArts}" alt="Fulton County Arts &amp; Culture" /></figure>
-	<div class="wp-block-media-text__content">
 		<p><em>Major funding for this organization is provided by the Fulton County Board of Commissioners.</em></p>
 	</div>
 </div>

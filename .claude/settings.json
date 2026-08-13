@@ -40,5 +40,11 @@
   "model": "claude-sonnet-4-6",
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true
+  },
+  "mcpServers": {
+    "figma": {
+      "type": "http",
+      "url": "https://mcp.figma.com/mcp"
+    }
   }
 }

@@ -1,4 +1,5 @@
 # Children's Museum of Atlanta — Homepage v2
+
 ## Cline Rules (keep in sync with CLAUDE.md)
 
 ---
@@ -16,8 +17,8 @@
 
 ## Session State
 
-- **Last Updated:** 2026-08-05
-- **Active Agent:** Cursor (Composer)
+- **Last Updated:** 2026-08-13
+- **Active Agent:** Cursor (Grok)
 - **Last Commit:** fb2988f Polish walk-through HTML for WPBakery handoff parity with the tour map
 - **In Progress:** —
 - **Newly Unblocked:** —
@@ -27,9 +28,9 @@
 
 Self-contained HTML in `public/` (force-added — `public/*` is gitignored). Same pattern for both:
 
-| Widget | Standalone URL | Embed on `#/exhibits` |
-|---|---|---|
-| Tour the Museum (floor map + pins) | https://mattybotstew.github.io/Homepagev2/museum-tour-map.html | `museum-tour-map.html?embed=1` |
+| Widget                                | Standalone URL                                                     | Embed on `#/exhibits`              |
+| ------------------------------------- | ------------------------------------------------------------------ | ---------------------------------- |
+| Tour the Museum (floor map + pins)    | https://mattybotstew.github.io/Homepagev2/museum-tour-map.html     | `museum-tour-map.html?embed=1`     |
 | Walk-Through Tour (room-to-room 360°) | https://mattybotstew.github.io/Homepagev2/museum-walk-through.html | `museum-walk-through.html?embed=1` |
 
 Handoff: open the standalone page → copy START→END markers into WPBakery Raw HTML. Set `ASSET_MODE = "cdn"` for production WordPress (hotlinks CMA media library). Assets folder: `public/museum-tour-map/`.
@@ -58,37 +59,37 @@ src/
 
 ## Routes (main.tsx)
 
-| Path | Component |
-|---|---|
-| `/` | App.tsx (Homepage) |
-| `/plan-your-visit` | PlanYourVisitPage |
-| `/parties` | PartiesPage |
-| `/exhibits` | ExhibitsPage |
-| `/exhibits/:slug` | ExhibitPage |
-| `/events` | CalendarPage |
-| `/events/:slug` | EventPage |
-| `/educators` | EducatorsPage |
-| `/program/:slug` | ProgramPage (field-trips, scout-workshops, museum-on-the-go, educator-professional-development) |
-| `/museum-store` | MuseumStorePage |
-| `/news` | NewsPage |
-| `/news/:slug` | ArticlePage |
-| `/resources/playful-learning` | PlayfulLearningPage |
-| `/resources/playful-learning/:slug` | ResourcePage |
-| `/about` | AboutPage |
-| `/about/impact` | ImpactPage |
-| `/about/careers` | CareersPage |
-| `/donate` | DonatePage |
-| `/memberships` | MembershipsPage |
-| `/memberships/information` | MembershipInfoPage |
-| `/memberships/corporate` | CorporateMembershipPage |
-| `/support` | SupportPage |
-| `/support/corporate-partners` | CorporatePartnerPage |
-| `/support/donor-recognition` | DonorRecognitionPage |
-| `/giving-circles/:slug` | GivingCirclePage (imagination-ball, tournament-for-play, fun-on-tap, young-professionals, dream-builders) |
-| `/contact` | ContactPage |
-| `/terms` | TermsPage |
-| `/privacy` | PrivacyPage |
-| `/search` | SearchPage |
+| Path                                | Component                                                                                                 |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `/`                                 | App.tsx (Homepage)                                                                                        |
+| `/plan-your-visit`                  | PlanYourVisitPage                                                                                         |
+| `/parties`                          | PartiesPage                                                                                               |
+| `/exhibits`                         | ExhibitsPage                                                                                              |
+| `/exhibits/:slug`                   | ExhibitPage                                                                                               |
+| `/events`                           | CalendarPage                                                                                              |
+| `/events/:slug`                     | EventPage                                                                                                 |
+| `/educators`                        | EducatorsPage                                                                                             |
+| `/program/:slug`                    | ProgramPage (field-trips, scout-workshops, museum-on-the-go, educator-professional-development)           |
+| `/museum-store`                     | MuseumStorePage                                                                                           |
+| `/news`                             | NewsPage                                                                                                  |
+| `/news/:slug`                       | ArticlePage                                                                                               |
+| `/resources/playful-learning`       | PlayfulLearningPage                                                                                       |
+| `/resources/playful-learning/:slug` | ResourcePage                                                                                              |
+| `/about`                            | AboutPage                                                                                                 |
+| `/about/impact`                     | ImpactPage                                                                                                |
+| `/about/careers`                    | CareersPage                                                                                               |
+| `/donate`                           | DonatePage                                                                                                |
+| `/memberships`                      | MembershipsPage                                                                                           |
+| `/memberships/information`          | MembershipInfoPage                                                                                        |
+| `/memberships/corporate`            | CorporateMembershipPage                                                                                   |
+| `/support`                          | SupportPage                                                                                               |
+| `/support/corporate-partners`       | CorporatePartnerPage                                                                                      |
+| `/support/donor-recognition`        | DonorRecognitionPage                                                                                      |
+| `/giving-circles/:slug`             | GivingCirclePage (imagination-ball, tournament-for-play, fun-on-tap, young-professionals, dream-builders) |
+| `/contact`                          | ContactPage                                                                                               |
+| `/terms`                            | TermsPage                                                                                                 |
+| `/privacy`                          | PrivacyPage                                                                                               |
+| `/search`                           | SearchPage                                                                                                |
 
 ---
 
@@ -96,19 +97,19 @@ src/
 
 All colors are CSS custom properties exposed as Tailwind via `--color-cma-*`. Never hardcode hex values that match a token.
 
-| Token | Hex |
-|---|---|
-| `cma-navy` | `#1d3e6b` |
-| `cma-orange` | `#f7941e` |
+| Token             | Hex       |
+| ----------------- | --------- |
+| `cma-navy`        | `#1d3e6b` |
+| `cma-orange`      | `#f7941e` |
 | `cma-orange-dark` | `#b8620a` |
-| `cma-teal` | `#00ADBB` |
-| `cma-teal-dark` | `#007c87` |
-| `cma-teal-light` | `#4AD1DC` |
-| `cma-teal-pale` | `#cceff1` |
-| `cma-blue-mid` | `#346094` |
-| `cma-blue-light` | `#d4e3f3` |
-| `cma-cream` | `#fdf6ee` |
-| `cma-slate` | `#2c3a52` |
+| `cma-teal`        | `#00ADBB` |
+| `cma-teal-dark`   | `#007c87` |
+| `cma-teal-light`  | `#4AD1DC` |
+| `cma-teal-pale`   | `#cceff1` |
+| `cma-blue-mid`    | `#346094` |
+| `cma-blue-light`  | `#d4e3f3` |
+| `cma-cream`       | `#fdf6ee` |
+| `cma-slate`       | `#2c3a52` |
 
 ---
 
@@ -127,13 +128,13 @@ Global element styles are inherited — do not re-declare `font-family`, `font-s
 
 ## Type Scale
 
-| Element | Size | Weight | Line-height |
-|---|---|---|---|
-| `h1` | `clamp(34px, 5.9vw, 75px)` | 900 | 0.95 |
-| `h2` | `clamp(28px, 3.75vw, 48px)` | 800 | 1.1 |
-| `h3` | `20px` | 900 | 1.1 |
-| `p` | `15px` | 500 | 1.65 |
-| `.cma-eyebrow` | `15px` | 700 | uppercase, 3.9px letter-spacing |
+| Element        | Size                        | Weight | Line-height                     |
+| -------------- | --------------------------- | ------ | ------------------------------- |
+| `h1`           | `clamp(34px, 5.9vw, 75px)`  | 900    | 0.95                            |
+| `h2`           | `clamp(28px, 3.75vw, 48px)` | 800    | 1.1                             |
+| `h3`           | `20px`                      | 900    | 1.1                             |
+| `p`            | `15px`                      | 500    | 1.65                            |
+| `.cma-eyebrow` | `15px`                      | 700    | uppercase, 3.9px letter-spacing |
 
 ---
 
@@ -142,9 +143,15 @@ Global element styles are inherited — do not re-declare `font-family`, `font-s
 ```tsx
 <div className="size-full relative">
   <AlertBanner />
-  <div className="lg:hidden"><MobileHeader /></div>
-  <div className="hidden lg:block"><Header /></div>
-  <div className="hidden lg:block"><ScrollProgress /></div>
+  <div className="lg:hidden">
+    <MobileHeader />
+  </div>
+  <div className="hidden lg:block">
+    <Header />
+  </div>
+  <div className="hidden lg:block">
+    <ScrollProgress />
+  </div>
   {/* page content */}
   <PowerOfPlayMarquee />
   <Footer />
@@ -167,8 +174,8 @@ Global element styles are inherited — do not re-declare `font-family`, `font-s
 
 All content is in `src/app/data/`. No runtime API calls (WordPress integration in progress but not yet used).
 
-| File | Type | Used by |
-|---|---|---|
+| File          | Type        | Used by                   |
+| ------------- | ----------- | ------------------------- |
 | `exhibits.ts` | `Exhibit[]` | ExhibitsPage, ExhibitPage |
 
 **Exhibit body rich text:** Prefer optional `content?: string` (HTML) rendered with `.cma-prose` in `ArticleContent` — same contract as News `ArticleItem.content`. Zone and sponsor rows use WordPress Media & Text markup (`.wp-block-media-text.has-media-on-the-right`; sponsor logos add `.is-sponsor-row`). Keep `paragraphs` / `sections` as fallback for exhibits not yet migrated.
@@ -181,6 +188,7 @@ All content is in `src/app/data/`. No runtime API calls (WordPress integration i
 | `navLinks.ts` | `NavLink[]` | Header, MobileHeader, Footer |
 
 **EventItem fields of note:**
+
 - `separateTicket?: boolean` — set `true` on after-hours ticketed events (Trick-or-Treat, Bubble Bash, etc.). CalendarPage card + EventPage detail should render a "Separate Ticket Required" pill when true; nothing extra when false/absent.
 
 **Giving Circles draft system:** Entries with `draft: true` in `givingCircles.ts` are excluded from the "Other Ways to Give" related section and redirect to `/support`. No circles are currently draft.
@@ -207,12 +215,12 @@ Standard CTA padding: `px-[24px] py-[13px]`, `rounded-[1000px]`.
 
 ## Shadows
 
-| Class | Use |
-|---|---|
-| `shadow-cma-warm` | Cards with orange accent |
-| `shadow-cma-panel` | Expanded overlay panels |
-| `shadow-cma-btn` | Buttons |
-| `shadow-cma-card` | General content cards |
+| Class              | Use                      |
+| ------------------ | ------------------------ |
+| `shadow-cma-warm`  | Cards with orange accent |
+| `shadow-cma-panel` | Expanded overlay panels  |
+| `shadow-cma-btn`   | Buttons                  |
+| `shadow-cma-card`  | General content cards    |
 
 ---
 
@@ -250,6 +258,7 @@ Always wrap sections containing `.cma-eyebrow` in `overflow-hidden` — 3.9px le
 ## Corporate Membership Tiers (CorporateMembershipContent)
 
 Current correct tiers (updated per client — Rebecca Jackson):
+
 - Explorer — 50 families
 - Inventor — 100 families
 - Achiever — 200 families
@@ -263,12 +272,14 @@ Testimonials section has been **removed** — future feature, no placeholder con
 ## FAQ Patterns
 
 **Standalone FAQ** (PlanYourVisitFAQs, ContactPage):
+
 - Each item: own `rounded-[24px]` card, `border-2 border-black/5`
 - Open: `bg-cma-teal-pale`, `font-black` label
 - Closed: `bg-white`, `font-semibold` label
 - Icon: `faPlus`/`faMinus`, `text-cma-orange text-[12px]`, right-aligned
 
 **Embedded FAQ** (inside program sidebar+article pages):
+
 - Flat `border-b border-black/10` list — do not change to card style
 
 ---
@@ -290,11 +301,12 @@ Testimonials section has been **removed** — future feature, no placeholder con
 
 Items still needing PM clarification:
 
-| # | Item | Notes |
-|---|---|---|
+| #    | Item                     | Notes                                                                                                         |
+| ---- | ------------------------ | ------------------------------------------------------------------------------------------------------------- |
 | #317 | Fun On Tap contact photo | No component field exists yet; PM must confirm asset filename and whether closing section needs a photo added |
 
 Items confirmed done:
+
 - #265 `separateTicket?: boolean` on `EventItem`; Trick-or-Treat + Bubble Bash flagged; "Separate Ticket Required" orange pill on CalendarPage cards + EventContent detail
 - #274 MOTG per-program GELDS/GSE standards added to all 18 programs in MuseumOnTheGoProgramContent
 - #277 Draft mode removed: young-professionals + dream-builders restored to Donate nav and live at `/giving-circles/:slug`
