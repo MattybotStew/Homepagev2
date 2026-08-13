@@ -66,12 +66,11 @@ export const exhibits: Exhibit[] = [
 			"Wild Kratts®: Ocean Adventure!, a brand-new temporary exhibit at the Museum, immerses the young explorers in your life in whole body explorations of ocean habitats and the fascinating creatures within them.",
 		],
 		content: `
-<p>Wild Kratts®: Ocean Adventure!, a brand-new temporary exhibit at the Museum, immerses the young explorers in your life in whole body explorations of ocean habitats and the fascinating creatures within them. Using Wild Kratts technology and the powers of science and teamwork, visitors will join the Wild Kratts team to solve problems, help animals, and foil the villains' nefarious plans.</p>
-<p>This exhibit is recommended for children ages 3 – 9, and includes a “tot spot” specifically for children under three years of age. This exhibit is only at Children's Museum of Atlanta for a limited time. Catch this adventure before it leaves town!</p>
-
 <figure class="wp-block-image is-exhibit-logo">
 	<img src="${wildKrattsLogo}" alt="Wild Kratts Ocean Adventure — The Exhibit" />
 </figure>
+<p>Wild Kratts®: Ocean Adventure!, a brand-new temporary exhibit at the Museum, immerses the young explorers in your life in whole body explorations of ocean habitats and the fascinating creatures within them. Using Wild Kratts technology and the powers of science and teamwork, visitors will join the Wild Kratts team to solve problems, help animals, and foil the villains' nefarious plans.</p>
+<p>This exhibit is recommended for children ages 3 – 9, and includes a “tot spot” specifically for children under three years of age. This exhibit is only at Children's Museum of Atlanta for a limited time. Catch this adventure before it leaves town!</p>
 
 <div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-right">
 	<figure class="wp-block-media-text__media"><img src="${wkTortuga}" alt="The Tortuga zone in Wild Kratts Ocean Adventure" /></figure>
