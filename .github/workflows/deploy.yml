@@ -24,16 +24,20 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - name: Install
+        run: npm ci
       - name: Build (with diagnostics)
         run: |
           {
             echo "node=$(node -v) npm=$(npm -v) os=$(uname -m) platform=$(uname -s)"
-            echo "esbuild linux:"; ls node_modules/@esbuild/linux-x64/* 2>&1
+            echo "CHECK esbuild linux:"; ls node_modules/@esbuild/ 2>&1
+            echo "CHECK oxide:"; ls node_modules/@tailwindcss/ 2>&1 | tr '\n' ' '; echo
             echo "=== running vite build ==="
             npx vite build 2>&1
             echo "=== exit $? ==="
           } | tee build-log.txt
           ec=${PIPESTATUS[0]}
+          echo "GOT_ESBUILD_LINUX=$(ls node_modules/@esbuild/ 2>/dev/null | tr '\n' ' ')" >> build-log.txt
           echo "exit=$ec" >> build-log.txt
           git config user.name "ci"
           git config user.email "ci@users.noreply.github.com"
