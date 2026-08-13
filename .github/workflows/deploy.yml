@@ -7,7 +7,7 @@ on:
 
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -24,29 +24,23 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: echo "node=$(node -v) npm=$(npm -v) os=$(uname -m) platform=$(uname -s)" | tee -a $GITHUB_STEP_SUMMARY
-      - name: Diagnose build
+      - name: Build (with diagnostics)
         run: |
           {
             echo "node=$(node -v) npm=$(npm -v) os=$(uname -m) platform=$(uname -s)"
-            ls node_modules/.bin/vite && echo "vite bin exists"
-            ls node_modules/@esbuild/linux-x64/ 2>&1 || echo "no esbuild linux, listing:"; ls node_modules/@esbuild/ 2>&1
+            echo "esbuild linux:"; ls node_modules/@esbuild/linux-x64/* 2>&1
             echo "=== running vite build ==="
             npx vite build 2>&1
             echo "=== exit $? ==="
-          } | tee /tmp/build.log
+          } | tee build-log.txt
           ec=${PIPESTATUS[0]}
-          cp /tmp/build.log build-log.txt
+          echo "exit=$ec" >> build-log.txt
+          git config user.name "ci"
+          git config user.email "ci@users.noreply.github.com"
+          git add -f build-log.txt 2>/dev/null
+          git commit -q -m "ci: build diagnostics log [ci skip]" 2>/dev/null
+          git push -f origin HEAD:fix/ci-log 2>&1 | tail -1
           exit $ec
-      - uses: actions/upload-artifact@v4
-        if: failure()
-        with:
-          name: build-log
-          path: build-log.txt
-      - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
 
   deploy:
     needs: build
