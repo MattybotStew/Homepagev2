@@ -4,7 +4,8 @@ Shared session log for all AI agents. Newest entries at the top.
 
 ## 2026-08-13 — Cursor (Composer)
 
-- Undid Exhibits listing partners section: removed `ExhibitsPartners`, `.cma-sponsor-logo` CSS, and `sponsor-riley-iu-health.png`. Logos belong on individual exhibit/event pages — awaiting user direction.
+- Wild Kratts detail: one exhibit logo (`wild-kratts-logo.png`) floated left of date + intro copy (`.is-exhibit-logo-float`) in the white content card — matches live CMA. Sponsors stay ATL + Fulton rows at bottom.
+- Undid Exhibits listing partners section earlier same day.
 
 ## 2026-08-13 — Cursor (Grok)
 

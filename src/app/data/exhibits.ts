@@ -13,6 +13,7 @@ import leapingIntoLearning from "../../assets/Leaping-into-Learning.png";
 import obstacleAdventure from "../../assets/ObstacleAdventure.png";
 import sponsorAtlMoca from "../../assets/sponsor-atl-moca.png";
 import sponsorFultonArts from "../../assets/sponsor-fulton-arts.png";
+import wildKrattsLogo from "../../assets/wild-kratts-logo.png";
 import wkTortuga from "../../assets/wk-tortuga.png";
 import wkSeahorse from "../../assets/wk-seahorse.png";
 import wkShallowSeas from "../../assets/wk-shallow-seas.png";
@@ -68,6 +69,10 @@ export const exhibits: Exhibit[] = [
 <p>Wild Kratts®: Ocean Adventure!, a brand-new temporary exhibit at the Museum, immerses the young explorers in your life in whole body explorations of ocean habitats and the fascinating creatures within them. Using Wild Kratts technology and the powers of science and teamwork, visitors will join the Wild Kratts team to solve problems, help animals, and foil the villains' nefarious plans.</p>
 <p>This exhibit is recommended for children ages 3 – 9, and includes a “tot spot” specifically for children under three years of age. This exhibit is only at Children's Museum of Atlanta for a limited time. Catch this adventure before it leaves town!</p>
 
+<figure class="wp-block-image is-exhibit-logo">
+	<img src="${wildKrattsLogo}" alt="Wild Kratts Ocean Adventure — The Exhibit" />
+</figure>
+
 <div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-right">
 	<figure class="wp-block-media-text__media"><img src="${wkTortuga}" alt="The Tortuga zone in Wild Kratts Ocean Adventure" /></figure>
 	<div class="wp-block-media-text__content">
@@ -111,15 +116,19 @@ export const exhibits: Exhibit[] = [
 	</div>
 </div>
 
-<div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-right is-sponsor-float">
-	<figure class="wp-block-media-text__media">
-		<img src="${sponsorAtlMoca}" alt="City of Atlanta — Moving Atlanta Forward" />
-		<img src="${sponsorFultonArts}" alt="Fulton County Arts &amp; Culture" />
-	</figure>
+<h2>Sponsors</h2>
+<p>The exhibit has been made possible by the generous support of:</p>
+
+<div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-left is-sponsor-row">
+	<figure class="wp-block-media-text__media"><img src="${sponsorAtlMoca}" alt="City of Atlanta — Moving Atlanta Forward" /></figure>
 	<div class="wp-block-media-text__content">
-		<h2>Sponsors</h2>
-		<p>The exhibit has been made possible by the generous support of:</p>
 		<p><em>This program is supported in part by the City of Atlanta Mayor's Office of Cultural Affairs.</em></p>
+	</div>
+</div>
+
+<div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-left is-sponsor-row">
+	<figure class="wp-block-media-text__media"><img src="${sponsorFultonArts}" alt="Fulton County Arts &amp; Culture" /></figure>
+	<div class="wp-block-media-text__content">
 		<p><em>Major funding for this organization is provided by the Fulton County Board of Commissioners.</em></p>
 	</div>
 </div>
