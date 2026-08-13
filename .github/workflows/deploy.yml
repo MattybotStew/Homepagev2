@@ -24,20 +24,29 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci --include-scripts
+      - run: echo "node=$(node -v) npm=$(npm -v) os=$(uname -m) platform=$(uname -s)" | tee -a $GITHUB_STEP_SUMMARY
       - name: Diagnose build
         run: |
-          echo "node=$(node -v) npm=$(npm -v)"
-          npx vite build > /tmp/build.log 2>&1
-          ec=$?
-          echo "exitcode=$ec"
-          if [ $ec -ne 0 ]; then
-            echo "::error::VITE BUILD FAILED (exit $ec)"
-            sed -n '1,40p' /tmp/build.log | while IFS= read -r line; do
-              echo "::error::${line}"
-            done
-          fi
+          {
+            echo "node=$(node -v) npm=$(npm -v) os=$(uname -m) platform=$(uname -s)"
+            ls node_modules/.bin/vite && echo "vite bin exists"
+            ls node_modules/@esbuild/linux-x64/ 2>&1 || echo "no esbuild linux, listing:"; ls node_modules/@esbuild/ 2>&1
+            echo "=== running vite build ==="
+            npx vite build 2>&1
+            echo "=== exit $? ==="
+          } | tee /tmp/build.log
+          ec=${PIPESTATUS[0]}
+          cp /tmp/build.log build-log.txt
           exit $ec
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: build-log
+          path: build-log.txt
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
 
   deploy:
     needs: build
