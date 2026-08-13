@@ -25,11 +25,19 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci --include-scripts
-      - run: node -v && npm -v
-      - run: npx vite build 2>&1 || true
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
+      - name: Diagnose build
+        run: |
+          echo "node=$(node -v) npm=$(npm -v)"
+          npx vite build > /tmp/build.log 2>&1
+          ec=$?
+          echo "exitcode=$ec"
+          if [ $ec -ne 0 ]; then
+            echo "::error::VITE BUILD FAILED (exit $ec)"
+            sed -n '1,40p' /tmp/build.log | while IFS= read -r line; do
+              echo "::error::${line}"
+            done
+          fi
+          exit $ec
 
   deploy:
     needs: build
