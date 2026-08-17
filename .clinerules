@@ -1,4 +1,4 @@
-# Children's Museum of Atlanta — Homepage v2
+npm run dev# Children's Museum of Atlanta — Homepage v2
 
 ## Cline Rules (keep in sync with CLAUDE.md)
 
@@ -17,11 +17,11 @@
 
 ## Session State
 
-- **Last Updated:** 2026-08-13
-- **Active Agent:** Cursor (Grok)
+- **Last Updated:** 2026-08-17
+- **Active Agent:** Cline
 - **Last Commit:** fb2988f Polish walk-through HTML for WPBakery handoff parity with the tour map
 - **In Progress:** —
-- **Newly Unblocked:** —
+- **Newly Unblocked:** Doc McStuffins exhibit detail page live at `#/exhibits/doc-mcstuffins-the-exhibit` (zones + produced-by/presented-by/sponsor bottom blocks; new `.cma-prose .is-partner-block`/`.is-partner-logo` CSS)
 - **Still Blocked:** —
 
 ## WPBakery / standalone tour widgets
@@ -178,7 +178,7 @@ All content is in `src/app/data/`. No runtime API calls (WordPress integration i
 | ------------- | ----------- | ------------------------- |
 | `exhibits.ts` | `Exhibit[]` | ExhibitsPage, ExhibitPage |
 
-**Exhibit body rich text:** Prefer optional `content?: string` (HTML) rendered with `.cma-prose` in `ArticleContent` — same contract as News `ArticleItem.content`. Zone and sponsor rows use WordPress Media & Text markup (`.wp-block-media-text.has-media-on-the-right`; sponsor logos add `.is-sponsor-row`). Keep `paragraphs` / `sections` as fallback for exhibits not yet migrated.
+**Exhibit body rich text:** Prefer optional `content?: string` (HTML) rendered with `.cma-prose` in `ArticleContent` — same contract as News `ArticleItem.content`. Zone rows use WordPress Media & Text markup (`.wp-block-media-text.has-media-on-the-right`). Sponsors use a `.is-sponsor-panel` cream tile grid — centered `h2`, optional `.is-sponsor-intro`, then `.is-sponsor-item` tiles each with an optional `.is-sponsor-role` eyebrow, a white `figure.is-sponsor-logo` tile, and an optional `.is-sponsor-note` below the figure. Keep `paragraphs` / `sections` as fallback for exhibits not yet migrated.
 
 | `events.ts` | event objects | CalendarPage, EventPage |
 | `programs.ts` | `Program[]` | ProgramPage, EducatorsPage |

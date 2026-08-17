@@ -122,20 +122,20 @@ export const exhibits: Exhibit[] = [
 	</div>
 </div>
 
-<h2>Sponsors</h2>
-<p>The exhibit has been made possible by the generous support of:</p>
-
-<div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-left is-sponsor-row">
-	<figure class="wp-block-media-text__media"><img src="${sponsorAtlMoca}" alt="City of Atlanta — Moving Atlanta Forward" /></figure>
-	<div class="wp-block-media-text__content">
-		<p><em>This program is supported in part by the City of Atlanta Mayor's Office of Cultural Affairs.</em></p>
-	</div>
-</div>
-
-<div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-left is-sponsor-row">
-	<figure class="wp-block-media-text__media"><img src="${sponsorFultonArts}" alt="Fulton County Arts &amp; Culture" /></figure>
-	<div class="wp-block-media-text__content">
-		<p><em>Major funding for this organization is provided by the Fulton County Board of Commissioners.</em></p>
+<div class="is-sponsor-panel">
+	<h2>Sponsors</h2>
+	<p class="is-sponsor-intro">The exhibit has been made possible by the generous support of:</p>
+	<div class="is-sponsor-grid">
+		<div class="is-sponsor-item">
+			<p class="is-sponsor-role">Supported By</p>
+			<figure class="is-sponsor-logo"><img src="${sponsorAtlMoca}" alt="City of Atlanta — Moving Atlanta Forward" /></figure>
+			<p class="is-sponsor-note"><em>This program is supported in part by the City of Atlanta Mayor's Office of Cultural Affairs.</em></p>
+		</div>
+		<div class="is-sponsor-item">
+			<p class="is-sponsor-role">Supported By</p>
+			<figure class="is-sponsor-logo"><img src="${sponsorFultonArts}" alt="Fulton County Arts &amp; Culture" /></figure>
+			<p class="is-sponsor-note"><em>Major funding for this organization is provided by the Fulton County Board of Commissioners.</em></p>
+		</div>
 	</div>
 </div>
 
@@ -192,14 +192,18 @@ export const exhibits: Exhibit[] = [
 	</div>
 </div>
 
-<h2>Sponsors</h2>
-
-<div class="is-partner-row">
-	<div class="is-partner-block">
-		<figure class="wp-block-image is-partner-logo"><img src="${sponsorProducedBy}" alt="This exhibit is produced by" /></figure>
-	</div>
-	<div class="is-partner-block">
-		<figure class="wp-block-image is-partner-logo"><img src="${sponsorPresentedBy}" alt="This exhibit is presented by" /></figure>
+<div class="is-sponsor-panel">
+	<h2>Sponsors</h2>
+	<p class="is-sponsor-intro">The exhibit has been made possible by the generous support of:</p>
+	<div class="is-sponsor-grid">
+		<div class="is-sponsor-item">
+			<p class="is-sponsor-role">Produced By</p>
+			<figure class="is-sponsor-logo"><img src="${sponsorProducedBy}" alt="The Children's Museum of Indianapolis" /></figure>
+		</div>
+		<div class="is-sponsor-item">
+			<p class="is-sponsor-role">Presented By</p>
+			<figure class="is-sponsor-logo"><img src="${sponsorPresentedBy}" alt="Riley Hospital for Children" /></figure>
+		</div>
 	</div>
 </div>
 `.trim(),

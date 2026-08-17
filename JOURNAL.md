@@ -4,6 +4,17 @@ Shared session log for all AI agents. Newest entries at the top.
 
 ## 2026-08-17 — Cline
 
+- Unified the two divergent exhibit sponsor structures into a single `.is-sponsor-panel` cream tile grid inside the white content card (matching the `FundraisingEventContent` cream-tier-card precedent).
+  - Doc McStuffins: two `.is-sponsor-item` tiles with "Produced By" / "Presented By" role eyebrows and no notes. Fixed alt text → actual org names (`The Children's Museum of Indianapolis`, `Riley Hospital for Children`) for accessibility.
+  - Wild Kratts: two tiles with "Supported By" on both; the two legal credit lines become `.is-sponsor-note` under each figure. The long Kratt Brothers legal paragraph stays below the panel.
+- CSS (`index.css` prose section): added `.is-sponsor-panel` / `.is-sponsor-intro` / `.is-sponsor-grid` (auto-fit, minmax 220px) / `.is-sponsor-item` / `.is-sponsor-role` / `figure.is-sponsor-logo` (white 120px tile) / `.is-sponsor-note`. Auto-fit grid collapses to one column under 768px; added mobile padding override (24/16, tile 100px).
+- Removed now-dead `.is-sponsor-row`, `.is-partner-row` / `.is-partner-block` / `.is-partner-logo`, the brittle `h2:has(+ .is-partner-row)` centering rule, and their mobile counterparts. Zone rows (`.wp-block-media-text`) left untouched.
+- Tokens verified: `--cma-cream` + `--cma-teal-dark` both resolve in `theme.css`.
+- Updated `.clinerules` sponsor markup convention note to describe `.is-sponsor-panel`.
+
+
+## 2026-08-17 — Cline
+
 - Built Doc McStuffins detail page at `#/exhibits/doc-mcstuffins-the-exhibit` (rich-text `content` string → `.cma-prose` via `ArticleContent`), matching the live CMA structure with bottom partner blocks:
   - "This exhibit is produced by:" + logo (6-1.png → `sponsor-produced-by.png`)
   - "This exhibit is presented by:" + logo (5-1.png → `sponsor-presented-by.png`)
