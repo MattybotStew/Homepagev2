@@ -19,6 +19,13 @@ import wkSeahorse from "../../assets/wk-seahorse.png";
 import wkShallowSeas from "../../assets/wk-shallow-seas.png";
 import wkDeepSea from "../../assets/wk-deep-sea.png";
 import wkTotSpot from "../../assets/wk-tot-spot.png";
+import docMcstuffinsLogo from "../../assets/doc-mcstuffins-logo.png";
+import docmcBackyardClinic from "../../assets/docmc-backyard-clinic.png";
+import docmcNursery from "../../assets/docmc-nursery.png";
+import docmcPetVet from "../../assets/docmc-pet-vet.png";
+import docmcEmergencyRoom from "../../assets/docmc-emergency-room.png";
+import sponsorProducedBy from "../../assets/sponsor-produced-by.png";
+import sponsorPresentedBy from "../../assets/sponsor-presented-by.png";
 
 export type ExhibitSection = {
 	title: string;
@@ -133,6 +140,68 @@ export const exhibits: Exhibit[] = [
 </div>
 
 <p>Wild Kratts®: Ocean Adventure! was created by Minnesota Children's Museum and The Kratt Brothers Company. Wild Kratts® © 2026 Kratt Brothers Company Ltd. / 9 Story Media Group Inc. Wild Kratts® and Ocean Adventure and associated characters, trademarks, and design elements are owned by Kratt Brothers Company Ltd. Licensed by Kratt Brothers Company Ltd. All Rights Reserved.</p>
+`.trim(),
+	},
+	{
+		slug: "doc-mcstuffins-the-exhibit",
+		title: "Doc McStuffins: The Exhibit",
+		badge: "Fall 2026",
+		badgeColor: "teal-dark",
+		eyebrow: "September 26, 2026 – January 10, 2027",
+		heroImage: mcstuff,
+		cardImage: mcstuff,
+		paragraphs: [
+			"Experience the first-ever children's museum exhibit based on Disney Junior's award-winning series, Doc McStuffins.",
+		],
+		content: `
+<figure class="wp-block-image is-exhibit-logo">
+	<img src="${docMcstuffinsLogo}" alt="Doc McStuffins: The Exhibit" />
+</figure>
+<p>Experience the first-ever children's museum exhibit based on Disney Junior's award-winning series, Doc McStuffins. Join the magical storytelling of Doc McStuffins as you help Doc and her friends in the new McStuffins Toy Hospital! There are toys that need check-ups in the ER, toy pets who need to be groomed at the Pet Vet, baby toys that need to be fed in the Nursery, and so much more.</p>
+<p>Through imaginative play and hands-on activities, children learn important life-lessons about health and wellness. There is so much you can do to take care of you!</p>
+
+<div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-right">
+	<figure class="wp-block-media-text__media"><img src="${docmcBackyardClinic}" alt="Backyard Clinic &amp; Reception zone in Doc McStuffins: The Exhibit" /></figure>
+	<div class="wp-block-media-text__content">
+		<h3>Backyard Clinic &amp; Reception</h3>
+		<p>Enter the exhibit and greet Doc McStuffins, her iconic backyard clinic, and become familiar with all that there is to do and see! Enter into the McStuffins Toy Hospital and receive information about how you and your family can assist Doc and her friends.</p>
+	</div>
+</div>
+
+<div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-right">
+	<figure class="wp-block-media-text__media"><img src="${docmcNursery}" alt="Nursery zone in Doc McStuffins: The Exhibit" /></figure>
+	<div class="wp-block-media-text__content">
+		<h3>Nursery</h3>
+		<p>Lambie invites families to participate in activities that encourage the use of empathy and the practice of nurturing behaviors to care for others. Learn about naptime, night lights, and nurturing care.</p>
+	</div>
+</div>
+
+<div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-right">
+	<figure class="wp-block-media-text__media"><img src="${docmcPetVet}" alt="Pet Vet zone in Doc McStuffins: The Exhibit" /></figure>
+	<div class="wp-block-media-text__content">
+		<h3>Pet Vet</h3>
+		<p>A message from Stuffy will invite you and your family to interact with stations that prompt the practice of nurturing behaviors and deliver messages about the special kinds of care and attention that pets need.</p>
+	</div>
+</div>
+
+<div class="wp-block-media-text is-stacked-on-mobile has-media-on-the-right">
+	<figure class="wp-block-media-text__media"><img src="${docmcEmergencyRoom}" alt="Emergency Room zone in Doc McStuffins: The Exhibit" /></figure>
+	<div class="wp-block-media-text__content">
+		<h3>Emergency Room</h3>
+		<p>You and your family will be greeted by a message from Hallie as you enter the ER. You will be able to assist with the treatment of toy patients, learn about check-ups, boo-boos, and the importance of washing your hands!</p>
+	</div>
+</div>
+
+<h2>Sponsors</h2>
+
+<div class="is-partner-row">
+	<div class="is-partner-block">
+		<figure class="wp-block-image is-partner-logo"><img src="${sponsorProducedBy}" alt="This exhibit is produced by" /></figure>
+	</div>
+	<div class="is-partner-block">
+		<figure class="wp-block-image is-partner-logo"><img src="${sponsorPresentedBy}" alt="This exhibit is presented by" /></figure>
+	</div>
+</div>
 `.trim(),
 	},
 	{

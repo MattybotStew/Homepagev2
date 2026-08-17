@@ -134,7 +134,7 @@ const featuredExhibits = [
 		eyebrow: "Fall 2026",
 		title: "Doc McStuffins: The Exhibit",
 		description: "Help Doc and her friends in the new McStuffins Toy Hospital!",
-		href: "#",
+		href: "#/exhibits/doc-mcstuffins-the-exhibit",
 	},
 	{
 		image: imgSpring,

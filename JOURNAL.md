@@ -2,6 +2,18 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-17 — Cline
+
+- Built Doc McStuffins detail page at `#/exhibits/doc-mcstuffins-the-exhibit` (rich-text `content` string → `.cma-prose` via `ArticleContent`), matching the live CMA structure with bottom partner blocks:
+  - "This exhibit is produced by:" + logo (6-1.png → `sponsor-produced-by.png`)
+  - "This exhibit is presented by:" + logo (5-1.png → `sponsor-presented-by.png`)
+  - `<h2>Sponsors</h2>` + intro line + two `.is-sponsor-row` rows (City of Atlanta + Fulton County, reusing existing `sponsor-atl-moca.png` / `sponsor-fulton-arts.png`)
+- 4 zone rows (Backyard Clinic & Reception, Nursery, Pet Vet, Emergency Room) using `has-media-on-the-right` media-text blocks + real zone photos downloaded from live WP (7/8/9/11-1-1024x1024 → `docmc-{backyard-clinic,nursery,pet-vet,emergency-room}.png`).
+- Exhibit logo `doc-mcstuffins-logo.png` (Doc-McStuffins-logo-transparent-v2.png, 1080×540) floated right via `is-exhibit-logo`.
+- New CSS: `.cma-prose .is-partner-block` (+ `.is-partner-logo`) for centered label + centered logo, 40px vertical spacing. `.is-sponsor-row` untouched — no Wild Kratts regression.
+- `FeaturedExhibits.tsx`: Doc McStuffins card `href` `#/exhibits` → `#/exhibits/doc-mcstuffins-the-exhibit`.
+- Badge "Fall 2026", eyebrow "September 26, 2026 – January 10, 2027". Build passes.
+
 ## 2026-08-13 — Cursor (Composer)
 
 - Wild Kratts detail: one exhibit logo (`wild-kratts-logo.png`) floated left of date + intro copy (`.is-exhibit-logo-float`) in the white content card — matches live CMA. Sponsors stay ATL + Fulton rows at bottom.

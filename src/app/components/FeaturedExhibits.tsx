@@ -37,7 +37,7 @@ const exhibits = [
 		title: "Doc McStuffins: The Exhibit",
 		description:
 			"Experience the first children's museum exhibit based on Disney Junior's award-winning series, Doc McStuffins. Join the magical storytelling as you help Doc and her friends in the McStuffins Toy Hospital. There is so much you can do to take care of you!",
-		href: "#/exhibits",
+		href: "#/exhibits/doc-mcstuffins-the-exhibit",
 		image: imgExhibitDoc,
 	},
 	{
