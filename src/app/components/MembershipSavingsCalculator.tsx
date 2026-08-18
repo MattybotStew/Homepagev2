@@ -251,16 +251,16 @@ export default function MembershipSavingsCalculator({
 							</div>
 
 							{/* Benefits list */}
-							<div className="flex flex-col gap-[8px]">
+							<div className="flex flex-col gap-[10px]">
 								{details.benefits.map((benefit) => (
 									<div key={benefit} className="flex items-center gap-[10px]">
-										<div className="bg-cma-teal size-[16px] rounded-[4px] flex items-center justify-center shrink-0">
+										<div className="bg-cma-teal size-[26px] rounded-[8px] flex items-center justify-center shrink-0">
 											<FontAwesomeIcon
 												icon={faCheck}
-												className="text-white text-[9px]"
+												className="text-white text-[15px]"
 											/>
 										</div>
-										<span className="text-[14px] font-medium text-cma-blue-mid leading-[1.5]">
+										<span className="text-[15px] font-semibold text-cma-navy leading-[1.5]">
 											{benefit}
 										</span>
 									</div>
