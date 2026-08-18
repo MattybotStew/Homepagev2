@@ -2,6 +2,14 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-18 — Cline / Cursor
+
+- Doc McStuffins bottom blocks redesigned into two stacked `.is-sponsor-panel` sections:
+  - **"Exhibit Partners"** — Produced By (The Children's Museum of Indianapolis) + Presented By (Riley Hospital for Children at Indiana University Health) side by side, role eyebrow now rendered *after* the figure.
+  - **"Sponsors"** — two `is-sponsor-logo--banner` tiles: City of Atlanta — Moving Atlanta Forward (Mayor's Office of Cultural Affairs) + Fulton County Arts & Culture (Fulton County Board of Commissioners).
+- New assets `sponsor-atl-banner.png` / `sponsor-fulton-banner.png` (from live CMA site). Confirmed `sponsor-produced-by.png` (6-1.png) and `sponsor-presented-by.png` (5-1.png) already match the live site byte-for-byte.
+- CSS (`index.css` prose section): `.is-sponsor-panel h2` margin → 20px; `.is-sponsor-panel + .is-sponsor-panel { margin-top: 24px }`; `.is-sponsor-role` split into `:first-child` (eyebrow) vs `:last-child:not(:first-child)` (navy label) variants; logo tile `min-height:120px / height:150px`; new `is-sponsor-logo--wide` (Wild Kratts Fulton) and `is-sponsor-logo--banner` modifiers + mobile overrides; `.is-sponsor-note` max-width 320px. Kept `.is-sponsor-item:only-child` (max-width 360px, centered).
+
 ## 2026-08-17 — Cline
 
 - Unified the two divergent exhibit sponsor structures into a single `.is-sponsor-panel` cream tile grid inside the white content card (matching the `FundraisingEventContent` cream-tier-card precedent).

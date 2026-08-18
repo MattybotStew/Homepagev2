@@ -26,6 +26,8 @@ import docmcPetVet from "../../assets/docmc-pet-vet.png";
 import docmcEmergencyRoom from "../../assets/docmc-emergency-room.png";
 import sponsorProducedBy from "../../assets/sponsor-produced-by.png";
 import sponsorPresentedBy from "../../assets/sponsor-presented-by.png";
+import sponsorAtlBanner from "../../assets/sponsor-atl-banner.png";
+import sponsorFultonBanner from "../../assets/sponsor-fulton-banner.png";
 
 export type ExhibitSection = {
 	title: string;
@@ -133,7 +135,7 @@ export const exhibits: Exhibit[] = [
 		</div>
 		<div class="is-sponsor-item">
 			<p class="is-sponsor-role">Supported By</p>
-			<figure class="is-sponsor-logo"><img src="${sponsorFultonArts}" alt="Fulton County Arts &amp; Culture" /></figure>
+			<figure class="is-sponsor-logo is-sponsor-logo--wide"><img src="${sponsorFultonArts}" alt="Fulton County Arts &amp; Culture" /></figure>
 			<p class="is-sponsor-note"><em>Major funding for this organization is provided by the Fulton County Board of Commissioners.</em></p>
 		</div>
 	</div>
@@ -193,16 +195,28 @@ export const exhibits: Exhibit[] = [
 </div>
 
 <div class="is-sponsor-panel">
+	<h2>Exhibit Partners</h2>
+	<div class="is-sponsor-grid">
+		<div class="is-sponsor-item">
+			<figure class="is-sponsor-logo"><img src="${sponsorProducedBy}" alt="The Children's Museum of Indianapolis" /></figure>
+			<p class="is-sponsor-role">Produced By</p>
+		</div>
+		<div class="is-sponsor-item">
+			<figure class="is-sponsor-logo"><img src="${sponsorPresentedBy}" alt="Riley Hospital for Children at Indiana University Health" /></figure>
+			<p class="is-sponsor-role">Presented By</p>
+		</div>
+	</div>
+</div>
+
+<div class="is-sponsor-panel">
 	<h2>Sponsors</h2>
 	<p class="is-sponsor-intro">The exhibit has been made possible by the generous support of:</p>
 	<div class="is-sponsor-grid">
 		<div class="is-sponsor-item">
-			<p class="is-sponsor-role">Produced By</p>
-			<figure class="is-sponsor-logo"><img src="${sponsorProducedBy}" alt="The Children's Museum of Indianapolis" /></figure>
+			<figure class="is-sponsor-logo is-sponsor-logo--banner"><img src="${sponsorAtlBanner}" alt="City of Atlanta — Moving Atlanta Forward. This program is supported in part by the City of Atlanta Mayor's Office of Cultural Affairs." /></figure>
 		</div>
 		<div class="is-sponsor-item">
-			<p class="is-sponsor-role">Presented By</p>
-			<figure class="is-sponsor-logo"><img src="${sponsorPresentedBy}" alt="Riley Hospital for Children" /></figure>
+			<figure class="is-sponsor-logo is-sponsor-logo--banner"><img src="${sponsorFultonBanner}" alt="Fulton County Arts &amp; Culture. Major funding for this organization is provided by the Fulton County Board of Commissioners." /></figure>
 		</div>
 	</div>
 </div>
