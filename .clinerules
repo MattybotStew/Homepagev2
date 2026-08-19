@@ -17,11 +17,11 @@ npm run dev# Children's Museum of Atlanta — Homepage v2
 
 ## Session State
 
-- **Last Updated:** 2026-08-18
+- **Last Updated:** 2026-08-19
 - **Active Agent:** Cline
 - **Last Commit:** d7da655 Unify exhibit sponsor block into single .is-sponsor-panel tile grid
 - **In Progress:** —
-- **Newly Unblocked:** Doc McStuffins exhibit detail page bottom blocks → stacked "Exhibit Partners" panel (Produced By + Presented By, role eyebrow after figure) + separate "Sponsors" panel (City of Atlanta + Fulton County `is-sponsor-logo--banner` tiles); Wild Kratts Fulton tile → `is-sponsor-logo--wide`; banner assets `sponsor-atl-banner.png` / `sponsor-fulton-banner.png` added
+- **Newly Unblocked:** Tour widgets (`museum-walk-through.html`, `museum-tour-map.html`) now default to `ASSET_MODE = "cdn"` — panos hotlink the live CMA media library, so github.io URLs can't leak into the WPBakery paste block (root cause of the WordPress "could not be accessed" build error). All 13 `cdn:` URLs verified live (6 webp + 6 jpg + 1 png). Client image specs for exhibit featured images + walk-through panos documented below.
 - **Still Blocked:** —
 
 ## WPBakery / standalone tour widgets
@@ -33,7 +33,16 @@ Self-contained HTML in `public/` (force-added — `public/*` is gitignored). Sam
 | Tour the Museum (floor map + pins)    | https://mattybotstew.github.io/Homepagev2/museum-tour-map.html     | `museum-tour-map.html?embed=1`     |
 | Walk-Through Tour (room-to-room 360°) | https://mattybotstew.github.io/Homepagev2/museum-walk-through.html | `museum-walk-through.html?embed=1` |
 
-Handoff: open the standalone page → copy START→END markers into WPBakery Raw HTML. Set `ASSET_MODE = "cdn"` for production WordPress (hotlinks CMA media library). Assets folder: `public/museum-tour-map/`.
+Handoff: open the standalone page → copy START→END markers into WPBakery Raw HTML. `ASSET_MODE = "cdn"` is the default (hotlinks the CMA media library) — no edits needed before pasting. `"local"` mode only for standalone/offline testing. Assets folder: `public/museum-tour-map/`.
+
+---
+
+## Client Image Specs
+
+| Use case | Recommended size | Notes |
+| --- | --- | --- |
+| Exhibit article featured image | **1920×1080 (16:9)**, saved at 2× retina | Renders max 928×380 via `object-cover` (crops top/bottom on desktop, sides on mobile) — keep subject centered in the middle ~60%. Min 1600×900; floor 1280×720. JPG/WebP, sRGB, under ~500 KB. Photoshop: 1920×1080 px @72ppi, Export As → JPG quality 80. |
+| Walk-through 360° panoramas | **6000×3000 (2:1 equirectangular)** | Pannellum pan/zoom needs resolution. Min 4000×2000. WebP under ~3 MB. ⚠️ WordPress auto-scales uploads wider than 2560px (`-scaled` suffix) — host panos outside the media library or disable `big_image_size_threshold` for >2560px. Current originals: Insta360 X3 at 5952×2976 (2:1); two rooms are 2560×1440 off-spec and should be re-exported as 2:1. |
 
 ---
 

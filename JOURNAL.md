@@ -2,6 +2,15 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-19 — Cline
+
+- Diagnosed WordPress build error "The file … could not be accessed" for `museum-tour-map/fundamentally-food-kitchen.webp`:
+  - The github.io URL itself was fine (verified 200 WebP, 277 KB, committed + deployed). The failure was WordPress failing to server-side fetch it.
+  - Root cause pattern: widget handoff could produce github.io URLs because `ASSET_MODE` defaulted to `"local"`. Fixed by defaulting `ASSET_MODE = "cdn"` in both `public/museum-walk-through.html` and `public/museum-tour-map.html` so production WordPress hotlinks the live CMA media library — github.io URLs can no longer leak into the WPBakery paste block. Updated the baked-in "Media URLs" handoff instructions to match.
+  - Verified all 13 `cdn:` URLs against `childrensmuseumatlanta.org` — every one returns 200 (6 webp 2026 panos 259–391 KB, 6 jpg 2023 panos 375–603 KB, map png 415 KB). JPG EXIF confirms Insta360 X3 originals at 5952×2976 (2:1 equirectangular).
+  - Client-facing correction: use `https://mattybotstew.github.io/Homepagev2/museum-tour-map/fundamentally-food-kitchen.webp` if github.io is needed; prefer the CMA media-library `cdn:` URLs in production.
+- Documented client image specs in `.clinerules` ("Client Image Specs"): exhibit featured image 1920×1080 @2× retina (render max 928×380); walk-through panos 6000×3000 2:1 equirectangular (with the WP 2560px upload-cap caveat).
+
 ## 2026-08-18 — Cline / Cursor
 
 - Doc McStuffins bottom blocks redesigned into two stacked `.is-sponsor-panel` sections:

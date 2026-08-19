@@ -188,10 +188,10 @@ html.cma-walk-embed .cma-walk-hint { display: none; }
 <script>
 (function () {
   // Asset mode:
+  // - "cdn"    → hotlink existing CMA media library URLs (DEFAULT; no re-upload on production WordPress)
   // - "local"  → files in museum-tour-map/ next to this HTML (relative paths work with Vite base + GH Pages)
-  // - "cdn"    → hotlink existing CMA media library URLs (no re-upload on production WordPress)
   // file:// always uses CDN: Pannellum loads panos via XHR, which browsers block for local file URLs.
-  var ASSET_MODE = "local";
+  var ASSET_MODE = "cdn";
   // Relative to this HTML file — NOT root-absolute (/museum-tour-map/), which breaks under /Homepagev2/
   var LOCAL_BASE = "museum-tour-map/";
   var USE_CDN = ASSET_MODE === "cdn" || location.protocol === "file:";
@@ -526,8 +526,8 @@ html.cma-walk-embed .cma-walk-hint { display: none; }
       ">
         <strong style="color:#007c87;font-size:15px;">&#9432; Media URLs</strong>
         <ul style="display:flex;flex-direction:column;gap:6px;padding-left:20px;margin:0;color:#346094;font-size:14px;line-height:1.5;">
-          <li>Before pasting into CMA WordPress, set <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ASSET_MODE = "cdn"</code> near the top of the script so panoramas hotlink the live media library (no re-upload).</li>
-          <li>Or keep <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ASSET_MODE = "local"</code> and upload the <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">public/museum-tour-map/</code> folder next to this HTML (same panos as the tour map), then point <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">LOCAL_BASE</code> at that path. Opening this HTML via <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">file://</code> auto-falls back to CDN (Pannellum cannot XHR local files).</li>
+          <li><code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ASSET_MODE</code> defaults to <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">"cdn"</code>, so panoramas hotlink the live media library — no re-upload and no edits needed before pasting into CMA WordPress.</li>
+          <li>Switch to <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ASSET_MODE = "local"</code> only for standalone testing: upload the <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">public/museum-tour-map/</code> folder next to this HTML (same panos as the tour map), then point <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">LOCAL_BASE</code> at that path. Opening this HTML via <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">file://</code> auto-falls back to CDN (Pannellum cannot XHR local files).</li>
           <li>Companion floor-plan map widget: <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">public/museum-tour-map.html</code> — standalone at <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">/Homepagev2/museum-tour-map.html</code>.</li>
         </ul>
       </div>
