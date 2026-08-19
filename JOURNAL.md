@@ -10,6 +10,7 @@ Shared session log for all AI agents. Newest entries at the top.
   - Verified all 13 `cdn:` URLs against `childrensmuseumatlanta.org` — every one returns 200 (6 webp 2026 panos 259–391 KB, 6 jpg 2023 panos 375–603 KB, map png 415 KB). JPG EXIF confirms Insta360 X3 originals at 5952×2976 (2:1 equirectangular).
   - Client-facing correction: use `https://mattybotstew.github.io/Homepagev2/museum-tour-map/fundamentally-food-kitchen.webp` if github.io is needed; prefer the CMA media-library `cdn:` URLs in production.
 - Documented client image specs in `.clinerules` ("Client Image Specs"): exhibit featured image 1920×1080 @2× retina (render max 928×380); walk-through panos 6000×3000 2:1 equirectangular (with the WP 2560px upload-cap caveat).
+- **Launch hardening:** verified the CMA media library sends **no CORS headers** (`Access-Control-Allow-Origin` absent on webp/jpg/png), so a cross-origin Pannellum load from the github.io preview/embed would be blocked. Changed the widget default from `"cdn"` to `"auto"` — `cdn` on `childrensmuseumatlanta.org` (same-origin, the production inline-paste case) and `file://`; `local` on the GitHub Pages preview/embed and local dev (panos ship same-origin). The handoff is now zero-config and correct in every context: no github.io URLs on WordPress, no CORS failures on the preview.
 
 ## 2026-08-18 — Cline / Cursor
 

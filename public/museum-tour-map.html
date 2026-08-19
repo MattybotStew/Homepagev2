@@ -10,7 +10,7 @@
 <!--
   Children's Museum of Atlanta — Interactive Museum Tour Map
   Self-contained HTML widget. Drop into any WordPress page via a WPBakery Raw HTML block.
-  Floor plan + 360° panoramas hotlink existing CMA media library URLs.
+  Floor plan + 360° panoramas hotlink the CMA media library (ASSET_MODE "auto" → cdn on childrensmuseumatlanta.org) or museum-tour-map/ files (local on GitHub Pages / dev).
   360 viewer: Pannellum (CDN). No React / build step required.
 -->
 </head>
@@ -277,13 +277,20 @@ body.cma-tour-map-embed .cma-tour-map-page-only { display: none !important; }
 <script>
 (function () {
   // Asset mode:
-  // - "cdn"    → hotlink existing CMA media library URLs (DEFAULT; no re-upload on production WordPress)
-  // - "local"  → files in museum-tour-map/ next to this HTML (relative paths work with Vite base + GH Pages)
+  // - "auto"   → (DEFAULT) pick the mode that works in the current context: "cdn" on the CMA site
+  //              (childrensmuseumatlanta.org — panos are same-origin there, no CORS needed) and on
+  //              file://, otherwise "local" (GitHub Pages preview/embed + dev — panos ship same-origin).
+  // - "cdn"    → force hotlink existing CMA media library URLs (use for staging on a non-CMA host)
+  // - "local"  → force files in museum-tour-map/ next to this HTML (relative paths work with Vite base + GH Pages)
   // file:// always uses CDN: Pannellum loads panos via XHR, which browsers block for local file URLs.
-  var ASSET_MODE = "cdn";
+  var ASSET_MODE = "auto";
   // Relative to this HTML file — NOT root-absolute (/museum-tour-map/), which breaks under /Homepagev2/
   var LOCAL_BASE = "museum-tour-map/";
-  var USE_CDN = ASSET_MODE === "cdn" || location.protocol === "file:";
+  var USE_CDN =
+    ASSET_MODE === "cdn" ||
+    (ASSET_MODE === "auto" &&
+      (location.protocol === "file:" ||
+        /(^|\.)childrensmuseumatlanta\.org$/i.test(location.hostname)));
 
   var MAP_CDN = "https://childrensmuseumatlanta.org/wp-content/uploads/2025/04/Updated-Museum-Map.png";
   var MAP_LOCAL = LOCAL_BASE + "Updated-Museum-Map.png";
@@ -503,8 +510,8 @@ body.cma-tour-map-embed .cma-tour-map-page-only { display: none !important; }
       ">
         <strong style="color:#007c87;font-size:15px;">&#9432; Media URLs</strong>
         <ul style="display:flex;flex-direction:column;gap:6px;padding-left:20px;margin:0;color:#346094;font-size:14px;line-height:1.5;">
-          <li><code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ASSET_MODE</code> defaults to <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">"cdn"</code>, so the map and panoramas hotlink the live media library — no re-upload and no edits needed before pasting into CMA WordPress.</li>
-          <li>Switch to <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ASSET_MODE = "local"</code> only for standalone testing: upload the <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">public/museum-tour-map/</code> folder to your server, then point <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">LOCAL_BASE</code> at that path. Opening this HTML via <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">file://</code> auto-falls back to CDN (Pannellum cannot XHR local files).</li>
+          <li><code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ASSET_MODE</code> defaults to <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">"auto"</code> — it uses the live media library on <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">childrensmuseumatlanta.org</code> (panos are same-origin there, so no CORS problem) and the bundled <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">museum-tour-map/</code> files everywhere else (GitHub Pages preview/embed, local dev). No edits needed before pasting into CMA WordPress.</li>
+          <li>Force <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ASSET_MODE = "cdn"</code> when pasting into a staging site on a non-CMA host, or <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ASSET_MODE = "local"</code> to always use the <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">public/museum-tour-map/</code> folder (upload it next to this HTML and point <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">LOCAL_BASE</code> at that path). Opening this HTML via <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">file://</code> always uses CDN (Pannellum cannot XHR local files).</li>
           <li>Walk-through link: <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">/plan-your-visit/tour-the-museum/museum-walk-through/</code></li>
         </ul>
       </div>

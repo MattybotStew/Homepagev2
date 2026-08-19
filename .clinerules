@@ -21,7 +21,7 @@ npm run dev# Children's Museum of Atlanta — Homepage v2
 - **Active Agent:** Cline
 - **Last Commit:** 95903ae Default tour widgets to ASSET_MODE=cdn (no github.io URLs in WP handoff); verify media library URLs
 - **In Progress:** —
-- **Newly Unblocked:** Tour widgets (`museum-walk-through.html`, `museum-tour-map.html`) now default to `ASSET_MODE = "cdn"` — panos hotlink the live CMA media library, so github.io URLs can't leak into the WPBakery paste block (root cause of the WordPress "could not be accessed" build error). All 13 `cdn:` URLs verified live (6 webp + 6 jpg + 1 png). Client image specs for exhibit featured images + walk-through panos documented below.
+- **Newly Unblocked:** Tour widgets default to `ASSET_MODE = "auto"` — cdn on `childrensmuseumatlanta.org` (same-origin panos, no CORS needed) and on `file://`, local on the GitHub Pages preview/embed + dev (panos ship with the site). This fixes both failure modes for launch: no github.io URLs in the WP handoff, and no CORS-blocked 360° viewers on the github.io embed (verified the CMA media library sends no `Access-Control-Allow-Origin`). All 13 `cdn:` URLs verified live (6 webp + 6 jpg + 1 png). Client image specs documented below.
 - **Still Blocked:** —
 
 ## WPBakery / standalone tour widgets
@@ -33,7 +33,7 @@ Self-contained HTML in `public/` (force-added — `public/*` is gitignored). Sam
 | Tour the Museum (floor map + pins)    | https://mattybotstew.github.io/Homepagev2/museum-tour-map.html     | `museum-tour-map.html?embed=1`     |
 | Walk-Through Tour (room-to-room 360°) | https://mattybotstew.github.io/Homepagev2/museum-walk-through.html | `museum-walk-through.html?embed=1` |
 
-Handoff: open the standalone page → copy START→END markers into WPBakery Raw HTML. `ASSET_MODE = "cdn"` is the default (hotlinks the CMA media library) — no edits needed before pasting. `"local"` mode only for standalone/offline testing. Assets folder: `public/museum-tour-map/`.
+Handoff: open the standalone page → copy START→END markers into WPBakery Raw HTML. `ASSET_MODE = "auto"` is the default — picks `"cdn"` on `childrensmuseumatlanta.org` (same-origin panos) and `"local"` on the GitHub Pages preview/embed (the CMA media library sends no CORS headers, so cross-origin cdn would fail). No edits needed before pasting. Override to `"cdn"` for staging on a non-CMA host. Assets folder: `public/museum-tour-map/`.
 
 ---
 
