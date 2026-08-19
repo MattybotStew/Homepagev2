@@ -10,7 +10,7 @@
 <!--
   Children's Museum of Atlanta — Museum Walk-Through (room-to-room 360°)
   Self-contained HTML widget. Drop into any WordPress page via a WPBakery Raw HTML block.
-  Panoramas hotlink the CMA media library (ASSET_MODE "auto" → cdn on childrensmuseumatlanta.org) or museum-tour-map/ files (local on GitHub Pages / dev).
+  Panoramas: ASSET_MODE "auto" → current-origin media library on CMA / WP Engine; museum-tour-map/ files on GitHub Pages / Vite.
   360 viewer: Pannellum (CDN). No React / build step required.
   Companion map widget: museum-tour-map.html
   Standalone preview: https://mattybotstew.github.io/Homepagev2/museum-walk-through.html
@@ -30,13 +30,16 @@
 <!-- the END marker below and paste into a WPBakery Raw HTML or Custom HTML block. -->
 <!-- ═══════════════════════════════════════════════════════════════════════════ -->
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
 <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 
 <style>
-*, *::before, *::after { box-sizing: border-box; }
-.cma-walk, .cma-walk * { font-family: 'Nunito', sans-serif; }
-.cma-walk { -webkit-font-smoothing: antialiased; margin: 0; }
+.cma-walk, .cma-walk *, .cma-walk *::before, .cma-walk *::after { box-sizing: border-box; }
+.cma-walk, .cma-walk * { font-family: 'Nunito', sans-serif; margin: 0; padding: 0; }
+.cma-walk { -webkit-font-smoothing: antialiased; }
 .cma-walk p { font-size: 15px; font-weight: 500; line-height: 1.65; margin: 0; }
 .cma-walk h2 { font-size: clamp(28px, 3.75vw, 48px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; color: #1d3e6b; margin: 0; }
 
@@ -44,6 +47,9 @@
 .cma-walk-container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
 @media (min-width: 768px)  { .cma-walk-container { padding: 0 40px; } }
 @media (min-width: 1024px) { .cma-walk-container { padding: 0 80px; } }
+/* WPBakery / WP Engine paste: sit in the theme column, don't restyle the rest of the page */
+.cma-walk.cma-walk-wp { padding: 0; background: transparent; }
+.cma-walk.cma-walk-wp .cma-walk-container { max-width: none; padding: 0; }
 
 .cma-walk-intro { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; margin-bottom: 24px; }
 .cma-walk-intro p { color: #1d3e6b; max-width: 640px; }
@@ -124,8 +130,8 @@ html.cma-walk-embed .cma-walk-container { max-width: none; padding: 0; }
 html.cma-walk-embed .cma-walk-intro,
 html.cma-walk-embed .cma-walk-intro h2,
 html.cma-walk-embed .cma-walk-page-only,
-html.cma-walk-embed .cma-walk-wpbakery { display: none !important; }
-body.cma-walk-embed .cma-walk-wpbakery,
+html.cma-walk-embed .cma-guide { display: none !important; }
+body.cma-walk-embed .cma-guide,
 body.cma-walk-embed .cma-walk-page-only { display: none !important; }
 html.cma-walk-embed .cma-walk-shell {
   border: none;
@@ -162,6 +168,23 @@ html.cma-walk-embed .cma-walk-hint { display: none; }
   height: 22px;
   box-shadow: 0 2px 8px rgba(29,62,107,0.35);
 }
+
+.cma-walk-fallback {
+  color: #fff;
+  padding: 24px;
+  text-align: center;
+}
+.cma-walk-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 </style>
 
 <section class="cma-walk" id="cma-museum-walk-through">
@@ -178,8 +201,9 @@ html.cma-walk-embed .cma-walk-hint { display: none; }
     </div>
 
     <div class="cma-walk-shell">
-      <div class="cma-walk-viewer" id="cma-walk-viewer" role="img" aria-label="Museum 360 degree walk-through"></div>
-      <div class="cma-walk-rooms" id="cma-walk-rooms" role="tablist" aria-label="Museum rooms"></div>
+      <section class="cma-walk-viewer" id="cma-walk-viewer" aria-label="Museum 360 degree walk-through"></section>
+      <nav class="cma-walk-rooms" id="cma-walk-rooms" aria-label="Museum rooms"></nav>
+      <p class="cma-walk-live" id="cma-walk-live" aria-live="polite"></p>
       <p class="cma-walk-hint">Click and drag to look around. Use room buttons or orange markers to move between spaces.</p>
     </div>
   </div>
@@ -188,39 +212,95 @@ html.cma-walk-embed .cma-walk-hint { display: none; }
 <script>
 (function () {
   // Asset mode:
-  // - "auto"   → (DEFAULT) pick the mode that works in the current context: "cdn" on the CMA site
-  //              (childrensmuseumatlanta.org — panos are same-origin there, no CORS needed) and on
-  //              file://, otherwise "local" (GitHub Pages preview/embed + dev — panos ship same-origin).
-  // - "cdn"    → force hotlink existing CMA media library URLs (use for staging on a non-CMA host)
-  // - "local"  → force files in museum-tour-map/ next to this HTML (relative paths work with Vite base + GH Pages)
-  // file:// always uses CDN: Pannellum loads panos via XHR, which browsers block for local file URLs.
+  // - "auto"   → (DEFAULT) any WordPress page (CMA, WP Engine, wpdev) uses this origin's
+  //              /wp-content/uploads/… (never GitHub Pages). GitHub Pages / Vite use bundled files.
+  // - "cdn"    → force hardcoded childrensmuseumatlanta.org media URLs
+  // - "local"  → force files in museum-tour-map/ next to this HTML
+  // WordPress cannot server-side fetch github.io WebPs ("The file … could not be accessed").
   var ASSET_MODE = "auto";
-  // Relative to this HTML file — NOT root-absolute (/museum-tour-map/), which breaks under /Homepagev2/
   var LOCAL_BASE = "museum-tour-map/";
-  var USE_CDN =
-    ASSET_MODE === "cdn" ||
-    (ASSET_MODE === "auto" &&
-      (location.protocol === "file:" ||
-        /(^|\.)childrensmuseumatlanta\.org$/i.test(location.hostname)));
+  var PANNELLUM_CSS = "https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css";
+  var PANNELLUM_JS = "https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js";
 
-  // Absolute http(s) URL from a path relative to this HTML (Vite + GH Pages /Homepagev2/).
+  function isGitHubPages() {
+    return /github\.io$/i.test(location.hostname);
+  }
+  function isLocalDev() {
+    var h = location.hostname;
+    return h === "localhost" || h === "127.0.0.1";
+  }
+  function isWpHost() {
+    var h = location.hostname;
+    return (
+      /(^|\.)childrensmuseumatlanta\.org$/i.test(h) ||
+      /(^|\.)wpengine\.com$/i.test(h) ||
+      /(^|\.)wpenginepowered\.com$/i.test(h) ||
+      /wpdev|staging|stg/i.test(h)
+    );
+  }
+  function isWordPressPage() {
+    try {
+      if (document.querySelector('link[href*="/wp-content/"], link[href*="/wp-includes/"], #wpadminbar, link[rel="https://api.w.org/"]')) {
+        return true;
+      }
+      var gen = document.querySelector('meta[name="generator"]');
+      if (gen && /WordPress/i.test(gen.getAttribute("content") || "")) return true;
+      if (document.body && /\bwp-/i.test(document.body.className)) return true;
+    } catch (e) {}
+    return false;
+  }
+  function useMediaLibrary() {
+    if (ASSET_MODE === "local") return false;
+    if (ASSET_MODE === "cdn") return true;
+    if (location.protocol === "file:") return true;
+    if (isGitHubPages() || isLocalDev()) return false;
+    if (isWordPressPage() || isWpHost()) return true;
+    return true;
+  }
+  function isStandaloneFile() {
+    return /museum-walk-through\.html(?:$|[?#])/i.test(location.pathname);
+  }
+
   function resolveLocal(relPath) {
     return new URL(relPath, location.href).href;
   }
+  function wpMediaUrl(absoluteCdn) {
+    if (location.protocol === "file:") return absoluteCdn;
+    try {
+      var u = new URL(absoluteCdn);
+      if (u.pathname.indexOf("/wp-content/uploads/") === 0) {
+        return location.origin + u.pathname;
+      }
+    } catch (e) {}
+    return absoluteCdn;
+  }
   function panoSrc(spot) {
-    return USE_CDN ? spot.cdn : resolveLocal(LOCAL_BASE + spot.file);
+    if (!useMediaLibrary()) return resolveLocal(LOCAL_BASE + spot.file);
+    return wpMediaUrl(spot.cdn);
   }
 
-  // Embed mode also set early on <html>/<body> via head-of-body script
+  // Pre-START script also adds these classes (avoids FOUC on the standalone ?embed=1 iframe).
+  // Keep this copy: the WPBakery paste block starts after that script.
   if (/(?:^|[?&])embed=1(?:&|$)/.test(window.location.search)) {
     document.documentElement.classList.add("cma-walk-embed");
     document.body.classList.add("cma-walk-embed");
     setTimeout(function () {
-      document.querySelectorAll(".cma-walk-wpbakery, .cma-walk-page-only").forEach(function (el) {
+      document.querySelectorAll(".cma-guide, .cma-walk-page-only").forEach(function (el) {
         el.hidden = true;
         el.setAttribute("aria-hidden", "true");
       });
     }, 0);
+  }
+
+  // Pasted into WPBakery on WP Engine: hide the standalone heading (the WP page already has one)
+  // and drop the preview padding so the viewer fills the theme column.
+  if (!isStandaloneFile()) {
+    var wpRoot = document.getElementById("cma-museum-walk-through");
+    if (wpRoot) wpRoot.classList.add("cma-walk-wp");
+    document.querySelectorAll(".cma-walk-page-only").forEach(function (el) {
+      el.hidden = true;
+      el.setAttribute("aria-hidden", "true");
+    });
   }
 
   // Room-to-room tour. Hotspot yaw/pitch are approximate navigation cues.
@@ -382,12 +462,27 @@ html.cma-walk-embed .cma-walk-hint { display: none; }
     return scenes;
   }
 
+  function roomTitle(id) {
+    for (var i = 0; i < ROOMS.length; i++) {
+      if (ROOMS[i].id === id) return ROOMS[i].title;
+    }
+    return id;
+  }
+
+  function announce(id) {
+    var title = roomTitle(id);
+    viewerEl.setAttribute("aria-label", "Museum 360 degree walk-through: " + title);
+    var live = document.getElementById("cma-walk-live");
+    if (live) live.textContent = "Now viewing " + title;
+  }
+
   function setActiveButton(id) {
     activeId = id;
     roomsEl.querySelectorAll(".cma-walk-room").forEach(function (btn) {
       var on = btn.getAttribute("data-scene") === id;
       btn.classList.toggle("is-active", on);
-      btn.setAttribute("aria-selected", on ? "true" : "false");
+      if (on) btn.setAttribute("aria-current", "true");
+      else btn.removeAttribute("aria-current");
     });
   }
 
@@ -396,9 +491,8 @@ html.cma-walk-embed .cma-walk-hint { display: none; }
       var btn = document.createElement("button");
       btn.type = "button";
       btn.className = "cma-walk-room" + (room.id === FIRST_SCENE ? " is-active" : "");
-      btn.setAttribute("role", "tab");
       btn.setAttribute("data-scene", room.id);
-      btn.setAttribute("aria-selected", room.id === FIRST_SCENE ? "true" : "false");
+      if (room.id === FIRST_SCENE) btn.setAttribute("aria-current", "true");
       btn.textContent = room.title;
       btn.addEventListener("click", function () {
         if (!viewer || room.id === activeId) return;
@@ -409,15 +503,34 @@ html.cma-walk-embed .cma-walk-hint { display: none; }
     });
   }
 
-  function init() {
-    if (typeof pannellum === "undefined") {
-      viewerEl.innerHTML =
-        '<p style="color:#fff;padding:24px;text-align:center;">360 viewer failed to load. Check that the Pannellum CDN is not blocked.</p>';
+  function showFallback() {
+    viewerEl.innerHTML =
+      '<p class="cma-walk-fallback">360 viewer failed to load. Check that the Pannellum CDN is not blocked.</p>';
+  }
+
+  function ensurePannellum(done) {
+    if (typeof pannellum !== "undefined") {
+      done();
       return;
     }
+    if (!document.querySelector('link[href*="pannellum.css"]')) {
+      var css = document.createElement("link");
+      css.rel = "stylesheet";
+      css.href = PANNELLUM_CSS;
+      document.head.appendChild(css);
+    }
+    var s = document.createElement("script");
+    s.src = PANNELLUM_JS;
+    s.onload = done;
+    s.onerror = showFallback;
+    document.head.appendChild(s);
+  }
 
-    buildRoomButtons();
-
+  function startViewer() {
+    if (typeof pannellum === "undefined") {
+      showFallback();
+      return;
+    }
     viewer = pannellum.viewer(viewerEl, {
       default: {
         firstScene: FIRST_SCENE,
@@ -430,10 +543,16 @@ html.cma-walk-embed .cma-walk-hint { display: none; }
       },
       scenes: buildScenes()
     });
-
     viewer.on("scenechange", function (id) {
       setActiveButton(id);
+      announce(id);
     });
+    announce(FIRST_SCENE);
+  }
+
+  function init() {
+    buildRoomButtons();
+    ensurePannellum(startViewer);
   }
 
   if (document.readyState === "loading") {
@@ -452,96 +571,154 @@ html.cma-walk-embed .cma-walk-hint { display: none; }
 <!-- WPBakery Integration Instructions -->
 <!-- ═══════════════════════════════════════════════════════════════════════════ -->
 
-<div class="cma-walk cma-walk-wpbakery" style="background:#fff;padding:0 0 80px 0;">
-  <div class="cma-walk-container" style="max-width:1280px;margin:0 auto;padding:0 20px;">
+<style>
+/* ── Integration Instructions styling (reference docs only — not part of the pasted widget) ── */
+.cma-walk.cma-guide { padding: 0 0 80px 0; }
+.cma-walk .cma-guide-panel { background: #fdf6ee; border: 2px solid #f7941e; border-radius: 20px; padding: 32px 28px; display: flex; flex-direction: column; gap: 24px; }
+.cma-walk .cma-guide-panel + .cma-guide-panel { margin-top: 32px; }
+.cma-walk .cma-guide-title { color: #1d3e6b; font-size: 22px; font-weight: 900; margin: 0; }
+.cma-walk .cma-guide-steps { display: flex; flex-direction: column; gap: 16px; list-style: none; padding: 0; margin: 0; }
+.cma-walk .cma-guide-step { display: flex; gap: 16px; align-items: flex-start; }
+.cma-walk .cma-guide-num { background: #1d3e6b; color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 900; flex-shrink: 0; }
+.cma-walk .cma-guide-body { display: flex; flex-direction: column; gap: 4px; }
+.cma-walk .cma-guide-heading { color: #1d3e6b; font-size: 15px; }
+.cma-walk .cma-guide-text { color: #346094; font-size: 14px; line-height: 1.5; margin: 0; }
+.cma-walk .cma-guide-code { background: #cceff1; padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+.cma-walk .cma-guide-code--light { background: #fff; }
+.cma-walk .cma-guide-callout { border-radius: 12px; padding: 16px 20px; display: flex; flex-direction: column; gap: 8px; }
+.cma-walk .cma-guide-callout--teal { background: #cceff1; }
+.cma-walk .cma-guide-callout--mint { background: #e7f7f0; }
+.cma-walk .cma-guide-callout-title { color: #007c87; font-size: 15px; }
+.cma-walk .cma-guide-list { display: flex; flex-direction: column; gap: 6px; padding-left: 20px; margin: 0; color: #346094; font-size: 14px; line-height: 1.5; }
+.cma-walk .cma-guide-note { color: #346094; font-size: 13px; line-height: 1.5; margin: 0; }
+</style>
 
-    <div style="
-      background:#fdf6ee;
-      border:2px solid #f7941e;
-      border-radius:20px;
-      padding:32px 28px;
-      display:flex;
-      flex-direction:column;
-      gap:24px;
-    ">
-      <h3 style="color:#1d3e6b;font-size:22px;font-weight:900;margin:0;font-family:Nunito,sans-serif;">How to Add This Walk-Through to WPBakery</h3>
+<div class="cma-walk cma-guide">
+  <div class="cma-walk-container">
 
-      <ol style="display:flex;flex-direction:column;gap:16px;list-style:none;padding:0;margin:0;font-family:Nunito,sans-serif;">
-        <li style="display:flex;gap:16px;align-items:flex-start;">
-          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">1</span>
-          <div style="display:flex;flex-direction:column;gap:4px;">
-            <strong style="color:#1d3e6b;font-size:15px;">Open the Walk-Through (or Tour the Museum) page in WordPress</strong>
-            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Navigate to Pages &rarr; All Pages, find the destination page, and click <em>Edit with WPBakery</em>.</p>
+    <div class="cma-guide-panel">
+      <h3 class="cma-guide-title">Developer Handoff — Working from the Zip</h3>
+      <p class="cma-guide-text">Package name: <code class="cma-guide-code">cma-museum-walk-through.zip</code>. Unzip and keep the folder structure intact.</p>
+
+      <ol class="cma-guide-steps">
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">1</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">What's in the zip</strong>
+            <p class="cma-guide-text"><code class="cma-guide-code">museum-walk-through.html</code> — main widget. <code class="cma-guide-code">museum-tour-map.html</code> — companion floor-plan map. <code class="cma-guide-code">museum-tour-map/</code> — all 12 panorama files + floor plan PNG for local preview.</p>
           </div>
         </li>
-        <li style="display:flex;gap:16px;align-items:flex-start;">
-          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">2</span>
-          <div style="display:flex;flex-direction:column;gap:4px;">
-            <strong style="color:#1d3e6b;font-size:15px;">Add a "Raw HTML" element</strong>
-            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Click the <strong>+</strong> button to add a new element. Search for <strong>Raw HTML</strong> and add it where the room-to-room walk-through should appear.</p>
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">2</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">Preview locally (optional)</strong>
+            <p class="cma-guide-text">Open <code class="cma-guide-code">museum-walk-through.html</code> in a browser. Keep <code class="cma-guide-code">museum-tour-map/</code> in the same folder — <code class="cma-guide-code">ASSET_MODE = "auto"</code> uses those bundled files on localhost. Pannellum loads from jsDelivr; no build step.</p>
           </div>
         </li>
-        <li style="display:flex;gap:16px;align-items:flex-start;">
-          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">3</span>
-          <div style="display:flex;flex-direction:column;gap:4px;">
-            <strong style="color:#1d3e6b;font-size:15px;">Copy the walk-through code</strong>
-            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Open this HTML file in a text editor. Copy <strong>everything</strong> between the <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;">&lt;!-- START: CMA Museum Walk-Through --&gt;</code> and <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;">&lt;!-- END: CMA Museum Walk-Through --&gt;</code> comments. That gives you the <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;">&lt;style&gt;</code>, markup, and <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;">&lt;script&gt;</code> together.</p>
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">3</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">Deploy to WordPress (WP Engine / wpdev / production)</strong>
+            <p class="cma-guide-text">Copy everything between <code class="cma-guide-code">&lt;!-- START: CMA Museum Walk-Through --&gt;</code> and <code class="cma-guide-code">&lt;!-- END: CMA Museum Walk-Through --&gt;</code> in <code class="cma-guide-code">museum-walk-through.html</code>. Paste into a WPBakery <strong>Raw HTML</strong> block on <code class="cma-guide-code">/plan-your-visit/tour-the-museum/museum-walk-through/</code>. Do <strong>not</strong> copy this instructions panel.</p>
           </div>
         </li>
-        <li style="display:flex;gap:16px;align-items:flex-start;">
-          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">4</span>
-          <div style="display:flex;flex-direction:column;gap:4px;">
-            <strong style="color:#1d3e6b;font-size:15px;">Paste into the Raw HTML block</strong>
-            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Paste the copied code into the Raw HTML element's content area. <strong>Do not</strong> wrap it in anything else — paste it exactly as-is.</p>
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">4</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">Media library — usually no URL edits</strong>
+            <p class="cma-guide-text">Leave <code class="cma-guide-code">ASSET_MODE = "auto"</code>. On WordPress the widget rewrites each room's <code class="cma-guide-code">cdn:</code> URL to same-origin <code class="cma-guide-code">/wp-content/uploads/…</code>. Panos must already exist at those paths (production uploads are listed in the <code class="cma-guide-code">ROOMS</code> array). Copy production uploads to wpdev/staging if a pano 404s.</p>
           </div>
         </li>
-        <li style="display:flex;gap:16px;align-items:flex-start;">
-          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">5</span>
-          <div style="display:flex;flex-direction:column;gap:4px;">
-            <strong style="color:#1d3e6b;font-size:15px;">Save and preview</strong>
-            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Click <strong>Update</strong>, then preview. Room chips and orange markers should move you between 360&deg; scenes. Drag to look around. The paste block already includes the Pannellum CDN CSS/JS tags.</p>
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">5</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">When you <em>do</em> need to update URLs</strong>
+            <p class="cma-guide-text">Edit the <code class="cma-guide-code">cdn:</code> value for each room in the <code class="cma-guide-code">ROOMS</code> array (~12 entries) only if uploads land at <strong>different</strong> filenames or paths than production. For static hosting (not WP), set <code class="cma-guide-code">ASSET_MODE = "local"</code> and keep <code class="cma-guide-code">museum-tour-map/</code> next to the HTML — no <code class="cma-guide-code">cdn</code> edits needed.</p>
+          </div>
+        </li>
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">6</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">Save, purge cache, test</strong>
+            <p class="cma-guide-text">Update the page, purge WP Engine cache, preview logged-out. Room chips and orange markers should move between 360&deg; scenes. Companion map: same START&rarr;END pattern in <code class="cma-guide-code">museum-tour-map.html</code>.</p>
           </div>
         </li>
       </ol>
 
-      <div style="
-        background:#cceff1;
-        border-radius:12px;
-        padding:16px 20px;
-        display:flex;
-        flex-direction:column;
-        gap:8px;
-        font-family:Nunito,sans-serif;
-      ">
-        <strong style="color:#007c87;font-size:15px;">&#9888; Troubleshooting Tips</strong>
-        <ul style="display:flex;flex-direction:column;gap:6px;padding-left:20px;margin:0;color:#346094;font-size:14px;line-height:1.5;">
-          <li>If the viewer appears but room buttons do nothing, WPBakery may be stripping <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">&lt;script&gt;</code> tags. Move the script into a <strong>Raw JS</strong> element.</li>
-          <li>If you see &ldquo;360 viewer failed to load,&rdquo; confirm the Pannellum CDN script is present above the walk-through and not blocked by CSP.</li>
-          <li>Styles are scoped under <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">.cma-walk</code> to avoid theme conflicts.</li>
-          <li>Room order and hotspot yaw/pitch live in the <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ROOMS</code> array near the top of the script — edit <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">links</code> to retarget orange markers.</li>
+      <div class="cma-guide-callout cma-guide-callout--teal">
+        <strong class="cma-guide-callout-title">&#9888; Do not</strong>
+        <ul class="cma-guide-list">
+          <li>Iframe the GitHub Pages preview or use WordPress <strong>Add from URL</strong> with github.io links — WP cannot sideload those files server-side.</li>
+          <li>Upload the zip's <code class="cma-guide-code cma-guide-code--light">museum-tour-map/</code> folder via FTP for WP unless you explicitly set <code class="cma-guide-code cma-guide-code--light">ASSET_MODE = "local"</code> — default WP paste uses the media library.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cma-guide-panel">
+      <h3 class="cma-guide-title">How to Add This Walk-Through to WPBakery</h3>
+
+      <ol class="cma-guide-steps">
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">1</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">Open the Walk-Through page on the WP Engine WordPress site</strong>
+            <p class="cma-guide-text">This widget is for the live CMA site (WP Engine), not this localhost/GitHub Pages preview. In WordPress: Pages &rarr; All Pages &rarr; <em>Museum Walk Through</em> (<code class="cma-guide-code">/plan-your-visit/tour-the-museum/museum-walk-through/</code>) &rarr; <em>Edit with WPBakery</em>.</p>
+          </div>
+        </li>
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">2</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">Add a "Raw HTML" element</strong>
+            <p class="cma-guide-text">Click the <strong>+</strong> button to add a new element. Search for <strong>Raw HTML</strong> and add it in the main content column where the 360&deg; viewer should appear. Do not use a Text or Custom HTML element — those strip scripts on WP Engine.</p>
+          </div>
+        </li>
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">3</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">Copy the walk-through code</strong>
+            <p class="cma-guide-text">Copy <strong>everything</strong> between the <code class="cma-guide-code">&lt;!-- START: CMA Museum Walk-Through --&gt;</code> and <code class="cma-guide-code">&lt;!-- END: CMA Museum Walk-Through --&gt;</code> comments. That is the <code class="cma-guide-code">&lt;style&gt;</code>, markup, and <code class="cma-guide-code">&lt;script&gt;</code>. Do <strong>not</strong> copy this instructions panel.</p>
+          </div>
+        </li>
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">4</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">Paste into the Raw HTML block</strong>
+            <p class="cma-guide-text">Paste exactly as-is. No extra wrapper. On WP Engine the widget hides its own heading, uses the page's media library (same-origin), and sits in the theme column.</p>
+          </div>
+        </li>
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">5</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">Update, then purge WP Engine cache</strong>
+            <p class="cma-guide-text">Click <strong>Update</strong>. In WP Engine: <em>Caching &rarr; Purge all caches</em> (or the page cache for this URL). Then preview logged-out. Room chips and orange markers should move you between 360&deg; scenes.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="cma-guide-callout cma-guide-callout--teal">
+        <strong class="cma-guide-callout-title">&#9888; Troubleshooting Tips</strong>
+        <ul class="cma-guide-list">
+          <li>If the viewer appears but room buttons do nothing, WPBakery/WP Engine stripped the <code class="cma-guide-code cma-guide-code--light">&lt;script&gt;</code> block. Add a <strong>Raw JS</strong> element and move only the inline script there (leave the Pannellum <code class="cma-guide-code cma-guide-code--light">&lt;script src&gt;</code> in Raw HTML, or let the widget inject it).</li>
+          <li>If you see &ldquo;360 viewer failed to load,&rdquo; confirm <code class="cma-guide-code cma-guide-code--light">cdn.jsdelivr.net</code> is not blocked (the live CMA theme already loads Vue from jsDelivr). Check the browser console on the WP Engine URL.</li>
+          <li><strong>Do not iframe or import GitHub Pages in WordPress.</strong> If WP says <em>The file https://mattybotstew.github.io/Homepagev2/museum-tour-map/fundamentally-food-kitchen.webp could not be accessed</em> — that is WordPress trying to download a GitHub Pages file. The github.io URL is a preview only. Paste START&rarr;END into Raw HTML. Panos already live in the CMA media library at <code class="cma-guide-code cma-guide-code--light">/wp-content/uploads/2026/05/20260430_173004_348-scaled.webp</code> (hyphens in the filename, never <code class="cma-guide-code cma-guide-code--light">fundamentally= food-…</code>).</li>
+          <li>On wpdev / WP Engine staging the widget loads panos from <em>this site's</em> <code class="cma-guide-code cma-guide-code--light">/wp-content/uploads/…</code> (same-origin). Copy production uploads onto that environment if a pano 404s. Do not point WordPress at github.io files.</li>
+          <li>Styles are scoped under <code class="cma-guide-code cma-guide-code--light">.cma-walk</code> so they cannot reset the WP Engine theme.</li>
+          <li>Room order and hotspot yaw/pitch live in the <code class="cma-guide-code cma-guide-code--light">ROOMS</code> array — edit <code class="cma-guide-code cma-guide-code--light">links</code> to retarget orange markers.</li>
         </ul>
       </div>
 
-      <div style="
-        background:#e7f7f0;
-        border-radius:12px;
-        padding:16px 20px;
-        display:flex;
-        flex-direction:column;
-        gap:8px;
-        font-family:Nunito,sans-serif;
-      ">
-        <strong style="color:#007c87;font-size:15px;">&#9432; Media URLs</strong>
-        <ul style="display:flex;flex-direction:column;gap:6px;padding-left:20px;margin:0;color:#346094;font-size:14px;line-height:1.5;">
-          <li><code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ASSET_MODE</code> defaults to <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">"auto"</code> — it uses the live media library on <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">childrensmuseumatlanta.org</code> (panos are same-origin there, so no CORS problem) and the bundled <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">museum-tour-map/</code> files everywhere else (GitHub Pages preview/embed, local dev). No edits needed before pasting into CMA WordPress.</li>
-          <li>Force <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ASSET_MODE = "cdn"</code> when pasting into a staging site on a non-CMA host, or <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ASSET_MODE = "local"</code> to always use the <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">public/museum-tour-map/</code> folder (upload it next to this HTML and point <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">LOCAL_BASE</code> at that path). Opening this HTML via <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">file://</code> always uses CDN (Pannellum cannot XHR local files).</li>
-          <li>Companion floor-plan map widget: <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">public/museum-tour-map.html</code> — standalone at <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">/Homepagev2/museum-tour-map.html</code>.</li>
+      <div class="cma-guide-callout cma-guide-callout--mint">
+        <strong class="cma-guide-callout-title">&#9432; Media URLs</strong>
+        <ul class="cma-guide-list">
+          <li><code class="cma-guide-code cma-guide-code--light">ASSET_MODE</code> defaults to <code class="cma-guide-code cma-guide-code--light">"auto"</code>. On <code class="cma-guide-code cma-guide-code--light">childrensmuseumatlanta.org</code> and WP Engine hosts it loads panos from <em>this origin's</em> media library (same-origin). On GitHub Pages / localhost it uses bundled <code class="cma-guide-code cma-guide-code--light">museum-tour-map/</code> files. No edits needed before pasting into CMA WordPress.</li>
+          <li>Force <code class="cma-guide-code cma-guide-code--light">ASSET_MODE = "cdn"</code> only if you must hotlink production media from a host that is not WP Engine and not the CMA domain (may fail CORS). Use <code class="cma-guide-code cma-guide-code--light">ASSET_MODE = "local"</code> only when the <code class="cma-guide-code cma-guide-code--light">museum-tour-map/</code> folder is uploaded next to this HTML.</li>
+          <li>Companion floor-plan map widget: <code class="cma-guide-code cma-guide-code--light">public/museum-tour-map.html</code> — same paste pattern.</li>
         </ul>
       </div>
 
-      <p style="color:#346094;font-size:13px;line-height:1.5;margin:0;font-family:Nunito,sans-serif;">
-        <strong>Need help?</strong> Reference file: <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;">public/museum-walk-through.html</code> in the Homepagev2 repo.
-        Live preview: <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;">https://mattybotstew.github.io/Homepagev2/museum-walk-through.html</code>
+      <p class="cma-guide-note">
+        <strong>Need help?</strong> Reference file: <code class="cma-guide-code">public/museum-walk-through.html</code> in the Homepagev2 repo.
+        Live preview: <code class="cma-guide-code">https://mattybotstew.github.io/Homepagev2/museum-walk-through.html</code>
       </p>
     </div>
 

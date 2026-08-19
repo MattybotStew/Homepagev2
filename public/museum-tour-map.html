@@ -32,7 +32,7 @@
 <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 
 <style>
-*, *::before, *::after { box-sizing: border-box; }
+.cma-tour-map, .cma-tour-map *, .cma-tour-map *::before, .cma-tour-map *::after { box-sizing: border-box; }
 .cma-tour-map, .cma-tour-map * { font-family: 'Nunito', sans-serif; }
 .cma-tour-map { -webkit-font-smoothing: antialiased; margin: 0; }
 .cma-tour-map p { font-size: 15px; font-weight: 500; line-height: 1.65; margin: 0; }
@@ -43,6 +43,8 @@
 .cma-tour-map-container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
 @media (min-width: 768px)  { .cma-tour-map-container { padding: 0 40px; } }
 @media (min-width: 1024px) { .cma-tour-map-container { padding: 0 80px; } }
+.cma-tour-map.cma-tour-map-wp { padding: 0; background: transparent; }
+.cma-tour-map.cma-tour-map-wp .cma-tour-map-container { max-width: none; padding: 0; }
 
 .cma-tour-map-intro { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; margin-top: 28px; }
 .cma-tour-map-intro p { color: #1d3e6b; max-width: 640px; }
@@ -224,13 +226,13 @@ html.cma-tour-map-embed .cma-tour-map-floor {
 html.cma-tour-map-embed .cma-tour-map-intro,
 html.cma-tour-map-embed .cma-tour-map-intro h2,
 html.cma-tour-map-embed .cma-tour-map-page-only { display: none !important; }
-html.cma-tour-map-embed .cma-tour-map-wpbakery { display: none !important; }
+html.cma-tour-map-embed .cma-guide { display: none !important; }
 
 body.cma-tour-map-embed .cma-tour-map { padding: 0; background: transparent; }
 body.cma-tour-map-embed .cma-tour-map-container { max-width: none; padding: 0; }
 body.cma-tour-map-embed .cma-tour-map-intro,
 body.cma-tour-map-embed .cma-tour-map-intro h2 { display: none !important; }
-body.cma-tour-map-embed .cma-tour-map-wpbakery,
+body.cma-tour-map-embed .cma-guide,
 body.cma-tour-map-embed .cma-tour-map-page-only { display: none !important; }
 </style>
 
@@ -240,7 +242,7 @@ body.cma-tour-map-embed .cma-tour-map-page-only { display: none !important; }
     <div class="cma-tour-map-stage" id="cma-tour-map-stage">
       <img
         class="cma-tour-map-floor"
-        src="museum-tour-map/Updated-Museum-Map.png"
+        src="https://childrensmuseumatlanta.org/wp-content/uploads/2025/04/Updated-Museum-Map.png"
         alt="Children's Museum of Atlanta floor plan"
         width="1675"
         height="1515"
@@ -277,20 +279,52 @@ body.cma-tour-map-embed .cma-tour-map-page-only { display: none !important; }
 <script>
 (function () {
   // Asset mode:
-  // - "auto"   → (DEFAULT) pick the mode that works in the current context: "cdn" on the CMA site
-  //              (childrensmuseumatlanta.org — panos are same-origin there, no CORS needed) and on
-  //              file://, otherwise "local" (GitHub Pages preview/embed + dev — panos ship same-origin).
-  // - "cdn"    → force hotlink existing CMA media library URLs (use for staging on a non-CMA host)
-  // - "local"  → force files in museum-tour-map/ next to this HTML (relative paths work with Vite base + GH Pages)
-  // file:// always uses CDN: Pannellum loads panos via XHR, which browsers block for local file URLs.
+  // - "auto"   → (DEFAULT) any WordPress page (CMA, WP Engine, wpdev) uses this origin's
+  //              /wp-content/uploads/… (never GitHub Pages). GitHub Pages / Vite use bundled files.
+  // - "cdn"    → force hardcoded childrensmuseumatlanta.org media URLs
+  // - "local"  → force files in museum-tour-map/ next to this HTML
+  // WordPress cannot server-side fetch github.io WebPs ("The file … could not be accessed").
   var ASSET_MODE = "auto";
-  // Relative to this HTML file — NOT root-absolute (/museum-tour-map/), which breaks under /Homepagev2/
   var LOCAL_BASE = "museum-tour-map/";
-  var USE_CDN =
-    ASSET_MODE === "cdn" ||
-    (ASSET_MODE === "auto" &&
-      (location.protocol === "file:" ||
-        /(^|\.)childrensmuseumatlanta\.org$/i.test(location.hostname)));
+
+  function isGitHubPages() {
+    return /github\.io$/i.test(location.hostname);
+  }
+  function isLocalDev() {
+    var h = location.hostname;
+    return h === "localhost" || h === "127.0.0.1";
+  }
+  function isWpHost() {
+    var h = location.hostname;
+    return (
+      /(^|\.)childrensmuseumatlanta\.org$/i.test(h) ||
+      /(^|\.)wpengine\.com$/i.test(h) ||
+      /(^|\.)wpenginepowered\.com$/i.test(h) ||
+      /wpdev|staging|stg/i.test(h)
+    );
+  }
+  function isWordPressPage() {
+    try {
+      if (document.querySelector('link[href*="/wp-content/"], link[href*="/wp-includes/"], #wpadminbar, link[rel="https://api.w.org/"]')) {
+        return true;
+      }
+      var gen = document.querySelector('meta[name="generator"]');
+      if (gen && /WordPress/i.test(gen.getAttribute("content") || "")) return true;
+      if (document.body && /\bwp-/i.test(document.body.className)) return true;
+    } catch (e) {}
+    return false;
+  }
+  function useMediaLibrary() {
+    if (ASSET_MODE === "local") return false;
+    if (ASSET_MODE === "cdn") return true;
+    if (location.protocol === "file:") return true;
+    if (isGitHubPages() || isLocalDev()) return false;
+    if (isWordPressPage() || isWpHost()) return true;
+    return true;
+  }
+  function isStandaloneFile() {
+    return /museum-tour-map\.html(?:$|[?#])/i.test(location.pathname);
+  }
 
   var MAP_CDN = "https://childrensmuseumatlanta.org/wp-content/uploads/2025/04/Updated-Museum-Map.png";
   var MAP_LOCAL = LOCAL_BASE + "Updated-Museum-Map.png";
@@ -317,20 +351,39 @@ body.cma-tour-map-embed .cma-tour-map-page-only { display: none !important; }
     return new URL(relPath, location.href).href;
   }
 
-  function mapSrc() { return USE_CDN ? MAP_CDN : resolveLocal(MAP_LOCAL); }
-  function panoSrc(spot) { return USE_CDN ? spot.cdn : resolveLocal(LOCAL_BASE + spot.file); }
+  function wpMediaUrl(absoluteCdn) {
+    if (location.protocol === "file:") return absoluteCdn;
+    try {
+      var u = new URL(absoluteCdn);
+      if (u.pathname.indexOf("/wp-content/uploads/") === 0) {
+        return location.origin + u.pathname;
+      }
+    } catch (e) {}
+    return absoluteCdn;
+  }
+  function mapSrc() { return useMediaLibrary() ? wpMediaUrl(MAP_CDN) : resolveLocal(MAP_LOCAL); }
+  function panoSrc(spot) { return useMediaLibrary() ? wpMediaUrl(spot.cdn) : resolveLocal(LOCAL_BASE + spot.file); }
 
-  // Embed mode also set early on <html>/<body> via head-of-body script
+  // Pre-START script also adds these classes (avoids FOUC on the standalone ?embed=1 iframe).
+  // Keep this copy: the WPBakery paste block starts after that script.
   if (/(?:^|[?&])embed=1(?:&|$)/.test(window.location.search)) {
     document.documentElement.classList.add("cma-tour-map-embed");
     document.body.classList.add("cma-tour-map-embed");
-    // WPBakery instructions sit after this script — hide on next tick
     setTimeout(function () {
-      document.querySelectorAll(".cma-tour-map-wpbakery, .cma-tour-map-page-only").forEach(function (el) {
+      document.querySelectorAll(".cma-guide, .cma-tour-map-page-only").forEach(function (el) {
         el.hidden = true;
         el.setAttribute("aria-hidden", "true");
       });
     }, 0);
+  }
+
+  if (!isStandaloneFile()) {
+    var wpRoot = document.getElementById("cma-museum-tour-map");
+    if (wpRoot) wpRoot.classList.add("cma-tour-map-wp");
+    document.querySelectorAll(".cma-tour-map-page-only").forEach(function (el) {
+      el.hidden = true;
+      el.setAttribute("aria-hidden", "true");
+    });
   }
 
   var stage = document.getElementById("cma-tour-map-stage");
@@ -429,95 +482,92 @@ body.cma-tour-map-embed .cma-tour-map-page-only { display: none !important; }
 <!-- WPBakery Integration Instructions -->
 <!-- ═══════════════════════════════════════════════════════════════════════════ -->
 
-<div class="cma-tour-map cma-tour-map-wpbakery" style="background:#fff;padding:0 0 80px 0;">
-  <div class="cma-tour-map-container" style="max-width:1280px;margin:0 auto;padding:0 20px;">
+<style>
+/* ── Integration Instructions styling (reference docs only — not part of the pasted widget) ── */
+.cma-tour-map.cma-guide { padding: 0 0 80px 0; }
+.cma-tour-map .cma-guide-panel { background: #fdf6ee; border: 2px solid #f7941e; border-radius: 20px; padding: 32px 28px; display: flex; flex-direction: column; gap: 24px; }
+.cma-tour-map .cma-guide-title { color: #1d3e6b; font-size: 22px; font-weight: 900; margin: 0; }
+.cma-tour-map .cma-guide-steps { display: flex; flex-direction: column; gap: 16px; list-style: none; padding: 0; margin: 0; }
+.cma-tour-map .cma-guide-step { display: flex; gap: 16px; align-items: flex-start; }
+.cma-tour-map .cma-guide-num { background: #1d3e6b; color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 900; flex-shrink: 0; }
+.cma-tour-map .cma-guide-body { display: flex; flex-direction: column; gap: 4px; }
+.cma-tour-map .cma-guide-heading { color: #1d3e6b; font-size: 15px; }
+.cma-tour-map .cma-guide-text { color: #346094; font-size: 14px; line-height: 1.5; margin: 0; }
+.cma-tour-map .cma-guide-code { background: #cceff1; padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+.cma-tour-map .cma-guide-code--light { background: #fff; }
+.cma-tour-map .cma-guide-callout { border-radius: 12px; padding: 16px 20px; display: flex; flex-direction: column; gap: 8px; }
+.cma-tour-map .cma-guide-callout--teal { background: #cceff1; }
+.cma-tour-map .cma-guide-callout--mint { background: #e7f7f0; }
+.cma-tour-map .cma-guide-callout-title { color: #007c87; font-size: 15px; }
+.cma-tour-map .cma-guide-list { display: flex; flex-direction: column; gap: 6px; padding-left: 20px; margin: 0; color: #346094; font-size: 14px; line-height: 1.5; }
+.cma-tour-map .cma-guide-note { color: #346094; font-size: 13px; line-height: 1.5; margin: 0; }
+</style>
 
-    <div style="
-      background:#fdf6ee;
-      border:2px solid #f7941e;
-      border-radius:20px;
-      padding:32px 28px;
-      display:flex;
-      flex-direction:column;
-      gap:24px;
-    ">
-      <h3 style="color:#1d3e6b;font-size:22px;font-weight:900;margin:0;font-family:Nunito,sans-serif;">How to Add This Map to WPBakery</h3>
+<div class="cma-tour-map cma-guide">
+  <div class="cma-tour-map-container">
 
-      <ol style="display:flex;flex-direction:column;gap:16px;list-style:none;padding:0;margin:0;font-family:Nunito,sans-serif;">
-        <li style="display:flex;gap:16px;align-items:flex-start;">
-          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">1</span>
-          <div style="display:flex;flex-direction:column;gap:4px;">
-            <strong style="color:#1d3e6b;font-size:15px;">Open the Exhibits (or Tour the Museum) page in WordPress</strong>
-            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Navigate to Pages &rarr; All Pages, find the destination page, and click <em>Edit with WPBakery</em>.</p>
+    <div class="cma-guide-panel">
+      <h3 class="cma-guide-title">How to Add This Map to WPBakery</h3>
+
+      <ol class="cma-guide-steps">
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">1</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">Open the Exhibits (or Tour the Museum) page in WordPress</strong>
+            <p class="cma-guide-text">Navigate to Pages &rarr; All Pages, find the destination page, and click <em>Edit with WPBakery</em>.</p>
           </div>
         </li>
-        <li style="display:flex;gap:16px;align-items:flex-start;">
-          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">2</span>
-          <div style="display:flex;flex-direction:column;gap:4px;">
-            <strong style="color:#1d3e6b;font-size:15px;">Add a "Raw HTML" element</strong>
-            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Click the <strong>+</strong> button to add a new element. Search for <strong>Raw HTML</strong> and add it where the interactive map should appear.</p>
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">2</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">Add a "Raw HTML" element</strong>
+            <p class="cma-guide-text">Click the <strong>+</strong> button to add a new element. Search for <strong>Raw HTML</strong> and add it where the interactive map should appear.</p>
           </div>
         </li>
-        <li style="display:flex;gap:16px;align-items:flex-start;">
-          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">3</span>
-          <div style="display:flex;flex-direction:column;gap:4px;">
-            <strong style="color:#1d3e6b;font-size:15px;">Copy the map code</strong>
-            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Open this HTML file in a text editor. Copy <strong>everything</strong> between the <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;">&lt;!-- START: CMA Museum Tour Map --&gt;</code> and <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;">&lt;!-- END: CMA Museum Tour Map --&gt;</code> comments. That gives you the <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;">&lt;style&gt;</code>, markup, and <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;">&lt;script&gt;</code> together.</p>
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">3</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">Copy the map code</strong>
+            <p class="cma-guide-text">Open this HTML file in a text editor. Copy <strong>everything</strong> between the <code class="cma-guide-code">&lt;!-- START: CMA Museum Tour Map --&gt;</code> and <code class="cma-guide-code">&lt;!-- END: CMA Museum Tour Map --&gt;</code> comments. That gives you the <code class="cma-guide-code">&lt;style&gt;</code>, markup, and <code class="cma-guide-code">&lt;script&gt;</code> together.</p>
           </div>
         </li>
-        <li style="display:flex;gap:16px;align-items:flex-start;">
-          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">4</span>
-          <div style="display:flex;flex-direction:column;gap:4px;">
-            <strong style="color:#1d3e6b;font-size:15px;">Paste into the Raw HTML block</strong>
-            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Paste the copied code into the Raw HTML element's content area. <strong>Do not</strong> wrap it in anything else — paste it exactly as-is.</p>
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">4</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">Paste into the Raw HTML block</strong>
+            <p class="cma-guide-text">Paste the copied code into the Raw HTML element's content area. <strong>Do not</strong> wrap it in anything else — paste it exactly as-is.</p>
           </div>
         </li>
-        <li style="display:flex;gap:16px;align-items:flex-start;">
-          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">5</span>
-          <div style="display:flex;flex-direction:column;gap:4px;">
-            <strong style="color:#1d3e6b;font-size:15px;">Save and preview</strong>
-            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Click <strong>Update</strong>, then preview. Click a pulse point — a 360&deg; viewer should open. Drag to look around. The paste block already includes the Pannellum CDN CSS/JS tags.</p>
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">5</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">Save and preview</strong>
+            <p class="cma-guide-text">Click <strong>Update</strong>, then preview. Click a pulse point — a 360&deg; viewer should open. Drag to look around. The paste block already includes the Pannellum CDN CSS/JS tags.</p>
           </div>
         </li>
       </ol>
 
-      <div style="
-        background:#cceff1;
-        border-radius:12px;
-        padding:16px 20px;
-        display:flex;
-        flex-direction:column;
-        gap:8px;
-        font-family:Nunito,sans-serif;
-      ">
-        <strong style="color:#007c87;font-size:15px;">&#9888; Troubleshooting Tips</strong>
-        <ul style="display:flex;flex-direction:column;gap:6px;padding-left:20px;margin:0;color:#346094;font-size:14px;line-height:1.5;">
-          <li>If the map appears but pins do nothing, WPBakery may be stripping <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">&lt;script&gt;</code> tags. Move the script into a <strong>Raw JS</strong> element.</li>
+      <div class="cma-guide-callout cma-guide-callout--teal">
+        <strong class="cma-guide-callout-title">&#9888; Troubleshooting Tips</strong>
+        <ul class="cma-guide-list">
+          <li>If the map appears but pins do nothing, WPBakery may be stripping <code class="cma-guide-code cma-guide-code--light">&lt;script&gt;</code> tags. Move the script into a <strong>Raw JS</strong> element.</li>
           <li>If you see &ldquo;360 viewer failed to load,&rdquo; confirm the Pannellum CDN script is present above the map and not blocked by CSP.</li>
-          <li>Styles are scoped under <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">.cma-tour-map</code> to avoid theme conflicts.</li>
-          <li>Pin positions live in the <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">HOTSPOTS</code> array near the top of the script — edit <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">left</code> / <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">top</code> percentages to nudge pins.</li>
+          <li>Styles are scoped under <code class="cma-guide-code cma-guide-code--light">.cma-tour-map</code> to avoid theme conflicts.</li>
+          <li>Pin positions live in the <code class="cma-guide-code cma-guide-code--light">HOTSPOTS</code> array near the top of the script — edit <code class="cma-guide-code cma-guide-code--light">left</code> / <code class="cma-guide-code cma-guide-code--light">top</code> percentages to nudge pins.</li>
         </ul>
       </div>
 
-      <div style="
-        background:#e7f7f0;
-        border-radius:12px;
-        padding:16px 20px;
-        display:flex;
-        flex-direction:column;
-        gap:8px;
-        font-family:Nunito,sans-serif;
-      ">
-        <strong style="color:#007c87;font-size:15px;">&#9432; Media URLs</strong>
-        <ul style="display:flex;flex-direction:column;gap:6px;padding-left:20px;margin:0;color:#346094;font-size:14px;line-height:1.5;">
-          <li><code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ASSET_MODE</code> defaults to <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">"auto"</code> — it uses the live media library on <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">childrensmuseumatlanta.org</code> (panos are same-origin there, so no CORS problem) and the bundled <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">museum-tour-map/</code> files everywhere else (GitHub Pages preview/embed, local dev). No edits needed before pasting into CMA WordPress.</li>
-          <li>Force <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ASSET_MODE = "cdn"</code> when pasting into a staging site on a non-CMA host, or <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ASSET_MODE = "local"</code> to always use the <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">public/museum-tour-map/</code> folder (upload it next to this HTML and point <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">LOCAL_BASE</code> at that path). Opening this HTML via <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">file://</code> always uses CDN (Pannellum cannot XHR local files).</li>
-          <li>Walk-through link: <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">/plan-your-visit/tour-the-museum/museum-walk-through/</code></li>
+      <div class="cma-guide-callout cma-guide-callout--mint">
+        <strong class="cma-guide-callout-title">&#9432; Media URLs</strong>
+        <ul class="cma-guide-list">
+          <li><code class="cma-guide-code cma-guide-code--light">ASSET_MODE</code> defaults to <code class="cma-guide-code cma-guide-code--light">"auto"</code>. On <code class="cma-guide-code cma-guide-code--light">childrensmuseumatlanta.org</code> and WP Engine hosts it loads media from <em>this origin</em> (same-origin). On GitHub Pages / localhost it uses bundled <code class="cma-guide-code cma-guide-code--light">museum-tour-map/</code> files. No edits needed before pasting into CMA WordPress.</li>
+          <li>Force <code class="cma-guide-code cma-guide-code--light">ASSET_MODE = "cdn"</code> only to hotlink production media from a non-WP-Engine host (may fail CORS). Use <code class="cma-guide-code cma-guide-code--light">ASSET_MODE = "local"</code> when the <code class="cma-guide-code cma-guide-code--light">museum-tour-map/</code> folder is uploaded next to this HTML. <code class="cma-guide-code cma-guide-code--light">file://</code> always uses the live CMA media URLs.</li>
+          <li>Walk-through link: <code class="cma-guide-code cma-guide-code--light">/plan-your-visit/tour-the-museum/museum-walk-through/</code></li>
         </ul>
       </div>
 
-      <p style="color:#346094;font-size:13px;line-height:1.5;margin:0;font-family:Nunito,sans-serif;">
-        <strong>Need help?</strong> Reference file: <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;">public/museum-tour-map.html</code> in the Homepagev2 repo.
+      <p class="cma-guide-note">
+        <strong>Need help?</strong> Reference file: <code class="cma-guide-code">public/museum-tour-map.html</code> in the Homepagev2 repo.
       </p>
     </div>
 

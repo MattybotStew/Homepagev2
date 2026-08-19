@@ -18,11 +18,11 @@ npm run dev# Children's Museum of Atlanta — Homepage v2
 ## Session State
 
 - **Last Updated:** 2026-08-19
-- **Active Agent:** Cline
-- **Last Commit:** 471d1da Fix all 13 TypeScript errors: motion Variants annotations, react-responsive-masonry declaration, ContentBlock guards, import.meta.env.DEV
-- **In Progress:** —
-- **Newly Unblocked:** TypeScript checker now clean — 0 errors (was 13 error locations, ~161 entries in the VS Code Problems panel). Fixed: motion `Variants` annotations (BottomCallToAction, ExploreExhibits), `declare module "react-responsive-masonry"` (vite-env.d.ts), `ContentBlock` guards (SearchPage, ArticleContentWithSidebar), `import.meta.env.DEV` (main.tsx), and excluded the dead `src/imports/PlanYourVisit.tsx` (missing module). Tour widgets default to `ASSET_MODE = "auto"` — cdn on `childrensmuseumatlanta.org` + `file://`, local on GitHub Pages preview/embed + dev; all 13 `cdn:` URLs verified live; CMA media library sends no CORS headers (why auto is required). Client image specs documented below.
-- **Still Blocked:** —
+- **Active Agent:** Grok 4.6
+- **Last Commit:** 105e73d Quiet HTML/IDE lint on standalone widgets
+- **In Progress:** Walk-through / tour-map WPBakery guide class cleanup (uncommitted) — same pattern as membership-calculator. Waiting on a client call for Jane's + Step Up To Science 16:9 pano re-export.
+- **Newly Unblocked:** All three standalone widgets now have 0 HTML `style=` attributes. Local panos are byte-identical to CMA `-scaled` CDN URLs.
+- **Still Blocked:** Jane's Innovation Station + Step Up To Science are 2560×1440 (16:9) on both local and CDN — needs original 2:1 re-export + WP re-upload. Hotspot yaw/pitch still needs a human pass on each of the 12 scenes.
 
 ## WPBakery / standalone tour widgets
 
@@ -33,7 +33,7 @@ Self-contained HTML in `public/` (force-added — `public/*` is gitignored). Sam
 | Tour the Museum (floor map + pins)    | https://mattybotstew.github.io/Homepagev2/museum-tour-map.html     | `museum-tour-map.html?embed=1`     |
 | Walk-Through Tour (room-to-room 360°) | https://mattybotstew.github.io/Homepagev2/museum-walk-through.html | `museum-walk-through.html?embed=1` |
 
-Handoff: open the standalone page → copy START→END markers into WPBakery Raw HTML. `ASSET_MODE = "auto"` is the default — picks `"cdn"` on `childrensmuseumatlanta.org` (same-origin panos) and `"local"` on the GitHub Pages preview/embed (the CMA media library sends no CORS headers, so cross-origin cdn would fail). No edits needed before pasting. Override to `"cdn"` for staging on a non-CMA host. Assets folder: `public/museum-tour-map/`.
+Handoff: open the standalone page → copy START→END markers into WPBakery Raw HTML. `ASSET_MODE = "auto"` (default) uses same-origin `/wp-content/uploads/…` on any WordPress / WP Engine / wpdev host; uses bundled `museum-tour-map/` files only on GitHub Pages and localhost (CMA CDN has no CORS for cross-origin). Floor-plan `<img>` defaults to production CDN URL so WP never sideloads relative paths. Never iframe github.io or Add-from-URL github.io assets on wpdev. Assets folder: `public/museum-tour-map/`.
 
 ---
 

@@ -2,6 +2,31 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-19 — Cursor (Composer, wpdev asset URLs)
+
+- Finished Grok's wpdev sideload fix: floor-plan `<img>` now defaults to production CDN URL (not `museum-tour-map/…`) so WP server-side scans never see relative paths. `useMediaLibrary()` in both widgets now defaults to **CDN/same-origin** on any host that isn't GitHub Pages or localhost; added `isGitHubPages()` / `isLocalDev()` and broader WP host detection (`staging`, `stg`, body `wp-*` class).
+- WP error `https://mattybotstew.github.io/…/fundamentally-food-kitchen.webp could not be accessed` = server-side fetch of github.io (Add-from-URL or iframe). Paste START→END only; panos use `location.origin + /wp-content/uploads/…` on wpdev.
+
+## 2026-08-19 — Grok 4.6 (wpdev github.io sideload)
+
+- WP error `The file https://mattybotstew.github.io/Homepagev2/museum-tour-map/fundamentally-food-kitchen.webp could not be accessed` is WordPress **server-side** failing to download a GitHub Pages WebP (same pattern as the earlier media-library fetch). The github.io file itself is 200 / 277 KB. Do not iframe or Add-from-URL github.io on wpdev.
+- Widget now treats any WordPress page as media-library mode: `#wpadminbar` / `wp-content` / `api.w.org` / generator, plus hostnames matching CMA, WP Engine, or `wpdev`. Panos resolve to `location.origin + /wp-content/uploads/…` — never github.io. Paste START→END; production file is `…/2026/05/20260430_173004_348-scaled.webp`.
+
+## 2026-08-19 — Grok 4.6 (WP Engine paste)
+
+- Walk-through START→END is the WP Engine / WPBakery payload (live page is still a stub at `/plan-your-visit/tour-the-museum/museum-walk-through/`). Fixes so that paste doesn't fight the theme or go CORS-blind:
+  - Scoped CSS to `.cma-walk` (the old `*` reset would zero padding on the whole WP Engine page).
+  - Nunito + Pannellum tags now sit *inside* START–END; if WPBakery strips the Pannellum `<script src>`, the widget injects it.
+  - `ASSET_MODE=auto` treats `childrensmuseumatlanta.org` **and** `*.wpengine.com` / `*.wpenginepowered.com` as WordPress: panos load from *this origin's* `/wp-content/uploads/…` (same-origin). Staging needs production uploads copied.
+  - Off the standalone `.html` file (i.e. on WP), hide the widget heading and drop preview padding so it fills the theme column.
+  - Guide updated: Raw HTML only, purge WP Engine cache, don't copy the instructions panel. Same origin-rewrite on the tour map.
+
+## 2026-08-19 — Grok 4.6 (walk-through audit)
+
+- Brought `museum-walk-through.html` + `museum-tour-map.html` to calculator parity: WPBakery instruction `style=""` attributes → `.cma-guide-*` classes in a docs-only `<style>` after the END marker (paste block stylesheet stays untouched). `style_attrs=0` on all three widgets. `npx html-validate` clean on the four HTML files.
+- Walk-through extras: Pannellum fallback uses `.cma-walk-fallback` (no inline style); room chips are real `<button>`s (`aria-current`, no fake tabs); viewer is `<section aria-label>` + a visually-hidden `aria-live` that announces the room. Embed class-setter stays duplicated on purpose (pre-START for FOUC on `?embed=1`; IIFE copy because the paste block starts after that script).
+- Asset check: all 12 panos + map PNG — local `museum-tour-map/` files are **byte-identical** to the CMA `-scaled` CDN URLs (sha256 match, no CORS headers). Jane's Innovation Station + Step Up To Science remain **2560×1440 (16:9)** locally *and* on CDN; the other 10 panos are 2560×1280 (2:1). Re-export still needs originals + a WP re-upload (new `-scaled` URLs). Hotspot yaw/pitch still unconfirmed by eye.
+
 ## 2026-08-19 — Grok 4.6
 
 - Cleared HTML/IDE lint on the membership savings calculator and related files:
