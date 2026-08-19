@@ -2,6 +2,14 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-19 — Grok 4.6
+
+- Cleared HTML/IDE lint on the membership savings calculator and related files:
+  - `public/membership-calculator.html`: WPBakery guide `style=""` attributes → `.cma-guide-*` classes (guide CSS stays in a `<style>` block — required for the self-contained paste). Stepper buttons now have `type="button"`.
+  - `index.html` / tour-map img: HTML5 void tags (drop trailing slashes).
+  - `.htmlvalidate.json` + `.vscode/settings.json`: turn off `no-inline-style` / `element-permitted-content` and ignore Lighthouse report HTML. Widget CSS must stay inlined for WPBakery.
+  - `tsconfig.json`: `baseUrl: "."` so `@/*` path mapping resolves in the IDE.
+
 ## 2026-08-19 — Cline
 
 - Diagnosed WordPress build error "The file … could not be accessed" for `museum-tour-map/fundamentally-food-kitchen.webp`:

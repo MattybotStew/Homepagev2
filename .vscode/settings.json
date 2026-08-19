@@ -1,0 +1,15 @@
+{
+  "html.validate.styles": false,
+  "html.validate.scripts": false,
+  "html-validate.configuration": {
+    "extends": ["html-validate:recommended"],
+    "rules": {
+      "no-inline-style": "off",
+      "element-permitted-content": "off"
+    }
+  },
+  "html-validate.ignore": [
+    "**/localhost_*.report.html",
+    "**/chromewebdata_*.report.html"
+  ]
+}

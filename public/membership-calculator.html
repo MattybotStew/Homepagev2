@@ -155,11 +155,11 @@
               <span class="sub">Ages 13+</span>
             </div>
             <div class="cma-stepper-controls">
-              <button class="cma-stepper-btn" data-action="decr" aria-label="Decrease Adults">
+              <button type="button" class="cma-stepper-btn" data-action="decr" aria-label="Decrease Adults">
                 <svg viewBox="0 0 12 2" fill="currentColor"><rect y="0" width="12" height="2" rx="1"/></svg>
               </button>
               <div class="cma-stepper-value">2</div>
-              <button class="cma-stepper-btn" data-action="incr" aria-label="Increase Adults">
+              <button type="button" class="cma-stepper-btn" data-action="incr" aria-label="Increase Adults">
                 <svg viewBox="0 0 12 12" fill="currentColor"><rect x="5" y="0" width="2" height="12" rx="1"/><rect x="0" y="5" width="12" height="2" rx="1"/></svg>
               </button>
             </div>
@@ -173,11 +173,11 @@
               <span class="sub">Ages 1&ndash;12 (under 1 free)</span>
             </div>
             <div class="cma-stepper-controls">
-              <button class="cma-stepper-btn" data-action="decr" aria-label="Decrease Children">
+              <button type="button" class="cma-stepper-btn" data-action="decr" aria-label="Decrease Children">
                 <svg viewBox="0 0 12 2" fill="currentColor"><rect y="0" width="12" height="2" rx="1"/></svg>
               </button>
               <div class="cma-stepper-value">2</div>
-              <button class="cma-stepper-btn" data-action="incr" aria-label="Increase Children">
+              <button type="button" class="cma-stepper-btn" data-action="incr" aria-label="Increase Children">
                 <svg viewBox="0 0 12 12" fill="currentColor"><rect x="5" y="0" width="2" height="12" rx="1"/><rect x="0" y="5" width="12" height="2" rx="1"/></svg>
               </button>
             </div>
@@ -191,11 +191,11 @@
               <span class="sub">Per year</span>
             </div>
             <div class="cma-stepper-controls">
-              <button class="cma-stepper-btn" data-action="decr" aria-label="Decrease Visits">
+              <button type="button" class="cma-stepper-btn" data-action="decr" aria-label="Decrease Visits">
                 <svg viewBox="0 0 12 2" fill="currentColor"><rect y="0" width="12" height="2" rx="1"/></svg>
               </button>
               <div class="cma-stepper-value">4</div>
-              <button class="cma-stepper-btn" data-action="incr" aria-label="Increase Visits">
+              <button type="button" class="cma-stepper-btn" data-action="incr" aria-label="Increase Visits">
                 <svg viewBox="0 0 12 12" fill="currentColor"><rect x="5" y="0" width="2" height="12" rx="1"/><rect x="0" y="5" width="12" height="2" rx="1"/></svg>
               </button>
             </div>
@@ -434,92 +434,91 @@
 <!-- WPBakery Integration Instructions -->
 <!-- ═══════════════════════════════════════════════════════════════════════════ -->
 
-<div class="cma-calc" style="background:#fff;padding:0 0 80px 0;">
-  <div class="cma-calc-container" style="max-width:1280px;margin:0 auto;padding:0 20px;">
+<style>
+/* ── Integration Instructions styling (reference docs only — not part of the pasted widget) ── */
+.cma-calc.cma-guide { padding: 0 0 80px 0; }
+.cma-calc .cma-guide-panel { background: #fdf6ee; border: 2px solid #f7941e; border-radius: 20px; padding: 32px 28px; display: flex; flex-direction: column; gap: 24px; }
+.cma-calc .cma-guide-title { color: #1d3e6b; font-size: 22px; font-weight: 900; margin: 0; }
+.cma-calc .cma-guide-steps { display: flex; flex-direction: column; gap: 16px; list-style: none; padding: 0; margin: 0; counter-reset: step; }
+.cma-calc .cma-guide-step { display: flex; gap: 16px; align-items: flex-start; counter-increment: step; }
+.cma-calc .cma-guide-num { background: #1d3e6b; color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 900; flex-shrink: 0; }
+.cma-calc .cma-guide-body { display: flex; flex-direction: column; gap: 4px; }
+.cma-calc .cma-guide-heading { color: #1d3e6b; font-size: 15px; }
+.cma-calc .cma-guide-text { color: #346094; font-size: 14px; line-height: 1.5; margin: 0; }
+.cma-calc .cma-guide-code { background: #cceff1; padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+.cma-calc .cma-guide-code--light { background: #fff; }
+.cma-calc .cma-guide-callout { border-radius: 12px; padding: 16px 20px; display: flex; flex-direction: column; gap: 8px; }
+.cma-calc .cma-guide-callout--teal { background: #cceff1; }
+.cma-calc .cma-guide-callout--mint { background: #e7f7f0; }
+.cma-calc .cma-guide-callout-title { color: #007c87; font-size: 15px; }
+.cma-calc .cma-guide-list { display: flex; flex-direction: column; gap: 6px; padding-left: 20px; margin: 0; color: #346094; font-size: 14px; line-height: 1.5; }
+.cma-calc .cma-guide-note { color: #346094; font-size: 13px; line-height: 1.5; margin: 0; }
+</style>
 
-    <div style="
-      background:#fdf6ee;
-      border:2px solid #f7941e;
-      border-radius:20px;
-      padding:32px 28px;
-      display:flex;
-      flex-direction:column;
-      gap:24px;
-    ">
-      <h3 style="color:#1d3e6b;font-size:22px;font-weight:900;margin:0;">How to Add This Calculator to WPBakery</h3>
+<div class="cma-calc cma-guide">
+  <div class="cma-calc-container">
 
-      <ol style="display:flex;flex-direction:column;gap:16px;list-style:none;padding:0;margin:0;counter-reset:step;">
-        <li style="display:flex;gap:16px;align-items:flex-start;counter-increment:step;">
-          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">1</span>
-          <div style="display:flex;flex-direction:column;gap:4px;">
-            <strong style="color:#1d3e6b;font-size:15px;">Open the Membership page in the WordPress editor</strong>
-            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Navigate to Pages &rarr; All Pages, find your Membership page, and click <em>Edit with WPBakery</em>.</p>
+    <div class="cma-guide-panel">
+      <h3 class="cma-guide-title">How to Add This Calculator to WPBakery</h3>
+
+      <ol class="cma-guide-steps">
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">1</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">Open the Membership page in the WordPress editor</strong>
+            <p class="cma-guide-text">Navigate to Pages &rarr; All Pages, find your Membership page, and click <em>Edit with WPBakery</em>.</p>
           </div>
         </li>
-        <li style="display:flex;gap:16px;align-items:flex-start;counter-increment:step;">
-          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">2</span>
-          <div style="display:flex;flex-direction:column;gap:4px;">
-            <strong style="color:#1d3e6b;font-size:15px;">Add a "Raw HTML" element</strong>
-            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Click the <strong>+</strong> button to add a new element. Search for <strong>Raw HTML</strong> and add it to the page where you want the calculator to appear.</p>
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">2</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">Add a "Raw HTML" element</strong>
+            <p class="cma-guide-text">Click the <strong>+</strong> button to add a new element. Search for <strong>Raw HTML</strong> and add it to the page where you want the calculator to appear.</p>
           </div>
         </li>
-        <li style="display:flex;gap:16px;align-items:flex-start;counter-increment:step;">
-          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">3</span>
-          <div style="display:flex;flex-direction:column;gap:4px;">
-            <strong style="color:#1d3e6b;font-size:15px;">Copy the calculator code</strong>
-            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Open this HTML file in a text editor. Copy <strong>everything</strong> between the <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;"><!-- START: CMA Membership Savings Calculator --></code> and <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;"><!-- END: CMA Membership Savings Calculator --></code> comments. That gives you the <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;"><style></code>, <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;"><section></code>, and <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;"><script></code> blocks together.</p>
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">3</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">Copy the calculator code</strong>
+            <p class="cma-guide-text">Open this HTML file in a text editor. Copy <strong>everything</strong> between the <code class="cma-guide-code">&lt;!-- START: CMA Membership Savings Calculator --&gt;</code> and <code class="cma-guide-code">&lt;!-- END: CMA Membership Savings Calculator --&gt;</code> comments. That gives you the <code class="cma-guide-code">&lt;style&gt;</code>, <code class="cma-guide-code">&lt;section&gt;</code>, and <code class="cma-guide-code">&lt;script&gt;</code> blocks together.</p>
           </div>
         </li>
-        <li style="display:flex;gap:16px;align-items:flex-start;counter-increment:step;">
-          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">4</span>
-          <div style="display:flex;flex-direction:column;gap:4px;">
-            <strong style="color:#1d3e6b;font-size:15px;">Paste into the Raw HTML block</strong>
-            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Paste the copied code into the Raw HTML element's content area. <strong>Do not</strong> wrap it in anything else — paste it exactly as-is.</p>
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">4</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">Paste into the Raw HTML block</strong>
+            <p class="cma-guide-text">Paste the copied code into the Raw HTML element's content area. <strong>Do not</strong> wrap it in anything else — paste it exactly as-is.</p>
           </div>
         </li>
-        <li style="display:flex;gap:16px;align-items:flex-start;counter-increment:step;">
-          <span style="background:#1d3e6b;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">5</span>
-          <div style="display:flex;flex-direction:column;gap:4px;">
-            <strong style="color:#1d3e6b;font-size:15px;">Save and preview</strong>
-            <p style="color:#346094;font-size:14px;line-height:1.5;margin:0;">Click <strong>Update</strong> to save the page, then preview it. The calculator should load with the Nunito font, teal stepper buttons, and real-time savings math. If fonts don't load, verify Google Fonts is not blocked by a Content Security Policy or ad-blocker.</p>
+        <li class="cma-guide-step">
+          <span class="cma-guide-num">5</span>
+          <div class="cma-guide-body">
+            <strong class="cma-guide-heading">Save and preview</strong>
+            <p class="cma-guide-text">Click <strong>Update</strong> to save the page, then preview it. The calculator should load with the Nunito font, teal stepper buttons, and real-time savings math. If fonts don't load, verify Google Fonts is not blocked by a Content Security Policy or ad-blocker.</p>
           </div>
         </li>
       </ol>
 
-      <div style="
-        background:#cceff1;
-        border-radius:12px;
-        padding:16px 20px;
-        display:flex;
-        flex-direction:column;
-        gap:8px;
-      ">
-        <strong style="color:#007c87;font-size:15px;">&#9888; Troubleshooting Tips</strong>
-        <ul style="display:flex;flex-direction:column;gap:6px;padding-left:20px;margin:0;color:#346094;font-size:14px;line-height:1.5;">
-          <li>If the calculator doesn't appear at all, WPBakery may be stripping <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;"><style></code> or <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;"><script></code> tags. Try using a <strong>Raw JS</strong> element for the script portion instead.</li>
+      <div class="cma-guide-callout cma-guide-callout--teal">
+        <strong class="cma-guide-callout-title">&#9888; Troubleshooting Tips</strong>
+        <ul class="cma-guide-list">
+          <li>If the calculator doesn't appear at all, WPBakery may be stripping <code class="cma-guide-code cma-guide-code--light">&lt;style&gt;</code> or <code class="cma-guide-code cma-guide-code--light">&lt;script&gt;</code> tags. Try using a <strong>Raw JS</strong> element for the script portion instead.</li>
           <li>If stepper buttons don't work, check the browser console for JavaScript errors. The code uses vanilla JS (no jQuery or frameworks needed).</li>
-          <li>The calculator is scoped with <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">.cma-calc</code> class prefixes to avoid conflicting with theme styles.</li>
-          <li>Admission prices are hardcoded: Adults $21.95, Children $19.95. To update prices, find the <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">ADULT_PRICE</code> and <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">CHILD_PRICE</code> variables near the top of the <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;"><script></code> block.</li>
+          <li>The calculator is scoped with <code class="cma-guide-code cma-guide-code--light">.cma-calc</code> class prefixes to avoid conflicting with theme styles.</li>
+          <li>Admission prices are hardcoded: Adults $21.95, Children $19.95. To update prices, find the <code class="cma-guide-code cma-guide-code--light">ADULT_PRICE</code> and <code class="cma-guide-code cma-guide-code--light">CHILD_PRICE</code> variables near the top of the <code class="cma-guide-code cma-guide-code--light">&lt;script&gt;</code> block.</li>
         </ul>
       </div>
 
-      <div style="
-        background:#e7f7f0;
-        border-radius:12px;
-        padding:16px 20px;
-        display:flex;
-        flex-direction:column;
-        gap:8px;
-      ">
-        <strong style="color:#007c87;font-size:15px;">&#9432; Links to Update for Production</strong>
-        <ul style="display:flex;flex-direction:column;gap:6px;padding-left:20px;margin:0;color:#346094;font-size:14px;line-height:1.5;">
-          <li><strong>"Become a Member" button:</strong> currently links to Blackbaud at <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">https://16707.blackbaudhosting.com/16707/CMA-Memberships</code></li>
-          <li><strong>"Find out About Our Discounts" link:</strong> currently points to <code style="background:#fff;padding:1px 6px;border-radius:4px;font-size:13px;">/memberships/information</code> — adjust if your membership info page lives at a different path.</li>
+      <div class="cma-guide-callout cma-guide-callout--mint">
+        <strong class="cma-guide-callout-title">&#9432; Links to Update for Production</strong>
+        <ul class="cma-guide-list">
+          <li><strong>"Become a Member" button:</strong> currently links to Blackbaud at <code class="cma-guide-code cma-guide-code--light">https://16707.blackbaudhosting.com/16707/CMA-Memberships</code></li>
+          <li><strong>"Find out About Our Discounts" link:</strong> currently points to <code class="cma-guide-code cma-guide-code--light">/memberships/information</code> — adjust if your membership info page lives at a different path.</li>
         </ul>
       </div>
 
-      <p style="color:#346094;font-size:13px;line-height:1.5;margin:0;">
-        <strong>Need help?</strong> This calculator was built by the CMA Homepage dev team. Reference file: <code style="background:#cceff1;padding:1px 6px;border-radius:4px;font-size:13px;">public/membership-calculator.html</code> in the Homepagev2 repo.
+      <p class="cma-guide-note">
+        <strong>Need help?</strong> This calculator was built by the CMA Homepage dev team. Reference file: <code class="cma-guide-code">public/membership-calculator.html</code> in the Homepagev2 repo.
       </p>
     </div>
 
