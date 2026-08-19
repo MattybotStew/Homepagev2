@@ -19,7 +19,7 @@ npm run dev# Children's Museum of Atlanta — Homepage v2
 
 - **Last Updated:** 2026-08-19
 - **Active Agent:** Cline
-- **Last Commit:** 95903ae Default tour widgets to ASSET_MODE=cdn (no github.io URLs in WP handoff); verify media library URLs
+- **Last Commit:** 0e5d94f Tour widgets: ASSET_MODE=auto (cdn on CMA site, local on GH Pages) — fixes CORS-blocked 360 viewer on preview
 - **In Progress:** —
 - **Newly Unblocked:** Tour widgets default to `ASSET_MODE = "auto"` — cdn on `childrensmuseumatlanta.org` (same-origin panos, no CORS needed) and on `file://`, local on the GitHub Pages preview/embed + dev (panos ship with the site). This fixes both failure modes for launch: no github.io URLs in the WP handoff, and no CORS-blocked 360° viewers on the github.io embed (verified the CMA media library sends no `Access-Control-Allow-Origin`). All 13 `cdn:` URLs verified live (6 webp + 6 jpg + 1 png). Client image specs documented below.
 - **Still Blocked:** —
