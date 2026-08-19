@@ -256,7 +256,7 @@ export default function ArticleContentWithSidebar({
 													</h3>
 												</div>
 												<p className="text-cma-navy line-clamp-3">
-													{rel.paragraphs[0]}
+													{typeof rel.paragraphs[0] === "string" ? rel.paragraphs[0] : null}
 												</p>
 												<a
 													href={`${relatedHrefBase}/${rel.slug}`}

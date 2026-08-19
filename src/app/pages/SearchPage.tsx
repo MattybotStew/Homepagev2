@@ -55,10 +55,12 @@ function search(query: string): Result[] {
 	});
 
 	programs.forEach((p) => {
-		if (match(query, p.title, p.eyebrow, p.paragraphs[0])) {
+		const firstPara =
+			typeof p.paragraphs[0] === "string" ? p.paragraphs[0] : p.paragraphs[0]?.h3;
+		if (match(query, p.title, p.eyebrow, firstPara)) {
 			results.push({
 				title: p.title,
-				description: p.paragraphs[0]?.slice(0, 140) + "…",
+				description: (firstPara?.slice(0, 140) ?? "") + "…",
 				href: `/program/${p.slug}`,
 				type: "Program",
 				typeColor: "bg-cma-navy",

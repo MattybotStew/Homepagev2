@@ -1,14 +1,14 @@
 import imgDivTrxAddonsImageAccordionItemInner1 from "figma:asset/5fbbcf6f08bc318f43c2c8d00d447df6318200dd.webp";
 import imgDivTrxAddonsImageAccordionItemInner2 from "figma:asset/70606b144d42e6d7ed328be28058d6611206d0a2.webp";
 import imgDivTrxAddonsImageAccordionItemInner from "figma:asset/b8f9ea4dd58f1866ed3c25d4adb731014fe690e2.webp";
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
 import { useState } from "react";
 import svgPaths from "../../imports/svg-qovx1mnin1";
 
 export default function ExploreExhibits() {
 	const [hoveredIndex, setHoveredIndex] = useState<number | null>(0);
 
-	const underlineVariants = {
+	const underlineVariants: Variants = {
 		hidden: { pathLength: 0, opacity: 0 },
 		visible: {
 			pathLength: 1,

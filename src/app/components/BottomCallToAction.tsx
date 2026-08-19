@@ -1,5 +1,5 @@
 import imgBottomCallToActionImage from "figma:asset/e8d56ebc415002dbd15dc991825ef1684a7a8be2.webp";
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
 
 const waveSvgPaths = {
 	p2e48b5f0:
@@ -8,7 +8,7 @@ const waveSvgPaths = {
 
 export default function BottomCallToAction() {
 	// Animation variants
-	const containerVariants = {
+	const containerVariants: Variants = {
 		hidden: { opacity: 0 },
 		visible: {
 			opacity: 1,
@@ -19,7 +19,7 @@ export default function BottomCallToAction() {
 		},
 	};
 
-	const headingVariants = {
+	const headingVariants: Variants = {
 		hidden: { opacity: 0, y: 30 },
 		visible: {
 			opacity: 1,
@@ -31,7 +31,7 @@ export default function BottomCallToAction() {
 		},
 	};
 
-	const fadeInUpVariants = {
+	const fadeInUpVariants: Variants = {
 		hidden: { opacity: 0, y: 20 },
 		visible: {
 			opacity: 1,
@@ -43,7 +43,7 @@ export default function BottomCallToAction() {
 		},
 	};
 
-	const buttonVariants = {
+	const buttonVariants: Variants = {
 		hidden: { opacity: 0, scale: 0.9 },
 		visible: {
 			opacity: 1,
@@ -56,7 +56,7 @@ export default function BottomCallToAction() {
 		},
 	};
 
-	const _arrowVariants = {
+	const _arrowVariants: Variants = {
 		hidden: { opacity: 0, y: 10 },
 		visible: {
 			opacity: 1,
