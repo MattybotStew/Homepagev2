@@ -19,7 +19,7 @@ npm run dev# Children's Museum of Atlanta — Homepage v2
 
 - **Last Updated:** 2026-08-19
 - **Active Agent:** Cline
-- **Last Commit:** d7da655 Unify exhibit sponsor block into single .is-sponsor-panel tile grid
+- **Last Commit:** 95903ae Default tour widgets to ASSET_MODE=cdn (no github.io URLs in WP handoff); verify media library URLs
 - **In Progress:** —
 - **Newly Unblocked:** Tour widgets (`museum-walk-through.html`, `museum-tour-map.html`) now default to `ASSET_MODE = "cdn"` — panos hotlink the live CMA media library, so github.io URLs can't leak into the WPBakery paste block (root cause of the WordPress "could not be accessed" build error). All 13 `cdn:` URLs verified live (6 webp + 6 jpg + 1 png). Client image specs for exhibit featured images + walk-through panos documented below.
 - **Still Blocked:** —
