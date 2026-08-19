@@ -19,9 +19,9 @@ npm run dev# Children's Museum of Atlanta — Homepage v2
 
 - **Last Updated:** 2026-08-19
 - **Active Agent:** Cline
-- **Last Commit:** 403eb4b Update session state: ASSET_MODE auto
+- **Last Commit:** 471d1da Fix all 13 TypeScript errors: motion Variants annotations, react-responsive-masonry declaration, ContentBlock guards, import.meta.env.DEV
 - **In Progress:** —
-- **Newly Unblocked:** Tour widgets default to `ASSET_MODE = "auto"` — cdn on `childrensmuseumatlanta.org` (same-origin panos, no CORS needed) and on `file://`, local on the GitHub Pages preview/embed + dev (panos ship with the site). This fixes both failure modes for launch: no github.io URLs in the WP handoff, and no CORS-blocked 360° viewers on the github.io embed (verified the CMA media library sends no `Access-Control-Allow-Origin`). All 13 `cdn:` URLs verified live (6 webp + 6 jpg + 1 png). Client image specs documented below.
+- **Newly Unblocked:** TypeScript checker now clean — 0 errors (was 13 error locations, ~161 entries in the VS Code Problems panel). Fixed: motion `Variants` annotations (BottomCallToAction, ExploreExhibits), `declare module "react-responsive-masonry"` (vite-env.d.ts), `ContentBlock` guards (SearchPage, ArticleContentWithSidebar), `import.meta.env.DEV` (main.tsx), and excluded the dead `src/imports/PlanYourVisit.tsx` (missing module). Tour widgets default to `ASSET_MODE = "auto"` — cdn on `childrensmuseumatlanta.org` + `file://`, local on GitHub Pages preview/embed + dev; all 13 `cdn:` URLs verified live; CMA media library sends no CORS headers (why auto is required). Client image specs documented below.
 - **Still Blocked:** —
 
 ## WPBakery / standalone tour widgets
