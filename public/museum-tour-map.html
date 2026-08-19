@@ -190,6 +190,26 @@
   height: min(62vh, 520px);
   background: #000;
 }
+.cma-tour-map-file-notice {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 24px;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.cma-tour-map-file-notice code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 1px 5px;
+  border-radius: 5px;
+}
 .cma-tour-map-modal-hint {
   padding: 10px 16px 14px;
   background: #1d3e6b;
@@ -423,6 +443,21 @@ body.cma-tour-map-embed .cma-tour-map-page-only { display: none !important; }
   function openPano(spot, trigger) {
     if (typeof pannellum === "undefined") {
       window.alert("360 viewer failed to load. Check that the Pannellum CDN is not blocked.");
+      return;
+    }
+    // file:// (double-click open) gets a unique opaque origin with no CORS, so the WebGL
+    // pano upload is rejected by every modern browser. Show a clear notice instead.
+    if (location.protocol === "file:") {
+      modalTitle.textContent = spot.title;
+      modal.hidden = false;
+      modal.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+      viewerEl.className = "cma-tour-map-viewer cma-tour-map-file-notice";
+      viewerEl.innerHTML =
+        "The 360&deg; preview requires a local server &mdash; browsers block the local WebGL " +
+        "viewer over file://. Run <code>cd cma-museum-walk-through && python3 -m http.server 8000</code> " +
+        "and open <code>http://localhost:8000/museum-tour-map.html</code>.";
+      modalClose.focus();
       return;
     }
     lastFocus = trigger || document.activeElement;

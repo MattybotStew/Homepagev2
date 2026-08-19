@@ -18,10 +18,10 @@ npm run dev# Children's Museum of Atlanta — Homepage v2
 ## Session State
 
 - **Last Updated:** 2026-08-19
-- **Active Agent:** Grok 4.6
-- **Last Commit:** 105e73d Quiet HTML/IDE lint on standalone widgets
-- **In Progress:** Walk-through / tour-map WPBakery guide class cleanup (uncommitted) — same pattern as membership-calculator. Waiting on a client call for Jane's + Step Up To Science 16:9 pano re-export.
-- **Newly Unblocked:** All three standalone widgets now have 0 HTML `style=` attributes. Local panos are byte-identical to CMA `-scaled` CDN URLs.
+- **Active Agent:** Cline
+- **Last Commit:** (pending push) file:// local-preview fix for museum walk-through / tour-map widgets
+- **In Progress:** Committing the `file://` local-preview fix (JOURNAL.md 2026-08-19 Cline). Browsers block the WebGL 360° viewer over `file://` (unique opaque origin + no CORS → Pannellum `texImage2D` rejects the pano), so double-click open of the unzipped package can't render. Walk-through + tour-map widgets now detect `file://` and show a clear notice (`python3 -m http.server 8000` → `http://localhost:8000/…`); docs require a local server. **Loose end:** rebuild `cma-museum-walk-through.zip` so it carries the fixed HTML.
+- **Newly Unblocked:** All three standalone widgets have 0 HTML `style=` attributes. Local panos are byte-identical to CMA `-scaled` CDN URLs. `file://` preview failure diagnosed and addressed in widget + docs.
 - **Still Blocked:** Jane's Innovation Station + Step Up To Science are 2560×1440 (16:9) on both local and CDN — needs original 2:1 re-export + WP re-upload. Hotspot yaw/pitch still needs a human pass on each of the 12 scenes.
 
 ## WPBakery / standalone tour widgets

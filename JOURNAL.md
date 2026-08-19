@@ -2,6 +2,13 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-19 — Cline (file:// local preview fix)
+
+- Diagnosed `Museum Walk-Through` failing from the unzipped Desktop package: the pano URL resolves correctly (`file:///…/museum-tour-map/fundamentally-food-kitchen.webp`), but a `file://` document gets a **unique opaque origin with no CORS**, so Pannellum's WebGL texture upload (`texImage2D`) is rejected — "The file … could not be accessed." Not a path/layout bug; double-click `file://` is inherently unsupported for the 360 viewer.
+- Patched `public/museum-walk-through.html` + `public/museum-tour-map.html` **and** the Desktop `cma-museum-walk-through/` copies: on `location.protocol === "file:"` they now show a clear in-browser notice (`python3 -m http.server 8000` → `http://localhost:8000/…`) instead of the cryptic Pannellum error. Added `.cma-walk-file-notice` (hidden on embed) and `.cma-tour-map-file-notice`; added a "Do not" guide bullet.
+- `MUSEUM-WALK-THROUGH.md`: corrected the environment matrix + "Local preview from zip" (now documents the local-server requirement), added a common-failure row for the `file://` pano error.
+- **Loose end:** `cma-museum-walk-through.zip` on Desktop is now stale (its HTML is patched in place, but the zip itself must be rebuilt so the zip carries the fixed `museum-walk-through.html` / `museum-tour-map.html`). Rebuild: `cd public && zip -r cma-museum-walk-through.zip cma-museum-walk-through` (or re-zip the Desktop folder).
+
 ## 2026-08-19 — Cursor (Composer, wpdev asset URLs)
 
 - Finished Grok's wpdev sideload fix: floor-plan `<img>` now defaults to production CDN URL (not `museum-tour-map/…`) so WP server-side scans never see relative paths. `useMediaLibrary()` in both widgets now defaults to **CDN/same-origin** on any host that isn't GitHub Pages or localhost; added `isGitHubPages()` / `isLocalDev()` and broader WP host detection (`staging`, `stg`, body `wp-*` class).

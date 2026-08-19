@@ -174,6 +174,25 @@ html.cma-walk-embed .cma-walk-hint { display: none; }
   padding: 24px;
   text-align: center;
 }
+.cma-walk-file-notice {
+  margin: 0 0 12px;
+  padding: 14px 16px;
+  border: 2px solid #f7941e;
+  border-radius: 12px;
+  background: #fdf6ee;
+  color: #1d3e6b;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.cma-walk-file-notice code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  background: rgba(0, 0, 0, 0.06);
+  padding: 1px 5px;
+  border-radius: 5px;
+}
+html.cma-walk-embed .cma-walk-file-notice { display: none !important; }
 .cma-walk-live {
   position: absolute;
   width: 1px;
@@ -201,6 +220,7 @@ html.cma-walk-embed .cma-walk-hint { display: none; }
     </div>
 
     <div class="cma-walk-shell">
+      <div class="cma-walk-file-notice" id="cma-walk-file-notice" hidden></div>
       <section class="cma-walk-viewer" id="cma-walk-viewer" aria-label="Museum 360 degree walk-through"></section>
       <nav class="cma-walk-rooms" id="cma-walk-rooms" aria-label="Museum rooms"></nav>
       <p class="cma-walk-live" id="cma-walk-live" aria-live="polite"></p>
@@ -553,7 +573,22 @@ html.cma-walk-embed .cma-walk-hint { display: none; }
     announce(FIRST_SCENE);
   }
 
+  // file:// (double-click open) gets a unique opaque origin with no CORS, so the
+  // WebGL texture upload for the pano is rejected by every modern browser. Surface a
+  // clear notice instead of Pannellum's cryptic "could not be accessed" error.
   function init() {
+    if (location.protocol === "file:") {
+      var notice = document.getElementById("cma-walk-file-notice");
+      if (notice) {
+        notice.innerHTML =
+          "This preview was opened directly from disk (file://). Browsers block the local " +
+          "360&deg; WebGL viewer over file://, so the panorama cannot load. " +
+          "Run a local server to preview instead: <code>cd cma-museum-walk-through && python3 -m http.server 8000</code>, " +
+          "then open <code>http://localhost:8000/museum-walk-through.html</code>.";
+        notice.hidden = false;
+      }
+      return;
+    }
     buildRoomButtons();
     ensurePannellum(startViewer);
   }
@@ -653,6 +688,7 @@ html.cma-walk-embed .cma-walk-hint { display: none; }
         <ul class="cma-guide-list">
           <li>Iframe the GitHub Pages preview or use WordPress <strong>Add from URL</strong> with github.io links — WP cannot sideload those files server-side.</li>
           <li>Upload the zip's <code class="cma-guide-code cma-guide-code--light">museum-tour-map/</code> folder via FTP for WP unless you explicitly set <code class="cma-guide-code cma-guide-code--light">ASSET_MODE = "local"</code> — default WP paste uses the media library.</li>
+          <li>Double-click open the standalone HTML from the zip (<code class="cma-guide-code cma-guide-code--light">file://</code>). Browsers block the local WebGL 360&deg; viewer over <code class="cma-guide-code cma-guide-code--light">file://</code>. Preview with a local server instead: <code class="cma-guide-code cma-guide-code--light">cd cma-museum-walk-through && python3 -m http.server 8000</code>, then open <code class="cma-guide-code cma-guide-code--light">http://localhost:8000/museum-walk-through.html</code>.</li>
         </ul>
       </div>
     </div>
