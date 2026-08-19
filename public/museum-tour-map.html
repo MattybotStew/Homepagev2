@@ -292,7 +292,12 @@ body.cma-tour-map-embed .cma-tour-map-page-only { display: none !important; }
   }
   function isLocalDev() {
     var h = location.hostname;
-    return h === "localhost" || h === "127.0.0.1";
+    if (h === "localhost" || h === "127.0.0.1" || h === "[::1]") return true;
+    var p = location.port;
+    return p === "5173" || p === "4173";
+  }
+  function isLocalPreview() {
+    return location.protocol === "file:" || isGitHubPages() || isLocalDev();
   }
   function isWpHost() {
     var h = location.hostname;
@@ -317,8 +322,7 @@ body.cma-tour-map-embed .cma-tour-map-page-only { display: none !important; }
   function useMediaLibrary() {
     if (ASSET_MODE === "local") return false;
     if (ASSET_MODE === "cdn") return true;
-    if (location.protocol === "file:") return true;
-    if (isGitHubPages() || isLocalDev()) return false;
+    if (isLocalPreview()) return false;
     if (isWordPressPage() || isWpHost()) return true;
     return true;
   }
@@ -352,7 +356,6 @@ body.cma-tour-map-embed .cma-tour-map-page-only { display: none !important; }
   }
 
   function wpMediaUrl(absoluteCdn) {
-    if (location.protocol === "file:") return absoluteCdn;
     try {
       var u = new URL(absoluteCdn);
       if (u.pathname.indexOf("/wp-content/uploads/") === 0) {
@@ -561,7 +564,7 @@ body.cma-tour-map-embed .cma-tour-map-page-only { display: none !important; }
         <strong class="cma-guide-callout-title">&#9432; Media URLs</strong>
         <ul class="cma-guide-list">
           <li><code class="cma-guide-code cma-guide-code--light">ASSET_MODE</code> defaults to <code class="cma-guide-code cma-guide-code--light">"auto"</code>. On <code class="cma-guide-code cma-guide-code--light">childrensmuseumatlanta.org</code> and WP Engine hosts it loads media from <em>this origin</em> (same-origin). On GitHub Pages / localhost it uses bundled <code class="cma-guide-code cma-guide-code--light">museum-tour-map/</code> files. No edits needed before pasting into CMA WordPress.</li>
-          <li>Force <code class="cma-guide-code cma-guide-code--light">ASSET_MODE = "cdn"</code> only to hotlink production media from a non-WP-Engine host (may fail CORS). Use <code class="cma-guide-code cma-guide-code--light">ASSET_MODE = "local"</code> when the <code class="cma-guide-code cma-guide-code--light">museum-tour-map/</code> folder is uploaded next to this HTML. <code class="cma-guide-code cma-guide-code--light">file://</code> always uses the live CMA media URLs.</li>
+          <li>Force <code class="cma-guide-code cma-guide-code--light">ASSET_MODE = "cdn"</code> only to hotlink production media from a non-WP-Engine host (may fail CORS). Use <code class="cma-guide-code cma-guide-code--light">ASSET_MODE = "local"</code> when the <code class="cma-guide-code cma-guide-code--light">museum-tour-map/</code> folder is uploaded next to this HTML. <code class="cma-guide-code cma-guide-code--light">file://</code>, localhost, and GitHub Pages use bundled <code class="cma-guide-code cma-guide-code--light">museum-tour-map/</code> files.</li>
           <li>Walk-through link: <code class="cma-guide-code cma-guide-code--light">/plan-your-visit/tour-the-museum/museum-walk-through/</code></li>
         </ul>
       </div>
