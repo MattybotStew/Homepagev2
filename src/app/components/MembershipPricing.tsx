@@ -1,4 +1,4 @@
-import { faBolt } from "@fortawesome/free-solid-svg-icons";
+import { faBolt, faTicket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -57,10 +57,20 @@ export default function MembershipPricing() {
 
 						<button
 							onClick={() => setTab("single")}
-							className={`flex items-center justify-center min-h-[44px] px-[24px] rounded-[1000px] transition-colors duration-200 ${tab === "single" ? "bg-cma-navy" : "bg-transparent"}`}
+							className={`flex items-center justify-center gap-[6px] min-h-[44px] px-[24px] rounded-[1000px] transition-colors duration-200 ${tab === "single" ? "bg-cma-navy" : "bg-transparent"}`}
 						>
 							<span className={`font-extrabold text-[14px] leading-[1.14] whitespace-nowrap ${tab === "single" ? "text-white" : "text-cma-navy"}`}>
 								Single Visit
+							</span>
+							<span className="flex items-center justify-center gap-[4px] px-[8px] py-[4px] rounded-full bg-[rgba(247,148,30,0.15)]">
+								<FontAwesomeIcon
+									icon={faTicket}
+									aria-hidden
+									className="text-cma-orange text-[10px] shrink-0"
+								/>
+								<span className="font-extrabold text-[10px] tracking-[0.5px] uppercase whitespace-nowrap text-cma-orange-dark">
+									Tickets
+								</span>
 							</span>
 						</button>
 					</div>
