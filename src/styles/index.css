@@ -298,7 +298,7 @@
 
 .cma-testimonial-location {
   font-family: Nunito, sans-serif;
-  color: #78787a;
+  color: var(--cma-gray);
   font-size: 15px;
   line-height: 20px;
 }

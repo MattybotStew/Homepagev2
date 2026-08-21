@@ -368,7 +368,7 @@ export default function MuseumOnTheGoProgramContent() {
 					{/* ── Sticky sidebar ── */}
 					<aside className="hidden lg:flex flex-col gap-[20px] w-[210px] shrink-0 sticky top-[140px] self-start">
 						<div className="bg-white rounded-[20px] border border-[rgba(107,126,160,0.15)] p-[20px] flex flex-col gap-[4px]">
-							<p className="cma-eyebrow text-cma-navy/40 text-[10px] mb-[12px]">
+							<p className="cma-eyebrow text-cma-navy/80 text-[10px] mb-[12px]">
 								Jump to
 							</p>
 							{sections.map((section) => (
@@ -378,7 +378,7 @@ export default function MuseumOnTheGoProgramContent() {
 									className={`flex items-center gap-[10px] py-[8px] px-[10px] rounded-[10px] text-[13px] font-bold leading-[1.3] transition-colors w-full text-left ${
 										activeSection === section.id
 											? "bg-cma-navy/5 text-cma-navy"
-											: "text-cma-navy/45 hover:text-cma-navy hover:bg-cma-navy/5"
+											: "text-cma-navy/80 hover:text-cma-navy hover:bg-cma-navy/5"
 									}`}
 								>
 									<span
@@ -405,7 +405,7 @@ export default function MuseumOnTheGoProgramContent() {
 							/>
 							<button
 								type="button"
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 							>
 								Stay In The Loop!
 							</button>
@@ -471,14 +471,14 @@ export default function MuseumOnTheGoProgramContent() {
 									<p className="font-extrabold text-cma-navy text-[16px] mb-[6px]">
 										Ready to Book?
 									</p>
-									<p className="text-cma-navy/70 text-[14px]">
+									<p className="text-cma-navy/80 text-[14px]">
 										Sessions available Monday–Friday. Contact us at least 3–4
 										weeks in advance to secure your preferred date. Museum On-the-Gos are also available virtually!
 									</p>
 								</div>
 								<button
 									onClick={() => scrollToSection("request-visit")}
-									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black shrink-0"
+									className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black shrink-0"
 								>
 									Request a Session
 								</button>
@@ -515,7 +515,7 @@ export default function MuseumOnTheGoProgramContent() {
 												<p className="font-extrabold text-cma-navy">
 													{item.label}
 												</p>
-												<p className="text-cma-navy/70">{item.description}</p>
+												<p className="text-cma-navy/80">{item.description}</p>
 											</div>
 										</div>
 									))}
@@ -546,7 +546,7 @@ export default function MuseumOnTheGoProgramContent() {
 													</div>
 													<div className="flex flex-col gap-[2px]">
 														<span className="font-extrabold text-cma-navy">{tier.label}</span>
-														<span className="text-[13px] text-cma-navy/50">{tier.ages} · {tier.subtitle}</span>
+														<span className="text-[13px] text-cma-navy/80">{tier.ages} · {tier.subtitle}</span>
 													</div>
 												</div>
 												<FontAwesomeIcon
@@ -559,12 +559,12 @@ export default function MuseumOnTheGoProgramContent() {
 													{tier.programs.map((prog) => (
 														<div key={prog.title} className="flex flex-col gap-[4px] py-[12px] border-t border-black/5">
 															<p className="font-bold text-cma-navy text-[14px]">{prog.title}</p>
-															<p className="text-cma-navy/65 text-[13px] leading-[1.5]">{prog.description}</p>
+															<p className="text-cma-navy/80 text-[13px] leading-[1.5]">{prog.description}</p>
 															{"standards" in prog && prog.standards && prog.standards.length > 0 && (
 																<div className="flex flex-col gap-[4px] mt-[8px] pt-[8px] border-t border-cma-teal-dark/20">
 																	<p className="text-[11px] font-extrabold text-cma-teal-dark uppercase tracking-[1.5px]">Learning Standards</p>
 																	{prog.standards.map((s, j) => (
-																		<p key={j} className="text-[12px] text-cma-navy/60 leading-[1.6]">{s}</p>
+																		<p key={j} className="text-[12px] text-cma-navy/80 leading-[1.6]">{s}</p>
 																	))}
 																</div>
 															)}
@@ -605,7 +605,7 @@ export default function MuseumOnTheGoProgramContent() {
 												<p className="font-extrabold text-cma-navy">
 													{item.label}
 												</p>
-												<p className="text-cma-navy/70">{item.description}</p>
+												<p className="text-cma-navy/80">{item.description}</p>
 											</div>
 										</div>
 									))}
@@ -707,7 +707,7 @@ export default function MuseumOnTheGoProgramContent() {
 								</div>
 								<a
 									href="tel:4045273693"
-									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black shrink-0"
+									className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black shrink-0"
 								>
 									<FontAwesomeIcon icon={faPhone} className="mr-[8px] text-[13px]" />
 									Contact Us
@@ -759,8 +759,8 @@ export default function MuseumOnTheGoProgramContent() {
 												<input type="text" placeholder="School Name" className={inputClass} />
 											</div>
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Grade Level(s) *</label>
-												<select className={inputClass}>
+												<label className={labelClass} htmlFor="ff-grade-level-s">Grade Level(s) *</label>
+												<select id="ff-grade-level-s" className={inputClass}>
 													<option value="">Select grade level</option>
 													<option>Pre-K</option>
 													<option>Kindergarten</option>
@@ -786,8 +786,8 @@ export default function MuseumOnTheGoProgramContent() {
 											</div>
 										</div>
 										<div className="flex flex-col gap-[6px]">
-											<label className={labelClass}>Preferred Topic / Subject Area</label>
-											<select className={inputClass}>
+											<label className={labelClass} htmlFor="ff-preferred-topic-subject-area">Preferred Topic / Subject Area</label>
+											<select id="ff-preferred-topic-subject-area" className={inputClass}>
 												<option value="">Select a topic (optional)</option>
 												<option>Science & Discovery</option>
 												<option>Math & Engineering</option>
@@ -798,8 +798,8 @@ export default function MuseumOnTheGoProgramContent() {
 											</select>
 										</div>
 										<div className="flex flex-col gap-[6px]">
-											<label className={labelClass}>Preferred Time of Day</label>
-											<select className={inputClass}>
+											<label className={labelClass} htmlFor="ff-preferred-time-of-day">Preferred Time of Day</label>
+											<select id="ff-preferred-time-of-day" className={inputClass}>
 												<option value="">Select preferred time</option>
 												<option>Morning (9am – 12pm)</option>
 												<option>Afternoon (12pm – 3pm)</option>
@@ -824,8 +824,8 @@ export default function MuseumOnTheGoProgramContent() {
 											<input type="text" placeholder="Name and email for billing" className={inputClass} />
 										</div>
 										<div className="flex flex-col gap-[6px]">
-											<label className={labelClass}>How Did You Hear About Us?</label>
-											<select className={inputClass}>
+											<label className={labelClass} htmlFor="ff-how-did-you-hear-about-us">How Did You Hear About Us?</label>
+											<select id="ff-how-did-you-hear-about-us" className={inputClass}>
 												<option value="">Select an option</option>
 												<option>CMA Website</option>
 												<option>CMA Educator Newsletter</option>
@@ -847,7 +847,7 @@ export default function MuseumOnTheGoProgramContent() {
 										<div>
 											<button
 												type="submit"
-												className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+												className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 											>
 												Submit
 											</button>
@@ -884,7 +884,7 @@ export default function MuseumOnTheGoProgramContent() {
 											<img src={floor.image} alt={floor.title} className="w-full h-[180px] object-cover" />
 											<div className="p-[20px] flex flex-col gap-[10px]">
 												<p className="font-extrabold text-cma-navy text-[18px]">{floor.title}</p>
-												<p className="text-cma-navy/70 text-[14px]">{floor.description}</p>
+												<p className="text-cma-navy/80 text-[14px]">{floor.description}</p>
 											</div>
 										</div>
 									))}

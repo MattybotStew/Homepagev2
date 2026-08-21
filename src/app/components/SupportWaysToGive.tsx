@@ -111,7 +111,7 @@ export default function SupportWaysToGive() {
 						<div className="flex flex-col sm:flex-row gap-3 pt-2">
 							<a
 								href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 							>
 								Donate Now
 							</a>
@@ -171,7 +171,7 @@ export default function SupportWaysToGive() {
 						<div className="flex flex-col sm:flex-row gap-3 pt-2">
 							<a
 								href="#/support/corporate-partners"
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 							>
 								Corporate Partnerships
 							</a>

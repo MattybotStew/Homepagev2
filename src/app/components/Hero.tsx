@@ -125,7 +125,7 @@ export default function Hero({
 									href={cta.href}
 									className={
 										cta.variant === "orange"
-											? "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+											? "cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 											: "cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
 									}
 								>

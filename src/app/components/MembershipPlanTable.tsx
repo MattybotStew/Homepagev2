@@ -80,7 +80,7 @@ function Row({ label, sub, cells, striped }: { label: string; sub?: string; cell
 		<tr className={striped ? "bg-cma-cream/50" : "bg-white"}>
 			<td className="py-[16px] px-[16px] min-w-[200px] align-middle">
 				<p className="font-semibold text-[14px] text-cma-navy leading-[1.3]">{label}</p>
-				{sub && <p className="text-[13px] text-cma-navy/60 leading-[1.3]">{sub}</p>}
+				{sub && <p className="text-[13px] text-cma-navy/80 leading-[1.3]">{sub}</p>}
 			</td>
 			{cells.map((cell, i) => (
 				<td key={i} className="py-[16px] px-[16px] text-center align-middle min-w-[100px]">
@@ -126,7 +126,7 @@ export default function MembershipPlanTable() {
 								{tiers.map((tier) => (
 									<th key={tier.name} className="py-[20px] px-[16px] text-center min-w-[100px]">
 										<p className="font-extrabold text-[14px] text-cma-navy leading-[1.2]">{tier.name}</p>
-										<p className="font-semibold text-[13px] text-cma-navy/50 leading-[1.4]">{tier.price}</p>
+										<p className="font-semibold text-[13px] text-cma-navy/80 leading-[1.4]">{tier.price}</p>
 									</th>
 								))}
 							</tr>

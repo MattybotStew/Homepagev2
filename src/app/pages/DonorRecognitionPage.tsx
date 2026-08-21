@@ -54,7 +54,7 @@ export default function DonorRecognitionPage() {
 							>
 								<p className={`${stat.color} font-black text-[clamp(36px,4vw,56px)] leading-none`}>{stat.number}</p>
 								<p className="font-extrabold text-[clamp(15px,1.25vw,18px)] text-cma-navy leading-[1.1]">{stat.label}</p>
-								<p className="font-bold text-cma-navy/60 text-[14px] leading-[1.5]">{stat.detail}</p>
+								<p className="font-bold text-cma-navy/80 text-[14px] leading-[1.5]">{stat.detail}</p>
 							</motion.div>
 						))}
 					</div>

@@ -221,7 +221,7 @@ function HoursTable({ rows }: { rows: { day: string; hours: string }[] }) {
 			{rows.map(({ day, hours }) => (
 				<div key={day} className="flex items-center justify-between py-[10px] border-b border-black/8 last:border-0 text-[13px]">
 					<span className="font-medium text-cma-navy">{day}</span>
-					<span className={hours === "Closed" ? "font-bold text-cma-navy" : "text-cma-navy/60"}>
+					<span className={hours === "Closed" ? "font-bold text-cma-navy" : "text-cma-navy/80"}>
 						{hours}
 					</span>
 				</div>
@@ -294,7 +294,7 @@ export default function ContactPage() {
 						{/* Sticky sidebar */}
 						<aside className="hidden lg:flex flex-col gap-[20px] w-[210px] shrink-0 sticky top-[140px] self-start">
 							<div className="bg-white rounded-[20px] border border-[rgba(107,126,160,0.15)] p-[20px] flex flex-col gap-[4px]">
-								<p className="cma-eyebrow text-cma-navy/40 text-[10px] mb-[12px]">Jump to</p>
+								<p className="cma-eyebrow text-cma-navy/80 text-[10px] mb-[12px]">Jump to</p>
 								{sections.map((s) => (
 									<button
 										key={s.id}
@@ -302,7 +302,7 @@ export default function ContactPage() {
 										className={`flex items-center gap-[10px] py-[8px] px-[10px] rounded-[10px] text-[13px] font-bold leading-[1.3] transition-colors w-full text-left ${
 											activeSection === s.id
 												? "bg-cma-navy/5 text-cma-navy"
-												: "text-cma-navy/45 hover:text-cma-navy hover:bg-cma-navy/5"
+												: "text-cma-navy/80 hover:text-cma-navy hover:bg-cma-navy/5"
 										}`}
 									>
 										<span className={`w-[6px] h-[6px] rounded-full shrink-0 transition-colors ${activeSection === s.id ? "bg-cma-orange" : "bg-cma-navy/20"}`} />
@@ -337,7 +337,7 @@ export default function ContactPage() {
 								{/* ── Department Contacts ── */}
 								<div id="department-contacts" className="flex flex-col gap-[20px]">
 									<h2 className="text-cma-navy">Department Contacts</h2>
-									<p className="text-cma-navy/70">Reach out directly to the team that can help you most.</p>
+									<p className="text-cma-navy/80">Reach out directly to the team that can help you most.</p>
 									<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
 										{departments.map((dept) => (
 											<div key={dept.name} className="border border-black/8 rounded-[20px] p-[20px] flex flex-col gap-[12px]">
@@ -352,12 +352,12 @@ export default function ContactPage() {
 																{dept.phone}
 															</a>
 														) : (
-															<p className="text-cma-navy/50 text-[13px] italic">{dept.phone}</p>
+															<p className="text-cma-navy/80 text-[13px] italic">{dept.phone}</p>
 														)}
 													</div>
 												</div>
-												<p className="text-cma-navy/65 text-[13px] leading-[1.5]">{dept.description}</p>
-												<a href={dept.ctaHref} className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start text-[13px] !py-[8px] !px-[16px]">
+												<p className="text-cma-navy/80 text-[13px] leading-[1.5]">{dept.description}</p>
+												<a href={dept.ctaHref} className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black self-start text-[13px] !py-[8px] !px-[16px]">
 													{dept.cta}
 												</a>
 											</div>
@@ -424,7 +424,7 @@ export default function ContactPage() {
 												/>
 											</div>
 											<div className="flex gap-[10px] flex-wrap">
-												<a href="#/plan-your-visit" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
+												<a href="#/plan-your-visit" className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black">
 													Buy Tickets
 												</a>
 												<a href="#/plan-your-visit" className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black">
@@ -449,27 +449,27 @@ export default function ContactPage() {
 											<h3 className="text-cma-navy !text-[18px]">Contact Us Form</h3>
 											<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
 												<div className="flex flex-col gap-[6px]">
-													<label className={labelClass}>First Name *</label>
-													<input type="text" placeholder="First Name" className={inputClass} />
+													<label htmlFor="cf-first" className={labelClass}>First Name *</label>
+													<input id="cf-first" type="text" placeholder="First Name" className={inputClass} />
 												</div>
 												<div className="flex flex-col gap-[6px]">
-													<label className={labelClass}>Last Name *</label>
-													<input type="text" placeholder="Last Name" className={inputClass} />
+													<label htmlFor="cf-last" className={labelClass}>Last Name *</label>
+													<input id="cf-last" type="text" placeholder="Last Name" className={inputClass} />
 												</div>
 											</div>
 											<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
 												<div className="flex flex-col gap-[6px]">
-													<label className={labelClass}>Contact Phone Number *</label>
-													<input type="tel" placeholder="(000) 000-0000" className={inputClass} />
+													<label htmlFor="cf-phone" className={labelClass}>Contact Phone Number *</label>
+													<input id="cf-phone" type="tel" placeholder="(000) 000-0000" className={inputClass} />
 												</div>
 												<div className="flex flex-col gap-[6px]">
-													<label className={labelClass}>Contact Email *</label>
-													<input type="email" placeholder="you@email.com" className={inputClass} />
+													<label htmlFor="cf-email" className={labelClass}>Contact Email *</label>
+													<input id="cf-email" type="email" placeholder="you@email.com" className={inputClass} />
 												</div>
 											</div>
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Department Topic *</label>
-												<select className={inputClass}>
+												<label htmlFor="cf-topic" className={labelClass}>Department Topic *</label>
+												<select id="cf-topic" className={inputClass}>
 													<option value="">Select a topic</option>
 													<option>General Question</option>
 													<option>Tickets & Admissions</option>
@@ -487,11 +487,11 @@ export default function ContactPage() {
 												</select>
 											</div>
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Message</label>
-												<textarea rows={4} placeholder="Tell us how we can help..." className={`${inputClass} resize-none`} />
+												<label htmlFor="cf-message" className={labelClass}>Message</label>
+												<textarea id="cf-message" rows={4} placeholder="Tell us how we can help..." className={`${inputClass} resize-none`} />
 											</div>
 											<div>
-												<button type="submit" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
+												<button type="submit" className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black">
 													Send Message
 												</button>
 											</div>
@@ -537,7 +537,7 @@ export default function ContactPage() {
 								{/* ── Helpful Links ── */}
 								<div id="helpful-links" className="flex flex-col gap-[20px]">
 									<h2 className="text-cma-navy">Helpful Links</h2>
-									<p className="text-cma-navy/70">Reach out directly to the team that can help you most.</p>
+									<p className="text-cma-navy/80">Reach out directly to the team that can help you most.</p>
 									<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
 										{helpfulLinks.map((link) => (
 											<div key={link.label} className="border border-black/8 rounded-[20px] p-[20px] flex flex-col gap-[12px]">
@@ -547,8 +547,8 @@ export default function ContactPage() {
 													</div>
 													<p className="font-extrabold text-cma-navy text-[15px]">{link.label}</p>
 												</div>
-												<p className="text-cma-navy/60 text-[13px] leading-[1.5]">{link.description}</p>
-												<a href={link.href} className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start text-[13px] !py-[8px] !px-[16px]">
+												<p className="text-cma-navy/80 text-[13px] leading-[1.5]">{link.description}</p>
+												<a href={link.href} className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black self-start text-[13px] !py-[8px] !px-[16px]">
 													{link.cta}
 												</a>
 											</div>

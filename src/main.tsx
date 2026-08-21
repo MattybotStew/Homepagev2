@@ -109,39 +109,41 @@ createRoot(document.getElementById("root")!).render(
     <HashRouter>
       <ScrollToTop />
       <Suspense fallback={<PageLoader />}>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/plan-your-visit" element={<PlanYourVisitPage />} />
-          <Route path="/parties" element={<PartiesPage />} />
-          <Route path="/museum-store" element={<MuseumStorePage />} />
-          <Route path="/exhibits" element={<ExhibitsPage />} />
-          <Route path="/news/:slug" element={<ArticlePage />} />
-          <Route path="/exhibits/:slug" element={<ExhibitPage />} />
-          <Route path="/educators" element={<EducatorsPage />} />
-          <Route path="/program/:slug" element={<ProgramPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/about/impact" element={<ImpactPage />} />
-          <Route path="/about/careers" element={<CareersPage />} />
-          <Route path="/events" element={<CalendarPage />} />
-          <Route path="/events/:slug" element={<EventPage />} />
-          <Route path="/news" element={<NewsPage />} />
-          <Route path="/resources/playful-learning" element={<PlayfulLearningPage />} />
-          <Route path="/resources/playful-learning/:slug" element={<ResourcePage />} />
-          <Route path="/donate" element={<DonatePage />} />
-          <Route path="/memberships" element={<MembershipsPage />} />
-          <Route path="/memberships/information" element={<MembershipInfoPage />} />
-          <Route path="/memberships/corporate" element={<CorporateMembershipPage />} />
-          <Route path="/support" element={<SupportPage />} />
-          <Route path="/support/corporate-partners" element={<CorporatePartnerPage />} />
-          <Route path="/support/donor-recognition" element={<DonorRecognitionPage />} />
-          <Route path="/giving-circles/:slug" element={<GivingCirclePage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/privacy" element={<PrivacyPage />} />
-          <Route path="/terms" element={<TermsPage />} />
-          <Route path="/styleguide" element={<StyleguidePage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        <main id="main-content" className="size-full relative">
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/plan-your-visit" element={<PlanYourVisitPage />} />
+            <Route path="/parties" element={<PartiesPage />} />
+            <Route path="/museum-store" element={<MuseumStorePage />} />
+            <Route path="/exhibits" element={<ExhibitsPage />} />
+            <Route path="/news/:slug" element={<ArticlePage />} />
+            <Route path="/exhibits/:slug" element={<ExhibitPage />} />
+            <Route path="/educators" element={<EducatorsPage />} />
+            <Route path="/program/:slug" element={<ProgramPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/about/impact" element={<ImpactPage />} />
+            <Route path="/about/careers" element={<CareersPage />} />
+            <Route path="/events" element={<CalendarPage />} />
+            <Route path="/events/:slug" element={<EventPage />} />
+            <Route path="/news" element={<NewsPage />} />
+            <Route path="/resources/playful-learning" element={<PlayfulLearningPage />} />
+            <Route path="/resources/playful-learning/:slug" element={<ResourcePage />} />
+            <Route path="/donate" element={<DonatePage />} />
+            <Route path="/memberships" element={<MembershipsPage />} />
+            <Route path="/memberships/information" element={<MembershipInfoPage />} />
+            <Route path="/memberships/corporate" element={<CorporateMembershipPage />} />
+            <Route path="/support" element={<SupportPage />} />
+            <Route path="/support/corporate-partners" element={<CorporatePartnerPage />} />
+            <Route path="/support/donor-recognition" element={<DonorRecognitionPage />} />
+            <Route path="/giving-circles/:slug" element={<GivingCirclePage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/styleguide" element={<StyleguidePage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </main>
       </Suspense>
     </HashRouter>
   </ErrorBoundary>,

@@ -54,7 +54,7 @@ export default function GridEmptyState({
 
 				<h3 className="text-cma-navy relative">{heading}</h3>
 
-				<p className="text-cma-navy/60 max-w-[440px] relative">{body}</p>
+				<p className="text-cma-navy/80 max-w-[440px] relative">{body}</p>
 
 				{children && (
 					<div className="relative flex flex-wrap gap-[10px] justify-center pt-[4px]">

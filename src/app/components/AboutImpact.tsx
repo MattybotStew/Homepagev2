@@ -161,7 +161,7 @@ export default function AboutImpact() {
 						>
 							<a
 								href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 							>
 								Make Play Possible
 							</a>

@@ -46,7 +46,7 @@ export default function NewsPage() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
 					>
-						<p className="cma-eyebrow text-cma-teal">
+						<p className="cma-eyebrow text-cma-teal-dark">
 							children's museum of atlanta
 						</p>
 						<h1 className="text-cma-navy">News &amp; Blog</h1>
@@ -57,7 +57,7 @@ export default function NewsPage() {
 						<div className="flex flex-col sm:flex-row gap-3">
 							<a
 								onClick={() => document.getElementById("articles-grid")?.scrollIntoView({ behavior: "smooth" })}
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 							>
 								Browse Articles
 							</a>

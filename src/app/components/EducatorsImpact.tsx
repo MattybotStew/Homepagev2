@@ -106,7 +106,7 @@ export default function EducatorsImpact() {
 						<div className="flex flex-col sm:flex-row gap-3">
 							<a
 								href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 							>
 								Make Play Possible — Donate
 							</a>
@@ -170,7 +170,7 @@ export default function EducatorsImpact() {
 								</div>
 								<button
 									type="submit"
-									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start"
+									className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black self-start"
 								>
 									Send Message
 								</button>
@@ -182,7 +182,7 @@ export default function EducatorsImpact() {
 							<p className="font-extrabold text-[22px] text-cma-navy leading-[1.1] text-center">
 								Subscribe to Educator Newsletter!
 							</p>
-							<p className="text-[#6b7ea0] text-center">
+							<p className="text-cma-navy/80 text-center">
 								Stay up to date on new programs, professional development
 								opportunities, and free educator resources.
 							</p>
@@ -213,7 +213,7 @@ export default function EducatorsImpact() {
 								</div>
 								<button
 									type="submit"
-									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black w-full justify-center"
+									className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black w-full justify-center"
 								>
 									Stay In The Loop!
 								</button>

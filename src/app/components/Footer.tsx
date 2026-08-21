@@ -120,7 +120,7 @@ export default function Footer() {
 				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
 					{/* VISIT Column */}
 					<div className="flex flex-col gap-5">
-						<h3 className="cma-footer-heading">VISIT</h3>
+						<p className="cma-footer-heading">VISIT</p>
 						<ul className="flex flex-col gap-3">
 							<li>
 								<a href="#/plan-your-visit?tab=hours" className="cma-footer-link">
@@ -157,7 +157,7 @@ export default function Footer() {
 
 					{/* EXPLORE Column */}
 					<div className="flex flex-col gap-5">
-						<h3 className="cma-footer-heading">EXPLORE</h3>
+						<p className="cma-footer-heading">EXPLORE</p>
 						<ul className="flex flex-col gap-3">
 							<li>
 								<a href="#/exhibits" className="cma-footer-link">
@@ -194,7 +194,7 @@ export default function Footer() {
 
 					{/* SUPPORT Column */}
 					<div className="flex flex-col gap-5">
-						<h3 className="cma-footer-heading">SUPPORT</h3>
+						<p className="cma-footer-heading">SUPPORT</p>
 						<ul className="flex flex-col gap-3">
 							<li>
 								<a href="#/memberships" className="cma-footer-link">
@@ -226,7 +226,7 @@ export default function Footer() {
 
 					{/* CONNECT Column */}
 					<div className="flex flex-col gap-5">
-						<h3 className="cma-footer-heading">CONNECT</h3>
+						<p className="cma-footer-heading">CONNECT</p>
 						<ul className="flex flex-col gap-3">
 							<li>
 								<a href="#/contact" className="cma-footer-link">
@@ -258,8 +258,8 @@ export default function Footer() {
 							Atlanta is a 501(c)(3) organization [EIN 58-1785484]
 						</p>
 						<div className="flex gap-[16px]">
-							<a href="#/privacy" className="text-white/50 text-[13px] hover:text-white transition-colors">Privacy Policy</a>
-							<a href="#/terms" className="text-white/50 text-[13px] hover:text-white transition-colors">Terms of Use</a>
+							<a href="#/privacy" className="text-white/70 text-[13px] hover:text-white transition-colors">Privacy Policy</a>
+							<a href="#/terms" className="text-white/70 text-[13px] hover:text-white transition-colors">Terms of Use</a>
 						</div>
 						<div className="inline-flex items-center gap-[4px] bg-white border border-[#a6c0ce] px-[8px] py-[8px] self-start">
 							<p className="text-black text-[14px] font-medium leading-none whitespace-nowrap">

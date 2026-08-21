@@ -34,7 +34,7 @@ export default function App() {
 	}, []);
 
 	return (
-		<main id="main-content" className="size-full relative">
+		<div id="main-content" className="size-full relative">
 			{/* Alert Banner — always visible */}
 			<AlertBanner />
 
@@ -87,6 +87,6 @@ export default function App() {
 
 			{/* Footer */}
 			<Footer />
-		</main>
+		</div>
 	);
 }

@@ -38,11 +38,11 @@ export default function ExhibitsHero() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
 					>
-						<h2 className="text-cma-navy leading-none tracking-[-1px]">
+						<h1 className="text-cma-navy leading-none tracking-[-1px]">
 							Explore Our Exhibits:
 							<br />
 							Where Play Comes to Life
-						</h2>
+						</h1>
 						<p className="text-cma-navy max-w-[560px]">
 							Experience 20,000 square feet of playful exhibits where families
 							create, explore, and discover new adventures around every corner.
@@ -50,7 +50,7 @@ export default function ExhibitsHero() {
 						<div className="flex flex-col sm:flex-row gap-3">
 							<a
 								onClick={() => document.getElementById("tour")?.scrollIntoView({ behavior: "smooth" })}
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 							>
 								Tour the Museum
 							</a>

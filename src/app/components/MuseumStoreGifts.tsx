@@ -15,7 +15,7 @@ const giftCards = [
 		cta: {
 			label: "Call for a Gift Certificate",
 			href: "#gift-cert",
-			style: "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark",
+			style: "cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark",
 		},
 	},
 	{
@@ -52,7 +52,7 @@ const shopOnlineCard = {
 	cta: {
 		label: "Visit the Online Store",
 		href: "https://www.childrensmuseumatlanta.org/museum-store/",
-		style: "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black",
+		style: "cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black",
 	},
 };
 
@@ -70,7 +70,7 @@ const navyCard = {
 	cta: {
 		label: "Book a Group Visit",
 		href: "#/plan-your-visit",
-		style: "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark",
+		style: "cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark",
 	},
 };
 

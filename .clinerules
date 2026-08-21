@@ -17,12 +17,22 @@ npm run dev# Children's Museum of Atlanta — Homepage v2
 
 ## Session State
 
-- **Last Updated:** 2026-08-19
+- **Last Updated:** 2026-08-21
 - **Active Agent:** Cline
-- **Last Commit:** a925c2b Document file:// limitation and show local-server notice in tour widgets (+ MUSEUM-WALK-THROUGH.md)
-- **In Progress:** —
-- **Newly Unblocked:** All three standalone widgets have 0 HTML `style=` attributes. Local panos are byte-identical to CMA `-scaled` CDN URLs. `file://` preview failure diagnosed — widgets show local-server notice; Desktop folder + zip rebuilt at `~/Desktop/cma-museum-walk-through/`.
-- **Still Blocked:** Jane's Innovation Station + Step Up To Science are 2560×1440 (16:9) on both local and CDN — needs original 2:1 re-export + WP re-upload. Hotspot yaw/pitch still needs a human pass on each of the 12 scenes.
+- **Last Commit:** 7997c82 Add Tickets pill to Single Visit pricing tab for clearer affordance.
+- **In Progress:** Accessibility audit + tooling
+- **Newly Unblocked:** a11y tooling added — `.vscode/extensions.json`, `eslint.config.mjs` (+ `eslint.a11y.config.mjs` strict gate), `scripts/a11y.mjs` (axe + Playwright, scrolls each route so `motion` animations complete), npm scripts `a11y` / `a11y:preview` / `lint` / `lint:a11y`, `lighthouserc.json` fixed. Full a11y pass complete: **axe audit 55 → 0 violations across 23 routes** (13 main + 10 detail; WCAG AA). Token darkening: `--cma-teal-dark`→`#00707a`, `--cma-orange-dark`→`#9c4f04`, `--cma-gray`→`#6b7280`, `--cma-blue-light`→`#e3ecfa`; navy-opacity text→`/80`; orange CTAs→`text-cma-navy-dark`; single `<main>` landmark; ExhibitsHero h1; PlanTabs h4→h3; Footer h3→p; all form fields `id`/`htmlFor`; social buttons `aria-label`. Details: `docs/accessibility.md`.
+- **Still Blocked:** Partner toolbar launcher code not in this repo — ticket pending from accessibility partner.
+
+## Accessibility tooling
+
+- `npm run dev` then `npm run a11y` — axe-core (Playwright + injected axe) over 13 routes; exit 1 on violations.
+- `npm run a11y:preview` — build + serve :4173 + scan in one shot.
+- `npm run lint` — ESLint green, jsx-a11y as warnings (Problems panel).
+- `npm run lint:a11y` — strict gate (all jsx-a11y rules as errors, exit 1).
+- VSCode: recommended a11y extensions prompt via `.vscode/extensions.json`.
+- ⚠️ Do not use the generic pa11y/WordPress@8080 guide — this is a Vite/React SPA (pa11y can't render it). See `docs/accessibility.md`.
+
 
 ## WPBakery / standalone tour widgets
 

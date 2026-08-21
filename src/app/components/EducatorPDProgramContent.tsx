@@ -276,7 +276,7 @@ export default function EducatorPDProgramContent() {
 					{/* ── Sticky sidebar ── */}
 					<aside className="hidden lg:flex flex-col gap-[20px] w-[210px] shrink-0 sticky top-[140px] self-start">
 						<div className="bg-white rounded-[20px] border border-[rgba(107,126,160,0.15)] p-[20px] flex flex-col gap-[4px]">
-							<p className="cma-eyebrow text-cma-navy/40 text-[10px] mb-[12px]">
+							<p className="cma-eyebrow text-cma-navy/80 text-[10px] mb-[12px]">
 								Jump to
 							</p>
 							{sections.map((section) => (
@@ -286,7 +286,7 @@ export default function EducatorPDProgramContent() {
 									className={`flex items-center gap-[10px] py-[8px] px-[10px] rounded-[10px] text-[13px] font-bold leading-[1.3] transition-colors w-full text-left ${
 										activeSection === section.id
 											? "bg-cma-navy/5 text-cma-navy"
-											: "text-cma-navy/45 hover:text-cma-navy hover:bg-cma-navy/5"
+											: "text-cma-navy/80 hover:text-cma-navy hover:bg-cma-navy/5"
 									}`}
 								>
 									<span
@@ -312,7 +312,7 @@ export default function EducatorPDProgramContent() {
 							/>
 							<button
 								type="button"
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 							>
 								Stay In The Loop!
 							</button>
@@ -383,14 +383,14 @@ export default function EducatorPDProgramContent() {
 									<p className="font-extrabold text-cma-navy text-[16px] mb-[6px]">
 										Ready to Register?
 									</p>
-									<p className="text-cma-navy/70 text-[14px]">
+									<p className="text-cma-navy/80 text-[14px]">
 										Groups of 10–40 educators. Half-day or full-day formats.
 										Book at least 4–6 weeks in advance to secure your date.
 									</p>
 								</div>
 								<button
 									onClick={() => scrollToSection("request-visit")}
-									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black shrink-0"
+									className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black shrink-0"
 								>
 									Register Now
 								</button>
@@ -427,7 +427,7 @@ export default function EducatorPDProgramContent() {
 												<p className="font-extrabold text-cma-navy">
 													{item.label}
 												</p>
-												<p className="text-cma-navy/70">{item.description}</p>
+												<p className="text-cma-navy/80">{item.description}</p>
 											</div>
 										</div>
 									))}
@@ -443,7 +443,7 @@ export default function EducatorPDProgramContent() {
 									</p>
 									<a
 										href="mailto:education@childrensmuseumatlanta.org"
-										className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start"
+										className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black self-start"
 									>
 										Inquire About Custom PD
 									</a>
@@ -469,7 +469,7 @@ export default function EducatorPDProgramContent() {
 											<p className="font-extrabold text-cma-navy">
 												{outcome.title}
 											</p>
-											<p className="text-cma-navy/70">{outcome.description}</p>
+											<p className="text-cma-navy/80">{outcome.description}</p>
 										</div>
 									))}
 								</div>
@@ -487,7 +487,7 @@ export default function EducatorPDProgramContent() {
 											</div>
 											<div className="flex flex-col gap-[4px]">
 												<p className="font-extrabold text-cma-navy text-[14px]">{item.label}</p>
-												<p className="text-cma-navy/70 text-[13px]">{item.description}</p>
+												<p className="text-cma-navy/80 text-[13px]">{item.description}</p>
 											</div>
 										</div>
 									))}
@@ -586,7 +586,7 @@ export default function EducatorPDProgramContent() {
 								</div>
 								<a
 									href="tel:4045273693"
-									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black shrink-0"
+									className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black shrink-0"
 								>
 									<FontAwesomeIcon icon={faPhone} className="mr-[8px] text-[13px]" />
 									Contact Us
@@ -644,8 +644,8 @@ export default function EducatorPDProgramContent() {
 										</div>
 										<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Preferred Format *</label>
-												<select className={inputClass}>
+												<label className={labelClass} htmlFor="ff-preferred-format">Preferred Format *</label>
+												<select id="ff-preferred-format" className={inputClass}>
 													<option value="">Select format</option>
 													<option>Half-day (3 hours)</option>
 													<option>Full-day (6 hours)</option>
@@ -653,8 +653,8 @@ export default function EducatorPDProgramContent() {
 												</select>
 											</div>
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Topic of Interest</label>
-												<select className={inputClass}>
+												<label className={labelClass} htmlFor="ff-topic-of-interest">Topic of Interest</label>
+												<select id="ff-topic-of-interest" className={inputClass}>
 													<option value="">Select a topic (optional)</option>
 													<option>Play-Based Learning Strategies</option>
 													<option>STEM Integration</option>
@@ -686,7 +686,7 @@ export default function EducatorPDProgramContent() {
 										<div>
 											<button
 												type="submit"
-												className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+												className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 											>
 												Submit Registration
 											</button>
@@ -701,7 +701,7 @@ export default function EducatorPDProgramContent() {
 									<FontAwesomeIcon icon={faCalendar} className="text-cma-teal-dark text-[22px]" />
 								</div>
 								<p className="font-extrabold text-cma-navy">Check Availability</p>
-								<p className="text-cma-navy/60 text-[14px] max-w-[360px]">
+								<p className="text-cma-navy/80 text-[14px] max-w-[360px]">
 									To check available PD dates and reserve your group's session,
 									contact our Education team at 404.527.3693 or{" "}
 									<a href="mailto:education@childrensmuseumatlanta.org" className="underline hover:text-cma-navy transition-colors">

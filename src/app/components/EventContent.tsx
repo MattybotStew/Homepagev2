@@ -103,7 +103,7 @@ export default function EventContent({ event, related }: Props) {
 									</span>
 								))}
 								{event.separateTicket && (
-									<span className="text-[12px] font-bold text-cma-orange bg-cma-orange/10 px-[12px] py-[6px] rounded-full">
+									<span className="text-[12px] font-bold text-cma-orange-dark bg-cma-orange/10 px-[12px] py-[6px] rounded-full">
 										Separate Ticket Required
 									</span>
 								)}
@@ -112,7 +112,7 @@ export default function EventContent({ event, related }: Props) {
 								{event.title}
 							</h1>
 							{event.eventHours && (
-								<p className="text-[15px] font-bold text-cma-orange flex items-center gap-[8px]">
+								<p className="text-[15px] font-bold text-cma-orange-dark flex items-center gap-[8px]">
 									<FontAwesomeIcon icon={faClock} className="text-[13px]" />
 									{event.eventHours}
 								</p>
@@ -130,7 +130,7 @@ export default function EventContent({ event, related }: Props) {
 						<div className="flex flex-col sm:flex-row gap-3">
 							<a
 								href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf"
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 							>
 								Buy Tickets
 							</a>

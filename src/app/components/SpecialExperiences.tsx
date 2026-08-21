@@ -58,12 +58,12 @@ export default function SpecialExperiences({
 					viewport={{ once: true, margin: "-80px" }}
 					transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
 				>
-					<p className="cma-eyebrow text-cma-teal">Events</p>
+					<p className="cma-eyebrow text-cma-teal-dark">Events</p>
 					<h2 className="text-cma-navy text-center">{heading}</h2>
 					{ctaButton && (
 						<a
 							href={ctaButton.href}
-							className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+							className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 						>
 							{ctaButton.label}
 						</a>
@@ -125,7 +125,7 @@ export default function SpecialExperiences({
 									<p className="font-extrabold text-[22px] md:text-[30px] text-cma-navy leading-[1.3] tracking-[-1px]">
 										{event.title}
 									</p>
-									<p className="text-cma-navy/60 font-semibold text-[13px]">{event.badge}</p>
+									<p className="text-cma-navy/80 font-semibold text-[13px]">{event.badge}</p>
 								</div>
 
 								<p className="text-cma-navy">{event.description}</p>

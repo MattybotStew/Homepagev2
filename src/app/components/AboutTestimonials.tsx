@@ -56,7 +56,7 @@ export default function AboutTestimonials() {
 					<span className="text-cma-navy font-bold text-[15px] leading-snug">
 						Museum Member
 					</span>
-					<span className="text-cma-slate/60 text-[13px] leading-snug">
+					<span className="text-cma-slate/80 text-[13px] leading-snug">
 						Atlanta, GA
 					</span>
 				</motion.div>

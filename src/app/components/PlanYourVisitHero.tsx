@@ -121,7 +121,7 @@ export default function PlanYourVisitHero({
 						>
 							<a
 								href={primaryCta.href}
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 							>
 								{primaryCta.label}
 							</a>

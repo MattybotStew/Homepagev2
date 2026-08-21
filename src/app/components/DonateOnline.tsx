@@ -44,7 +44,7 @@ export default function DonateOnline() {
 					viewport={{ once: true, margin: "-80px" }}
 					transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
 				>
-					<p className="cma-eyebrow text-cma-teal">Donate Online</p>
+					<p className="cma-eyebrow text-cma-teal-dark">Donate Online</p>
 					<h2 className="text-cma-navy">Your gift helps us continue our mission to inspire learning and a sense of discovery through the power of play.</h2>
 				</motion.div>
 
@@ -70,7 +70,7 @@ export default function DonateOnline() {
 								<p className={`font-extrabold text-[20px] leading-[1.2] ${opt.highlight ? "text-white" : "text-cma-navy"}`}>
 									{opt.label}
 								</p>
-								<p className={`text-[15px] leading-[1.65] ${opt.highlight ? "text-cma-blue-light" : "text-cma-navy/70"}`}>
+								<p className={`text-[15px] leading-[1.65] ${opt.highlight ? "text-cma-blue-light" : "text-cma-navy/80"}`}>
 									{opt.description}
 								</p>
 							</div>

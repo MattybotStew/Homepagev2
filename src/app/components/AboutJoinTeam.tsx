@@ -112,7 +112,7 @@ export default function AboutJoinTeam() {
 					>
 						<a
 							href="mailto:hr@childrensmuseumatlanta.org"
-							className="cma-btn bg-cma-orange text-white hover:bg-cma-orange-dark font-black"
+							className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 						>
 							Contact HR
 						</a>

@@ -139,14 +139,14 @@ export default function ArticleContentWithSidebar({
 					{/* Sticky sidebar — desktop only */}
 					<aside className="hidden lg:block w-[210px] shrink-0 sticky top-[140px] self-start">
 						<div className="bg-white rounded-[20px] border border-[rgba(107,126,160,0.15)] p-[20px] flex flex-col gap-[4px]">
-							<p className="cma-eyebrow text-cma-navy/40 text-[10px] mb-[12px]">
+							<p className="cma-eyebrow text-cma-navy/80 text-[10px] mb-[12px]">
 								Jump to
 							</p>
 							{sections.map((section) => {
 								const itemClass = `flex items-center gap-[10px] py-[8px] px-[10px] rounded-[10px] text-[13px] font-bold leading-[1.3] transition-colors w-full text-left ${
 									activeSection === section.id
 										? "bg-cma-navy/5 text-cma-navy"
-										: "text-cma-navy/45 hover:text-cma-navy hover:bg-cma-navy/5"
+										: "text-cma-navy/80 hover:text-cma-navy hover:bg-cma-navy/5"
 								}`;
 								const dot = (
 									<span

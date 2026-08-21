@@ -178,7 +178,7 @@ export default function ScoutsProgramContent() {
 					{/* ── Sticky sidebar ── */}
 					<aside className="hidden lg:flex flex-col gap-[20px] w-[210px] shrink-0 sticky top-[140px] self-start">
 						<div className="bg-white rounded-[20px] border border-[rgba(107,126,160,0.15)] p-[20px] flex flex-col gap-[4px]">
-							<p className="cma-eyebrow text-cma-navy/40 text-[10px] mb-[12px]">
+							<p className="cma-eyebrow text-cma-navy/80 text-[10px] mb-[12px]">
 								Jump to
 							</p>
 							{sections.map((section) => (
@@ -188,7 +188,7 @@ export default function ScoutsProgramContent() {
 									className={`flex items-center gap-[10px] py-[8px] px-[10px] rounded-[10px] text-[13px] font-bold leading-[1.3] transition-colors w-full text-left ${
 										activeSection === section.id
 											? "bg-cma-navy/5 text-cma-navy"
-											: "text-cma-navy/45 hover:text-cma-navy hover:bg-cma-navy/5"
+											: "text-cma-navy/80 hover:text-cma-navy hover:bg-cma-navy/5"
 									}`}
 								>
 									<span
@@ -214,7 +214,7 @@ export default function ScoutsProgramContent() {
 							/>
 							<button
 								type="button"
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 							>
 								Stay In The Loop!
 							</button>
@@ -293,7 +293,7 @@ export default function ScoutsProgramContent() {
 											}}
 										>
 											<div className="flex flex-col gap-[8px]">
-												<span className="self-start bg-cma-orange text-white font-bold text-[12px] px-[12px] py-[5px] rounded-full">
+												<span className="self-start bg-cma-orange text-cma-navy-dark font-bold text-[12px] px-[12px] py-[5px] rounded-full">
 													{workshop.date}
 												</span>
 												<p className="font-extrabold text-cma-navy text-[20px] leading-[1.2]">
@@ -377,8 +377,8 @@ export default function ScoutsProgramContent() {
 										</div>
 										<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Troop Level *</label>
-												<select className={inputClass}>
+												<label className={labelClass} htmlFor="ff-troop-level">Troop Level *</label>
+												<select id="ff-troop-level" className={inputClass}>
 													<option value="">Select troop level</option>
 													<option>Daisy (Grades K–1)</option>
 													<option>Brownie (Grades 2–3)</option>
@@ -414,10 +414,10 @@ export default function ScoutsProgramContent() {
 											</div>
 										</div>
 										<div className="flex flex-col gap-[6px]">
-											<label className={labelClass}>
+											<label className={labelClass} htmlFor="ff-preferred-workshop-time">
 												Preferred Workshop Time *
 											</label>
-											<select className={inputClass}>
+											<select id="ff-preferred-workshop-time" className={inputClass}>
 												<option value="">Select preferred time</option>
 												<option>
 													Morning Workshop — Entrance: 10:00 am | Workshop
@@ -430,10 +430,10 @@ export default function ScoutsProgramContent() {
 											</select>
 										</div>
 										<div className="flex flex-col gap-[6px]">
-											<label className={labelClass}>
+											<label className={labelClass} htmlFor="ff-workshop-of-interest">
 												Workshop of Interest *
 											</label>
-											<select className={inputClass}>
+											<select id="ff-workshop-of-interest" className={inputClass}>
 												<option value="">Select workshop</option>
 												<option>Craft and Tinker</option>
 												<option>What Robots Do</option>
@@ -463,7 +463,7 @@ export default function ScoutsProgramContent() {
 										<div>
 											<button
 												type="submit"
-												className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+												className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 											>
 												Submit
 											</button>
@@ -495,7 +495,7 @@ export default function ScoutsProgramContent() {
 												<p className="font-extrabold text-cma-navy">
 													{item.label}
 												</p>
-												<p className="text-cma-navy/70">{item.description}</p>
+												<p className="text-cma-navy/80">{item.description}</p>
 											</div>
 										</div>
 									))}
@@ -535,7 +535,7 @@ export default function ScoutsProgramContent() {
 									</p>
 									<button
 										onClick={() => scrollToSection("newsletter")}
-										className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start mt-[4px]"
+										className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black self-start mt-[4px]"
 									>
 										Join the Newsletter
 									</button>
@@ -559,7 +559,7 @@ export default function ScoutsProgramContent() {
 									/>
 									<button
 										type="button"
-										className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black shrink-0"
+										className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black shrink-0"
 									>
 										Stay In The Loop!
 									</button>

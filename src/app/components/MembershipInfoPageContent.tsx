@@ -152,7 +152,7 @@ export default function MembershipInfoPageContent() {
 						{/* Sticky sidebar */}
 						<aside className="hidden lg:flex flex-col gap-[20px] w-[210px] shrink-0 sticky top-[140px] self-start">
 							<div className="bg-white rounded-[20px] border border-[rgba(107,126,160,0.15)] p-[20px] flex flex-col gap-[4px]">
-								<p className="cma-eyebrow text-cma-navy/40 text-[10px] mb-[12px]">
+								<p className="cma-eyebrow text-cma-navy/80 text-[10px] mb-[12px]">
 									Jump to
 								</p>
 								{sections.map((section) => (
@@ -162,7 +162,7 @@ export default function MembershipInfoPageContent() {
 										className={`flex items-center gap-[10px] py-[8px] px-[10px] rounded-[10px] text-[13px] font-bold leading-[1.3] transition-colors w-full text-left ${
 											activeSection === section.id
 												? "bg-cma-navy/5 text-cma-navy"
-												: "text-cma-navy/45 hover:text-cma-navy hover:bg-cma-navy/5"
+												: "text-cma-navy/80 hover:text-cma-navy hover:bg-cma-navy/5"
 										}`}
 									>
 										<span
@@ -182,7 +182,7 @@ export default function MembershipInfoPageContent() {
 								</p>
 								<a
 									href={BLACKBAUD_MEMBERSHIPS}
-									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+									className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 								>
 									Join Today
 								</a>
@@ -239,7 +239,7 @@ export default function MembershipInfoPageContent() {
 													className="flex flex-col gap-[4px] py-[14px] border-b border-black/8 last:border-0"
 												>
 													<p className="font-extrabold text-cma-navy">{d.label}</p>
-													<p className="text-cma-navy/70">{d.body}</p>
+													<p className="text-cma-navy/80">{d.body}</p>
 												</div>
 											))}
 										</div>
@@ -267,7 +267,7 @@ export default function MembershipInfoPageContent() {
 										<div>
 											<a
 												href="mailto:membership@childrensmuseumatlanta.org"
-												className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+												className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 											>
 												Contact Membership Team
 											</a>
@@ -292,7 +292,7 @@ export default function MembershipInfoPageContent() {
 										<div>
 											<a
 												href={BLACKBAUD_MEMBERSHIPS}
-												className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+												className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 											>
 												Gift a Membership
 											</a>
@@ -321,7 +321,7 @@ export default function MembershipInfoPageContent() {
 									<div className="flex flex-col sm:flex-row flex-wrap gap-[12px]">
 										<a
 											href={BLACKBAUD_MEMBERSHIPS}
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black w-full sm:w-auto"
+											className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black w-full sm:w-auto"
 										>
 											Join or Renew Online
 										</a>

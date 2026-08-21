@@ -67,7 +67,7 @@ export default function CorporatePartnerPageContent() {
 				<img src={imgCutCMA} alt="" aria-hidden className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] opacity-15 pointer-events-none select-none object-contain object-bottom" />
 				<div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
 				<div className="cma-section-container relative z-[1] flex flex-col items-center gap-8 text-center max-w-[800px] mx-auto">
-					<p className="cma-eyebrow text-cma-teal">Children's Museum of Atlanta</p>
+					<p className="cma-eyebrow text-cma-teal-light">Children's Museum of Atlanta</p>
 					<h1 className="text-white">Partner With Us at CMA</h1>
 					<p className="text-cma-blue-light font-semibold text-[clamp(16px,1.67vw,24px)] leading-[1.4] max-w-[620px]">
 						When your company invests in CMA, you invest in Atlanta's children
@@ -75,7 +75,7 @@ export default function CorporatePartnerPageContent() {
 						there's a partnership that fits your goals.
 					</p>
 					<div className="bg-cma-navy rounded-[16px] px-[24px] py-[16px] max-w-[560px]">
-						<p className="text-white/50 text-[12px] leading-[1.6]">
+						<p className="text-white/70 text-[12px] leading-[1.6]">
 							All gifts are tax-deductible to the fullest extent allowed by law. The Museum is a 501(c)(3) tax-exempt organization. Our tax-ID number is 58-1785484.
 						</p>
 					</div>
@@ -105,7 +105,7 @@ export default function CorporatePartnerPageContent() {
 						{/* Sticky sidebar */}
 						<aside className="hidden lg:flex flex-col gap-[20px] w-[210px] shrink-0 sticky top-[140px] self-start">
 							<div className="bg-white rounded-[20px] border border-[rgba(107,126,160,0.15)] p-[20px] flex flex-col gap-[4px]">
-								<p className="cma-eyebrow text-cma-navy/40 text-[10px] mb-[12px]">
+								<p className="cma-eyebrow text-cma-navy/80 text-[10px] mb-[12px]">
 									Jump to
 								</p>
 								{sections.map((section) => (
@@ -115,7 +115,7 @@ export default function CorporatePartnerPageContent() {
 										className={`flex items-center gap-[10px] py-[8px] px-[10px] rounded-[10px] text-[13px] font-bold leading-[1.3] transition-colors w-full text-left ${
 											activeSection === section.id
 												? "bg-cma-navy/5 text-cma-navy"
-												: "text-cma-navy/45 hover:text-cma-navy hover:bg-cma-navy/5"
+												: "text-cma-navy/80 hover:text-cma-navy hover:bg-cma-navy/5"
 										}`}
 									>
 										<span
@@ -136,7 +136,7 @@ export default function CorporatePartnerPageContent() {
 								</p>
 								<a
 									href="mailto:ebrooks@childrensmuseumatlanta.org"
-									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+									className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 								>
 									Contact Erin Brooks
 								</a>
@@ -162,13 +162,13 @@ export default function CorporatePartnerPageContent() {
 											<p className="font-extrabold text-cma-navy text-[15px] leading-[1.3]">
 												Erin Brooks
 											</p>
-											<p className="text-cma-navy/70 text-[13px] leading-[1.4]">
+											<p className="text-cma-navy/80 text-[13px] leading-[1.4]">
 												Director of Strategic Advancement
 											</p>
 										</div>
 										<a
 											href="mailto:ebrooks@childrensmuseumatlanta.org"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start sm:self-auto"
+											className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black self-start sm:self-auto"
 										>
 											Contact Erin Brooks
 										</a>
@@ -193,7 +193,7 @@ export default function CorporatePartnerPageContent() {
 									<div>
 										<a
 											href="mailto:ebrooks@childrensmuseumatlanta.org"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black w-full sm:w-auto"
+											className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black w-full sm:w-auto"
 										>
 											Contact Erin Brooks
 										</a>
@@ -217,7 +217,7 @@ export default function CorporatePartnerPageContent() {
 									<div>
 										<a
 											href="mailto:ebrooks@childrensmuseumatlanta.org"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+											className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 										>
 											Contact Erin Brooks
 										</a>
@@ -241,7 +241,7 @@ export default function CorporatePartnerPageContent() {
 									<div>
 										<a
 											href="mailto:ebrooks@childrensmuseumatlanta.org"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+											className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 										>
 											Contact Erin Brooks
 										</a>
@@ -268,7 +268,7 @@ export default function CorporatePartnerPageContent() {
 									<div>
 										<a
 											href="#/memberships/corporate"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+											className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 										>
 											Learn About Corporate Memberships
 										</a>
@@ -294,13 +294,13 @@ export default function CorporatePartnerPageContent() {
 											<p className="font-extrabold text-cma-navy text-[15px] leading-[1.3]">
 												Rebecca Jackson
 											</p>
-											<p className="text-cma-navy/70 text-[13px] leading-[1.4]">
+											<p className="text-cma-navy/80 text-[13px] leading-[1.4]">
 												Director of Marketing and Sales
 											</p>
 										</div>
 										<a
 											href="mailto:rjackson@childrensmuseumatlanta.org"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start sm:self-auto"
+											className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black self-start sm:self-auto"
 										>
 											Contact Rebecca Jackson
 										</a>
@@ -326,7 +326,7 @@ export default function CorporatePartnerPageContent() {
 									<div>
 										<a
 											href="mailto:ebrooks@childrensmuseumatlanta.org"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+											className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 										>
 											Contact Erin Brooks
 										</a>
@@ -349,7 +349,7 @@ export default function CorporatePartnerPageContent() {
 									<div className="flex flex-col sm:flex-row flex-wrap gap-[12px]">
 										<a
 											href="mailto:ebrooks@childrensmuseumatlanta.org"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black w-full sm:w-auto"
+											className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black w-full sm:w-auto"
 										>
 											Submit an In-Kind Donation Inquiry
 										</a>
@@ -384,7 +384,7 @@ export default function CorporatePartnerPageContent() {
 												href={report.href}
 												target="_blank"
 												rel="noopener noreferrer"
-												className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+												className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 											>
 												{report.label}{" "}
 												<FontAwesomeIcon

@@ -139,7 +139,7 @@ function PersonCard({ person }: { person: Person }) {
 			<p className="text-cma-navy font-bold text-[14px] leading-snug">
 				{person.name}
 			</p>
-			<p className="text-[#6b7ea0] text-[13px] leading-snug">{person.detail}</p>
+			<p className="text-cma-navy/80 text-[13px] leading-snug">{person.detail}</p>
 		</div>
 	);
 }

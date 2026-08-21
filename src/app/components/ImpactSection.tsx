@@ -150,7 +150,7 @@ export default function ImpactSection({
 							</a>
 							<a
 								href="#/plan-your-visit"
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark w-full sm:w-auto font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark w-full sm:w-auto font-black"
 							>
 								Buy Tickets
 							</a>

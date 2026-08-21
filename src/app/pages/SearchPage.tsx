@@ -120,7 +120,7 @@ export default function SearchPage() {
 					</div>
 					<form onSubmit={handleSubmit} className="w-full max-w-[640px]">
 						<div className="flex items-center gap-[12px] bg-white rounded-[1000px] px-[20px] py-[14px] shadow-cma-panel">
-							<FontAwesomeIcon icon={faMagnifyingGlass} className="text-cma-navy/40 text-[16px] shrink-0" />
+							<FontAwesomeIcon icon={faMagnifyingGlass} className="text-cma-navy/80 text-[16px] shrink-0" />
 							<input
 								ref={inputRef}
 								type="search"
@@ -131,7 +131,7 @@ export default function SearchPage() {
 							/>
 							<button
 								type="submit"
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black !py-[8px] !px-[20px] shrink-0"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black !py-[8px] !px-[20px] shrink-0"
 							>
 								Search
 							</button>
@@ -175,7 +175,7 @@ export default function SearchPage() {
 										{r.type}
 									</span>
 									<p className="font-extrabold text-cma-navy text-[16px] leading-[1.3]">{r.title}</p>
-									<p className="text-cma-navy/60 text-[13px] leading-[1.5] flex-1">{r.description}</p>
+									<p className="text-cma-navy/80 text-[13px] leading-[1.5] flex-1">{r.description}</p>
 									<span className="cma-text-link font-bold text-[13px]">View →</span>
 								</Link>
 							))}
@@ -186,7 +186,7 @@ export default function SearchPage() {
 						<div className="bg-white rounded-[24px] border-2 border-black/5 p-[48px] flex flex-col items-center gap-[16px] text-center">
 							<FontAwesomeIcon icon={faMagnifyingGlass} className="text-cma-navy/20 text-[40px]" />
 							<h3 className="text-cma-navy">No results found</h3>
-							<p className="text-cma-navy/60 max-w-[400px]">
+							<p className="text-cma-navy/80 max-w-[400px]">
 								Try different keywords, or browse our site sections below.
 							</p>
 							<div className="flex flex-wrap gap-[10px] justify-center pt-[8px]">
@@ -212,7 +212,7 @@ export default function SearchPage() {
 					{!q && (
 						<div className="flex flex-col items-center gap-[12px] text-center py-[40px]">
 							<FontAwesomeIcon icon={faMagnifyingGlass} className="text-cma-navy/20 text-[40px]" />
-							<p className="text-cma-navy/50 font-medium">Enter a search term above to find exhibits, events, programs, and more.</p>
+							<p className="text-cma-navy/80 font-medium">Enter a search term above to find exhibits, events, programs, and more.</p>
 						</div>
 					)}
 				</div>

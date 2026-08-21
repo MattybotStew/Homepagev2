@@ -100,7 +100,7 @@ const floors: Floor[] = [
 						<li key={ex.name} className="flex flex-col gap-[2px]">
 							<p className="text-cma-navy">
 								<strong>{ex.name}</strong>{" "}
-								<span className="font-normal text-cma-navy/60 text-[13px]">
+								<span className="font-normal text-cma-navy/80 text-[13px]">
 									{ex.ages}
 								</span>
 							</p>
@@ -184,7 +184,7 @@ export default function ExhibitsFloorPlan() {
 					<div className="flex flex-col sm:flex-row gap-3">
 						<a
 							href="#"
-							className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+							className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 						>
 							Download Social Story{" "}
 							<FontAwesomeIcon

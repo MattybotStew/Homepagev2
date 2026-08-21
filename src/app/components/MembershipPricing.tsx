@@ -87,7 +87,7 @@ export default function MembershipPricing() {
 							transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
 							className="w-full rounded-[24px] p-[40px] md:p-[64px] flex flex-col gap-[32px] bg-cma-teal-dark"
 						>
-							<p className="cma-eyebrow text-center text-white/80">
+							<p className="cma-eyebrow text-center text-white">
 								Family Membership • 12 Months
 							</p>
 
@@ -102,7 +102,7 @@ export default function MembershipPricing() {
 								</div>
 								<a
 									href={BLACKBAUD_MEMBERSHIPS}
-									className="cma-btn shrink-0 bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+									className="cma-btn shrink-0 bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 								>
 									Become a Member
 								</a>
@@ -150,7 +150,7 @@ export default function MembershipPricing() {
 								</div>
 								<a
 									href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf"
-									className="cma-btn shrink-0 bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+									className="cma-btn shrink-0 bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 								>
 									Buy Tickets
 								</a>

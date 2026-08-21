@@ -98,7 +98,7 @@ export default function ArticleContent({ exhibit, related }: Props) {
 												<div className="flex flex-wrap items-baseline gap-x-[10px]">
 													<h3 className="text-cma-navy">{section.title}</h3>
 													{section.subtitle && (
-														<span className="text-cma-navy/60 text-[14px] font-medium">
+														<span className="text-cma-navy/80 text-[14px] font-medium">
 															{section.subtitle}
 														</span>
 													)}

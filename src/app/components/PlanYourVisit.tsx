@@ -159,7 +159,7 @@ export default function PlanYourVisit() {
 							href={TICKETS_URL}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+							className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 						>
 							Buy Tickets
 						</a>

@@ -108,7 +108,7 @@ export default function AboutHero() {
 						>
 							<a
 								href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf"
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 							>
 								Buy Tickets
 							</a>
@@ -139,14 +139,14 @@ export default function AboutHero() {
 									delay: 0.3 + i * 0.1,
 								}}
 							>
-								<p className="text-white font-black text-[clamp(22px,2.5vw,30px)] leading-none">
+								<p className={`font-black text-[clamp(22px,2.5vw,30px)] leading-none ${stat.orange ? "text-cma-navy" : "text-white"}`}>
 									{stat.value}
 								</p>
-								<p className="text-white font-bold text-[14px] leading-snug">
+								<p className={`font-bold text-[14px] leading-snug ${stat.orange ? "text-cma-navy" : "text-white"}`}>
 									{stat.label}
 								</p>
 								<p
-									className={`text-[12px] leading-[1.4] ${stat.orange ? "text-white/80" : "text-cma-blue-light"}`}
+									className={`text-[12px] leading-[1.4] ${stat.orange ? "text-cma-navy" : "text-cma-blue-light"}`}
 								>
 									{stat.sub}
 								</p>

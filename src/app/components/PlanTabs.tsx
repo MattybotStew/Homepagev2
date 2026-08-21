@@ -54,23 +54,27 @@ function AddressBlock({ stacked = false }: { stacked?: boolean }) {
 					{[
 						{
 							icon: faFacebook,
+							label: "Facebook",
 							href: "https://www.facebook.com/childrensmuseumofatlanta",
 						},
 						{
 							icon: faInstagram,
+							label: "Instagram",
 							href: "https://www.instagram.com/childrensmuseumofatlanta/",
 						},
 						{
 							icon: faTiktok,
+							label: "TikTok",
 							href: "https://www.tiktok.com/@childrensmuseumatlanta",
 						},
-					].map(({ icon, href }) => (
+					].map(({ icon, href, label }) => (
 						<a
 							key={href}
 							href={href}
 							target="_blank"
 							rel="noopener noreferrer"
 							className="cma-social-btn-filled"
+							aria-label={label}
 						>
 							<FontAwesomeIcon
 								icon={icon}
@@ -107,7 +111,7 @@ function HoursTable({ rows }: { rows: { day: string; hours: string }[] }) {
 							className={
 								hours === "Closed"
 									? "text-cma-navy font-bold"
-									: "text-[#6b7ea0]"
+									: "text-cma-navy/80"
 							}
 						>
 							{hours}
@@ -156,11 +160,11 @@ function TabContent({ item }: { item: string }) {
 					{/* Hours columns */}
 					<div className="flex flex-col sm:flex-row xl:flex-col gap-6 flex-1 min-w-0">
 						<div className="flex-1 flex flex-col gap-4">
-							<h4 className="text-cma-navy font-bold">Regular Hours</h4>
+							<h3 className="text-cma-navy font-bold">Regular Hours</h3>
 							<HoursTable rows={regularHours} />
 						</div>
 						<div className="flex-1 flex flex-col gap-4">
-							<h4 className="text-cma-navy font-bold">Holiday Hours</h4>
+							<h3 className="text-cma-navy font-bold">Holiday Hours</h3>
 							<HoursTable rows={holidayHours} />
 						</div>
 					</div>
@@ -175,7 +179,7 @@ function TabContent({ item }: { item: string }) {
 				<div className="flex flex-col sm:flex-row gap-3">
 					<a
 						href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf" target="_blank" rel="noopener noreferrer"
-						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+						className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 					>
 						Buy Tickets
 					</a>
@@ -242,7 +246,7 @@ function TabContent({ item }: { item: string }) {
 							</p>
 						</div>
 						<div className="flex flex-col gap-3">
-							<h4 className="text-cma-navy font-bold">Parking Options</h4>
+							<h3 className="text-cma-navy font-bold">Parking Options</h3>
 							<p className="text-cma-navy">
 								The recommended parking lot for the Museum can be found at 236
 								Williams Street, one block from the Museum. For the best price,
@@ -253,9 +257,9 @@ function TabContent({ item }: { item: string }) {
 							</p>
 						</div>
 						<div className="flex flex-col gap-3">
-							<h4 className="text-cma-navy font-bold">
+							<h3 className="text-cma-navy font-bold">
 								Additional parking locations:
-							</h4>
+							</h3>
 							<ul className="flex flex-col gap-1 pl-4 list-disc">
 								{[
 									"112 Baker Street",
@@ -323,7 +327,7 @@ function TabContent({ item }: { item: string }) {
 						href="https://maps.google.com/maps?q=275+Centennial+Olympic+Park+Dr+NW,+Atlanta,+GA+30313"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+						className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 					>
 						Get Directions
 					</a>
@@ -365,7 +369,7 @@ function TabContent({ item }: { item: string }) {
 				<div className="flex flex-col sm:flex-row gap-3">
 					<a
 						href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf" target="_blank" rel="noopener noreferrer"
-						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+						className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 					>
 						Buy Tickets
 					</a>
@@ -425,7 +429,7 @@ function TabContent({ item }: { item: string }) {
 				<div className="flex flex-col sm:flex-row gap-3">
 					<a
 						href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf" target="_blank" rel="noopener noreferrer"
-						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+						className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 					>
 						Buy Tickets
 					</a>
@@ -479,7 +483,7 @@ function TabContent({ item }: { item: string }) {
 				<div className="flex flex-col sm:flex-row gap-3">
 					<a
 						href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf" target="_blank" rel="noopener noreferrer"
-						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+						className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 					>
 						Buy Tickets
 					</a>
@@ -537,7 +541,7 @@ function TabContent({ item }: { item: string }) {
 				<div className="flex flex-col sm:flex-row gap-3">
 					<a
 						href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf" target="_blank" rel="noopener noreferrer"
-						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+						className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 					>
 						Buy Tickets
 					</a>
@@ -572,7 +576,7 @@ function TabContent({ item }: { item: string }) {
 				<div className="flex flex-col sm:flex-row gap-3">
 					<a
 						href="#/contact#department-contacts"
-						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+						className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 					>
 						Explore Private Events
 					</a>
@@ -614,7 +618,7 @@ function TabContent({ item }: { item: string }) {
 				<div className="flex flex-col sm:flex-row gap-3">
 					<a
 						href="#/parties"
-						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+						className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 					>
 						Explore Parties
 					</a>
@@ -673,7 +677,7 @@ function TabContent({ item }: { item: string }) {
 					<li className="text-cma-navy"><strong>Unaccompanied Adults:</strong> No adult is permitted on the Museum floor without an accompanying child.</li>
 				</ul>
 				<div className="flex flex-col gap-4">
-					<h4 className="text-cma-navy font-bold">Prohibited Items</h4>
+					<h3 className="text-cma-navy font-bold">Prohibited Items</h3>
 					<p className="text-cma-navy">Alcohol, Balloons, Bicycles/Scooters, Cake/Cupcakes, Cigarettes/E-cigarettes, Coolers, Controlled substances, Costume Characters, Food, Gifts, Professional Photographers, Weapons (exception: uniformed police officer)</p>
 				</div>
 			</div>
@@ -772,7 +776,7 @@ export default function PlanTabs() {
 									className={`w-full flex items-center justify-between px-5 py-[18px] text-left border-b border-[#e4e8ee] last:border-b-0 transition-colors
                     ${
 											active === item
-												? "bg-cma-orange text-white font-bold"
+												? "bg-cma-orange text-cma-navy-dark font-bold"
 												: "bg-white text-cma-navy hover:bg-cma-blue-light"
 										}`}
 								>

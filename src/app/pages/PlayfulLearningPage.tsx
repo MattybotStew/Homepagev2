@@ -46,7 +46,7 @@ export default function PlayfulLearningPage() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
 					>
-						<p className="cma-eyebrow text-cma-teal">
+						<p className="cma-eyebrow text-cma-teal-dark">
 							children's museum of atlanta
 						</p>
 						<h1 className="text-cma-navy">Playful Learning Resources</h1>
@@ -57,7 +57,7 @@ export default function PlayfulLearningPage() {
 						<div className="flex flex-col sm:flex-row gap-3">
 							<a
 								onClick={() => document.getElementById("resources-grid")?.scrollIntoView({ behavior: "smooth" })}
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 							>
 								Browse Resources
 							</a>

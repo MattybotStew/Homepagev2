@@ -129,7 +129,7 @@ export default function CorporateMembershipContent() {
 										{tier.name}
 									</h3>
 								</div>
-								<p className={`text-[14px] leading-[1.6] flex-1 ${tier.featured ? "text-white/80" : "text-cma-navy/70"}`}>
+								<p className={`text-[14px] leading-[1.6] flex-1 ${tier.featured ? "text-white/80" : "text-cma-navy/80"}`}>
 									{tier.description}
 								</p>
 								<div className="flex flex-wrap gap-3">
@@ -138,7 +138,7 @@ export default function CorporateMembershipContent() {
 										onClick={scrollToForm}
 										className={`cma-btn font-black ${
 											tier.featured
-												? "bg-cma-orange text-cma-navy hover:bg-cma-orange-dark"
+												? "bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark"
 												: "bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white"
 										}`}
 									>
@@ -197,7 +197,7 @@ export default function CorporateMembershipContent() {
 								<p className="font-extrabold text-[18px] text-cma-navy leading-[1.2]">
 									{benefit.title}
 								</p>
-								<p className="text-cma-navy/70 text-[14px] leading-[1.6]">{benefit.body}</p>
+								<p className="text-cma-navy/80 text-[14px] leading-[1.6]">{benefit.body}</p>
 							</motion.div>
 						))}
 					</div>
@@ -239,7 +239,7 @@ export default function CorporateMembershipContent() {
 						<button
 							type="button"
 							onClick={scrollToForm}
-							className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+							className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 						>
 							Get Started
 						</button>
@@ -310,8 +310,8 @@ export default function CorporateMembershipContent() {
 								<input type="email" placeholder="you@company.com" className={inputClass} />
 							</div>
 							<div className="flex flex-col gap-[6px]">
-								<label className={labelClass}>Membership Level</label>
-								<select className={inputClass}>
+								<label className={labelClass} htmlFor="ff-membership-level">Membership Level</label>
+								<select id="ff-membership-level" className={inputClass}>
 									<option value="">Not sure yet</option>
 									<option>Explorer — 50 Families</option>
 									<option>Inventor — 100 Families</option>
@@ -330,7 +330,7 @@ export default function CorporateMembershipContent() {
 							</div>
 							<button
 								type="submit"
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 							>
 								Submit Interest Form
 							</button>

@@ -15,13 +15,13 @@ const stats = [
 		number: "180,000+",
 		label: "Museum Visitors",
 		detail: "Families experienced hands-on learning",
-		color: "text-cma-teal",
+		color: "text-cma-teal-dark",
 	},
 	{
 		number: "12,000+",
 		label: "Kids Reached",
 		detail: "Through outreach & community programs",
-		color: "text-cma-orange",
+		color: "text-cma-orange-dark",
 	},
 	{
 		number: "1,200",
@@ -33,7 +33,7 @@ const stats = [
 		number: "4,456",
 		label: "CLCC Students",
 		detail: "Connected learning in classrooms",
-		color: "text-[#fbb040]",
+		color: "text-cma-orange-dark",
 	},
 ];
 
@@ -99,7 +99,7 @@ export default function ImpactPage() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
 					>
-						<p className="cma-eyebrow text-cma-teal">
+						<p className="cma-eyebrow text-cma-teal-light">
 							children's museum of atlanta
 						</p>
 						<h1 className="text-white">Impact &amp; Community</h1>
@@ -110,7 +110,7 @@ export default function ImpactPage() {
 						<div className="flex flex-col sm:flex-row gap-3">
 							<a
 								onClick={() => document.getElementById("programs")?.scrollIntoView({ behavior: "smooth" })}
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 							>
 								Our Programs
 							</a>
@@ -136,7 +136,7 @@ export default function ImpactPage() {
 						transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
 					>
 						<h2 className="text-cma-navy">2025 Impact at a Glance</h2>
-						<p className="text-cma-navy/60 max-w-[580px] leading-[1.6]">
+						<p className="text-cma-navy/80 max-w-[580px] leading-[1.6]">
 							All gifts are tax-deductible to the fullest extent allowed by law.
 							The Museum is a 501(c)(3) tax-exempt &amp; charitable
 							organization. Our tax-exempt number is 58-1785484.
@@ -165,7 +165,7 @@ export default function ImpactPage() {
 								<p className="font-extrabold text-[clamp(15px,1.25vw,18px)] text-cma-navy leading-[1.1]">
 									{stat.label}
 								</p>
-								<p className="font-bold text-cma-navy/60 text-[14px] leading-[1.5]">
+								<p className="font-bold text-cma-navy/80 text-[14px] leading-[1.5]">
 									{stat.detail}
 								</p>
 							</motion.div>
@@ -187,7 +187,7 @@ export default function ImpactPage() {
 						viewport={{ once: true, margin: "-80px" }}
 						transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
 					>
-						<p className="cma-eyebrow text-cma-teal">Community Outreach</p>
+						<p className="cma-eyebrow text-cma-teal-dark">Community Outreach</p>
 						<h2 className="text-cma-navy leading-none tracking-[-1px]">
 							Our Programs
 						</h2>
@@ -238,12 +238,12 @@ export default function ImpactPage() {
 								<p className="font-extrabold text-[18px] text-cma-navy leading-[1.2]">
 									More Ways To Give
 								</p>
-								<p className="text-cma-navy/70 text-[14px] leading-[1.5]">
+								<p className="text-cma-navy/80 text-[14px] leading-[1.5]">
 									Your support makes play possible for every child in Atlanta.
 								</p>
 								<a
 									href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
-									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black w-full justify-center"
+									className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black w-full justify-center"
 								>
 									Learn More
 								</a>
@@ -269,7 +269,7 @@ export default function ImpactPage() {
 								<div>
 									<a
 										href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
-										className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black inline-flex"
+										className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black inline-flex"
 									>
 										Support This Program
 									</a>

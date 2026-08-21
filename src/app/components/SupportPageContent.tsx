@@ -115,7 +115,7 @@ export default function SupportPageContent() {
 				<img src={imgCutCMA} alt="" aria-hidden className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] opacity-15 pointer-events-none select-none object-contain object-bottom" />
 				<div className="shrink-0 h-0 lg:h-[120px] xl:h-[126px]" />
 				<div className="cma-section-container relative z-[1] flex flex-col items-center gap-8 text-center max-w-[800px] mx-auto">
-					<p className="cma-eyebrow text-cma-teal">
+					<p className="cma-eyebrow text-cma-teal-light">
 						Children's Museum of Atlanta
 					</p>
 					<h1 className="text-white">Other Ways to Support</h1>
@@ -124,7 +124,7 @@ export default function SupportPageContent() {
 						discovery and learning through the power of play.
 					</p>
 					<div className="bg-cma-navy rounded-[16px] px-[24px] py-[16px] max-w-[560px]">
-						<p className="text-white/50 text-[12px] leading-[1.6]">
+						<p className="text-white/70 text-[12px] leading-[1.6]">
 							All gifts are tax-deductible to the fullest extent allowed by law. The Museum is a 501(c)(3) tax-exempt organization. Our tax-ID number is 58-1785484.
 						</p>
 					</div>
@@ -154,7 +154,7 @@ export default function SupportPageContent() {
 						{/* Sticky sidebar */}
 						<aside className="hidden lg:flex flex-col gap-[20px] w-[210px] shrink-0 sticky top-[140px] self-start">
 							<div className="bg-white rounded-[20px] border border-[rgba(107,126,160,0.15)] p-[20px] flex flex-col gap-[4px]">
-								<p className="cma-eyebrow text-cma-navy/40 text-[10px] mb-[12px]">
+								<p className="cma-eyebrow text-cma-navy/80 text-[10px] mb-[12px]">
 									Jump to
 								</p>
 								{sections.map((section) => (
@@ -164,7 +164,7 @@ export default function SupportPageContent() {
 										className={`flex items-center gap-[10px] py-[8px] px-[10px] rounded-[10px] text-[13px] font-bold leading-[1.3] transition-colors w-full text-left ${
 											activeSection === section.id
 												? "bg-cma-navy/5 text-cma-navy"
-												: "text-cma-navy/45 hover:text-cma-navy hover:bg-cma-navy/5"
+												: "text-cma-navy/80 hover:text-cma-navy hover:bg-cma-navy/5"
 										}`}
 									>
 										<span
@@ -185,7 +185,7 @@ export default function SupportPageContent() {
 								</p>
 								<a
 									href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
-									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+									className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 								>
 									Donate Now
 								</a>
@@ -214,13 +214,13 @@ export default function SupportPageContent() {
 											<p className="font-extrabold text-cma-navy text-[15px] leading-[1.3]">
 												Rebecca Jackson
 											</p>
-											<p className="text-cma-navy/70 text-[13px] leading-[1.4]">
+											<p className="text-cma-navy/80 text-[13px] leading-[1.4]">
 												Director of Marketing and Sales
 											</p>
 										</div>
 										<a
 											href="mailto:rjackson@childrensmuseumatlanta.org"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start sm:self-auto"
+											className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black self-start sm:self-auto"
 										>
 											Contact Rebecca Jackson
 										</a>
@@ -275,7 +275,7 @@ export default function SupportPageContent() {
 									<div className="flex flex-col sm:flex-row flex-wrap gap-[12px]">
 										<a
 											href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black w-full sm:w-auto"
+											className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black w-full sm:w-auto"
 										>
 											Donate Now
 										</a>
@@ -340,7 +340,7 @@ export default function SupportPageContent() {
 									<div className="flex flex-col sm:flex-row flex-wrap gap-[12px]">
 										<a
 											href="#/support/corporate-partners"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black w-full sm:w-auto"
+											className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black w-full sm:w-auto"
 										>
 											Corporate Memberships
 										</a>
@@ -375,7 +375,7 @@ export default function SupportPageContent() {
 											href="https://childrensmuseumatlanta.org/wp-content/uploads/2018/08/Matching-Gifts-PDF-3.pdf"
 											target="_blank"
 											rel="noopener noreferrer"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+											className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 										>
 											Download Matching Gifts{" "}
 											<FontAwesomeIcon
@@ -435,7 +435,7 @@ export default function SupportPageContent() {
 									<div className="flex flex-col sm:flex-row flex-wrap gap-[12px]">
 										<a
 											href="mailto:lhalad@childrensmuseumatlanta.org"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black w-full sm:w-auto"
+											className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black w-full sm:w-auto"
 										>
 											Reach out to Laura Halad
 										</a>
@@ -456,7 +456,7 @@ export default function SupportPageContent() {
 											href="https://childrensmuseumatlanta.sharepoint.com/:b:/g/Development%20Team/EUFVg81ojL5LrR8Pmr_7i94Bepz-z6gSbQ5lfngeLGJFyQ?e=2YVnrT"
 											target="_blank"
 											rel="noopener noreferrer"
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+											className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 										>
 											Download Stock Transfer Letter{" "}
 											<FontAwesomeIcon
@@ -539,7 +539,7 @@ export default function SupportPageContent() {
 																	</span>
 																	<FontAwesomeIcon
 																		icon={faDownload}
-																		className="text-cma-navy/40 text-[13px] group-hover:text-cma-teal-dark transition-colors"
+																		className="text-cma-navy/80 text-[13px] group-hover:text-cma-teal-dark transition-colors"
 																	/>
 																</a>
 															))}
@@ -573,7 +573,7 @@ export default function SupportPageContent() {
 												href={report.href}
 												target="_blank"
 												rel="noopener noreferrer"
-												className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+												className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 											>
 												{report.label}{" "}
 												<FontAwesomeIcon

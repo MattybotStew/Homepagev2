@@ -117,7 +117,7 @@ export default function CareersPage() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
 					>
-						<p className="cma-eyebrow text-cma-teal">
+						<p className="cma-eyebrow text-cma-teal-light">
 							children's museum of atlanta
 						</p>
 						<h1 className="text-white">Careers &amp; Volunteer</h1>
@@ -128,7 +128,7 @@ export default function CareersPage() {
 						<div className="flex flex-col sm:flex-row gap-3">
 							<a
 								onClick={() => document.getElementById("careers")?.scrollIntoView({ behavior: "smooth" })}
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 							>
 								View Open Positions
 							</a>
@@ -200,7 +200,7 @@ export default function CareersPage() {
 								of sparking imagination and inspiring discovery and learning for
 								all children through the power of play.
 							</p>
-							<p className="text-cma-navy/70 leading-[1.7]">
+							<p className="text-cma-navy/80 leading-[1.7]">
 								Children's Museum of Atlanta is committed to equal employment
 								opportunity and will not discriminate against employees or
 								applicants on any legally recognized basis including veteran
@@ -229,7 +229,7 @@ export default function CareersPage() {
 							<div className="flex flex-col sm:flex-row gap-3">
 								<a
 									href="mailto:hr@childrensmuseumatlanta.org"
-									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+									className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 								>
 									Contact HR
 								</a>
@@ -306,7 +306,7 @@ export default function CareersPage() {
 							<div className="flex flex-col sm:flex-row gap-3">
 								<a
 									href="mailto:volunteer@childrensmuseumatlanta.org"
-									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+									className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 								>
 									Contact Volunteer Team
 								</a>

@@ -310,7 +310,7 @@ export default function CalendarPage() {
 
 					>
 
-						<p className="cma-eyebrow text-cma-teal">
+						<p className="cma-eyebrow text-cma-teal-dark">
 
 							children's museum of atlanta
 
@@ -332,7 +332,7 @@ export default function CalendarPage() {
 
 								onClick={() => document.getElementById("events-grid")?.scrollIntoView({ behavior: "smooth" })}
 
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 
 							>
 
@@ -452,7 +452,7 @@ export default function CalendarPage() {
 
 											onClick={() => setActiveFilter("All")}
 
-											className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+											className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 
 										>
 
@@ -510,17 +510,17 @@ export default function CalendarPage() {
 
 											</p>
 
-											<p className="text-cma-navy/60 font-semibold text-[13px]">{event.badge}</p>
+											<p className="text-cma-navy/80 font-semibold text-[13px]">{event.badge}</p>
 
 											{event.eventHours && (
-												<p className="text-[13px] font-bold text-cma-orange flex items-center gap-[6px]">
+												<p className="text-[13px] font-bold text-cma-orange-dark flex items-center gap-[6px]">
 													<FontAwesomeIcon icon={faClock} className="text-[11px]" />
 													{event.eventHours}
 												</p>
 											)}
 
 											{event.separateTicket && (
-												<span className="w-fit text-[11px] font-bold text-cma-orange bg-cma-orange/10 px-[10px] py-[4px] rounded-full">
+												<span className="w-fit text-[11px] font-bold text-cma-orange-dark bg-cma-orange/10 px-[10px] py-[4px] rounded-full">
 													Separate Ticket Required
 												</span>
 											)}

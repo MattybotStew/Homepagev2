@@ -132,6 +132,7 @@ function Logo() {
 		<a
 			href="#/"
 			className="flex items-center gap-[8px] hover:opacity-80 transition-opacity"
+			aria-label="Children's Museum of Atlanta"
 		>
 			<AnimatedLogoIcon />
 			<LogoText />
@@ -211,7 +212,7 @@ function DonateDropdown({
 					Donate
 				</p>
 				<ChevronDown
-					className={`${chevronSize} text-cma-navy/70 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+					className={`${chevronSize} text-cma-navy/80 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
 				/>
 			</button>
 			{open && (

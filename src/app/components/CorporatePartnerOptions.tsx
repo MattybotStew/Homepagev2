@@ -119,7 +119,7 @@ export default function CorporatePartnerOptions() {
 					</div>
 					<a
 						href="mailto:kmcneely@childrensmuseumatlanta.org"
-						className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start"
+						className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black self-start"
 					>
 						Contact Kate McNeely
 					</a>

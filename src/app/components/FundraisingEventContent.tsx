@@ -117,7 +117,7 @@ export default function FundraisingEventContent({ circle, related }: Props) {
                           aria-hidden
                         >
                           <span
-                            className={`text-cma-navy/30 font-bold ${tier.featured ? "text-[18px]" : "text-[11px]"}`}
+                            className={`text-cma-navy font-bold ${tier.featured ? "text-[18px]" : "text-[11px]"}`}
                           >
                             LOGO
                           </span>
@@ -214,7 +214,7 @@ export default function FundraisingEventContent({ circle, related }: Props) {
                     href={cta.href}
                     className={
                       i === 0
-                        ? "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+                        ? "cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
                         : "cma-btn cma-btn-outline-teal hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
                     }
                   >
@@ -243,10 +243,10 @@ export default function FundraisingEventContent({ circle, related }: Props) {
                       delay: 0.3 + i * 0.1,
                     }}
                   >
-                    <p className="text-white font-black text-[clamp(22px,2.5vw,30px)] leading-none">
+                    <p className={`font-black text-[clamp(22px,2.5vw,30px)] leading-none ${i % 2 === 0 ? "text-cma-navy" : "text-white"}`}>
                       {stat.value}
                     </p>
-                    <p className="text-white/80 text-[13px] font-semibold">
+                    <p className={`text-[13px] font-semibold ${i % 2 === 0 ? "text-cma-navy" : "text-white/80"}`}>
                       {stat.label}
                     </p>
                   </motion.div>
@@ -319,7 +319,7 @@ export default function FundraisingEventContent({ circle, related }: Props) {
                           delay: i * 0.06,
                         }}
                       >
-                        <span className="text-cma-orange font-black text-[15px] w-[90px] shrink-0">
+                        <span className="text-cma-orange-dark font-black text-[15px] w-[90px] shrink-0">
                           {row.time}
                         </span>
                         <span className="text-cma-navy font-semibold">
@@ -347,7 +347,7 @@ export default function FundraisingEventContent({ circle, related }: Props) {
                 <div className="flex flex-col gap-[16px] flex-1 min-w-0">
                   <h2 className="text-cma-navy">{event.award.heading}</h2>
                   <div className="flex flex-col gap-[4px]">
-                    <p className="text-cma-orange font-black text-[24px] leading-[1.2]">
+                    <p className="text-cma-orange-dark font-black text-[24px] leading-[1.2]">
                       {event.award.recipientName}
                     </p>
                     <p className="text-cma-teal-dark font-bold text-[13px]">
@@ -420,7 +420,7 @@ export default function FundraisingEventContent({ circle, related }: Props) {
                   href={cta.href}
                   className={
                     i === 0
-                      ? "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+                      ? "cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
                       : "cma-btn cma-btn-outline-teal font-black"
                   }
                 >

@@ -83,7 +83,7 @@ function Stepper({
 				<span className="font-semibold text-[17px] text-cma-navy leading-none">
 					{label}
 				</span>
-				<span className="text-[12px] font-medium text-cma-blue-mid opacity-70">
+				<span className="text-[12px] font-medium text-cma-blue-mid">
 					{sublabel}
 				</span>
 			</div>
@@ -141,7 +141,7 @@ export default function MembershipSavingsCalculator({
 					transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
 				>
 					<h2 className="text-cma-navy">Find Out How Much You'll Save</h2>
-					<p className="text-cma-navy/60 font-medium max-w-[500px]">
+					<p className="text-cma-navy/80 font-medium max-w-[500px]">
 						Adjust the options below to see your personalized annual savings.
 					</p>
 				</motion.div>
@@ -158,7 +158,7 @@ export default function MembershipSavingsCalculator({
 					<div className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] lg:gap-[36px]">
 						{/* LEFT: steppers */}
 						<div className="flex flex-col gap-[20px]">
-							<p className="font-bold text-[13px] uppercase tracking-[2px] text-cma-navy/70">
+							<p className="font-bold text-[13px] uppercase tracking-[2px] text-cma-navy/80">
 								Your Visit
 							</p>
 
@@ -207,7 +207,7 @@ export default function MembershipSavingsCalculator({
 							{/* Recommended badge */}
 							<div className="self-start flex items-center gap-[8px] bg-[#fff1de] px-[12px] py-[6px] rounded-full">
 								<span className="w-[7px] h-[7px] rounded-full bg-cma-orange shrink-0" />
-								<span className="text-[#c77423] font-medium text-[12px] whitespace-nowrap">
+								<span className="text-cma-navy font-medium text-[12px] whitespace-nowrap">
 									Recommended for you
 								</span>
 							</div>
@@ -271,7 +271,7 @@ export default function MembershipSavingsCalculator({
 							<div className="flex flex-wrap items-center gap-[12px]">
 								<a
 									href={becomeMemberHref}
-									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+									className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 								>
 									Become a Member
 								</a>
@@ -287,7 +287,7 @@ export default function MembershipSavingsCalculator({
 
 					{/* Bottom: all tiers strip */}
 					<div className="border-t-2 border-dashed border-cma-navy/15 pt-[24px] flex flex-col gap-[16px]">
-						<p className="font-bold text-[13px] uppercase tracking-[2px] text-cma-navy/70">
+						<p className="font-bold text-[13px] uppercase tracking-[2px] text-cma-navy/80">
 							All Membership Tiers
 						</p>
 						<div className="grid grid-cols-1 sm:grid-cols-3 gap-[12px]">

@@ -88,7 +88,7 @@ export default function NotFoundPage() {
 					>
 						<Link
 							to="/"
-							className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+							className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 						>
 							Back to Home
 						</Link>

@@ -8,7 +8,7 @@ const milestones = [
 		year: "1988",
 		iconBg: "bg-cma-teal",
 		icon: faFlag,
-		yearColor: "text-cma-orange",
+		yearColor: "text-cma-orange-dark",
 		body: "Children's Museum of Atlanta is founded, with a passionate group of community leaders committed to bringing play-based learning to the children of Atlanta.",
 	},
 	{
@@ -29,7 +29,7 @@ const milestones = [
 		year: "Today",
 		iconBg: "bg-cma-teal",
 		icon: faRocket,
-		yearColor: "text-cma-orange",
+		yearColor: "text-cma-orange-dark",
 		body: "We continue to grow as Atlanta's premier destination for hands-on learning, issuing 34,000+ free and reduced tickets annually and reaching 8,000+ kids through community outreach.",
 	},
 ];

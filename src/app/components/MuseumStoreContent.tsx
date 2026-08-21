@@ -31,7 +31,7 @@ const sections = [
 			{
 				label: "Gift Guides",
 				href: "https://childrensmuseumatlanta.org/museum-store/",
-				style: "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark",
+				style: "cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark",
 			},
 			{
 				label: "Purchase CMA Merch Online",

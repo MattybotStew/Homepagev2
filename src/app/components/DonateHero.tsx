@@ -114,7 +114,7 @@ export default function DonateHero() {
 						>
 							<a
 								href="https://16707.blackbaudhosting.com/16707/Annual-Fund"
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 							>
 								Donate
 							</a>
@@ -163,7 +163,7 @@ export default function DonateHero() {
 									delay: 0.3 + i * 0.1,
 								}}
 							>
-								<p className="text-white font-black text-[clamp(22px,2.5vw,30px)] leading-none">
+								<p className={`font-black text-[clamp(22px,2.5vw,30px)] leading-none ${stat.orange ? "text-cma-navy" : "text-white"}`}>
 									{stat.value}
 								</p>
 							</motion.div>
@@ -173,7 +173,7 @@ export default function DonateHero() {
 			</div>
 
 			<div className="relative bg-cma-navy rounded-[16px] px-[24px] py-[16px] max-w-[560px] mx-auto">
-				<p className="text-white/50 text-[12px] text-center leading-[1.6]">
+				<p className="text-white/70 text-[12px] text-center leading-[1.6]">
 					All gifts are tax-deductible to the fullest extent allowed by law. The Museum is a 501(c)(3) tax-exempt organization. Our tax-ID number is 58-1785484.
 				</p>
 			</div>

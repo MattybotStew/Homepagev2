@@ -117,8 +117,8 @@ export default function InstagramSection() {
 									)}
 
 									{item.overlay && item.overlay.type === "bubble" && (
-										<div className="absolute top-4 right-4 bg-cma-orange rounded-full shadow-lg px-5 py-3">
-											<p className="font-bold text-white text-sm whitespace-nowrap">
+										<div className="absolute top-4 right-4 rounded-full shadow-lg">
+											<p className="font-bold text-white text-sm whitespace-nowrap bg-cma-navy rounded-full px-5 py-3">
 												{item.overlay.text}
 											</p>
 										</div>

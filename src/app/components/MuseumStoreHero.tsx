@@ -25,7 +25,7 @@ export default function MuseumStoreHero() {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
 				>
-					<p className="cma-eyebrow text-cma-teal">
+					<p className="cma-eyebrow text-cma-teal-light">
 						Children's Museum of Atlanta
 					</p>
 					<h1 className="text-white">Museum Store</h1>

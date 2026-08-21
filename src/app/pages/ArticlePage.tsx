@@ -53,7 +53,7 @@ export default function ArticlePage() {
 							<div className="flex flex-col gap-[16px]">
 								<p className="text-cma-teal-dark">{article.badge}</p>
 								{article.author && (
-									<p className="text-cma-navy/60 text-[14px]">By {article.author}</p>
+									<p className="text-cma-navy/80 text-[14px]">By {article.author}</p>
 								)}
 								<h1 className="text-cma-navy !text-[clamp(28px,3.75vw,48px)] !leading-none !tracking-[-1px] !font-extrabold">
 									{article.title}

@@ -115,7 +115,7 @@ const pricingCards = [
 		cta: {
 			label: "View Plans",
 			href: "#/memberships",
-			style: "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black",
+			style: "cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black",
 		},
 		badge: "Best Value",
 	},
@@ -173,7 +173,7 @@ export default function AdmissionPricing({
 						<div className="flex flex-col sm:flex-row gap-3">
 							<a
 								href={primaryCta.href}
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 							>
 								{primaryCta.label}
 							</a>
@@ -222,17 +222,17 @@ export default function AdmissionPricing({
 							)}
 							<div className="flex gap-2 items-end min-w-0 flex-wrap">
 								{card.pricePrefix && (
-									<span className={`text-[13px] font-semibold pb-1 shrink-0 ${card.white ? "text-white/70" : "text-cma-navy/60"}`}>
+									<span className={`text-[13px] font-semibold pb-1 shrink-0 ${card.white ? "text-white" : "text-cma-navy/80"}`}>
 										{card.pricePrefix}
 									</span>
 								)}
 								<span
-									className={`font-extrabold leading-none tracking-[-1px] shrink-0 ${card.white ? "text-white font-black text-[clamp(48px,5.5vw,72px)]" : "text-cma-orange text-[clamp(36px,3.5vw,48px)]"}`}
+									className={`font-extrabold leading-none tracking-[-1px] shrink-0 ${card.white ? "text-white font-black text-[clamp(48px,5.5vw,72px)]" : "text-cma-orange-dark text-[clamp(36px,3.5vw,48px)]"}`}
 								>
 									{card.price}
 								</span>
 								<span
-									className={`text-[14px] font-semibold whitespace-nowrap shrink-0 pb-1 ${card.white ? "text-cma-blue-light" : "text-cma-navy/70"}`}
+									className={`text-[14px] font-semibold whitespace-nowrap shrink-0 pb-1 ${card.white ? "text-cma-blue-light" : "text-cma-navy/80"}`}
 								>
 									{card.priceSuffix}
 								</span>

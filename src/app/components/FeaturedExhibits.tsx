@@ -214,7 +214,7 @@ export default function FeaturedExhibits() {
 
 				<a
 					href="#/exhibits"
-					className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+					className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 				>
 					See All Exhibits
 				</a>

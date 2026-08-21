@@ -75,13 +75,13 @@ export default function PlanYourVisitPage() {
 					<div className="bg-white rounded-[20px] border border-[rgba(107,126,160,0.15)] px-[32px] py-[24px] flex flex-col sm:flex-row items-start sm:items-center gap-[16px]">
 						<div className="flex-1 flex flex-col gap-[6px]">
 							<p className="font-extrabold text-cma-navy text-[15px]">ACM Reciprocal Membership</p>
-							<p className="text-cma-navy/70 text-[14px] leading-[1.5]">
+							<p className="text-cma-navy/80 text-[14px] leading-[1.5]">
 								Member at another children's museum? Receive 50% off general admission for up to six people. Use promo code <strong className="text-cma-navy">ACMTIX</strong> at checkout. A valid reciprocal membership card and picture ID required upon arrival.
 							</p>
 						</div>
 						<a
 							href="https://16707.blackbaudhosting.com/16707/page.aspx?pid=196&tab=2&txobjid=56fa665e-15d9-4500-9b27-c1c2c0b2c6bf"
-							className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black shrink-0"
+							className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black shrink-0"
 						>
 							Buy Tickets
 						</a>

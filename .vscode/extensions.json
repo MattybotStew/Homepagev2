@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "deque-systems.vscode-axe-linter",
+    "maxvanderheyden.accessibility-checker",
+    "jonscott27.web-accessibility"
+  ]
+}

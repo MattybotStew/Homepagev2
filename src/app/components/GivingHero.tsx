@@ -66,7 +66,7 @@ export default function GivingHero({
 									href={cta.href}
 									className={
 										cta.variant === "orange"
-											? "cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+											? "cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 											: "cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black"
 									}
 								>
@@ -80,7 +80,7 @@ export default function GivingHero({
 				</div>
 
 			<div className="relative z-[1] bg-cma-navy rounded-[16px] px-[24px] py-[16px] max-w-[560px] mx-auto mt-8">
-				<p className="text-white/50 text-[12px] text-center leading-[1.6]">
+				<p className="text-white/70 text-[12px] text-center leading-[1.6]">
 					All gifts are tax-deductible to the fullest extent allowed by law. The Museum is a 501(c)(3) tax-exempt organization. Our tax-ID number is 58-1785484.
 				</p>
 			</div>

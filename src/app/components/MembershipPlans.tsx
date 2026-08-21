@@ -48,7 +48,7 @@ export default function MembershipPlans({
 					viewport={{ once: true, margin: "-80px" }}
 					transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
 				>
-					<p className="cma-eyebrow text-cma-teal">choose your plan</p>
+					<p className="cma-eyebrow text-cma-teal-dark">choose your plan</p>
 					<h2 className="text-cma-navy">Membership Plans</h2>
 					<p className="text-cma-navy max-w-[520px]">
 						Every plan includes the same great benefits — unlimited visits, exclusive discounts, and the joy of knowing you're supporting play for every child in Atlanta.
@@ -70,24 +70,24 @@ export default function MembershipPlans({
 							transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
 						>
 							{plan.highlight && (
-								<div className="absolute -top-[14px] left-1/2 -translate-x-1/2 bg-cma-orange text-cma-navy text-[12px] font-black px-[16px] py-[6px] rounded-full whitespace-nowrap">
+								<div className="absolute -top-[14px] left-1/2 -translate-x-1/2 bg-cma-orange text-cma-navy-dark text-[12px] font-black px-[16px] py-[6px] rounded-full whitespace-nowrap">
 									Most Popular
 								</div>
 							)}
 
 							<div className="flex flex-col gap-[8px]">
-								<p className={`cma-eyebrow ${plan.highlight ? "text-white/70" : "text-cma-teal"}`}>
+								<p className={`cma-eyebrow ${plan.highlight ? "text-white" : "text-cma-teal-dark"}`}>
 									{plan.name}
 								</p>
 								<div className="flex items-end gap-[6px]">
 									<span className={`font-extrabold text-[clamp(48px,6vw,72px)] leading-none tracking-[-3px] ${plan.highlight ? "text-white" : "text-cma-navy"}`}>
 										${plan.price}
 									</span>
-									<span className={`font-semibold text-[16px] pb-[8px] ${plan.highlight ? "text-white/70" : "text-cma-navy/60"}`}>
+									<span className={`font-semibold text-[16px] pb-[8px] ${plan.highlight ? "text-white" : "text-cma-navy/80"}`}>
 										/year
 									</span>
 								</div>
-								<p className={`text-[14px] leading-[1.5] ${plan.highlight ? "text-white/80" : "text-cma-navy/60"}`}>
+								<p className={`text-[14px] leading-[1.5] ${plan.highlight ? "text-white" : "text-cma-navy/80"}`}>
 									{plan.description}
 								</p>
 							</div>
@@ -113,7 +113,7 @@ export default function MembershipPlans({
 								href={becomeMemberHref}
 								className={`cma-btn text-center font-black ${
 									plan.highlight
-										? "bg-cma-orange text-cma-navy hover:bg-cma-orange-dark"
+										? "bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark"
 										: "bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white"
 								}`}
 							>

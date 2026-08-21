@@ -332,7 +332,7 @@ export default function FieldTripsProgramContent() {
 					{/* ── Sticky sidebar ── */}
 					<aside className="hidden lg:flex flex-col gap-[20px] w-[210px] shrink-0 sticky top-[140px] self-start">
 						<div className="bg-white rounded-[20px] border border-[rgba(107,126,160,0.15)] p-[20px] flex flex-col gap-[4px]">
-							<p className="cma-eyebrow text-cma-navy/40 text-[10px] mb-[12px]">
+							<p className="cma-eyebrow text-cma-navy/80 text-[10px] mb-[12px]">
 								Jump to
 							</p>
 							{sections.map((section) => (
@@ -342,7 +342,7 @@ export default function FieldTripsProgramContent() {
 									className={`flex items-center gap-[10px] py-[8px] px-[10px] rounded-[10px] text-[13px] font-bold leading-[1.3] transition-colors w-full text-left ${
 										activeSection === section.id
 											? "bg-cma-navy/5 text-cma-navy"
-											: "text-cma-navy/45 hover:text-cma-navy hover:bg-cma-navy/5"
+											: "text-cma-navy/80 hover:text-cma-navy hover:bg-cma-navy/5"
 									}`}
 								>
 									<span
@@ -369,7 +369,7 @@ export default function FieldTripsProgramContent() {
 							/>
 							<button
 								type="button"
-								className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+								className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 							>
 								Stay In The Loop!
 							</button>
@@ -410,7 +410,7 @@ export default function FieldTripsProgramContent() {
 										))}
 									</ul>
 								</div>
-								<p className="text-cma-navy/60 text-[13px] italic">
+								<p className="text-cma-navy/80 text-[13px] italic">
 									*Due to space and time constraints, field trips do not
 									participate in the Art Studio and Science Bar.
 								</p>
@@ -436,7 +436,7 @@ export default function FieldTripsProgramContent() {
 									<p className="font-extrabold text-cma-navy text-[16px] mb-[6px]">
 										Ready to Book?
 									</p>
-									<p className="text-cma-navy/70 text-[14px]">
+									<p className="text-cma-navy/80 text-[14px]">
 										Field trips are self-guided with a 9:30 am arrival time and
 										a field trip time of 10 am – 12 pm. A deposit is required to
 										confirm your reservation.
@@ -444,7 +444,7 @@ export default function FieldTripsProgramContent() {
 								</div>
 								<button
 									onClick={() => scrollToSection("request-visit")}
-									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black shrink-0"
+									className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black shrink-0"
 								>
 									Request Visit
 								</button>
@@ -487,7 +487,7 @@ export default function FieldTripsProgramContent() {
 												<p className="font-extrabold text-cma-navy">
 													{item.label}
 												</p>
-												<p className="text-cma-navy/70">{item.description}</p>
+												<p className="text-cma-navy/80">{item.description}</p>
 											</div>
 										</div>
 									))}
@@ -507,7 +507,7 @@ export default function FieldTripsProgramContent() {
 										school groups are welcome to walk across the street to
 										Centennial Olympic Park for a picnic lunch.
 									</p>
-									<p className="text-cma-navy/60 text-[13px]">
+									<p className="text-cma-navy/80 text-[13px]">
 										Questions about lunch? Contact our Reservations team at
 										reservations@childrensmuseumatlanta.org.
 									</p>
@@ -524,7 +524,7 @@ export default function FieldTripsProgramContent() {
 									</p>
 									<a
 										href="mailto:education@childrensmuseumatlanta.org"
-										className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black self-start"
+										className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black self-start"
 									>
 										Contact Education Team
 									</a>
@@ -549,7 +549,7 @@ export default function FieldTripsProgramContent() {
 											<p className="font-extrabold text-cma-navy">
 												{zone.title}
 											</p>
-											<p className="text-cma-navy/70">{zone.description}</p>
+											<p className="text-cma-navy/80">{zone.description}</p>
 										</div>
 									))}
 								</div>
@@ -561,7 +561,7 @@ export default function FieldTripsProgramContent() {
 									<p className="font-extrabold text-cma-navy mt-[4px]">
 										Leaping into Learning
 									</p>
-									<p className="text-cma-navy/70">
+									<p className="text-cma-navy/80">
 										Catch a colorful fish at our pond, go under our waterfall
 										without getting wet. Climb into our tree house and see
 										animals from the forest.
@@ -600,7 +600,7 @@ export default function FieldTripsProgramContent() {
 												<p className="font-extrabold text-cma-navy">
 													{item.label}
 												</p>
-												<p className="text-cma-navy/70">{item.description}</p>
+												<p className="text-cma-navy/80">{item.description}</p>
 											</div>
 										</div>
 									))}
@@ -690,7 +690,7 @@ export default function FieldTripsProgramContent() {
 									<p className="font-extrabold text-cma-navy">
 										Availability Calendar
 									</p>
-									<p className="text-cma-navy/60 text-[14px] max-w-[360px]">
+									<p className="text-cma-navy/80 text-[14px] max-w-[360px]">
 										To check availability and reserve your date, contact our
 										Reservations team at 404.527.3693 or
 										reservations@childrensmuseumatlanta.org.
@@ -769,7 +769,7 @@ export default function FieldTripsProgramContent() {
 												<p className="font-extrabold text-cma-navy text-[18px]">
 													{floor.title}
 												</p>
-												<p className="text-cma-navy/70 text-[14px]">
+												<p className="text-cma-navy/80 text-[14px]">
 													{floor.description}
 												</p>
 											</div>
@@ -831,7 +831,7 @@ export default function FieldTripsProgramContent() {
 								</div>
 								<a
 									href="tel:4045273693"
-									className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black shrink-0"
+									className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black shrink-0"
 								>
 									<FontAwesomeIcon
 										icon={faPhone}
@@ -916,8 +916,8 @@ export default function FieldTripsProgramContent() {
 												/>
 											</div>
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Grade Level(s) *</label>
-												<select className={inputClass}>
+												<label className={labelClass} htmlFor="ff-grade-level-s">Grade Level(s) *</label>
+												<select id="ff-grade-level-s" className={inputClass}>
 													<option value="">Select grade level</option>
 													<option>Pre-K</option>
 													<option>Kindergarten</option>
@@ -975,7 +975,7 @@ export default function FieldTripsProgramContent() {
 										<div>
 											<button
 												type="submit"
-												className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black"
+												className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black"
 											>
 												Submit
 											</button>

@@ -228,7 +228,7 @@ export default function PartiesPage() {
 						{/* Sticky sidebar */}
 						<aside className="hidden lg:flex flex-col gap-[20px] w-[210px] shrink-0 sticky top-[140px] self-start">
 							<div className="bg-white rounded-[20px] border border-[rgba(107,126,160,0.15)] p-[20px] flex flex-col gap-[4px]">
-								<p className="cma-eyebrow text-cma-navy/40 text-[10px] mb-[12px]">Jump to</p>
+								<p className="cma-eyebrow text-cma-navy/80 text-[10px] mb-[12px]">Jump to</p>
 								{sections.map((s) => (
 									<button
 										key={s.id}
@@ -236,7 +236,7 @@ export default function PartiesPage() {
 										className={`flex items-center gap-[10px] py-[8px] px-[10px] rounded-[10px] text-[13px] font-bold leading-[1.3] transition-colors w-full text-left ${
 											activeSection === s.id
 												? "bg-cma-navy/5 text-cma-navy"
-												: "text-cma-navy/45 hover:text-cma-navy hover:bg-cma-navy/5"
+												: "text-cma-navy/80 hover:text-cma-navy hover:bg-cma-navy/5"
 										}`}
 									>
 										<span className={`w-[6px] h-[6px] rounded-full shrink-0 transition-colors ${activeSection === s.id ? "bg-cma-orange" : "bg-cma-navy/20"}`} />
@@ -247,7 +247,7 @@ export default function PartiesPage() {
 
 							<div className="bg-cma-navy rounded-[20px] p-[20px] flex flex-col gap-[12px]">
 								<p className="font-extrabold text-[14px] text-white leading-[1.3]">Ready to Celebrate?</p>
-								<a href={BOOK_HREF} className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black text-[13px] !py-[10px] !px-[16px]">
+								<a href={BOOK_HREF} className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black text-[13px] !py-[10px] !px-[16px]">
 									Book Your Party
 								</a>
 								<p className="text-white/60 text-[12px]">Or call our Reservations Team</p>
@@ -275,7 +275,7 @@ export default function PartiesPage() {
 										1 hour in a private party room.
 									</p>
 									<div className="flex flex-col sm:flex-row gap-[12px] pt-[4px]">
-										<a href={BOOK_HREF} className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">
+										<a href={BOOK_HREF} className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black">
 											Book Your Party
 										</a>
 										<a href={`tel:${RESERVATIONS_TEL}`} className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black">

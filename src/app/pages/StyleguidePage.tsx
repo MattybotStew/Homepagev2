@@ -24,7 +24,7 @@ function Token({ label, value, className }: { label: string; value: string; clas
 		<div className="flex flex-col gap-[8px]">
 			<div className={`h-[56px] rounded-[12px] border border-black/8 ${className}`} />
 			<p className="font-extrabold text-[13px] text-cma-navy leading-[1.3]">{label}</p>
-			<p className="text-[12px] text-cma-navy/50 font-mono">{value}</p>
+			<p className="text-[12px] text-cma-navy/80 font-mono">{value}</p>
 		</div>
 	);
 }
@@ -32,7 +32,7 @@ function Token({ label, value, className }: { label: string; value: string; clas
 function Spec({ label, value }: { label: string; value: string }) {
 	return (
 		<div className="flex items-baseline gap-[8px]">
-			<span className="text-[12px] text-cma-navy/40 font-bold uppercase tracking-[1px] w-[80px] shrink-0">{label}</span>
+			<span className="text-[12px] text-cma-navy/80 font-bold uppercase tracking-[1px] w-[80px] shrink-0">{label}</span>
 			<span className="text-[13px] text-cma-navy font-mono">{value}</span>
 		</div>
 	);
@@ -41,7 +41,7 @@ function Spec({ label, value }: { label: string; value: string }) {
 function Card({ title, children }: { title: string; children: React.ReactNode }) {
 	return (
 		<div className="bg-white rounded-[20px] border border-black/8 p-[24px] flex flex-col gap-[20px]">
-			<p className="text-[11px] font-extrabold uppercase tracking-[1.5px] text-cma-navy/40">{title}</p>
+			<p className="text-[11px] font-extrabold uppercase tracking-[1.5px] text-cma-navy/80">{title}</p>
 			{children}
 		</div>
 	);
@@ -91,12 +91,12 @@ export default function StyleguidePage() {
 
 						{/* Sticky sidebar nav */}
 						<aside className="hidden lg:flex flex-col gap-[4px] w-[180px] shrink-0 sticky top-[100px] self-start">
-							<p className="text-[10px] font-extrabold uppercase tracking-[1.5px] text-cma-navy/40 mb-[8px]">Jump to</p>
+							<p className="text-[10px] font-extrabold uppercase tracking-[1.5px] text-cma-navy/80 mb-[8px]">Jump to</p>
 							{navSections.map((s) => (
 								<a
 									key={s.id}
 									href={`#${s.id}`}
-									className="text-[13px] font-bold text-cma-navy/50 hover:text-cma-navy py-[6px] px-[10px] rounded-[8px] hover:bg-white transition-colors"
+									className="text-[13px] font-bold text-cma-navy/80 hover:text-cma-navy py-[6px] px-[10px] rounded-[8px] hover:bg-white transition-colors"
 								>
 									{s.label}
 								</a>
@@ -231,7 +231,7 @@ export default function StyleguidePage() {
 
 								<Card title="Responsive font formula">
 									<p className="text-cma-navy font-mono text-[13px]">vw% = target_px / 1440 × 100</p>
-									<p className="text-cma-navy/60 text-[13px]">E.g. a 24px target at 1440px = 1.67vw → <span className="font-mono">clamp(16px, 1.67vw, 24px)</span></p>
+									<p className="text-cma-navy/80 text-[13px]">E.g. a 24px target at 1440px = 1.67vw → <span className="font-mono">clamp(16px, 1.67vw, 24px)</span></p>
 								</Card>
 							</Section>
 
@@ -247,12 +247,12 @@ export default function StyleguidePage() {
 
 								<Card title="Primary — orange">
 									<div className="flex flex-wrap gap-[12px] items-center">
-										<a href="#" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black">Buy Tickets</a>
-										<span className="text-cma-navy/40 text-[13px]">→ hover</span>
+										<a href="#" className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black">Buy Tickets</a>
+										<span className="text-cma-navy/80 text-[13px]">→ hover</span>
 										<div className="cma-btn bg-cma-orange-dark text-cma-navy font-black pointer-events-none">Hover State</div>
 									</div>
 									<div className="flex flex-col gap-[4px]">
-										<Spec label="Default" value="bg-cma-orange text-cma-navy" />
+										<Spec label="Default" value="bg-cma-orange text-cma-navy-dark" />
 										<Spec label="Hover" value="hover:bg-cma-orange-dark" />
 										<Spec label="<a> only" value="+ font-black (no global btn style on <a>)" />
 									</div>
@@ -261,7 +261,7 @@ export default function StyleguidePage() {
 								<Card title="Secondary — teal outline (site standard)">
 									<div className="flex flex-wrap gap-[12px] items-center">
 										<a href="#" className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:border-cma-teal-dark hover:text-white hover:drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)] font-black">Learn More</a>
-										<span className="text-cma-navy/40 text-[13px]">→ hover</span>
+										<span className="text-cma-navy/80 text-[13px]">→ hover</span>
 										<div className="cma-btn bg-cma-teal-dark border-2 border-cma-teal-dark text-white font-black pointer-events-none drop-shadow-[0px_3px_4px_rgba(0,0,0,0.12)]">Hover State</div>
 									</div>
 									<div className="flex flex-col gap-[4px]">
@@ -294,7 +294,7 @@ export default function StyleguidePage() {
 
 								<Card title="Small buttons — override padding only">
 									<div className="flex flex-wrap gap-[12px] items-center">
-										<a href="#" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black !py-[8px] !px-[16px] text-[13px]">Small CTA</a>
+										<a href="#" className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black !py-[8px] !px-[16px] text-[13px]">Small CTA</a>
 										<a href="#" className="cma-btn bg-white border-2 border-cma-teal-dark text-cma-teal-dark hover:bg-cma-teal-dark hover:text-white font-black !py-[8px] !px-[16px] text-[13px]">Small Outline</a>
 									</div>
 									<Spec label="Override" value="!py-[8px] !px-[16px] text-[13px]" />
@@ -349,8 +349,8 @@ export default function StyleguidePage() {
 									].map(({ cls, label, desc, value }) => (
 										<div key={cls} className={`bg-white rounded-[16px] p-[24px] flex flex-col gap-[8px] ${cls}`}>
 											<p className="font-extrabold text-cma-navy text-[14px] font-mono">.{label}</p>
-											<p className="text-cma-navy/60 text-[13px]">{desc}</p>
-											<p className="text-cma-navy/40 text-[11px] font-mono">{value}</p>
+											<p className="text-cma-navy/80 text-[13px]">{desc}</p>
+											<p className="text-cma-navy/80 text-[11px] font-mono">{value}</p>
 										</div>
 									))}
 								</div>
@@ -391,9 +391,9 @@ export default function StyleguidePage() {
 								<Card title="Badge pills — inline, used on cards and search results">
 									<div className="flex flex-wrap gap-[8px]">
 										<span className="bg-cma-teal-dark text-white text-[11px] font-extrabold uppercase tracking-[1px] px-[10px] py-[4px] rounded-full">Exhibit</span>
-										<span className="bg-cma-orange text-cma-navy text-[11px] font-extrabold uppercase tracking-[1px] px-[10px] py-[4px] rounded-full">Event</span>
+										<span className="bg-cma-orange text-cma-navy-dark text-[11px] font-extrabold uppercase tracking-[1px] px-[10px] py-[4px] rounded-full">Event</span>
 										<span className="bg-cma-navy text-white text-[11px] font-extrabold uppercase tracking-[1px] px-[10px] py-[4px] rounded-full">Program</span>
-										<span className="bg-cma-orange text-cma-navy text-[10px] font-extrabold uppercase tracking-[0.5px] px-[10px] py-[4px] rounded-full">Best Value</span>
+										<span className="bg-cma-orange text-cma-navy-dark text-[10px] font-extrabold uppercase tracking-[0.5px] px-[10px] py-[4px] rounded-full">Best Value</span>
 									</div>
 									<Spec label="Pattern" value="{color} text-[11px] font-extrabold uppercase tracking-[1px] px-[10px] py-[4px] rounded-full" />
 								</Card>
@@ -473,7 +473,7 @@ export default function StyleguidePage() {
   {/* content */}
 </motion.div>`}</pre>
 									</div>
-									<p className="text-cma-navy/60 text-[13px]">Use <span className="font-mono">delay: i * 0.08</span> for staggered lists. Heading animations use <span className="font-mono">duration: 1.0</span>.</p>
+									<p className="text-cma-navy/80 text-[13px]">Use <span className="font-mono">delay: i * 0.08</span> for staggered lists. Heading animations use <span className="font-mono">duration: 1.0</span>.</p>
 								</Card>
 
 								<Card title="CSS animation utilities">
@@ -657,11 +657,11 @@ export default function StyleguidePage() {
 									<div className="bg-white rounded-[20px] border border-[rgba(107,126,160,0.15)] px-[32px] py-[24px] flex flex-col sm:flex-row items-start sm:items-center gap-[16px]">
 										<div className="flex-1 flex flex-col gap-[6px]">
 											<p className="font-extrabold text-cma-navy text-[15px]">Callout Title</p>
-											<p className="text-cma-navy/70 text-[14px] leading-[1.5]">
+											<p className="text-cma-navy/80 text-[14px] leading-[1.5]">
 												Supplementary information or eligibility note. Use <strong className="text-cma-navy">promo codes</strong> or key terms in bold.
 											</p>
 										</div>
-										<a href="#" className="cma-btn bg-cma-orange text-cma-navy hover:bg-cma-orange-dark font-black shrink-0">
+										<a href="#" className="cma-btn bg-cma-orange text-cma-navy-dark hover:bg-cma-orange-dark font-black shrink-0">
 											CTA Button
 										</a>
 									</div>
@@ -670,7 +670,7 @@ export default function StyleguidePage() {
 										<Spec label="Card" value="bg-white rounded-[20px] border border-[rgba(107,126,160,0.15)] px-[32px] py-[24px]" />
 										<Spec label="Layout" value="flex-col sm:flex-row items-start sm:items-center gap-[16px]" />
 										<Spec label="Title" value="font-extrabold text-cma-navy text-[15px]" />
-										<Spec label="Body" value="text-cma-navy/70 text-[14px] leading-[1.5]" />
+										<Spec label="Body" value="text-cma-navy/80 text-[14px] leading-[1.5]" />
 										<Spec label="CTA" value="shrink-0 so it never wraps with the text block" />
 									</div>
 								</Card>
@@ -688,7 +688,7 @@ export default function StyleguidePage() {
 												</div>
 												<div className="flex flex-col gap-[8px]">
 													<p className="font-extrabold text-[18px] leading-[1.2] text-cma-navy">{item.title}</p>
-													<p className="text-cma-navy/70 leading-[1.65]">{item.body}</p>
+													<p className="text-cma-navy/80 leading-[1.65]">{item.body}</p>
 												</div>
 											</div>
 										))}
