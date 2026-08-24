@@ -2,6 +2,13 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-24 — Cline (WordPress a11y handoff doc + paste-ready CSS)
+
+- (Continuation) Added `wordpress-a11y-overrides.css` (repo root) — a **paste-ready WCAG AA CSS override** for the WP dev team. Bundles the four `:root` token darkenings (teal-dark `#00707a`, orange-dark `#9c4f04`, gray `#6b7280`, blue-light `#e3ecfa`) plus component rules for footer legal links (white 50→70%), orange CTA text (navy-dark `#152d4d`), marquee teal tile → teal-dark, orange-on-white → orange-dark, and Instagram "Special Guest" bubble → solid navy chip. Bottom block is an OLD→NEW hex find-replace reference for themes that hardcode colors. Caveat documented: only the `:root` token block is paste-and-done (and only if the theme uses `--cma-*` vars); component selectors are common placeholders the team must map to their theme's class names.
+- Referenced the snippet from `WORDPRESS-ACCESSIBILITY-HANDOFF.md` §2 (paste-ready note). Committed (see git log).
+- **Loose end:** vendor name in the handoff header is generic "accessibility partner" — confirm if the partner is literally named "Ally"/"ADA Ally" and rename if needed.
+
+
 ## 2026-08-24 — Cline (WordPress a11y handoff doc)
 
 - Wrote `WORDPRESS-ACCESSIBILITY-HANDOFF.md` (root, next to `WORDPRESS-DEV-HANDOFF.md`) so the **WordPress dev team** can port the accessibility remediation to the live WP site. Translates the React fixes (commit `4ce9403`, **55 → 0 WCAG AA violations / 23 routes**) into WP terms:

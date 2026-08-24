@@ -46,6 +46,11 @@ majority of contrast failures because the same hex is reused across the whole si
 - If it uses a `theme.json` / SCSS variables / a color-palette plugin → update the same four
   values there. These are **modest shade shifts** — the brand still reads correctly.
 
+> **Paste-ready snippet:** a standalone `wordpress-a11y-overrides.css` (repo root) bundles
+> this token block plus the per-component rules in Section 3. If your theme uses `--cma-*`
+> variables, the `:root` block is paste-and-done; otherwise use the OLD → NEW hex
+> find-replace table at the bottom of that file.
+
 ---
 
 ## 3. Per-component contrast / color fixes

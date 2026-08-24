@@ -1,0 +1,57 @@
+/*
+ * CMA — WCAG AA accessibility overrides for WordPress
+ * Port of Homepagev2 commit 4ce9403 (axe audit 55 → 0 violations, 23 routes).
+ *
+ * HOW TO USE:
+ *  1. If your theme uses CSS custom properties named like --cma-* (or you
+ *     define brand colors as :root variables), the token block below is
+ *     genuinely paste-ready — just drop it at the END of your theme CSS (or
+ *     enqueue this file) so it wins the cascade.
+ *  2. The component rules further down are written against common class names.
+ *     If your theme hardcodes colors instead of variables, do a global
+ *     find-replace for each OLD hex → NEW hex listed in the table instead.
+ *  3. If your theme uses SCSS variables / theme.json, update those four token
+ *     values there too — don't rely on an override file.
+ */
+
+/* ── 1. COLOR TOKENS (the big win — darken these four) ───────────────────────
+ *    Same brand, slightly deeper shades, AA on white/cream/teal-pale. */
+:root {
+  --cma-teal-dark:   #00707a;   /* was #007c87  — 5.9:1 on white */
+  --cma-orange-dark: #9c4f04;   /* was #b8620a  — white text 5.9:1 (was 4.38) */
+  --cma-gray:        #6b7280;   /* was #78787a  — 4.83:1 (was 4.41) */
+  --cma-blue-light:  #e3ecfa;   /* was #d4e3f3  — 4.9:1 on teal-dark */
+}
+
+/* ── 2. FOOTER LEGAL LINKS ("blue/white nav text" vendor flag) ────────────────
+ *    Translucent white 50% → 70% (≈7:1 on navy). Don't touch the desktop nav. */
+.site-footer a,
+footer a { color: rgba(255, 255, 255, 0.70); }
+
+/* ── 3. ORANGE CTA BUTTONS — navy-dark text (navy-on-orange was 4.27:1) ───────
+ *    Never white text on bright orange (#f7941e). Update the selector to your
+ *    theme's button class. */
+.btn--orange,
+a.btn--orange,
+.button--orange { color: #152d4d; }
+
+/* ── 4. MARQUEE / TICKER — teal tile must be teal-dark for white text ───────── */
+.marquee--teal,
+.ticker--teal { background-color: #00707a; } /* teal-dark */
+
+/* ── 5. ORANGE TEXT ON LIGHT BACKGROUNDS → orange-dark ──────────────────────── */
+.text--orange,
+.event-hours,
+.stat-number { color: #9c4f04; } /* orange-dark */
+
+/* ── 6. INSTAGRAM "Special Guest" BUBBLE — solid navy chip over photos ──────── */
+.special-guest-bubble { background-color: #1d3e6b; } /* navy */
+
+/*
+ * OLD → NEW hex reference (for find-replace if your theme hardcodes colors):
+ *   #007c87  →  #00707a   (teal-dark)
+ *   #b8620a  →  #9c4f04   (orange-dark)
+ *   #78787a  →  #6b7280   (gray)
+ *   #d4e3f3  →  #e3ecfa   (blue-light)
+ * Navy text at 40–70% opacity → raise to 80% (rgba(29,62,107,0.80)) on white.
+ */
