@@ -17,11 +17,11 @@ npm run dev# Children's Museum of Atlanta — Homepage v2
 
 ## Session State
 
-- **Last Updated:** 2026-08-21
+- **Last Updated:** 2026-08-24
 - **Active Agent:** Cline
-- **Last Commit:** 7997c82 Add Tickets pill to Single Visit pricing tab for clearer affordance.
+- **Last Commit:** 9ae02bd Add WordPress accessibility handoff doc for the WP dev team.
 - **In Progress:** Accessibility audit + tooling
-- **Newly Unblocked:** a11y tooling added — `.vscode/extensions.json`, `eslint.config.mjs` (+ `eslint.a11y.config.mjs` strict gate), `scripts/a11y.mjs` (axe + Playwright, scrolls each route so `motion` animations complete), npm scripts `a11y` / `a11y:preview` / `lint` / `lint:a11y`, `lighthouserc.json` fixed. Full a11y pass complete: **axe audit 55 → 0 violations across 23 routes** (13 main + 10 detail; WCAG AA). Token darkening: `--cma-teal-dark`→`#00707a`, `--cma-orange-dark`→`#9c4f04`, `--cma-gray`→`#6b7280`, `--cma-blue-light`→`#e3ecfa`; navy-opacity text→`/80`; orange CTAs→`text-cma-navy-dark`; single `<main>` landmark; ExhibitsHero h1; PlanTabs h4→h3; Footer h3→p; all form fields `id`/`htmlFor`; social buttons `aria-label`. Details: `docs/accessibility.md`.
+- **Newly Unblocked:** a11y tooling added — `.vscode/extensions.json`, `eslint.config.mjs` (+ `eslint.a11y.config.mjs` strict gate), `scripts/a11y.mjs` (axe + Playwright, scrolls each route so `motion` animations complete), npm scripts `a11y` / `a11y:preview` / `lint` / `lint:a11y`, `lighthouserc.json` fixed. Full a11y pass complete: **axe audit 55 → 0 violations across 23 routes** (13 main + 10 detail; WCAG AA). Token darkening: `--cma-teal-dark`→`#00707a`, `--cma-orange-dark`→`#9c4f04`, `--cma-gray`→`#6b7280`, `--cma-blue-light`→`#e3ecfa`; navy-opacity text→`/80`; orange CTAs→`text-cma-navy-dark`; single `<main>` landmark; ExhibitsHero h1; PlanTabs h4→h3; Footer h3→p; all form fields `id`/`htmlFor`; social buttons `aria-label`. Details: `docs/accessibility.md`. WordPress a11y handoff added at `WORDPRESS-ACCESSIBILITY-HANDOFF.md` (port of these fixes for the WP dev team; see JOURNAL 2026-08-24).
 - **Still Blocked:** Partner toolbar launcher code not in this repo — ticket pending from accessibility partner.
 
 ## Accessibility tooling

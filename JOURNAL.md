@@ -2,6 +2,17 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-24 — Cline (WordPress a11y handoff doc)
+
+- Wrote `WORDPRESS-ACCESSIBILITY-HANDOFF.md` (root, next to `WORDPRESS-DEV-HANDOFF.md`) so the **WordPress dev team** can port the accessibility remediation to the live WP site. Translates the React fixes (commit `4ce9403`, **55 → 0 WCAG AA violations / 23 routes**) into WP terms:
+  - **Color tokens (biggest win):** teal-dark `#007c87→#00707a`, orange-dark `#b8620a→#9c4f04`, gray `#78787a→#6b7280`, blue-light `#d4e3f3→#e3ecfa` — with on-background contrast ratios + where to edit in WP (`style.css` / `theme.json` / SCSS).
+  - **Per-component fixes:** footer legal-link alpha `50%→70%` (vendor "blue/white nav" flag), navy-opacity text → `/80`, orange CTA text → navy-dark `#152d4d`, orange stat cards white→navy text, orange-on-white → orange-dark, teal eyebrows, marquee teal tile → teal-dark, Instagram "Special Guest" chip → solid navy pill, sponsor placeholders → solid navy.
+  - **Structure/semantics:** single `<main>` landmark, one `<h1>` (Exhibits h1, PlanTabs h3, footer headings h3→`<p>`), logo `aria-label`, social `aria-label`s, and `label for`/`id` wiring across Contact + all 5 program forms (Scouts 3 selects, MOTG 4, Educator PD 2, Corporate Membership 1, Field Trips).
+  - **QA process** (axe DevTools / Lighthouse, WCAG AA, page-type scan list) + **change manifest** (~65 React files) + **outstanding** (toolbar launcher = partner's code, not in this repo — ticket pending).
+- Committed as **`9ae02bd`** "Add WordPress accessibility handoff doc for the WP dev team."
+- **Loose end:** no zip / `.css` override snippet attached yet; the doc is the spec for the WP team to port (WP theme is a separate codebase and can't consume React components directly). Vendor name in the doc header is generic "accessibility partner" — confirm if the partner is literally named "Ally"/"ADA Ally" and rename if needed.
+
+
 ## 2026-08-19 — Cline (file:// local preview fix)
 
 - Diagnosed `Museum Walk-Through` failing from the unzipped Desktop package: the pano URL resolves correctly (`file:///…/museum-tour-map/fundamentally-food-kitchen.webp`), but a `file://` document gets a **unique opaque origin with no CORS**, so Pannellum's WebGL texture upload (`texImage2D`) is rejected — "The file … could not be accessed." Not a path/layout bug; double-click `file://` is inherently unsupported for the 360 viewer.
