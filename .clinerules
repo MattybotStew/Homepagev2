@@ -17,12 +17,12 @@ npm run dev# Children's Museum of Atlanta — Homepage v2
 
 ## Session State
 
-- **Last Updated:** 2026-08-24
+- **Last Updated:** 2026-08-25
 - **Active Agent:** Cline
-- **Last Commit:** 9ae02bd Add WordPress accessibility handoff doc for the WP dev team.
-- **In Progress:** Accessibility audit + tooling
-- **Newly Unblocked:** a11y tooling added — `.vscode/extensions.json`, `eslint.config.mjs` (+ `eslint.a11y.config.mjs` strict gate), `scripts/a11y.mjs` (axe + Playwright, scrolls each route so `motion` animations complete), npm scripts `a11y` / `a11y:preview` / `lint` / `lint:a11y`, `lighthouserc.json` fixed. Full a11y pass complete: **axe audit 55 → 0 violations across 23 routes** (13 main + 10 detail; WCAG AA). Token darkening: `--cma-teal-dark`→`#00707a`, `--cma-orange-dark`→`#9c4f04`, `--cma-gray`→`#6b7280`, `--cma-blue-light`→`#e3ecfa`; navy-opacity text→`/80`; orange CTAs→`text-cma-navy-dark`; single `<main>` landmark; ExhibitsHero h1; PlanTabs h4→h3; Footer h3→p; all form fields `id`/`htmlFor`; social buttons `aria-label`. Details: `docs/accessibility.md`. WordPress a11y handoff added at `WORDPRESS-ACCESSIBILITY-HANDOFF.md` (port of these fixes for the WP dev team; see JOURNAL 2026-08-24).
-- **Still Blocked:** Partner toolbar launcher code not in this repo — ticket pending from accessibility partner.
+- **Last Commit:** 69ba807 a11y: stage ADA audit + fixes (20->11), WAVE parity, dev checklist
+- **In Progress:** WordPress staging accessibility (childmusstg.wpenginepowered.com) — contrast DONE, structural/ARIA items pending with WP dev
+- **Newly Unblocked:** New `scripts/a11y-wp.mjs` (Playwright + axe, WCAG 2.1 AA, crawls any WP host). Staging audit **20 → 11 violations / 40 routes, 0 color-contrast** after a paste-ready CSS override (hardcoded-theme variant + WAVE-parity block in `wordpress-a11y-overrides.css`). Cross-checked with Lighthouse (independent) + WebAIM WAVE; homepage WAVE contrast errors verified **false positives** via pixel sampling of the dark hero photo (h1 11.86:1, eyebrow 9.51:1, subtitle 5.51:1). React source star ratings hardened with `role="img"` (`Testimonials.tsx`, `AboutTestimonials.tsx`; axe still 0/23). Docs: `docs/wpa11y/STATUS.md` (done/to-do/artifacts), `WP-DEV-CHECKLIST.md` (the 11 markup items), `second-opinion-2026-08-25.md`, `staging-axe-*.log`, `wp-hero-*.png`. Full WP handoff `WORDPRESS-ACCESSIBILITY-HANDOFF.md`.
+- **Still Blocked:** Cannot edit WP theme/WPBakery on staging (no WP credentials/SSH in repo) — the last **11 axe violations are markup/ARIA** (tablist ×5, star role=img ×3, iframe title ×1, inline-link underline ×2, Gravity Forms submit label ×1) and need a WP dev; see `docs/wpa11y/WP-DEV-CHECKLIST.md`. Partner toolbar launcher code not in this repo — ticket pending.
 
 ## Accessibility tooling
 
