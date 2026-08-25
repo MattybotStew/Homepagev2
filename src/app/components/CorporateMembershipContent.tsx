@@ -297,17 +297,17 @@ export default function CorporateMembershipContent() {
 						<form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-[16px]">
 							<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
 								<div className="flex flex-col gap-[6px]">
-									<label className={labelClass}>Name</label>
-									<input type="text" placeholder="Your Name" className={inputClass} />
+									<label className={labelClass} htmlFor="name">Name</label>
+									<input id="name" type="text" placeholder="Your Name" className={inputClass} />
 								</div>
 								<div className="flex flex-col gap-[6px]">
-									<label className={labelClass}>Company</label>
-									<input type="text" placeholder="Company Name" className={inputClass} />
+									<label className={labelClass} htmlFor="company">Company</label>
+									<input id="company" type="text" placeholder="Company Name" className={inputClass} />
 								</div>
 							</div>
 							<div className="flex flex-col gap-[6px]">
-								<label className={labelClass}>Email</label>
-								<input type="email" placeholder="you@company.com" className={inputClass} />
+								<label className={labelClass} htmlFor="email">Email</label>
+								<input id="email" type="email" placeholder="you@company.com" className={inputClass} />
 							</div>
 							<div className="flex flex-col gap-[6px]">
 								<label className={labelClass} htmlFor="ff-membership-level">Membership Level</label>
@@ -321,8 +321,9 @@ export default function CorporateMembershipContent() {
 								</select>
 							</div>
 							<div className="flex flex-col gap-[6px]">
-								<label className={labelClass}>Message</label>
+								<label className={labelClass} htmlFor="message">Message</label>
 								<textarea
+									id="message"
 									rows={4}
 									placeholder="Tell us about your team..."
 									className={`${inputClass} resize-none`}

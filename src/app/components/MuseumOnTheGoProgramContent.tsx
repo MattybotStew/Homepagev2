@@ -399,6 +399,7 @@ export default function MuseumOnTheGoProgramContent() {
 								for your classroom and community.
 							</p>
 							<input
+								aria-label="Email address"
 								type="email"
 								placeholder="Your email address"
 								className="w-full px-[12px] py-[10px] rounded-[10px] bg-white/10 border border-white/20 text-white placeholder:text-white/40 outline-none focus:border-white/60 transition-colors"
@@ -735,28 +736,28 @@ export default function MuseumOnTheGoProgramContent() {
 									>
 										<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Contact First Name *</label>
-												<input type="text" placeholder="First Name" className={inputClass} />
+												<label className={labelClass} htmlFor="contact-first-name">Contact First Name *</label>
+												<input id="contact-first-name" type="text" placeholder="First Name" className={inputClass} />
 											</div>
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Contact Last Name *</label>
-												<input type="text" placeholder="Last Name" className={inputClass} />
-											</div>
-										</div>
-										<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
-											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Contact Phone Number *</label>
-												<input type="tel" placeholder="(000) 000-0000" className={inputClass} />
-											</div>
-											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Contact Email *</label>
-												<input type="email" placeholder="email@school.edu" className={inputClass} />
+												<label className={labelClass} htmlFor="contact-last-name">Contact Last Name *</label>
+												<input id="contact-last-name" type="text" placeholder="Last Name" className={inputClass} />
 											</div>
 										</div>
 										<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>School / Organization Name *</label>
-												<input type="text" placeholder="School Name" className={inputClass} />
+												<label className={labelClass} htmlFor="contact-phone-number">Contact Phone Number *</label>
+												<input id="contact-phone-number" type="tel" placeholder="(000) 000-0000" className={inputClass} />
+											</div>
+											<div className="flex flex-col gap-[6px]">
+												<label className={labelClass} htmlFor="contact-email">Contact Email *</label>
+												<input id="contact-email" type="email" placeholder="email@school.edu" className={inputClass} />
+											</div>
+										</div>
+										<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
+											<div className="flex flex-col gap-[6px]">
+												<label className={labelClass} htmlFor="school-organization-name">School / Organization Name *</label>
+												<input id="school-organization-name" type="text" placeholder="School Name" className={inputClass} />
 											</div>
 											<div className="flex flex-col gap-[6px]">
 												<label className={labelClass} htmlFor="ff-grade-level-s">Grade Level(s) *</label>
@@ -773,16 +774,16 @@ export default function MuseumOnTheGoProgramContent() {
 										</div>
 										<div className="grid grid-cols-1 sm:grid-cols-3 gap-[16px]">
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Number of Students *</label>
-												<input type="number" min="1" max="30" placeholder="Max 30" className={inputClass} />
+												<label className={labelClass} htmlFor="number-of-students">Number of Students *</label>
+												<input id="number-of-students" type="number" min="1" max="30" placeholder="Max 30" className={inputClass} />
 											</div>
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Date Request – First Choice *</label>
-												<input type="date" className={inputClass} />
+												<label className={labelClass} htmlFor="date-request-first-choice">Date Request – First Choice *</label>
+												<input id="date-request-first-choice" type="date" className={inputClass} />
 											</div>
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Date Request – Second Choice</label>
-												<input type="date" className={inputClass} />
+												<label className={labelClass} htmlFor="date-request-second-choice">Date Request – Second Choice</label>
+												<input id="date-request-second-choice" type="date" className={inputClass} />
 											</div>
 										</div>
 										<div className="flex flex-col gap-[6px]">
@@ -807,10 +808,10 @@ export default function MuseumOnTheGoProgramContent() {
 											</select>
 										</div>
 										<div className="flex flex-col gap-[6px]">
-											<label className={labelClass}>Tax-Exempt Status</label>
+											<label className={labelClass} htmlFor="tax-exempt-status">Tax-Exempt Status</label>
 											<div className="flex items-center gap-[24px] py-[8px]">
 												<label className="flex items-center gap-[8px] cursor-pointer">
-													<input type="radio" name="tax-exempt" value="yes" className="accent-cma-teal-dark w-[16px] h-[16px]" />
+													<input id="tax-exempt-status" type="radio" name="tax-exempt" value="yes" className="accent-cma-teal-dark w-[16px] h-[16px]" />
 													<span className="text-cma-navy text-[14px]">Yes</span>
 												</label>
 												<label className="flex items-center gap-[8px] cursor-pointer">
@@ -820,8 +821,8 @@ export default function MuseumOnTheGoProgramContent() {
 											</div>
 										</div>
 										<div className="flex flex-col gap-[6px]">
-											<label className={labelClass}>Billing Contact (if different)</label>
-											<input type="text" placeholder="Name and email for billing" className={inputClass} />
+											<label className={labelClass} htmlFor="billing-contact-if-different">Billing Contact (if different)</label>
+											<input id="billing-contact-if-different" type="text" placeholder="Name and email for billing" className={inputClass} />
 										</div>
 										<div className="flex flex-col gap-[6px]">
 											<label className={labelClass} htmlFor="ff-how-did-you-hear-about-us">How Did You Hear About Us?</label>
@@ -837,8 +838,9 @@ export default function MuseumOnTheGoProgramContent() {
 											</select>
 										</div>
 										<div className="flex flex-col gap-[6px]">
-											<label className={labelClass}>Additional Notes or Comments</label>
+											<label className={labelClass} htmlFor="additional-notes-or-comments">Additional Notes or Comments</label>
 											<textarea
+												id="additional-notes-or-comments"
 												rows={4}
 												placeholder="Any additional information, special accommodations, or questions..."
 												className={`${inputClass} resize-none`}

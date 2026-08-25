@@ -208,6 +208,7 @@ export default function ScoutsProgramContent() {
 								workshops, and museum events.
 							</p>
 							<input
+								aria-label="Email address"
 								type="email"
 								placeholder="Your email address"
 								className="w-full px-[12px] py-[10px] rounded-[10px] bg-white/10 border border-white/20 text-white placeholder:text-white/40 outline-none focus:border-white/60 transition-colors"
@@ -335,20 +336,22 @@ export default function ScoutsProgramContent() {
 									>
 										<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>
+												<label className={labelClass} htmlFor="contact-first-name">
 													Contact First Name *
 												</label>
 												<input
+													id="contact-first-name"
 													type="text"
 													placeholder="First Name"
 													className={inputClass}
 												/>
 											</div>
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>
+												<label className={labelClass} htmlFor="contact-last-name">
 													Contact Last Name *
 												</label>
 												<input
+													id="contact-last-name"
 													type="text"
 													placeholder="Last Name"
 													className={inputClass}
@@ -357,18 +360,20 @@ export default function ScoutsProgramContent() {
 										</div>
 										<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>
+												<label className={labelClass} htmlFor="contact-phone-number">
 													Contact Phone Number *
 												</label>
 												<input
+													id="contact-phone-number"
 													type="tel"
 													placeholder="(000) 000-0000"
 													className={inputClass}
 												/>
 											</div>
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Contact Email *</label>
+												<label className={labelClass} htmlFor="contact-email">Contact Email *</label>
 												<input
+													id="contact-email"
 													type="email"
 													placeholder="email@example.com"
 													className={inputClass}
@@ -387,10 +392,11 @@ export default function ScoutsProgramContent() {
 												</select>
 											</div>
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>
+												<label className={labelClass} htmlFor="number-of-children">
 													Number of Children *
 												</label>
 												<input
+													id="number-of-children"
 													type="number"
 													min="1"
 													max="12"
@@ -401,16 +407,16 @@ export default function ScoutsProgramContent() {
 										</div>
 										<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>
+												<label className={labelClass} htmlFor="date-request-first-choice">
 													Date Request – First Choice *
 												</label>
-												<input type="date" className={inputClass} />
+												<input id="date-request-first-choice" type="date" className={inputClass} />
 											</div>
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>
+												<label className={labelClass} htmlFor="date-request-second-choice">
 													Date Request – Second Choice
 												</label>
-												<input type="date" className={inputClass} />
+												<input id="date-request-second-choice" type="date" className={inputClass} />
 											</div>
 										</div>
 										<div className="flex flex-col gap-[6px]">
@@ -440,21 +446,23 @@ export default function ScoutsProgramContent() {
 											</select>
 										</div>
 										<div className="flex flex-col gap-[6px]">
-											<label className={labelClass}>
+											<label className={labelClass} htmlFor="have-you-done-a-girl-scout-workshop-at-t">
 												Have you done a Girl Scout Workshop at the Museum
 												before? If yes, when?
 											</label>
 											<input
+												id="have-you-done-a-girl-scout-workshop-at-t"
 												type="text"
 												placeholder="e.g. Spring 2024"
 												className={inputClass}
 											/>
 										</div>
 										<div className="flex flex-col gap-[6px]">
-											<label className={labelClass}>
+											<label className={labelClass} htmlFor="additional-notes-or-comments">
 												Additional Notes or Comments
 											</label>
 											<textarea
+												id="additional-notes-or-comments"
 												rows={4}
 												placeholder="Any additional information, special accommodations, or questions..."
 												className={`${inputClass} resize-none`}
@@ -553,6 +561,7 @@ export default function ScoutsProgramContent() {
 								</p>
 								<div className="bg-cma-teal-pale rounded-[20px] p-[24px] flex flex-col sm:flex-row gap-[12px]">
 									<input
+										aria-label="Email address"
 										type="email"
 										placeholder="Enter your email"
 										className={`${inputClass} flex-1`}

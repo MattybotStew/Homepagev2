@@ -306,6 +306,7 @@ export default function EducatorPDProgramContent() {
 								play-based learning resources for educators.
 							</p>
 							<input
+								aria-label="Email address"
 								type="email"
 								placeholder="Your email address"
 								className="w-full px-[12px] py-[10px] rounded-[10px] bg-white/10 border border-white/20 text-white placeholder:text-white/40 outline-none focus:border-white/60 transition-colors"
@@ -614,32 +615,32 @@ export default function EducatorPDProgramContent() {
 									>
 										<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Contact First Name *</label>
-												<input type="text" placeholder="First Name" className={inputClass} />
+												<label className={labelClass} htmlFor="contact-first-name">Contact First Name *</label>
+												<input id="contact-first-name" type="text" placeholder="First Name" className={inputClass} />
 											</div>
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Contact Last Name *</label>
-												<input type="text" placeholder="Last Name" className={inputClass} />
-											</div>
-										</div>
-										<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
-											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Contact Phone Number *</label>
-												<input type="tel" placeholder="(000) 000-0000" className={inputClass} />
-											</div>
-											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Contact Email *</label>
-												<input type="email" placeholder="email@school.edu" className={inputClass} />
+												<label className={labelClass} htmlFor="contact-last-name">Contact Last Name *</label>
+												<input id="contact-last-name" type="text" placeholder="Last Name" className={inputClass} />
 											</div>
 										</div>
 										<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>School / District Name *</label>
-												<input type="text" placeholder="School or District Name" className={inputClass} />
+												<label className={labelClass} htmlFor="contact-phone-number">Contact Phone Number *</label>
+												<input id="contact-phone-number" type="tel" placeholder="(000) 000-0000" className={inputClass} />
 											</div>
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Number of Participants *</label>
-												<input type="number" min="10" max="40" placeholder="10–40 educators" className={inputClass} />
+												<label className={labelClass} htmlFor="contact-email">Contact Email *</label>
+												<input id="contact-email" type="email" placeholder="email@school.edu" className={inputClass} />
+											</div>
+										</div>
+										<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
+											<div className="flex flex-col gap-[6px]">
+												<label className={labelClass} htmlFor="school-district-name">School / District Name *</label>
+												<input id="school-district-name" type="text" placeholder="School or District Name" className={inputClass} />
+											</div>
+											<div className="flex flex-col gap-[6px]">
+												<label className={labelClass} htmlFor="number-of-participants">Number of Participants *</label>
+												<input id="number-of-participants" type="number" min="10" max="40" placeholder="10–40 educators" className={inputClass} />
 											</div>
 										</div>
 										<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
@@ -667,17 +668,18 @@ export default function EducatorPDProgramContent() {
 										</div>
 										<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Date Request – First Choice *</label>
-												<input type="date" className={inputClass} />
+												<label className={labelClass} htmlFor="date-request-first-choice">Date Request – First Choice *</label>
+												<input id="date-request-first-choice" type="date" className={inputClass} />
 											</div>
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Date Request – Second Choice</label>
-												<input type="date" className={inputClass} />
+												<label className={labelClass} htmlFor="date-request-second-choice">Date Request – Second Choice</label>
+												<input id="date-request-second-choice" type="date" className={inputClass} />
 											</div>
 										</div>
 										<div className="flex flex-col gap-[6px]">
-											<label className={labelClass}>Additional Notes or Goals</label>
+											<label className={labelClass} htmlFor="additional-notes-or-goals">Additional Notes or Goals</label>
 											<textarea
+												id="additional-notes-or-goals"
 												rows={4}
 												placeholder="Tell us about your school's current focus areas, any specific learning goals, or special considerations..."
 												className={`${inputClass} resize-none`}

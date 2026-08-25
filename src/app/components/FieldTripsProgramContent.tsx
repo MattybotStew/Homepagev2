@@ -365,6 +365,7 @@ export default function FieldTripsProgramContent() {
 							<input
 								type="email"
 								placeholder="Your email address"
+								aria-label="Email address"
 								className="w-full px-[12px] py-[10px] rounded-[10px] bg-white/10 border border-white/20 text-white placeholder:text-white/40 outline-none focus:border-white/60 transition-colors"
 							/>
 							<button
@@ -864,20 +865,22 @@ export default function FieldTripsProgramContent() {
 									>
 										<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>
+												<label className={labelClass} htmlFor="ff-fname">
 													Contact First Name *
 												</label>
 												<input
+													id="ff-fname"
 													type="text"
 													placeholder="First Name"
 													className={inputClass}
 												/>
 											</div>
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>
+												<label className={labelClass} htmlFor="ff-lname">
 													Contact Last Name *
 												</label>
 												<input
+													id="ff-lname"
 													type="text"
 													placeholder="Last Name"
 													className={inputClass}
@@ -886,18 +889,20 @@ export default function FieldTripsProgramContent() {
 										</div>
 										<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>
+												<label className={labelClass} htmlFor="ff-phone">
 													Contact Phone Number *
 												</label>
 												<input
+													id="ff-phone"
 													type="tel"
 													placeholder="(000) 000-0000"
 													className={inputClass}
 												/>
 											</div>
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>Contact Email *</label>
+												<label className={labelClass} htmlFor="ff-email">Contact Email *</label>
 												<input
+													id="ff-email"
 													type="email"
 													placeholder="email@school.edu"
 													className={inputClass}
@@ -906,10 +911,11 @@ export default function FieldTripsProgramContent() {
 										</div>
 										<div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>
+												<label className={labelClass} htmlFor="ff-school">
 													School / Organization Name *
 												</label>
 												<input
+													id="ff-school"
 													type="text"
 													placeholder="School Name"
 													className={inputClass}
@@ -930,10 +936,11 @@ export default function FieldTripsProgramContent() {
 										</div>
 										<div className="grid grid-cols-1 sm:grid-cols-3 gap-[16px]">
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>
+												<label className={labelClass} htmlFor="ff-students">
 													Number of Students *
 												</label>
 												<input
+													id="ff-students"
 													type="number"
 													min="10"
 													max="250"
@@ -942,20 +949,22 @@ export default function FieldTripsProgramContent() {
 												/>
 											</div>
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>
+												<label className={labelClass} htmlFor="ff-date-1">
 													Date Request – First Choice *
 												</label>
 												<input
+													id="ff-date-1"
 													type="date"
 													className={inputClass}
 													placeholder="MM/DD/YYYY"
 												/>
 											</div>
 											<div className="flex flex-col gap-[6px]">
-												<label className={labelClass}>
+												<label className={labelClass} htmlFor="ff-date-2">
 													Date Request – Second Choice
 												</label>
 												<input
+													id="ff-date-2"
 													type="date"
 													className={inputClass}
 													placeholder="MM/DD/YYYY"
@@ -963,10 +972,11 @@ export default function FieldTripsProgramContent() {
 											</div>
 										</div>
 										<div className="flex flex-col gap-[6px]">
-											<label className={labelClass}>
+											<label className={labelClass} htmlFor="ff-message">
 												Additional Notes or Comments
 											</label>
 											<textarea
+												id="ff-message"
 												rows={4}
 												placeholder="Any additional information, special accommodations, or questions..."
 												className={`${inputClass} resize-none`}

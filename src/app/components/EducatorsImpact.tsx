@@ -153,16 +153,27 @@ export default function EducatorsImpact() {
 								className="flex flex-col gap-[16px]"
 							>
 								<div className="flex flex-col gap-[6px]">
-									<label className={labelClass}>Name</label>
-									<input type="text" placeholder="Your Name" className={inputClass} />
+									<label className={labelClass} htmlFor="ed-name">Name</label>
+									<input
+										id="ed-name"
+										type="text"
+										placeholder="Your Name"
+										className={inputClass}
+									/>
 								</div>
 								<div className="flex flex-col gap-[6px]">
-									<label className={labelClass}>Email</label>
-									<input type="email" placeholder="you@email.com" className={inputClass} />
+									<label className={labelClass} htmlFor="ed-email">Email</label>
+									<input
+										id="ed-email"
+										type="email"
+										placeholder="you@email.com"
+										className={inputClass}
+									/>
 								</div>
 								<div className="flex flex-col gap-[6px]">
-									<label className={labelClass}>Message</label>
+									<label className={labelClass} htmlFor="ed-message">Message</label>
 									<textarea
+										id="ed-message"
 										rows={4}
 										placeholder="Tell us how we can help..."
 										className={`${inputClass} resize-none`}
@@ -208,6 +219,7 @@ export default function EducatorsImpact() {
 										value={email}
 										onChange={(e) => setEmail(e.target.value)}
 										placeholder="Enter your email"
+									aria-label="Email address"
 										className="flex-1 bg-transparent text-[15px] text-cma-navy placeholder:text-black/40 outline-none"
 									/>
 								</div>

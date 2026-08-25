@@ -100,6 +100,7 @@ export default function Footer() {
 									value={email}
 									onChange={(e) => setEmail(e.target.value)}
 									placeholder="Enter your email"
+								aria-label="Email address"
 									className="w-full h-[50px] pl-12 pr-4 border border-[#d1d5dc] rounded-[10px] text-base text-[#0a0a0a] placeholder:text-[rgba(10,10,10,0.5)] focus:outline-none focus:ring-2 focus:ring-cma-teal focus:border-transparent"
 									required
 								/>
