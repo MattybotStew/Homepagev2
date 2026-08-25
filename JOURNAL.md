@@ -2,6 +2,23 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-25 — Cline (repo: label every form field → axe 0, unlabeled 0)
+
+- Goal: make the **repo (React) version** fully pass, then client makes recommendations.
+- Audited all 23 routes with a Playwright + alpha-aware-contrast + label-association script.
+  Found the repo was already contrast-clean (0) but had **unlabeled form controls** in the
+  program/corporate forms: visible `<label>` text with no `id`/`htmlFor` association, plus a few
+  label-less newsletter email inputs.
+- Fixed: wired `id` + `htmlFor` across `FieldTripsProgramContent`, `EducatorsImpact`,
+  `ScoutsProgramContent`, `MuseumOnTheGoProgramContent`, `EducatorPDProgramContent`,
+  `CorporateMembershipContent`; added `aria-label="Email address"` to `Footer.tsx` newsletter
+  input and the `EducatorsImpact` newsletter input.
+- **Result: axe 0/23; unlabeled controls 0; alpha-aware contrast 0; ESLint 0 errors; TS clean;
+  build green.** Committed `b1668a4`.
+- Note: WAVE's repo contrast "errors" (hero subtitle, featured-exhibit card text) are over-photo
+  false positives, same as staging — verified by pixel sampling (dark photo). `addiitonalcss.css`
+  (typo name) left untracked — a stray paste, not part of this work.
+
 ## 2026-08-25 — Cline (WAVE verified false positives + status docs + commit/push)
 
 - Client applied the cleaned (merged) CSS override to staging. Re-verified:
