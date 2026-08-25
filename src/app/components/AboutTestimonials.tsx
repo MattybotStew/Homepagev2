@@ -15,9 +15,12 @@ export default function AboutTestimonials() {
 			</div>
 
 			<div className="cma-section-container relative flex flex-col items-center gap-10 text-center">
-				{/* Stars */}
+				{/* Stars — role=img so the aria-label is a valid accessible name,
+				    not a prohibited attribute on a bare div (the pattern to copy in WP). */}
 				<motion.div
 					className="flex gap-[6px]"
+					role="img"
+					aria-label="Rated 5 out of 5 stars"
 					initial={{ opacity: 0, y: 16 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true, margin: "-80px" }}

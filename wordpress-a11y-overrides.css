@@ -55,3 +55,71 @@ a.btn--orange,
  *   #d4e3f3  →  #e3ecfa   (blue-light)
  * Navy text at 40–70% opacity → raise to 80% (rgba(29,62,107,0.80)) on white.
  */
+/*
+ * ─────────────────────────────────────────────────────────────────────────────
+ * HARDCODED-THEME VARIANT — use this IF your theme writes colors directly.
+ * (The token block at the top only works if the theme reads --cma-* variables;
+ * childmusstg.wpenginepowered.com does NOT — it hardcodes hex onto the .cma-*
+ * classes, so the block above has no effect there.)
+ *
+ * Paste THIS block into Appearance → Customize → Additional CSS (these use
+ * !important so they win over the hardcoded colors). Verified vs. the Aug 2026
+ * axe + Lighthouse scans. If the theme already has #00707a/#6b7280 etc. (it
+ * does), the only contrast fixes still needed are the white-on-brand ones below.
+ */
+.cma-page-hero-stat--orange .cma-page-hero-stat__value,
+.cma-page-hero-stat--orange .cma-page-hero-stat__label,
+.cma-page-hero-stat--orange .cma-page-hero-stat__detail,
+.cma-fundraising__stat--orange .cma-fundraising__stat-value,
+.cma-fundraising__stat--orange .cma-fundraising__stat-label,
+.cma-plan-tabs__nav-item.is-active > span {
+  /* White text on bright orange (#f7941e) was 2.28:1 → navy-dark text ≈ 5.9:1 */
+  color: #152d4d !important;
+}
+
+.cma-logo-marquee__item--teal.cma-logo-marquee__item--text-white > p,
+.cma-logo-marquee__item--orange.cma-logo-marquee__item--text-white > p {
+  /* White on brand tiles was 2.72:1 → navy-dark text on teal (#00adb) ≈ 5.0:1,
+     on orange (#f7941e) ≈ 5.9:1 */
+  color: #152d4d !important;
+}
+
+.cma-tax-note {
+  /* White text at 50% on navy was 3.98:1 → 80% ≈ 7:1 */
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.cma-pricing__panel--membership .cma-pricing__eyebrow {
+  /* White text at 80% on the dark membership panel was 4.32:1 → 95% passes */
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/*
+ * ─────────────────────────────────────────────────────────────────────────────
+ * WAVE-PARITY — found by WebAIM WAVE (3rd engine) but missed by axe/Lighthouse.
+ * These use bright teal #00adb / gray #78787a directly (not the tokens), so the
+ * blocks above don't reach them. Paste with the previous block. Scoped to real
+ * selectors verified on the homepage; the desktop-nav item + photo-hero subtitle
+ * are flagged for a dev to locate exactly (see WP-DEV-CHECKLIST §6).
+ */
+.cma-btn--teal,
+a.cma-btn--teal {
+  /* White on bright teal (#00adb) was 2.73:1 → teal-dark bg ≈ 5.9:1 */
+  background-color: #00707a !important;
+}
+
+.mobile-menu-contact h4,
+.mobile-menu-contact a {
+  /* Teal (#00adb) text on white was 2.73:1 → teal-dark */
+  color: #00707a !important;
+}
+
+.mobile-menu-contact p {
+  /* Gray #78787a on white was 4.41:1 → #6b7280 (4.83:1) */
+  color: #6b7280 !important;
+}
+
+.cma-pricing__tab-badge--tickets {
+  /* Orange-dark #9c4f04 on orange #f7941e was 2.61:1 → navy-dark */
+  color: #152d4d !important;
+}

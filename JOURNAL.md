@@ -2,6 +2,46 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-25 — Cline (WAVE verified false positives + status docs + commit/push)
+
+- Client applied the cleaned (merged) CSS override to staging. Re-verified:
+  - **axe full-site: still 11 / 40 routes, 0 color-contrast** (log `staging-axe-CLEAN-CSS-2026-08-25.log`).
+  - **Homepage WAVE: 0 errors, contrast 19 → 5, AIM 6.2 → 8.9.**
+- **Proved the 5 remaining homepage WAVE "contrast errors" are false positives** by sampling the
+  actual photo pixels behind the hero text (h1 11.86:1, eyebrow 9.51:1, subtitle 5.51:1 — all on a
+  dark photo) and confirming the nav "Plan Your Visit" is white-on-navy (~10.6:1; the teal `#00adb`
+  was a dropdown ancestor, not the rendered bg). Screenshots: `docs/wpa11y/wp-hero-section.png`,
+  `wp-hero-full.png`. Checklist §6 updated to "verified pass, no action."
+- Added consolidated **`docs/wpa11y/STATUS.md`** (done / to-do / artifact locations). Committed +
+  pushed all session work (source star fix, override CSS, scan logs, Lighthouse JSONs, handoff §5,
+  dev checklist, second-opinion, screenshots, journal).
+
+## 2026-08-25 — Cline (WAVE 3rd-engine review → +6 contrast + 1 form label)
+
+- Client ran **WebAIM WAVE** (3rd engine) on staging home. WAVE is stricter/different: its "101 alerts" are mostly informational (70 possible-headings = styled `<p>`; 110 null-alt = decorative imgs; ARIA refs; redundant links). Real items it caught that axe/Lighthouse MISSED:
+  - **1 Error — missing form label:** Gravity Forms submit `#gform_submit_button_2` (no `value`/aria-label). Added to checklist §5.
+  - **6 contrast fails** (bright teal `#00adb`, leftover gray `#78787a`, orange-dark badge) + hero-subtitle over photo. Why axe/LH missed them: they skip nav-state + text-over-image.
+- Extended `wordpress-a11y-overrides.css` with a **WAVE-PARITY** block (`.cma-btn--teal`, `.mobile-menu-contact` teal text + gray p, `.cma-pricing__tab-badge--tickets`). Dev must locate the desktop-nav teal item + hero subtitle (§6).
+- Repo status: `scripts/a11y-wp.mjs`, `docs/wpa11y/*` (axe before/after, Lighthouse JSONs, second-opinion, WP-DEV-CHECKLIST), `wordpress-a11y-overrides.css`, source star-rating fix, handoff §5, JOURNAL. Not yet committed.
+
+## 2026-08-25 — Cline (staging override applied → 20 → 11 violations)
+
+- Client pasted the `:root` token block into staging **Additional CSS** — verified it rendered but had **no effect** because the theme hardcodes hex (never reads `--cma-*`; grep found zero `var(--cma-*)` in `style.css`). Re-scan was unchanged at 20.
+- Diagnosed via computed styles (Playwright probe): the real values are white-on-orange 2.28, marquee white-on-brand 2.72, `.cma-tax-note` white **50%** on navy 3.98, membership eyebrow white **80%** 4.32. Theme already ships `#00707a` ×99 / `#9c4f04` ×38 (leftover gray `#78787a` ×4).
+- Added a **HARDCODED-THEME VARIANT** to `wordpress-a11y-overrides.css` (bottom) — class-targeted, `!important`, pasted into Additional CSS. **Pre-validated by injecting the block into staging via Playwright: all color-contrast dropped to 0 on 8 flagged routes.**
+- **Result after client pasted it + rerun (40 routes): 20 → 11 violations.** All 9 eliminated were `color-contrast`. Remaining 11 are structural/ARIA (CSS can't fix): `aria-required-children` (`.cma-pill-scroll[role=tablist]` ×5), `aria-prohibited-attr` (star `aria-label` bare div ×3), `frame-title` (`#calendar-iframe` ×1), `link-in-text-block` (`.cma-article__body > p > a` ×2). Before/after logs under `docs/wpa11y/`.
+- **Next (dev, not CSS):** handoff §5 markup fixes (tablist, star `role="img"`, iframe `title`, inline-link underline) to clear the last 11.
+
+## 2026-08-25 — Cline (staging ADA scan + second op + structural fixes)
+
+- Ran a real rendered-DOM **ADA audit against the WP Engine staging site** `https://childmusstg.wpenginepowered.com/` — the existing `scripts/a11y.mjs` only targets the React SPA (HashRouter), so added **`scripts/a11y-wp.mjs`** (Playwright + axe-core, WCAG 2.1 AA, crawls the host's own links, scrolls to settle animations, exit 1 on violation). Default URL = the staging site. Installed Playwright Chromium + used Lighthouse 13 with `CHROME_PATH` (Chrome for Testing from ms-playwright).
+- **Result: axe found 20 violations / 40 routes**, all `cma-*` items that the handoff already covers but that staging hasn't got yet: `color-contrast` (orange/teal white-text stats, marquee tiles, tab pills 2.28–4.32), `aria-required-children` (`.cma-pill-scroll[role=tablist]`), `aria-prohibited-attr` (star-rate `aria-label` on bare div), plus WP-only `frame-title` (`#calendar-iframe`) and `link-in-text-block` (`.cma-article__body > p > a`). Saved to `docs/wpa11y/`.
+- **Second opinion:** ran Lighthouse (independent engine) on home (`89/100`), `/plan-your-visit/` (`97`), `/donate/` (`96`) — an Accessibility **89** matches the earlier axe run; both engines agree on the 3 failing audits. Docs + JSON under `docs/wpa11y/` (incl. `second-opinion-2026-08-25.md`).
+- Source-side **structural fix** (the one real React gap): star ratings now use `<div role="img" aria-label="Rated 5 out of 5 stars">` in `Testimonials.tsx` and `AboutTestimonials.tsx`. Build green; React axe audit still **0 / 23 routes**.
+- Expanded `WORDPRESS-ACCESSIBILITY-HANDOFF.md` with **§5 ARIA/structural fixes** (tablist, star role=img, inline-link underline, calendar iframe title) + staging SEO/best-practice notes; renumbered existing sections 1–8; added `Testimonials` to the change manifest.
+- **Still held (out of our reach):** cannot edit WP theme/WPBakery on staging (no WP credentials/SSH in repo). The `.css`/'snippets' and §5 instructions are the paste-ready handoff for the WP dev team to apply + re-run.
+- **Loose end:** run a fresh Lighthouse with `noindex` accounted for on prod; wire the accessibility toolbar code when the partner sends it.
+
 ## 2026-08-24 — Cline (WordPress a11y handoff doc + paste-ready CSS)
 
 - (Continuation) Added `wordpress-a11y-overrides.css` (repo root) — a **paste-ready WCAG AA CSS override** for the WP dev team. Bundles the four `:root` token darkenings (teal-dark `#00707a`, orange-dark `#9c4f04`, gray `#6b7280`, blue-light `#e3ecfa`) plus component rules for footer legal links (white 50→70%), orange CTA text (navy-dark `#152d4d`), marquee teal tile → teal-dark, orange-on-white → orange-dark, and Instagram "Special Guest" bubble → solid navy chip. Bottom block is an OLD→NEW hex find-replace reference for themes that hardcode colors. Caveat documented: only the `:root` token block is paste-and-done (and only if the theme uses `--cma-*` vars); component selectors are common placeholders the team must map to their theme's class names.

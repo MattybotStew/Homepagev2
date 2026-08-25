@@ -144,7 +144,68 @@ with unique `id`s per field.
 
 ---
 
-## 5. Verification / QA process (how to prove it's done)
+## 5. ARIA / interactive structural fixes (from the Aug 2026 staging scans)
+
+These came out of an axe + Lighthouse audit of `childmusstg.wpenginepowered.com` (both engines)
+and are **confirmed to still be present on staging**. They are erased on the React build
+(`aria-required-children`, `aria-prohibited-attr`, `link-in-text-block`, and the calendar
+`frame-title` all pass there), so they are WP-port-only regressions to fix here.
+
+### 5.1 Tablists can't have `role="tablist"` without the tab wiring
+`aria-required-children` was flagged on `.cma-pill-scroll[role="tablist"]` (events / news /
+resources / playful-learning / home). A `tablist` role must contain `tab` children with
+`tabpanel` counterparts + arrow-key management. **Two options:**
+- **Preferred:** drop the `role="tablist"` and let the pills be a plain group of buttons
+  (easiest, matches the original click-to-filter behavior). If the container must be labelled,
+  use `<div class="cma-pill-scroll" aria-label="Filters">` with no tab roles.
+- If you want true tabs, you must fully wire `role="tablist"` → `role="tab"` →
+  `aria-selected` + `role="tabpanel"` + keyboard navigation. That's more work; do it only if
+  the design genuinely needs it.
+> The React source for these filter pills uses **plain `<button>`s with no `tablist`** and reads
+> clean — mirror that.
+
+### 5.2 Star-rating container: `aria-label` needs `role="img"`
+`aria-prohibited-attr` on `.cma-testimonial-card__stars[aria-label="5 out of 5 stars"]`. The
+`aria-label` is being placed on a `<div>`; a bare `<div>` cannot carry it without a role.
+**Add `role="img"`** to that container:
+
+```html
+<div class="cma-testimonial-card__stars" role="img" aria-label="Rated 5 out of 5 stars">
+  <!-- the 5 star SVGs -->
+</div>
+```
+> The React fix (committed) does exactly this: `<div role="img" aria-label="Rated 5 out of 5 stars">`.
+
+### 5.3 Inline links in article body must be underlined
+`link-in-text-block` on `.cma-article__body > p > a` (fun-on-tap, imagination-ball). Links that
+sit inside prose must be distinguishable without color → **always underline** them, and keep a
+non-color hover/focus cue:
+```css
+.cma-article__body a { text-decoration: underline; text-underline-offset: 3px; }
+.cma-article__body a:hover, .cma-article__body a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+```
+> The React `.cma-prose a` already sets `text-decoration: underline` — replicate that rule in WP.
+
+### 5.4 Calendar iframe needs a title
+`frame-title` on `#calendar-iframe` in `/programs/field-trips/`. Frames must have an
+accessible name:
+```html
+<iframe id="calendar-iframe" title="Field Trip calendar" …>
+```
+
+### 5.5 SEO on staging — expected, not a real failure
+The **61 SEO** score is driven by "Page is blocked from indexing" — normal for a staging host
+(`X-Robots-Tag: noindex`). It will clear on production. The "Links do not have descriptive
+text (2)" is worth a quick look: give those links a readable label rather than a bare URL.
+
+### 5.6 Best-practices items worth scheduling
+`identical-links-same-purpose` (e.g. two adjacent "Learn More"/"Buy" links to the same URL),
+console errors, and CSP/HSTS/COOP/XFO hardening are **not WCAG accessibility failures** but
+show up here; they're quick follow-ups for the WP/infra team, not part of the ADA-AA pass.
+
+---
+
+## 6. Verification / QA process (how to prove it's done)
 
 The React team verified with **axe-core** (Deque) + Playwright over all routes, targeting
 `wcag2a` + `wcag2aa`. Reproduce on WordPress:
@@ -164,14 +225,14 @@ The React team verified with **axe-core** (Deque) + Playwright over all routes, 
 
 ---
 
-## 6. Change manifest (for cross-referencing the React source)
+## 7. Change manifest (for cross-referencing the React source)
 
 The fixes above were implemented across these React files. If you need the exact markup/class
 for any single component, these are the ones that changed in commit `4ce9403`:
 
 `src/styles/theme.css`, `src/main.tsx`, `src/app/App.tsx`, `Header`, `Footer`, `PlanTabs`,
 `ExhibitsHero`, `AboutHero`, `AboutHistory`, `AboutImpact`, `AboutJoinTeam`, `AboutPeople`,
-`AboutTestimonials`, `AdmissionPricing`, `ArticleContent`, `ArticleContentWithSidebar`,
+`AboutTestimonials`, `Testimonials`, `AdmissionPricing`, `ArticleContent`, `ArticleContentWithSidebar`,
 `BuyOnlineBenefits`, `CorporateMembershipContent`, `CorporatePartnerOptions`,
 `CorporatePartnerPageContent`, `DonateHero`, `DonateImpact`, `DonateOnline`,
 `DonorRecognitionTiers`, `EducatorPDProgramContent`, `EducatorsImpact`, `EventContent`,
@@ -189,7 +250,7 @@ Full narrative + tooling details: `docs/a11y-worklog.md` and `docs/accessibility
 
 ---
 
-## 7. Outstanding — NOT in this repo (needs the partner)
+## 8. Outstanding — NOT in this repo (needs the partner)
 
 **Accessibility toolbar launcher button.** This is the accessibility vendor's own widget code
 (theirs: "our toolbar launcher code"), not part of this codebase (searched for

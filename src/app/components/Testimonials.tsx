@@ -45,8 +45,9 @@ function StarIcon() {
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
 	return (
 		<div className="cma-testimonial-card">
-			{/* Star Rating */}
-			<div className="flex items-center gap-1">
+			{/* Star Rating — role=img so the aria-label is a valid accessible name,
+			    not a prohibited attribute on a bare div (the pattern to copy in WP). */}
+			<div className="flex items-center gap-1" role="img" aria-label="Rated 5 out of 5 stars">
 				<StarIcon />
 				<StarIcon />
 				<StarIcon />
